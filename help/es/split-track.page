@@ -55,7 +55,7 @@
         </item>
         <item>
           <title>Partir la pista para cada silencio</title>
-          <p>Seleccione este método para que <app>Brasero</app> detecte automáticamente los silencios en la grabación y divida la pista en esos puntos.</p>
+          <p>Seleccione este método para que <app>Burner</app> detecte automáticamente los silencios en la grabación y divida la pista en esos puntos.</p>
         </item>
       </terms>
     </item>

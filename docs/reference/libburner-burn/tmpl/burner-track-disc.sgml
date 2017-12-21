@@ -1,0 +1,87 @@
+<!-- ##### SECTION Title ##### -->
+BurnerTrackDisc
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerTrackDisc ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_track_disc_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_disc_set_drive ##### -->
+<para>
+
+</para>
+
+@track: 
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_disc_get_drive ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_disc_set_track_num ##### -->
+<para>
+
+</para>
+
+@track: 
+@num: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_disc_get_track_num ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_disc_get_medium_type ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+

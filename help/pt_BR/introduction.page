@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introdução sobre o aplicativo de gravação de disco <app>Brasero</app>.</desc>
+    <desc>Introdução sobre o aplicativo de gravação de disco <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -27,9 +27,9 @@
 
   <title>Introdução</title>
 
-  <p>O <app>Brasero</app> é um aplicativo para gravar CDs e DVDs, projetado para ser fácil de usar, enquanto oferece todas as ferramentas necessárias para gravação.</p>
+  <p>O <app>Burner</app> é um aplicativo para gravar CDs e DVDs, projetado para ser fácil de usar, enquanto oferece todas as ferramentas necessárias para gravação.</p>
 
-  <p>Com <app>Brasero</app> você pode:</p>
+  <p>Com <app>Burner</app> você pode:</p>
   <list>
     <item><p>Gravar dados em CDs e DVDs</p></item>
     <item><p>Gravar CDs de áudio a partir de arquivos de áudio digitais (como OGG, FLAC e MP3)</p></item>
@@ -41,8 +41,8 @@
   </list>
 
   <figure>
-    <title>A janela principal do <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>A janela principal do <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

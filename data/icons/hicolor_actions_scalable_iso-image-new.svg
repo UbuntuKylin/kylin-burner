@@ -14,11 +14,11 @@
    id="svg5615"
    sodipodi:version="0.32"
    inkscape:version="0.45.1"
-   sodipodi:docbase="/home/cornelius/GFX/ikony/brasero/Final/scalable"
+   sodipodi:docbase="/home/cornelius/GFX/ikony/burner/Final/scalable"
    sodipodi:docname="iso-image-new.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
-   inkscape:export-filename="/home/cornelius/GFX/ikony/brasero/Final/scalable/iso-image-new.png"
+   inkscape:export-filename="/home/cornelius/GFX/ikony/burner/Final/scalable/iso-image-new.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -487,7 +487,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>New ISO image for Brasero</dc:title>
+        <dc:title>New ISO image for Burner</dc:title>
         <dc:date>13.4.2007</dc:date>
         <dc:creator>
           <cc:Agent>

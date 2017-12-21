@@ -27,7 +27,7 @@
 
   <title>Grabar un CD de música</title>
 
-  <p><app>Brasero</app> puede grabar archivos de sonido a un CD, que se puede reproducir en reproductores de CD y similares. Generalmente, es preferible usar un disco no regrabable, ya que no todos los reproductores de CD reproducen CD regrabables.</p>
+  <p><app>Burner</app> puede grabar archivos de sonido a un CD, que se puede reproducir en reproductores de CD y similares. Generalmente, es preferible usar un disco no regrabable, ya que no todos los reproductores de CD reproducen CD regrabables.</p>
 
   <steps>
     <item>

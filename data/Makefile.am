@@ -1,18 +1,18 @@
 SUBDIRS = icons mime
 
 convertdir=$(datadir)/GConf/gsettings
-convert_DATA=brasero.convert
+convert_DATA=burner.convert
 
-gsettings_SCHEMAS = org.gnome.brasero.gschema.xml
+gsettings_SCHEMAS = org.gnome.burner.gschema.xml
 @GSETTINGS_RULES@
 
 desktopdir=$(datadir)/applications
-desktop_in_files =	brasero.desktop.in
+desktop_in_files =	burner.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
-appdata_in_files = brasero.appdata.xml.in
+appdata_in_files = burner.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 @INTLTOOL_XML_RULE@
 

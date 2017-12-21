@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Pengenalan ke aplikasi pembakar disk <app>Brasero</app>.</desc>
+    <desc>Pengenalan ke aplikasi pembakar disk <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -21,9 +21,9 @@
 
   <title>Perkenalan</title>
 
-  <p><app>Brasero</app> adalah aplikasi untuk membakar CD dan DVD, dirancang agar mudah dipakai, sambil menyediakan semua peralatan yang diperlukan untuk membakar.</p>
+  <p><app>Burner</app> adalah aplikasi untuk membakar CD dan DVD, dirancang agar mudah dipakai, sambil menyediakan semua peralatan yang diperlukan untuk membakar.</p>
 
-  <p>Dengan <app>Brasero</app> Anda bisa:</p>
+  <p>Dengan <app>Burner</app> Anda bisa:</p>
   <list>
     <item><p>Membakar data ke CD dan DVD</p></item>
     <item><p>Membakar CD audio dari berkas audio digital (seperti OGG, FLAC, dan MP3)</p></item>
@@ -35,8 +35,8 @@
   </list>
 
   <figure>
-    <title>Jendela utama <app>Brasero</app></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Jendela utama <app>Burner</app></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

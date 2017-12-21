@@ -1,0 +1,60 @@
+<!-- ##### SECTION Title ##### -->
+BurnerBurnDialog
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerBurnDialog ##### -->
+<para>
+
+</para>
+
+@parent: 
+
+<!-- ##### FUNCTION burner_burn_dialog_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_dialog_run ##### -->
+<para>
+
+</para>
+
+@dialog: 
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_dialog_cancel ##### -->
+<para>
+
+</para>
+
+@dialog: 
+@force_cancellation: 
+@Returns: 
+
+

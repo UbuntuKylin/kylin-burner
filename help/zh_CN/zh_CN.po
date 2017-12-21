@@ -1,6 +1,6 @@
-# Simplified Chinese translation of brasero help.
+# Simplified Chinese translation of burner help.
 # Copyright (C) 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the brasero package.
+# This file is distributed under the same license as the burner package.
 # YunQiang Su <wzssyqa@gmail.com>, 2009.
 #    Thanks to 黄文苗 <hwmz1987.my265@yahoo.com.cn> for helping polish the style.
 # Yu Yang <xxxjjjc@gmail.com>, 2011.
@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero gnome-2-28\n"
+"Project-Id-Version: burner gnome-2-28\n"
 "POT-Creation-Date: 2012-05-26 20:05+0000\n"
 "PO-Revision-Date: 2011-10-05 20:54+0800\n"
 "Last-Translator: Wylmer Wang <wantinghard@gmail.com>\n"
@@ -60,10 +60,10 @@ msgstr "检查盘片完整性"
 
 #: C/tools-check-integrity.page:23(p)
 msgid ""
-"After burning a CD/DVD by using <app>Brasero</app>, you can check its "
+"After burning a CD/DVD by using <app>Burner</app>, you can check its "
 "integrity to make sure that the files in the disc are not corrupted."
 msgstr ""
-"在使用 <app>Brasero</app> 刻录一张 CD/DVD 后，您可以通过检查光盘完整性来确认"
+"在使用 <app>Burner</app> 刻录一张 CD/DVD 后，您可以通过检查光盘完整性来确认"
 "光盘中的文件完整无损。"
 
 #: C/tools-check-integrity.page:27(p)
@@ -220,10 +220,10 @@ msgstr "根据每个无声部分分割轨道"
 
 #: C/split-track.page:53(p)
 msgid ""
-"Select this method for <app>Brasero</app> to auto-detect silences in the "
+"Select this method for <app>Burner</app> to auto-detect silences in the "
 "recording and to split the track at those points."
 msgstr ""
-"选择此方法，<app>Brasero</app> 会自动检测录音中的无声部分，并在相应位置分割音"
+"选择此方法，<app>Burner</app> 会自动检测录音中的无声部分，并在相应位置分割音"
 "轨。"
 
 #: C/split-track.page:59(p)
@@ -267,9 +267,9 @@ msgstr "创建一个新视频的项目"
 
 #: C/project-video.page:22(p)
 msgid ""
-"<app>Brasero</app> can be used to create video discs for playing in a DVD "
+"<app>Burner</app> can be used to create video discs for playing in a DVD "
 "player or laptop."
-msgstr "Brasero 可以用来创建能在 DVD 播放器或笔记本电脑上播放的视频光盘。"
+msgstr "Burner 可以用来创建能在 DVD 播放器或笔记本电脑上播放的视频光盘。"
 
 #: C/project-video.page:27(p)
 msgid ""
@@ -332,10 +332,10 @@ msgstr "保存项目"
 
 #: C/project-save.page:22(p)
 msgid ""
-"You can save an audio, a data or a video project in <app>Brasero</app> for "
+"You can save an audio, a data or a video project in <app>Burner</app> for "
 "editing or burning later."
 msgstr ""
-"您可以在 <app>Brasero</app> 中保存音频、数据和视频项目，以便日后编辑和刻录。"
+"您可以在 <app>Burner</app> 中保存音频、数据和视频项目，以便日后编辑和刻录。"
 
 #: C/project-save.page:27(p)
 msgid "Create the project and add the files you wish to use to the project."
@@ -355,8 +355,8 @@ msgstr "输入您想保存项目的名称，然后点击 <gui>保存</gui> 来�
 #: C/project-save.page:39(p)
 msgid ""
 "There are a number of ways which can be used for opening a saved "
-"<app>Brasero</app> project by:"
-msgstr "有多种途径来打开保存的 <app>Brasero</app> 项目："
+"<app>Burner</app> project by:"
+msgstr "有多种途径来打开保存的 <app>Burner</app> 项目："
 
 #: C/project-save.page:44(p)
 msgid ""
@@ -380,24 +380,24 @@ msgstr "从文件浏览器中打开项目"
 
 #: C/project-save.page:57(p)
 msgid ""
-"If <app>Brasero</app> is already running, opening the project from a file "
-"browser will cause a second instance of <app>Brasero</app> to start and will "
+"If <app>Burner</app> is already running, opening the project from a file "
+"browser will cause a second instance of <app>Burner</app> to start and will "
 "cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/"
 "show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
 msgstr ""
-"如果 <app>Brasero</app> 已经运行，从文件浏览器中打开项目会启动另一个 "
-"<app>Brasero</app> 实例，这会导致两个实例都崩溃。请参阅 <link href=\"https://"
+"如果 <app>Burner</app> 已经运行，从文件浏览器中打开项目会启动另一个 "
+"<app>Burner</app> 实例，这会导致两个实例都崩溃。请参阅 <link href=\"https://"
 "bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link> 了解更多"
 "信息。"
 
 #: C/project-save.page:67(p)
 msgid ""
-"If you open a saved project, <app>Brasero</app> will treat it as a new "
+"If you open a saved project, <app>Burner</app> will treat it as a new "
 "project: if you want to save an updated version of the project, it will ask "
 "you to enter a name for it, at this point you can overwrite the old version "
 "or save it as a new project by entering a different file name."
 msgstr ""
-"如果您打开一个已保存的项目，<app>Brasero</app> 会把它作为一个新项目：如果您想"
+"如果您打开一个已保存的项目，<app>Burner</app> 会把它作为一个新项目：如果您想"
 "保存更新后的项目，程序会请您为它输入一个名字，这时您可以选择覆盖老版本，或输"
 "入不同的文件名将它保存为一个新项目。"
 
@@ -419,11 +419,11 @@ msgstr "刻录镜像"
 
 #: C/project-image-burn.page:27(p)
 msgid ""
-"<app>Brasero</app> allows you to burn disc images to a CD or DVD. It "
+"<app>Burner</app> allows you to burn disc images to a CD or DVD. It "
 "supports the following extensions of optical disc images: <file>.iso</file>, "
 "<file>.toc</file> and <file>.cue</file>."
 msgstr ""
-"<app>Brasero</app> 可以将光盘镜像刻录到 CD 或 DVD 上。它支持以下光盘镜像扩展"
+"<app>Burner</app> 可以将光盘镜像刻录到 CD 或 DVD 上。它支持以下光盘镜像扩展"
 "名：<file>.iso</file>、<file>.toc</file> 和 <file>.cue</file>。"
 
 #: C/project-image-burn.page:32(p)
@@ -466,9 +466,9 @@ msgstr ""
 
 #: C/project-image-burn.page:53(p)
 msgid ""
-"After choosing the disc <app>Brasero</app> shows how much free space will "
+"After choosing the disc <app>Burner</app> shows how much free space will "
 "remain on the disc after burning."
-msgstr "选择光盘后，<app>Brasero</app> 将显示刻录后光盘上剩余多少空间。"
+msgstr "选择光盘后，<app>Burner</app> 将显示刻录后光盘上剩余多少空间。"
 
 #: C/project-image-burn.page:57(p) C/project-disc-copy.page:35(p)
 msgid ""
@@ -625,11 +625,11 @@ msgstr "写入一张音乐 CD"
 
 #: C/project-audio.page:19(p)
 msgid ""
-"<app>Brasero</app> can write audio files to a CD, which you can then use for "
+"<app>Burner</app> can write audio files to a CD, which you can then use for "
 "playing in CD players and so on. It is usually best to use a non-rewritable "
 "CD because not all CD players will play rewritable CDs."
 msgstr ""
-"<app>Brasero</app> 可以将音频文件写入CD，以供您在 CD 播放器中播放等使用。最好"
+"<app>Burner</app> 可以将音频文件写入CD，以供您在 CD 播放器中播放等使用。最好"
 "用不可重写的 CD 刻录，因为不是所有的 CD 播放器都能播放可重写 CD。"
 
 #: C/project-audio.page:26(p)
@@ -754,14 +754,14 @@ msgstr "以音频项目来重写该 CD。"
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/introduction.page:36(None)
 msgid ""
-"@@image: 'figures/brasero-main-window.png'; "
+"@@image: 'figures/burner-main-window.png'; "
 "md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
 msgstr ""
-"@@image: 'figures/brasero_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
+"@@image: 'figures/burner_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 
 #: C/introduction.page:7(desc)
-msgid "Introduction to the <app>Brasero</app> disc burning application."
-msgstr "<app>Brasero</app> 光盘刻录程序介绍。"
+msgid "Introduction to the <app>Burner</app> disc burning application."
+msgstr "<app>Burner</app> 光盘刻录程序介绍。"
 
 #: C/introduction.page:17(title)
 msgid "Introduction"
@@ -769,15 +769,15 @@ msgstr "介绍"
 
 #: C/introduction.page:19(p)
 msgid ""
-"<app>Brasero</app> is an application for burning CDs and DVDs, designed to "
+"<app>Burner</app> is an application for burning CDs and DVDs, designed to "
 "be easy to use, while providing all the tools necessary for burning."
 msgstr ""
-"<application>Brasero</application> 是一款用于刻录 CD 和 DVD 的应用程序，简单"
+"<application>Burner</application> 是一款用于刻录 CD 和 DVD 的应用程序，简单"
 "易用，并提供了刻录所需的所有工具。"
 
 #: C/introduction.page:22(p)
-msgid "With <app>Brasero</app> you can:"
-msgstr "使用 <application>Brasero</application> 您可以："
+msgid "With <app>Burner</app> you can:"
+msgstr "使用 <application>Burner</application> 您可以："
 
 #: C/introduction.page:24(p)
 msgid "Burn data to CDs and DVDs"
@@ -808,12 +808,12 @@ msgid "Check the integrity of discs and disc images"
 msgstr "检查光盘和光盘镜像的完整性"
 
 #: C/introduction.page:35(title)
-msgid "The <gui>Brasero</gui> main window"
-msgstr "<gui>Brasero</gui> 主窗口"
+msgid "The <gui>Burner</gui> main window"
+msgstr "<gui>Burner</gui> 主窗口"
 
 #: C/index.page:5(title)
-msgid "Brasero Help"
-msgstr "Brasero 帮助"
+msgid "Burner Help"
+msgstr "Burner 帮助"
 
 #: C/index.page:8(title)
 msgid "Create a new project"
@@ -840,11 +840,11 @@ msgstr "创建封面"
 #: C/create-cover.page:19(p)
 #, fuzzy
 msgid ""
-"You can use <app>Brasero</app> to create inlays for your jewel cases. Access "
+"You can use <app>Burner</app> to create inlays for your jewel cases. Access "
 "the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></"
 "guiseq>."
 msgstr ""
-"您可以使用 <app>Brasero</app> 来创建镶嵌珠宝盒。点击<guiseq><gui>工具</"
+"您可以使用 <app>Burner</app> 来创建镶嵌珠宝盒。点击<guiseq><gui>工具</"
 "gui><gui>封面编辑器</gui></guiseq>。"
 
 #: C/create-cover.page:24(p)
@@ -896,11 +896,11 @@ msgstr ""
 
 #: C/create-cover.page:53(p)
 msgid ""
-"If you select a centered background image, <app>Brasero</app> sometimes "
+"If you select a centered background image, <app>Burner</app> sometimes "
 "crashes when you click the <gui>Close</gui> button."
 msgstr ""
 "如果您选择了一个居中的背景图像，则当您选点击 <gui>关闭</gui> 按钮时，"
-"<app>Brasero</app>有时候会崩溃。"
+"<app>Burner</app>有时候会崩溃。"
 
 #: C/create-cover.page:56(p)
 msgid ""
@@ -929,10 +929,10 @@ msgstr ""
 #~ msgstr "选择您喜欢的音轨分割方式，然后两条音轨的交界点开始分割"
 
 #~ msgid ""
-#~ "If <app>Brasero</app> is already running, opening the project from a file "
-#~ "browser will make <app>Brasero</app> vanish in a puff of logic."
+#~ "If <app>Burner</app> is already running, opening the project from a file "
+#~ "browser will make <app>Burner</app> vanish in a puff of logic."
 #~ msgstr ""
-#~ "如果Braserois已经在运行了, 从文件浏览器中打开项目会使Brasero在错误逻辑中关"
+#~ "如果Burneris已经在运行了, 从文件浏览器中打开项目会使Burner在错误逻辑中关"
 #~ "闭"
 
 #~ msgid ""
@@ -943,11 +943,11 @@ msgstr ""
 #~ "一旦您开始使用<gui>Cover Editor</gui>则不能保存你的进程。如果你关闭对话，"
 #~ "你的修改将会丢失，或者你打印的镶嵌会终止"
 
-#~ msgid "<application>Brasero</application> Manual V2.2"
-#~ msgstr "<application>Brasero</application> 手册 V2.2"
+#~ msgid "<application>Burner</application> Manual V2.2"
+#~ msgstr "<application>Burner</application> 手册 V2.2"
 
-#~ msgid "Brasero is an application for burning CDs and DVDs."
-#~ msgstr "Brasero 是一个刻录 CD 和 DVD 的应用程序。"
+#~ msgid "Burner is an application for burning CDs and DVDs."
+#~ msgstr "Burner 是一个刻录 CD 和 DVD 的应用程序。"
 
 #~ msgid "2008"
 #~ msgstr "2008"
@@ -1063,8 +1063,8 @@ msgstr ""
 #~ msgid "Bull"
 #~ msgstr "Bull"
 
-#~ msgid "Brasero Manual V2.2"
-#~ msgstr "Brasero 手册 版本2.2"
+#~ msgid "Burner Manual V2.2"
+#~ msgstr "Burner 手册 版本2.2"
 
 #~ msgid "January 2009"
 #~ msgstr "2009年01月"
@@ -1072,14 +1072,14 @@ msgstr ""
 #~ msgid "Milo Casagrande <email>milo@ubuntu.com</email>"
 #~ msgstr "Milo Casagrande <email>milo@ubuntu.com</email>"
 
-#~ msgid "Brasero Manual V2.1"
-#~ msgstr "Brasero 手册 版本2.1"
+#~ msgid "Burner Manual V2.1"
+#~ msgstr "Burner 手册 版本2.1"
 
 #~ msgid "August 2008"
 #~ msgstr "2008年08月"
 
-#~ msgid "Brasero Manual V2.0"
-#~ msgstr "Brasero 手册 版本2.2"
+#~ msgid "Burner Manual V2.0"
+#~ msgstr "Burner 手册 版本2.2"
 
 #~ msgid "February 2008"
 #~ msgstr "2008年02月"
@@ -1090,24 +1090,24 @@ msgstr ""
 #~ msgid "Phil Bull <email>philbull@gmail.com</email>"
 #~ msgstr "Phil Bull <email>philbull@gmail.com</email>"
 
-#~ msgid "This manual describes version 2.26 of Brasero."
-#~ msgstr "本手册描述的是 Brasero 的 2.26 版。"
+#~ msgid "This manual describes version 2.26 of Burner."
+#~ msgstr "本手册描述的是 Burner 的 2.26 版。"
 
 #~ msgid "Feedback"
 #~ msgstr "反馈"
 
 #~ msgid ""
-#~ "To report a bug or make a suggestion regarding the <application>Brasero</"
+#~ "To report a bug or make a suggestion regarding the <application>Burner</"
 #~ "application> application or this manual, follow the directions in the "
 #~ "<ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</"
 #~ "ulink>."
 #~ msgstr ""
-#~ "报告一个错误或者一个关于 <application>Brasero</application> 程序以及本文档"
+#~ "报告一个错误或者一个关于 <application>Burner</application> 程序以及本文档"
 #~ "的建议，请看 <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME "
 #~ "Feedback Page</ulink>。"
 
-#~ msgid "brasero"
-#~ msgstr "brasero"
+#~ msgid "burner"
+#~ msgstr "burner"
 
 #~ msgid "burn"
 #~ msgstr "刻录"
@@ -1118,68 +1118,68 @@ msgstr ""
 #~ msgid "Getting Started"
 #~ msgstr "入门"
 
-#~ msgid "Starting Brasero"
-#~ msgstr "启动 Brasero"
+#~ msgid "Starting Burner"
+#~ msgstr "启动 Burner"
 
 #~ msgid ""
-#~ "You can start <application>Brasero</application> in the following ways:"
-#~ msgstr "您可以使用以下方法启动 <application>Brasero</application>："
+#~ "You can start <application>Burner</application> in the following ways:"
+#~ msgstr "您可以使用以下方法启动 <application>Burner</application>："
 
 #~ msgid "<guimenu>Applications</guimenu> menu"
 #~ msgstr "<guimenu>应用程序</guimenu> 菜单"
 
 #~ msgid ""
 #~ "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-#~ "guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+#~ "guisubmenu><guimenuitem>Burner Disc Burning</guimenuitem></menuchoice>."
 #~ msgstr ""
-#~ "选择 <menuchoice><guisubmenu>影音</guisubmenu><guimenuitem>Brasero 光盘刻"
+#~ "选择 <menuchoice><guisubmenu>影音</guisubmenu><guimenuitem>Burner 光盘刻"
 #~ "录器</guimenuitem></menuchoice>。"
 
 #~ msgid "Command line"
 #~ msgstr "命令行"
 
 #~ msgid ""
-#~ "Type <command>brasero</command> and then press <keycap>Return</keycap>."
-#~ msgstr "输入 <command>brasero</command> 并且按下  <keycap>Return</keycap>。"
+#~ "Type <command>burner</command> and then press <keycap>Return</keycap>."
+#~ msgstr "输入 <command>burner</command> 并且按下  <keycap>Return</keycap>。"
 
 #~ msgid ""
-#~ "If <application>Brasero</application> is set as your default disc burning "
+#~ "If <application>Burner</application> is set as your default disc burning "
 #~ "application, it will automatically start when you insert a blank CD-R/W "
 #~ "or DVD-R/W in your drive."
 #~ msgstr ""
-#~ "如果 <application>Brasero</application> 被设置为您默认的光盘刻录程序，当您"
+#~ "如果 <application>Burner</application> 被设置为您默认的光盘刻录程序，当您"
 #~ "插入到您的驱动器一张空白CD-R/W 或 DVD-R/W 光盘时，它将会自动启动。"
 
-#~ msgid "When You Start Brasero"
-#~ msgstr "当您启动 Brasero 时"
+#~ msgid "When You Start Burner"
+#~ msgstr "当您启动 Burner 时"
 
 #~ msgid ""
-#~ "When you start <application>Brasero</application> the following window "
+#~ "When you start <application>Burner</application> the following window "
 #~ "will be shown."
-#~ msgstr "当您启动 <application>Brasero</application> 时，将会显示下列窗口。"
+#~ msgstr "当您启动 <application>Burner</application> 时，将会显示下列窗口。"
 
 #~ msgid ""
-#~ "The Brasero main window. Shows the menu bar and the five types of project "
+#~ "The Burner main window. Shows the menu bar and the five types of project "
 #~ "to choose from."
-#~ msgstr "Brasero 主窗口。显示菜单条和五个项目类型以供选择。"
+#~ msgstr "Burner 主窗口。显示菜单条和五个项目类型以供选择。"
 
 #~ msgid ""
 #~ "This window is the starting point for all of your projects. You can click "
 #~ "on the project type you wish to start from here. If you have created "
-#~ "other projects with <application>Brasero</application>, you will be able "
+#~ "other projects with <application>Burner</application>, you will be able "
 #~ "to select them from the <guilabel>Recent projects</guilabel> (see <xref "
-#~ "linkend=\"brasero-open-recent-project\"/> for more information)."
+#~ "linkend=\"burner-open-recent-project\"/> for more information)."
 #~ msgstr ""
 #~ "本窗口是您所有项目的起点。您可以点击您希望从这开始的项目类型。如果您曾经使"
-#~ "用 <application>Brasero</application> 创建过其它项目，您将可以从 "
-#~ "<guilabel>最近项目</guilabel> 中选择它们(参见 <xref linkend=\"brasero-"
+#~ "用 <application>Burner</application> 创建过其它项目，您将可以从 "
+#~ "<guilabel>最近项目</guilabel> 中选择它们(参见 <xref linkend=\"burner-"
 #~ "open-recent-project\"/> 以获取更多信息)。"
 
 #~ msgid ""
 #~ "The following section explains the five types of project that you can "
-#~ "create with <application>Brasero</application>."
+#~ "create with <application>Burner</application>."
 #~ msgstr ""
-#~ "下面的章节解释您可以使用 <application>Brasero</application> 创建的五个项目"
+#~ "下面的章节解释您可以使用 <application>Burner</application> 创建的五个项目"
 #~ "类型。"
 
 #~ msgid "Audio Project"
@@ -1232,12 +1232,12 @@ msgstr ""
 #~ "guibutton> 按钮来选择它们。"
 
 #~ msgid ""
-#~ "It is possible now to <link linkend=\"brasero-audio-pause\">insert a "
-#~ "pause</link> after each of the tracks or <link linkend=\"brasero-audio-"
+#~ "It is possible now to <link linkend=\"burner-audio-pause\">insert a "
+#~ "pause</link> after each of the tracks or <link linkend=\"burner-audio-"
 #~ "split\">to split</link> the tracks."
 #~ msgstr ""
-#~ "现在可以在每个音轨后 <link linkend=\"brasero-audio-pause\">插入暂停</"
-#~ "link> 或 <link linkend=\"brasero-audio-split\">分割</link> 音轨"
+#~ "现在可以在每个音轨后 <link linkend=\"burner-audio-pause\">插入暂停</"
+#~ "link> 或 <link linkend=\"burner-audio-split\">分割</link> 音轨"
 
 #~ msgid ""
 #~ "When all of the files have been added, click on <guibutton>Burn</"
@@ -1253,11 +1253,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-audio-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-audio-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "将会显示 <guilabel>光盘刻录设置</guilabel> 对话框。进行任何希望的修改(参"
-#~ "见 <xref linkend=\"brasero-audio-project-options\"/>)。"
+#~ "见 <xref linkend=\"burner-audio-project-options\"/>)。"
 
 #~ msgid "Click on <guibutton>Burn</guibutton> to start the burning process."
 #~ msgstr "点击 <guibutton>刻录</guibutton> 开始刻录。"
@@ -1374,11 +1374,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "Click on <guibutton>Properties</guibutton> to open the properties dialog "
-#~ "for the burning device. See <xref linkend=\"brasero-burning-device-"
+#~ "for the burning device. See <xref linkend=\"burner-burning-device-"
 #~ "properties\"/> for more information."
 #~ msgstr ""
 #~ "点击 <guibutton>首选项</guibutton> 打开刻录机的首选项对话框。参见 <xref "
-#~ "linkend=\"brasero-burning-device-properties\"/> 以获取更多信息。 "
+#~ "linkend=\"burner-burning-device-properties\"/> 以获取更多信息。 "
 
 #~ msgid "Section <guilabel>Disc options</guilabel>:"
 #~ msgstr "<guilabel>光盘选项</guilabel>："
@@ -1418,11 +1418,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-data-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-data-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "<guilabel>光盘刻录设置</guilabel> 对话框将会显示，进行任何希望的修改(参见 "
-#~ "<xref linkend=\"brasero-data-project-options\"/>)。"
+#~ "<xref linkend=\"burner-data-project-options\"/>)。"
 
 #~ msgid "To burn a data CD, proceed as follows: <placeholder-1/>"
 #~ msgstr "要刻录数据 CD ，按如下操作： <placeholder-1/>"
@@ -1483,11 +1483,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-video-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-video-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "将会显示 <guilabel>光盘刻录设置</guilabel> 对话框，进行任何希望的修改 ( 参"
-#~ "见 <xref linkend=\"brasero-video-project-options\"/> )。"
+#~ "见 <xref linkend=\"burner-video-project-options\"/> )。"
 
 #~ msgid "To create a video project, proceed as follows: <placeholder-1/>"
 #~ msgstr "要创建一个视频项目，请按如下操作： <placeholder-1/>"
@@ -1577,11 +1577,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "The <guilabel>CD/DVD copy options</guilabel> dialog will be shown; make "
-#~ "the desired modifications (see <xref linkend=\"brasero-disc-copy-options"
+#~ "the desired modifications (see <xref linkend=\"burner-disc-copy-options"
 #~ "\"/> for more information)."
 #~ msgstr ""
 #~ "将会显示 <guilabel>CD/DVD 复制选项</guilabel> 对话框，进行希望的修改 (参"
-#~ "见  <xref linkend=\"brasero-disc-copy-options\"/> 以获取更多信息)。"
+#~ "见  <xref linkend=\"burner-disc-copy-options\"/> 以获取更多信息)。"
 
 #~ msgid "Click on <guibutton>Copy</guibutton> to start the copying process."
 #~ msgstr "点击 <guibutton>复制</guibutton> 开始复制进程。"
@@ -1640,11 +1640,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "This project takes an existing file image and burns it to a CD-R/W or DVD-"
-#~ "R/W. <application>Brasero</application> supports the following types of "
+#~ "R/W. <application>Burner</application> supports the following types of "
 #~ "image file: <placeholder-1/>"
 #~ msgstr ""
 #~ "这个项目使用已有的文件镜像并且将它刻录到一张 CD-R/W 或 DVD-R/W。 "
-#~ "<application>Brasero</application> 支持下列格式的镜像文件：<placeholder-1/"
+#~ "<application>Burner</application> 支持下列格式的镜像文件：<placeholder-1/"
 #~ ">"
 
 #~ msgid ""
@@ -1658,11 +1658,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "The <guilabel>Image burning setup</guilabel> dialog will be shown; make "
-#~ "the desired modifications (see <xref linkend=\"brasero-burn-image-options"
+#~ "the desired modifications (see <xref linkend=\"burner-burn-image-options"
 #~ "\"/>)."
 #~ msgstr ""
 #~ "将会显示 <guilabel>镜像刻录设置</guilabel>，进行希望的修改 ( 参见 <xref "
-#~ "linkend=\"brasero-burn-image-options\"/>)。"
+#~ "linkend=\"burner-burn-image-options\"/>)。"
 
 #~ msgid "To start this project, proceed as follows: <placeholder-1/>"
 #~ msgstr "要开始这个项目，请按如下操作： <placeholder-1/>"
@@ -1682,11 +1682,11 @@ msgstr ""
 #~ "Click on the button to open the <guilabel>Select Image File</guilabel> "
 #~ "dialog and select the image file to burn. From the drop-down list at the "
 #~ "bottom, you can select the type of the image to burn. If unsure, select "
-#~ "<guilabel>Let brasero choose (safest)</guilabel>."
+#~ "<guilabel>Let burner choose (safest)</guilabel>."
 #~ msgstr ""
 #~ "点击这个按钮开启 <guilabel>选择一个镜像文件</guilabel> 对话框，然后选择镜"
 #~ "像文件来刻录。从底部的下拉菜单中，您可以选择用来刻录的镜像类型。如果不确"
-#~ "定，请选择 <guilabel>由 brasero 选择 (安全)</guilabel> 。"
+#~ "定，请选择 <guilabel>由 burner 选择 (安全)</guilabel> 。"
 
 #~ msgid "Burning Device Properties"
 #~ msgstr "刻录机首选项"
@@ -1750,12 +1750,12 @@ msgstr ""
 
 #~ msgid ""
 #~ "Select this option to simulate the burning process; no real burn is "
-#~ "performed. If this operation is successful, brasero will actually burn "
+#~ "performed. If this operation is successful, burner will actually burn "
 #~ "the disc after pausing for 10 seconds. During this pause it will show a "
 #~ "dialog in which you can cancel the actual burning. This is useful for "
 #~ "testing, if you are having problems burning discs."
 #~ msgstr ""
-#~ "选择这个选项来模拟刻录进程，不会真的刻录。如果这个操作成功了，brasero 将会"
+#~ "选择这个选项来模拟刻录进程，不会真的刻录。如果这个操作成功了，burner 将会"
 #~ "在暂停 10 秒之后开始真的刻录光盘。在这个暂停时，将会显示一个对话框，在上面"
 #~ "您可以取消实际刻录。如果您有刻录问题，这对于测试来说是有用的。"
 
@@ -1784,10 +1784,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "If you start the burning process without a CD or DVD in the burning "
-#~ "device, <application>Brasero</application> will create a image file on "
+#~ "device, <application>Burner</application> will create a image file on "
 #~ "the hard disk that you can lately burn."
 #~ msgstr ""
-#~ "如果刻录机中没有光盘时启动了刻录进程，<application>Brasero</application> "
+#~ "如果刻录机中没有光盘时启动了刻录进程，<application>Burner</application> "
 #~ "将在硬盘上创建一个可以以后刻录的镜像文件。"
 
 #~ msgid ""
@@ -1858,18 +1858,18 @@ msgstr ""
 
 #~ msgid ""
 #~ "Erasing or blanking a CD or DVD means to delete all the data that the CD "
-#~ "or the DVD contains. <application>Brasero</application> is able to erase "
+#~ "or the DVD contains. <application>Burner</application> is able to erase "
 #~ "the following CD and DVD formats: <placeholder-1/>"
 #~ msgstr ""
 #~ "擦除或清空一张 CD 或 DVD 意味着删除 CD 或 DVD 包含的所有的数据。"
-#~ "<application>Brasero</application> 可以擦除下述的 CD 和 DVD 格式："
+#~ "<application>Burner</application> 可以擦除下述的 CD 和 DVD 格式："
 #~ "<placeholder-1/>"
 
 #~ msgid ""
-#~ "In general, <application>Brasero</application> can support all of the "
+#~ "In general, <application>Burner</application> can support all of the "
 #~ "media formats supported by your own CD/DVD recorder."
 #~ msgstr ""
-#~ "一般来说，<application>Brasero</application> 支持您的刻录机支持的所有媒体"
+#~ "一般来说，<application>Burner</application> 支持您的刻录机支持的所有媒体"
 #~ "格式。"
 
 #~ msgid ""
@@ -1897,10 +1897,10 @@ msgstr ""
 #~ msgid ""
 #~ "If you want to quickly erase the disc, select the <guilabel>fast "
 #~ "blanking</guilabel> option (for more information, see <xref linkend="
-#~ "\"brasero-fast-blanking\"/>)."
+#~ "\"burner-fast-blanking\"/>)."
 #~ msgstr ""
 #~ "想要快速擦除光盘，选择 <guilabel>快速擦除</guilabel> 选项(更多信息参见 "
-#~ "<xref linkend=\"brasero-fast-blanking\"/>)。"
+#~ "<xref linkend=\"burner-fast-blanking\"/>)。"
 
 #~ msgid ""
 #~ "Click on <guibutton>Blank</guibutton> to start erasing the CD or DVD."
@@ -1948,22 +1948,22 @@ msgstr ""
 #~ "algorithm, which creates a <quote>fingerprint</quote> of the data on the "
 #~ "media. Each time you burn a CD or DVD, and the <emphasis role=\"strong"
 #~ "\">Image checksum</emphasis> plugin is enabled (see <xref linkend="
-#~ "\"brasero-plugins\"/> for more information), <application>Brasero</"
+#~ "\"burner-plugins\"/> for more information), <application>Burner</"
 #~ "application> adds a MD5 file to the disc in order to perform integrity "
 #~ "checks at a later date."
 #~ msgstr ""
 #~ "完整性检验是使用 <quote>MD5 摘要</quote> 算法进行的，这种算法创建媒体上数"
 #~ "据的一个 <quote>fingerprint</quote>。每当刻录时， <emphasis role=\"strong"
 #~ "\">Image checksum</emphasis> 插件就被激活( 更多信息参见 <xref linkend="
-#~ "\"brasero-plugins\"/>)，<application>Brasero</application> 添加一个 MD5 文"
+#~ "\"burner-plugins\"/>)，<application>Burner</application> 添加一个 MD5 文"
 #~ "件到光盘中，以便以后检测光盘的完整性。"
 
 #~ msgid ""
-#~ "<application>Brasero</application> performs an integrity check after each "
+#~ "<application>Burner</application> performs an integrity check after each "
 #~ "burning session, checking the automatically generated file. Usually this "
 #~ "process is longer than using an external MD5 file."
 #~ msgstr ""
-#~ "每当一个刻录会话完成时 <application>Brasero</application> 进行一次完整性检"
+#~ "每当一个刻录会话完成时 <application>Burner</application> 进行一次完整性检"
 #~ "测，检查自动生成的文件。通常这个过程比使用一个外置的 MD5 文件更慢。"
 
 #~ msgid "Insert the CD or DVD to be checked into the drive."
@@ -1988,10 +1988,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "You can check the integrity by using a MD5 file or by letting "
-#~ "<application>Brasero</application> automatically perform a check on the "
+#~ "<application>Burner</application> automatically perform a check on the "
 #~ "media. <placeholder-1/>"
 #~ msgstr ""
-#~ "您可以使用 MD5 文件或让 <application>Brasero</application> 自动检查媒体来"
+#~ "您可以使用 MD5 文件或让 <application>Burner</application> 自动检查媒体来"
 #~ "检查完整性。<placeholder-1/>"
 
 #~ msgid ""
@@ -2003,12 +2003,12 @@ msgstr ""
 #~ msgstr "要检测光盘的完整性：<placeholder-1/>"
 
 #~ msgid ""
-#~ "If the integrity check is successful, <application>Brasero</application> "
+#~ "If the integrity check is successful, <application>Burner</application> "
 #~ "will notify you with a <guilabel>File integrity check success</guilabel> "
 #~ "dialog; otherwise, the <guilabel>File integrity check error</guilabel> "
 #~ "dialog will be displayed."
 #~ msgstr ""
-#~ "如果完整性检测成功了，<application>Brasero</application> 将以一个 "
+#~ "如果完整性检测成功了，<application>Burner</application> 将以一个 "
 #~ "<guilabel>文件完整性检查成功</guilabel> 对话框来通知您，否则 <guilabel文件"
 #~ "完整性检查失败</guilabel> 对话框将被显示。"
 
@@ -2016,12 +2016,12 @@ msgstr ""
 #~ msgstr "封面编辑器"
 
 #~ msgid ""
-#~ "<application>Brasero</application> has a cover editor for creating covers "
+#~ "<application>Burner</application> has a cover editor for creating covers "
 #~ "for your CDs or DVDs. To open the cover editor, choose "
 #~ "<menuchoice><guimenu>Tools</guimenu><guimenuitem>Cover Editor</"
 #~ "guimenuitem></menuchoice>."
 #~ msgstr ""
-#~ "<application>Brasero</application> 有一个封面设计器，用于为您的光盘创建封"
+#~ "<application>Burner</application> 有一个封面设计器，用于为您的光盘创建封"
 #~ "面。要打开封面编辑器，选择 <menuchoice><guimenu>工具</"
 #~ "guimenu><guimenuitem>封面设计器</guimenuitem></menuchoice>。"
 
@@ -2087,10 +2087,10 @@ msgstr ""
 #~ msgstr "插件"
 
 #~ msgid ""
-#~ "<application>Brasero</application> can use different plugins to perform "
+#~ "<application>Burner</application> can use different plugins to perform "
 #~ "different tasks. There are several plugins you can choose from."
 #~ msgstr ""
-#~ "<application>Brasero</application> 可以使用不同的插件完成不同的任务。有数"
+#~ "<application>Burner</application> 可以使用不同的插件完成不同的任务。有数"
 #~ "种可以选择的插件。"
 
 #~ msgid ""

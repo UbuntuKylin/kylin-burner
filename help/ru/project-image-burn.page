@@ -23,7 +23,7 @@
 
   <title>Запись образа</title>
 
-  <p>С помощью <app>Brasero</app> можно записывать образы дисков на CD или DVD. Приложение поддерживает следующие форматы образов: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
+  <p>С помощью <app>Burner</app> можно записывать образы дисков на CD или DVD. Приложение поддерживает следующие форматы образов: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Образы дисков — это архивы, которые содержат все данные с CD или DVD. На диске может находиться не более одного образа диска, но каждый архив может содержать произвольное количество данных, но эти данные должны помещаться на диск.</p>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <p>Выберите нужный диск из выпадающего списка <gui>Выберите диск для записи</gui>. Если у вас больше одного привода, будут перечислены все находящиеся в них диски.</p>
-        <note><p>После выбора диска <app>Brasero</app> покажет, сколько свободного места останется на диске после записи.</p></note>
+        <note><p>После выбора диска <app>Burner</app> покажет, сколько свободного места останется на диске после записи.</p></note>
     </item>
     <item>
       <p>Нажмите <gui>Свойства</gui>, чтобы выбрать скорость записи и другие параметры.</p>
@@ -53,8 +53,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

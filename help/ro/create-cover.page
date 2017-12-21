@@ -27,7 +27,7 @@
 
   <title>Crearea unei coperți</title>
 
-  <p>Puteți folosi <app>Brasero</app> pentru a crea coperți pentru carcasele dumneavoastră de CD. Accesați creatorul apăsând pe <guiseq><gui>Instrumente</gui><gui>Editor de coperți</gui></guiseq>.</p>
+  <p>Puteți folosi <app>Burner</app> pentru a crea coperți pentru carcasele dumneavoastră de CD. Accesați creatorul apăsând pe <guiseq><gui>Instrumente</gui><gui>Editor de coperți</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Dacă creați un proiect audio și finalizați proiectul înainte de a crea o copertă, atunci când accesați interfața <gui>Editor de coperți</gui> din fereastra proiectului audio, piesele vor fi listate automat pe spatele coperții.</p>
@@ -50,7 +50,7 @@
     <item>
       <p>Clic pe pictograma barei de instrumente <gui>Proprietăți fundal</gui> pentru a adăuga un fundal pentru coperta curentă, sau clic dreapta pe coperta pe care doriți să o editați și alegeți <gui>Definiți proprietățile fundalului</gui>. Puteți alege să utilizați un fundal colorat sau să selectați o imagine de fundal.</p>
       <note style="bug">
-        <p>Dacă alegeți o imagine de fundal centrată, <app>Brasero</app> uneori se închide prematur când apăsați pe butonul <gui>Închide</gui>.</p>
+        <p>Dacă alegeți o imagine de fundal centrată, <app>Burner</app> uneori se închide prematur când apăsați pe butonul <gui>Închide</gui>.</p>
       </note>
       <p>Apăsați pe butonul <gui>Închide</gui> pentru a aplica modificările și închideți dialogul <gui>Proprietăți fundal</gui>.</p>
     </item>

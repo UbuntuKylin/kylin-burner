@@ -30,7 +30,7 @@
 
   <title>Salvando um projeto</title>
 
-  <p>Você pode salvar um projeto de áudio, dados ou vídeo no <app>Brasero</app> para editar ou gravar posteriomente.</p>
+  <p>Você pode salvar um projeto de áudio, dados ou vídeo no <app>Burner</app> para editar ou gravar posteriomente.</p>
 
   <steps>
     <item>
@@ -44,7 +44,7 @@
     </item>
   </steps>
 
-  <p>Há várias formas que podem ser usadas para abrir um projeto de <app>Brasero</app> salvo por:</p>
+  <p>Há várias formas que podem ser usadas para abrir um projeto de <app>Burner</app> salvo por:</p>
 
   <list>
     <item>
@@ -59,14 +59,14 @@
     <item>
       <p>abrindo o projeto por um navegador de arquivos</p>
       <note>
-        <p>Apenas uma instância do <app>Brasero</app> pode ser aberta de cada vez. Se você tentar abrir uma segunda instância, a janela atualmente aberta do <app>Brasero</app> será destacada (mantendo o foco).</p>
-        <p>Se o <app>Brasero</app> já estiver em execução e você tentar abrir alguns arquivos com ele a partir do aplicativo <app>Arquivos</app>, tais arquivos serão adicionados ao projeto que você está atualmente trabalhando.</p>
+        <p>Apenas uma instância do <app>Burner</app> pode ser aberta de cada vez. Se você tentar abrir uma segunda instância, a janela atualmente aberta do <app>Burner</app> será destacada (mantendo o foco).</p>
+        <p>Se o <app>Burner</app> já estiver em execução e você tentar abrir alguns arquivos com ele a partir do aplicativo <app>Arquivos</app>, tais arquivos serão adicionados ao projeto que você está atualmente trabalhando.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Se você abrir um projeto salvo, o <app>Brasero</app> vai tratá-lo como um novo projeto: se você quiser salvar uma versão atualizada do projeto, ele vai requisitar que você digite um nome para ele - nesse momento, você pode sobrescrever a versão antiga ou salvá-lo como um novo projeto digitando um nome de arquivo diferente.</p>
+    <p>Se você abrir um projeto salvo, o <app>Burner</app> vai tratá-lo como um novo projeto: se você quiser salvar uma versão atualizada do projeto, ele vai requisitar que você digite um nome para ele - nesse momento, você pode sobrescrever a versão antiga ou salvá-lo como um novo projeto digitando um nome de arquivo diferente.</p>
   </note>
 
 </page>

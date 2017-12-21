@@ -23,7 +23,7 @@
 
   <title>Ierakstīt diska attēlu</title>
 
-  <p><app>Brasero</app> ļauj ierakstīt disku attēlus CD vai DVD diskos. Tas atbalsta sekojošos paplašinājumus optisko disku attēliem: <file>.iso</file>, <file>.toc</file> un <file>.cue</file>.</p>
+  <p><app>Burner</app> ļauj ierakstīt disku attēlus CD vai DVD diskos. Tas atbalsta sekojošos paplašinājumus optisko disku attēliem: <file>.iso</file>, <file>.toc</file> un <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Disku attēli ir arhīva faili, kas satur visu datus, kas ir uz CD vai DVD diskiem. Uz CD vienlaicīgi var būt tikai viens diska attēls, bet katrs arhīvs var saturēt cik daudz datus vēlaties, ja vien tas atbilst diska izmēram.</p>
@@ -39,7 +39,7 @@
     </item>
     <item>
       <p>Izvēlieties disku, kuru jūs vēlaties izmantot, no izkrītošā saraksta zem <gui>Izvēlieties disku, kur ierakstīt</gui>. Ja ir vairāk nekā viens diskdzinis, tad sarakstā vajadzētu būt visiem diskdziņi, kas jums pašlaik ir.</p>
-        <note><p>Izvēloties disku <app>Brasero</app>, parādīs cik brīvas vietas pēc ierakstīšanas paliks diskā.</p></note>
+        <note><p>Izvēloties disku <app>Burner</app>, parādīs cik brīvas vietas pēc ierakstīšanas paliks diskā.</p></note>
     </item>
     <item>
       <p>Spiediet <gui>Īpašības</gui> pogu, lai izvēlētos rakstīšanas ātrumu un citas opcijas.</p>
@@ -51,8 +51,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

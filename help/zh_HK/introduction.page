@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introduction to the <app>Brasero</app> disc burning application.</desc>
+    <desc>Introduction to the <app>Burner</app> disc burning application.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -15,9 +15,9 @@
 
   <title>引言</title>
 
-  <p>「<application>Brasero</application>」是用來燒錄 CD 和 DVD 的應用程式，它被設計成易於使用，並且提供所有燒錄所需的工具。</p>
+  <p>「<application>Burner</application>」是用來燒錄 CD 和 DVD 的應用程式，它被設計成易於使用，並且提供所有燒錄所需的工具。</p>
 
-  <p>在「<application>Brasero</application>」中你可以：</p>
+  <p>在「<application>Burner</application>」中你可以：</p>
   <list>
     <item><p>將資料燒錄至 CD 和 DVD</p></item>
     <item><p>將數碼音樂檔案（例如 ogg、flac 和 mp3）燒錄為音樂 CD</p></item>
@@ -29,8 +29,8 @@
   </list>
 
   <figure>
-    <title>「<gui>Brasero</gui>」主視窗</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>「<gui>Burner</gui>」主視窗</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

@@ -1,11 +1,11 @@
-# Korean translation for brasero.
-# Copyright (C) 2011 brasero's COPYRIGHT HOLDER
-# This file is distributed under the same license as the brasero package.
+# Korean translation for burner.
+# Copyright (C) 2011 burner's COPYRIGHT HOLDER
+# This file is distributed under the same license as the burner package.
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2011, 2013
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero master\n"
+"Project-Id-Version: burner master\n"
 "POT-Creation-Date: 2013-03-22 05:58+0000\n"
 "PO-Revision-Date: 2013-03-22 22:03+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 
 #: C/index.page:5(page/title)
-msgid "Brasero Help"
+msgid "Burner Help"
 msgstr "브라세로 도움말"
 
 #: C/index.page:8(section/title)
@@ -69,7 +69,7 @@ msgstr "표지 만들기"
 
 #: C/create-cover.page:19(page/p)
 msgid ""
-"You can use <app>Brasero</app> to create inlays for your jewel cases. Access "
+"You can use <app>Burner</app> to create inlays for your jewel cases. Access "
 "the creator by clicking <guiseq><gui>Tools</gui> <gui>Cover Editor</gui></"
 "guiseq>."
 msgstr ""
@@ -128,7 +128,7 @@ msgstr ""
 
 #: C/create-cover.page:53(note/p)
 msgid ""
-"If you select a centered background image, <app>Brasero</app> sometimes "
+"If you select a centered background image, <app>Burner</app> sometimes "
 "crashes when you click the <gui>Close</gui> button."
 msgstr ""
 "가운데 정렬된 배경 그림을 선택하면 <app>브라세로</app>는 <gui>닫기</gui> 단추"
@@ -156,12 +156,12 @@ msgstr ""
 #: C/introduction.page:36(media)
 msgctxt "_"
 msgid ""
-"external ref='figures/brasero-main-window.png' "
+"external ref='figures/burner-main-window.png' "
 "md5='11e5cc148d7c8c8dc0c63e68b2f611f3'"
 msgstr ""
 
 #: C/introduction.page:7(info/desc)
-msgid "Introduction to the <app>Brasero</app> disc burning application."
+msgid "Introduction to the <app>Burner</app> disc burning application."
 msgstr "<app>브라세로</app> 디스크 굽기 프로그램에 대해 소개합니다."
 
 #: C/introduction.page:17(page/title)
@@ -170,14 +170,14 @@ msgstr "개요"
 
 #: C/introduction.page:19(page/p)
 msgid ""
-"<app>Brasero</app> is an application for burning CDs and DVDs, designed to "
+"<app>Burner</app> is an application for burning CDs and DVDs, designed to "
 "be easy to use, while providing all the tools necessary for burning."
 msgstr ""
 "<app>브라세로</app>는 CD와 DVD를 구우려면 모든 도구를 제공하여 쉽게 사용할 "
 "수 있도록 설계된 프로그램입니다."
 
 #: C/introduction.page:22(page/p)
-msgid "With <app>Brasero</app> you can:"
+msgid "With <app>Burner</app> you can:"
 msgstr "<app>브라세로</app>로 다음의 것을 할 수 있습니다:"
 
 #: C/introduction.page:24(item/p)
@@ -210,7 +210,7 @@ msgid "Check the integrity of discs and disc images"
 msgstr "디스크와 디스크의 이미지에 대한 무결성 검사하기"
 
 #: C/introduction.page:35(figure/title)
-msgid "The <gui>Brasero</gui> main window"
+msgid "The <gui>Burner</gui> main window"
 msgstr "<gui>브라세로</gui> 메인 창"
 
 #: C/prob-cd.page:9(info/desc)
@@ -304,7 +304,7 @@ msgstr "음악 CD 쓰기"
 
 #: C/project-audio.page:19(page/p)
 msgid ""
-"<app>Brasero</app> can write audio files to a CD, which you can then use for "
+"<app>Burner</app> can write audio files to a CD, which you can then use for "
 "playing in CD players and so on. It is usually best to use a non-rewritable "
 "CD because not all CD players will play rewritable CDs."
 msgstr ""
@@ -535,7 +535,7 @@ msgstr "이미지 굽기"
 
 #: C/project-image-burn.page:27(page/p)
 msgid ""
-"<app>Brasero</app> allows you to burn disc images to a CD or DVD. It "
+"<app>Burner</app> allows you to burn disc images to a CD or DVD. It "
 "supports the following extensions of optical disc images: <file>.iso</file>, "
 "<file>.toc</file> and <file>.cue</file>."
 msgstr ""
@@ -588,7 +588,7 @@ msgstr ""
 
 #: C/project-image-burn.page:53(note/p)
 msgid ""
-"After choosing the disc <app>Brasero</app> shows how much free space will "
+"After choosing the disc <app>Burner</app> shows how much free space will "
 "remain on the disc after burning."
 msgstr ""
 "디스크를 선택하면 <app>브라세로</app>에서는 디스크를 굽고 난 후 디스크에 남"
@@ -620,7 +620,7 @@ msgstr "프로젝트 저장하기"
 
 #: C/project-save.page:22(page/p)
 msgid ""
-"You can save an audio, a data or a video project in <app>Brasero</app> for "
+"You can save an audio, a data or a video project in <app>Burner</app> for "
 "editing or burning later."
 msgstr ""
 "나중에 편집하거나 구우려면 <app>브라세로</app>에서 오디오 프로젝트나, 데이터 "
@@ -648,7 +648,7 @@ msgstr ""
 #: C/project-save.page:39(page/p)
 msgid ""
 "There are a number of ways which can be used for opening a saved "
-"<app>Brasero</app> project by:"
+"<app>Burner</app> project by:"
 msgstr ""
 "저장된 <app>브라세로</app> 프로젝트를 열기 위한 방법은 다음과 같은 여러가지"
 "가 있습니다:"
@@ -678,8 +678,8 @@ msgstr "파일 탐색기로부터 프로젝트 열기"
 
 #: C/project-save.page:57(note/p)
 msgid ""
-"If <app>Brasero</app> is already running, opening the project from a file "
-"browser will cause a second instance of <app>Brasero</app> to start and will "
+"If <app>Burner</app> is already running, opening the project from a file "
+"browser will cause a second instance of <app>Burner</app> to start and will "
 "cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/"
 "show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
 msgstr ""
@@ -690,7 +690,7 @@ msgstr ""
 
 #: C/project-save.page:67(note/p)
 msgid ""
-"If you open a saved project, <app>Brasero</app> will treat it as a new "
+"If you open a saved project, <app>Burner</app> will treat it as a new "
 "project: if you want to save an updated version of the project, it will ask "
 "you to enter a name for it, at this point you can overwrite the old version "
 "or save it as a new project by entering a different file name."
@@ -715,7 +715,7 @@ msgstr "비디오 프로젝트 만들기"
 
 #: C/project-video.page:22(page/p)
 msgid ""
-"<app>Brasero</app> can be used to create video discs for playing in a DVD "
+"<app>Burner</app> can be used to create video discs for playing in a DVD "
 "player or laptop."
 msgstr ""
 "<app>브라세로</app>는 DVD 재생기나 랩톱에서 재생할 비디오 디스크를 만들 때 사"
@@ -815,7 +815,7 @@ msgstr "각각의 묵음 영역을 위해 트랙 쪼개기"
 
 #: C/split-track.page:53(item/p)
 msgid ""
-"Select this method for <app>Brasero</app> to auto-detect silences in the "
+"Select this method for <app>Burner</app> to auto-detect silences in the "
 "recording and to split the track at those points."
 msgstr ""
 "<app>브라세로</app>가 녹음 내용중의 묵음을 자동감지하고 이 지점에서 트랙을 쪼"
@@ -912,7 +912,7 @@ msgstr "디스크 무결성 확인하기"
 
 #: C/tools-check-integrity.page:23(page/p)
 msgid ""
-"After burning a CD/DVD by using <app>Brasero</app>, you can check its "
+"After burning a CD/DVD by using <app>Burner</app>, you can check its "
 "integrity to make sure that the files in the disc are not corrupted."
 msgstr ""
 "<app>브라세로</app>를 사용하여 CD/DVD를 굽고 나면, 디스크의 파일이 깨졌는지 "
@@ -969,8 +969,8 @@ msgstr ""
 #~ "이 시작되는 지점을 쪼갭니다."
 
 #~ msgid ""
-#~ "If <app>Brasero</app> is already running, opening the project from a file "
-#~ "browser will make <app>Brasero</app> vanish in a puff of logic."
+#~ "If <app>Burner</app> is already running, opening the project from a file "
+#~ "browser will make <app>Burner</app> vanish in a puff of logic."
 #~ msgstr ""
 #~ "<app>브라세로</app>가 이미 실행중이라면, 파일 브라우저에서 프로젝트를 열"
 #~ "면 <app>브라세로</app>가 순식간에 처리해 줄 것입니다."

@@ -24,7 +24,7 @@
 
   <title>Menyimpan projek</title>
 
-  <p>Anda dapat menyimpan projek audio, data, atau video dalam <app>Brasero</app> untuk penyuntingan atau pembakaran nanti.</p>
+  <p>Anda dapat menyimpan projek audio, data, atau video dalam <app>Burner</app> untuk penyuntingan atau pembakaran nanti.</p>
 
   <steps>
     <item>
@@ -38,7 +38,7 @@
     </item>
   </steps>
 
-  <p>Ada beberapa cara yang dapat dipakai untuk membuka projek <app>Brasero</app> yang disimpan yaitu:</p>
+  <p>Ada beberapa cara yang dapat dipakai untuk membuka projek <app>Burner</app> yang disimpan yaitu:</p>
 
   <list>
     <item>
@@ -53,14 +53,14 @@
     <item>
       <p>membuka projek dari suatu peramban berkas</p>
       <note>
-        <p>Hanya satu instansi dari <app>Brasero</app> yang dapat dibuka setiap saat. Bila Anda mencoba membuka instansi kedua, jendela <app>Brasero</app> yang sedang terbuka akan terfokus.</p>
-        <p>Bila <app>Brasero</app> telah berjalan dan Anda mencoba membuka berkas dengannya dari <app>Berkas</app>, berkas akan ditambahkan ke projek yang sedang Anda tangani.</p>
+        <p>Hanya satu instansi dari <app>Burner</app> yang dapat dibuka setiap saat. Bila Anda mencoba membuka instansi kedua, jendela <app>Burner</app> yang sedang terbuka akan terfokus.</p>
+        <p>Bila <app>Burner</app> telah berjalan dan Anda mencoba membuka berkas dengannya dari <app>Berkas</app>, berkas akan ditambahkan ke projek yang sedang Anda tangani.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Bila Anda membuka projek yang disimpan, <app>Brasero</app> akan memperlakukannya sebagai projek baru: bila Anda ingin menyimpan versi termutakhirkan dari projek, itu akan meminta Anda memasukkan nama untuknya, pada titik ini Anda dapat menimpa versi lama atau menyimpannya sebagai projek baru dengan memasukkan nama berkas yang berbeda.</p>
+    <p>Bila Anda membuka projek yang disimpan, <app>Burner</app> akan memperlakukannya sebagai projek baru: bila Anda ingin menyimpan versi termutakhirkan dari projek, itu akan meminta Anda memasukkan nama untuknya, pada titik ini Anda dapat menimpa versi lama atau menyimpannya sebagai projek baru dengan memasukkan nama berkas yang berbeda.</p>
   </note>
 
 </page>

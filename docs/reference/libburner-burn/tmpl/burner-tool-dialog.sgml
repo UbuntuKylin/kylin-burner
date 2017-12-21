@@ -1,0 +1,50 @@
+<!-- ##### SECTION Title ##### -->
+BurnerToolDialog
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerToolDialog ##### -->
+<para>
+
+</para>
+
+@parent: 
+
+<!-- ##### FUNCTION burner_tool_dialog_cancel ##### -->
+<para>
+
+</para>
+
+@dialog: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_tool_dialog_set_medium ##### -->
+<para>
+
+</para>
+
+@dialog: 
+@medium: 
+@Returns: 
+
+

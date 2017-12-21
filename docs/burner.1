@@ -1,0 +1,65 @@
+.TH BURNER 1 "January 11, 2009" "GNOME"
+.SH NAME
+burner \- Simple and easy to use CD/DVD burning application for the Gnome Desktop
+.SH SYNOPSIS
+.B burner
+.RI [ options ]
+.RI [ uri ]
+.RI [ uri ]
+.RI ...
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B burner
+command.
+.PP
+\fBBurner\fP is a disc burning application. It is designed to be simple and easy to use.
+It allows to create data CD/DVD, audio CD, to copy CD/DVD and to burn images. It has some nices features, such as a song, image and video previewer. It can also search for files (thanks to beagle) and display a playlist and its contents.
+.SH OPTIONS
+This program follows the usual GNU command line syntax, with long options starting with two dashes (`-'). A summary of options is included below.
+For a complete description, see the Info files.
+.TP
+.B \-p, \-\-project=PROJECT
+Open the specified project.
+.TP
+.B \-a, \-\-audio
+Open an empty audio project.
+.TP
+.B \-d, \-\-data
+Open an empty data project.
+.TP
+.B \-c, \-\-copy=PATH
+Copy a disc.
+.TP
+.B \-j, \-\-cover=PATH
+Cover to use.
+.TP
+.B \-o, \-\-video
+Open a video project adding the URIs given on the command line.
+.TP
+.B \-i, \-\-image=PATH
+Uri of an image file or a cue file to be burnt (autodetected).
+.TP
+.B \-e,	\-\-empty
+Force burner to display the project selection page.
+.TP
+.B \-b,	\-\-blank
+Open the blank disc dialog.
+.TP
+.B \-k, \-\-check
+Open the check disc dialog.
+.TP
+.B \-n, \-\-ncb
+Open a data project with the contents of burn:/// URI.
+.TP
+.B \-r, \-\-burn-and-remove-project=PATH
+Burn the specified project and REMOVE it.
+.TP
+.B \-\-display=DISPLAY
+X display to use.
+.TP
+.B \-?, \-\-help
+Show summary of options.
+.SH AUTHOR
+Burner manual page was written by Philippe Rouquier
+<philippero@libertysurf.fr> and Luis Medinas <lmedinas@gmail.com>.

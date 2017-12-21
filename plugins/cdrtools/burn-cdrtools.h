@@ -1,22 +1,22 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /*
- * Libbrasero-burn
+ * Libburner-burn
  * Copyright (C) Philippe Rouquier 2005-2009 <bonfire-app@wanadoo.fr>
  *
- * Libbrasero-burn is free software; you can redistribute it and/or modify
+ * Libburner-burn is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * The Libbrasero-burn authors hereby grant permission for non-GPL compatible
+ * The Libburner-burn authors hereby grant permission for non-GPL compatible
  * GStreamer plugins to be used and distributed together with GStreamer
- * and Libbrasero-burn. This permission is above and beyond the permissions granted
- * by the GPL license by which Libbrasero-burn is covered. If you modify this code
+ * and Libburner-burn. This permission is above and beyond the permissions granted
+ * by the GPL license by which Libburner-burn is covered. If you modify this code
  * you may extend this exception to your version of the code, but you are not
  * obligated to do so. If you do not wish to do so, delete this exception
  * statement from your version.
  * 
- * Libbrasero-burn is distributed in the hope that it will be useful,
+ * Libburner-burn is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Library General Public License for more details.
@@ -42,7 +42,7 @@ G_BEGIN_DECLS
  * between cdda2wav and cdrecord. It's a string and should be
  * used to tag tracks.
  */
-#define BRASERO_CDRTOOLS_TRACK_INF_FILE	"track::audio::cdrecord::inf_file"
+#define BURNER_CDRTOOLS_TRACK_INF_FILE	"track::audio::cdrecord::inf_file"
 
 G_END_DECLS
 

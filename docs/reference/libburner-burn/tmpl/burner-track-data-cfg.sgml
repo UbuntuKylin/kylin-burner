@@ -1,0 +1,259 @@
+<!-- ##### SECTION Title ##### -->
+BurnerTrackDataCfg
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO BURNER_DND_TARGET_DATA_TRACK_REFERENCE_LIST ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM BurnerTrackDataCfgColumn ##### -->
+<para>
+
+</para>
+
+@BURNER_DATA_TREE_MODEL_NAME: 
+@BURNER_DATA_TREE_MODEL_URI: 
+@BURNER_DATA_TREE_MODEL_MIME_DESC: 
+@BURNER_DATA_TREE_MODEL_MIME_ICON: 
+@BURNER_DATA_TREE_MODEL_SIZE: 
+@BURNER_DATA_TREE_MODEL_SHOW_PERCENT: 
+@BURNER_DATA_TREE_MODEL_PERCENT: 
+@BURNER_DATA_TREE_MODEL_STYLE: 
+@BURNER_DATA_TREE_MODEL_COLOR: 
+@BURNER_DATA_TREE_MODEL_EDITABLE: 
+@BURNER_DATA_TREE_MODEL_IS_FILE: 
+@BURNER_DATA_TREE_MODEL_IS_LOADING: 
+@BURNER_DATA_TREE_MODEL_IS_IMPORTED: 
+@BURNER_DATA_TREE_MODEL_COL_NUM: 
+
+<!-- ##### STRUCT BurnerTrackDataCfg ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_track_data_cfg_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_add ##### -->
+<para>
+
+</para>
+
+@track: 
+@uri: 
+@parent: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_add_empty_directory ##### -->
+<para>
+
+</para>
+
+@track: 
+@name: 
+@parent: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_remove ##### -->
+<para>
+
+</para>
+
+@track: 
+@treepath: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_rename ##### -->
+<para>
+
+</para>
+
+@track: 
+@newname: 
+@treepath: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_reset ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_load_medium ##### -->
+<para>
+
+</para>
+
+@track: 
+@medium: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_unload_current_medium ##### -->
+<para>
+
+</para>
+
+@track: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_current_medium ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_available_media ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_dont_filter_uri ##### -->
+<para>
+
+</para>
+
+@track: 
+@uri: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_restored_list ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_restore ##### -->
+<para>
+
+</para>
+
+@track: 
+@treepath: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_filtered_model ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_span ##### -->
+<para>
+
+</para>
+
+@track: 
+@sectors: 
+@new_track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_span_again ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_span_possible ##### -->
+<para>
+
+</para>
+
+@track: 
+@sectors: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_span_stop ##### -->
+<para>
+
+</para>
+
+@track: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_icon ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_get_icon_path ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_data_cfg_set_icon ##### -->
+<para>
+
+</para>
+
+@track: 
+@icon_path: 
+@error: 
+@Returns: 
+
+

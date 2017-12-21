@@ -1,0 +1,40 @@
+<!-- ##### SECTION Title ##### -->
+BurnerTrackStreamCfg
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerTrackStreamCfg ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_track_stream_cfg_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

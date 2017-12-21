@@ -1,5 +1,5 @@
 ## Process this file with automake to produce Makefile.in.
-SUBDIRS = libbrasero-utils libbrasero-media libbrasero-burn plugins src po data docs help
+SUBDIRS = libburner-utils libburner-media libburner-burn plugins src po data docs help
 
 if BUILD_NAUTILUS
 SUBDIRS += nautilus
@@ -8,7 +8,7 @@ endif
 # Automake 1.12 should make this unnecessary.
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 
-braserodocdir = ${prefix}/docs/brasero
+burnerdocdir = ${prefix}/docs/burner
 
 EXTRA_DIST = 			\
 	AUTHORS			\
@@ -32,11 +32,11 @@ DISTCLEANFILES = \
 	intltool-extract \
 	intltool-merge \
 	intltool-update	\
-	libbrasero-media3.pc	\
-	libbrasero-burn3.pc
+	libburner-media3.pc	\
+	libburner-burn3.pc
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libbrasero-media3.pc libbrasero-burn3.pc
+pkgconfig_DATA = libburner-media3.pc libburner-burn3.pc
 
 dist-hook:
 	@if test -d "$(srcdir)/.git"; \

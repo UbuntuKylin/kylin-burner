@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>API Reference for Libburner-burn: Libburner-burn Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Libburner-burn Reference Manual">
+<link rel="up" href="index.html" title="Libburner-burn Reference Manual">
+<link rel="prev" href="index.html" title="Libburner-burn Reference Manual">
+<link rel="next" href="libburner-burn-burner-burn-lib.html" title="burner-burn-lib">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><img src="up-insensitive.png" width="16" height="16" border="0"></td>
+<td><a accesskey="p" href="index.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libburner-burn-burner-burn-lib.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="id-1.2"></a>API Reference for Libburner-burn</h1></div></div></div>
+<div class="toc"><dl class="toc">
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-burn-lib.html">burner-burn-lib</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-error.html">burner-error</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-tags.html">burner-tags</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-status.html">burner-status</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-enums.html">burner-enums</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-track-type.html">burner-track-type</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrack.html">BurnerTrack</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrackDisc.html">BurnerTrackDisc</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-track-data.html">BurnerTrackData</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-burner-track-data-cfg.html">BurnerTrackDataCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrackStream.html">BurnerTrackStream</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrackStreamCfg.html">BurnerTrackStreamCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrackImage.html">BurnerTrackImage</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerTrackImageCfg.html">BurnerTrackImageCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerBurnSession.html">BurnerBurnSession</a></span><span class="refpurpose"> — Store parameters when burning and blanking</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerSessionSpan.html">BurnerSessionSpan</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerSessionCfg.html">BurnerSessionCfg</a></span><span class="refpurpose">Configure automatically a <span class="type">BurnerBurnSession</span> object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerBurnOptions.html">BurnerBurnOptions</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerBurn.html">BurnerBurn</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerBurnDialog.html">BurnerBurnDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerToolDialog.html">BurnerToolDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerSumDialog.html">BurnerSumDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libburner-burn-BurnerBlankDialog.html">BurnerBlankDialog</a></span><span class="refpurpose"></span>
+</dt>
+</dl></div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>

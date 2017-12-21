@@ -1,16 +1,16 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([brasero],[3.12.1])
+AC_INIT([burner],[3.12.1])
 AC_CONFIG_SRCDIR(src/main.c)
 
-BRASERO_MAJOR_VERSION=3
-BRASERO_MINOR_VERSION=12
-BRASERO_SUB=1
-BRASERO_VERSION=$BRASERO_MAJOR_VERSION.$BRASERO_MINOR_VERSION.$BRASERO_SUB
+BURNER_MAJOR_VERSION=3
+BURNER_MINOR_VERSION=12
+BURNER_SUB=1
+BURNER_VERSION=$BURNER_MAJOR_VERSION.$BURNER_MINOR_VERSION.$BURNER_SUB
 
-AC_SUBST(BRASERO_MAJOR_VERSION)
-AC_SUBST(BRASERO_MINOR_VERSION)
-AC_SUBST(BRASERO_SUB)
-AC_SUBST(BRASERO_VERSION)
+AC_SUBST(BURNER_MAJOR_VERSION)
+AC_SUBST(BURNER_MINOR_VERSION)
+AC_SUBST(BURNER_SUB)
+AC_SUBST(BURNER_VERSION)
 
 dnl Before making a release, the BURN_LT_VERSION string should be modified.
 dnl The string is of the form C:R:A.
@@ -28,19 +28,19 @@ AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 
-LIBBRASERO_LT_VERSION=$LT_CURRENT:$LT_REVISION:$LT_AGE
-AC_SUBST(LIBBRASERO_LT_VERSION) 
+LIBBURNER_LT_VERSION=$LT_CURRENT:$LT_REVISION:$LT_AGE
+AC_SUBST(LIBBURNER_LT_VERSION) 
 
-TYPELIB_VERSION=$BRASERO_MAJOR_VERSION.$((LT_CURRENT-LT_AGE))
+TYPELIB_VERSION=$BURNER_MAJOR_VERSION.$((LT_CURRENT-LT_AGE))
 AC_SUBST(TYPELIB_VERSION)
 
-AC_DEFINE_UNQUOTED(BRASERO_MAJOR_VERSION, $BRASERO_MAJOR_VERSION, [major version])
-AC_DEFINE_UNQUOTED(BRASERO_MINOR_VERSION, $BRASERO_MINOR_VERSION, [minor version])
-AC_DEFINE_UNQUOTED(BRASERO_SUB, $BRASERO_SUB, [sub version])
-AC_DEFINE_UNQUOTED(BRASERO_VERSION, $BRASERO_VERSION, [version])
+AC_DEFINE_UNQUOTED(BURNER_MAJOR_VERSION, $BURNER_MAJOR_VERSION, [major version])
+AC_DEFINE_UNQUOTED(BURNER_MINOR_VERSION, $BURNER_MINOR_VERSION, [minor version])
+AC_DEFINE_UNQUOTED(BURNER_SUB, $BURNER_SUB, [sub version])
+AC_DEFINE_UNQUOTED(BURNER_VERSION, $BURNER_VERSION, [version])
 
 dnl this is what it used to be
-dnl AM_INIT_AUTOMAKE(brasero, $BRASERO_VERSION)
+dnl AM_INIT_AUTOMAKE(burner, $BURNER_VERSION)
 
 AM_INIT_AUTOMAKE([foreign])
 
@@ -101,7 +101,7 @@ if test "x${datadir}" = 'x${prefix}/share'; then
 fi
 
 dnl ***************** SCSI related *****************************
-AC_SUBST(BRASERO_SCSI_LIBS)
+AC_SUBST(BURNER_SCSI_LIBS)
 AC_CHECK_HEADERS([camlib.h],[has_cam="yes"],[has_cam="no"])
 
 dnl ***************** check for linux sg interface *************
@@ -120,7 +120,7 @@ AC_CHECK_TYPES([struct uscsi_cmd],[has_uscsi="yes"],[has_uscsi="no"],
  #include <sys/scsi/impl/uscsi.h>])
 
 if test x"$has_cam" = x"yes"; then
-    BRASERO_SCSI_LIBS="-lcam"
+    BURNER_SCSI_LIBS="-lcam"
 elif test x"$has_sg" = x"yes"; then
 	:
 elif test x"$has_scsiio" = x"yes"; then
@@ -152,66 +152,66 @@ GSTREAMER_BASE_REQUIRED=0.11.92
 GSTREAMER_MODULE_REQUIRED=0.11.92
 LIBXML2_REQUIRED=2.6.0
 
-dnl ** used by brasero and one plugin
-PKG_CHECK_MODULES(BRASERO_GSTREAMER, 			\
+dnl ** used by burner and one plugin
+PKG_CHECK_MODULES(BURNER_GSTREAMER, 			\
 	gstreamer-1.0 >= $GSTREAMER_REQUIRED		\
 	gstreamer-base-1.0 >= $GSTREAMER_REQUIRED		\
 	gstreamer-video-1.0 >= $GSTREAMER_BASE_REQUIRED	\
 	gstreamer-pbutils-1.0 >= $GSTREAMER_BASE_REQUIRED \
 	gstreamer-tag-1.0 >= $GSTREAMER_BASE_REQUIRED)
-BRASERO_GSTREAMER_CFLAGS="-DGST_USE_UNSTABLE_API $BRASERO_GSTREAMER_CFLAGS"
-AC_SUBST(BRASERO_GSTREAMER_CFLAGS)
-AC_SUBST(BRASERO_GSTREAMER_LIBS)
+BURNER_GSTREAMER_CFLAGS="-DGST_USE_UNSTABLE_API $BURNER_GSTREAMER_CFLAGS"
+AC_SUBST(BURNER_GSTREAMER_CFLAGS)
+AC_SUBST(BURNER_GSTREAMER_LIBS)
 
-BRASERO_GSTREAMER_LIBS="$BRASERO_GSTREAMER_LIBS -lgstpbutils-1.0"
+BURNER_GSTREAMER_LIBS="$BURNER_GSTREAMER_LIBS -lgstpbutils-1.0"
 
-dnl ** used by brasero and one plugin
-PKG_CHECK_MODULES(BRASERO_GIO, 	\
+dnl ** used by burner and one plugin
+PKG_CHECK_MODULES(BURNER_GIO, 	\
 	gio-2.0 >= $GIO_REQUIRED)
 
-AC_SUBST(BRASERO_GIO_CFLAGS)
-AC_SUBST(BRASERO_GIO_LIBS)
+AC_SUBST(BURNER_GIO_CFLAGS)
+AC_SUBST(BURNER_GIO_LIBS)
 
-dnl ** used by brasero and one plugin
-PKG_CHECK_MODULES(BRASERO_LIBXML, 	\
+dnl ** used by burner and one plugin
+PKG_CHECK_MODULES(BURNER_LIBXML, 	\
 	libxml-2.0 >= $LIBXML2_REQUIRED)
 
-AC_SUBST(BRASERO_LIBXML_CFLAGS)
-AC_SUBST(BRASERO_LIBXML_LIBS)
+AC_SUBST(BURNER_LIBXML_CFLAGS)
+AC_SUBST(BURNER_LIBXML_LIBS)
 
-dnl ** used by brasero and both libraries
-PKG_CHECK_MODULES(BRASERO_GTHREAD, 		\
+dnl ** used by burner and both libraries
+PKG_CHECK_MODULES(BURNER_GTHREAD, 		\
 	gthread-2.0 >= $GTHREAD_REQUIRED)
 
-AC_SUBST(BRASERO_GTHREAD_CFLAGS)
-AC_SUBST(BRASERO_GTHREAD_LIBS)
+AC_SUBST(BURNER_GTHREAD_CFLAGS)
+AC_SUBST(BURNER_GTHREAD_LIBS)
 
-dnl ** used by brasero and all modules
-PKG_CHECK_MODULES(BRASERO_GLIB, 		\
+dnl ** used by burner and all modules
+PKG_CHECK_MODULES(BURNER_GLIB, 		\
 	gobject-2.0 >= $GLIB_REQUIRED		\
 	glib-2.0 >= $GLIB_REQUIRED)
 
-AC_SUBST(BRASERO_GLIB_CFLAGS)
-AC_SUBST(BRASERO_GLIB_LIBS)
+AC_SUBST(BURNER_GLIB_CFLAGS)
+AC_SUBST(BURNER_GLIB_LIBS)
 
-PKG_CHECK_MODULES(BRASERO_GMODULE,		\
+PKG_CHECK_MODULES(BURNER_GMODULE,		\
 	gmodule-2.0 >= $GMODULE_REQUIRED)
 
-AC_SUBST(BRASERO_GMODULE_CFLAGS)
-AC_SUBST(BRASERO_GMODULE_LIBS)
+AC_SUBST(BURNER_GMODULE_CFLAGS)
+AC_SUBST(BURNER_GMODULE_LIBS)
 
-PKG_CHECK_MODULES(BRASERO_GMODULE_EXPORT,		\
+PKG_CHECK_MODULES(BURNER_GMODULE_EXPORT,		\
 	gmodule-export-2.0 >= $GMODULE_EXPORT_REQUIRED)
 
-AC_SUBST(BRASERO_GMODULE_EXPORT_CFLAGS)
-AC_SUBST(BRASERO_GMODULE_EXPORT_LIBS)
+AC_SUBST(BURNER_GMODULE_EXPORT_CFLAGS)
+AC_SUBST(BURNER_GMODULE_EXPORT_LIBS)
 
-PKG_CHECK_MODULES(BRASERO_SM,
+PKG_CHECK_MODULES(BURNER_SM,
 	sm \
 	ice)
 
-AC_SUBST(BRASERO_SM_CFLAGS)
-AC_SUBST(BRASERO_SM_LIBS)
+AC_SUBST(BURNER_SM_CFLAGS)
+AC_SUBST(BURNER_SM_LIBS)
 
 AC_CHECK_LIBM
 AC_SUBST(LIBM)
@@ -222,12 +222,12 @@ AC_SUBST(LIBM)
 
 GTK_REQUIRED=3.0.0
 
-PKG_CHECK_MODULES([BRASERO_GTK],	\
+PKG_CHECK_MODULES([BURNER_GTK],	\
 		  gtk+-3.0 >= $GTK_REQUIRED	\
 		  gdk-x11-3.0)
 
-AC_SUBST(BRASERO_GTK_CFLAGS)
-AC_SUBST(BRASERO_GTK_LIBS)
+AC_SUBST(BURNER_GTK_CFLAGS)
+AC_SUBST(BURNER_GTK_LIBS)
 
 #
 # libnotify check
@@ -235,9 +235,9 @@ AC_SUBST(BRASERO_GTK_LIBS)
 
 LIBNOTIFY_REQUIRED=0.6.1
 
-PKG_CHECK_MODULES([BRASERO_LIBNOTIFY],[libnotify >= $LIBNOTIFY_REQUIRED])
-AC_SUBST(BRASERO_LIBNOTIFY_CFLAGS)
-AC_SUBST(BRASERO_LIBNOTIFY_LIBS)
+PKG_CHECK_MODULES([BURNER_LIBNOTIFY],[libnotify >= $LIBNOTIFY_REQUIRED])
+AC_SUBST(BURNER_LIBNOTIFY_CFLAGS)
+AC_SUBST(BURNER_LIBNOTIFY_LIBS)
 
 #
 # Canberra
@@ -245,12 +245,12 @@ AC_SUBST(BRASERO_LIBNOTIFY_LIBS)
 
 CANBERRA_REQUIRED=0.1
 
-PKG_CHECK_MODULES(BRASERO_CANBERRA,
+PKG_CHECK_MODULES(BURNER_CANBERRA,
 	      libcanberra >= $CANBERRA_REQUIRED
 	      libcanberra-gtk3 >= $CANBERRA_REQUIRED)
 
-AC_SUBST(BRASERO_CANBERRA_CFLAGS)
-AC_SUBST(BRASERO_CANBERRA_LIBS)
+AC_SUBST(BURNER_CANBERRA_CFLAGS)
+AC_SUBST(BURNER_CANBERRA_LIBS)
 
 dnl ****************Nautilus**********************************
 # Note: the extension is built against gtk+-3.0 so we cannot build extension with gtk+-2.0
@@ -276,8 +276,8 @@ else
 fi
 
 if test x"$build_nautilus" = "xyes"; then
-	NAUTILUS_EXTENSION_CFLAGS="$BRASERO_GLIB_CFLAGS $BRASERO_UI_CFLAGS $NAUTILUS_EXTENSION_CFLAGS"
-	NAUTILUS_EXTENSION_LIBS="$BRASERO_GLIB_LIBS $BRASERO_UI_LIBS $NAUTILUS_EXTENSION_LIBS"
+	NAUTILUS_EXTENSION_CFLAGS="$BURNER_GLIB_CFLAGS $BURNER_UI_CFLAGS $NAUTILUS_EXTENSION_CFLAGS"
+	NAUTILUS_EXTENSION_LIBS="$BURNER_GLIB_LIBS $BURNER_UI_LIBS $NAUTILUS_EXTENSION_LIBS"
 
 	if test "${ac_with_nautilusdir}" = ""; then
 		ac_with_nautilusdir=`pkg-config --variable=extensiondir libnautilus-extension`
@@ -295,8 +295,8 @@ AM_CONDITIONAL(BUILD_NAUTILUS, test x"$build_nautilus" = "xyes")
 # Installation path for plugins
 #
 
-BRASERO_PLUGIN_DIRECTORY=${BRASERO_PLUGIN_DIRECTORY:-'${libdir}/brasero3/plugins'}
-AC_SUBST(BRASERO_PLUGIN_DIRECTORY)
+BURNER_PLUGIN_DIRECTORY=${BURNER_PLUGIN_DIRECTORY:-'${libdir}/burner3/plugins'}
+AC_SUBST(BURNER_PLUGIN_DIRECTORY)
 
 dnl ****************check for libburn (optional)**************
 LIBBURN_REQUIRED=0.4.0
@@ -314,11 +314,11 @@ else
 fi
 
 if test x"$build_libburnia" = "xyes"; then
-	AC_SUBST(BRASERO_LIBBURNIA_CFLAGS)
-	AC_SUBST(BRASERO_LIBBURNIA_LIBS)
+	AC_SUBST(BURNER_LIBBURNIA_CFLAGS)
+	AC_SUBST(BURNER_LIBBURNIA_LIBS)
 
-	BRASERO_LIBBURNIA_CFLAGS="$LIBBURNIA_CFLAGS"
-	BRASERO_LIBBURNIA_LIBS="$LIBBURNIA_LIBS"
+	BURNER_LIBBURNIA_CFLAGS="$LIBBURNIA_CFLAGS"
+	BURNER_LIBBURNIA_LIBS="$LIBBURNIA_LIBS"
 	AC_DEFINE(BUILD_LIBBURNIA, 1, [define if you  want to build libburnia plugins])
 fi
 AM_CONDITIONAL(BUILD_LIBBURNIA, test x"$build_libburnia" = "xyes")
@@ -433,11 +433,11 @@ if test x"$enable_search" = "xauto"; then
 fi
 
 if test x"$enable_search" = "xyes"; then
-	PKG_CHECK_MODULES(BRASERO_SEARCH, tracker-sparql-$tracker_api >= $TRACKER_REQUIRED)
+	PKG_CHECK_MODULES(BURNER_SEARCH, tracker-sparql-$tracker_api >= $TRACKER_REQUIRED)
 	AC_DEFINE(BUILD_SEARCH, 1, [define if you  want to use search pane])
 	AC_DEFINE(BUILD_TRACKER, 1, [define if you  want to use search pane])
-	AC_SUBST(BRASERO_SEARCH_CFLAGS)
-	AC_SUBST(BRASERO_SEARCH_LIBS)
+	AC_SUBST(BURNER_SEARCH_CFLAGS)
+	AC_SUBST(BURNER_SEARCH_LIBS)
 	build_tracker="yes"
 	build_search="yes"
 else
@@ -456,7 +456,7 @@ AC_ARG_ENABLE(playlist,
 			[enable_playlist="yes"])
 
 if test x"$enable_playlist" = "xyes"; then
-	PKG_CHECK_MODULES(BRASERO_PL_PARSER, totem-plparser >= $TOTEM_REQUIRED, build_totem=yes, build_totem=no)
+	PKG_CHECK_MODULES(BURNER_PL_PARSER, totem-plparser >= $TOTEM_REQUIRED, build_totem=yes, build_totem=no)
 else
 	build_totem="no"
 fi
@@ -465,8 +465,8 @@ if test x"$build_totem" = "xyes"; then
 	AC_DEFINE(BUILD_PLAYLIST, 1, [define if you  want to build playlist pane])
 fi
 
-AC_SUBST(BRASERO_PL_PARSER_CFLAGS)
-AC_SUBST(BRASERO_PL_PARSER_LIBS)
+AC_SUBST(BURNER_PL_PARSER_CFLAGS)
+AC_SUBST(BURNER_PL_PARSER_LIBS)
 
 AM_CONDITIONAL(BUILD_PLAYLIST, test x"$build_totem" = "xyes")
 
@@ -477,7 +477,7 @@ AC_ARG_ENABLE(preview,
 			[enable_preview="yes"])
 
 if test x"$enable_preview" = "xyes"; then
-	PKG_CHECK_MODULES(BRASERO_GSTREAMER_BASE, gstreamer-plugins-base-1.0 >= $GSTREAMER_MODULE_REQUIRED, build_preview=yes, build_preview=no)
+	PKG_CHECK_MODULES(BURNER_GSTREAMER_BASE, gstreamer-plugins-base-1.0 >= $GSTREAMER_MODULE_REQUIRED, build_preview=yes, build_preview=no)
 else
 	build_preview="no"
 fi
@@ -486,8 +486,8 @@ if test x"$build_preview" = "xyes"; then
 	AC_DEFINE(BUILD_PREVIEW, 1, [define if you  want to build preview pane])
 fi
 
-AC_SUBST(BRASERO_GSTREAMER_BASE_CFLAGS)
-AC_SUBST(BRASERO_GSTREAMER_BASE_LIBS)
+AC_SUBST(BURNER_GSTREAMER_BASE_CFLAGS)
+AC_SUBST(BURNER_GSTREAMER_BASE_LIBS)
 
 AM_CONDITIONAL(BUILD_PREVIEW, test x"$build_preview" = "xyes")
 
@@ -586,7 +586,7 @@ AC_ARG_ENABLE(caches,
 AM_CONDITIONAL(UPDATE_CACHES, test x"$enable_caches" = "xyes")
 
 dnl ****** INTERNATIONALIZATION **********************
-GETTEXT_PACKAGE=brasero
+GETTEXT_PACKAGE=burner
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettext])
 
@@ -606,22 +606,22 @@ AC_CONFIG_FILES([
 Makefile
 docs/Makefile
 docs/reference/Makefile
-docs/reference/libbrasero-media/Makefile
-docs/reference/libbrasero-burn/Makefile
-docs/reference/libbrasero-media/version.xml
-docs/reference/libbrasero-burn/version.xml
+docs/reference/libburner-media/Makefile
+docs/reference/libburner-burn/Makefile
+docs/reference/libburner-media/version.xml
+docs/reference/libburner-burn/version.xml
 data/Makefile
-data/brasero.desktop.in
+data/burner.desktop.in
 data/icons/Makefile
 data/mime/Makefile
 help/Makefile
 nautilus/Makefile
-nautilus/brasero-nautilus.desktop.in
-libbrasero-media/Makefile
-libbrasero-media/brasero-media.h
-libbrasero-utils/Makefile
-libbrasero-burn/Makefile
-libbrasero-burn/brasero-burn-lib.h
+nautilus/burner-nautilus.desktop.in
+libburner-media/Makefile
+libburner-media/burner-media.h
+libburner-utils/Makefile
+libburner-burn/Makefile
+libburner-burn/burner-burn-lib.h
 plugins/Makefile
 plugins/audio2cue/Makefile
 plugins/cdrdao/Makefile
@@ -637,8 +637,8 @@ plugins/local-track/Makefile
 plugins/vcdimager/Makefile
 po/Makefile.in
 src/Makefile
-libbrasero-media3.pc
-libbrasero-burn3.pc
+libburner-media3.pc
+libburner-burn3.pc
 ])
 
 AC_OUTPUT
@@ -650,7 +650,7 @@ echo "----------------------------------"
 
 dnl 	Build libnotify support : ${build_libnotify}
 
-echo "Version: $BRASERO_VERSION
+echo "Version: $BURNER_VERSION
 	Using GTK+ 3
 	Update caches: ${enable_caches}
 	Build Nautilus extension : ${build_nautilus}
@@ -658,7 +658,7 @@ echo "Version: $BRASERO_VERSION
 	Build search pane : ${build_search}
 	Build playlist pane : ${build_totem}
 	Build Preview pane : ${build_preview}
-	Plugins installed in : ${BRASERO_PLUGIN_DIRECTORY}
+	Plugins installed in : ${BURNER_PLUGIN_DIRECTORY}
 	Build cdrdao plugins : ${build_cdrdao}
 	Build cdrtools plugins : ${build_cdrtools}
 	Build cdrkit plugins : ${build_cdrkit}

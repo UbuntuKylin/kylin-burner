@@ -18,7 +18,7 @@
 
   <title>Shrani projekt</title>
 
-  <p>V programu <app>Brasero</app></p>
+  <p>V programu <app>Burner</app></p>
 
   <steps>
     <item>
@@ -32,7 +32,7 @@
     </item>
   </steps>
 
-  <p>Obstaja več načinov s katerimi lahko odprete shranjen projekt <app>Brasero</app>:</p>
+  <p>Obstaja več načinov s katerimi lahko odprete shranjen projekt <app>Burner</app>:</p>
 
   <list>
     <item>
@@ -47,10 +47,10 @@
     <item>
       <p>Odpiranje projekta iz brskalnika datotek</p>
       <note>
-        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        <p>Only one instance of <app>Burner</app> can be opened at any time.
         If you try to open a second instance, the currently open
-        <app>Brasero</app> window will be focused.</p>
-        <p>If <app>Brasero</app> is already running and you try to open some
+        <app>Burner</app> window will be focused.</p>
+        <p>If <app>Burner</app> is already running and you try to open some
         files with it from <app>Files</app>, the files will be added to the
         project that you are currently working on.</p>
       </note>
@@ -58,7 +58,7 @@
   </list>
 
   <note>
-    <p>Ko odprete shranjen projekt, ga bo <app>Brasero</app> obravnaval kot nov projekt. Če želite shraniti posodobljeno različico vas bo vprašal za njegovo ime. Izberete lahko isto ime in staro različico prepišete ali pa izberete drugo ime in staro različico obdržite.</p>
+    <p>Ko odprete shranjen projekt, ga bo <app>Burner</app> obravnaval kot nov projekt. Če želite shraniti posodobljeno različico vas bo vprašal za njegovo ime. Izberete lahko isto ime in staro različico prepišete ali pa izberete drugo ime in staro različico obdržite.</p>
   </note>
 
 </page>

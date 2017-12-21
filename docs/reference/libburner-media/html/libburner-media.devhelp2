@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Libburner-media Reference Manual" link="index.html" author="" name="libburner-media" version="2" language="c">
+  <chapters>
+    <sub name="API Reference for Libburner-media" link="ch01.html">
+      <sub name="burner-media" link="libburner-media-burner-media.html"/>
+      <sub name="burner-units" link="libburner-media-burner-units.html"/>
+      <sub name="BurnerMediumMonitor" link="libburner-media-BurnerMediumMonitor.html"/>
+      <sub name="BurnerDrive" link="libburner-media-burner-drive.html"/>
+      <sub name="BurnerMedium" link="libburner-media-BurnerMedium.html"/>
+      <sub name="BurnerVolume" link="libburner-media-BurnerVolume.html"/>
+      <sub name="BurnerMediumSelection" link="libburner-media-BurnerMediumSelection.html"/>
+      <sub name="BurnerDriveSelection" link="libburner-media-BurnerDriveSelection.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
+  </chapters>
+  <functions>
+    <keyword type="function" name="burner_media_library_start ()" link="libburner-media-burner-media.html#burner-media-library-start"/>
+    <keyword type="function" name="burner_media_library_stop ()" link="libburner-media-burner-media.html#burner-media-library-stop"/>
+    <keyword type="function" name="burner_media_get_option_group ()" link="libburner-media-burner-media.html#burner-media-get-option-group"/>
+    <keyword type="function" name="burner_media_quark ()" link="libburner-media-burner-media.html#burner-media-quark"/>
+    <keyword type="macro" name="BURNER_MEDIUM_VALID()" link="libburner-media-burner-media.html#BURNER-MEDIUM-VALID:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_TYPE()" link="libburner-media-burner-media.html#BURNER-MEDIUM-TYPE:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_ATTR()" link="libburner-media-burner-media.html#BURNER-MEDIUM-ATTR:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_STATUS()" link="libburner-media-burner-media.html#BURNER-MEDIUM-STATUS:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_SUBTYPE()" link="libburner-media-burner-media.html#BURNER-MEDIUM-SUBTYPE:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_INFO()" link="libburner-media-burner-media.html#BURNER-MEDIUM-INFO:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_IS()" link="libburner-media-burner-media.html#BURNER-MEDIUM-IS:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_RANDOM_WRITABLE()" link="libburner-media-burner-media.html#BURNER-MEDIUM-RANDOM-WRITABLE:CAPS"/>
+    <keyword type="macro" name="LIBBURNER_MEDIA_VERSION_MAJOR" link="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MAJOR:CAPS"/>
+    <keyword type="macro" name="LIBBURNER_MEDIA_VERSION_MINOR" link="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MINOR:CAPS"/>
+    <keyword type="macro" name="LIBBURNER_MEDIA_VERSION_MICRO" link="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MICRO:CAPS"/>
+    <keyword type="macro" name="LIBBURNER_MEDIA_AGE" link="libburner-media-burner-media.html#LIBBURNER-MEDIA-AGE:CAPS"/>
+    <keyword type="macro" name="LIBBURNER_MEDIA_INSTALL" link="libburner-media-burner-media.html#LIBBURNER-MEDIA-INSTALL:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIA_ERROR" link="libburner-media-burner-media.html#BURNER-MEDIA-ERROR:CAPS"/>
+    <keyword type="enum" name="enum BurnerMediaError" link="libburner-media-burner-media.html#BurnerMediaError"/>
+    <keyword type="enum" name="enum BurnerMedia" link="libburner-media-burner-media.html#BurnerMedia"/>
+    <keyword type="macro" name="BURNER_MEDIUM_CDROM" link="libburner-media-burner-media.html#BURNER-MEDIUM-CDROM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_CDR" link="libburner-media-burner-media.html#BURNER-MEDIUM-CDR:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_CDRW" link="libburner-media-burner-media.html#BURNER-MEDIUM-CDRW:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVD_ROM" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVD-ROM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDR" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDRW" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDRW_RESTRICTED" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-RESTRICTED:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDR_DL" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-DL:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDR_JUMP_DL" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-JUMP-DL:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDR_PLUS" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-PLUS:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDRW_PLUS" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-PLUS:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDR_PLUS_DL" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-PLUS-DL:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVDRW_PLUS_DL" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-PLUS-DL:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_DVD_RAM" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVD-RAM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_BD_ROM" link="libburner-media-burner-media.html#BURNER-MEDIUM-BD-ROM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_BDR_SRM" link="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-SRM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_BDR_SRM_POW" link="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-SRM-POW:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_BDR_RANDOM" link="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-RANDOM:CAPS"/>
+    <keyword type="macro" name="BURNER_MEDIUM_BDRE" link="libburner-media-burner-media.html#BURNER-MEDIUM-BDRE:CAPS"/>
+    <keyword type="macro" name="BURNER_SPEED_TO_RATE_CD()" link="libburner-media-burner-units.html#BURNER-SPEED-TO-RATE-CD:CAPS"/>
+    <keyword type="macro" name="BURNER_SPEED_TO_RATE_DVD()" link="libburner-media-burner-units.html#BURNER-SPEED-TO-RATE-DVD:CAPS"/>
+    <keyword type="macro" name="BURNER_SPEED_TO_RATE_BD()" link="libburner-media-burner-units.html#BURNER-SPEED-TO-RATE-BD:CAPS"/>
+    <keyword type="macro" name="BURNER_RATE_TO_SPEED_CD()" link="libburner-media-burner-units.html#BURNER-RATE-TO-SPEED-CD:CAPS"/>
+    <keyword type="macro" name="BURNER_RATE_TO_SPEED_DVD()" link="libburner-media-burner-units.html#BURNER-RATE-TO-SPEED-DVD:CAPS"/>
+    <keyword type="macro" name="BURNER_RATE_TO_SPEED_BD()" link="libburner-media-burner-units.html#BURNER-RATE-TO-SPEED-BD:CAPS"/>
+    <keyword type="macro" name="BURNER_DURATION_TO_BYTES()" link="libburner-media-burner-units.html#BURNER-DURATION-TO-BYTES:CAPS"/>
+    <keyword type="macro" name="BURNER_DURATION_TO_SECTORS()" link="libburner-media-burner-units.html#BURNER-DURATION-TO-SECTORS:CAPS"/>
+    <keyword type="macro" name="BURNER_BYTES_TO_SECTORS()" link="libburner-media-burner-units.html#BURNER-BYTES-TO-SECTORS:CAPS"/>
+    <keyword type="macro" name="BURNER_BYTES_TO_DURATION()" link="libburner-media-burner-units.html#BURNER-BYTES-TO-DURATION:CAPS"/>
+    <keyword type="function" name="burner_units_get_time_string ()" link="libburner-media-burner-units.html#burner-units-get-time-string"/>
+    <keyword type="function" name="burner_units_get_time_string_from_size ()" link="libburner-media-burner-units.html#burner-units-get-time-string-from-size"/>
+    <keyword type="macro" name="CD_RATE" link="libburner-media-burner-units.html#CD-RATE:CAPS"/>
+    <keyword type="macro" name="DVD_RATE" link="libburner-media-burner-units.html#DVD-RATE:CAPS"/>
+    <keyword type="macro" name="BD_RATE" link="libburner-media-burner-units.html#BD-RATE:CAPS"/>
+    <keyword type="function" name="burner_medium_monitor_get_default ()" link="libburner-media-BurnerMediumMonitor.html#burner-medium-monitor-get-default"/>
+    <keyword type="function" name="burner_medium_monitor_get_media ()" link="libburner-media-BurnerMediumMonitor.html#burner-medium-monitor-get-media"/>
+    <keyword type="function" name="burner_medium_monitor_get_drives ()" link="libburner-media-BurnerMediumMonitor.html#burner-medium-monitor-get-drives"/>
+    <keyword type="function" name="burner_medium_monitor_get_drive ()" link="libburner-media-BurnerMediumMonitor.html#burner-medium-monitor-get-drive"/>
+    <keyword type="function" name="burner_medium_monitor_is_probing ()" link="libburner-media-BurnerMediumMonitor.html#burner-medium-monitor-is-probing"/>
+    <keyword type="struct" name="struct BurnerMediumMonitor" link="libburner-media-BurnerMediumMonitor.html#BurnerMediumMonitor"/>
+    <keyword type="enum" name="enum BurnerMediaType" link="libburner-media-BurnerMediumMonitor.html#BurnerMediaType"/>
+    <keyword type="enum" name="enum BurnerDriveType" link="libburner-media-BurnerMediumMonitor.html#BurnerDriveType"/>
+    <keyword type="function" name="burner_drive_reprobe ()" link="libburner-media-burner-drive.html#burner-drive-reprobe"/>
+    <keyword type="function" name="burner_drive_get_medium ()" link="libburner-media-burner-drive.html#burner-drive-get-medium"/>
+    <keyword type="function" name="burner_drive_get_gdrive ()" link="libburner-media-burner-drive.html#burner-drive-get-gdrive"/>
+    <keyword type="function" name="burner_drive_get_udi ()" link="libburner-media-burner-drive.html#burner-drive-get-udi"/>
+    <keyword type="function" name="burner_drive_is_fake ()" link="libburner-media-burner-drive.html#burner-drive-is-fake"/>
+    <keyword type="function" name="burner_drive_get_display_name ()" link="libburner-media-burner-drive.html#burner-drive-get-display-name"/>
+    <keyword type="function" name="burner_drive_get_device ()" link="libburner-media-burner-drive.html#burner-drive-get-device"/>
+    <keyword type="function" name="burner_drive_get_block_device ()" link="libburner-media-burner-drive.html#burner-drive-get-block-device"/>
+    <keyword type="function" name="burner_drive_get_bus_target_lun_string ()" link="libburner-media-burner-drive.html#burner-drive-get-bus-target-lun-string"/>
+    <keyword type="function" name="burner_drive_get_caps ()" link="libburner-media-burner-drive.html#burner-drive-get-caps"/>
+    <keyword type="function" name="burner_drive_can_write ()" link="libburner-media-burner-drive.html#burner-drive-can-write"/>
+    <keyword type="function" name="burner_drive_can_eject ()" link="libburner-media-burner-drive.html#burner-drive-can-eject"/>
+    <keyword type="function" name="burner_drive_eject ()" link="libburner-media-burner-drive.html#burner-drive-eject"/>
+    <keyword type="function" name="burner_drive_cancel_current_operation ()" link="libburner-media-burner-drive.html#burner-drive-cancel-current-operation"/>
+    <keyword type="function" name="burner_drive_is_door_open ()" link="libburner-media-burner-drive.html#burner-drive-is-door-open"/>
+    <keyword type="function" name="burner_drive_can_use_exclusively ()" link="libburner-media-burner-drive.html#burner-drive-can-use-exclusively"/>
+    <keyword type="function" name="burner_drive_lock ()" link="libburner-media-burner-drive.html#burner-drive-lock"/>
+    <keyword type="function" name="burner_drive_unlock ()" link="libburner-media-burner-drive.html#burner-drive-unlock"/>
+    <keyword type="enum" name="enum BurnerDriveCaps" link="libburner-media-burner-drive.html#BurnerDriveCaps"/>
+    <keyword type="struct" name="BurnerDrive" link="libburner-media-burner-drive.html#BurnerDrive"/>
+    <keyword type="function" name="burner_medium_get_status ()" link="libburner-media-BurnerMedium.html#burner-medium-get-status"/>
+    <keyword type="function" name="burner_medium_get_max_write_speed ()" link="libburner-media-BurnerMedium.html#burner-medium-get-max-write-speed"/>
+    <keyword type="function" name="burner_medium_get_write_speeds ()" link="libburner-media-BurnerMedium.html#burner-medium-get-write-speeds"/>
+    <keyword type="function" name="burner_medium_get_free_space ()" link="libburner-media-BurnerMedium.html#burner-medium-get-free-space"/>
+    <keyword type="function" name="burner_medium_get_capacity ()" link="libburner-media-BurnerMedium.html#burner-medium-get-capacity"/>
+    <keyword type="function" name="burner_medium_get_data_size ()" link="libburner-media-BurnerMedium.html#burner-medium-get-data-size"/>
+    <keyword type="function" name="burner_medium_get_next_writable_address ()" link="libburner-media-BurnerMedium.html#burner-medium-get-next-writable-address"/>
+    <keyword type="function" name="burner_medium_can_be_rewritten ()" link="libburner-media-BurnerMedium.html#burner-medium-can-be-rewritten"/>
+    <keyword type="function" name="burner_medium_can_be_written ()" link="libburner-media-BurnerMedium.html#burner-medium-can-be-written"/>
+    <keyword type="function" name="burner_medium_get_CD_TEXT_title ()" link="libburner-media-BurnerMedium.html#burner-medium-get-CD-TEXT-title"/>
+    <keyword type="function" name="burner_medium_get_type_string ()" link="libburner-media-BurnerMedium.html#burner-medium-get-type-string"/>
+    <keyword type="function" name="burner_medium_get_tooltip ()" link="libburner-media-BurnerMedium.html#burner-medium-get-tooltip"/>
+    <keyword type="function" name="burner_medium_get_drive ()" link="libburner-media-BurnerMedium.html#burner-medium-get-drive"/>
+    <keyword type="function" name="burner_medium_get_track_num ()" link="libburner-media-BurnerMedium.html#burner-medium-get-track-num"/>
+    <keyword type="function" name="burner_medium_get_last_data_track_space ()" link="libburner-media-BurnerMedium.html#burner-medium-get-last-data-track-space"/>
+    <keyword type="function" name="burner_medium_get_last_data_track_address ()" link="libburner-media-BurnerMedium.html#burner-medium-get-last-data-track-address"/>
+    <keyword type="function" name="burner_medium_get_track_space ()" link="libburner-media-BurnerMedium.html#burner-medium-get-track-space"/>
+    <keyword type="function" name="burner_medium_get_track_address ()" link="libburner-media-BurnerMedium.html#burner-medium-get-track-address"/>
+    <keyword type="function" name="burner_medium_can_use_dummy_for_sao ()" link="libburner-media-BurnerMedium.html#burner-medium-can-use-dummy-for-sao"/>
+    <keyword type="function" name="burner_medium_can_use_dummy_for_tao ()" link="libburner-media-BurnerMedium.html#burner-medium-can-use-dummy-for-tao"/>
+    <keyword type="function" name="burner_medium_can_use_burnfree ()" link="libburner-media-BurnerMedium.html#burner-medium-can-use-burnfree"/>
+    <keyword type="struct" name="struct BurnerMedium" link="libburner-media-BurnerMedium.html#BurnerMedium"/>
+    <keyword type="function" name="burner_volume_get_name ()" link="libburner-media-BurnerVolume.html#burner-volume-get-name"/>
+    <keyword type="function" name="burner_volume_get_icon ()" link="libburner-media-BurnerVolume.html#burner-volume-get-icon"/>
+    <keyword type="function" name="burner_volume_get_gvolume ()" link="libburner-media-BurnerVolume.html#burner-volume-get-gvolume"/>
+    <keyword type="function" name="burner_volume_is_mounted ()" link="libburner-media-BurnerVolume.html#burner-volume-is-mounted"/>
+    <keyword type="function" name="burner_volume_get_mount_point ()" link="libburner-media-BurnerVolume.html#burner-volume-get-mount-point"/>
+    <keyword type="function" name="burner_volume_umount ()" link="libburner-media-BurnerVolume.html#burner-volume-umount"/>
+    <keyword type="function" name="burner_volume_mount ()" link="libburner-media-BurnerVolume.html#burner-volume-mount"/>
+    <keyword type="function" name="burner_volume_cancel_current_operation ()" link="libburner-media-BurnerVolume.html#burner-volume-cancel-current-operation"/>
+    <keyword type="struct" name="struct BurnerVolume" link="libburner-media-BurnerVolume.html#BurnerVolume"/>
+    <keyword type="function" name="burner_medium_selection_new ()" link="libburner-media-BurnerMediumSelection.html#burner-medium-selection-new"/>
+    <keyword type="function" name="burner_medium_selection_get_active ()" link="libburner-media-BurnerMediumSelection.html#burner-medium-selection-get-active"/>
+    <keyword type="function" name="burner_medium_selection_set_active ()" link="libburner-media-BurnerMediumSelection.html#burner-medium-selection-set-active"/>
+    <keyword type="function" name="burner_medium_selection_show_media_type ()" link="libburner-media-BurnerMediumSelection.html#burner-medium-selection-show-media-type"/>
+    <keyword type="struct" name="struct BurnerMediumSelection" link="libburner-media-BurnerMediumSelection.html#BurnerMediumSelection"/>
+    <keyword type="function" name="burner_drive_selection_new ()" link="libburner-media-BurnerDriveSelection.html#burner-drive-selection-new"/>
+    <keyword type="function" name="burner_drive_selection_get_active ()" link="libburner-media-BurnerDriveSelection.html#burner-drive-selection-get-active"/>
+    <keyword type="function" name="burner_drive_selection_set_active ()" link="libburner-media-BurnerDriveSelection.html#burner-drive-selection-set-active"/>
+    <keyword type="function" name="burner_drive_selection_show_type ()" link="libburner-media-BurnerDriveSelection.html#burner-drive-selection-show-type"/>
+    <keyword type="struct" name="struct BurnerDriveSelection" link="libburner-media-BurnerDriveSelection.html#BurnerDriveSelection"/>
+    <keyword type="constant" name="BURNER_MEDIA_ERROR_NONE" link="libburner-media-burner-media.html#BURNER-MEDIA-ERROR-NONE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_ERROR_GENERAL" link="libburner-media-burner-media.html#BURNER-MEDIA-ERROR-GENERAL:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_ERROR_IMAGE_INVALID" link="libburner-media-burner-media.html#BURNER-MEDIA-ERROR-IMAGE-INVALID:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_UNSUPPORTED" link="libburner-media-burner-media.html#BURNER-MEDIUM-UNSUPPORTED:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_BUSY" link="libburner-media-burner-media.html#BURNER-MEDIUM-BUSY:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_NONE" link="libburner-media-burner-media.html#BURNER-MEDIUM-NONE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_FILE" link="libburner-media-burner-media.html#BURNER-MEDIUM-FILE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_CD" link="libburner-media-burner-media.html#BURNER-MEDIUM-CD:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_DVD" link="libburner-media-burner-media.html#BURNER-MEDIUM-DVD:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_BD" link="libburner-media-burner-media.html#BURNER-MEDIUM-BD:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_DUAL_L" link="libburner-media-burner-media.html#BURNER-MEDIUM-DUAL-L:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_RAM" link="libburner-media-burner-media.html#BURNER-MEDIUM-RAM:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_PLUS" link="libburner-media-burner-media.html#BURNER-MEDIUM-PLUS:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_SEQUENTIAL" link="libburner-media-burner-media.html#BURNER-MEDIUM-SEQUENTIAL:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_RESTRICTED" link="libburner-media-burner-media.html#BURNER-MEDIUM-RESTRICTED:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_JUMP" link="libburner-media-burner-media.html#BURNER-MEDIUM-JUMP:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_RANDOM" link="libburner-media-burner-media.html#BURNER-MEDIUM-RANDOM:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_SRM" link="libburner-media-burner-media.html#BURNER-MEDIUM-SRM:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_POW" link="libburner-media-burner-media.html#BURNER-MEDIUM-POW:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_REWRITABLE" link="libburner-media-burner-media.html#BURNER-MEDIUM-REWRITABLE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_WRITABLE" link="libburner-media-burner-media.html#BURNER-MEDIUM-WRITABLE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_ROM" link="libburner-media-burner-media.html#BURNER-MEDIUM-ROM:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_BLANK" link="libburner-media-burner-media.html#BURNER-MEDIUM-BLANK:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_CLOSED" link="libburner-media-burner-media.html#BURNER-MEDIUM-CLOSED:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_APPENDABLE" link="libburner-media-burner-media.html#BURNER-MEDIUM-APPENDABLE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_UNFORMATTED" link="libburner-media-burner-media.html#BURNER-MEDIUM-UNFORMATTED:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_PROTECTED" link="libburner-media-burner-media.html#BURNER-MEDIUM-PROTECTED:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_HAS_DATA" link="libburner-media-burner-media.html#BURNER-MEDIUM-HAS-DATA:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIUM_HAS_AUDIO" link="libburner-media-burner-media.html#BURNER-MEDIUM-HAS-AUDIO:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_NONE" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-NONE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_FILE" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-FILE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_DATA" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-DATA:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_AUDIO" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-AUDIO:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_WRITABLE" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-WRITABLE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_REWRITABLE" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-REWRITABLE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_ANY_IN_BURNER" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-ANY-IN-BURNER:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_CD" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-CD:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_ALL_BUT_FILE" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-ALL-BUT-FILE:CAPS"/>
+    <keyword type="constant" name="BURNER_MEDIA_TYPE_ALL" link="libburner-media-BurnerMediumMonitor.html#BURNER-MEDIA-TYPE-ALL:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_NONE" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-NONE:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_FILE" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-FILE:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_WRITER" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-WRITER:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_READER" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-READER:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_ALL_BUT_FILE" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-ALL-BUT-FILE:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_TYPE_ALL" link="libburner-media-BurnerMediumMonitor.html#BURNER-DRIVE-TYPE-ALL:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_NONE" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-NONE:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_CDR" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-CDR:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_CDRW" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-CDRW:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDR" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDR:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDRW" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDRW:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDR_PLUS" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDR-PLUS:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDRW_PLUS" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDRW-PLUS:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDR_PLUS_DL" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDR-PLUS-DL:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDRW_PLUS_DL" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDRW-PLUS-DL:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_DVDRAM" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-DVDRAM:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_BDR" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-BDR:CAPS"/>
+    <keyword type="constant" name="BURNER_DRIVE_CAPS_BDRW" link="libburner-media-burner-drive.html#BURNER-DRIVE-CAPS-BDRW:CAPS"/>
+  </functions>
+</book>

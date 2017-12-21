@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc><app>Brasero</app>ディスク書き込みアプリケーションをご紹介します。</desc>
+    <desc><app>Burner</app>ディスク書き込みアプリケーションをご紹介します。</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -21,9 +21,9 @@
 
   <title>はじめに</title>
 
-  <p><app>Brasero</app>は、CDやDVDを作成するためのアプリケーションです。使いやすさを第一に考慮しながらも、ディスク作成に必要な機能をすべて備えています。</p>
+  <p><app>Burner</app>は、CDやDVDを作成するためのアプリケーションです。使いやすさを第一に考慮しながらも、ディスク作成に必要な機能をすべて備えています。</p>
 
-  <p><app>Brasero</app>で次のようなことができます。</p>
+  <p><app>Burner</app>で次のようなことができます。</p>
   <list>
     <item><p>CDやDVDにデータを書き込む</p></item>
     <item><p>デジタルの音声ファイル(OGGやFLAC、MP3)から音楽CDを作成する</p></item>
@@ -35,8 +35,8 @@
   </list>
 
   <figure>
-    <title><app>Brasero</app>のメインウィンドウ</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title><app>Burner</app>のメインウィンドウ</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

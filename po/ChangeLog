@@ -800,7 +800,7 @@
 
 2009-01-10  Philippe Rouquier  <rouquier.p@wanadoo.fr>
 
-	Updated for new object BraseroDriveSelection
+	Updated for new object BurnerDriveSelection
 
 	* POTFILES.in:
 
@@ -1643,7 +1643,7 @@
 
 	* POTFILES.in:
 
-	Added src/brasero-plugin-option.c strings to translation
+	Added src/burner-plugin-option.c strings to translation
 	Thanks to Milo Casagrande  <milo_casagrande@yahoo.it>.
 
 2008-05-27  Ignacio Casal Quinteiro  <nacho.resa@gmail.com>
@@ -1867,7 +1867,7 @@
 2008-01-20  Luis Medinas  <lmedinas@svn.gnome.org>
 
 	* POTFILES.in:
-	Fix POTFILES break we moved to brasero.desktop.in.in
+	Fix POTFILES break we moved to burner.desktop.in.in
 
 2008-01-16  Yair Hershkovitz  <yairhr@gmail.com>
 
@@ -2041,8 +2041,8 @@
 
 2007-09-14  Luis Medinas  <lmedinas@svn.gnome.org>
 
-	* POTFILES.in: Update POTFILES to match brasero-search-beagle
-	instead of brasero-search.
+	* POTFILES.in: Update POTFILES to match burner-search-beagle
+	instead of burner-search.
 
 2007-09-11  Jonh Wendell  <jwendell@gnome.org>
 
@@ -2345,7 +2345,7 @@
 
 2006-10-13  Francisco Javier F. Serrador  <serrador@openshine.com>
 
-	* brasero.pot: Removed file because it is generated
+	* burner.pot: Removed file because it is generated
 
 2006-10-13  Francisco Javier F. Serrador  <serrador@openshine.com>
 

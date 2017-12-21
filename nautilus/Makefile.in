@@ -97,7 +97,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
-CONFIG_CLEAN_FILES = brasero-nautilus.desktop.in
+CONFIG_CLEAN_FILES = burner-nautilus.desktop.in
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -130,22 +130,22 @@ am__installdirs = "$(DESTDIR)$(nautilus_extensiondir)" \
 	"$(DESTDIR)$(desktopdir)"
 LTLIBRARIES = $(nautilus_extension_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-libnautilus_brasero_extension_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
-	../libbrasero-utils/libbrasero-utils3.la \
-	../libbrasero-media/libbrasero-media3.la \
-	../libbrasero-burn/libbrasero-burn3.la
-am_libnautilus_brasero_extension_la_OBJECTS = nautilus-burn-bar.lo \
+libnautilus_burner_extension_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+	../libburner-utils/libburner-utils3.la \
+	../libburner-media/libburner-media3.la \
+	../libburner-burn/libburner-burn3.la
+am_libnautilus_burner_extension_la_OBJECTS = nautilus-burn-bar.lo \
 	nautilus-burn-extension.lo
-libnautilus_brasero_extension_la_OBJECTS =  \
-	$(am_libnautilus_brasero_extension_la_OBJECTS)
+libnautilus_burner_extension_la_OBJECTS =  \
+	$(am_libnautilus_burner_extension_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libnautilus_brasero_extension_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+libnautilus_burner_extension_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(AM_CFLAGS) $(CFLAGS) \
-	$(libnautilus_brasero_extension_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(libnautilus_burner_extension_la_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -180,8 +180,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libnautilus_brasero_extension_la_SOURCES)
-DIST_SOURCES = $(libnautilus_brasero_extension_la_SOURCES)
+SOURCES = $(libnautilus_burner_extension_la_SOURCES)
+DIST_SOURCES = $(libnautilus_burner_extension_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -208,7 +208,7 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in \
-	$(srcdir)/brasero-nautilus.desktop.in.in $(top_srcdir)/depcomp
+	$(srcdir)/burner-nautilus.desktop.in.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 ALL_LINGUAS = @ALL_LINGUAS@
@@ -219,42 +219,42 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
-BRASERO_CANBERRA_CFLAGS = @BRASERO_CANBERRA_CFLAGS@
-BRASERO_CANBERRA_LIBS = @BRASERO_CANBERRA_LIBS@
-BRASERO_GIO_CFLAGS = @BRASERO_GIO_CFLAGS@
-BRASERO_GIO_LIBS = @BRASERO_GIO_LIBS@
-BRASERO_GLIB_CFLAGS = @BRASERO_GLIB_CFLAGS@
-BRASERO_GLIB_LIBS = @BRASERO_GLIB_LIBS@
-BRASERO_GMODULE_CFLAGS = @BRASERO_GMODULE_CFLAGS@
-BRASERO_GMODULE_EXPORT_CFLAGS = @BRASERO_GMODULE_EXPORT_CFLAGS@
-BRASERO_GMODULE_EXPORT_LIBS = @BRASERO_GMODULE_EXPORT_LIBS@
-BRASERO_GMODULE_LIBS = @BRASERO_GMODULE_LIBS@
-BRASERO_GSTREAMER_BASE_CFLAGS = @BRASERO_GSTREAMER_BASE_CFLAGS@
-BRASERO_GSTREAMER_BASE_LIBS = @BRASERO_GSTREAMER_BASE_LIBS@
-BRASERO_GSTREAMER_CFLAGS = @BRASERO_GSTREAMER_CFLAGS@
-BRASERO_GSTREAMER_LIBS = @BRASERO_GSTREAMER_LIBS@
-BRASERO_GTHREAD_CFLAGS = @BRASERO_GTHREAD_CFLAGS@
-BRASERO_GTHREAD_LIBS = @BRASERO_GTHREAD_LIBS@
-BRASERO_GTK_CFLAGS = @BRASERO_GTK_CFLAGS@
-BRASERO_GTK_LIBS = @BRASERO_GTK_LIBS@
-BRASERO_LIBBURNIA_CFLAGS = @BRASERO_LIBBURNIA_CFLAGS@
-BRASERO_LIBBURNIA_LIBS = @BRASERO_LIBBURNIA_LIBS@
-BRASERO_LIBNOTIFY_CFLAGS = @BRASERO_LIBNOTIFY_CFLAGS@
-BRASERO_LIBNOTIFY_LIBS = @BRASERO_LIBNOTIFY_LIBS@
-BRASERO_LIBXML_CFLAGS = @BRASERO_LIBXML_CFLAGS@
-BRASERO_LIBXML_LIBS = @BRASERO_LIBXML_LIBS@
-BRASERO_MAJOR_VERSION = @BRASERO_MAJOR_VERSION@
-BRASERO_MINOR_VERSION = @BRASERO_MINOR_VERSION@
-BRASERO_PLUGIN_DIRECTORY = @BRASERO_PLUGIN_DIRECTORY@
-BRASERO_PL_PARSER_CFLAGS = @BRASERO_PL_PARSER_CFLAGS@
-BRASERO_PL_PARSER_LIBS = @BRASERO_PL_PARSER_LIBS@
-BRASERO_SCSI_LIBS = @BRASERO_SCSI_LIBS@
-BRASERO_SEARCH_CFLAGS = @BRASERO_SEARCH_CFLAGS@
-BRASERO_SEARCH_LIBS = @BRASERO_SEARCH_LIBS@
-BRASERO_SM_CFLAGS = @BRASERO_SM_CFLAGS@
-BRASERO_SM_LIBS = @BRASERO_SM_LIBS@
-BRASERO_SUB = @BRASERO_SUB@
-BRASERO_VERSION = @BRASERO_VERSION@
+BURNER_CANBERRA_CFLAGS = @BURNER_CANBERRA_CFLAGS@
+BURNER_CANBERRA_LIBS = @BURNER_CANBERRA_LIBS@
+BURNER_GIO_CFLAGS = @BURNER_GIO_CFLAGS@
+BURNER_GIO_LIBS = @BURNER_GIO_LIBS@
+BURNER_GLIB_CFLAGS = @BURNER_GLIB_CFLAGS@
+BURNER_GLIB_LIBS = @BURNER_GLIB_LIBS@
+BURNER_GMODULE_CFLAGS = @BURNER_GMODULE_CFLAGS@
+BURNER_GMODULE_EXPORT_CFLAGS = @BURNER_GMODULE_EXPORT_CFLAGS@
+BURNER_GMODULE_EXPORT_LIBS = @BURNER_GMODULE_EXPORT_LIBS@
+BURNER_GMODULE_LIBS = @BURNER_GMODULE_LIBS@
+BURNER_GSTREAMER_BASE_CFLAGS = @BURNER_GSTREAMER_BASE_CFLAGS@
+BURNER_GSTREAMER_BASE_LIBS = @BURNER_GSTREAMER_BASE_LIBS@
+BURNER_GSTREAMER_CFLAGS = @BURNER_GSTREAMER_CFLAGS@
+BURNER_GSTREAMER_LIBS = @BURNER_GSTREAMER_LIBS@
+BURNER_GTHREAD_CFLAGS = @BURNER_GTHREAD_CFLAGS@
+BURNER_GTHREAD_LIBS = @BURNER_GTHREAD_LIBS@
+BURNER_GTK_CFLAGS = @BURNER_GTK_CFLAGS@
+BURNER_GTK_LIBS = @BURNER_GTK_LIBS@
+BURNER_LIBBURNIA_CFLAGS = @BURNER_LIBBURNIA_CFLAGS@
+BURNER_LIBBURNIA_LIBS = @BURNER_LIBBURNIA_LIBS@
+BURNER_LIBNOTIFY_CFLAGS = @BURNER_LIBNOTIFY_CFLAGS@
+BURNER_LIBNOTIFY_LIBS = @BURNER_LIBNOTIFY_LIBS@
+BURNER_LIBXML_CFLAGS = @BURNER_LIBXML_CFLAGS@
+BURNER_LIBXML_LIBS = @BURNER_LIBXML_LIBS@
+BURNER_MAJOR_VERSION = @BURNER_MAJOR_VERSION@
+BURNER_MINOR_VERSION = @BURNER_MINOR_VERSION@
+BURNER_PLUGIN_DIRECTORY = @BURNER_PLUGIN_DIRECTORY@
+BURNER_PL_PARSER_CFLAGS = @BURNER_PL_PARSER_CFLAGS@
+BURNER_PL_PARSER_LIBS = @BURNER_PL_PARSER_LIBS@
+BURNER_SCSI_LIBS = @BURNER_SCSI_LIBS@
+BURNER_SEARCH_CFLAGS = @BURNER_SEARCH_CFLAGS@
+BURNER_SEARCH_LIBS = @BURNER_SEARCH_LIBS@
+BURNER_SM_CFLAGS = @BURNER_SM_CFLAGS@
+BURNER_SM_LIBS = @BURNER_SM_LIBS@
+BURNER_SUB = @BURNER_SUB@
+BURNER_VERSION = @BURNER_VERSION@
 CATALOGS = @CATALOGS@
 CATOBJEXT = @CATOBJEXT@
 CC = @CC@
@@ -313,7 +313,7 @@ INTROSPECTION_TYPELIBDIR = @INTROSPECTION_TYPELIBDIR@
 ITSTOOL = @ITSTOOL@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
-LIBBRASERO_LT_VERSION = @LIBBRASERO_LT_VERSION@
+LIBBURNER_LT_VERSION = @LIBBURNER_LT_VERSION@
 LIBBURNIA_CFLAGS = @LIBBURNIA_CFLAGS@
 LIBBURNIA_LIBS = @LIBBURNIA_LIBS@
 LIBM = @LIBM@
@@ -429,12 +429,12 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 module_flags = -avoid-version -module
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/libbrasero-utils/	\
-	-I$(top_builddir)/libbrasero-utils/	\
-	-I$(top_srcdir)/libbrasero-media/	\
-	-I$(top_builddir)/libbrasero-media/	\
-	-I$(top_srcdir)/libbrasero-burn/	\
-	-I$(top_builddir)/libbrasero-burn/	\
+	-I$(top_srcdir)/libburner-utils/	\
+	-I$(top_builddir)/libburner-utils/	\
+	-I$(top_srcdir)/libburner-media/	\
+	-I$(top_builddir)/libburner-media/	\
+	-I$(top_srcdir)/libburner-burn/	\
+	-I$(top_builddir)/libburner-burn/	\
 	-I$(top_srcdir)/src/			\
 	-I$(top_builddir)/src/			\
 	$(WARN_CFLAGS)							\
@@ -448,12 +448,12 @@ AM_CPPFLAGS = \
 	-DBINDIR=\""$(bindir)"\"		\
 	-DLIBEXECDIR=\""$(libexecdir)"\"	\
 	-DSHAREDIR=\""$(datadir)"\"		\
-	-DDATADIR=\""$(datadir)/brasero"\"	\
+	-DDATADIR=\""$(datadir)/burner"\"	\
 	$(NAUTILUS_EXTENSION_CFLAGS)		\
 	$(DISABLE_DEPRECATED)
 
 desktopdir = $(datadir)/applications
-desktop_in_files = brasero-nautilus.desktop.in
+desktop_in_files = burner-nautilus.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 EXTRA_DIST = $(desktop_in_files)
 CLEANFILES = $(desktop_DATA)
@@ -461,19 +461,19 @@ DISTCLEANFILES = $(NULL)
 
 ### Nautilus Extension
 nautilus_extensiondir = $(NAUTILUSDIR)
-nautilus_extension_LTLIBRARIES = libnautilus-brasero-extension.la
-libnautilus_brasero_extension_la_SOURCES = \
+nautilus_extension_LTLIBRARIES = libnautilus-burner-extension.la
+libnautilus_burner_extension_la_SOURCES = \
 	nautilus-burn-bar.c			\
 	nautilus-burn-bar.h			\
 	nautilus-burn-extension.c
 
-libnautilus_brasero_extension_la_LIBADD = \
+libnautilus_burner_extension_la_LIBADD = \
 	$(NAUTILUS_EXTENSION_LIBS)		\
-	../libbrasero-utils/libbrasero-utils3.la	\
-	../libbrasero-media/libbrasero-media3.la	\
-	../libbrasero-burn/libbrasero-burn3.la
+	../libburner-utils/libburner-utils3.la	\
+	../libburner-media/libburner-media3.la	\
+	../libburner-burn/libburner-burn3.la
 
-libnautilus_brasero_extension_la_LDFLAGS = $(module_flags)
+libnautilus_burner_extension_la_LDFLAGS = $(module_flags)
 all: all-am
 
 .SUFFIXES:
@@ -507,7 +507,7 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-brasero-nautilus.desktop.in: $(top_builddir)/config.status $(srcdir)/brasero-nautilus.desktop.in.in
+burner-nautilus.desktop.in: $(top_builddir)/config.status $(srcdir)/burner-nautilus.desktop.in.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 
 install-nautilus_extensionLTLIBRARIES: $(nautilus_extension_LTLIBRARIES)
@@ -545,8 +545,8 @@ clean-nautilus_extensionLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libnautilus-brasero-extension.la: $(libnautilus_brasero_extension_la_OBJECTS) $(libnautilus_brasero_extension_la_DEPENDENCIES) $(EXTRA_libnautilus_brasero_extension_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libnautilus_brasero_extension_la_LINK) -rpath $(nautilus_extensiondir) $(libnautilus_brasero_extension_la_OBJECTS) $(libnautilus_brasero_extension_la_LIBADD) $(LIBS)
+libnautilus-burner-extension.la: $(libnautilus_burner_extension_la_OBJECTS) $(libnautilus_burner_extension_la_DEPENDENCIES) $(EXTRA_libnautilus_burner_extension_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(libnautilus_burner_extension_la_LINK) -rpath $(nautilus_extensiondir) $(libnautilus_burner_extension_la_OBJECTS) $(libnautilus_burner_extension_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Úvod do aplikace na vypalování <app>Brasero</app>.</desc>
+    <desc>Úvod do aplikace na vypalování <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -33,9 +33,9 @@
 
   <title>Úvod</title>
 
-  <p><app>Brasero</app> je aplikace pro vypalování disků CD a DVD, navržená pro jednoduché používání a poskytující všechny nástroje nutné k vypalování.</p>
+  <p><app>Burner</app> je aplikace pro vypalování disků CD a DVD, navržená pro jednoduché používání a poskytující všechny nástroje nutné k vypalování.</p>
 
-  <p>S aplikací <application>Brasero</application> můžete:</p>
+  <p>S aplikací <application>Burner</application> můžete:</p>
   <list>
     <item><p>Vypalovat data na CD a DVD</p></item>
     <item><p>Vypalovat hudební CD z hudebních digitálních souborů (jako např. OGG, FLAC a MP3)</p></item>
@@ -47,8 +47,8 @@
   </list>
 
   <figure>
-    <title>Hlavní okno <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Hlavní okno <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

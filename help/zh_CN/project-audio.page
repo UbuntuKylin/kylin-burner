@@ -15,7 +15,7 @@
 
   <title>写入一张音乐 CD</title>
 
-  <p><app>Brasero</app> 可以将音频文件写入CD，以供您在 CD 播放器中播放等使用。最好用不可重写的 CD 刻录，因为不是所有的 CD 播放器都能播放可重写 CD。</p>
+  <p><app>Burner</app> 可以将音频文件写入CD，以供您在 CD 播放器中播放等使用。最好用不可重写的 CD 刻录，因为不是所有的 CD 播放器都能播放可重写 CD。</p>
 
   <steps>
     <item>

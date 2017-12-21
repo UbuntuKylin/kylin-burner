@@ -1,0 +1,339 @@
+<!-- ##### SECTION Title ##### -->
+burner-media
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO LIBBURNER_MEDIA_VERSION_MAJOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBBURNER_MEDIA_VERSION_MINOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBBURNER_MEDIA_VERSION_MICRO ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBBURNER_MEDIA_AGE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LIBBURNER_MEDIA_INSTALL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION burner_media_library_start ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION burner_media_library_stop ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION burner_media_get_option_group ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_media_quark ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### MACRO BURNER_MEDIA_ERROR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM BurnerMediaError ##### -->
+<para>
+
+</para>
+
+@BURNER_MEDIA_ERROR_NONE: 
+@BURNER_MEDIA_ERROR_GENERAL: 
+@BURNER_MEDIA_ERROR_IMAGE_INVALID: 
+
+<!-- ##### ENUM BurnerMedia ##### -->
+<para>
+
+</para>
+
+@BURNER_MEDIUM_UNSUPPORTED: 
+@BURNER_MEDIUM_BUSY: 
+@BURNER_MEDIUM_NONE: 
+@BURNER_MEDIUM_FILE: 
+@BURNER_MEDIUM_CD: 
+@BURNER_MEDIUM_DVD: 
+@BURNER_MEDIUM_BD: 
+@BURNER_MEDIUM_DUAL_L: 
+@BURNER_MEDIUM_RAM: 
+@BURNER_MEDIUM_PLUS: 
+@BURNER_MEDIUM_SEQUENTIAL: 
+@BURNER_MEDIUM_RESTRICTED: 
+@BURNER_MEDIUM_JUMP: 
+@BURNER_MEDIUM_RANDOM: 
+@BURNER_MEDIUM_SRM: 
+@BURNER_MEDIUM_POW: 
+@BURNER_MEDIUM_REWRITABLE: 
+@BURNER_MEDIUM_WRITABLE: 
+@BURNER_MEDIUM_ROM: 
+@BURNER_MEDIUM_BLANK: 
+@BURNER_MEDIUM_CLOSED: 
+@BURNER_MEDIUM_APPENDABLE: 
+@BURNER_MEDIUM_UNFORMATTED: 
+@BURNER_MEDIUM_PROTECTED: 
+@BURNER_MEDIUM_HAS_DATA: 
+@BURNER_MEDIUM_HAS_AUDIO: 
+
+<!-- ##### MACRO BURNER_MEDIUM_CDROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_CDR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_CDRW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVD_ROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDRW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDRW_RESTRICTED ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDR_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDR_JUMP_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDR_PLUS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDRW_PLUS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDR_PLUS_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVDRW_PLUS_DL ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_DVD_RAM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_BD_ROM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_BDR_SRM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_BDR_SRM_POW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_BDR_RANDOM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_BDRE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_MEDIUM_VALID ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_TYPE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_ATTR ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_STATUS ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_SUBTYPE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_INFO ##### -->
+<para>
+
+</para>
+
+@media: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_IS ##### -->
+<para>
+
+</para>
+
+@media: 
+@type: 
+
+
+<!-- ##### MACRO BURNER_MEDIUM_RANDOM_WRITABLE ##### -->
+<para>
+
+</para>
+
+@media: 
+
+

@@ -1,24 +1,24 @@
 
 AM_CPPFLAGS = \
 	-I$(top_srcdir)					\
-	-I$(top_srcdir)/libbrasero-media/					\
-	-I$(top_builddir)/libbrasero-media/		\
-	-I$(top_srcdir)/libbrasero-burn				\
-	-I$(top_builddir)/libbrasero-burn/				\
-	-DBRASERO_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
-	-DBRASERO_PREFIX=\"$(prefix)\"           		\
-	-DBRASERO_SYSCONFDIR=\"$(sysconfdir)\"   		\
-	-DBRASERO_DATADIR=\"$(datadir)/brasero\"     	    	\
-	-DBRASERO_LIBDIR=\"$(libdir)\"  	         	\
+	-I$(top_srcdir)/libburner-media/					\
+	-I$(top_builddir)/libburner-media/		\
+	-I$(top_srcdir)/libburner-burn				\
+	-I$(top_builddir)/libburner-burn/				\
+	-DBURNER_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
+	-DBURNER_PREFIX=\"$(prefix)\"           		\
+	-DBURNER_SYSCONFDIR=\"$(sysconfdir)\"   		\
+	-DBURNER_DATADIR=\"$(datadir)/burner\"     	    	\
+	-DBURNER_LIBDIR=\"$(libdir)\"  	         	\
 	$(WARN_CFLAGS)							\
 	$(DISABLE_DEPRECATED)				\
-	$(BRASERO_GLIB_CFLAGS)
+	$(BURNER_GLIB_CFLAGS)
 
 #cdrdao
-cdrdaodir = $(BRASERO_PLUGIN_DIRECTORY)
-cdrdao_LTLIBRARIES = libbrasero-cdrdao.la
-libbrasero_cdrdao_la_SOURCES = burn-cdrdao.c 
-libbrasero_cdrdao_la_LIBADD = ../../libbrasero-media/libbrasero-media3.la ../../libbrasero-burn/libbrasero-burn3.la $(BRASERO_GLIB_LIBS)
-libbrasero_cdrdao_la_LDFLAGS = -module -avoid-version
+cdrdaodir = $(BURNER_PLUGIN_DIRECTORY)
+cdrdao_LTLIBRARIES = libburner-cdrdao.la
+libburner_cdrdao_la_SOURCES = burn-cdrdao.c 
+libburner_cdrdao_la_LIBADD = ../../libburner-media/libburner-media3.la ../../libburner-burn/libburner-burn3.la $(BURNER_GLIB_LIBS)
+libburner_cdrdao_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

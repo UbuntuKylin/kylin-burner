@@ -18,7 +18,7 @@
 
   <title>Gardar un proxecto</title>
 
-  <p>Pode gardar un proxecto de audio, de datos ou de vídeo en <app>Brasero</app> para editalo ou grabalo máis tarde.</p>
+  <p>Pode gardar un proxecto de audio, de datos ou de vídeo en <app>Burner</app> para editalo ou grabalo máis tarde.</p>
 
   <steps>
     <item>
@@ -32,7 +32,7 @@
     </item>
   </steps>
 
-  <p>Hai moitas formas polas que pode abrir un proxecto gardado por <app>Brasero</app>:</p>
+  <p>Hai moitas formas polas que pode abrir un proxecto gardado por <app>Burner</app>:</p>
 
   <list>
     <item>
@@ -47,10 +47,10 @@
     <item>
       <p>abrir un proxecto dese o explorador de ficheiros.</p>
       <note>
-        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        <p>Only one instance of <app>Burner</app> can be opened at any time.
         If you try to open a second instance, the currently open
-        <app>Brasero</app> window will be focused.</p>
-        <p>If <app>Brasero</app> is already running and you try to open some
+        <app>Burner</app> window will be focused.</p>
+        <p>If <app>Burner</app> is already running and you try to open some
         files with it from <app>Files</app>, the files will be added to the
         project that you are currently working on.</p>
       </note>
@@ -58,7 +58,7 @@
   </list>
 
   <note>
-    <p>Se abre un proxecto gardado, <app>Brasero</app> tratarao como un proxecto novo: se quere gardar unha versión actualizada do seu proxecto preguntaralle o nome novo, e neste punto pode sobrescribir a versión anterior ou gárdeo como un proxecto novo escribindo un nome de ficheiro diferente.</p>
+    <p>Se abre un proxecto gardado, <app>Burner</app> tratarao como un proxecto novo: se quere gardar unha versión actualizada do seu proxecto preguntaralle o nome novo, e neste punto pode sobrescribir a versión anterior ou gárdeo como un proxecto novo escribindo un nome de ficheiro diferente.</p>
   </note>
 
 </page>

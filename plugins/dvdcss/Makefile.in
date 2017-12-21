@@ -128,19 +128,19 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(plugindir)"
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-libbrasero_dvdcss_la_DEPENDENCIES =  \
-	../../libbrasero-media/libbrasero-media3.la \
-	../../libbrasero-burn/libbrasero-burn3.la \
+libburner_dvdcss_la_DEPENDENCIES =  \
+	../../libburner-media/libburner-media3.la \
+	../../libburner-burn/libburner-burn3.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-am_libbrasero_dvdcss_la_OBJECTS = burn-dvdcss.lo
-libbrasero_dvdcss_la_OBJECTS = $(am_libbrasero_dvdcss_la_OBJECTS)
+am_libburner_dvdcss_la_OBJECTS = burn-dvdcss.lo
+libburner_dvdcss_la_OBJECTS = $(am_libburner_dvdcss_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libbrasero_dvdcss_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+libburner_dvdcss_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(AM_CFLAGS) $(CFLAGS) $(libbrasero_dvdcss_la_LDFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS) $(libburner_dvdcss_la_LDFLAGS) \
 	$(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -176,8 +176,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libbrasero_dvdcss_la_SOURCES)
-DIST_SOURCES = $(libbrasero_dvdcss_la_SOURCES)
+SOURCES = $(libburner_dvdcss_la_SOURCES)
+DIST_SOURCES = $(libburner_dvdcss_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -213,42 +213,42 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
-BRASERO_CANBERRA_CFLAGS = @BRASERO_CANBERRA_CFLAGS@
-BRASERO_CANBERRA_LIBS = @BRASERO_CANBERRA_LIBS@
-BRASERO_GIO_CFLAGS = @BRASERO_GIO_CFLAGS@
-BRASERO_GIO_LIBS = @BRASERO_GIO_LIBS@
-BRASERO_GLIB_CFLAGS = @BRASERO_GLIB_CFLAGS@
-BRASERO_GLIB_LIBS = @BRASERO_GLIB_LIBS@
-BRASERO_GMODULE_CFLAGS = @BRASERO_GMODULE_CFLAGS@
-BRASERO_GMODULE_EXPORT_CFLAGS = @BRASERO_GMODULE_EXPORT_CFLAGS@
-BRASERO_GMODULE_EXPORT_LIBS = @BRASERO_GMODULE_EXPORT_LIBS@
-BRASERO_GMODULE_LIBS = @BRASERO_GMODULE_LIBS@
-BRASERO_GSTREAMER_BASE_CFLAGS = @BRASERO_GSTREAMER_BASE_CFLAGS@
-BRASERO_GSTREAMER_BASE_LIBS = @BRASERO_GSTREAMER_BASE_LIBS@
-BRASERO_GSTREAMER_CFLAGS = @BRASERO_GSTREAMER_CFLAGS@
-BRASERO_GSTREAMER_LIBS = @BRASERO_GSTREAMER_LIBS@
-BRASERO_GTHREAD_CFLAGS = @BRASERO_GTHREAD_CFLAGS@
-BRASERO_GTHREAD_LIBS = @BRASERO_GTHREAD_LIBS@
-BRASERO_GTK_CFLAGS = @BRASERO_GTK_CFLAGS@
-BRASERO_GTK_LIBS = @BRASERO_GTK_LIBS@
-BRASERO_LIBBURNIA_CFLAGS = @BRASERO_LIBBURNIA_CFLAGS@
-BRASERO_LIBBURNIA_LIBS = @BRASERO_LIBBURNIA_LIBS@
-BRASERO_LIBNOTIFY_CFLAGS = @BRASERO_LIBNOTIFY_CFLAGS@
-BRASERO_LIBNOTIFY_LIBS = @BRASERO_LIBNOTIFY_LIBS@
-BRASERO_LIBXML_CFLAGS = @BRASERO_LIBXML_CFLAGS@
-BRASERO_LIBXML_LIBS = @BRASERO_LIBXML_LIBS@
-BRASERO_MAJOR_VERSION = @BRASERO_MAJOR_VERSION@
-BRASERO_MINOR_VERSION = @BRASERO_MINOR_VERSION@
-BRASERO_PLUGIN_DIRECTORY = @BRASERO_PLUGIN_DIRECTORY@
-BRASERO_PL_PARSER_CFLAGS = @BRASERO_PL_PARSER_CFLAGS@
-BRASERO_PL_PARSER_LIBS = @BRASERO_PL_PARSER_LIBS@
-BRASERO_SCSI_LIBS = @BRASERO_SCSI_LIBS@
-BRASERO_SEARCH_CFLAGS = @BRASERO_SEARCH_CFLAGS@
-BRASERO_SEARCH_LIBS = @BRASERO_SEARCH_LIBS@
-BRASERO_SM_CFLAGS = @BRASERO_SM_CFLAGS@
-BRASERO_SM_LIBS = @BRASERO_SM_LIBS@
-BRASERO_SUB = @BRASERO_SUB@
-BRASERO_VERSION = @BRASERO_VERSION@
+BURNER_CANBERRA_CFLAGS = @BURNER_CANBERRA_CFLAGS@
+BURNER_CANBERRA_LIBS = @BURNER_CANBERRA_LIBS@
+BURNER_GIO_CFLAGS = @BURNER_GIO_CFLAGS@
+BURNER_GIO_LIBS = @BURNER_GIO_LIBS@
+BURNER_GLIB_CFLAGS = @BURNER_GLIB_CFLAGS@
+BURNER_GLIB_LIBS = @BURNER_GLIB_LIBS@
+BURNER_GMODULE_CFLAGS = @BURNER_GMODULE_CFLAGS@
+BURNER_GMODULE_EXPORT_CFLAGS = @BURNER_GMODULE_EXPORT_CFLAGS@
+BURNER_GMODULE_EXPORT_LIBS = @BURNER_GMODULE_EXPORT_LIBS@
+BURNER_GMODULE_LIBS = @BURNER_GMODULE_LIBS@
+BURNER_GSTREAMER_BASE_CFLAGS = @BURNER_GSTREAMER_BASE_CFLAGS@
+BURNER_GSTREAMER_BASE_LIBS = @BURNER_GSTREAMER_BASE_LIBS@
+BURNER_GSTREAMER_CFLAGS = @BURNER_GSTREAMER_CFLAGS@
+BURNER_GSTREAMER_LIBS = @BURNER_GSTREAMER_LIBS@
+BURNER_GTHREAD_CFLAGS = @BURNER_GTHREAD_CFLAGS@
+BURNER_GTHREAD_LIBS = @BURNER_GTHREAD_LIBS@
+BURNER_GTK_CFLAGS = @BURNER_GTK_CFLAGS@
+BURNER_GTK_LIBS = @BURNER_GTK_LIBS@
+BURNER_LIBBURNIA_CFLAGS = @BURNER_LIBBURNIA_CFLAGS@
+BURNER_LIBBURNIA_LIBS = @BURNER_LIBBURNIA_LIBS@
+BURNER_LIBNOTIFY_CFLAGS = @BURNER_LIBNOTIFY_CFLAGS@
+BURNER_LIBNOTIFY_LIBS = @BURNER_LIBNOTIFY_LIBS@
+BURNER_LIBXML_CFLAGS = @BURNER_LIBXML_CFLAGS@
+BURNER_LIBXML_LIBS = @BURNER_LIBXML_LIBS@
+BURNER_MAJOR_VERSION = @BURNER_MAJOR_VERSION@
+BURNER_MINOR_VERSION = @BURNER_MINOR_VERSION@
+BURNER_PLUGIN_DIRECTORY = @BURNER_PLUGIN_DIRECTORY@
+BURNER_PL_PARSER_CFLAGS = @BURNER_PL_PARSER_CFLAGS@
+BURNER_PL_PARSER_LIBS = @BURNER_PL_PARSER_LIBS@
+BURNER_SCSI_LIBS = @BURNER_SCSI_LIBS@
+BURNER_SEARCH_CFLAGS = @BURNER_SEARCH_CFLAGS@
+BURNER_SEARCH_LIBS = @BURNER_SEARCH_LIBS@
+BURNER_SM_CFLAGS = @BURNER_SM_CFLAGS@
+BURNER_SM_LIBS = @BURNER_SM_LIBS@
+BURNER_SUB = @BURNER_SUB@
+BURNER_VERSION = @BURNER_VERSION@
 CATALOGS = @CATALOGS@
 CATOBJEXT = @CATOBJEXT@
 CC = @CC@
@@ -307,7 +307,7 @@ INTROSPECTION_TYPELIBDIR = @INTROSPECTION_TYPELIBDIR@
 ITSTOOL = @ITSTOOL@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
-LIBBRASERO_LT_VERSION = @LIBBRASERO_LT_VERSION@
+LIBBURNER_LT_VERSION = @LIBBURNER_LT_VERSION@
 LIBBURNIA_CFLAGS = @LIBBURNIA_CFLAGS@
 LIBBURNIA_LIBS = @LIBBURNIA_LIBS@
 LIBM = @LIBM@
@@ -423,26 +423,26 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)					\
-	-I$(top_srcdir)/libbrasero-media/					\
-	-I$(top_builddir)/libbrasero-media/		\
-	-I$(top_srcdir)/libbrasero-burn				\
-	-I$(top_builddir)/libbrasero-burn/				\
-	-DBRASERO_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
-	-DBRASERO_PREFIX=\"$(prefix)\"           		\
-	-DBRASERO_SYSCONFDIR=\"$(sysconfdir)\"   		\
-	-DBRASERO_DATADIR=\"$(datadir)/brasero\"     	    	\
-	-DBRASERO_LIBDIR=\"$(libdir)\"  	         	\
+	-I$(top_srcdir)/libburner-media/					\
+	-I$(top_builddir)/libburner-media/		\
+	-I$(top_srcdir)/libburner-burn				\
+	-I$(top_builddir)/libburner-burn/				\
+	-DBURNER_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
+	-DBURNER_PREFIX=\"$(prefix)\"           		\
+	-DBURNER_SYSCONFDIR=\"$(sysconfdir)\"   		\
+	-DBURNER_DATADIR=\"$(datadir)/burner\"     	    	\
+	-DBURNER_LIBDIR=\"$(libdir)\"  	         	\
 	$(WARN_CFLAGS)							\
 	$(DISABLE_DEPRECATED)				\
-	$(BRASERO_GLIB_CFLAGS)
+	$(BURNER_GLIB_CFLAGS)
 
-plugindir = $(BRASERO_PLUGIN_DIRECTORY)
-plugin_LTLIBRARIES = libbrasero-dvdcss.la
-libbrasero_dvdcss_la_SOURCES = burn-dvdcss.c \
+plugindir = $(BURNER_PLUGIN_DIRECTORY)
+plugin_LTLIBRARIES = libburner-dvdcss.la
+libburner_dvdcss_la_SOURCES = burn-dvdcss.c \
 	burn-dvdcss-private.h 
 
-libbrasero_dvdcss_la_LIBADD = ../../libbrasero-media/libbrasero-media3.la ../../libbrasero-burn/libbrasero-burn3.la $(BRASERO_GLIB_LIBS) $(BRASERO_GMODULE_LIBS)
-libbrasero_dvdcss_la_LDFLAGS = -module -avoid-version
+libburner_dvdcss_la_LIBADD = ../../libburner-media/libburner-media3.la ../../libburner-burn/libburner-burn3.la $(BURNER_GLIB_LIBS) $(BURNER_GMODULE_LIBS)
+libburner_dvdcss_la_LDFLAGS = -module -avoid-version
 all: all-am
 
 .SUFFIXES:
@@ -512,8 +512,8 @@ clean-pluginLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libbrasero-dvdcss.la: $(libbrasero_dvdcss_la_OBJECTS) $(libbrasero_dvdcss_la_DEPENDENCIES) $(EXTRA_libbrasero_dvdcss_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libbrasero_dvdcss_la_LINK) -rpath $(plugindir) $(libbrasero_dvdcss_la_OBJECTS) $(libbrasero_dvdcss_la_LIBADD) $(LIBS)
+libburner-dvdcss.la: $(libburner_dvdcss_la_OBJECTS) $(libburner_dvdcss_la_DEPENDENCIES) $(EXTRA_libburner_dvdcss_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(libburner_dvdcss_la_LINK) -rpath $(plugindir) $(libburner_dvdcss_la_OBJECTS) $(libburner_dvdcss_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

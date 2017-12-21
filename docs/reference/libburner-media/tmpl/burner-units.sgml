@@ -1,0 +1,148 @@
+<!-- ##### SECTION Title ##### -->
+burner-units
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO CD_RATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO DVD_RATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BD_RATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO BURNER_SPEED_TO_RATE_CD ##### -->
+<para>
+
+</para>
+
+@speed: 
+
+
+<!-- ##### MACRO BURNER_SPEED_TO_RATE_DVD ##### -->
+<para>
+
+</para>
+
+@speed: 
+
+
+<!-- ##### MACRO BURNER_SPEED_TO_RATE_BD ##### -->
+<para>
+
+</para>
+
+@speed: 
+
+
+<!-- ##### MACRO BURNER_RATE_TO_SPEED_CD ##### -->
+<para>
+
+</para>
+
+@rate: 
+
+
+<!-- ##### MACRO BURNER_RATE_TO_SPEED_DVD ##### -->
+<para>
+
+</para>
+
+@rate: 
+
+
+<!-- ##### MACRO BURNER_RATE_TO_SPEED_BD ##### -->
+<para>
+
+</para>
+
+@rate: 
+
+
+<!-- ##### MACRO BURNER_DURATION_TO_BYTES ##### -->
+<para>
+
+</para>
+
+@duration: 
+
+
+<!-- ##### MACRO BURNER_DURATION_TO_SECTORS ##### -->
+<para>
+
+</para>
+
+@duration: 
+
+
+<!-- ##### MACRO BURNER_BYTES_TO_SECTORS ##### -->
+<para>
+
+</para>
+
+@size: 
+@secsize: 
+
+
+<!-- ##### MACRO BURNER_BYTES_TO_DURATION ##### -->
+<para>
+
+</para>
+
+@bytes: 
+
+
+<!-- ##### FUNCTION burner_units_get_time_string ##### -->
+<para>
+
+</para>
+
+@time: 
+@with_unit: 
+@round: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_units_get_time_string_from_size ##### -->
+<para>
+
+</para>
+
+@size: 
+@with_unit: 
+@round: 
+@Returns: 
+
+

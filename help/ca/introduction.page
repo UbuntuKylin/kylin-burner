@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introducció a l'aplicació d'enregistrament de discs <app>Brasero</app>.</desc>
+    <desc>Introducció a l'aplicació d'enregistrament de discs <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -27,9 +27,9 @@
 
   <title>Introducció</title>
 
-  <p>El <app>Brasero</app> és una aplicació per a enregistrar CD i DVD, dissenyat per a ser fàcil d'utilitzar i al mateix temps proporcionar totes les eines necessàries per a l'enregistrament.</p>
+  <p>El <app>Burner</app> és una aplicació per a enregistrar CD i DVD, dissenyat per a ser fàcil d'utilitzar i al mateix temps proporcionar totes les eines necessàries per a l'enregistrament.</p>
 
-  <p>Amb el <app>Brasero</app> podeu:</p>
+  <p>Amb el <app>Burner</app> podeu:</p>
   <list>
     <item><p>Enregistrar dades a CD i DVD</p></item>
     <item><p>Enregistrar CD d'àudio des de fitxers d'àudio digitals (com ara ogg, flac i mp3)</p></item>
@@ -41,8 +41,8 @@
   </list>
 
   <figure>
-    <title>Finestra principal del <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Finestra principal del <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

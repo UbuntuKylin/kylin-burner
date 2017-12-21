@@ -23,7 +23,7 @@
 
   <title>刻录镜像</title>
 
-  <p><app>Brasero</app> 可以将光盘镜像刻录到 CD 或 DVD 上。它支持以下光盘镜像扩展名：<file>.iso</file>、<file>.toc</file> 和 <file>.cue</file>。</p>
+  <p><app>Burner</app> 可以将光盘镜像刻录到 CD 或 DVD 上。它支持以下光盘镜像扩展名：<file>.iso</file>、<file>.toc</file> 和 <file>.cue</file>。</p>
 
   <note style="advanced">
     <p>光盘镜像是包含了一张 CD 或 DVD 上所有数据的档案文件。一张 CD 同时只能容纳一个光盘镜像，但档案里的内容多少是任意的，只要光盘能容得下就行。</p>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <p>从 <gui>请选择要写入的光盘</gui> 下方的下拉菜单中选择您要使用的光盘。如果您有不止一台光驱，那么会列出所有光驱中的光盘。</p>
-        <note><p>选择光盘后，<app>Brasero</app> 将显示刻录后光盘上剩余多少空间。</p></note>
+        <note><p>选择光盘后，<app>Burner</app> 将显示刻录后光盘上剩余多少空间。</p></note>
     </item>
     <item>
       <p>点击 <gui>属性</gui> 按钮来选择刻录速度或者其他自定义选项。</p>
@@ -53,8 +53,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

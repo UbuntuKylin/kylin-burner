@@ -27,7 +27,7 @@
 
   <title>Criando uma capa</title>
 
-  <p>Você pode usar o <app>Brasero</app> para criar encartes para caixas de CD/DVD. Acesse a ferramenta de criação em <guiseq><gui>Ferramentas</gui> <gui>Editor de capa</gui></guiseq>.</p>
+  <p>Você pode usar o <app>Burner</app> para criar encartes para caixas de CD/DVD. Acesse a ferramenta de criação em <guiseq><gui>Ferramentas</gui> <gui>Editor de capa</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Se você está criando um projeto de áudio e finaliza-o colocando junto ao projeto antes de criar um encarte, ao acessar a interface do <gui>Editor de capa</gui> da janela do projeto de áudio, as faixas serão automaticamente listadas nacontracapa.</p>
@@ -50,7 +50,7 @@
     <item>
       <p>Clique no ícone <gui>Propriedades do fundo</gui> da barra de ferramentas para adicionar um plano de fundo para a capa atual, ou clique com o botão direito na capa que você deseja editar e selecione <gui>Definir propriedades do fundo</gui>. Você pode optar por usar um plano de fundo colorido ou por selecionar uma imagem de plano de fundo.</p>
       <note style="bug">
-        <p>Se você seleciona uma imagem de plano de fundo centralizada, algumas vezes o <app>Brasero</app> trava quando você clica no botão <gui>Fechar</gui>.</p>
+        <p>Se você seleciona uma imagem de plano de fundo centralizada, algumas vezes o <app>Burner</app> trava quando você clica no botão <gui>Fechar</gui>.</p>
       </note>
       <p>Clique no botão <gui>Fechar</gui> para aplicar as alterações e fechar o diálogo <gui>Propriedades do fundo</gui>.</p>
     </item>

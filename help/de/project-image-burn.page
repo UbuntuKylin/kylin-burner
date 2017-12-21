@@ -35,7 +35,7 @@
 
   <title>Ein Abbild brennen</title>
 
-  <p><app>Brasero</app> ermöglicht Ihnen das Brennen von Abbildern auf eine CD oder DVD. Die folgenden Erweiterungen von Abbildern für optische Medien werden unterstützt: <file>.iso</file>, <file>.toc</file> und <file>.cue</file>.</p>
+  <p><app>Burner</app> ermöglicht Ihnen das Brennen von Abbildern auf eine CD oder DVD. Die folgenden Erweiterungen von Abbildern für optische Medien werden unterstützt: <file>.iso</file>, <file>.toc</file> und <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Medienabbilder sind Archivdateien, die alle Daten einer CD oder DVD enthalten. Auf einer CD können sich nicht mehrere Medienabbilder befinden, aber jedes Archiv kann so wenig oder so viel Daten enthalten, wie Sie wollen, solange diese auf die CD/DVD passen.</p>
@@ -51,7 +51,7 @@
     </item>
     <item>
       <p>Wählen Sie die zu verwendende CD/DVD in der Auswahlliste unterhalb von <gui>Wählen Sie die zu kopierende CD/DVD</gui> aus. Falls Sie über mehr als ein optisches Laufwerk verfügen, werden alle aktuell darin befindlichen CDs/DVDs aufgelistet.</p>
-        <note><p>Nach der Auswahl der CD/DVD zeigt <app>Brasero</app> den nach dem Brennen verbleibenden freien Platz auf dem Medium an.</p></note>
+        <note><p>Nach der Auswahl der CD/DVD zeigt <app>Burner</app> den nach dem Brennen verbleibenden freien Platz auf dem Medium an.</p></note>
     </item>
     <item>
       <p>Klicken Sie auf den Knopf <gui>Eigenschaften</gui>, um die Brenngeschwindigkeit und weitere anpassbare Optionen auswählen zu können.</p>
@@ -63,8 +63,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

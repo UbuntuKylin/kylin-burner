@@ -15,7 +15,7 @@
 
   <title>Create a cover</title>
 
-  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  <p>You can use <app>Burner</app> to create inlays for your jewel cases.
   Access the creator by clicking <guiseq><gui>Tools</gui>
   <gui>Cover Editor</gui></guiseq>.</p>
 
@@ -49,7 +49,7 @@
       edit and select <gui>Set Background Properties</gui>. You can choose to
       use a colored background or to select a background image.</p>
       <note style="bug">
-        <p>If you select a centered background image, <app>Brasero</app>
+        <p>If you select a centered background image, <app>Burner</app>
 	sometimes crashes when you click the <gui>Close</gui> button.</p>
       </note>
       <p>Click the <gui>Close</gui> button to apply the changes and close the

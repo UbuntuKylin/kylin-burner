@@ -1,0 +1,186 @@
+<!-- ##### SECTION Title ##### -->
+BurnerTrack
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerTrack ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_track_changed ##### -->
+<para>
+
+</para>
+
+@track: 
+
+
+<!-- ##### FUNCTION burner_track_get_size ##### -->
+<para>
+
+</para>
+
+@track: 
+@blocks: 
+@bytes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_get_track_type ##### -->
+<para>
+
+</para>
+
+@track: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_get_status ##### -->
+<para>
+
+</para>
+
+@track: 
+@status: 
+@Returns: 
+
+
+<!-- ##### ENUM BurnerChecksumType ##### -->
+<para>
+
+</para>
+
+@BURNER_CHECKSUM_NONE: 
+@BURNER_CHECKSUM_DETECT: 
+@BURNER_CHECKSUM_MD5: 
+@BURNER_CHECKSUM_MD5_FILE: 
+@BURNER_CHECKSUM_SHA1: 
+@BURNER_CHECKSUM_SHA1_FILE: 
+@BURNER_CHECKSUM_SHA256: 
+@BURNER_CHECKSUM_SHA256_FILE: 
+
+<!-- ##### FUNCTION burner_track_set_checksum ##### -->
+<para>
+
+</para>
+
+@track: 
+@type: 
+@checksum: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_get_checksum ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_get_checksum_type ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_add ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_lookup ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_copy_missing ##### -->
+<para>
+
+</para>
+
+@dest: 
+@src: 
+
+
+<!-- ##### FUNCTION burner_track_tag_add_string ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_lookup_string ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_add_int ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_track_tag_lookup_int ##### -->
+<para>
+
+</para>
+
+@track: 
+@tag: 
+@Returns: 
+
+

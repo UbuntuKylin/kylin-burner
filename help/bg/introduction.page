@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introduction to the <app>Brasero</app> disc burning application.</desc>
+    <desc>Introduction to the <app>Burner</app> disc burning application.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -15,10 +15,10 @@
 
   <title>Въведение</title>
 
-  <p><app>Brasero</app> is an application for burning CDs and DVDs, designed to
+  <p><app>Burner</app> is an application for burning CDs and DVDs, designed to
   be easy to use, while providing all the tools necessary for burning.</p>
 
-  <p>With <app>Brasero</app> you can:</p>
+  <p>With <app>Burner</app> you can:</p>
   <list>
     <item><p>Burn data to CDs and DVDs</p></item>
     <item><p>Burn audio CDs from digital audio files (such as OGG, FLAC and
@@ -31,8 +31,8 @@
   </list>
 
   <figure>
-    <title>The <gui>Brasero</gui> main window</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>The <gui>Burner</gui> main window</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

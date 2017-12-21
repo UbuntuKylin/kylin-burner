@@ -29,7 +29,7 @@
 
   <title>Bakar image</title>
 
-  <p><app>Brasero</app> memungkinkan Anda membakar image cakram ke CD atau DVD. Dia mendukung ekstensi image cakram optik berikut: <file>.iso</file>, <file>.toc</file>, dan <file>.cue</file>.</p>
+  <p><app>Burner</app> memungkinkan Anda membakar image cakram ke CD atau DVD. Dia mendukung ekstensi image cakram optik berikut: <file>.iso</file>, <file>.toc</file>, dan <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Image cakram adalah berkas arsip yang memuat semua data yang ada pada CD atau DVD. Hanya satu image cakram bisa berada pada suatu CD setiap saat, tapi setiap arsip bisa memuat sesedikit atau sebanyak mungkin data yang Anda inginkan, selama cukup dimuat dalam cakram.</p>
@@ -45,7 +45,7 @@
     </item>
     <item>
       <p>Pilih cakram yang ingin Anda pakai dari daftar drop down di bawah <gui>Pilih cakram yang akan ditulisi</gui>. Bila Anda punya lebih dari satu kandar cakram, semua cakram yang sedang berada di dalamnya mesti terdaftar.</p>
-        <note><p>Setelah memilih cakram <app>Brasero</app> menunjukkan berapa banyak ruang kosong akan tersisa pada cakram setelah pembakaran.</p></note>
+        <note><p>Setelah memilih cakram <app>Burner</app> menunjukkan berapa banyak ruang kosong akan tersisa pada cakram setelah pembakaran.</p></note>
     </item>
     <item>
       <p>Klik tombol <gui>Properti</gui> untuk memilih kecepatan pembakaran dan opsi gubahan lain.</p>
@@ -57,8 +57,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

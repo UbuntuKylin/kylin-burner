@@ -53,10 +53,10 @@
     <item>
       <p>파일 탐색기로부터 프로젝트 열기</p>
       <note>
-        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        <p>Only one instance of <app>Burner</app> can be opened at any time.
         If you try to open a second instance, the currently open
-        <app>Brasero</app> window will be focused.</p>
-        <p>If <app>Brasero</app> is already running and you try to open some
+        <app>Burner</app> window will be focused.</p>
+        <p>If <app>Burner</app> is already running and you try to open some
         files with it from <app>Files</app>, the files will be added to the
         project that you are currently working on.</p>
       </note>

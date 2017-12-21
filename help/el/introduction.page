@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Εισαγωγή στην εφαρμογή εγγραφής δίσκου του <app>Brasero</app>.</desc>
+    <desc>Εισαγωγή στην εφαρμογή εγγραφής δίσκου του <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -33,9 +33,9 @@
 
   <title>Εισαγωγή</title>
 
-  <p>Το <app>Brasero</app> είναι μια εφαρμογή για εγγραφή CD-RW και DVD-RW, σχεδιασμένη να είναι εύκολη στη χρήση, ενώ προσφέρει όλα τα απαραίτητα εργαλεία για την εγγραφή.</p>
+  <p>Το <app>Burner</app> είναι μια εφαρμογή για εγγραφή CD-RW και DVD-RW, σχεδιασμένη να είναι εύκολη στη χρήση, ενώ προσφέρει όλα τα απαραίτητα εργαλεία για την εγγραφή.</p>
 
-  <p>Με το <app>Brasero</app> μπορείτε:</p>
+  <p>Με το <app>Burner</app> μπορείτε:</p>
   <list>
     <item><p>Εγγραφή δεδομένων σε CD-RW και DVD-RW</p></item>
     <item><p>Εγγραφή CD ήχου από ψηφιακά αρχεία ήχου (όπως ogg, flac και mp3)</p></item>
@@ -47,8 +47,8 @@
   </list>
 
   <figure>
-    <title>Το κύριο παράθυρο του <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Το κύριο παράθυρο του <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

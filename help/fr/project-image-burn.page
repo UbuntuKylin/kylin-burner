@@ -41,7 +41,7 @@
 
   <title>Gravure d'images</title>
 
-  <p><app>Brasero</app> vous permet de graver des images de disque sur un CD ou un DVD. Il prend en charge les extensions d'images de disque optique suivantes : <file>.iso</file>, <file>.toc</file> et <file>.cue</file>.</p>
+  <p><app>Burner</app> vous permet de graver des images de disque sur un CD ou un DVD. Il prend en charge les extensions d'images de disque optique suivantes : <file>.iso</file>, <file>.toc</file> et <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Les images disque sont des fichiers archives qui contiennent toutes les données qui sont sur un CD ou un DVD. Il ne peut y avoir qu'une seule image disque à la fois sur un CD, mais chaque archive peut contenir autant de données que vous voulez dès l'instant où cela rentre sur le disque.</p>
@@ -57,7 +57,7 @@
     </item>
     <item>
       <p>Sélectionner le disque que vous voulez utiliser dans la liste déroulante en dessous de <gui>Choisissez un disque à graver</gui>. Si vous avez plusieurs lecteurs de disques, tous les disques actuellement chargés devraient apparaître dans cette liste.</p>
-        <note><p>Après avoir sélectionné le disque, <app>Brasero</app> affiche combien d'espace libre il reste sur le disque après la gravure.</p></note>
+        <note><p>Après avoir sélectionné le disque, <app>Burner</app> affiche combien d'espace libre il reste sur le disque après la gravure.</p></note>
     </item>
     <item>
       <p>Cliquez sur <gui>Propriétés</gui> pour sélectionner la vitesse de gravure et d'autres options de personnalisation.</p>
@@ -69,8 +69,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

@@ -41,7 +41,7 @@
 
   <title>Εγγραφή εικόνας</title>
 
-  <p>Το <app>Brasero</app> σας επιτρέπει να γράψετε εικόνες δίσκου σε ένα CD ή DVD. Υποστηρίζει τις ακόλουθες επεκτάσεις των οπτικών δίσκων: <file>.iso</file>, <file>.toc</file> και <file>.cue</file>.</p>
+  <p>Το <app>Burner</app> σας επιτρέπει να γράψετε εικόνες δίσκου σε ένα CD ή DVD. Υποστηρίζει τις ακόλουθες επεκτάσεις των οπτικών δίσκων: <file>.iso</file>, <file>.toc</file> και <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Οι εικόνες δίσκου είναι συμπιεσμένα αρχεία που περιέχουν όλα τα δεδομένα του CD ή DVD. Μόνο μια εικόνα δίσκου μπορεί να υπάρχει σε ένα CD κάθε φορά, αλλά κάθε συμπιεσμένο αρχείο μπορεί να περιέχει όσα δεδομένα θέλετε, αρκεί να χωράνε στον δίσκο.</p>
@@ -57,7 +57,7 @@
     </item>
     <item>
       <p>Επιλέξτε τον δίσκο τον οποίο θέλετε να χρησιμοποιήσετε από την αναδιπλούμενη λίστα παρακάτω <gui>Επιλέξτε τον δίσκο στον οποίο θα γράψετε</gui>. Αν έχετε πάνω από μια συσκευή δίσκου, όλοι οι δίσκοι που είναι μέσα τους θα εμφανιστούν στην λίστα.</p>
-        <note><p>Αφού διαλέξετε τον δίσκο το <app>Brasero</app> θα δείξει πόσος ελεύθερος χώρος θα απομείνει στον δίσκο μετά την εγγραφή.</p></note>
+        <note><p>Αφού διαλέξετε τον δίσκο το <app>Burner</app> θα δείξει πόσος ελεύθερος χώρος θα απομείνει στον δίσκο μετά την εγγραφή.</p></note>
     </item>
     <item>
       <p>Πατήστε το κουμπί <gui>Προτιμήσεις</gui> για να επιλέξετε την ταχύτητα εγγραφής και άλλες επιλογές.</p>
@@ -69,8 +69,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

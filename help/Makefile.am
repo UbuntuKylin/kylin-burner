@@ -1,11 +1,11 @@
 @YELP_HELP_RULES@
 
 # Module name
-HELP_ID = brasero
+HELP_ID = burner
 
 # List of figures to be included
 HELP_MEDIA = \
-	figures/brasero-main-window.png \
+	figures/burner-main-window.png \
 	figures/logo48.png
 
 # List of pages

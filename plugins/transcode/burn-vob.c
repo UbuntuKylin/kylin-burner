@@ -1,22 +1,22 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /*
- * Libbrasero-burn
+ * Libburner-burn
  * Copyright (C) Philippe Rouquier 2005-2009 <bonfire-app@wanadoo.fr>
  *
- * Libbrasero-burn is free software; you can redistribute it and/or modify
+ * Libburner-burn is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * The Libbrasero-burn authors hereby grant permission for non-GPL compatible
+ * The Libburner-burn authors hereby grant permission for non-GPL compatible
  * GStreamer plugins to be used and distributed together with GStreamer
- * and Libbrasero-burn. This permission is above and beyond the permissions granted
- * by the GPL license by which Libbrasero-burn is covered. If you modify this code
+ * and Libburner-burn. This permission is above and beyond the permissions granted
+ * by the GPL license by which Libburner-burn is covered. If you modify this code
  * you may extend this exception to your version of the code, but you are not
  * obligated to do so. If you do not wish to do so, delete this exception
  * statement from your version.
  * 
- * Libbrasero-burn is distributed in the hope that it will be useful,
+ * Libburner-burn is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Library General Public License for more details.
@@ -40,22 +40,22 @@
 
 #include <gst/gst.h>
 
-#include "brasero-tags.h"
+#include "burner-tags.h"
 #include "burn-job.h"
-#include "brasero-plugin-registration.h"
+#include "burner-plugin-registration.h"
 
 
-#define BRASERO_TYPE_VOB             (brasero_vob_get_type ())
-#define BRASERO_VOB(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), BRASERO_TYPE_VOB, BraseroVob))
-#define BRASERO_VOB_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), BRASERO_TYPE_VOB, BraseroVobClass))
-#define BRASERO_IS_VOB(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), BRASERO_TYPE_VOB))
-#define BRASERO_IS_VOB_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), BRASERO_TYPE_VOB))
-#define BRASERO_VOB_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), BRASERO_TYPE_VOB, BraseroVobClass))
+#define BURNER_TYPE_VOB             (burner_vob_get_type ())
+#define BURNER_VOB(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), BURNER_TYPE_VOB, BurnerVob))
+#define BURNER_VOB_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), BURNER_TYPE_VOB, BurnerVobClass))
+#define BURNER_IS_VOB(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), BURNER_TYPE_VOB))
+#define BURNER_IS_VOB_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), BURNER_TYPE_VOB))
+#define BURNER_VOB_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), BURNER_TYPE_VOB, BurnerVobClass))
 
-BRASERO_PLUGIN_BOILERPLATE (BraseroVob, brasero_vob, BRASERO_TYPE_JOB, BraseroJob);
+BURNER_PLUGIN_BOILERPLATE (BurnerVob, burner_vob, BURNER_TYPE_JOB, BurnerJob);
 
-typedef struct _BraseroVobPrivate BraseroVobPrivate;
-struct _BraseroVobPrivate
+typedef struct _BurnerVobPrivate BurnerVobPrivate;
+struct _BurnerVobPrivate
 {
 	GstElement *pipeline;
 
@@ -64,13 +64,13 @@ struct _BraseroVobPrivate
 
 	GstElement *source;
 
-	BraseroStreamFormat format;
+	BurnerStreamFormat format;
 
 	guint svcd:1;
 	guint is_video_dvd:1;
 };
 
-#define BRASERO_VOB_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BRASERO_TYPE_VOB, BraseroVobPrivate))
+#define BURNER_VOB_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BURNER_TYPE_VOB, BurnerVobPrivate))
 
 static GObjectClass *parent_class = NULL;
 
@@ -81,11 +81,11 @@ static GObjectClass *parent_class = NULL;
 #define MAX_SIZE_TIME		3000000000LL    /* Use unlimited (0) if it does not work */
 
 static void
-brasero_vob_stop_pipeline (BraseroVob *vob)
+burner_vob_stop_pipeline (BurnerVob *vob)
 {
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 	if (!priv->pipeline)
 		return;
 
@@ -96,42 +96,42 @@ brasero_vob_stop_pipeline (BraseroVob *vob)
 	priv->pipeline = NULL;
 }
 
-static BraseroBurnResult
-brasero_vob_stop (BraseroJob *job,
+static BurnerBurnResult
+burner_vob_stop (BurnerJob *job,
 		  GError **error)
 {
-	brasero_vob_stop_pipeline (BRASERO_VOB (job));
-	return BRASERO_BURN_OK;
+	burner_vob_stop_pipeline (BURNER_VOB (job));
+	return BURNER_BURN_OK;
 }
 
 static void
-brasero_vob_finished (BraseroVob *vob)
+burner_vob_finished (BurnerVob *vob)
 {
-	BraseroTrackType *type = NULL;
-	BraseroTrackStream *track;
+	BurnerTrackType *type = NULL;
+	BurnerTrackStream *track;
 	gchar *output = NULL;
 
-	type = brasero_track_type_new ();
-	brasero_job_get_output_type (BRASERO_JOB (vob), type);
-	brasero_job_get_audio_output (BRASERO_JOB (vob), &output);
+	type = burner_track_type_new ();
+	burner_job_get_output_type (BURNER_JOB (vob), type);
+	burner_job_get_audio_output (BURNER_JOB (vob), &output);
 
-	track = brasero_track_stream_new ();
-	brasero_track_stream_set_source (track, output);
-	brasero_track_stream_set_format (track, brasero_track_type_get_stream_format (type));
+	track = burner_track_stream_new ();
+	burner_track_stream_set_source (track, output);
+	burner_track_stream_set_format (track, burner_track_type_get_stream_format (type));
 
-	brasero_job_add_track (BRASERO_JOB (vob), BRASERO_TRACK (track));
+	burner_job_add_track (BURNER_JOB (vob), BURNER_TRACK (track));
 	g_object_unref (track);
 
-	brasero_track_type_free (type);
+	burner_track_type_free (type);
 	g_free (output);
 
-	brasero_job_finished_track (BRASERO_JOB (vob));
+	burner_job_finished_track (BURNER_JOB (vob));
 }
 
 static gboolean
-brasero_vob_bus_messages (GstBus *bus,
+burner_vob_bus_messages (GstBus *bus,
 			  GstMessage *msg,
-			  BraseroVob *vob)
+			  BurnerVob *vob)
 {
 	GError *error = NULL;
 	gchar *debug;
@@ -142,17 +142,17 @@ brasero_vob_bus_messages (GstBus *bus,
 
 	case GST_MESSAGE_ERROR:
 		gst_message_parse_error (msg, &error, &debug);
-		BRASERO_JOB_LOG (vob, debug);
+		BURNER_JOB_LOG (vob, debug);
 		g_free (debug);
 
-	        brasero_job_error (BRASERO_JOB (vob), error);
+	        burner_job_error (BURNER_JOB (vob), error);
 		return FALSE;
 
 	case GST_MESSAGE_EOS:
-		BRASERO_JOB_LOG (vob, "Transcoding finished");
+		BURNER_JOB_LOG (vob, "Transcoding finished");
 
 		/* add a new track and terminate */
-		brasero_vob_finished (vob);
+		burner_vob_finished (vob);
 		return FALSE;
 
 	case GST_MESSAGE_STATE_CHANGED:
@@ -166,21 +166,21 @@ brasero_vob_bus_messages (GstBus *bus,
 }
 
 static void
-brasero_vob_error_on_pad_linking (BraseroVob *self,
+burner_vob_error_on_pad_linking (BurnerVob *self,
                                   const gchar *function_name)
 {
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 	GstMessage *message;
 	GstBus *bus;
 
-	priv = BRASERO_VOB_PRIVATE (self);
+	priv = BURNER_VOB_PRIVATE (self);
 
-	BRASERO_JOB_LOG (self, "Error on pad linking");
+	BURNER_JOB_LOG (self, "Error on pad linking");
 	message = gst_message_new_error (GST_OBJECT (priv->pipeline),
-					 g_error_new (BRASERO_BURN_ERROR,
-						      BRASERO_BURN_ERROR_GENERAL,
+					 g_error_new (BURNER_BURN_ERROR,
+						      BURNER_BURN_ERROR_GENERAL,
 						      /* Translators: This message is sent
-						       * when brasero could not link together
+						       * when burner could not link together
 						       * two gstreamer plugins so that one
 						       * sends its data to the second for further
 						       * processing. This data transmission is
@@ -195,16 +195,16 @@ brasero_vob_error_on_pad_linking (BraseroVob *self,
 }
 
 static void
-brasero_vob_new_decoded_pad_cb (GstElement *decode,
+burner_vob_new_decoded_pad_cb (GstElement *decode,
 				GstPad *pad,
-				BraseroVob *vob)
+				BurnerVob *vob)
 {
 	GstPad *sink;
 	GstCaps *caps;
 	GstStructure *structure;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	/* make sure we only have audio */
 	caps = gst_pad_query_caps (pad, NULL);
@@ -221,7 +221,7 @@ brasero_vob_new_decoded_pad_cb (GstElement *decode,
 			gst_object_unref (sink);
 
 			if (res != GST_PAD_LINK_OK)
-				brasero_vob_error_on_pad_linking (vob, "Sent by brasero_vob_new_decoded_pad_cb");
+				burner_vob_error_on_pad_linking (vob, "Sent by burner_vob_new_decoded_pad_cb");
 
 			gst_element_set_state (priv->video, GST_STATE_PLAYING);
 		}
@@ -234,7 +234,7 @@ brasero_vob_new_decoded_pad_cb (GstElement *decode,
 			gst_object_unref (sink);
 
 			if (res != GST_PAD_LINK_OK)
-				brasero_vob_error_on_pad_linking (vob, "Sent by brasero_vob_new_decoded_pad_cb");
+				burner_vob_error_on_pad_linking (vob, "Sent by burner_vob_new_decoded_pad_cb");
 
 			gst_element_set_state (priv->audio, GST_STATE_PLAYING);
 		}
@@ -244,7 +244,7 @@ brasero_vob_new_decoded_pad_cb (GstElement *decode,
 }
 
 static gboolean
-brasero_vob_link_audio (BraseroVob *vob,
+burner_vob_link_audio (BurnerVob *vob,
 			GstElement *start,
 			GstElement *end,
 			GstElement *tee,
@@ -260,7 +260,7 @@ brasero_vob_link_audio (BraseroVob *vob,
 	gst_object_unref (sinkpad);
 	gst_object_unref (srcpad);
 
-	BRASERO_JOB_LOG (vob, "Linked audio bin to tee == %d", res);
+	BURNER_JOB_LOG (vob, "Linked audio bin to tee == %d", res);
 	if (res != GST_PAD_LINK_OK)
 		return FALSE;
 
@@ -270,7 +270,7 @@ brasero_vob_link_audio (BraseroVob *vob,
 	gst_object_unref (sinkpad);
 	gst_object_unref (srcpad);
 
-	BRASERO_JOB_LOG (vob, "Linked audio bin to muxer == %d", res);
+	BURNER_JOB_LOG (vob, "Linked audio bin to muxer == %d", res);
 	if (res != GST_PAD_LINK_OK)
 		return FALSE;
 
@@ -278,7 +278,7 @@ brasero_vob_link_audio (BraseroVob *vob,
 }
 
 static gboolean
-brasero_vob_build_audio_pcm (BraseroVob *vob,
+burner_vob_build_audio_pcm (BurnerVob *vob,
 			     GstElement *tee,
 			     GstElement *muxer,
 			     GError **error)
@@ -289,9 +289,9 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	GstElement *convert;
 	GstCaps *filtercaps;
 	GstElement *resample;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	/* NOTE: this can only be used for Video DVDs as PCM cannot be used for
 	 * (S)VCDs. */
@@ -300,8 +300,8 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	queue = gst_element_factory_make ("queue", NULL);
 	if (queue == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     /* Translators: %s is the name of the object (as in
 			      * GObject) from the Gstreamer library that could
 			      * not be created */
@@ -320,8 +320,8 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	resample = gst_element_factory_make ("audioresample", NULL);
 	if (resample == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     /* Translators: %s is the name of the object (as in
 			      * GObject) from the Gstreamer library that could
 			      * not be created */
@@ -335,8 +335,8 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	convert = gst_element_factory_make ("audioconvert", NULL);
 	if (convert == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     /* Translators: %s is the name of the object (as in
 			      * GObject) from the Gstreamer library that could
 			      * not be created */
@@ -350,8 +350,8 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	queue1 = gst_element_factory_make ("queue", NULL);
 	if (queue1 == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue1\"");
 		goto error;
@@ -367,8 +367,8 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	filter = gst_element_factory_make ("capsfilter", NULL);
 	if (filter == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Filter\"");
 		goto error;
@@ -385,15 +385,15 @@ brasero_vob_build_audio_pcm (BraseroVob *vob,
 	gst_caps_unref (filtercaps);
 
 	if (!gst_element_link_many (queue, resample, convert, filter, queue1, NULL)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
 
-	brasero_vob_link_audio (vob, queue, queue1, tee, muxer);
+	burner_vob_link_audio (vob, queue, queue1, tee, muxer);
 
 	return TRUE;
 
@@ -403,7 +403,7 @@ error:
 }
 
 static gboolean
-brasero_vob_build_audio_mp2 (BraseroVob *vob,
+burner_vob_build_audio_mp2 (BurnerVob *vob,
 			     GstElement *tee,
 			     GstElement *muxer,
 			     GError **error)
@@ -415,16 +415,16 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	GstElement *convert;
 	GstCaps *filtercaps;
 	GstElement *resample;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	/* queue */
 	queue = gst_element_factory_make ("queue", NULL);
 	if (queue == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue\"");
 		goto error;
@@ -440,8 +440,8 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	convert = gst_element_factory_make ("audioconvert", NULL);
 	if (convert == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Audioconvert\"");
 		goto error;
@@ -452,8 +452,8 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	resample = gst_element_factory_make ("audioresample", NULL);
 	if (resample == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Audioresample\"");
 		goto error;
@@ -464,8 +464,8 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	encode = gst_element_factory_make ("avenc_mp2", NULL);
 	if (encode == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"avenc_mp2\"");
 		goto error;
@@ -476,8 +476,8 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	queue1 = gst_element_factory_make ("queue", NULL);
 	if (queue1 == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue1\"");
 		goto error;
@@ -493,8 +493,8 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	filter = gst_element_factory_make ("capsfilter", NULL);
 	if (filter == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Filter\"");
 		goto error;
@@ -502,7 +502,7 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	gst_bin_add (GST_BIN (priv->pipeline), filter);
 
 	if (priv->is_video_dvd) {
-		BRASERO_JOB_LOG (vob, "Setting mp2 bitrate to 448000, 48000 khz");
+		BURNER_JOB_LOG (vob, "Setting mp2 bitrate to 448000, 48000 khz");
 		g_object_set (encode,
 			      "bitrate", 448000, /* it could go up to 912k */
 			      NULL);
@@ -512,7 +512,7 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	}
 	else if (!priv->svcd) {
 		/* VCD */
-		BRASERO_JOB_LOG (vob, "Setting mp2 bitrate to 224000, 44100 khz");
+		BURNER_JOB_LOG (vob, "Setting mp2 bitrate to 224000, 44100 khz");
 		g_object_set (encode,
 			      "bitrate", 224000,
 			      NULL);
@@ -525,7 +525,7 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	}
 	else {
 		/* SVCDs */
-		BRASERO_JOB_LOG (vob, "Setting mp2 bitrate to 384000, 44100 khz");
+		BURNER_JOB_LOG (vob, "Setting mp2 bitrate to 384000, 44100 khz");
 		g_object_set (encode,
 			      "bitrate", 384000,
 			      NULL);
@@ -538,15 +538,15 @@ brasero_vob_build_audio_mp2 (BraseroVob *vob,
 	gst_caps_unref (filtercaps);
 
 	if (!gst_element_link_many (queue, convert, resample, filter, encode, queue1, NULL)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
 
-	brasero_vob_link_audio (vob, queue, queue1, tee, muxer);
+	burner_vob_link_audio (vob, queue, queue1, tee, muxer);
 	return TRUE;
 
 error:
@@ -555,7 +555,7 @@ error:
 }
 
 static gboolean
-brasero_vob_build_audio_ac3 (BraseroVob *vob,
+burner_vob_build_audio_ac3 (BurnerVob *vob,
 			     GstElement *tee,
 			     GstElement *muxer,
 			     GError **error)
@@ -567,9 +567,9 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	GstElement *convert;
 	GstCaps *filtercaps;
 	GstElement *resample;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	/* NOTE: This has to be a DVD since AC3 is not supported by (S)VCD */
 
@@ -577,8 +577,8 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	queue = gst_element_factory_make ("queue", NULL);
 	if (queue == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue\"");
 		goto error;
@@ -594,8 +594,8 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	convert = gst_element_factory_make ("audioconvert", NULL);
 	if (convert == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Audioconvert\"");
 		goto error;
@@ -606,8 +606,8 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	resample = gst_element_factory_make ("audioresample", NULL);
 	if (resample == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Audioresample\"");
 		goto error;
@@ -618,15 +618,15 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	filter = gst_element_factory_make ("capsfilter", NULL);
 	if (filter == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Filter\"");
 		goto error;
 	}
 	gst_bin_add (GST_BIN (priv->pipeline), filter);
 
-	BRASERO_JOB_LOG (vob, "Setting AC3 rate to 48000");
+	BURNER_JOB_LOG (vob, "Setting AC3 rate to 48000");
 	/* NOTE: we may want to limit the number of channels. */
 	filtercaps = gst_caps_new_simple ("audio/x-raw", "rate", G_TYPE_INT, 48000, NULL);
 
@@ -637,15 +637,15 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	encode = gst_element_factory_make ("avenc_ac3", NULL);
 	if (encode == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"avenc_ac3\"");
 		goto error;
 	}
 	gst_bin_add (GST_BIN (priv->pipeline), encode);
 
-	BRASERO_JOB_LOG (vob, "Setting AC3 bitrate to 448000");
+	BURNER_JOB_LOG (vob, "Setting AC3 bitrate to 448000");
 	g_object_set (encode,
 		      "bitrate", 448000, /* Maximum allowed, is it useful ? */
 		      NULL);
@@ -654,8 +654,8 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 	queue1 = gst_element_factory_make ("queue", NULL);
 	if (queue1 == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue1\"");
 		goto error;
@@ -668,15 +668,15 @@ brasero_vob_build_audio_ac3 (BraseroVob *vob,
 		      NULL);
 
 	if (!gst_element_link_many (queue, convert, resample, filter, encode, queue1, NULL)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
 
-	brasero_vob_link_audio (vob, queue, queue1, tee, muxer);
+	burner_vob_link_audio (vob, queue, queue1, tee, muxer);
 
 	return TRUE;
 
@@ -686,22 +686,22 @@ error:
 }
 
 static GstElement *
-brasero_vob_build_audio_bins (BraseroVob *vob,
+burner_vob_build_audio_bins (BurnerVob *vob,
 			      GstElement *muxer,
 			      GError **error)
 {
 	GValue *value;
 	GstElement *tee;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	/* tee */
 	tee = gst_element_factory_make ("tee", NULL);
 	if (tee == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Tee\"");
 		goto error;
@@ -711,40 +711,40 @@ brasero_vob_build_audio_bins (BraseroVob *vob,
 	if (priv->is_video_dvd) {
 		/* Get output format */
 		value = NULL;
-		brasero_job_tag_lookup (BRASERO_JOB (vob),
-					BRASERO_DVD_STREAM_FORMAT,
+		burner_job_tag_lookup (BURNER_JOB (vob),
+					BURNER_DVD_STREAM_FORMAT,
 					&value);
 
 		if (value)
 			priv->format = g_value_get_int (value);
 
-		if (priv->format == BRASERO_AUDIO_FORMAT_NONE)
-			priv->format = BRASERO_AUDIO_FORMAT_RAW;
+		if (priv->format == BURNER_AUDIO_FORMAT_NONE)
+			priv->format = BURNER_AUDIO_FORMAT_RAW;
 
 		/* FIXME: for the moment even if we use tee, we can't actually
 		 * encode and use more than one audio stream */
-		if (priv->format & BRASERO_AUDIO_FORMAT_RAW) {
+		if (priv->format & BURNER_AUDIO_FORMAT_RAW) {
 			/* PCM : on demand */
-			BRASERO_JOB_LOG (vob, "Adding PCM audio stream");
-			if (!brasero_vob_build_audio_pcm (vob, tee, muxer, error))
+			BURNER_JOB_LOG (vob, "Adding PCM audio stream");
+			if (!burner_vob_build_audio_pcm (vob, tee, muxer, error))
 				goto error;
 		}
 
-		if (priv->format & BRASERO_AUDIO_FORMAT_AC3) {
+		if (priv->format & BURNER_AUDIO_FORMAT_AC3) {
 			/* AC3 : on demand */
-			BRASERO_JOB_LOG (vob, "Adding AC3 audio stream");
-			if (!brasero_vob_build_audio_ac3 (vob, tee, muxer, error))
+			BURNER_JOB_LOG (vob, "Adding AC3 audio stream");
+			if (!burner_vob_build_audio_ac3 (vob, tee, muxer, error))
 				goto error;
 		}
 
-		if (priv->format & BRASERO_AUDIO_FORMAT_MP2) {
+		if (priv->format & BURNER_AUDIO_FORMAT_MP2) {
 			/* MP2 : on demand */
-			BRASERO_JOB_LOG (vob, "Adding MP2 audio stream");
-			if (!brasero_vob_build_audio_mp2 (vob, tee, muxer, error))
+			BURNER_JOB_LOG (vob, "Adding MP2 audio stream");
+			if (!burner_vob_build_audio_mp2 (vob, tee, muxer, error))
 				goto error;
 		}
 	}
-	else if (!brasero_vob_build_audio_mp2 (vob, tee, muxer, error))
+	else if (!burner_vob_build_audio_mp2 (vob, tee, muxer, error))
 		goto error;
 
 	return tee;
@@ -754,7 +754,7 @@ error:
 }
 
 static GstElement *
-brasero_vob_build_video_bin (BraseroVob *vob,
+burner_vob_build_video_bin (BurnerVob *vob,
 			     GstElement *muxer,
 			     GError **error)
 {
@@ -769,16 +769,16 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	GstPadLinkReturn res;
 	GstElement *framerate;
 	GstElement *colorspace;
-	BraseroVobPrivate *priv;
-	BraseroBurnResult result;
+	BurnerVobPrivate *priv;
+	BurnerBurnResult result;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
 	queue = gst_element_factory_make ("queue", NULL);
 	if (queue == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue\"");
 		goto error;
@@ -794,8 +794,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	framerate = gst_element_factory_make ("videorate", NULL);
 	if (framerate == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Framerate\"");
 		goto error;
@@ -809,8 +809,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	scale = gst_element_factory_make ("videoscale", NULL);
 	if (scale == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Videoscale\"");
 		goto error;
@@ -821,8 +821,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	filter = gst_element_factory_make ("capsfilter", NULL);
 	if (filter == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Filter\"");
 		goto error;
@@ -832,8 +832,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	colorspace = gst_element_factory_make ("videoconvert", NULL);
 	if (colorspace == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"videoconvert\"");
 		goto error;
@@ -843,8 +843,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	encode = gst_element_factory_make ("mpeg2enc", NULL);
 	if (encode == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Mpeg2enc\"");
 		goto error;
@@ -871,17 +871,17 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 
 	/* settings */
 	value = NULL;
-	result = brasero_job_tag_lookup (BRASERO_JOB (vob),
-					 BRASERO_VIDEO_OUTPUT_FRAMERATE,
+	result = burner_job_tag_lookup (BURNER_JOB (vob),
+					 BURNER_VIDEO_OUTPUT_FRAMERATE,
 					 &value);
 
-	if (result == BRASERO_BURN_OK && value) {
+	if (result == BURNER_BURN_OK && value) {
 		gint rate;
 		GstCaps *filtercaps = NULL;
 
 		rate = g_value_get_int (value);
 
-		if (rate == BRASERO_VIDEO_FRAMERATE_NTSC) {
+		if (rate == BURNER_VIDEO_FRAMERATE_NTSC) {
 			g_object_set (encode,
 				      "norm", 110,
 				      "framerate", 4,
@@ -924,7 +924,7 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 										   NULL),
 								NULL);
 		}
-		else if (rate == BRASERO_VIDEO_FRAMERATE_PAL_SECAM) {
+		else if (rate == BURNER_VIDEO_FRAMERATE_PAL_SECAM) {
 			g_object_set (encode,
 				      "norm", 112,
 				      "framerate", 3,
@@ -976,21 +976,21 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 
 	if (priv->is_video_dvd || priv->svcd) {
 		value = NULL;
-		result = brasero_job_tag_lookup (BRASERO_JOB (vob),
-						 BRASERO_VIDEO_OUTPUT_ASPECT,
+		result = burner_job_tag_lookup (BURNER_JOB (vob),
+						 BURNER_VIDEO_OUTPUT_ASPECT,
 						 &value);
-		if (result == BRASERO_BURN_OK && value) {
+		if (result == BURNER_BURN_OK && value) {
 			gint aspect;
 
 			aspect = g_value_get_int (value);
-			if (aspect == BRASERO_VIDEO_ASPECT_4_3) {
-				BRASERO_JOB_LOG (vob, "Setting ratio 4:3");
+			if (aspect == BURNER_VIDEO_ASPECT_4_3) {
+				BURNER_JOB_LOG (vob, "Setting ratio 4:3");
 				g_object_set (encode,
 					      "aspect", 2,
 					      NULL);
 			}
-			else if (aspect == BRASERO_VIDEO_ASPECT_16_9) {
-				BRASERO_JOB_LOG (vob, "Setting ratio 16:9");
+			else if (aspect == BURNER_VIDEO_ASPECT_16_9) {
+				BURNER_JOB_LOG (vob, "Setting ratio 16:9");
 				g_object_set (encode,
 					      "aspect", 3,
 					      NULL);	
@@ -1000,7 +1000,7 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 			/* This format only supports 4:3 or 16:9. Enforce one of
 			 * the two.
 			 * FIXME: there should be a way to choose the closest.*/
-			BRASERO_JOB_LOG (vob, "Setting ratio 4:3");
+			BURNER_JOB_LOG (vob, "Setting ratio 4:3");
 					 g_object_set (encode,
 						       "aspect", 2,
 						       NULL);
@@ -1008,7 +1008,7 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	}
 	else {
 		/* VCDs only support 4:3 */
-		BRASERO_JOB_LOG (vob, "Setting ratio 4:3");
+		BURNER_JOB_LOG (vob, "Setting ratio 4:3");
 		g_object_set (encode,
 			      "aspect", 2,
 			      NULL);
@@ -1018,8 +1018,8 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	queue1 = gst_element_factory_make ("queue", NULL);
 	if (queue1 == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Queue1\"");
 		goto error;
@@ -1032,10 +1032,10 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 		      NULL);
 
 	if (!gst_element_link_many (queue, framerate, scale, colorspace, filter, encode, queue1, NULL)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
@@ -1043,7 +1043,7 @@ brasero_vob_build_video_bin (BraseroVob *vob,
 	srcpad = gst_element_get_static_pad (queue1, "src");
 	sinkpad = gst_element_get_request_pad (muxer, "video_%u");
 	res = gst_pad_link (srcpad, sinkpad);
-	BRASERO_JOB_LOG (vob, "Linked video bin to muxer == %d", res)
+	BURNER_JOB_LOG (vob, "Linked video bin to muxer == %d", res)
 	gst_object_unref (sinkpad);
 	gst_object_unref (srcpad);
 
@@ -1055,7 +1055,7 @@ error:
 }
 
 static gboolean
-brasero_vob_build_pipeline (BraseroVob *vob,
+burner_vob_build_pipeline (BurnerVob *vob,
 			    GError **error)
 {
 	gchar *uri;
@@ -1065,25 +1065,25 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 	GstElement *muxer;
 	GstElement *source;
 	GstElement *decode;
-	BraseroTrack *track;
+	BurnerTrack *track;
 	GstElement *pipeline;
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (vob);
+	priv = BURNER_VOB_PRIVATE (vob);
 
-	BRASERO_JOB_LOG (vob, "Creating new pipeline");
+	BURNER_JOB_LOG (vob, "Creating new pipeline");
 
 	pipeline = gst_pipeline_new (NULL);
 	priv->pipeline = pipeline;
 
 	/* source */
-	brasero_job_get_current_track (BRASERO_JOB (vob), &track);
-	uri = brasero_track_stream_get_source (BRASERO_TRACK_STREAM (track), TRUE);
+	burner_job_get_current_track (BURNER_JOB (vob), &track);
+	uri = burner_track_stream_get_source (BURNER_TRACK_STREAM (track), TRUE);
 	source = gst_element_make_from_uri (GST_URI_SRC, uri, NULL, NULL);
 	if (!source) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Source\"");
 		goto error;
@@ -1099,8 +1099,8 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 	decode = gst_element_factory_make ("decodebin", NULL);
 	if (!decode) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Decodebin\"");
 		goto error;
@@ -1108,10 +1108,10 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 	gst_bin_add (GST_BIN (pipeline), decode);
 
 	if (!gst_element_link (source, decode)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
@@ -1120,8 +1120,8 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 	muxer = gst_element_factory_make ("mplex", NULL);
 	if (muxer == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Mplex\"");
 		goto error;
@@ -1143,12 +1143,12 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 
 	/* create sink */
 	output = NULL;
-	brasero_job_get_audio_output (BRASERO_JOB (vob), &output);
+	burner_job_get_audio_output (BURNER_JOB (vob), &output);
 	sink = gst_element_factory_make ("filesink", NULL);
 	if (sink == NULL) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     _("%s element could not be created"),
 			     "\"Sink\"");
 		goto error;
@@ -1159,34 +1159,34 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 
 	gst_bin_add (GST_BIN (pipeline), sink);
 	if (!gst_element_link (muxer, sink)) {
-		BRASERO_JOB_LOG (vob, "Error while linking pads");
+		BURNER_JOB_LOG (vob, "Error while linking pads");
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 		             _("Impossible to link plugin pads"));
 		goto error;
 	}
 
 	/* video encoding */
-	priv->video = brasero_vob_build_video_bin (vob, muxer, error);
+	priv->video = burner_vob_build_video_bin (vob, muxer, error);
 	if (!priv->video)
 		goto error;
 
 	/* audio encoding */
-	priv->audio = brasero_vob_build_audio_bins (vob, muxer, error);
+	priv->audio = burner_vob_build_audio_bins (vob, muxer, error);
 	if (!priv->audio)
 		goto error;
 
 	/* to be able to link everything */
 	g_signal_connect (G_OBJECT (decode),
 			  "pad-added",
-			  G_CALLBACK (brasero_vob_new_decoded_pad_cb),
+			  G_CALLBACK (burner_vob_new_decoded_pad_cb),
 			  vob);
 
 	/* connect to the bus */	
 	bus = gst_pipeline_get_bus (GST_PIPELINE (pipeline));
 	gst_bus_add_watch (bus,
-			   (GstBusFunc) brasero_vob_bus_messages,
+			   (GstBusFunc) burner_vob_bus_messages,
 			   vob);
 	gst_object_unref (bus);
 
@@ -1195,7 +1195,7 @@ brasero_vob_build_pipeline (BraseroVob *vob,
 error:
 
 	if (error && (*error))
-		BRASERO_JOB_LOG (vob,
+		BURNER_JOB_LOG (vob,
 				 "can't create object : %s \n",
 				 (*error)->message);
 
@@ -1204,61 +1204,61 @@ error:
 	return FALSE;
 }
 
-static BraseroBurnResult
-brasero_vob_start (BraseroJob *job,
+static BurnerBurnResult
+burner_vob_start (BurnerJob *job,
 		   GError **error)
 {
-	BraseroVobPrivate *priv;
-	BraseroJobAction action;
-	BraseroTrackType *output = NULL;
+	BurnerVobPrivate *priv;
+	BurnerJobAction action;
+	BurnerTrackType *output = NULL;
 
-	brasero_job_get_action (job, &action);
-	if (action != BRASERO_JOB_ACTION_IMAGE)
-		return BRASERO_BURN_NOT_SUPPORTED;
+	burner_job_get_action (job, &action);
+	if (action != BURNER_JOB_ACTION_IMAGE)
+		return BURNER_BURN_NOT_SUPPORTED;
 
-	priv = BRASERO_VOB_PRIVATE (job);
+	priv = BURNER_VOB_PRIVATE (job);
 
 	/* get destination medium type */
-	output = brasero_track_type_new ();
-	brasero_job_get_output_type (job, output);
+	output = burner_track_type_new ();
+	burner_job_get_output_type (job, output);
 
-	if (brasero_track_type_get_stream_format (output) & BRASERO_VIDEO_FORMAT_VCD) {
+	if (burner_track_type_get_stream_format (output) & BURNER_VIDEO_FORMAT_VCD) {
 		GValue *value = NULL;
 
 		priv->is_video_dvd = FALSE;
-		brasero_job_tag_lookup (job,
-					BRASERO_VCD_TYPE,
+		burner_job_tag_lookup (job,
+					BURNER_VCD_TYPE,
 					&value);
 		if (value)
-			priv->svcd = (g_value_get_int (value) == BRASERO_SVCD);
+			priv->svcd = (g_value_get_int (value) == BURNER_SVCD);
 	}
 	else
 		priv->is_video_dvd = TRUE;
 
-	BRASERO_JOB_LOG (job,
+	BURNER_JOB_LOG (job,
 			 "Got output type (is DVD %i, is SVCD %i)",
 			 priv->is_video_dvd,
 			 priv->svcd);
 
-	brasero_track_type_free (output);
+	burner_track_type_free (output);
 
-	if (!brasero_vob_build_pipeline (BRASERO_VOB (job), error))
-		return BRASERO_BURN_ERR;
+	if (!burner_vob_build_pipeline (BURNER_VOB (job), error))
+		return BURNER_BURN_ERR;
 
 	/* ready to go */
-	brasero_job_set_current_action (job,
-					BRASERO_BURN_ACTION_ANALYSING,
+	burner_job_set_current_action (job,
+					BURNER_BURN_ACTION_ANALYSING,
 					_("Converting video file to MPEG2"),
 					FALSE);
-	brasero_job_start_progress (job, FALSE);
+	burner_job_start_progress (job, FALSE);
 
 	gst_element_set_state (priv->pipeline, GST_STATE_PLAYING);
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
 static gdouble
-brasero_vob_get_progress_from_element (BraseroJob *job,
+burner_vob_get_progress_from_element (BurnerJob *job,
 				       GstElement *element)
 {
 	gint64 position = 0;
@@ -1279,44 +1279,44 @@ brasero_vob_get_progress_from_element (BraseroJob *job,
 		gdouble progress;
 
 		progress = (gdouble) position / (gdouble) duration;
-		brasero_job_set_progress (job, progress);
+		burner_job_set_progress (job, progress);
 		return TRUE;
 	}
 
 	return FALSE;
 }
 
-static BraseroBurnResult
-brasero_vob_clock_tick (BraseroJob *job)
+static BurnerBurnResult
+burner_vob_clock_tick (BurnerJob *job)
 {
 
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (job);
+	priv = BURNER_VOB_PRIVATE (job);
 
-	if (brasero_vob_get_progress_from_element (job, priv->pipeline))
-		return BRASERO_BURN_OK;
+	if (burner_vob_get_progress_from_element (job, priv->pipeline))
+		return BURNER_BURN_OK;
 
-	BRASERO_JOB_LOG (job, "Pipeline failed to report position");
+	BURNER_JOB_LOG (job, "Pipeline failed to report position");
 
-	if (brasero_vob_get_progress_from_element (job, priv->source))
-		return BRASERO_BURN_OK;
+	if (burner_vob_get_progress_from_element (job, priv->source))
+		return BURNER_BURN_OK;
 
-	BRASERO_JOB_LOG (job, "Source failed to report position");
+	BURNER_JOB_LOG (job, "Source failed to report position");
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
 static void
-brasero_vob_init (BraseroVob *object)
+burner_vob_init (BurnerVob *object)
 {}
 
 static void
-brasero_vob_finalize (GObject *object)
+burner_vob_finalize (GObject *object)
 {
-	BraseroVobPrivate *priv;
+	BurnerVobPrivate *priv;
 
-	priv = BRASERO_VOB_PRIVATE (object);
+	priv = BURNER_VOB_PRIVATE (object);
 
 	if (priv->pipeline) {
 		gst_object_unref (priv->pipeline);
@@ -1327,79 +1327,79 @@ brasero_vob_finalize (GObject *object)
 }
 
 static void
-brasero_vob_class_init (BraseroVobClass *klass)
+burner_vob_class_init (BurnerVobClass *klass)
 {
 	GObjectClass* object_class = G_OBJECT_CLASS (klass);
-	BraseroJobClass* job_class = BRASERO_JOB_CLASS (klass);
+	BurnerJobClass* job_class = BURNER_JOB_CLASS (klass);
 
-	g_type_class_add_private (klass, sizeof (BraseroVobPrivate));
+	g_type_class_add_private (klass, sizeof (BurnerVobPrivate));
 
-	object_class->finalize = brasero_vob_finalize;
+	object_class->finalize = burner_vob_finalize;
 
-	job_class->start = brasero_vob_start;
-	job_class->clock_tick = brasero_vob_clock_tick;
-	job_class->stop = brasero_vob_stop;
+	job_class->start = burner_vob_start;
+	job_class->clock_tick = burner_vob_clock_tick;
+	job_class->stop = burner_vob_stop;
 }
 
 static void
-brasero_vob_export_caps (BraseroPlugin *plugin)
+burner_vob_export_caps (BurnerPlugin *plugin)
 {
 	GSList *input;
 	GSList *output;
 
-	brasero_plugin_define (plugin,
+	burner_plugin_define (plugin,
 			       "transcode2vob",
 	                       NULL,
 			       _("Converts any video file into a format suitable for video DVDs"),
 			       "Philippe Rouquier",
 			       0);
 
-	input = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					BRASERO_AUDIO_FORMAT_UNDEFINED|
-					BRASERO_VIDEO_FORMAT_UNDEFINED|
-					BRASERO_METADATA_INFO);
-	output = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					 BRASERO_AUDIO_FORMAT_MP2|
-					 BRASERO_METADATA_INFO|
-					 BRASERO_VIDEO_FORMAT_VCD);
-	brasero_plugin_link_caps (plugin, output, input);
+	input = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					BURNER_AUDIO_FORMAT_UNDEFINED|
+					BURNER_VIDEO_FORMAT_UNDEFINED|
+					BURNER_METADATA_INFO);
+	output = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					 BURNER_AUDIO_FORMAT_MP2|
+					 BURNER_METADATA_INFO|
+					 BURNER_VIDEO_FORMAT_VCD);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (output);
 
-	output = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					 BRASERO_AUDIO_FORMAT_AC3|
-					 BRASERO_AUDIO_FORMAT_MP2|
-					 BRASERO_AUDIO_FORMAT_RAW|
-					 BRASERO_METADATA_INFO|
-					 BRASERO_VIDEO_FORMAT_VIDEO_DVD);
-	brasero_plugin_link_caps (plugin, output, input);
+	output = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					 BURNER_AUDIO_FORMAT_AC3|
+					 BURNER_AUDIO_FORMAT_MP2|
+					 BURNER_AUDIO_FORMAT_RAW|
+					 BURNER_METADATA_INFO|
+					 BURNER_VIDEO_FORMAT_VIDEO_DVD);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (output);
 	g_slist_free (input);
 
-	input = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					BRASERO_AUDIO_FORMAT_UNDEFINED|
-					BRASERO_VIDEO_FORMAT_UNDEFINED);
-	output = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					 BRASERO_AUDIO_FORMAT_MP2|
-					 BRASERO_VIDEO_FORMAT_VCD);
-	brasero_plugin_link_caps (plugin, output, input);
+	input = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					BURNER_AUDIO_FORMAT_UNDEFINED|
+					BURNER_VIDEO_FORMAT_UNDEFINED);
+	output = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					 BURNER_AUDIO_FORMAT_MP2|
+					 BURNER_VIDEO_FORMAT_VCD);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (output);
 
-	output = brasero_caps_audio_new (BRASERO_PLUGIN_IO_ACCEPT_FILE,
-					 BRASERO_AUDIO_FORMAT_AC3|
-					 BRASERO_AUDIO_FORMAT_MP2|
-					 BRASERO_AUDIO_FORMAT_RAW|
-					 BRASERO_VIDEO_FORMAT_VIDEO_DVD);
-	brasero_plugin_link_caps (plugin, output, input);
+	output = burner_caps_audio_new (BURNER_PLUGIN_IO_ACCEPT_FILE,
+					 BURNER_AUDIO_FORMAT_AC3|
+					 BURNER_AUDIO_FORMAT_MP2|
+					 BURNER_AUDIO_FORMAT_RAW|
+					 BURNER_VIDEO_FORMAT_VIDEO_DVD);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (output);
 	g_slist_free (input);
 }
 
 G_MODULE_EXPORT void
-brasero_plugin_check_config (BraseroPlugin *plugin)
+burner_plugin_check_config (BurnerPlugin *plugin)
 {
 	/* Let's see if we've got the plugins we need */
-	brasero_plugin_test_gstreamer_plugin (plugin, "avenc_mpeg2video");
-	brasero_plugin_test_gstreamer_plugin (plugin, "avenc_ac3");
-	brasero_plugin_test_gstreamer_plugin (plugin, "avenc_mp2");
-	brasero_plugin_test_gstreamer_plugin (plugin, "mplex");
+	burner_plugin_test_gstreamer_plugin (plugin, "avenc_mpeg2video");
+	burner_plugin_test_gstreamer_plugin (plugin, "avenc_ac3");
+	burner_plugin_test_gstreamer_plugin (plugin, "avenc_mp2");
+	burner_plugin_test_gstreamer_plugin (plugin, "mplex");
 }

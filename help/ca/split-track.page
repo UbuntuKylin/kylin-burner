@@ -55,7 +55,7 @@
         </item>
         <item>
           <title>Partició de la pista a cada silenci</title>
-          <p>Trieu aquest mètode perquè el <app>Brasero</app> auto-detecti silencis en l'enregistrament i divideixi la pista en aquells punts.</p>
+          <p>Trieu aquest mètode perquè el <app>Burner</app> auto-detecti silencis en l'enregistrament i divideixi la pista en aquells punts.</p>
         </item>
       </terms>
     </item>

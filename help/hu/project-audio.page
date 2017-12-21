@@ -21,7 +21,7 @@
 
   <title>Zenei CD írása</title>
 
-  <p>A <app>Brasero</app> segítségével hangfájlokat is írhat CD-re, amelyet aztán CD-lejátszókban játszhat le. Általában jobb nem újraírható CD-ket használni, mert nem minden CD-lejátszó képes az újraírható CD-k lejátszására.</p>
+  <p>A <app>Burner</app> segítségével hangfájlokat is írhat CD-re, amelyet aztán CD-lejátszókban játszhat le. Általában jobb nem újraírható CD-ket használni, mert nem minden CD-lejátszó képes az újraírható CD-k lejátszására.</p>
 
   <steps>
     <item>

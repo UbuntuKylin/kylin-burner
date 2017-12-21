@@ -1,11 +1,11 @@
-# Copyright (C) 2010 brasero COPYRIGHT HOLDER
-# This file is distributed under the same license as the brasero help package.
+# Copyright (C) 2010 burner COPYRIGHT HOLDER
+# This file is distributed under the same license as the burner help package.
 #
 # Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero help master\n"
+"Project-Id-Version: burner help master\n"
 "POT-Creation-Date: 2011-12-27 10:38+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
@@ -73,8 +73,8 @@ msgid "Check disc integrity"
 msgstr "Preverjanje celovitosti podatkov na disku"
 
 #: C/tools-check-integrity.page:23(p)
-msgid "After burning a CD/DVD by using <app>Brasero</app>, you can check its integrity to make sure that the files in the disc are not corrupted."
-msgstr "Po zapisu CD-ja/DVD-ja z <app>Braserom</app> lahko preverite njegovo celovitost, da se prepričate, da datoteke na disku niso pokvarjene."
+msgid "After burning a CD/DVD by using <app>Burner</app>, you can check its integrity to make sure that the files in the disc are not corrupted."
+msgstr "Po zapisu CD-ja/DVD-ja z <app>Burnerm</app> lahko preverite njegovo celovitost, da se prepričate, da datoteke na disku niso pokvarjene."
 
 #: C/tools-check-integrity.page:27(p)
 msgid "Select <guiseq><gui>Tools</gui><gui>Check Integrity...</gui></guiseq>."
@@ -203,8 +203,8 @@ msgid "Split track for each silence"
 msgstr "Razdeli skladbo za vsako tišino"
 
 #: C/split-track.page:53(p)
-msgid "Select this method for <app>Brasero</app> to auto-detect silences in the recording and to split the track at those points."
-msgstr "Izberite ta način, da bo <app>Brasero</app> samodejno zaznal tišino pri snemanju in razdelil skladbe na teh točkah."
+msgid "Select this method for <app>Burner</app> to auto-detect silences in the recording and to split the track at those points."
+msgstr "Izberite ta način, da bo <app>Burner</app> samodejno zaznal tišino pri snemanju in razdelil skladbe na teh točkah."
 
 #: C/split-track.page:59(p)
 msgid "Proceed to split the track by clicking <gui>Slice</gui>."
@@ -235,8 +235,8 @@ msgid "Create a video project"
 msgstr "Ustvarjanje video projekta"
 
 #: C/project-video.page:22(p)
-msgid "<app>Brasero</app> can be used to create video discs for playing in a DVD player or laptop."
-msgstr "<app>Brasero</app> lahko uporabite za ustvarjanje video diskov za predvajanje v predvajalniku DVD ali prenosniku."
+msgid "<app>Burner</app> can be used to create video discs for playing in a DVD player or laptop."
+msgstr "<app>Burner</app> lahko uporabite za ustvarjanje video diskov za predvajanje v predvajalniku DVD ali prenosniku."
 
 #: C/project-video.page:27(p)
 msgid "Click <gui>Video project</gui> on the start page, or select <guiseq><gui>Project</gui><gui>New Project</gui><gui>New Video Project</gui></guiseq>."
@@ -282,8 +282,8 @@ msgid "Save a project"
 msgstr "Shrani projekt"
 
 #: C/project-save.page:22(p)
-msgid "You can save an audio, a data or a video project in <app>Brasero</app> for editing or burning later."
-msgstr "V programu <app>Brasero</app>"
+msgid "You can save an audio, a data or a video project in <app>Burner</app> for editing or burning later."
+msgstr "V programu <app>Burner</app>"
 
 #: C/project-save.page:27(p)
 msgid "Create the project and add the files you wish to use to the project."
@@ -298,8 +298,8 @@ msgid "Enter the name you wish to save the project under, then click <gui>Save</
 msgstr "Vnesite ime pod katerim želite projekt shraniti in nato kliknite <gui>Shrani</gui> za shranjevanje projekta."
 
 #: C/project-save.page:39(p)
-msgid "There are a number of ways which can be used for opening a saved <app>Brasero</app> project by:"
-msgstr "Obstaja več načinov s katerimi lahko odprete shranjen projekt <app>Brasero</app>:"
+msgid "There are a number of ways which can be used for opening a saved <app>Burner</app> project by:"
+msgstr "Obstaja več načinov s katerimi lahko odprete shranjen projekt <app>Burner</app>:"
 
 #: C/project-save.page:44(p)
 msgid "selecting it from the list on the start page, under <gui>Recent projects</gui>"
@@ -318,12 +318,12 @@ msgid "opening the project from a file browser"
 msgstr "Odpiranje projekta iz brskalnika datotek"
 
 #: C/project-save.page:57(p)
-msgid "If <app>Brasero</app> is already running, opening the project from a file browser will cause a second instance of <app>Brasero</app> to start and will cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
-msgstr "Če se <app>Brasero</app> že izvaja, bo odpiranje projekta iz brskalnika datotek povzročilo zagon druge različice programa <app>Brasero</app> in bo povzročilo, da se bosta oba primerka sesula. Za več podrobnosti si oglejte <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME hrošč 644011</link>."
+msgid "If <app>Burner</app> is already running, opening the project from a file browser will cause a second instance of <app>Burner</app> to start and will cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
+msgstr "Če se <app>Burner</app> že izvaja, bo odpiranje projekta iz brskalnika datotek povzročilo zagon druge različice programa <app>Burner</app> in bo povzročilo, da se bosta oba primerka sesula. Za več podrobnosti si oglejte <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME hrošč 644011</link>."
 
 #: C/project-save.page:67(p)
-msgid "If you open a saved project, <app>Brasero</app> will treat it as a new project: if you want to save an updated version of the project, it will ask you to enter a name for it, at this point you can overwrite the old version or save it as a new project by entering a different file name."
-msgstr "Ko odprete shranjen projekt, ga bo <app>Brasero</app> obravnaval kot nov projekt. Če želite shraniti posodobljeno različico vas bo vprašal za njegovo ime. Izberete lahko isto ime in staro različico prepišete ali pa izberete drugo ime in staro različico obdržite."
+msgid "If you open a saved project, <app>Burner</app> will treat it as a new project: if you want to save an updated version of the project, it will ask you to enter a name for it, at this point you can overwrite the old version or save it as a new project by entering a different file name."
+msgstr "Ko odprete shranjen projekt, ga bo <app>Burner</app> obravnaval kot nov projekt. Če želite shraniti posodobljeno različico vas bo vprašal za njegovo ime. Izberete lahko isto ime in staro različico prepišete ali pa izberete drugo ime in staro različico obdržite."
 
 #: C/project-image-burn.page:11(desc)
 msgid "Burn an existing disc image to a CD or DVD."
@@ -342,8 +342,8 @@ msgid "Burn image"
 msgstr "Zapis odtisa"
 
 #: C/project-image-burn.page:27(p)
-msgid "<app>Brasero</app> allows you to burn disc images to a CD or DVD. It supports the following extensions of optical disc images: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
-msgstr "<app>Brasero</app> vam omogoča zapis odtisov na CD ali DVD. Podpira naslednje pripone za odtise optičnih diskov: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
+msgid "<app>Burner</app> allows you to burn disc images to a CD or DVD. It supports the following extensions of optical disc images: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
+msgstr "<app>Burner</app> vam omogoča zapis odtisov na CD ali DVD. Podpira naslednje pripone za odtise optičnih diskov: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
 
 #: C/project-image-burn.page:32(p)
 msgid "Disc images are archive files which contain all the data that is on a CD or DVD. Only one disc image can be on a CD at a time, but each archive can contain as little or as much data as you want, as long as it fits on the disc."
@@ -366,8 +366,8 @@ msgid "Select the disc that you want to use from drop down list below <gui>Selec
 msgstr "Izberite disk, na katerega bi radi zapisovali v spustnem meniju <gui>Izbor diska za pisanje</gui>. Če imate več kot en diskovni pogon, bodo izpisani vsi pogoni v katerih je disk."
 
 #: C/project-image-burn.page:53(p)
-msgid "After choosing the disc <app>Brasero</app> shows how much free space will remain on the disc after burning."
-msgstr "Po izbiri diska <app>Brasero</app> pokaže koliko praznega prostora bo ostalo na disku po zapisovanju."
+msgid "After choosing the disc <app>Burner</app> shows how much free space will remain on the disc after burning."
+msgstr "Po izbiri diska <app>Burner</app> pokaže koliko praznega prostora bo ostalo na disku po zapisovanju."
 
 #: C/project-image-burn.page:57(p)
 #: C/project-disc-copy.page:35(p)
@@ -455,8 +455,8 @@ msgid "Write a music CD"
 msgstr "Zapis glasbenega DCja"
 
 #: C/project-audio.page:19(p)
-msgid "<app>Brasero</app> can write audio files to a CD, which you can then use for playing in CD players and so on. It is usually best to use a non-rewritable CD because not all CD players will play rewritable CDs."
-msgstr "<app>Brasero</app> lahko zvočne datoteke zapiše na CD, ki lahko nato uporabite za predvajanje v predvajalnikih CD in tako naprej. Najboljše je, da uporabite neprepisljiv CD, saj nekateri predvajalniki CD-jev ne predvajajo prepisljivih CD-jev."
+msgid "<app>Burner</app> can write audio files to a CD, which you can then use for playing in CD players and so on. It is usually best to use a non-rewritable CD because not all CD players will play rewritable CDs."
+msgstr "<app>Burner</app> lahko zvočne datoteke zapiše na CD, ki lahko nato uporabite za predvajanje v predvajalnikih CD in tako naprej. Najboljše je, da uporabite neprepisljiv CD, saj nekateri predvajalniki CD-jev ne predvajajo prepisljivih CD-jev."
 
 #: C/project-audio.page:26(p)
 msgid "Click <gui>Audio project</gui> on the start page, or select <guiseq><gui>Project</gui><gui>New Project</gui><gui>New Audio Project</gui></guiseq>."
@@ -533,24 +533,24 @@ msgstr "Prepis CD-ja kot zvočni projekt."
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/introduction.page:36(None)
-msgid "@@image: 'figures/brasero-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
-msgstr "@@image: 'figures/brasero-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
+msgid "@@image: 'figures/burner-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
+msgstr "@@image: 'figures/burner-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
 
 #: C/introduction.page:7(desc)
-msgid "Introduction to the <app>Brasero</app> disc burning application."
-msgstr "Uvod v <app>Brasero</app>, program za zapisovanje diskov."
+msgid "Introduction to the <app>Burner</app> disc burning application."
+msgstr "Uvod v <app>Burner</app>, program za zapisovanje diskov."
 
 #: C/introduction.page:17(title)
 msgid "Introduction"
 msgstr "Uvod"
 
 #: C/introduction.page:19(p)
-msgid "<app>Brasero</app> is an application for burning CDs and DVDs, designed to be easy to use, while providing all the tools necessary for burning."
-msgstr "<app>Brasero</app> je program za zapisovanje CD-R/W-jev in DVD-R/W-jev, zasnovan za enostavno uporabo in zagotavljanje vseh orodij potrebnih za zapisovanje."
+msgid "<app>Burner</app> is an application for burning CDs and DVDs, designed to be easy to use, while providing all the tools necessary for burning."
+msgstr "<app>Burner</app> je program za zapisovanje CD-R/W-jev in DVD-R/W-jev, zasnovan za enostavno uporabo in zagotavljanje vseh orodij potrebnih za zapisovanje."
 
 #: C/introduction.page:22(p)
-msgid "With <app>Brasero</app> you can:"
-msgstr "Z <app>Brasero</app> lahko:"
+msgid "With <app>Burner</app> you can:"
+msgstr "Z <app>Burner</app> lahko:"
 
 #: C/introduction.page:24(p)
 msgid "Burn data to CDs and DVDs"
@@ -581,12 +581,12 @@ msgid "Check the integrity of discs and disc images"
 msgstr "Preverite celovitost diskov in diskovnih odtisov"
 
 #: C/introduction.page:35(title)
-msgid "The <gui>Brasero</gui> main window"
-msgstr "Glavno okno <gui>Brasero</gui>"
+msgid "The <gui>Burner</gui> main window"
+msgstr "Glavno okno <gui>Burner</gui>"
 
 #: C/index.page:5(title)
-msgid "Brasero Help"
-msgstr "Pomoč Brasero"
+msgid "Burner Help"
+msgstr "Pomoč Burner"
 
 #: C/index.page:8(title)
 msgid "Create a new project"
@@ -609,8 +609,8 @@ msgid "Create a cover"
 msgstr "Ustvari ovitek"
 
 #: C/create-cover.page:19(p)
-msgid "You can use <app>Brasero</app> to create inlays for your jewel cases. Access the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></guiseq>."
-msgstr "<app>Brasero</app> lahko uporabite za ustvarjanje ovitkov za škatle CD-jev. Do ustvarjalnika lahko dostopate s klikom na <guiseq><gui>Orodja</gui><gui>Urejevalnik ovitkov</gui></guiseq>."
+msgid "You can use <app>Burner</app> to create inlays for your jewel cases. Access the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></guiseq>."
+msgstr "<app>Burner</app> lahko uporabite za ustvarjanje ovitkov za škatle CD-jev. Do ustvarjalnika lahko dostopate s klikom na <guiseq><gui>Orodja</gui><gui>Urejevalnik ovitkov</gui></guiseq>."
 
 #: C/create-cover.page:24(p)
 msgid "If you are creating an audio project and finish putting together the project before creating an inlay, then when you access the <gui>Cover Editor</gui> interface from the audio project window, the tracks will automatically be listed on the back cover."
@@ -637,8 +637,8 @@ msgid "Click the <gui>Background properties</gui> toolbar icon to add a backgrou
 msgstr "Za dodajanje ozadja trenutnemu ovitku kliknite na ikono orodne vrstice <gui>Lastnosti ozadja</gui>  ali desno kliknite na ovite, ki ga želite urejati in izberite <gui>Nastavi lastnosti ozadja</gui>. Izberete lahko obarvano ozadje ali sliko ozadja."
 
 #: C/create-cover.page:53(p)
-msgid "If you select a centered background image, <app>Brasero</app> sometimes crashes when you click the <gui>Close</gui> button."
-msgstr "Če izberete sredinjeno sliko ozadja, se <app>Brasero</app> včasih sesuje, ko kliknite na gumb <gui>Zapri</gui>."
+msgid "If you select a centered background image, <app>Burner</app> sometimes crashes when you click the <gui>Close</gui> button."
+msgstr "Če izberete sredinjeno sliko ozadja, se <app>Burner</app> včasih sesuje, ko kliknite na gumb <gui>Zapri</gui>."
 
 #: C/create-cover.page:56(p)
 msgid "Click the <gui>Close</gui> button to apply the changes and close the <gui>Background Properties</gui> dialog."
@@ -661,11 +661,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ "ena skladba konča in druga začne."
 
 #~ msgid ""
-#~ "If <app>Brasero</app> is already running, opening the project from a file "
-#~ "browser will make <app>Brasero</app> vanish in a puff of logic."
+#~ "If <app>Burner</app> is already running, opening the project from a file "
+#~ "browser will make <app>Burner</app> vanish in a puff of logic."
 #~ msgstr ""
-#~ "Če se <app>Brasero</app> že izvaja, bo odpiranje projekta iz brskalnika "
-#~ "datotek povzročilo, da <app>Brasero</app> izgine."
+#~ "Če se <app>Burner</app> že izvaja, bo odpiranje projekta iz brskalnika "
+#~ "datotek povzročilo, da <app>Burner</app> izgine."
 
 #~ msgid ""
 #~ "It is not possible to save your progress once you start working with the "
@@ -676,11 +676,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ "morete več shraniti. Če pogovorno okno zaprete, bodo vaše spremembe "
 #~ "izgubljene ali pa lahko ovitek natisnete, ko končate."
 
-#~ msgid "<application>Brasero</application> Manual V2.2"
-#~ msgstr "<application>Brasero</application> priročnik različica 2.2"
+#~ msgid "<application>Burner</application> Manual V2.2"
+#~ msgstr "<application>Burner</application> priročnik različica 2.2"
 
-#~ msgid "Brasero is an application for burning CDs and DVDs."
-#~ msgstr "Brasero je program za zapisovanje CD-jev in DVD-jev."
+#~ msgid "Burner is an application for burning CDs and DVDs."
+#~ msgstr "Burner je program za zapisovanje CD-jev in DVD-jev."
 
 #~ msgid "2008"
 #~ msgstr "2008"
@@ -760,8 +760,8 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ msgid "Bull"
 #~ msgstr "Bull"
 
-#~ msgid "Brasero Manual V2.2"
-#~ msgstr "Brasero priročnik različica 2.2"
+#~ msgid "Burner Manual V2.2"
+#~ msgstr "Burner priročnik različica 2.2"
 
 #~ msgid "January 2009"
 #~ msgstr "Januar 2009"
@@ -769,14 +769,14 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ msgid "Milo Casagrande <email>milo@ubuntu.com</email>"
 #~ msgstr "Milo Casagrande <email>milo@ubuntu.com</email>"
 
-#~ msgid "Brasero Manual V2.1"
-#~ msgstr "Brasero priročnik različica 2.1"
+#~ msgid "Burner Manual V2.1"
+#~ msgstr "Burner priročnik različica 2.1"
 
 #~ msgid "August 2008"
 #~ msgstr "Avgust 2008"
 
-#~ msgid "Brasero Manual V2.0"
-#~ msgstr "Brasero priročnik različica 2.0"
+#~ msgid "Burner Manual V2.0"
+#~ msgstr "Burner priročnik različica 2.0"
 
 #~ msgid "February 2008"
 #~ msgstr "Februar 2008"
@@ -787,24 +787,24 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ msgid "Phil Bull <email>philbull@gmail.com</email>"
 #~ msgstr "Phil Bull <email>philbull@gmail.com</email>"
 
-#~ msgid "This manual describes version 2.26 of Brasero."
-#~ msgstr "Ta priročnik opisuje Brasero različico 2.26"
+#~ msgid "This manual describes version 2.26 of Burner."
+#~ msgstr "Ta priročnik opisuje Burner različico 2.26"
 
 #~ msgid "Feedback"
 #~ msgstr "Odziv"
 
 #~ msgid ""
-#~ "To report a bug or make a suggestion regarding the <application>Brasero</"
+#~ "To report a bug or make a suggestion regarding the <application>Burner</"
 #~ "application> application or this manual, follow the directions in the "
 #~ "<ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</"
 #~ "ulink>."
 #~ msgstr ""
-#~ "Za poročilo hrošča ali predloga glede programa <application>Brasero</"
+#~ "Za poročilo hrošča ali predloga glede programa <application>Burner</"
 #~ "application> ali tega priročnika, sledite smerem na <ulink url=\"ghelp:"
 #~ "gnome-feedback\" type=\"help\">Strani odziva GNOME</ulink>."
 
-#~ msgid "brasero"
-#~ msgstr "brasero"
+#~ msgid "burner"
+#~ msgstr "burner"
 
 #~ msgid "burn"
 #~ msgstr "zapiši"
@@ -815,79 +815,79 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ msgid "Getting Started"
 #~ msgstr "Kako začeti"
 
-#~ msgid "Starting Brasero"
-#~ msgstr "Zaganjanje Brasero"
+#~ msgid "Starting Burner"
+#~ msgstr "Zaganjanje Burner"
 
 #~ msgid ""
-#~ "You can start <application>Brasero</application> in the following ways:"
+#~ "You can start <application>Burner</application> in the following ways:"
 #~ msgstr ""
-#~ "<application>Brasero</application> lahko zaženete na naslednje načine:"
+#~ "<application>Burner</application> lahko zaženete na naslednje načine:"
 
 #~ msgid "<guimenu>Applications</guimenu> menu"
 #~ msgstr "Meni <guimenu>Programi</guimenu>"
 
 #~ msgid ""
 #~ "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-#~ "guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+#~ "guisubmenu><guimenuitem>Burner Disc Burning</guimenuitem></menuchoice>."
 #~ msgstr ""
 #~ "Izberite <menuchoice><guisubmenu>Zvok in video</"
-#~ "guisubmenu><guimenuitem>Brasero zapisovalnik diskov</guimenuitem></"
+#~ "guisubmenu><guimenuitem>Burner zapisovalnik diskov</guimenuitem></"
 #~ "menuchoice>."
 
 #~ msgid "Command line"
 #~ msgstr "Ukazna vrstica"
 
 #~ msgid ""
-#~ "Type <command>brasero</command> and then press <keycap>Return</keycap>."
+#~ "Type <command>burner</command> and then press <keycap>Return</keycap>."
 #~ msgstr ""
-#~ "Vtipkajte <command>brasero</command> in nato pritisnite <keycap>Vnosno "
+#~ "Vtipkajte <command>burner</command> in nato pritisnite <keycap>Vnosno "
 #~ "tipko</keycap>."
 
 #~ msgid ""
-#~ "If <application>Brasero</application> is set as your default disc burning "
+#~ "If <application>Burner</application> is set as your default disc burning "
 #~ "application, it will automatically start when you insert a blank CD-R/W "
 #~ "or DVD-R/W in your drive."
 #~ msgstr ""
-#~ "V primeru da je <application>Brasero</application> nastavljen kot vaš "
+#~ "V primeru da je <application>Burner</application> nastavljen kot vaš "
 #~ "privzet program za zapisovanje diskov, se bo samodejno zagnal ob "
 #~ "vstavitvi praznega CD-R/W-ja ali DVD-R/W-ja v vaš pogon."
 
-#~ msgid "When You Start Brasero"
-#~ msgstr "Ko zaženete Brasero"
+#~ msgid "When You Start Burner"
+#~ msgstr "Ko zaženete Burner"
 
 #~ msgid ""
-#~ "When you start <application>Brasero</application> the following window "
+#~ "When you start <application>Burner</application> the following window "
 #~ "will be shown."
 #~ msgstr ""
-#~ "Ko zaženete <application>Brasero</application> bo prikazano naslednje "
+#~ "Ko zaženete <application>Burner</application> bo prikazano naslednje "
 #~ "okno."
 
 #~ msgid ""
-#~ "The Brasero main window. Shows the menu bar and the five types of project "
+#~ "The Burner main window. Shows the menu bar and the five types of project "
 #~ "to choose from."
 #~ msgstr ""
-#~ "Glavno okno Brasero. Prikazuje menijsko vrstico in pet vrst projektov za "
+#~ "Glavno okno Burner. Prikazuje menijsko vrstico in pet vrst projektov za "
 #~ "izbiro."
 
 #~ msgid ""
 #~ "This window is the starting point for all of your projects. You can click "
 #~ "on the project type you wish to start from here. If you have created "
-#~ "other projects with <application>Brasero</application>, you will be able "
+#~ "other projects with <application>Burner</application>, you will be able "
 #~ "to select them from the <guilabel>Recent projects</guilabel> (see <xref "
-#~ "linkend=\"brasero-open-recent-project\"/> for more information)."
+#~ "linkend=\"burner-open-recent-project\"/> for more information)."
 #~ msgstr ""
 #~ "To okno je začetna točka za vse vaše projekte. Tukaj lahko kliknete na "
 #~ "vrsto projekta, ki jo želite zagnati. V primeru da ste z "
-#~ "<application>Brasero</application> ustvarili druge projekte, jih boste "
+#~ "<application>Burner</application> ustvarili druge projekte, jih boste "
 #~ "lahko izbrali iz <guilabel>Nedavnih projektov</guilabel> (za več "
-#~ "podrobnosti si oglejte <xref linkend=\"brasero-open-recent-project\"/>)."
+#~ "podrobnosti si oglejte <xref linkend=\"burner-open-recent-project\"/>)."
 
 #~ msgid ""
 #~ "The following section explains the five types of project that you can "
-#~ "create with <application>Brasero</application>."
+#~ "create with <application>Burner</application>."
 #~ msgstr ""
 #~ "Naslednji odsek razloži pet vrst projektov, ki jih lahko ustvarite z "
-#~ "<application>Braserom</application>."
+#~ "<application>Burnerm</application>."
 
 #~ msgid "Audio Project"
 #~ msgstr "Zvočni projekt"
@@ -942,12 +942,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ "klikom na gumb <guibutton>Dodaj</guibutton> zgoraj levo v orodni vrstici."
 
 #~ msgid ""
-#~ "It is possible now to <link linkend=\"brasero-audio-pause\">insert a "
-#~ "pause</link> after each of the tracks or <link linkend=\"brasero-audio-"
+#~ "It is possible now to <link linkend=\"burner-audio-pause\">insert a "
+#~ "pause</link> after each of the tracks or <link linkend=\"burner-audio-"
 #~ "split\">to split</link> the tracks."
 #~ msgstr ""
-#~ "Sedaj je mogoče <link linkend=\"brasero-audio-pause\">vstaviti premor</"
-#~ "link> za vsako skladbo ali <link linkend=\"brasero-audio-split"
+#~ "Sedaj je mogoče <link linkend=\"burner-audio-pause\">vstaviti premor</"
+#~ "link> za vsako skladbo ali <link linkend=\"burner-audio-split"
 #~ "\">razdeliti </link> skladbe."
 
 #~ msgid ""
@@ -965,12 +965,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-audio-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-audio-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "Prikazano bo pogovorno okno <guilabel>Nastavitev zapisovanja diska</"
 #~ "guilabel>; naredite katerekoli želene spremembe (oglejte si <xref linkend="
-#~ "\"brasero-audio-project-options\"/>)."
+#~ "\"burner-audio-project-options\"/>)."
 
 #~ msgid "Click on <guibutton>Burn</guibutton> to start the burning process."
 #~ msgstr ""
@@ -1104,12 +1104,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "Click on <guibutton>Properties</guibutton> to open the properties dialog "
-#~ "for the burning device. See <xref linkend=\"brasero-burning-device-"
+#~ "for the burning device. See <xref linkend=\"burner-burning-device-"
 #~ "properties\"/> for more information."
 #~ msgstr ""
 #~ "Kliknite na <guibutton>Lastnosti</guibutton> za odpiranje pogovornega "
 #~ "okna lastnosti zapisovalne naprave. Za več podrobnosti si oglejte <xref "
-#~ "linkend=\"brasero-burning-device-properties\"/>."
+#~ "linkend=\"burner-burning-device-properties\"/>."
 
 #~ msgid "Section <guilabel>Disc options</guilabel>:"
 #~ msgstr "Odsek <guilabel>Možnosti diska</guilabel>:"
@@ -1154,12 +1154,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-data-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-data-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "Pokazano bo pogovorno okno <guilabel>Nastavitev zapisovanja diska</"
 #~ "guilabel>; naredite katerekoli želene spremembe (oglejte si <xref linkend="
-#~ "\"brasero-data-project-options\"/>)."
+#~ "\"burner-data-project-options\"/>)."
 
 #~ msgid "To burn a data CD, proceed as follows: <placeholder-1/>"
 #~ msgstr ""
@@ -1225,12 +1225,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "The <guilabel>Disc burning setup</guilabel> dialog will be shown; make "
-#~ "any desired modifications (see <xref linkend=\"brasero-video-project-"
+#~ "any desired modifications (see <xref linkend=\"burner-video-project-"
 #~ "options\"/>)."
 #~ msgstr ""
 #~ "Prikazano bo pogovorno okno <guilabel>Nastavitev zapisovanja diska</"
 #~ "guilabel>; naredite katerekoli želene spremembe (oglejte si <xref linkend="
-#~ "\"brasero-video-project-options\"/>)."
+#~ "\"burner-video-project-options\"/>)."
 
 #~ msgid "To create a video project, proceed as follows: <placeholder-1/>"
 #~ msgstr ""
@@ -1324,12 +1324,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "The <guilabel>CD/DVD copy options</guilabel> dialog will be shown; make "
-#~ "the desired modifications (see <xref linkend=\"brasero-disc-copy-options"
+#~ "the desired modifications (see <xref linkend=\"burner-disc-copy-options"
 #~ "\"/> for more information)."
 #~ msgstr ""
 #~ "Prikazano bo pogovorno okno <guilabel>Možnosti kopiranja CD/DVD</"
 #~ "guilabel>; naredite želene spremembe (za več podrobnosti si oglejte <xref "
-#~ "linkend=\"brasero-disc-copy-options\"/>)."
+#~ "linkend=\"burner-disc-copy-options\"/>)."
 
 #~ msgid "Click on <guibutton>Copy</guibutton> to start the copying process."
 #~ msgstr ""
@@ -1393,11 +1393,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "This project takes an existing file image and burns it to a CD-R/W or DVD-"
-#~ "R/W. <application>Brasero</application> supports the following types of "
+#~ "R/W. <application>Burner</application> supports the following types of "
 #~ "image file: <placeholder-1/>"
 #~ msgstr ""
 #~ "Ta projekt zapiše obstoječo datoteko odtisa na CD-R/W ali DVD-R/W. "
-#~ "<application>Brasero</application> podpira naslednje vrste datotek "
+#~ "<application>Burner</application> podpira naslednje vrste datotek "
 #~ "odtisa: <placeholder-1/>"
 
 #~ msgid ""
@@ -1411,11 +1411,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "The <guilabel>Image burning setup</guilabel> dialog will be shown; make "
-#~ "the desired modifications (see <xref linkend=\"brasero-burn-image-options"
+#~ "the desired modifications (see <xref linkend=\"burner-burn-image-options"
 #~ "\"/>)."
 #~ msgstr ""
 #~ "Prikazano bo pogovorno okno <guilabel>Nastavitve zapisovanja odtisa</"
-#~ "guilabel>; naredite želene spremembe (oglejte si <xref linkend=\"brasero-"
+#~ "guilabel>; naredite želene spremembe (oglejte si <xref linkend=\"burner-"
 #~ "burn-image-options\"/>)."
 
 #~ msgid "To start this project, proceed as follows: <placeholder-1/>"
@@ -1438,12 +1438,12 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ "Click on the button to open the <guilabel>Select Image File</guilabel> "
 #~ "dialog and select the image file to burn. From the drop-down list at the "
 #~ "bottom, you can select the type of the image to burn. If unsure, select "
-#~ "<guilabel>Let brasero choose (safest)</guilabel>."
+#~ "<guilabel>Let burner choose (safest)</guilabel>."
 #~ msgstr ""
 #~ "Kliknite na gumb za odprtje pogovornega okna <guilabel>Izbor datoteke "
 #~ "odtisa</guilabel> in izberite datoteko odtisa za zapis. V spustnem "
 #~ "seznamu na dnu lahko izberete vrsto odtisa za zapis. V primeru da niste "
-#~ "prepričani, izberite <guilabel>Naj izbere brasero (najvarnejše)</"
+#~ "prepričani, izberite <guilabel>Naj izbere burner (najvarnejše)</"
 #~ "guilabel>."
 
 #~ msgid "Burning Device Properties"
@@ -1514,13 +1514,13 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "Select this option to simulate the burning process; no real burn is "
-#~ "performed. If this operation is successful, brasero will actually burn "
+#~ "performed. If this operation is successful, burner will actually burn "
 #~ "the disc after pausing for 10 seconds. During this pause it will show a "
 #~ "dialog in which you can cancel the actual burning. This is useful for "
 #~ "testing, if you are having problems burning discs."
 #~ msgstr ""
 #~ "Izberite to možnost za simuliranje opravila zapisovanja; pravo "
-#~ "zapisovanje ni izvedeno. V primeru da je to opravilo uspešno, bo brasero "
+#~ "zapisovanje ni izvedeno. V primeru da je to opravilo uspešno, bo burner "
 #~ "dejansko zapisal disk po 10 sekundnemu premoru. Med premorom bo prikazal "
 #~ "pogovorno okno v katerem lahko prekličete dejanski zapis. To je uporabo "
 #~ "za preizkus v primeru da imate težave z zapisovanjem diskov."
@@ -1554,11 +1554,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "If you start the burning process without a CD or DVD in the burning "
-#~ "device, <application>Brasero</application> will create a image file on "
+#~ "device, <application>Burner</application> will create a image file on "
 #~ "the hard disk that you can lately burn."
 #~ msgstr ""
 #~ "V primeru da začnete opravilo zapisovanja brez CD-ja ali DVD-ja v "
-#~ "zapisovalni napravi, bo <application>Brasero</application> ustvaril "
+#~ "zapisovalni napravi, bo <application>Burner</application> ustvaril "
 #~ "datoteko odtisa, ki jo lahko zapišete kasneje."
 
 #~ msgid ""
@@ -1635,18 +1635,18 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 
 #~ msgid ""
 #~ "Erasing or blanking a CD or DVD means to delete all the data that the CD "
-#~ "or the DVD contains. <application>Brasero</application> is able to erase "
+#~ "or the DVD contains. <application>Burner</application> is able to erase "
 #~ "the following CD and DVD formats: <placeholder-1/>"
 #~ msgstr ""
 #~ "Brisanje ali praznjenje CD-ja ali DVD-ja pomeni izbris vseh podatkov, ki "
-#~ "jih CD ali DVD vsebuje. <application>Brasero</application> lahko izbriše "
+#~ "jih CD ali DVD vsebuje. <application>Burner</application> lahko izbriše "
 #~ "naslednje vrste CD-jev in DVD-jev: <placeholder-1/> "
 
 #~ msgid ""
-#~ "In general, <application>Brasero</application> can support all of the "
+#~ "In general, <application>Burner</application> can support all of the "
 #~ "media formats supported by your own CD/DVD recorder."
 #~ msgstr ""
-#~ "V splošnem lahko <application>Brasero</application> podpira vse vrste "
+#~ "V splošnem lahko <application>Burner</application> podpira vse vrste "
 #~ "medijev, ki jih podpira vaš CD/DVD zapisovalnik."
 
 #~ msgid ""
@@ -1678,11 +1678,11 @@ msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
 #~ msgid ""
 #~ "If you want to quickly erase the disc, select the <guilabel>fast "
 #~ "blanking</guilabel> option (for more information, see <xref linkend="
-#~ "\"brasero-fast-blanking\"/>)."
+#~ "\"burner-fast-blanking\"/>)."
 #~ msgstr ""
 #~ "V primeru da želite hitro izbrisati disk, izberite možnost "
 #~ "<guilabel>hitro praznjenje</guilabel> (za več podrobnosti si oglejte "
-#~ "<xref linkend=\"brasero-fast-blanking\"/>)."
+#~ "<xref linkend=\"burner-fast-blanking\"/>)."
 
 #~ msgid ""
 #~ "Click on <guibutton>Blank</guibutton> to start erasing the CD or DVD."

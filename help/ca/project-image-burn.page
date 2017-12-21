@@ -35,7 +35,7 @@
 
   <title>Enregistrament d'una imatge</title>
 
-  <p>El <app>Brasero</app> us permet enregistrar imatges de disc a CD o DVD. Admet les extensions d'imatges de discos òptics següents: <file>.iso</file>, <file>.toc</file> i <file>.cue</file>.</p>
+  <p>El <app>Burner</app> us permet enregistrar imatges de disc a CD o DVD. Admet les extensions d'imatges de discos òptics següents: <file>.iso</file>, <file>.toc</file> i <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Disc images are archive files which contain all the data that is on a CD
@@ -57,7 +57,7 @@
       <p>Select the disc that you want to use from drop down list below
       <gui>Select a disc to write to</gui>. If you have more than one disc
       drive, all discs which are currently in them should be listed.</p>
-        <note><p>After choosing the disc <app>Brasero</app> shows how much free
+        <note><p>After choosing the disc <app>Burner</app> shows how much free
         space will remain on the disc after burning.</p></note>
     </item>
     <item>
@@ -74,8 +74,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

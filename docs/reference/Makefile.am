@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = libbrasero-media libbrasero-burn
+SUBDIRS = libburner-media libburner-burn
 
 GITIGNOREFILES = */*.1
 

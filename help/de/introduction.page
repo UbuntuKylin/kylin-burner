@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Einführung in das CD/DVD-Brennprogramm <app>Brasero</app>.</desc>
+    <desc>Einführung in das CD/DVD-Brennprogramm <app>Burner</app>.</desc>
     <credit type="author">
       <name>Jekaterina Gerassimowa</name>
       <email>kittykat3756@googlemail.com</email>
@@ -27,9 +27,9 @@
 
   <title>Einführung</title>
 
-  <p><app>Brasero</app> ist eine Anwendung zum Brennen von CDs und DVDs, optimiert auf einfache Anwendbarkeit, jedoch ausgestattet mit allen für das Brennen erforderlichen Werkzeugen.</p>
+  <p><app>Burner</app> ist eine Anwendung zum Brennen von CDs und DVDs, optimiert auf einfache Anwendbarkeit, jedoch ausgestattet mit allen für das Brennen erforderlichen Werkzeugen.</p>
 
-  <p>Mit <app>Brasero</app> können Sie:</p>
+  <p>Mit <app>Burner</app> können Sie:</p>
   <list>
     <item><p>Daten auf CDs und DVDs brennen</p></item>
     <item><p>Audio-CDs aus digitalen Audio-Dateien erstellen (wie ogg, flac oder mp3)</p></item>
@@ -41,8 +41,8 @@
   </list>
 
   <figure>
-    <title>Das <gui>Brasero</gui>-Hauptfenster</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Das <gui>Burner</gui>-Hauptfenster</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

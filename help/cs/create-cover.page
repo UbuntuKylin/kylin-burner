@@ -33,7 +33,7 @@
 
   <title>Vytvořit obal</title>
 
-  <p>Můžete použít aplikaci <app>Brasero</app> pro vytváření štítků do svých obalů na CD. Otevřete editor obalů kliknutím na <guiseq><gui>Nástroje</gui><gui>Editor obalů</gui></guiseq>.</p>
+  <p>Můžete použít aplikaci <app>Burner</app> pro vytváření štítků do svých obalů na CD. Otevřete editor obalů kliknutím na <guiseq><gui>Nástroje</gui><gui>Editor obalů</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Pokud vytváříte hudební projekt a sestavíte projekt před vytvářením štítků do obalů, tak potom, když otevřete prostředí <gui>Editor obalů</gui> z okna hudebního projektu, stopy budou automaticky vypsány na zadním obalu.</p>
@@ -56,7 +56,7 @@
     <item>
       <p>Klikněte na ikonu <gui>Vlastnosti pozadí</gui> v panelu nástrojů pro přidání pozadí pro aktuální obal, nebo klikněte pravým tlačítkem na obal, který chcete upravit, a zvolte <gui>Nastavit vlastnosti pozadí</gui>. Můžete si vybrat barevné pozadí nebo obrázek na pozadí.</p>
       <note style="bug">
-        <p>Pokud vyberte centrovaný obrázek na pozadí, <app>Brasero</app> občas spadne, když kliknete na tlačítko <gui>Zavřít</gui>.</p>
+        <p>Pokud vyberte centrovaný obrázek na pozadí, <app>Burner</app> občas spadne, když kliknete na tlačítko <gui>Zavřít</gui>.</p>
       </note>
       <p>Pro schválení změn klikněte na tlačítko <gui>Zavřít</gui> a zavřete dialog <gui>Vlastnosti pozadí</gui>.</p>
     </item>

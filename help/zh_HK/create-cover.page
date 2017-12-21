@@ -15,7 +15,7 @@
 
   <title>建立一個封套</title>
 
-  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  <p>You can use <app>Burner</app> to create inlays for your jewel cases.
   Access the creator by clicking <guiseq><gui>Tools</gui>
   <gui>Cover Editor</gui></guiseq>.</p>
 
@@ -46,7 +46,7 @@
     <item>
       <p>按一下位於工具列的「<gui>背景屬性</gui>」圖示然後為你現在的封套建立背景，或直接在你想要編輯的封套上按右鍵「<gui>設定背景屬性</gui>」。你可以選擇單色的背景顏色或是選擇背景圖片。</p>
       <note style="bug">
-        <p>如果你選擇將背景圖片置中，「<app>Brasero</app>」有時候會在你按下「<gui>關閉</gui>」按鈕的時候沒有回應。</p>
+        <p>如果你選擇將背景圖片置中，「<app>Burner</app>」有時候會在你按下「<gui>關閉</gui>」按鈕的時候沒有回應。</p>
       </note>
       <p>按一下「<gui>關閉</gui>」來套用更改並關閉「<gui>背景屬性</gui>」對話視窗。</p>
     </item>

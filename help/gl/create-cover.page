@@ -15,7 +15,7 @@
 
   <title>Crear unha portada</title>
 
-  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  <p>You can use <app>Burner</app> to create inlays for your jewel cases.
   Access the creator by clicking <guiseq><gui>Tools</gui>
   <gui>Cover Editor</gui></guiseq>.</p>
 
@@ -40,7 +40,7 @@
     <item>
       <p>Prema na icona de <gui>Propiedades do fondo</gui> para engadir un fondo á portada, ou prema co botón dereito sobre a portada para editala e seleccione <gui>Estabelecer as propiedades de fondo</gui>. Pode escoller un fondo de cor ou unha imaxe de fondo.</p>
       <note style="bug">
-        <p>Se seleccionou unha imaxe de fondo centrada, <app>Brasero</app> a veces péchase ao premer o botón <gui>Pechar</gui>.</p>
+        <p>Se seleccionou unha imaxe de fondo centrada, <app>Burner</app> a veces péchase ao premer o botón <gui>Pechar</gui>.</p>
       </note>
       <p>Prema no botón <gui>Pechar</gui> para aplicar os cambios e seleccione o diálogo <gui>Propiedades do fondo</gui>.</p>
     </item>

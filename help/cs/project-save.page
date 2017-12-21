@@ -50,7 +50,7 @@
     </item>
   </steps>
 
-  <p>Je několik způsobů, jak otevřít uložený projekt <app>Brasero</app>:</p>
+  <p>Je několik způsobů, jak otevřít uložený projekt <app>Burner</app>:</p>
 
   <list>
     <item>
@@ -65,14 +65,14 @@
     <item>
       <p>otevřením projektu v prohlížeči souborů</p>
       <note>
-        <p>V kterýkoliv okamžik může být spuštěna pouze jedna instance aplikace <app>Brasero</app>. Když se pokusíte otevřít druhou instanci, tak akorát současné otevřeno okno <app>Brasero</app> získá zaměření.</p>
-        <p>Pokud již <app>Brasero</app> běží a vy v něm zkusíte pomocí <app>Soubory</app> otevřít nějaké soubory, budou tyto soubory přidány do projektu, na kterém se právě pracuje.</p>
+        <p>V kterýkoliv okamžik může být spuštěna pouze jedna instance aplikace <app>Burner</app>. Když se pokusíte otevřít druhou instanci, tak akorát současné otevřeno okno <app>Burner</app> získá zaměření.</p>
+        <p>Pokud již <app>Burner</app> běží a vy v něm zkusíte pomocí <app>Soubory</app> otevřít nějaké soubory, budou tyto soubory přidány do projektu, na kterém se právě pracuje.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Pokud otevřete uložený projekt, <app>Brasero</app> s ním bude pracovat jako s novým projektem: pokud chcete uložit aktualizovanou verzi projektu, budete muset vyplnit jeho název. V tuto chvíli můžete buď přepsat starou verzi nebo ho uložit jako nový projekt napsáním odlišného názvu souboru.</p>
+    <p>Pokud otevřete uložený projekt, <app>Burner</app> s ním bude pracovat jako s novým projektem: pokud chcete uložit aktualizovanou verzi projektu, budete muset vyplnit jeho název. V tuto chvíli můžete buď přepsat starou verzi nebo ho uložit jako nový projekt napsáním odlišného názvu souboru.</p>
   </note>
 
 </page>

@@ -18,7 +18,7 @@
 
   <title>保存项目</title>
 
-  <p>您可以在 <app>Brasero</app> 中保存音频、数据和视频项目，以便日后编辑和刻录。</p>
+  <p>您可以在 <app>Burner</app> 中保存音频、数据和视频项目，以便日后编辑和刻录。</p>
 
   <steps>
     <item>
@@ -32,7 +32,7 @@
     </item>
   </steps>
 
-  <p>有多种途径来打开保存的 <app>Brasero</app> 项目：</p>
+  <p>有多种途径来打开保存的 <app>Burner</app> 项目：</p>
 
   <list>
     <item>
@@ -47,10 +47,10 @@
     <item>
       <p>从文件浏览器中打开项目</p>
       <note>
-        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        <p>Only one instance of <app>Burner</app> can be opened at any time.
         If you try to open a second instance, the currently open
-        <app>Brasero</app> window will be focused.</p>
-        <p>If <app>Brasero</app> is already running and you try to open some
+        <app>Burner</app> window will be focused.</p>
+        <p>If <app>Burner</app> is already running and you try to open some
         files with it from <app>Files</app>, the files will be added to the
         project that you are currently working on.</p>
       </note>
@@ -58,7 +58,7 @@
   </list>
 
   <note>
-    <p>如果您打开一个已保存的项目，<app>Brasero</app> 会把它作为一个新项目：如果您想保存更新后的项目，程序会请您为它输入一个名字，这时您可以选择覆盖老版本，或输入不同的文件名将它保存为一个新项目。</p>
+    <p>如果您打开一个已保存的项目，<app>Burner</app> 会把它作为一个新项目：如果您想保存更新后的项目，程序会请您为它输入一个名字，这时您可以选择覆盖老版本，或输入不同的文件名将它保存为一个新项目。</p>
   </note>
 
 </page>

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introduction à l'application de gravure de disque <app>Brasero</app>.</desc>
+    <desc>Introduction à l'application de gravure de disque <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -33,9 +33,9 @@
 
   <title>Introduction</title>
 
-  <p><app>Brasero</app> est un logiciel de gravure de CD et de DVD conçu pour être facile à utiliser bien que fournissant tous les outils nécessaires à la gravure.</p>
+  <p><app>Burner</app> est un logiciel de gravure de CD et de DVD conçu pour être facile à utiliser bien que fournissant tous les outils nécessaires à la gravure.</p>
 
-  <p>Avec <app>Brasero</app>, vous pouvez :</p>
+  <p>Avec <app>Burner</app>, vous pouvez :</p>
   <list>
     <item><p>graver des données sur des CD et des DVD,</p></item>
     <item><p>graver des CD audio à partir de fichiers audio (tels que OGG, FLAC et MP3),</p></item>
@@ -47,8 +47,8 @@
   </list>
 
   <figure>
-    <title>La fenêtre principale de <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>La fenêtre principale de <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

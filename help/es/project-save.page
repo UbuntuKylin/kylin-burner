@@ -30,7 +30,7 @@
 
   <title>Guardar un proyecto</title>
 
-  <p>Puede guardar un proyecto de sonido, datos o vídeo en <app>Brasero</app> para editarlo o grabarlo más tarde.</p>
+  <p>Puede guardar un proyecto de sonido, datos o vídeo en <app>Burner</app> para editarlo o grabarlo más tarde.</p>
 
   <steps>
     <item>
@@ -44,7 +44,7 @@
     </item>
   </steps>
 
-  <p>Existe cierto número de formas para obrir un proyecto de <app>Brasero</app> guardado:</p>
+  <p>Existe cierto número de formas para obrir un proyecto de <app>Burner</app> guardado:</p>
 
   <list>
     <item>
@@ -59,14 +59,14 @@
     <item>
       <p>abriendo el proyecto desde un gestor de archivos</p>
       <note>
-        <p>Sólo se puede abrir una instancia de <app>Brasero</app> a la vez. Si intenta abrir una segunda instancia, se dará el foco a la ventana de <app>Brasero</app> que ya esté abierta.</p>
-        <p>Si <app>Brasero</app> ya está en ejecución e intenta abrir algunos archivos con él desde <app>Archivo</app>, éstos se añadirán al proyecto en el que esté trabajando actualmente</p>
+        <p>Sólo se puede abrir una instancia de <app>Burner</app> a la vez. Si intenta abrir una segunda instancia, se dará el foco a la ventana de <app>Burner</app> que ya esté abierta.</p>
+        <p>Si <app>Burner</app> ya está en ejecución e intenta abrir algunos archivos con él desde <app>Archivo</app>, éstos se añadirán al proyecto en el que esté trabajando actualmente</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Si abre un proyecto guardado, <app>Brasero</app> lo tratará como un proyecto nuevo: si quiere guardar una versión actualizada del proyecto, se le preguntará un nombre para él, en este punto puede sobrescribir la versión anterior o guardarlo como un proyecto nuevo introduciendo un nombre diferente.</p>
+    <p>Si abre un proyecto guardado, <app>Burner</app> lo tratará como un proyecto nuevo: si quiere guardar una versión actualizada del proyecto, se le preguntará un nombre para él, en este punto puede sobrescribir la versión anterior o guardarlo como un proyecto nuevo introduciendo un nombre diferente.</p>
   </note>
 
 </page>

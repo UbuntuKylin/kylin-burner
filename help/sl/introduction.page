@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Uvod v <app>Brasero</app>, program za zapisovanje diskov.</desc>
+    <desc>Uvod v <app>Burner</app>, program za zapisovanje diskov.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -15,9 +15,9 @@
 
   <title>Uvod</title>
 
-  <p><app>Brasero</app> je program za zapisovanje CD-R/W-jev in DVD-R/W-jev, zasnovan za enostavno uporabo in zagotavljanje vseh orodij potrebnih za zapisovanje.</p>
+  <p><app>Burner</app> je program za zapisovanje CD-R/W-jev in DVD-R/W-jev, zasnovan za enostavno uporabo in zagotavljanje vseh orodij potrebnih za zapisovanje.</p>
 
-  <p>Z <app>Brasero</app> lahko:</p>
+  <p>Z <app>Burner</app> lahko:</p>
   <list>
     <item><p>Zapišete podatke na CD-je in DVD-je</p></item>
     <item><p>Zapišete zvočne CD-je iz digitalnih zvočnih datotek (kot so ogg, flac in mp3)</p></item>
@@ -29,8 +29,8 @@
   </list>
 
   <figure>
-    <title>Glavno okno <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Glavno okno <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

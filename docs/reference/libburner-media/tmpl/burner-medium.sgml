@@ -1,0 +1,233 @@
+<!-- ##### SECTION Title ##### -->
+BurnerMedium
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerMedium ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_medium_get_status ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_max_write_speed ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_write_speeds ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_free_space ##### -->
+<para>
+
+</para>
+
+@medium: 
+@bytes: 
+@blocks: 
+
+
+<!-- ##### FUNCTION burner_medium_get_capacity ##### -->
+<para>
+
+</para>
+
+@medium: 
+@bytes: 
+@blocks: 
+
+
+<!-- ##### FUNCTION burner_medium_get_data_size ##### -->
+<para>
+
+</para>
+
+@medium: 
+@bytes: 
+@blocks: 
+
+
+<!-- ##### FUNCTION burner_medium_get_next_writable_address ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_can_be_rewritten ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_can_be_written ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_CD_TEXT_title ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_type_string ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_tooltip ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_drive ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_track_num ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_last_data_track_space ##### -->
+<para>
+
+</para>
+
+@medium: 
+@bytes: 
+@sectors: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_last_data_track_address ##### -->
+<para>
+
+</para>
+
+@medium: 
+@bytes: 
+@sectors: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_track_space ##### -->
+<para>
+
+</para>
+
+@medium: 
+@num: 
+@bytes: 
+@sectors: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_get_track_address ##### -->
+<para>
+
+</para>
+
+@medium: 
+@num: 
+@bytes: 
+@sectors: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_can_use_dummy_for_sao ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_can_use_dummy_for_tao ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_can_use_burnfree ##### -->
+<para>
+
+</para>
+
+@medium: 
+@Returns: 
+
+

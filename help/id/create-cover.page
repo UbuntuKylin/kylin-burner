@@ -21,7 +21,7 @@
 
   <title>Buat sampul</title>
 
-  <p>Anda dapat memakai <app>Brasero</app> untuk membuat sampul dalam bagi kotak CD Anda. Akseslah pembuatnya dengan mengklik <guiseq><gui>Perkakas</gui> <gui>Penyunting Sampul</gui></guiseq>.</p>
+  <p>Anda dapat memakai <app>Burner</app> untuk membuat sampul dalam bagi kotak CD Anda. Akseslah pembuatnya dengan mengklik <guiseq><gui>Perkakas</gui> <gui>Penyunting Sampul</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Bila Anda membuat suatu projek audio dan selesai menyusun projek sebelum membuat suatu sampul dalam, maka ketika Anda mengakses antar muka <gui>Penyunting Sampul</gui> dari jendela projek audio, trek akan didaftar secara otomatis pada sampul belakang.</p>
@@ -44,7 +44,7 @@
     <item>
       <p>Klik pada ikon bilah alat <gui>Properti latar belakang</gui> untuk menambah latar belakang bagi sampul saat ini, atau klik kanan pada sampul yang ingin Anda sunting dan pilih <gui>Tata Properti Latar Belakang</gui>. Anda dapat memilih untuk memakai latar belakang yang diwarnai atau memilih citra latar belakang.</p>
       <note style="bug">
-        <p>Bila Anda memilih suatu citra latar belakang yang diletakkan di tengah, kadang-kadang <app>Brasero</app> crash ketika Anda mengklik tombol <gui>Tutup</gui>.</p>
+        <p>Bila Anda memilih suatu citra latar belakang yang diletakkan di tengah, kadang-kadang <app>Burner</app> crash ketika Anda mengklik tombol <gui>Tutup</gui>.</p>
       </note>
       <p>Klik tombol <gui>Tutup</gui> untuk menerapkan perubahan dan tutup dialog <gui>Properti Latar Belakang</gui>.</p>
     </item>

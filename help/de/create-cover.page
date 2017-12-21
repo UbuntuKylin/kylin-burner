@@ -27,7 +27,7 @@
 
   <title>Ein Cover erzeugen</title>
 
-  <p>Sie können <app>Brasero</app> zum Erstellen von Einlegern für Ihre CD- und DVD-Boxen verwenden. Wählen Sie hierzu <guiseq><gui>Werkzeuge</gui><gui>Cover-Editor</gui></guiseq>.</p>
+  <p>Sie können <app>Burner</app> zum Erstellen von Einlegern für Ihre CD- und DVD-Boxen verwenden. Wählen Sie hierzu <guiseq><gui>Werkzeuge</gui><gui>Cover-Editor</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Wenn Sie ein Audio-Projekt erstellt haben und mit dem Zusammenstellen des Projekts fertig sind, bevor Sie einen Einleger erstellt haben, werden beim Öffnen des <gui>Cover-Editor</gui>-Fensters die Titel automatisch auf der Rückseite des Einlegers aufgelistet.</p>
@@ -50,7 +50,7 @@
     <item>
       <p>Klicken Sie auf das Werkzeugleistensymbol <gui>Hintergrundeigenschaften</gui>, um einen Hintergrund für das aktuelle Cover auszuwählen. Alternativ klicken Sie mit der rechten Maustaste auf das zu bearbeitende Cover und wählen <gui>Hintergrundeigenschaften festlegen</gui>. Sie können einen farbigen Hintergrund oder ein Hintergrundbild auswählen.</p>
       <note style="bug">
-        <p>Falls Sie ein zentriertes Hintergrundbild gewählt haben, stürzt <app>Brasero</app> gelegentlich ab, sobald Sie auf <gui>Schließen</gui> klicken.</p>
+        <p>Falls Sie ein zentriertes Hintergrundbild gewählt haben, stürzt <app>Burner</app> gelegentlich ab, sobald Sie auf <gui>Schließen</gui> klicken.</p>
       </note>
       <p>Klicken Sie auf <gui>Schließen</gui>, um die Änderungen anzuwenden und den <gui>Hintergrundeigenschaften</gui>-Dialog zu schließen.</p>
     </item>

@@ -27,7 +27,7 @@
 
   <title>Scrierea unui CD de muzică</title>
 
-  <p><app>Brasero</app> poate scrie fișiere audio pe un CD, care apoi poate fi redat în playere CD și așa mai departe. De obicei este optim să utilizați un CD non-reinscriptibil, deoarece nu toate playerele CD vor reda CD-uri reinscriptibile.</p>
+  <p><app>Burner</app> poate scrie fișiere audio pe un CD, care apoi poate fi redat în playere CD și așa mai departe. De obicei este optim să utilizați un CD non-reinscriptibil, deoarece nu toate playerele CD vor reda CD-uri reinscriptibile.</p>
 
   <steps>
     <item>

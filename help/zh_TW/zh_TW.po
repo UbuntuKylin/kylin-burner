@@ -2,7 +2,7 @@
 # Kevin_Wei_2 <kevin_wei3@yahoo.com.tw>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero\n"
+"Project-Id-Version: burner\n"
 "POT-Creation-Date: 2012-08-13 06:47+0000\n"
 "PO-Revision-Date: 2012-08-14 23:57+0800\n"
 "Last-Translator: Kevin Wei <kevinwei3@gmail.com>\n"
@@ -54,10 +54,10 @@ msgstr "檢查光碟的完整性。"
 
 #: C/tools-check-integrity.page:23(p)
 msgid ""
-"After burning a CD/DVD by using <app>Brasero</app>, you can check its "
+"After burning a CD/DVD by using <app>Burner</app>, you can check its "
 "integrity to make sure that the files in the disc are not corrupted."
 msgstr ""
-"在使用「<app>Brasero</app>」燒錄完成一張CD/DVD光碟之後，您可以檢查光碟的完整"
+"在使用「<app>Burner</app>」燒錄完成一張CD/DVD光碟之後，您可以檢查光碟的完整"
 "性來確保在光碟中的檔案是正常無損壞的。"
 
 #: C/tools-check-integrity.page:27(p)
@@ -222,10 +222,10 @@ msgstr "以每個分割點來分割音軌"
 
 #: C/split-track.page:53(p)
 msgid ""
-"Select this method for <app>Brasero</app> to auto-detect silences in the "
+"Select this method for <app>Burner</app> to auto-detect silences in the "
 "recording and to split the track at those points."
 msgstr ""
-"選擇這項將可以使「<app>Brasero</app>」自動偵測音軌中的靜音處並且將音軌以靜音"
+"選擇這項將可以使「<app>Burner</app>」自動偵測音軌中的靜音處並且將音軌以靜音"
 "處作分割。"
 
 #: C/split-track.page:59(p)
@@ -267,10 +267,10 @@ msgstr "建立一個影片專案"
 
 #: C/project-video.page:22(p)
 msgid ""
-"<app>Brasero</app> can be used to create video discs for playing in a DVD "
+"<app>Burner</app> can be used to create video discs for playing in a DVD "
 "player or laptop."
 msgstr ""
-"「<app>Brasero</app>」可以用來製作讓DVD播放機或筆記型電腦播放的影音光碟。"
+"「<app>Burner</app>」可以用來製作讓DVD播放機或筆記型電腦播放的影音光碟。"
 
 #: C/project-video.page:27(p)
 msgid ""
@@ -336,10 +336,10 @@ msgstr "儲存為一個專案"
 
 #: C/project-save.page:22(p)
 msgid ""
-"You can save an audio, a data or a video project in <app>Brasero</app> for "
+"You can save an audio, a data or a video project in <app>Burner</app> for "
 "editing or burning later."
 msgstr ""
-"您可以在「<app>Brasero</app>」中先將音樂、資料或影片專案先儲存以便於稍後編輯"
+"您可以在「<app>Burner</app>」中先將音樂、資料或影片專案先儲存以便於稍後編輯"
 "或燒錄。"
 
 #: C/project-save.page:27(p)
@@ -362,9 +362,9 @@ msgstr ""
 #: C/project-save.page:39(p)
 msgid ""
 "There are a number of ways which can be used for opening a saved "
-"<app>Brasero</app> project by:"
+"<app>Burner</app> project by:"
 msgstr ""
-"有許多方式可以用來開啟已經儲存的「<app>Brasero</app>」專案，這些方法為："
+"有許多方式可以用來開啟已經儲存的「<app>Burner</app>」專案，這些方法為："
 
 #: C/project-save.page:44(p)
 msgid ""
@@ -391,15 +391,15 @@ msgstr "在檔案管理員中直接開啟一個專案檔案。"
 
 #: C/project-save.page:57(p)
 msgid ""
-"If <app>Brasero</app> is already running, opening the project from a file "
-"browser will cause a second instance of <app>Brasero</app> to start and will "
+"If <app>Burner</app> is already running, opening the project from a file "
+"browser will cause a second instance of <app>Burner</app> to start and will "
 "cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/"
 "show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
 msgstr ""
 
 #: C/project-save.page:67(p)
 msgid ""
-"If you open a saved project, <app>Brasero</app> will treat it as a new "
+"If you open a saved project, <app>Burner</app> will treat it as a new "
 "project: if you want to save an updated version of the project, it will ask "
 "you to enter a name for it, at this point you can overwrite the old version "
 "or save it as a new project by entering a different file name."
@@ -423,7 +423,7 @@ msgstr "燒錄映像檔"
 
 #: C/project-image-burn.page:27(p)
 msgid ""
-"<app>Brasero</app> allows you to burn disc images to a CD or DVD. It "
+"<app>Burner</app> allows you to burn disc images to a CD or DVD. It "
 "supports the following extensions of optical disc images: <file>.iso</file>, "
 "<file>.toc</file> and <file>.cue</file>."
 msgstr ""
@@ -465,7 +465,7 @@ msgstr ""
 
 #: C/project-image-burn.page:53(p)
 msgid ""
-"After choosing the disc <app>Brasero</app> shows how much free space will "
+"After choosing the disc <app>Burner</app> shows how much free space will "
 "remain on the disc after burning."
 msgstr ""
 
@@ -605,7 +605,7 @@ msgstr "燒錄一張音樂CD"
 
 #: C/project-audio.page:19(p)
 msgid ""
-"<app>Brasero</app> can write audio files to a CD, which you can then use for "
+"<app>Burner</app> can write audio files to a CD, which you can then use for "
 "playing in CD players and so on. It is usually best to use a non-rewritable "
 "CD because not all CD players will play rewritable CDs."
 msgstr ""
@@ -728,17 +728,17 @@ msgstr "重新並使用音樂專案來燒錄這張CD。"
 #: C/introduction.page:36(None)
 #, fuzzy
 #| msgid ""
-#| "@@image: 'figures/brasero_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
+#| "@@image: 'figures/burner_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 msgid ""
-"@@image: 'figures/brasero-main-window.png'; "
+"@@image: 'figures/burner-main-window.png'; "
 "md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
 msgstr ""
-"@@image: 'figures/brasero_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
+"@@image: 'figures/burner_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 
 #: C/introduction.page:7(desc)
 #, fuzzy
-msgid "Introduction to the <app>Brasero</app> disc burning application."
-msgstr "介紹「<app>Brasero</app>」，一套光碟燒錄軟體。"
+msgid "Introduction to the <app>Burner</app> disc burning application."
+msgstr "介紹「<app>Burner</app>」，一套光碟燒錄軟體。"
 
 #: C/introduction.page:17(title)
 msgid "Introduction"
@@ -746,15 +746,15 @@ msgstr "引言"
 
 #: C/introduction.page:19(p)
 msgid ""
-"<app>Brasero</app> is an application for burning CDs and DVDs, designed to "
+"<app>Burner</app> is an application for burning CDs and DVDs, designed to "
 "be easy to use, while providing all the tools necessary for burning."
 msgstr ""
-"「<application>Brasero</application>」是用來燒錄 CD 和 DVD 的應用程式，它被設"
+"「<application>Burner</application>」是用來燒錄 CD 和 DVD 的應用程式，它被設"
 "計成易於使用，並且提供所有燒錄所需的工具。"
 
 #: C/introduction.page:22(p)
-msgid "With <app>Brasero</app> you can:"
-msgstr "在「<application>Brasero</application>」中您可以："
+msgid "With <app>Burner</app> you can:"
+msgstr "在「<application>Burner</application>」中您可以："
 
 #: C/introduction.page:24(p)
 msgid "Burn data to CDs and DVDs"
@@ -785,12 +785,12 @@ msgid "Check the integrity of discs and disc images"
 msgstr "檢查光碟和光碟映像檔的完整性"
 
 #: C/introduction.page:35(title)
-msgid "The <gui>Brasero</gui> main window"
-msgstr "「<gui>Brasero</gui>」主視窗"
+msgid "The <gui>Burner</gui> main window"
+msgstr "「<gui>Burner</gui>」主視窗"
 
 #: C/index.page:5(title)
-msgid "Brasero Help"
-msgstr "Brasero 說明"
+msgid "Burner Help"
+msgstr "Burner 說明"
 
 #: C/index.page:8(title)
 msgid "Create a new project"
@@ -815,7 +815,7 @@ msgstr "建立一個封套"
 
 #: C/create-cover.page:19(p)
 msgid ""
-"You can use <app>Brasero</app> to create inlays for your jewel cases. Access "
+"You can use <app>Burner</app> to create inlays for your jewel cases. Access "
 "the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></"
 "guiseq>."
 msgstr ""
@@ -862,10 +862,10 @@ msgstr ""
 
 #: C/create-cover.page:53(p)
 msgid ""
-"If you select a centered background image, <app>Brasero</app> sometimes "
+"If you select a centered background image, <app>Burner</app> sometimes "
 "crashes when you click the <gui>Close</gui> button."
 msgstr ""
-"如果您選擇將背景圖片置中，「<app>Brasero</app>」有時候會在您按下「<gui>關閉</"
+"如果您選擇將背景圖片置中，「<app>Burner</app>」有時候會在您按下「<gui>關閉</"
 "gui>」按鈕的時候沒有回應。"
 
 #: C/create-cover.page:56(p)
@@ -894,11 +894,11 @@ msgstr ""
 "Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2009.Kevin Wei <kevinwei3@gmail."
 "com>, 2012."
 
-#~ msgid "<application>Brasero</application> Manual V2.2"
-#~ msgstr "<application>Brasero</application> 手冊 V2.2"
+#~ msgid "<application>Burner</application> Manual V2.2"
+#~ msgstr "<application>Burner</application> 手冊 V2.2"
 
-#~ msgid "Brasero is an application for burning CDs and DVDs."
-#~ msgstr "Brasero 是用來燒錄 CD 和 DVD 的應用程式。"
+#~ msgid "Burner is an application for burning CDs and DVDs."
+#~ msgstr "Burner 是用來燒錄 CD 和 DVD 的應用程式。"
 
 #~ msgid "2008"
 #~ msgstr "2008"
@@ -1013,8 +1013,8 @@ msgstr ""
 #~ msgid "Bull"
 #~ msgstr "Bull"
 
-#~ msgid "Brasero Manual V2.2"
-#~ msgstr "Brasero 手冊 V2.2"
+#~ msgid "Burner Manual V2.2"
+#~ msgstr "Burner 手冊 V2.2"
 
 #~ msgid "January 2009"
 #~ msgstr "2009 年一月"
@@ -1022,14 +1022,14 @@ msgstr ""
 #~ msgid "Milo Casagrande <email>milo@ubuntu.com</email>"
 #~ msgstr "Milo Casagrande <email>milo@ubuntu.com</email>"
 
-#~ msgid "Brasero Manual V2.1"
-#~ msgstr "Brasero 手冊 V2.1"
+#~ msgid "Burner Manual V2.1"
+#~ msgstr "Burner 手冊 V2.1"
 
 #~ msgid "August 2008"
 #~ msgstr "2008 年八月"
 
-#~ msgid "Brasero Manual V2.0"
-#~ msgstr "Brasero 手冊 V2.0"
+#~ msgid "Burner Manual V2.0"
+#~ msgstr "Burner 手冊 V2.0"
 
 #~ msgid "February 2008"
 #~ msgstr "2008 年二月"
@@ -1040,24 +1040,24 @@ msgstr ""
 #~ msgid "Phil Bull <email>philbull@gmail.com</email>"
 #~ msgstr "Phil Bull <email>philbull@gmail.com</email>"
 
-#~ msgid "This manual describes version 2.26 of Brasero."
-#~ msgstr "這個手冊描述的是 Brasero 2.26 版。"
+#~ msgid "This manual describes version 2.26 of Burner."
+#~ msgstr "這個手冊描述的是 Burner 2.26 版。"
 
 #~ msgid "Feedback"
 #~ msgstr "回饋"
 
 #~ msgid ""
-#~ "To report a bug or make a suggestion regarding the <application>Brasero</"
+#~ "To report a bug or make a suggestion regarding the <application>Burner</"
 #~ "application> application or this manual, follow the directions in the "
 #~ "<ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</"
 #~ "ulink>."
 #~ msgstr ""
-#~ "要回報 <application>Brasero</application> 應用程式或這本手冊的錯誤或給予建"
+#~ "要回報 <application>Burner</application> 應用程式或這本手冊的錯誤或給予建"
 #~ "議，請依照 <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME 回饋頁"
 #~ "面</ulink> 中的指示。"
 
-#~ msgid "brasero"
-#~ msgstr "brasero"
+#~ msgid "burner"
+#~ msgstr "burner"
 
 #~ msgid "burn"
 #~ msgstr "燒錄"
@@ -1068,47 +1068,47 @@ msgstr ""
 #~ msgid "Getting Started"
 #~ msgstr "開始使用"
 
-#~ msgid "Starting Brasero"
-#~ msgstr "啟動 Brasero"
+#~ msgid "Starting Burner"
+#~ msgstr "啟動 Burner"
 
 #~ msgid ""
-#~ "You can start <application>Brasero</application> in the following ways:"
-#~ msgstr "您可以用下列方式啟動 <application>Brasero</application>："
+#~ "You can start <application>Burner</application> in the following ways:"
+#~ msgstr "您可以用下列方式啟動 <application>Burner</application>："
 
 #~ msgid "<guimenu>Applications</guimenu> menu"
 #~ msgstr "<guimenu>應用程式</guimenu> 選單"
 
 #~ msgid ""
 #~ "Choose <menuchoice><guisubmenu>Sound &amp; Video</"
-#~ "guisubmenu><guimenuitem>Brasero Disc Burning</guimenuitem></menuchoice>."
+#~ "guisubmenu><guimenuitem>Burner Disc Burning</guimenuitem></menuchoice>."
 #~ msgstr ""
 #~ "選擇 <menuchoice><guisubmenu>聲音 &amp; 影片</"
-#~ "guisubmenu><guimenuitem>Brasero 光碟燒錄</guimenuitem></menuchoice>。"
+#~ "guisubmenu><guimenuitem>Burner 光碟燒錄</guimenuitem></menuchoice>。"
 
 #~ msgid "Command line"
 #~ msgstr "命令列"
 
 #~ msgid ""
-#~ "Type <command>brasero</command> and then press <keycap>Return</keycap>."
-#~ msgstr "輸入 <command>brasero</command> 然後按 <keycap>Enter</keycap>。"
+#~ "Type <command>burner</command> and then press <keycap>Return</keycap>."
+#~ msgstr "輸入 <command>burner</command> 然後按 <keycap>Enter</keycap>。"
 
 #~ msgid ""
-#~ "If <application>Brasero</application> is set as your default disc burning "
+#~ "If <application>Burner</application> is set as your default disc burning "
 #~ "application, it will automatically start when you insert a blank CD-R/W "
 #~ "or DVD-R/W in your drive."
 #~ msgstr ""
-#~ "如果 <application>Brasero</application> 設定為您預設的光碟燒錄程式，它會在"
+#~ "如果 <application>Burner</application> 設定為您預設的光碟燒錄程式，它會在"
 #~ "您插入空白 CD-R/W 或 DVD-R/W 到光碟機時自動啟動。"
 
-#~ msgid "When You Start Brasero"
-#~ msgstr "當您啟動 Brasero"
+#~ msgid "When You Start Burner"
+#~ msgstr "當您啟動 Burner"
 
 #~ msgid ""
-#~ "When you start <application>Brasero</application> the following window "
+#~ "When you start <application>Burner</application> the following window "
 #~ "will be shown."
-#~ msgstr "當您啟動 <application>Brasero</application> 時會出現下列視窗。"
+#~ msgstr "當您啟動 <application>Burner</application> 時會出現下列視窗。"
 
 #~ msgid ""
-#~ "The Brasero main window. Shows the menu bar and the five types of project "
+#~ "The Burner main window. Shows the menu bar and the five types of project "
 #~ "to choose from."
-#~ msgstr "Brasero 主視窗。顯示選單列以及五種可供選擇的專案類型。"
+#~ msgstr "Burner 主視窗。顯示選單列以及五種可供選擇的專案類型。"

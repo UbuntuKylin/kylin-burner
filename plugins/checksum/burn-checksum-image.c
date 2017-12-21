@@ -1,22 +1,22 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /*
- * Libbrasero-burn
+ * Libburner-burn
  * Copyright (C) Philippe Rouquier 2005-2009 <bonfire-app@wanadoo.fr>
  *
- * Libbrasero-burn is free software; you can redistribute it and/or modify
+ * Libburner-burn is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * The Libbrasero-burn authors hereby grant permission for non-GPL compatible
+ * The Libburner-burn authors hereby grant permission for non-GPL compatible
  * GStreamer plugins to be used and distributed together with GStreamer
- * and Libbrasero-burn. This permission is above and beyond the permissions granted
- * by the GPL license by which Libbrasero-burn is covered. If you modify this code
+ * and Libburner-burn. This permission is above and beyond the permissions granted
+ * by the GPL license by which Libburner-burn is covered. If you modify this code
  * you may extend this exception to your version of the code, but you are not
  * obligated to do so. If you do not wish to do so, delete this exception
  * statement from your version.
  * 
- * Libbrasero-burn is distributed in the hope that it will be useful,
+ * Libburner-burn is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Library General Public License for more details.
@@ -47,27 +47,27 @@
 
 #include <gmodule.h>
 
-#include "brasero-plugin-registration.h"
+#include "burner-plugin-registration.h"
 #include "burn-job.h"
 #include "burn-volume.h"
-#include "brasero-drive.h"
-#include "brasero-track-disc.h"
-#include "brasero-track-image.h"
-#include "brasero-tags.h"
+#include "burner-drive.h"
+#include "burner-track-disc.h"
+#include "burner-track-image.h"
+#include "burner-tags.h"
 
 
-#define BRASERO_TYPE_CHECKSUM_IMAGE		(brasero_checksum_image_get_type ())
-#define BRASERO_CHECKSUM_IMAGE(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), BRASERO_TYPE_CHECKSUM_IMAGE, BraseroChecksumImage))
-#define BRASERO_CHECKSUM_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), BRASERO_TYPE_CHECKSUM_IMAGE, BraseroChecksumImageClass))
-#define BRASERO_IS_CHECKSUM_IMAGE(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), BRASERO_TYPE_CHECKSUM_IMAGE))
-#define BRASERO_IS_CHECKSUM_IMAGE_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), BRASERO_TYPE_CHECKSUM_IMAGE))
-#define BRASERO_CHECKSUM_GET_CLASS(o)		(G_TYPE_INSTANCE_GET_CLASS ((o), BRASERO_TYPE_CHECKSUM_IMAGE, BraseroChecksumImageClass))
+#define BURNER_TYPE_CHECKSUM_IMAGE		(burner_checksum_image_get_type ())
+#define BURNER_CHECKSUM_IMAGE(o)		(G_TYPE_CHECK_INSTANCE_CAST ((o), BURNER_TYPE_CHECKSUM_IMAGE, BurnerChecksumImage))
+#define BURNER_CHECKSUM_CLASS(k)		(G_TYPE_CHECK_CLASS_CAST((k), BURNER_TYPE_CHECKSUM_IMAGE, BurnerChecksumImageClass))
+#define BURNER_IS_CHECKSUM_IMAGE(o)		(G_TYPE_CHECK_INSTANCE_TYPE ((o), BURNER_TYPE_CHECKSUM_IMAGE))
+#define BURNER_IS_CHECKSUM_IMAGE_CLASS(k)	(G_TYPE_CHECK_CLASS_TYPE ((k), BURNER_TYPE_CHECKSUM_IMAGE))
+#define BURNER_CHECKSUM_GET_CLASS(o)		(G_TYPE_INSTANCE_GET_CLASS ((o), BURNER_TYPE_CHECKSUM_IMAGE, BurnerChecksumImageClass))
 
-BRASERO_PLUGIN_BOILERPLATE (BraseroChecksumImage, brasero_checksum_image, BRASERO_TYPE_JOB, BraseroJob);
+BURNER_PLUGIN_BOILERPLATE (BurnerChecksumImage, burner_checksum_image, BURNER_TYPE_JOB, BurnerJob);
 
-struct _BraseroChecksumImagePrivate {
+struct _BurnerChecksumImagePrivate {
 	GChecksum *checksum;
-	BraseroChecksumType checksum_type;
+	BurnerChecksumType checksum_type;
 
 	/* That's for progress reporting */
 	goffset total;
@@ -81,17 +81,17 @@ struct _BraseroChecksumImagePrivate {
 
 	guint cancel;
 };
-typedef struct _BraseroChecksumImagePrivate BraseroChecksumImagePrivate;
+typedef struct _BurnerChecksumImagePrivate BurnerChecksumImagePrivate;
 
-#define BRASERO_CHECKSUM_IMAGE_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BRASERO_TYPE_CHECKSUM_IMAGE, BraseroChecksumImagePrivate))
+#define BURNER_CHECKSUM_IMAGE_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BURNER_TYPE_CHECKSUM_IMAGE, BurnerChecksumImagePrivate))
 
-#define BRASERO_SCHEMA_CONFIG		"org.gnome.brasero.config"
-#define BRASERO_PROPS_CHECKSUM_IMAGE	"checksum-image"
+#define BURNER_SCHEMA_CONFIG		"org.gnome.burner.config"
+#define BURNER_PROPS_CHECKSUM_IMAGE	"checksum-image"
 
-static BraseroJobClass *parent_class = NULL;
+static BurnerJobClass *parent_class = NULL;
 
 static gint
-brasero_checksum_image_read (BraseroChecksumImage *self,
+burner_checksum_image_read (BurnerChecksumImage *self,
 			     int fd,
 			     guchar *buffer,
 			     gint bytes,
@@ -99,9 +99,9 @@ brasero_checksum_image_read (BraseroChecksumImage *self,
 {
 	gint total = 0;
 	gint read_bytes;
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	while (1) {
 		read_bytes = read (fd, buffer + total, (bytes - total));
@@ -119,8 +119,8 @@ brasero_checksum_image_read (BraseroChecksumImage *self,
                                 int errsv = errno;
 
 				g_set_error (error,
-					     BRASERO_BURN_ERROR,
-					     BRASERO_BURN_ERROR_GENERAL,
+					     BURNER_BURN_ERROR,
+					     BURNER_BURN_ERROR_GENERAL,
 					     _("Data could not be read (%s)"),
 					     g_strerror (errsv));
 				return -1;
@@ -139,8 +139,8 @@ brasero_checksum_image_read (BraseroChecksumImage *self,
 	return total;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_write (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_write (BurnerChecksumImage *self,
 			      int fd,
 			      guchar *buffer,
 			      gint bytes,
@@ -148,9 +148,9 @@ brasero_checksum_image_write (BraseroChecksumImage *self,
 {
 	gint bytes_remaining;
 	gint bytes_written = 0;
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	bytes_remaining = bytes;
 	while (bytes_remaining) {
@@ -161,7 +161,7 @@ brasero_checksum_image_write (BraseroChecksumImage *self,
 				 bytes_remaining);
 
 		if (priv->cancel)
-			return BRASERO_BURN_CANCEL;
+			return BURNER_BURN_CANCEL;
 
 		if (written != bytes_remaining) {
 			if (errno != EINTR && errno != EAGAIN) {
@@ -169,11 +169,11 @@ brasero_checksum_image_write (BraseroChecksumImage *self,
 
 				/* unrecoverable error */
 				g_set_error (error,
-					     BRASERO_BURN_ERROR,
-					     BRASERO_BURN_ERROR_GENERAL,
+					     BURNER_BURN_ERROR,
+					     BURNER_BURN_ERROR_GENERAL,
 					     _("Data could not be written (%s)"),
 					     g_strerror (errsv));
-				return BRASERO_BURN_ERR;
+				return BURNER_BURN_ERR;
 			}
 		}
 
@@ -185,11 +185,11 @@ brasero_checksum_image_write (BraseroChecksumImage *self,
 		}
 	}
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_checksum (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_checksum (BurnerChecksumImage *self,
 				 GChecksumType checksum_type,
 				 int fd_in,
 				 int fd_out,
@@ -197,24 +197,24 @@ brasero_checksum_image_checksum (BraseroChecksumImage *self,
 {
 	gint read_bytes;
 	guchar buffer [2048];
-	BraseroBurnResult result;
-	BraseroChecksumImagePrivate *priv;
+	BurnerBurnResult result;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	priv->checksum = g_checksum_new (checksum_type);
-	result = BRASERO_BURN_OK;
+	result = BURNER_BURN_OK;
 	while (1) {
-		read_bytes = brasero_checksum_image_read (self,
+		read_bytes = burner_checksum_image_read (self,
 							  fd_in,
 							  buffer,
 							  sizeof (buffer),
 							  error);
 		if (read_bytes == -2)
-			return BRASERO_BURN_CANCEL;
+			return BURNER_BURN_CANCEL;
 
 		if (read_bytes == -1)
-			return BRASERO_BURN_ERR;
+			return BURNER_BURN_ERR;
 
 		if (!read_bytes)
 			break;
@@ -222,11 +222,11 @@ brasero_checksum_image_checksum (BraseroChecksumImage *self,
 		/* it can happen when we're just asked to generate a checksum
 		 * that we don't need to output the received data */
 		if (fd_out > 0) {
-			result = brasero_checksum_image_write (self,
+			result = burner_checksum_image_write (self,
 							       fd_out,
 							       buffer,
 							       read_bytes, error);
-			if (result != BRASERO_BURN_OK)
+			if (result != BURNER_BURN_OK)
 				break;
 		}
 
@@ -240,55 +240,55 @@ brasero_checksum_image_checksum (BraseroChecksumImage *self,
 	return result;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_checksum_fd_input (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_checksum_fd_input (BurnerChecksumImage *self,
 					  GChecksumType checksum_type,
 					  GError **error)
 {
 	int fd_in = -1;
 	int fd_out = -1;
-	BraseroBurnResult result;
-	BraseroChecksumImagePrivate *priv;
+	BurnerBurnResult result;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
-	BRASERO_JOB_LOG (self, "Starting checksum generation live (size = %lli)", priv->total);
-	result = brasero_job_set_nonblocking (BRASERO_JOB (self), error);
-	if (result != BRASERO_BURN_OK)
+	BURNER_JOB_LOG (self, "Starting checksum generation live (size = %lli)", priv->total);
+	result = burner_job_set_nonblocking (BURNER_JOB (self), error);
+	if (result != BURNER_BURN_OK)
 		return result;
 
-	brasero_job_get_fd_in (BRASERO_JOB (self), &fd_in);
-	brasero_job_get_fd_out (BRASERO_JOB (self), &fd_out);
+	burner_job_get_fd_in (BURNER_JOB (self), &fd_in);
+	burner_job_get_fd_out (BURNER_JOB (self), &fd_out);
 
-	return brasero_checksum_image_checksum (self, checksum_type, fd_in, fd_out, error);
+	return burner_checksum_image_checksum (self, checksum_type, fd_in, fd_out, error);
 }
 
-static BraseroBurnResult
-brasero_checksum_image_checksum_file_input (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_checksum_file_input (BurnerChecksumImage *self,
 					    GChecksumType checksum_type,
 					    GError **error)
 {
-	BraseroChecksumImagePrivate *priv;
-	BraseroBurnResult result;
-	BraseroTrack *track;
+	BurnerChecksumImagePrivate *priv;
+	BurnerBurnResult result;
+	BurnerTrack *track;
 	int fd_out = -1;
 	int fd_in = -1;
 	gchar *path;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	/* get all information */
-	brasero_job_get_current_track (BRASERO_JOB (self), &track);
-	path = brasero_track_image_get_source (BRASERO_TRACK_IMAGE (track), FALSE);
+	burner_job_get_current_track (BURNER_JOB (self), &track);
+	path = burner_track_image_get_source (BURNER_TRACK_IMAGE (track), FALSE);
 	if (!path) {
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_FILE_NOT_LOCAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_FILE_NOT_LOCAL,
 			     _("The file is not stored locally"));
-		return BRASERO_BURN_ERR;
+		return BURNER_BURN_ERR;
 	}
 
-	BRASERO_JOB_LOG (self,
+	BURNER_JOB_LOG (self,
 			 "Starting checksuming file %s (size = %"G_GOFFSET_FORMAT")",
 			 path,
 			 priv->total);
@@ -299,15 +299,15 @@ brasero_checksum_image_checksum_file_input (BraseroChecksumImage *self,
 		gchar *name = NULL;
 
 		if (errno == ENOENT)
-			return BRASERO_BURN_RETRY;
+			return BURNER_BURN_RETRY;
 
 		name = g_path_get_basename (path);
 
                 errsv = errno;
 
 		g_set_error (error,
-			     BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_GENERAL,
+			     BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_GENERAL,
 			     /* Translators: first %s is the filename, second %s
 			      * is the error generated from errno */
 			     _("\"%s\" could not be opened (%s)"),
@@ -316,64 +316,64 @@ brasero_checksum_image_checksum_file_input (BraseroChecksumImage *self,
 		g_free (name);
 		g_free (path);
 
-		return BRASERO_BURN_ERR;
+		return BURNER_BURN_ERR;
 	}
 
 	/* and here we go */
-	brasero_job_get_fd_out (BRASERO_JOB (self), &fd_out);
-	result = brasero_checksum_image_checksum (self, checksum_type, fd_in, fd_out, error);
+	burner_job_get_fd_out (BURNER_JOB (self), &fd_out);
+	result = burner_checksum_image_checksum (self, checksum_type, fd_in, fd_out, error);
 	g_free (path);
 	close (fd_in);
 
 	return result;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_create_checksum (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_create_checksum (BurnerChecksumImage *self,
 					GError **error)
 {
-	BraseroBurnResult result;
-	BraseroTrack *track = NULL;
+	BurnerBurnResult result;
+	BurnerTrack *track = NULL;
 	GChecksumType checksum_type;
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	/* get the checksum type */
 	switch (priv->checksum_type) {
-		case BRASERO_CHECKSUM_MD5:
+		case BURNER_CHECKSUM_MD5:
 			checksum_type = G_CHECKSUM_MD5;
 			break;
-		case BRASERO_CHECKSUM_SHA1:
+		case BURNER_CHECKSUM_SHA1:
 			checksum_type = G_CHECKSUM_SHA1;
 			break;
-		case BRASERO_CHECKSUM_SHA256:
+		case BURNER_CHECKSUM_SHA256:
 			checksum_type = G_CHECKSUM_SHA256;
 			break;
 		default:
-			return BRASERO_BURN_ERR;
+			return BURNER_BURN_ERR;
 	}
 
-	brasero_job_set_current_action (BRASERO_JOB (self),
-					BRASERO_BURN_ACTION_CHECKSUM,
+	burner_job_set_current_action (BURNER_JOB (self),
+					BURNER_BURN_ACTION_CHECKSUM,
 					_("Creating image checksum"),
 					FALSE);
-	brasero_job_start_progress (BRASERO_JOB (self), FALSE);
-	brasero_job_get_current_track (BRASERO_JOB (self), &track);
+	burner_job_start_progress (BURNER_JOB (self), FALSE);
+	burner_job_get_current_track (BURNER_JOB (self), &track);
 
 	/* see if another plugin is sending us data to checksum
 	 * or if we do it ourself (and then that must be from an
 	 * image file only). */
-	if (brasero_job_get_fd_in (BRASERO_JOB (self), NULL) == BRASERO_BURN_OK) {
-		BraseroMedium *medium;
+	if (burner_job_get_fd_in (BURNER_JOB (self), NULL) == BURNER_BURN_OK) {
+		BurnerMedium *medium;
 		GValue *value = NULL;
-		BraseroDrive *drive;
+		BurnerDrive *drive;
 		guint64 start, end;
 		goffset sectors;
 		goffset bytes;
 
-		brasero_track_tag_lookup (track,
-					  BRASERO_TRACK_MEDIUM_ADDRESS_START_TAG,
+		burner_track_tag_lookup (track,
+					  BURNER_TRACK_MEDIUM_ADDRESS_START_TAG,
 					  &value);
 
 		/* we were given an address to start */
@@ -381,8 +381,8 @@ brasero_checksum_image_create_checksum (BraseroChecksumImage *self,
 
 		/* get the length now */
 		value = NULL;
-		brasero_track_tag_lookup (track,
-					  BRASERO_TRACK_MEDIUM_ADDRESS_END_TAG,
+		burner_track_tag_lookup (track,
+					  BURNER_TRACK_MEDIUM_ADDRESS_END_TAG,
 					  &value);
 
 		end = g_value_get_uint64 (value);
@@ -391,119 +391,119 @@ brasero_checksum_image_create_checksum (BraseroChecksumImage *self,
 
 		/* we're only able to checksum ISO format at the moment so that
 		 * means we can only handle last session */
-		drive = brasero_track_disc_get_drive (BRASERO_TRACK_DISC (track));
-		medium = brasero_drive_get_medium (drive);
-		brasero_medium_get_last_data_track_space (medium,
+		drive = burner_track_disc_get_drive (BURNER_TRACK_DISC (track));
+		medium = burner_drive_get_medium (drive);
+		burner_medium_get_last_data_track_space (medium,
 							  &bytes,
 							  &sectors);
 
 		/* That's the only way to get the sector size */
 		priv->total *= bytes / sectors;
 
-		return brasero_checksum_image_checksum_fd_input (self, checksum_type, error);
+		return burner_checksum_image_checksum_fd_input (self, checksum_type, error);
 	}
 	else {
-		result = brasero_track_get_size (track,
+		result = burner_track_get_size (track,
 						 NULL,
 						 &priv->total);
-		if (result != BRASERO_BURN_OK)
+		if (result != BURNER_BURN_OK)
 			return result;
 
-		return brasero_checksum_image_checksum_file_input (self, checksum_type, error);
+		return burner_checksum_image_checksum_file_input (self, checksum_type, error);
 	}
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroChecksumType
-brasero_checksum_get_checksum_type (void)
+static BurnerChecksumType
+burner_checksum_get_checksum_type (void)
 {
 	GSettings *settings;
 	GChecksumType checksum_type;
 
-	settings = g_settings_new (BRASERO_SCHEMA_CONFIG);
-	checksum_type = g_settings_get_int (settings, BRASERO_PROPS_CHECKSUM_IMAGE);
+	settings = g_settings_new (BURNER_SCHEMA_CONFIG);
+	checksum_type = g_settings_get_int (settings, BURNER_PROPS_CHECKSUM_IMAGE);
 	g_object_unref (settings);
 
 	return checksum_type;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_image_and_checksum (BraseroChecksumImage *self,
+static BurnerBurnResult
+burner_checksum_image_image_and_checksum (BurnerChecksumImage *self,
 					   GError **error)
 {
-	BraseroBurnResult result;
+	BurnerBurnResult result;
 	GChecksumType checksum_type;
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
-	priv->checksum_type = brasero_checksum_get_checksum_type ();
+	priv->checksum_type = burner_checksum_get_checksum_type ();
 
-	if (priv->checksum_type & BRASERO_CHECKSUM_MD5)
+	if (priv->checksum_type & BURNER_CHECKSUM_MD5)
 		checksum_type = G_CHECKSUM_MD5;
-	else if (priv->checksum_type & BRASERO_CHECKSUM_SHA1)
+	else if (priv->checksum_type & BURNER_CHECKSUM_SHA1)
 		checksum_type = G_CHECKSUM_SHA1;
-	else if (priv->checksum_type & BRASERO_CHECKSUM_SHA256)
+	else if (priv->checksum_type & BURNER_CHECKSUM_SHA256)
 		checksum_type = G_CHECKSUM_SHA256;
 	else {
 		checksum_type = G_CHECKSUM_MD5;
-		priv->checksum_type = BRASERO_CHECKSUM_MD5;
+		priv->checksum_type = BURNER_CHECKSUM_MD5;
 	}
 
-	brasero_job_set_current_action (BRASERO_JOB (self),
-					BRASERO_BURN_ACTION_CHECKSUM,
+	burner_job_set_current_action (BURNER_JOB (self),
+					BURNER_BURN_ACTION_CHECKSUM,
 					_("Creating image checksum"),
 					FALSE);
-	brasero_job_start_progress (BRASERO_JOB (self), FALSE);
+	burner_job_start_progress (BURNER_JOB (self), FALSE);
 
-	if (brasero_job_get_fd_in (BRASERO_JOB (self), NULL) != BRASERO_BURN_OK) {
-		BraseroTrack *track;
+	if (burner_job_get_fd_in (BURNER_JOB (self), NULL) != BURNER_BURN_OK) {
+		BurnerTrack *track;
 
-		brasero_job_get_current_track (BRASERO_JOB (self), &track);
-		result = brasero_track_get_size (track,
+		burner_job_get_current_track (BURNER_JOB (self), &track);
+		result = burner_track_get_size (track,
 						 NULL,
 						 &priv->total);
-		if (result != BRASERO_BURN_OK)
+		if (result != BURNER_BURN_OK)
 			return result;
 
-		result = brasero_checksum_image_checksum_file_input (self,
+		result = burner_checksum_image_checksum_file_input (self,
 								     checksum_type,
 								     error);
 	}
 	else
-		result = brasero_checksum_image_checksum_fd_input (self,
+		result = burner_checksum_image_checksum_fd_input (self,
 								   checksum_type,
 								   error);
 
 	return result;
 }
 
-struct _BraseroChecksumImageThreadCtx {
-	BraseroChecksumImage *sum;
-	BraseroBurnResult result;
+struct _BurnerChecksumImageThreadCtx {
+	BurnerChecksumImage *sum;
+	BurnerBurnResult result;
 	GError *error;
 };
-typedef struct _BraseroChecksumImageThreadCtx BraseroChecksumImageThreadCtx;
+typedef struct _BurnerChecksumImageThreadCtx BurnerChecksumImageThreadCtx;
 
 static gboolean
-brasero_checksum_image_end (gpointer data)
+burner_checksum_image_end (gpointer data)
 {
-	BraseroChecksumImage *self;
-	BraseroTrack *track;
+	BurnerChecksumImage *self;
+	BurnerTrack *track;
 	const gchar *checksum;
-	BraseroBurnResult result;
-	BraseroChecksumImagePrivate *priv;
-	BraseroChecksumImageThreadCtx *ctx;
+	BurnerBurnResult result;
+	BurnerChecksumImagePrivate *priv;
+	BurnerChecksumImageThreadCtx *ctx;
 
 	ctx = data;
 	self = ctx->sum;
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	/* NOTE ctx/data is destroyed in its own callback */
 	priv->end_id = 0;
 
-	if (ctx->result != BRASERO_BURN_OK) {
+	if (ctx->result != BURNER_BURN_OK) {
 		GError *error;
 
 		error = ctx->error;
@@ -512,51 +512,51 @@ brasero_checksum_image_end (gpointer data)
 		g_checksum_free (priv->checksum);
 		priv->checksum = NULL;
 
-		brasero_job_error (BRASERO_JOB (self), error);
+		burner_job_error (BURNER_JOB (self), error);
 		return FALSE;
 	}
 
 	/* we were asked to check the sum of the track so get the type
 	 * of the checksum first to see what to do */
 	track = NULL;
-	brasero_job_get_current_track (BRASERO_JOB (self), &track);
+	burner_job_get_current_track (BURNER_JOB (self), &track);
 
 	/* Set the checksum for the track and at the same time compare it to a
 	 * potential previous one. */
 	checksum = g_checksum_get_string (priv->checksum);
-	BRASERO_JOB_LOG (self,
+	BURNER_JOB_LOG (self,
 			 "Setting new checksum (type = %i) %s (%s before)",
 			 priv->checksum_type,
 			 checksum,
-			 brasero_track_get_checksum (track));
-	result = brasero_track_set_checksum (track,
+			 burner_track_get_checksum (track));
+	result = burner_track_set_checksum (track,
 					     priv->checksum_type,
 					     checksum);
 	g_checksum_free (priv->checksum);
 	priv->checksum = NULL;
 
-	if (result != BRASERO_BURN_OK)
+	if (result != BURNER_BURN_OK)
 		goto error;
 
-	brasero_job_finished_track (BRASERO_JOB (self));
+	burner_job_finished_track (BURNER_JOB (self));
 	return FALSE;
 
 error:
 {
 	GError *error = NULL;
 
-	error = g_error_new (BRASERO_BURN_ERROR,
-			     BRASERO_BURN_ERROR_BAD_CHECKSUM,
+	error = g_error_new (BURNER_BURN_ERROR,
+			     BURNER_BURN_ERROR_BAD_CHECKSUM,
 			     _("Some files may be corrupted on the disc"));
-	brasero_job_error (BRASERO_JOB (self), error);
+	burner_job_error (BURNER_JOB (self), error);
 	return FALSE;
 }
 }
 
 static void
-brasero_checksum_image_destroy (gpointer data)
+burner_checksum_image_destroy (gpointer data)
 {
-	BraseroChecksumImageThreadCtx *ctx;
+	BurnerChecksumImageThreadCtx *ctx;
 
 	ctx = data;
 	if (ctx->error) {
@@ -568,53 +568,53 @@ brasero_checksum_image_destroy (gpointer data)
 }
 
 static gpointer
-brasero_checksum_image_thread (gpointer data)
+burner_checksum_image_thread (gpointer data)
 {
 	GError *error = NULL;
-	BraseroJobAction action;
-	BraseroTrack *track = NULL;
-	BraseroChecksumImage *self;
-	BraseroChecksumImagePrivate *priv;
-	BraseroChecksumImageThreadCtx *ctx;
-	BraseroBurnResult result = BRASERO_BURN_NOT_SUPPORTED;
+	BurnerJobAction action;
+	BurnerTrack *track = NULL;
+	BurnerChecksumImage *self;
+	BurnerChecksumImagePrivate *priv;
+	BurnerChecksumImageThreadCtx *ctx;
+	BurnerBurnResult result = BURNER_BURN_NOT_SUPPORTED;
 
-	self = BRASERO_CHECKSUM_IMAGE (data);
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (self);
+	self = BURNER_CHECKSUM_IMAGE (data);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (self);
 
 	/* check DISC types and add checksums for DATA and IMAGE-bin types */
-	brasero_job_get_action (BRASERO_JOB (self), &action);
-	brasero_job_get_current_track (BRASERO_JOB (self), &track);
+	burner_job_get_action (BURNER_JOB (self), &action);
+	burner_job_get_current_track (BURNER_JOB (self), &track);
 
-	if (action == BRASERO_JOB_ACTION_CHECKSUM) {
-		priv->checksum_type = brasero_track_get_checksum_type (track);
-		if (priv->checksum_type & (BRASERO_CHECKSUM_MD5|BRASERO_CHECKSUM_SHA1|BRASERO_CHECKSUM_SHA256))
-			result = brasero_checksum_image_create_checksum (self, &error);
+	if (action == BURNER_JOB_ACTION_CHECKSUM) {
+		priv->checksum_type = burner_track_get_checksum_type (track);
+		if (priv->checksum_type & (BURNER_CHECKSUM_MD5|BURNER_CHECKSUM_SHA1|BURNER_CHECKSUM_SHA256))
+			result = burner_checksum_image_create_checksum (self, &error);
 		else
-			result = BRASERO_BURN_ERR;
+			result = BURNER_BURN_ERR;
 	}
-	else if (action == BRASERO_JOB_ACTION_IMAGE) {
-		BraseroTrackType *input;
+	else if (action == BURNER_JOB_ACTION_IMAGE) {
+		BurnerTrackType *input;
 
-		input = brasero_track_type_new ();
-		brasero_job_get_input_type (BRASERO_JOB (self), input);
+		input = burner_track_type_new ();
+		burner_job_get_input_type (BURNER_JOB (self), input);
 
-		if (brasero_track_type_get_has_image (input))
-			result = brasero_checksum_image_image_and_checksum (self, &error);
+		if (burner_track_type_get_has_image (input))
+			result = burner_checksum_image_image_and_checksum (self, &error);
 		else
-			result = BRASERO_BURN_ERR;
+			result = BURNER_BURN_ERR;
 
-		brasero_track_type_free (input);
+		burner_track_type_free (input);
 	}
 
-	if (result != BRASERO_BURN_CANCEL) {
-		ctx = g_new0 (BraseroChecksumImageThreadCtx, 1);
+	if (result != BURNER_BURN_CANCEL) {
+		ctx = g_new0 (BurnerChecksumImageThreadCtx, 1);
 		ctx->sum = self;
 		ctx->error = error;
 		ctx->result = result;
 		priv->end_id = g_idle_add_full (G_PRIORITY_HIGH_IDLE,
-						brasero_checksum_image_end,
+						burner_checksum_image_end,
 						ctx,
-						brasero_checksum_image_destroy);
+						burner_checksum_image_destroy);
 	}
 
 	/* End thread */
@@ -627,106 +627,106 @@ brasero_checksum_image_thread (gpointer data)
 	return NULL;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_start (BraseroJob *job,
+static BurnerBurnResult
+burner_checksum_image_start (BurnerJob *job,
 			      GError **error)
 {
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 	GError *thread_error = NULL;
-	BraseroJobAction action;
+	BurnerJobAction action;
 
-	brasero_job_get_action (job, &action);
-	if (action == BRASERO_JOB_ACTION_SIZE) {
+	burner_job_get_action (job, &action);
+	if (action == BURNER_JOB_ACTION_SIZE) {
 		/* say we won't write to disc if we're just checksuming "live" */
-		if (brasero_job_get_fd_in (job, NULL) == BRASERO_BURN_OK)
-			return BRASERO_BURN_NOT_SUPPORTED;
+		if (burner_job_get_fd_in (job, NULL) == BURNER_BURN_OK)
+			return BURNER_BURN_NOT_SUPPORTED;
 
 		/* otherwise return an output of 0 since we're not actually 
 		 * writing anything to the disc. That will prevent a disc space
 		 * failure. */
-		brasero_job_set_output_size_for_current_track (job, 0, 0);
-		return BRASERO_BURN_NOT_RUNNING;
+		burner_job_set_output_size_for_current_track (job, 0, 0);
+		return BURNER_BURN_NOT_RUNNING;
 	}
 
 	/* we start a thread for the exploration of the graft points */
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (job);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (job);
 	g_mutex_lock (priv->mutex);
-	priv->thread = g_thread_create (brasero_checksum_image_thread,
-					BRASERO_CHECKSUM_IMAGE (job),
+	priv->thread = g_thread_create (burner_checksum_image_thread,
+					BURNER_CHECKSUM_IMAGE (job),
 					FALSE,
 					&thread_error);
 	g_mutex_unlock (priv->mutex);
 
 	/* Reminder: this is not necessarily an error as the thread may have finished */
 	//if (!priv->thread)
-	//	return BRASERO_BURN_ERR;
+	//	return BURNER_BURN_ERR;
 	if (thread_error) {
 		g_propagate_error (error, thread_error);
-		return BRASERO_BURN_ERR;
+		return BURNER_BURN_ERR;
 	}
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_activate (BraseroJob *job,
+static BurnerBurnResult
+burner_checksum_image_activate (BurnerJob *job,
 				 GError **error)
 {
-	BraseroBurnFlag flags = BRASERO_BURN_FLAG_NONE;
-	BraseroTrack *track = NULL;
-	BraseroJobAction action;
+	BurnerBurnFlag flags = BURNER_BURN_FLAG_NONE;
+	BurnerTrack *track = NULL;
+	BurnerJobAction action;
 
-	brasero_job_get_current_track (job, &track);
-	brasero_job_get_action (job, &action);
+	burner_job_get_current_track (job, &track);
+	burner_job_get_action (job, &action);
 
-	if (action == BRASERO_JOB_ACTION_IMAGE
-	&&  brasero_track_get_checksum_type (track) != BRASERO_CHECKSUM_NONE
-	&&  brasero_track_get_checksum_type (track) == brasero_checksum_get_checksum_type ()) {
-		BRASERO_JOB_LOG (job,
+	if (action == BURNER_JOB_ACTION_IMAGE
+	&&  burner_track_get_checksum_type (track) != BURNER_CHECKSUM_NONE
+	&&  burner_track_get_checksum_type (track) == burner_checksum_get_checksum_type ()) {
+		BURNER_JOB_LOG (job,
 				 "There is a checksum already %d",
-				 brasero_track_get_checksum_type (track));
+				 burner_track_get_checksum_type (track));
 		/* if there is a checksum already, if so no need to redo one */
-		return BRASERO_BURN_NOT_RUNNING;
+		return BURNER_BURN_NOT_RUNNING;
 	}
 
-	flags = BRASERO_BURN_FLAG_NONE;
-	brasero_job_get_flags (job, &flags);
-	if (flags & BRASERO_BURN_FLAG_DUMMY) {
-		BRASERO_JOB_LOG (job, "Dummy operation, skipping");
-		return BRASERO_BURN_NOT_RUNNING;
+	flags = BURNER_BURN_FLAG_NONE;
+	burner_job_get_flags (job, &flags);
+	if (flags & BURNER_BURN_FLAG_DUMMY) {
+		BURNER_JOB_LOG (job, "Dummy operation, skipping");
+		return BURNER_BURN_NOT_RUNNING;
 	}
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_clock_tick (BraseroJob *job)
+static BurnerBurnResult
+burner_checksum_image_clock_tick (BurnerJob *job)
 {
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (job);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (job);
 
 	if (!priv->checksum)
-		return BRASERO_BURN_OK;
+		return BURNER_BURN_OK;
 
 	if (!priv->total)
-		return BRASERO_BURN_OK;
+		return BURNER_BURN_OK;
 
-	brasero_job_start_progress (job, FALSE);
-	brasero_job_set_progress (job,
+	burner_job_start_progress (job, FALSE);
+	burner_job_set_progress (job,
 				  (gdouble) priv->bytes /
 				  (gdouble) priv->total);
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_checksum_image_stop (BraseroJob *job,
+static BurnerBurnResult
+burner_checksum_image_stop (BurnerJob *job,
 			     GError **error)
 {
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (job);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (job);
 
 	g_mutex_lock (priv->mutex);
 	if (priv->thread) {
@@ -747,26 +747,26 @@ brasero_checksum_image_stop (BraseroJob *job,
 		priv->checksum = NULL;
 	}
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
 static void
-brasero_checksum_image_init (BraseroChecksumImage *obj)
+burner_checksum_image_init (BurnerChecksumImage *obj)
 {
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (obj);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (obj);
 
 	priv->mutex = g_mutex_new ();
 	priv->cond = g_cond_new ();
 }
 
 static void
-brasero_checksum_image_finalize (GObject *object)
+burner_checksum_image_finalize (GObject *object)
 {
-	BraseroChecksumImagePrivate *priv;
+	BurnerChecksumImagePrivate *priv;
 	
-	priv = BRASERO_CHECKSUM_IMAGE_PRIVATE (object);
+	priv = BURNER_CHECKSUM_IMAGE_PRIVATE (object);
 
 	g_mutex_lock (priv->mutex);
 	if (priv->thread) {
@@ -801,29 +801,29 @@ brasero_checksum_image_finalize (GObject *object)
 }
 
 static void
-brasero_checksum_image_class_init (BraseroChecksumImageClass *klass)
+burner_checksum_image_class_init (BurnerChecksumImageClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	BraseroJobClass *job_class = BRASERO_JOB_CLASS (klass);
+	BurnerJobClass *job_class = BURNER_JOB_CLASS (klass);
 
-	g_type_class_add_private (klass, sizeof (BraseroChecksumImagePrivate));
+	g_type_class_add_private (klass, sizeof (BurnerChecksumImagePrivate));
 
 	parent_class = g_type_class_peek_parent (klass);
-	object_class->finalize = brasero_checksum_image_finalize;
+	object_class->finalize = burner_checksum_image_finalize;
 
-	job_class->activate = brasero_checksum_image_activate;
-	job_class->start = brasero_checksum_image_start;
-	job_class->stop = brasero_checksum_image_stop;
-	job_class->clock_tick = brasero_checksum_image_clock_tick;
+	job_class->activate = burner_checksum_image_activate;
+	job_class->start = burner_checksum_image_start;
+	job_class->stop = burner_checksum_image_stop;
+	job_class->clock_tick = burner_checksum_image_clock_tick;
 }
 
 static void
-brasero_checksum_image_export_caps (BraseroPlugin *plugin)
+burner_checksum_image_export_caps (BurnerPlugin *plugin)
 {
 	GSList *input;
-	BraseroPluginConfOption *checksum_type;
+	BurnerPluginConfOption *checksum_type;
 
-	brasero_plugin_define (plugin,
+	burner_plugin_define (plugin,
 	                       "image-checksum",
 			       /* Translators: this is the name of the plugin
 				* which will be translated only when it needs
@@ -835,34 +835,34 @@ brasero_checksum_image_export_caps (BraseroPlugin *plugin)
 
 	/* For images we can process (thus generating a sum on the fly or simply
 	 * test images). */
-	input = brasero_caps_image_new (BRASERO_PLUGIN_IO_ACCEPT_FILE|
-					BRASERO_PLUGIN_IO_ACCEPT_PIPE,
-					BRASERO_IMAGE_FORMAT_BIN);
-	brasero_plugin_process_caps (plugin, input);
+	input = burner_caps_image_new (BURNER_PLUGIN_IO_ACCEPT_FILE|
+					BURNER_PLUGIN_IO_ACCEPT_PIPE,
+					BURNER_IMAGE_FORMAT_BIN);
+	burner_plugin_process_caps (plugin, input);
 
-	brasero_plugin_set_process_flags (plugin,
-					  BRASERO_PLUGIN_RUN_PREPROCESSING|
-					  BRASERO_PLUGIN_RUN_BEFORE_TARGET);
+	burner_plugin_set_process_flags (plugin,
+					  BURNER_PLUGIN_RUN_PREPROCESSING|
+					  BURNER_PLUGIN_RUN_BEFORE_TARGET);
 
-	brasero_plugin_check_caps (plugin,
-				   BRASERO_CHECKSUM_MD5|
-				   BRASERO_CHECKSUM_SHA1|
-				   BRASERO_CHECKSUM_SHA256,
+	burner_plugin_check_caps (plugin,
+				   BURNER_CHECKSUM_MD5|
+				   BURNER_CHECKSUM_SHA1|
+				   BURNER_CHECKSUM_SHA256,
 				   input);
 	g_slist_free (input);
 
 	/* add some configure options */
-	checksum_type = brasero_plugin_conf_option_new (BRASERO_PROPS_CHECKSUM_IMAGE,
+	checksum_type = burner_plugin_conf_option_new (BURNER_PROPS_CHECKSUM_IMAGE,
 							_("Hashing algorithm to be used:"),
-							BRASERO_PLUGIN_OPTION_CHOICE);
-	brasero_plugin_conf_option_choice_add (checksum_type,
-					       _("MD5"), BRASERO_CHECKSUM_MD5);
-	brasero_plugin_conf_option_choice_add (checksum_type,
-					       _("SHA1"), BRASERO_CHECKSUM_SHA1);
-	brasero_plugin_conf_option_choice_add (checksum_type,
-					       _("SHA256"), BRASERO_CHECKSUM_SHA256);
+							BURNER_PLUGIN_OPTION_CHOICE);
+	burner_plugin_conf_option_choice_add (checksum_type,
+					       _("MD5"), BURNER_CHECKSUM_MD5);
+	burner_plugin_conf_option_choice_add (checksum_type,
+					       _("SHA1"), BURNER_CHECKSUM_SHA1);
+	burner_plugin_conf_option_choice_add (checksum_type,
+					       _("SHA256"), BURNER_CHECKSUM_SHA256);
 
-	brasero_plugin_add_conf_option (plugin, checksum_type);
+	burner_plugin_add_conf_option (plugin, checksum_type);
 
-	brasero_plugin_set_compulsory (plugin, FALSE);
+	burner_plugin_set_compulsory (plugin, FALSE);
 }

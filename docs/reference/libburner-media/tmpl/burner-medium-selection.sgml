@@ -1,0 +1,68 @@
+<!-- ##### SECTION Title ##### -->
+BurnerMediumSelection
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerMediumSelection ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_medium_selection_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_selection_get_active ##### -->
+<para>
+
+</para>
+
+@selector: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_selection_set_active ##### -->
+<para>
+
+</para>
+
+@selector: 
+@medium: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_medium_selection_show_media_type ##### -->
+<para>
+
+</para>
+
+@selector: 
+@type: 
+
+

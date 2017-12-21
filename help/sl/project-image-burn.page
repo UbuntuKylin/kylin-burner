@@ -23,7 +23,7 @@
 
   <title>Zapis odtisa</title>
 
-  <p><app>Brasero</app> vam omogoča zapis odtisov na CD ali DVD. Podpira naslednje pripone za odtise optičnih diskov: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
+  <p><app>Burner</app> vam omogoča zapis odtisov na CD ali DVD. Podpira naslednje pripone za odtise optičnih diskov: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Odtisi diska so datoteke arhivov, ki vsebujejo vse podatke na CD-ju ali DVD-ju. Hkrati je lahko na CD-ju le en odtis diska, vendar lahko vsak arhiv vsebuje kolikor malo ali kolikor veliko podatkov želite, dokler se prilega na disk.</p>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <p>Izberite disk, na katerega bi radi zapisovali v spustnem meniju <gui>Izbor diska za pisanje</gui>. Če imate več kot en diskovni pogon, bodo izpisani vsi pogoni v katerih je disk.</p>
-        <note><p>Po izbiri diska <app>Brasero</app> pokaže koliko praznega prostora bo ostalo na disku po zapisovanju.</p></note>
+        <note><p>Po izbiri diska <app>Burner</app> pokaže koliko praznega prostora bo ostalo na disku po zapisovanju.</p></note>
     </item>
     <item>
       <p>Kliknite na gumb <gui>Lastnosti</gui> za izbiro hitrosti zapisovanja in drugih možnosti po meri.button to select burning speed and other custom options.</p>
@@ -53,8 +53,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

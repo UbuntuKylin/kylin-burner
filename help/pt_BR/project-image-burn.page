@@ -35,7 +35,7 @@
 
   <title>Gravando uma imagem de disco</title>
 
-  <p>O <app>Brasero</app> permite que você grave imagens de disco em um CD ou DVD. El tem suporte às seguintes extensões de imagens de disco ótico: <file>.iso</file>, <file>.toc</file> e <file>.cue</file>.</p>
+  <p>O <app>Burner</app> permite que você grave imagens de disco em um CD ou DVD. El tem suporte às seguintes extensões de imagens de disco ótico: <file>.iso</file>, <file>.toc</file> e <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Imagens de disco são arquivos pacote que contêm todos os dados que estão em um CD ou DVD. Apenas uma imagem de disco pode estar em um CD por vez, mas cada pacote pode conter o mínimo ou o máximo de dados que você desejar, desde que eles caibam no disco.</p>
@@ -51,7 +51,7 @@
     </item>
     <item>
       <p>Selecione o disco que você deseja usar da lista suspensa embaixo de <gui>Selecione um disco para gravar</gui>. Se você tem mais de uma unidade de disco, todos os discos que estão atualmente neles deveriam estar listados.</p>
-        <note><p>Após escolher o disco, <app>Brasero</app> mostra quanto espaço livre restará no disco após a gravação.</p></note>
+        <note><p>Após escolher o disco, <app>Burner</app> mostra quanto espaço livre restará no disco após a gravação.</p></note>
     </item>
     <item>
       <p>Clique no botão <gui>Propriedades</gui> para selecionar a velocidade de gravação e outras opções personalizadas.</p>
@@ -63,8 +63,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

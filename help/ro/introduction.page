@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Introducere la aplicația de scriere de discuri <app>Brasero</app>.</desc>
+    <desc>Introducere la aplicația de scriere de discuri <app>Burner</app>.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -27,9 +27,9 @@
 
   <title>Introducere</title>
 
-  <p><app>Brasero</app> este o aplicație pentru scrierea CD-urilor și DVD-urilor, concepută pentru a fi ușor de utilizat, oferind în același timp toate instrumentele necesare pentru scrierea discurilor.</p>
+  <p><app>Burner</app> este o aplicație pentru scrierea CD-urilor și DVD-urilor, concepută pentru a fi ușor de utilizat, oferind în același timp toate instrumentele necesare pentru scrierea discurilor.</p>
 
-  <p>Cu <app>Brasero</app> puteți:</p>
+  <p>Cu <app>Burner</app> puteți:</p>
   <list>
     <item><p>Scrie date pe CD-uri și DVD-uri</p></item>
     <item><p>Scrie CD-uri audio digitale pornind de la fișiere audio (cum ar fi OGG, FLAC și MP3)</p></item>
@@ -41,8 +41,8 @@
   </list>
 
   <figure>
-    <title>Fereastra principală <gui>Brasero</gui></title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>Fereastra principală <gui>Burner</gui></title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

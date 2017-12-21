@@ -43,7 +43,7 @@
         </item>
         <item>
           <title>以每個分割點來分割音軌</title>
-          <p>選擇這項將可以使「<app>Brasero</app>」自動偵測音軌中的靜音處並且將音軌以靜音處作分割。</p>
+          <p>選擇這項將可以使「<app>Burner</app>」自動偵測音軌中的靜音處並且將音軌以靜音處作分割。</p>
         </item>
       </terms>
     </item>

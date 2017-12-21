@@ -27,7 +27,7 @@
 
   <title>Eine Musik-CD erstellen</title>
 
-  <p><app>Brasero</app> kann Audiodateien auf eine CD schreiben, welche Sie dann in einem CD-Spieler wiedergeben können. Es ist zu empfehlen, dass Sie keine wiederbeschreibbare CD verwenden, weil dieser Medientyp nicht in allen CD-Spielern wiedergegeben werden kann.</p>
+  <p><app>Burner</app> kann Audiodateien auf eine CD schreiben, welche Sie dann in einem CD-Spieler wiedergeben können. Es ist zu empfehlen, dass Sie keine wiederbeschreibbare CD verwenden, weil dieser Medientyp nicht in allen CD-Spielern wiedergegeben werden kann.</p>
 
   <steps>
     <item>

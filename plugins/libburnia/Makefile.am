@@ -1,38 +1,38 @@
 
 AM_CPPFLAGS = \
 	-I$(top_srcdir)					\
-	-I$(top_srcdir)/libbrasero-media/					\
-	-I$(top_builddir)/libbrasero-media/		\
-	-I$(top_srcdir)/libbrasero-burn				\
-	-I$(top_builddir)/libbrasero-burn/				\
-	-DBRASERO_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
-	-DBRASERO_PREFIX=\"$(prefix)\"           		\
-	-DBRASERO_SYSCONFDIR=\"$(sysconfdir)\"   		\
-	-DBRASERO_DATADIR=\"$(datadir)/brasero\"     	    	\
-	-DBRASERO_LIBDIR=\"$(libdir)\"  	         	\
+	-I$(top_srcdir)/libburner-media/					\
+	-I$(top_builddir)/libburner-media/		\
+	-I$(top_srcdir)/libburner-burn				\
+	-I$(top_builddir)/libburner-burn/				\
+	-DBURNER_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
+	-DBURNER_PREFIX=\"$(prefix)\"           		\
+	-DBURNER_SYSCONFDIR=\"$(sysconfdir)\"   		\
+	-DBURNER_DATADIR=\"$(datadir)/burner\"     	    	\
+	-DBURNER_LIBDIR=\"$(libdir)\"  	         	\
 	$(WARN_CFLAGS)							\
 	$(DISABLE_DEPRECATED)				\
-	$(BRASERO_LIBISOFS_CFLAGS)			\
-	$(BRASERO_LIBBURN_CFLAGS)			\
-	$(BRASERO_GLIB_CFLAGS)
+	$(BURNER_LIBISOFS_CFLAGS)			\
+	$(BURNER_LIBBURN_CFLAGS)			\
+	$(BURNER_GLIB_CFLAGS)
 
 #libburn
-libburndir = $(BRASERO_PLUGIN_DIRECTORY)
-libburn_LTLIBRARIES = libbrasero-libburn.la
-libbrasero_libburn_la_SOURCES = burn-libburn.c 		\
+libburndir = $(BURNER_PLUGIN_DIRECTORY)
+libburn_LTLIBRARIES = libburner-libburn.la
+libburner_libburn_la_SOURCES = burn-libburn.c 		\
 				burn-libburn-common.c	\
 				burn-libburn-common.h  \
 				burn-libburnia.h 
-libbrasero_libburn_la_LIBADD = ../../libbrasero-burn/libbrasero-burn3.la $(BRASERO_GLIB_LIBS) $(BRASERO_LIBBURNIA_LIBS)
-libbrasero_libburn_la_LDFLAGS = -module -avoid-version
+libburner_libburn_la_LIBADD = ../../libburner-burn/libburner-burn3.la $(BURNER_GLIB_LIBS) $(BURNER_LIBBURNIA_LIBS)
+libburner_libburn_la_LDFLAGS = -module -avoid-version
 
 #libisofs (apparently libisofs needs one libburn function)
-libisofsdir = $(BRASERO_PLUGIN_DIRECTORY)
-libisofs_LTLIBRARIES = libbrasero-libisofs.la
-libbrasero_libisofs_la_SOURCES = burn-libisofs.c                       \
+libisofsdir = $(BURNER_PLUGIN_DIRECTORY)
+libisofs_LTLIBRARIES = libburner-libisofs.la
+libburner_libisofs_la_SOURCES = burn-libisofs.c                       \
 	burn-libburn-common.c burn-libburn-common.h			\
 	burn-libburnia.h 
-libbrasero_libisofs_la_LIBADD = ../../libbrasero-burn/libbrasero-burn3.la $(BRASERO_GLIB_LIBS) $(BRASERO_LIBBURNIA_LIBS)
-libbrasero_libisofs_la_LDFLAGS = -module -avoid-version
+libburner_libisofs_la_LIBADD = ../../libburner-burn/libburner-burn3.la $(BURNER_GLIB_LIBS) $(BURNER_LIBBURNIA_LIBS)
+libburner_libisofs_la_LDFLAGS = -module -avoid-version
 
 -include $(top_srcdir)/git.mk

@@ -49,7 +49,7 @@
         </item>
         <item>
           <title>Split track for each silence</title>
-          <p>Select this method for <app>Brasero</app> to auto-detect silences
+          <p>Select this method for <app>Burner</app> to auto-detect silences
 	  in the recording and to split the track at those points.</p>
         </item>
       </terms>
@@ -60,7 +60,7 @@
         <p>If you try to split a track into a section less than six seconds
         long, the new section will be padded to make it 6 seconds long. <!--If
         you try to split a track which is under six seconds long in
-        <app>Brasero</app> version 3.0.0, the track splitter will not work.--></p>
+        <app>Burner</app> version 3.0.0, the track splitter will not work.--></p>
       </note>
     </item>
     <item>

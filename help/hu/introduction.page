@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>A <app>Brasero</app> lemezíró alkalmazás bemutatása.</desc>
+    <desc>A <app>Burner</app> lemezíró alkalmazás bemutatása.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -21,9 +21,9 @@
 
   <title>Bevezetés</title>
 
-  <p>A <app>Brasero</app> egy CD-k és DVD-k írására szolgáló alkalmazás. Tervezésekor az egyszerű használhatóság volt a cél, miközben a lemezíráshoz szükséges összes eszközt tartalmazza.</p>
+  <p>A <app>Burner</app> egy CD-k és DVD-k írására szolgáló alkalmazás. Tervezésekor az egyszerű használhatóság volt a cél, miközben a lemezíráshoz szükséges összes eszközt tartalmazza.</p>
 
-  <p>A <app>Brasero</app> használatával:</p>
+  <p>A <app>Burner</app> használatával:</p>
   <list>
     <item><p>adatok írhat CD-kre és DVD-kre</p></item>
     <item><p>hang CD-ket készíthet hangfájlokból, például OGG, FLAC és MP3 fájlokból</p></item>
@@ -35,8 +35,8 @@
   </list>
 
   <figure>
-    <title>A <gui>Brasero</gui> főablaka</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title>A <gui>Burner</gui> főablaka</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

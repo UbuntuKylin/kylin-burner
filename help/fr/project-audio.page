@@ -33,7 +33,7 @@
 
   <title>Gravure d'un CD de musique</title>
 
-  <p><app>Brasero</app> peut graver des fichiers audio sur un CD, que vous pouvez ensuite utiliser dans des lecteurs CD ou autres. Il est généralement préférable d'utiliser un CD non ré-inscriptible car tous les lecteurs de CD ne lisent pas les CD ré-inscriptibles.</p>
+  <p><app>Burner</app> peut graver des fichiers audio sur un CD, que vous pouvez ensuite utiliser dans des lecteurs CD ou autres. Il est généralement préférable d'utiliser un CD non ré-inscriptible car tous les lecteurs de CD ne lisent pas les CD ré-inscriptibles.</p>
 
   <steps>
     <item>

@@ -15,7 +15,7 @@
 
   <title>Ustvari ovitek</title>
 
-  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  <p>You can use <app>Burner</app> to create inlays for your jewel cases.
   Access the creator by clicking <guiseq><gui>Tools</gui>
   <gui>Cover Editor</gui></guiseq>.</p>
 
@@ -40,7 +40,7 @@
     <item>
       <p>Za dodajanje ozadja trenutnemu ovitku kliknite na ikono orodne vrstice <gui>Lastnosti ozadja</gui>  ali desno kliknite na ovite, ki ga želite urejati in izberite <gui>Nastavi lastnosti ozadja</gui>. Izberete lahko obarvano ozadje ali sliko ozadja.</p>
       <note style="bug">
-        <p>Če izberete sredinjeno sliko ozadja, se <app>Brasero</app> včasih sesuje, ko kliknite na gumb <gui>Zapri</gui>.</p>
+        <p>Če izberete sredinjeno sliko ozadja, se <app>Burner</app> včasih sesuje, ko kliknite na gumb <gui>Zapri</gui>.</p>
       </note>
       <p>Kliknite na gumb <gui>Zapri</gui> za uveljavitev sprememb in zaprite pogovorno okno <gui>Lastnosti ozadja</gui>.</p>
     </item>

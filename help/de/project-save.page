@@ -30,7 +30,7 @@
 
   <title>Ein Projekt speichern</title>
 
-  <p>Sie können ein Audio-, Daten- oder Video-Projekt in <app>Brasero</app> speichern, um es später bearbeiten oder brennen zu können.</p>
+  <p>Sie können ein Audio-, Daten- oder Video-Projekt in <app>Burner</app> speichern, um es später bearbeiten oder brennen zu können.</p>
 
   <steps>
     <item>
@@ -44,7 +44,7 @@
     </item>
   </steps>
 
-  <p>Ein gespeichertes <app>Brasero</app>-Projekt lässt sich auf verschiedene Arten öffnen:</p>
+  <p>Ein gespeichertes <app>Burner</app>-Projekt lässt sich auf verschiedene Arten öffnen:</p>
 
   <list>
     <item>
@@ -59,14 +59,14 @@
     <item>
       <p>durch Öffnen des Projekts in einer Dateiverwaltung</p>
       <note>
-        <p>Es können nicht mehrere Instanzen von <app>Brasero</app> gleichzeitig geöffnet werden. Wenn Sie versuchen, eine zweite Instanz zu öffnen, wird das aktuell geöffnete <app>Brasero</app>-Fenster fokussiert.</p>
-        <p>Falls <app>Brasero</app> bereits läuft und Sie versuchen, einige Dateien damit in <app>Files</app> zu öffnen, werden die Dateien zu dem Projekt hinzugefügt, an dem Sie gegenwärtig arbeiten.</p>
+        <p>Es können nicht mehrere Instanzen von <app>Burner</app> gleichzeitig geöffnet werden. Wenn Sie versuchen, eine zweite Instanz zu öffnen, wird das aktuell geöffnete <app>Burner</app>-Fenster fokussiert.</p>
+        <p>Falls <app>Burner</app> bereits läuft und Sie versuchen, einige Dateien damit in <app>Files</app> zu öffnen, werden die Dateien zu dem Projekt hinzugefügt, an dem Sie gegenwärtig arbeiten.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Wenn Sie ein gespeichertes Projekt öffnen, behandelt <app>Brasero</app> es als neues Projekt. Falls Sie eine aktualisierte Version des Projekts speichern wollen, werden Sie um die Eingabe eines Namens für das Projekt gebeten. An dieser Stelle können Sie die alte Version überschreiben oder das Projekt als neues Projekt speichern, indem Sie einen anderen Dateinamen eingeben.</p>
+    <p>Wenn Sie ein gespeichertes Projekt öffnen, behandelt <app>Burner</app> es als neues Projekt. Falls Sie eine aktualisierte Version des Projekts speichern wollen, werden Sie um die Eingabe eines Namens für das Projekt gebeten. An dieser Stelle können Sie die alte Version überschreiben oder das Projekt als neues Projekt speichern, indem Sie einen anderen Dateinamen eingeben.</p>
   </note>
 
 </page>

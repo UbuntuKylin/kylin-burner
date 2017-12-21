@@ -61,7 +61,7 @@
         </item>
         <item>
           <title>Diviser la piste à chaque silence</title>
-          <p>Choisissez cette méthode pour que <app>Brasero</app> détecte automatiquement les silences dans les enregistrements et pour qu'il divise la piste à ces endroits.</p>
+          <p>Choisissez cette méthode pour que <app>Burner</app> détecte automatiquement les silences dans les enregistrements et pour qu'il divise la piste à ces endroits.</p>
         </item>
       </terms>
     </item>

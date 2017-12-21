@@ -1,22 +1,22 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /*
- * Libbrasero-burn
+ * Libburner-burn
  * Copyright (C) Philippe Rouquier 2005-2009 <bonfire-app@wanadoo.fr>
  *
- * Libbrasero-burn is free software; you can redistribute it and/or modify
+ * Libburner-burn is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * The Libbrasero-burn authors hereby grant permission for non-GPL compatible
+ * The Libburner-burn authors hereby grant permission for non-GPL compatible
  * GStreamer plugins to be used and distributed together with GStreamer
- * and Libbrasero-burn. This permission is above and beyond the permissions granted
- * by the GPL license by which Libbrasero-burn is covered. If you modify this code
+ * and Libburner-burn. This permission is above and beyond the permissions granted
+ * by the GPL license by which Libburner-burn is covered. If you modify this code
  * you may extend this exception to your version of the code, but you are not
  * obligated to do so. If you do not wish to do so, delete this exception
  * statement from your version.
  * 
- * Libbrasero-burn is distributed in the hope that it will be useful,
+ * Libburner-burn is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Library General Public License for more details.
@@ -46,95 +46,95 @@
 
 #include "burn-job.h"
 #include "burn-process.h"
-#include "brasero-plugin-registration.h"
+#include "burner-plugin-registration.h"
 #include "burn-cdrkit.h"
-#include "brasero-track-data.h"
+#include "burner-track-data.h"
 
 
-#define BRASERO_TYPE_GENISOIMAGE         (brasero_genisoimage_get_type ())
-#define BRASERO_GENISOIMAGE(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), BRASERO_TYPE_GENISOIMAGE, BraseroGenisoimage))
-#define BRASERO_GENISOIMAGE_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), BRASERO_TYPE_GENISOIMAGE, BraseroGenisoimageClass))
-#define BRASERO_IS_GENISOIMAGE(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), BRASERO_TYPE_GENISOIMAGE))
-#define BRASERO_IS_GENISOIMAGE_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), BRASERO_TYPE_GENISOIMAGE))
-#define BRASERO_GENISOIMAGE_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), BRASERO_TYPE_GENISOIMAGE, BraseroGenisoimageClass))
+#define BURNER_TYPE_GENISOIMAGE         (burner_genisoimage_get_type ())
+#define BURNER_GENISOIMAGE(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), BURNER_TYPE_GENISOIMAGE, BurnerGenisoimage))
+#define BURNER_GENISOIMAGE_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), BURNER_TYPE_GENISOIMAGE, BurnerGenisoimageClass))
+#define BURNER_IS_GENISOIMAGE(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), BURNER_TYPE_GENISOIMAGE))
+#define BURNER_IS_GENISOIMAGE_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), BURNER_TYPE_GENISOIMAGE))
+#define BURNER_GENISOIMAGE_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), BURNER_TYPE_GENISOIMAGE, BurnerGenisoimageClass))
 
-BRASERO_PLUGIN_BOILERPLATE (BraseroGenisoimage, brasero_genisoimage, BRASERO_TYPE_PROCESS, BraseroProcess);
+BURNER_PLUGIN_BOILERPLATE (BurnerGenisoimage, burner_genisoimage, BURNER_TYPE_PROCESS, BurnerProcess);
 
-struct _BraseroGenisoimagePrivate {
+struct _BurnerGenisoimagePrivate {
 	guint use_utf8:1;
 };
-typedef struct _BraseroGenisoimagePrivate BraseroGenisoimagePrivate;
+typedef struct _BurnerGenisoimagePrivate BurnerGenisoimagePrivate;
 
-#define BRASERO_GENISOIMAGE_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BRASERO_TYPE_GENISOIMAGE, BraseroGenisoimagePrivate))
+#define BURNER_GENISOIMAGE_PRIVATE(o)  (G_TYPE_INSTANCE_GET_PRIVATE ((o), BURNER_TYPE_GENISOIMAGE, BurnerGenisoimagePrivate))
 static GObjectClass *parent_class = NULL;
 
-static BraseroBurnResult
-brasero_genisoimage_read_isosize (BraseroProcess *process, const gchar *line)
+static BurnerBurnResult
+burner_genisoimage_read_isosize (BurnerProcess *process, const gchar *line)
 {
 	gint64 sectors;
 
 	sectors = strtoll (line, NULL, 10);
 	if (!sectors)
-		return BRASERO_BURN_OK;
+		return BURNER_BURN_OK;
 
 	/* genisoimage reports blocks of 2048 bytes */
-	brasero_job_set_output_size_for_current_track (BRASERO_JOB (process),
+	burner_job_set_output_size_for_current_track (BURNER_JOB (process),
 						       sectors,
 						       (gint64) sectors * 2048ULL);
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_genisoimage_read_stdout (BraseroProcess *process, const gchar *line)
+static BurnerBurnResult
+burner_genisoimage_read_stdout (BurnerProcess *process, const gchar *line)
 {
-	BraseroJobAction action;
+	BurnerJobAction action;
 
-	brasero_job_get_action (BRASERO_JOB (process), &action);
-	if (action == BRASERO_JOB_ACTION_SIZE)
-		return brasero_genisoimage_read_isosize (process, line);
+	burner_job_get_action (BURNER_JOB (process), &action);
+	if (action == BURNER_JOB_ACTION_SIZE)
+		return burner_genisoimage_read_isosize (process, line);
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_genisoimage_read_stderr (BraseroProcess *process, const gchar *line)
+static BurnerBurnResult
+burner_genisoimage_read_stderr (BurnerProcess *process, const gchar *line)
 {
 	gchar fraction_str [7] = { 0, };
-	BraseroGenisoimage *genisoimage;
+	BurnerGenisoimage *genisoimage;
 
-	genisoimage = BRASERO_GENISOIMAGE (process);
+	genisoimage = BURNER_GENISOIMAGE (process);
 
 	if (strstr (line, "estimate finish")
 	&&  sscanf (line, "%6c%% done, estimate finish", fraction_str) == 1) {
 		gdouble fraction;
 	
 		fraction = g_strtod (fraction_str, NULL) / (gdouble) 100.0;
-		brasero_job_set_progress (BRASERO_JOB (genisoimage), fraction);
-		brasero_job_start_progress (BRASERO_JOB (process), FALSE);
+		burner_job_set_progress (BURNER_JOB (genisoimage), fraction);
+		burner_job_start_progress (BURNER_JOB (process), FALSE);
 	}
 	else if (strstr (line, "Input/output error. Read error on old image")) {
-		brasero_job_error (BRASERO_JOB (process), 
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_IMAGE_LAST_SESSION,
+		burner_job_error (BURNER_JOB (process), 
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_IMAGE_LAST_SESSION,
 							_("Last session import failed")));
 	}
 	else if (strstr (line, "Unable to sort directory")) {
-		brasero_job_error (BRASERO_JOB (process), 
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_WRITE_IMAGE,
+		burner_job_error (BURNER_JOB (process), 
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_WRITE_IMAGE,
 							_("An image could not be created")));
 	}
 	else if (strstr (line, "have the same joliet name")
 	     ||  strstr (line, "Joliet tree sort failed.")) {
-		brasero_job_error (BRASERO_JOB (process), 
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_IMAGE_JOLIET,
+		burner_job_error (BURNER_JOB (process), 
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_IMAGE_JOLIET,
 							_("An image could not be created")));
 	}
 	else if (strstr (line, "Use genisoimage -help")) {
-		brasero_job_error (BRASERO_JOB (process), 
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_GENERAL,
+		burner_job_error (BURNER_JOB (process), 
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_GENERAL,
 							_("This version of genisoimage is not supported")));
 	}
 /*	else if ((pos =  strstr (line,"genisoimage: Permission denied. "))) {
@@ -162,99 +162,99 @@ brasero_genisoimage_read_stderr (BraseroProcess *process, const gchar *line)
 		else
 			return TRUE;
 
-		res = brasero_genisoimage_base_ask_unreadable_file (BRASERO_GENISOIMAGE_BASE (process),
+		res = burner_genisoimage_base_ask_unreadable_file (BURNER_GENISOIMAGE_BASE (process),
 								path,
 								isdir);
 		if (!res) {
 			g_free (path);
 
-			brasero_job_progress_changed (BRASERO_JOB (process), 1.0, -1);
-			brasero_job_cancel (BRASERO_JOB (process), FALSE);
+			burner_job_progress_changed (BURNER_JOB (process), 1.0, -1);
+			burner_job_cancel (BURNER_JOB (process), FALSE);
 			return FALSE;
 		}
 	}*/
 	else if (strstr (line, "Incorrectly encoded string")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_INPUT_INVALID,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_INPUT_INVALID,
 							_("Some files have invalid filenames")));
 	}
 	else if (strstr (line, "Unknown charset")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_INPUT_INVALID,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_INPUT_INVALID,
 							_("Unknown character encoding")));
 	}
 	else if (strstr (line, "No space left on device")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_DISK_SPACE,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_DISK_SPACE,
 							_("There is no space left on the device")));
 
 	}
 	else if (strstr (line, "Unable to open disc image file")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_PERMISSION,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_PERMISSION,
 							_("You do not have the required permission to write at this location")));
 
 	}
 	else if (strstr (line, "Value too large for defined data type")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_MEDIUM_SPACE,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_MEDIUM_SPACE,
 							_("Not enough space available on the disc")));
 	}
 
 	/** REMINDER: these should not be necessary
 
 	else if (strstr (line, "Resource temporarily unavailable")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_INPUT,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_INPUT,
 							_("Data could not be written")));
 	}
 	else if (strstr (line, "Bad file descriptor.")) {
-		brasero_job_error (BRASERO_JOB (process),
-				   g_error_new_literal (BRASERO_BURN_ERROR,
-							BRASERO_BURN_ERROR_INPUT,
+		burner_job_error (BURNER_JOB (process),
+				   g_error_new_literal (BURNER_BURN_ERROR,
+							BURNER_BURN_ERROR_INPUT,
 							_("Internal error: bad file descriptor")));
 	}
 
 	**/
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
+static BurnerBurnResult
+burner_genisoimage_set_argv_image (BurnerGenisoimage *genisoimage,
 				    GPtrArray *argv,
 				    GError **error)
 {
 	gchar *label = NULL;
-	BraseroTrack *track;
-	BraseroBurnFlag flags;
+	BurnerTrack *track;
+	BurnerBurnFlag flags;
 	gchar *emptydir = NULL;
 	gchar *videodir = NULL;
-	BraseroImageFS image_fs;
-	BraseroBurnResult result;
-	BraseroJobAction action;
+	BurnerImageFS image_fs;
+	BurnerBurnResult result;
+	BurnerJobAction action;
 	gchar *grafts_path = NULL;
 	gchar *excluded_path = NULL;
 
 	/* set argv */
 	g_ptr_array_add (argv, g_strdup ("-r"));
 
-	result = brasero_job_get_current_track (BRASERO_JOB (genisoimage), &track);
-	if (result != BRASERO_BURN_OK)
-		BRASERO_JOB_NOT_READY (genisoimage);
+	result = burner_job_get_current_track (BURNER_JOB (genisoimage), &track);
+	if (result != BURNER_BURN_OK)
+		BURNER_JOB_NOT_READY (genisoimage);
 
-	image_fs = brasero_track_data_get_fs (BRASERO_TRACK_DATA (track));
-	if (image_fs & BRASERO_IMAGE_FS_JOLIET)
+	image_fs = burner_track_data_get_fs (BURNER_TRACK_DATA (track));
+	if (image_fs & BURNER_IMAGE_FS_JOLIET)
 		g_ptr_array_add (argv, g_strdup ("-J"));
 
-	if ((image_fs & BRASERO_IMAGE_FS_ISO)
-	&&  (image_fs & BRASERO_IMAGE_ISO_FS_LEVEL_3)) {
+	if ((image_fs & BURNER_IMAGE_FS_ISO)
+	&&  (image_fs & BURNER_IMAGE_ISO_FS_LEVEL_3)) {
 		g_ptr_array_add (argv, g_strdup ("-iso-level"));
 		g_ptr_array_add (argv, g_strdup ("3"));
 
@@ -263,54 +263,54 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 		g_ptr_array_add (argv, g_strdup ("-allow-limited-size"));
 	}
 
-	if (image_fs & BRASERO_IMAGE_FS_UDF)
+	if (image_fs & BURNER_IMAGE_FS_UDF)
 		g_ptr_array_add (argv, g_strdup ("-udf"));
 
-	if (image_fs & BRASERO_IMAGE_FS_VIDEO) {
+	if (image_fs & BURNER_IMAGE_FS_VIDEO) {
 		g_ptr_array_add (argv, g_strdup ("-dvd-video"));
 
-		result = brasero_job_get_tmp_dir (BRASERO_JOB (genisoimage),
+		result = burner_job_get_tmp_dir (BURNER_JOB (genisoimage),
 						  &videodir,
 						  error);
-		if (result != BRASERO_BURN_OK)
+		if (result != BURNER_BURN_OK)
 			return result;
 	}
 
 	g_ptr_array_add (argv, g_strdup ("-graft-points"));
 
-	if (image_fs & BRASERO_IMAGE_ISO_FS_DEEP_DIRECTORY)
+	if (image_fs & BURNER_IMAGE_ISO_FS_DEEP_DIRECTORY)
 		g_ptr_array_add (argv, g_strdup ("-D"));	// This is dangerous the manual says but apparently it works well
 
-	result = brasero_job_get_tmp_file (BRASERO_JOB (genisoimage),
+	result = burner_job_get_tmp_file (BURNER_JOB (genisoimage),
 					   NULL,
 					   &grafts_path,
 					   error);
-	if (result != BRASERO_BURN_OK) {
+	if (result != BURNER_BURN_OK) {
 		g_free (videodir);
 		return result;
 	}
 
-	result = brasero_job_get_tmp_file (BRASERO_JOB (genisoimage),
+	result = burner_job_get_tmp_file (BURNER_JOB (genisoimage),
 					   NULL,
 					   &excluded_path,
 					   error);
-	if (result != BRASERO_BURN_OK) {
+	if (result != BURNER_BURN_OK) {
 		g_free (videodir);
 		g_free (grafts_path);
 		return result;
 	}
 
-	result = brasero_job_get_tmp_dir (BRASERO_JOB (genisoimage),
+	result = burner_job_get_tmp_dir (BURNER_JOB (genisoimage),
 					  &emptydir,
 					  error);
-	if (result != BRASERO_BURN_OK) {
+	if (result != BURNER_BURN_OK) {
 		g_free (videodir);
 		g_free (grafts_path);
 		g_free (excluded_path);
 		return result;
 	}
 
-	result = brasero_track_data_write_to_paths (BRASERO_TRACK_DATA (track),
+	result = burner_track_data_write_to_paths (BURNER_TRACK_DATA (track),
 	                                            grafts_path,
 	                                            excluded_path,
 	                                            emptydir,
@@ -318,7 +318,7 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 	                                            error);
 	g_free (emptydir);
 
-	if (result != BRASERO_BURN_OK) {
+	if (result != BURNER_BURN_OK) {
 		g_free (videodir);
 		g_free (grafts_path);
 		g_free (excluded_path);
@@ -331,17 +331,17 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 	g_ptr_array_add (argv, g_strdup ("-exclude-list"));
 	g_ptr_array_add (argv, excluded_path);
 
-	brasero_job_get_data_label (BRASERO_JOB (genisoimage), &label);
+	burner_job_get_data_label (BURNER_JOB (genisoimage), &label);
 	if (label) {
 		g_ptr_array_add (argv, g_strdup ("-V"));
 		g_ptr_array_add (argv, label);
 	}
 
 	g_ptr_array_add (argv, g_strdup ("-A"));
-	g_ptr_array_add (argv, g_strdup_printf ("Brasero-%i.%i.%i",
-						BRASERO_MAJOR_VERSION,
-						BRASERO_MINOR_VERSION,
-						BRASERO_SUB));
+	g_ptr_array_add (argv, g_strdup_printf ("Burner-%i.%i.%i",
+						BURNER_MAJOR_VERSION,
+						BURNER_MINOR_VERSION,
+						BURNER_SUB));
 	
 	g_ptr_array_add (argv, g_strdup ("-sysid"));
 	g_ptr_array_add (argv, g_strdup ("LINUX"));
@@ -352,21 +352,21 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 	* some files when we will display the contents of a disc we will want to merge */
 	/* FIXME: support preparer publisher options */
 
-	brasero_job_get_flags (BRASERO_JOB (genisoimage), &flags);
-	if (flags & (BRASERO_BURN_FLAG_APPEND|BRASERO_BURN_FLAG_MERGE)) {
+	burner_job_get_flags (BURNER_JOB (genisoimage), &flags);
+	if (flags & (BURNER_BURN_FLAG_APPEND|BURNER_BURN_FLAG_MERGE)) {
 		goffset last_session = 0, next_wr_add = 0;
 		gchar *startpoint = NULL;
 
-		brasero_job_get_last_session_address (BRASERO_JOB (genisoimage), &last_session);
-		brasero_job_get_next_writable_address (BRASERO_JOB (genisoimage), &next_wr_add);
+		burner_job_get_last_session_address (BURNER_JOB (genisoimage), &last_session);
+		burner_job_get_next_writable_address (BURNER_JOB (genisoimage), &next_wr_add);
 		if (last_session == -1 || next_wr_add == -1) {
 			g_free (videodir);
-			BRASERO_JOB_LOG (genisoimage, "Failed to get the start point of the track. Make sure the media allow to add files (it is not closed)");
+			BURNER_JOB_LOG (genisoimage, "Failed to get the start point of the track. Make sure the media allow to add files (it is not closed)");
 			g_set_error (error,
-				     BRASERO_BURN_ERROR,
-				     BRASERO_BURN_ERROR_GENERAL,
+				     BURNER_BURN_ERROR,
+				     BURNER_BURN_ERROR_GENERAL,
 				     _("An internal error occurred"));
-			return BRASERO_BURN_ERR;
+			return BURNER_BURN_ERR;
 		}
 
 		startpoint = g_strdup_printf ("%"G_GINT64_FORMAT",%"G_GINT64_FORMAT,
@@ -376,42 +376,42 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 		g_ptr_array_add (argv, g_strdup ("-C"));
 		g_ptr_array_add (argv, startpoint);
 
-		if (flags & BRASERO_BURN_FLAG_MERGE) {
+		if (flags & BURNER_BURN_FLAG_MERGE) {
 		        gchar *device = NULL;
 
 			g_ptr_array_add (argv, g_strdup ("-M"));
 
-			brasero_job_get_device (BRASERO_JOB (genisoimage), &device);
+			burner_job_get_device (BURNER_JOB (genisoimage), &device);
 			g_ptr_array_add (argv, device);
 		}
 	}
 
-	brasero_job_get_action (BRASERO_JOB (genisoimage), &action);
-	if (action == BRASERO_JOB_ACTION_SIZE) {
+	burner_job_get_action (BURNER_JOB (genisoimage), &action);
+	if (action == BURNER_JOB_ACTION_SIZE) {
 		g_ptr_array_add (argv, g_strdup ("-quiet"));
 		g_ptr_array_add (argv, g_strdup ("-print-size"));
 
-		brasero_job_set_current_action (BRASERO_JOB (genisoimage),
-						BRASERO_BURN_ACTION_GETTING_SIZE,
+		burner_job_set_current_action (BURNER_JOB (genisoimage),
+						BURNER_BURN_ACTION_GETTING_SIZE,
 						NULL,
 						FALSE);
-		brasero_job_start_progress (BRASERO_JOB (genisoimage), FALSE);
+		burner_job_start_progress (BURNER_JOB (genisoimage), FALSE);
 
 		if (videodir) {
 			g_ptr_array_add (argv, g_strdup ("-f"));
 			g_ptr_array_add (argv, videodir);
 		}
 
-		return BRASERO_BURN_OK;
+		return BURNER_BURN_OK;
 	}
 
-	if (brasero_job_get_fd_out (BRASERO_JOB (genisoimage), NULL) != BRASERO_BURN_OK) {
+	if (burner_job_get_fd_out (BURNER_JOB (genisoimage), NULL) != BURNER_BURN_OK) {
 		gchar *output = NULL;
 
-		result = brasero_job_get_image_output (BRASERO_JOB (genisoimage),
+		result = burner_job_get_image_output (BURNER_JOB (genisoimage),
 						      &output,
 						       NULL);
-		if (result != BRASERO_BURN_OK) {
+		if (result != BURNER_BURN_OK) {
 			g_free (videodir);
 			return result;
 		}
@@ -425,27 +425,27 @@ brasero_genisoimage_set_argv_image (BraseroGenisoimage *genisoimage,
 		g_ptr_array_add (argv, videodir);
 	}
 
-	brasero_job_set_current_action (BRASERO_JOB (genisoimage),
-					BRASERO_BURN_ACTION_CREATING_IMAGE,
+	burner_job_set_current_action (BURNER_JOB (genisoimage),
+					BURNER_BURN_ACTION_CREATING_IMAGE,
 					NULL,
 					FALSE);
 
-	return BRASERO_BURN_OK;
+	return BURNER_BURN_OK;
 }
 
-static BraseroBurnResult
-brasero_genisoimage_set_argv (BraseroProcess *process,
+static BurnerBurnResult
+burner_genisoimage_set_argv (BurnerProcess *process,
 			      GPtrArray *argv,
 			      GError **error)
 {
-	BraseroGenisoimagePrivate *priv;
-	BraseroGenisoimage *genisoimage;
-	BraseroBurnResult result;
-	BraseroJobAction action;
+	BurnerGenisoimagePrivate *priv;
+	BurnerGenisoimage *genisoimage;
+	BurnerBurnResult result;
+	BurnerJobAction action;
 	gchar *prog_name;
 
-	genisoimage = BRASERO_GENISOIMAGE (process);
-	priv = BRASERO_GENISOIMAGE_PRIVATE (process);
+	genisoimage = BURNER_GENISOIMAGE (process);
+	priv = BURNER_GENISOIMAGE_PRIVATE (process);
 
 	prog_name = g_find_program_in_path ("genisoimage");
 	if (prog_name && g_file_test (prog_name, G_FILE_TEST_IS_EXECUTABLE))
@@ -458,41 +458,41 @@ brasero_genisoimage_set_argv (BraseroProcess *process,
 		g_ptr_array_add (argv, g_strdup ("utf8"));
 	}
 
-	brasero_job_get_action (BRASERO_JOB (genisoimage), &action);
-	if (action == BRASERO_JOB_ACTION_SIZE)
-		result = brasero_genisoimage_set_argv_image (genisoimage, argv, error);
-	else if (action == BRASERO_JOB_ACTION_IMAGE)
-		result = brasero_genisoimage_set_argv_image (genisoimage, argv, error);
+	burner_job_get_action (BURNER_JOB (genisoimage), &action);
+	if (action == BURNER_JOB_ACTION_SIZE)
+		result = burner_genisoimage_set_argv_image (genisoimage, argv, error);
+	else if (action == BURNER_JOB_ACTION_IMAGE)
+		result = burner_genisoimage_set_argv_image (genisoimage, argv, error);
 	else
-		BRASERO_JOB_NOT_SUPPORTED (genisoimage);
+		BURNER_JOB_NOT_SUPPORTED (genisoimage);
 
 	return result;
 }
 
 static void
-brasero_genisoimage_class_init (BraseroGenisoimageClass *klass)
+burner_genisoimage_class_init (BurnerGenisoimageClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	BraseroProcessClass *process_class = BRASERO_PROCESS_CLASS (klass);
+	BurnerProcessClass *process_class = BURNER_PROCESS_CLASS (klass);
 
-	g_type_class_add_private (klass, sizeof (BraseroGenisoimagePrivate));
+	g_type_class_add_private (klass, sizeof (BurnerGenisoimagePrivate));
 
 	parent_class = g_type_class_peek_parent(klass);
-	object_class->finalize = brasero_genisoimage_finalize;
+	object_class->finalize = burner_genisoimage_finalize;
 
-	process_class->stdout_func = brasero_genisoimage_read_stdout;
-	process_class->stderr_func = brasero_genisoimage_read_stderr;
-	process_class->set_argv = brasero_genisoimage_set_argv;
+	process_class->stdout_func = burner_genisoimage_read_stdout;
+	process_class->stderr_func = burner_genisoimage_read_stderr;
+	process_class->set_argv = burner_genisoimage_set_argv;
 }
 
 static void
-brasero_genisoimage_init (BraseroGenisoimage *obj)
+burner_genisoimage_init (BurnerGenisoimage *obj)
 {
-	BraseroGenisoimagePrivate *priv;
+	BurnerGenisoimagePrivate *priv;
 	gchar *standard_error;
 	gboolean res;
 
-	priv = BRASERO_GENISOIMAGE_PRIVATE (obj);
+	priv = BURNER_GENISOIMAGE_PRIVATE (obj);
 
 	/* this code used to be ncb_genisoimage_supports_utf8 */
 	res = g_spawn_command_line_sync ("genisoimage -input-charset utf8",
@@ -510,80 +510,80 @@ brasero_genisoimage_init (BraseroGenisoimage *obj)
 }
 
 static void
-brasero_genisoimage_finalize (GObject *object)
+burner_genisoimage_finalize (GObject *object)
 {
 	G_OBJECT_CLASS (parent_class)->finalize (object);
 }
 
 static void
-brasero_genisoimage_export_caps (BraseroPlugin *plugin)
+burner_genisoimage_export_caps (BurnerPlugin *plugin)
 {
 	GSList *output;
 	GSList *input;
 
-	brasero_plugin_define (plugin,
+	burner_plugin_define (plugin,
 			       "genisoimage",
 	                       NULL,
 			       _("Creates disc images from a file selection"),
 			       "Philippe Rouquier",
 			       1);
 
-	brasero_plugin_set_flags (plugin,
-				  BRASERO_MEDIUM_CDR|
-				  BRASERO_MEDIUM_CDRW|
-				  BRASERO_MEDIUM_DVDR|
-				  BRASERO_MEDIUM_DVDRW|
-				  BRASERO_MEDIUM_DUAL_L|
-				  BRASERO_MEDIUM_DVDR_PLUS|
-				  BRASERO_MEDIUM_APPENDABLE|
-				  BRASERO_MEDIUM_HAS_AUDIO|
-				  BRASERO_MEDIUM_HAS_DATA,
-				  BRASERO_BURN_FLAG_APPEND|
-				  BRASERO_BURN_FLAG_MERGE,
-				  BRASERO_BURN_FLAG_NONE);
+	burner_plugin_set_flags (plugin,
+				  BURNER_MEDIUM_CDR|
+				  BURNER_MEDIUM_CDRW|
+				  BURNER_MEDIUM_DVDR|
+				  BURNER_MEDIUM_DVDRW|
+				  BURNER_MEDIUM_DUAL_L|
+				  BURNER_MEDIUM_DVDR_PLUS|
+				  BURNER_MEDIUM_APPENDABLE|
+				  BURNER_MEDIUM_HAS_AUDIO|
+				  BURNER_MEDIUM_HAS_DATA,
+				  BURNER_BURN_FLAG_APPEND|
+				  BURNER_BURN_FLAG_MERGE,
+				  BURNER_BURN_FLAG_NONE);
 
-	brasero_plugin_set_flags (plugin,
-				  BRASERO_MEDIUM_DUAL_L|
-				  BRASERO_MEDIUM_DVDRW_PLUS|
-				  BRASERO_MEDIUM_RESTRICTED|
-				  BRASERO_MEDIUM_APPENDABLE|
-				  BRASERO_MEDIUM_CLOSED|
-				  BRASERO_MEDIUM_HAS_DATA,
-				  BRASERO_BURN_FLAG_APPEND|
-				  BRASERO_BURN_FLAG_MERGE,
-				  BRASERO_BURN_FLAG_NONE);
+	burner_plugin_set_flags (plugin,
+				  BURNER_MEDIUM_DUAL_L|
+				  BURNER_MEDIUM_DVDRW_PLUS|
+				  BURNER_MEDIUM_RESTRICTED|
+				  BURNER_MEDIUM_APPENDABLE|
+				  BURNER_MEDIUM_CLOSED|
+				  BURNER_MEDIUM_HAS_DATA,
+				  BURNER_BURN_FLAG_APPEND|
+				  BURNER_BURN_FLAG_MERGE,
+				  BURNER_BURN_FLAG_NONE);
 
 	/* Caps */
-	output = brasero_caps_image_new (BRASERO_PLUGIN_IO_ACCEPT_FILE|
-					 BRASERO_PLUGIN_IO_ACCEPT_PIPE,
-					 BRASERO_IMAGE_FORMAT_BIN);
+	output = burner_caps_image_new (BURNER_PLUGIN_IO_ACCEPT_FILE|
+					 BURNER_PLUGIN_IO_ACCEPT_PIPE,
+					 BURNER_IMAGE_FORMAT_BIN);
 
-	input = brasero_caps_data_new (BRASERO_IMAGE_FS_ISO|
-				       BRASERO_IMAGE_FS_UDF|
-				       BRASERO_IMAGE_ISO_FS_LEVEL_3|
-				       BRASERO_IMAGE_ISO_FS_DEEP_DIRECTORY|
-				       BRASERO_IMAGE_FS_JOLIET|
-				       BRASERO_IMAGE_FS_VIDEO);
-	brasero_plugin_link_caps (plugin, output, input);
+	input = burner_caps_data_new (BURNER_IMAGE_FS_ISO|
+				       BURNER_IMAGE_FS_UDF|
+				       BURNER_IMAGE_ISO_FS_LEVEL_3|
+				       BURNER_IMAGE_ISO_FS_DEEP_DIRECTORY|
+				       BURNER_IMAGE_FS_JOLIET|
+				       BURNER_IMAGE_FS_VIDEO);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (input);
 
-	input = brasero_caps_data_new (BRASERO_IMAGE_FS_ISO|
-				       BRASERO_IMAGE_ISO_FS_LEVEL_3|
-				       BRASERO_IMAGE_ISO_FS_DEEP_DIRECTORY|
-				       BRASERO_IMAGE_FS_SYMLINK);
-	brasero_plugin_link_caps (plugin, output, input);
+	input = burner_caps_data_new (BURNER_IMAGE_FS_ISO|
+				       BURNER_IMAGE_ISO_FS_LEVEL_3|
+				       BURNER_IMAGE_ISO_FS_DEEP_DIRECTORY|
+				       BURNER_IMAGE_FS_SYMLINK);
+	burner_plugin_link_caps (plugin, output, input);
 	g_slist_free (input);
 
 	g_slist_free (output);
 
-	brasero_plugin_register_group (plugin, _(CDRKIT_DESCRIPTION));
+	burner_plugin_register_group (plugin, _(CDRKIT_DESCRIPTION));
 }
 
 G_MODULE_EXPORT void
-brasero_plugin_check_config (BraseroPlugin *plugin)
+burner_plugin_check_config (BurnerPlugin *plugin)
 {
 	gint version [3] = { 1, 1, 0};
-	brasero_plugin_test_app (plugin,
+	burner_plugin_test_app (plugin,
 	                         "genisoimage",
 	                         "--version",
 	                         "genisoimage %d.%d.%d (Linux)",

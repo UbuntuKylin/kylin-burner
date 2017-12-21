@@ -1,4 +1,4 @@
-# Traducció del brasero de l'equip de Softcatalà.
+# Traducció del burner de l'equip de Softcatalà.
 # Copyright © 2009 Free Software Foundation, Inc.
 # Joan Duran <jodufi@gmail.com>, 2009.
 # Francisco Domech Jimenez <frandj72@gmail.com>, 2011.
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero\n"
+"Project-Id-Version: burner\n"
 "POT-Creation-Date: 2012-08-22 02:56+0000\n"
 "PO-Revision-Date: 2013-01-01 16:09+0100\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: C/index.page:5(page/title)
-msgid "Brasero Help"
-msgstr "Ajuda del Brasero"
+msgid "Burner Help"
+msgstr "Ajuda del Burner"
 
 #: C/index.page:8(section/title)
 msgid "Create a new project"
@@ -72,11 +72,11 @@ msgstr "Creació d'una coberta"
 
 #: C/create-cover.page:19(page/p)
 msgid ""
-"You can use <app>Brasero</app> to create inlays for your jewel cases. Access "
+"You can use <app>Burner</app> to create inlays for your jewel cases. Access "
 "the creator by clicking <guiseq><gui>Tools</gui> <gui>Cover Editor</gui></"
 "guiseq>."
 msgstr ""
-"Podeu utilitzar el <app>Brasero</app> per crear les cobertes per les caixes "
+"Podeu utilitzar el <app>Burner</app> per crear les cobertes per les caixes "
 "dels CD. Feu clic a <guiseq><gui>Eines</gui> <gui>Editor de cobertes</gui></"
 "guiseq> per accedir-hi."
 
@@ -132,11 +132,11 @@ msgstr ""
 
 #: C/create-cover.page:53(note/p)
 msgid ""
-"If you select a centered background image, <app>Brasero</app> sometimes "
+"If you select a centered background image, <app>Burner</app> sometimes "
 "crashes when you click the <gui>Close</gui> button."
 msgstr ""
 "Si seleccioneu una imatge de fons centrada, en fer clic al botó <gui>Tanca</"
-"gui> el <app>Brasero</app> a vegades pot fallar."
+"gui> el <app>Burner</app> a vegades pot fallar."
 
 #: C/create-cover.page:56(item/p)
 msgid ""
@@ -160,19 +160,19 @@ msgstr ""
 #. whatever you like once you have updated your copy of the file.
 #: C/introduction.page:36(media)
 #| msgid ""
-#| "@@image: 'figures/brasero_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
+#| "@@image: 'figures/burner_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
 msgctxt "_"
 msgid ""
-"external ref='figures/brasero-main-window.png' "
+"external ref='figures/burner-main-window.png' "
 "md5='11e5cc148d7c8c8dc0c63e68b2f611f3'"
 msgstr ""
-"external ref='figures/brasero-main-window.png' "
+"external ref='figures/burner-main-window.png' "
 "md5='11e5cc148d7c8c8dc0c63e68b2f611f3'"
 
 #: C/introduction.page:7(info/desc)
-msgid "Introduction to the <app>Brasero</app> disc burning application."
+msgid "Introduction to the <app>Burner</app> disc burning application."
 msgstr ""
-"Introducció a l'aplicació d'enregistrament de discs <app>Brasero</app>."
+"Introducció a l'aplicació d'enregistrament de discs <app>Burner</app>."
 
 #: C/introduction.page:17(page/title)
 msgid "Introduction"
@@ -180,21 +180,21 @@ msgstr "Introducció"
 
 #: C/introduction.page:19(page/p)
 #| msgid ""
-#| "<application>Brasero</application> is an application for burning CD-R/Ws "
+#| "<application>Burner</application> is an application for burning CD-R/Ws "
 #| "and DVD-R/Ws, designed to be easy to use, while providing all the tools "
 #| "necessary for burning."
 msgid ""
-"<app>Brasero</app> is an application for burning CDs and DVDs, designed to "
+"<app>Burner</app> is an application for burning CDs and DVDs, designed to "
 "be easy to use, while providing all the tools necessary for burning."
 msgstr ""
-"El <app>Brasero</app> és una aplicació per a enregistrar CD i DVD, dissenyat "
+"El <app>Burner</app> és una aplicació per a enregistrar CD i DVD, dissenyat "
 "per a ser fàcil d'utilitzar i al mateix temps proporcionar totes les eines "
 "necessàries per a l'enregistrament."
 
 #: C/introduction.page:22(page/p)
-#| msgid "With <application>Brasero</application> you can:"
-msgid "With <app>Brasero</app> you can:"
-msgstr "Amb el <app>Brasero</app> podeu:"
+#| msgid "With <application>Burner</application> you can:"
+msgid "With <app>Burner</app> you can:"
+msgstr "Amb el <app>Burner</app> podeu:"
 
 #: C/introduction.page:24(item/p)
 #| msgid "Burn data to CD-R/Ws and DVD-R/Ws"
@@ -232,9 +232,9 @@ msgid "Check the integrity of discs and disc images"
 msgstr "Comprovar la integritat dels discs i les imatges de disc"
 
 #: C/introduction.page:35(figure/title)
-#| msgid "Brasero Main Window"
-msgid "The <gui>Brasero</gui> main window"
-msgstr "Finestra principal del <gui>Brasero</gui>"
+#| msgid "Burner Main Window"
+msgid "The <gui>Burner</gui> main window"
+msgstr "Finestra principal del <gui>Burner</gui>"
 
 #: C/prob-cd.page:9(info/desc)
 msgid "My MP3s will not play in a DVD or CD player."
@@ -313,7 +313,7 @@ msgstr "Escriure un CD de música"
 
 #: C/project-audio.page:19(page/p)
 msgid ""
-"<app>Brasero</app> can write audio files to a CD, which you can then use for "
+"<app>Burner</app> can write audio files to a CD, which you can then use for "
 "playing in CD players and so on. It is usually best to use a non-rewritable "
 "CD because not all CD players will play rewritable CDs."
 msgstr ""
@@ -520,11 +520,11 @@ msgstr "Enregistrament d'una imatge"
 # Revisar l'expressió "Suporta"
 #: C/project-image-burn.page:27(page/p)
 msgid ""
-"<app>Brasero</app> allows you to burn disc images to a CD or DVD. It "
+"<app>Burner</app> allows you to burn disc images to a CD or DVD. It "
 "supports the following extensions of optical disc images: <file>.iso</file>, "
 "<file>.toc</file> and <file>.cue</file>."
 msgstr ""
-"El <app>Brasero</app> us permet enregistrar imatges de disc a CD o DVD. "
+"El <app>Burner</app> us permet enregistrar imatges de disc a CD o DVD. "
 "Admet les extensions d'imatges de discos òptics següents: <file>.iso</file>, "
 "<file>.toc</file> i <file>.cue</file>."
 
@@ -569,7 +569,7 @@ msgstr ""
 
 #: C/project-image-burn.page:53(note/p)
 msgid ""
-"After choosing the disc <app>Brasero</app> shows how much free space will "
+"After choosing the disc <app>Burner</app> shows how much free space will "
 "remain on the disc after burning."
 msgstr ""
 
@@ -595,7 +595,7 @@ msgstr "Desat d'un projecte"
 
 #: C/project-save.page:22(page/p)
 msgid ""
-"You can save an audio, a data or a video project in <app>Brasero</app> for "
+"You can save an audio, a data or a video project in <app>Burner</app> for "
 "editing or burning later."
 msgstr ""
 
@@ -617,7 +617,7 @@ msgstr ""
 #: C/project-save.page:39(page/p)
 msgid ""
 "There are a number of ways which can be used for opening a saved "
-"<app>Brasero</app> project by:"
+"<app>Burner</app> project by:"
 msgstr ""
 
 #: C/project-save.page:44(item/p)
@@ -642,15 +642,15 @@ msgstr ""
 
 #: C/project-save.page:57(note/p)
 msgid ""
-"If <app>Brasero</app> is already running, opening the project from a file "
-"browser will cause a second instance of <app>Brasero</app> to start and will "
+"If <app>Burner</app> is already running, opening the project from a file "
+"browser will cause a second instance of <app>Burner</app> to start and will "
 "cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/"
 "show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
 msgstr ""
 
 #: C/project-save.page:67(note/p)
 msgid ""
-"If you open a saved project, <app>Brasero</app> will treat it as a new "
+"If you open a saved project, <app>Burner</app> will treat it as a new "
 "project: if you want to save an updated version of the project, it will ask "
 "you to enter a name for it, at this point you can overwrite the old version "
 "or save it as a new project by entering a different file name."
@@ -672,10 +672,10 @@ msgstr "Creació d'un projecte de vídeo"
 
 #: C/project-video.page:22(page/p)
 msgid ""
-"<app>Brasero</app> can be used to create video discs for playing in a DVD "
+"<app>Burner</app> can be used to create video discs for playing in a DVD "
 "player or laptop."
 msgstr ""
-"El <app>Brasero</app> pot crear discs de vídeo per reproduir en reproductors "
+"El <app>Burner</app> pot crear discs de vídeo per reproduir en reproductors "
 "de DVD o en ordinadors portàtils."
 
 #: C/project-video.page:27(item/p)
@@ -782,10 +782,10 @@ msgstr "Partició de la pista a cada silenci"
 
 #: C/split-track.page:53(item/p)
 msgid ""
-"Select this method for <app>Brasero</app> to auto-detect silences in the "
+"Select this method for <app>Burner</app> to auto-detect silences in the "
 "recording and to split the track at those points."
 msgstr ""
-"Trieu aquest mètode perquè el <app>Brasero</app> auto-detecti silencis en "
+"Trieu aquest mètode perquè el <app>Burner</app> auto-detecti silencis en "
 "l'enregistrament i divideixi la pista en aquells punts."
 
 #: C/split-track.page:59(item/p)
@@ -878,7 +878,7 @@ msgstr ""
 
 #: C/tools-check-integrity.page:23(page/p)
 msgid ""
-"After burning a CD/DVD by using <app>Brasero</app>, you can check its "
+"After burning a CD/DVD by using <app>Burner</app>, you can check its "
 "integrity to make sure that the files in the disc are not corrupted."
 msgstr ""
 

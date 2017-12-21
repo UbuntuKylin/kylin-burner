@@ -33,7 +33,7 @@
 
   <title>Création d'une pochette</title>
 
-  <p>Vous pouvez utiliser <app>Brasero</app> pour créer la jaquette de votre boîtier. Accédez au créateur depuis <guiseq><gui>Outils</gui> <gui>Éditeur de pochette</gui></guiseq>.</p>
+  <p>Vous pouvez utiliser <app>Burner</app> pour créer la jaquette de votre boîtier. Accédez au créateur depuis <guiseq><gui>Outils</gui> <gui>Éditeur de pochette</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Si vous créez un projet audio et que vous avez fini d'assembler le projet avant de créer une pochette, alors lorsque vous accédez à l'interface <gui>Éditeur de pochette</gui> depuis la fenêtre principale du projet audio, les pistes seront automatiquement inscrites sur la face arrière.</p>
@@ -56,7 +56,7 @@
     <item>
       <p>Cliquez sur l’icône <gui>Propriétés d'arrière-plan</gui> dans la barre d'outils pour ajouter une image d'arrière-plan à la pochette actuelle, ou faites un clic droit sur la pochette à modifier et sélectionnez <gui>Définir les propriétés d'arrière-plan</gui>. Vous pouvez choisir d'utiliser un arrière-plan coloré ou sélectionner une image d'arrière-plan.</p>
       <note style="bug">
-        <p>Si vous sélectionnez une image d'arrière-plan centrée, parfois <app>Brasero</app> s'arrête brutalement quand vous cliquez sur le bouton <gui>Fermer</gui>.</p>
+        <p>Si vous sélectionnez une image d'arrière-plan centrée, parfois <app>Burner</app> s'arrête brutalement quand vous cliquez sur le bouton <gui>Fermer</gui>.</p>
       </note>
       <p>Cliquez sur <gui>Fermer</gui> pour appliquer les changements et fermer les <gui>Propriétés d'arrière-plan</gui>.</p>
     </item>

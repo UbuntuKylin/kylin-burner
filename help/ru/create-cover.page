@@ -15,7 +15,7 @@
 
   <title>Создание обложки</title>
 
-  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  <p>You can use <app>Burner</app> to create inlays for your jewel cases.
   Access the creator by clicking <guiseq><gui>Tools</gui>
   <gui>Cover Editor</gui></guiseq>.</p>
 
@@ -40,7 +40,7 @@
     <item>
       <p>Чтобы добавить фон для текущей обложки, нажмите на значок <gui>Свойства фонаs</gui> или нажмите правую кнопку мыши на обложке и выберите <gui>Установить свойства фона</gui>. Вы можете выбрать в качестве фона определённый цвет или изображение.</p>
       <note style="bug">
-        <p>Если вы выбрали для фона центрированное изображение, <app>Brasero</app> иногда будет аварийно завершать работу при нажатии на кнопку <gui>Закрыть</gui>.</p>
+        <p>Если вы выбрали для фона центрированное изображение, <app>Burner</app> иногда будет аварийно завершать работу при нажатии на кнопку <gui>Закрыть</gui>.</p>
       </note>
       <p>Чтобы применить изменения, нажмите кнопку <gui>Закрыть</gui> и закройте диалоговое окно <gui>Свойства фона</gui>.</p>
     </item>

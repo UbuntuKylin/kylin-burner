@@ -29,7 +29,7 @@
 
   <title>Lemezkép írása</title>
 
-  <p>A <app>Brasero</app> lehetővé teszi lemezképek CD-re vagy DVD-re írását. A következő kiterjesztéseket támogatja optikai lemezképekhez: <file>.iso</file>, <file>.toc</file> és <file>.cue</file>.</p>
+  <p>A <app>Burner</app> lehetővé teszi lemezképek CD-re vagy DVD-re írását. A következő kiterjesztéseket támogatja optikai lemezképekhez: <file>.iso</file>, <file>.toc</file> és <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>A lemezképek olyan archívumfájlok, amelyek a CD-re vagy DVD-re írandó minden adatot tartalmaznak. Egy CD egyszerre csak egy lemezképet tartalmazhat, de minden archívum olyan sok vagy kevés adatot tartalmazhat, amennyit csak Ön szeretne, amíg azok elférnek a lemezen.</p>
@@ -45,7 +45,7 @@
     </item>
     <item>
       <p>A <gui>Válassza ki az írandó lemezt</gui> alatti legördülő listából válassza ki a használni kívánt lemezt. Ha több lemezmeghajtója van, akkor minden lemez megjelenik a listában.</p>
-        <note><p>A lemez kiválasztása után a <app>Brasero</app> megjeleníti, mennyi szabad hely marad a lemezen az írás után.</p></note>
+        <note><p>A lemez kiválasztása után a <app>Burner</app> megjeleníti, mennyi szabad hely marad a lemezen az írás után.</p></note>
     </item>
     <item>
       <p>Nyomja meg a <gui>Tulajdonságok</gui> gombot az írási sebesség és egyéb beállítások megadásához.</p>
@@ -57,8 +57,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

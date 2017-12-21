@@ -27,7 +27,7 @@
 
   <title>Creació d'una coberta</title>
 
-  <p>Podeu utilitzar el <app>Brasero</app> per crear les cobertes per les caixes dels CD. Feu clic a <guiseq><gui>Eines</gui> <gui>Editor de cobertes</gui></guiseq> per accedir-hi.</p>
+  <p>Podeu utilitzar el <app>Burner</app> per crear les cobertes per les caixes dels CD. Feu clic a <guiseq><gui>Eines</gui> <gui>Editor de cobertes</gui></guiseq> per accedir-hi.</p>
 
   <note style="tip">
     <p>Si esteu creant un projecte d'àudio i ja hi heu posat totes les cançons del projecte abans de crear les portades, quan accediu a la interfície de l'<gui>Editor de cobertes</gui> des de la finestra del projecte d'àudio, es mostraran automàticament la llista de pistes a la contracoberta.</p>
@@ -50,7 +50,7 @@
     <item>
       <p>Per afegir un fons a la coberta actual feu clic a la icona de la barra d'eines <gui>Propietats del fons</gui> , també podeu canviar-lo fent clic amb el botó secundari a la coberta i seleccionant <gui>Estableix les propietats del fons</gui>.</p>
       <note style="bug">
-        <p>Si seleccioneu una imatge de fons centrada, en fer clic al botó <gui>Tanca</gui> el <app>Brasero</app> a vegades pot fallar.</p>
+        <p>Si seleccioneu una imatge de fons centrada, en fer clic al botó <gui>Tanca</gui> el <app>Burner</app> a vegades pot fallar.</p>
       </note>
       <p>Per aplicar els canvis i tancar el diàleg de <gui>Propietats del fons</gui>, feu clic al botó <gui>Tanca</gui>.</p>
     </item>

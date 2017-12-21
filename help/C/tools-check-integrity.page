@@ -20,7 +20,7 @@
 
   <title>Check disc integrity</title>
 
-  <p>After burning a CD/DVD by using <app>Brasero</app>, you can check its integrity to make sure that the files in the disc are not corrupted.</p>
+  <p>After burning a CD/DVD by using <app>Burner</app>, you can check its integrity to make sure that the files in the disc are not corrupted.</p>
 
   <steps>
     <item>

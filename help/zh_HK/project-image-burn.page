@@ -23,7 +23,7 @@
 
   <title>燒錄映像檔</title>
 
-  <p><app>Brasero</app> allows you to burn disc images to a CD or DVD. It
+  <p><app>Burner</app> allows you to burn disc images to a CD or DVD. It
   supports the following extensions of optical disc images: <file>.iso</file>,
   <file>.toc</file> and <file>.cue</file>.</p>
 
@@ -49,7 +49,7 @@
       <p>Select the disc that you want to use from drop down list below
       <gui>Select a disc to write to</gui>. If you have more than one disc
       drive, all discs which are currently in them should be listed.</p>
-        <note><p>After choosing the disc <app>Brasero</app> shows how much free
+        <note><p>After choosing the disc <app>Burner</app> shows how much free
         space will remain on the disc after burning.</p></note>
     </item>
     <item>
@@ -66,8 +66,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

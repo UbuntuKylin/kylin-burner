@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/x-burner">
+		<sub-class-of type="application/xml"/>
+		<_comment>Burner project file</_comment>
+		<magic priority="80">
+		      <match value="burnerproject" type="string" offset="0:50"/>
+		</magic>
+	</mime-type>
+</mime-info>

@@ -1,0 +1,391 @@
+<!-- ##### SECTION Title ##### -->
+BurnerBurnSession
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerBurnSession ##### -->
+<para>
+
+</para>
+
+@parent: 
+
+<!-- ##### STRUCT BurnerBurnSessionClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@set_output_image: 
+@get_output_path: 
+@get_output_format: 
+@tag_changed: 
+@track_added: 
+@track_removed: 
+@track_changed: 
+@output_changed: 
+
+<!-- ##### FUNCTION burner_burn_session_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_add_track ##### -->
+<para>
+
+</para>
+
+@session: 
+@new_track: 
+@sibling: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_move_track ##### -->
+<para>
+
+</para>
+
+@session: 
+@track: 
+@sibling: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_remove_track ##### -->
+<para>
+
+</para>
+
+@session: 
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_tracks ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_status ##### -->
+<para>
+
+</para>
+
+@session: 
+@status: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_size ##### -->
+<para>
+
+</para>
+
+@session: 
+@blocks: 
+@bytes: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_input_type ##### -->
+<para>
+
+</para>
+
+@session: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_tag_lookup ##### -->
+<para>
+
+</para>
+
+@session: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_tag_add ##### -->
+<para>
+
+</para>
+
+@session: 
+@tag: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_tag_remove ##### -->
+<para>
+
+</para>
+
+@session: 
+@tag: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_burner ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_burner ##### -->
+<para>
+
+</para>
+
+@session: 
+@drive: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_image_output_full ##### -->
+<para>
+
+</para>
+
+@session: 
+@format: 
+@image: 
+@toc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_output ##### -->
+<para>
+
+</para>
+
+@session: 
+@image: 
+@toc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_output_format ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_flags ##### -->
+<para>
+
+</para>
+
+@session: 
+@flags: 
+
+
+<!-- ##### FUNCTION burner_burn_session_add_flag ##### -->
+<para>
+
+</para>
+
+@session: 
+@flags: 
+
+
+<!-- ##### FUNCTION burner_burn_session_remove_flag ##### -->
+<para>
+
+</para>
+
+@session: 
+@flags: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_flags ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_tmpdir ##### -->
+<para>
+
+</para>
+
+@session: 
+@path: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_tmpdir ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_burn_flags ##### -->
+<para>
+
+</para>
+
+@session: 
+@supported: 
+@compulsory: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_blank_flags ##### -->
+<para>
+
+</para>
+
+@session: 
+@supported: 
+@compulsory: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_can_blank ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_can_burn ##### -->
+<para>
+
+</para>
+
+@session: 
+@check_flags: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_input_supported ##### -->
+<para>
+
+</para>
+
+@session: 
+@input: 
+@check_flags: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_output_supported ##### -->
+<para>
+
+</para>
+
+@session: 
+@output: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_required_media_type ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_possible_output_formats ##### -->
+<para>
+
+</para>
+
+@session: 
+@formats: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_default_output_format ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_label ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_label ##### -->
+<para>
+
+</para>
+
+@session: 
+@label: 
+
+
+<!-- ##### FUNCTION burner_burn_session_set_rate ##### -->
+<para>
+
+</para>
+
+@session: 
+@rate: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_burn_session_get_rate ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+

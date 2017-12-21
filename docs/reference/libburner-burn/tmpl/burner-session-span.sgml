@@ -1,0 +1,84 @@
+<!-- ##### SECTION Title ##### -->
+BurnerSessionSpan
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BurnerSessionSpan ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION burner_session_span_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_session_span_again ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_session_span_possible ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_session_span_start ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_session_span_next ##### -->
+<para>
+
+</para>
+
+@session: 
+@Returns: 
+
+
+<!-- ##### FUNCTION burner_session_span_stop ##### -->
+<para>
+
+</para>
+
+@session: 
+
+

@@ -27,7 +27,7 @@
 
   <title>Crear una carátula</title>
 
-  <p>Puede usar <app>Brasero</app> para crear carátulas para sus cajas de CD o DVD. Acceda al creador pulsando <guiseq><gui>Herramientas</gui><gui>Editor de carátulas</gui></guiseq>.</p>
+  <p>Puede usar <app>Burner</app> para crear carátulas para sus cajas de CD o DVD. Acceda al creador pulsando <guiseq><gui>Herramientas</gui><gui>Editor de carátulas</gui></guiseq>.</p>
 
   <note style="tip">
     <p>Si está creando un proyecto de sonido y está termina el proyecto antes de crear la carátula, al acceder al <gui>Editor de carátulas</gui> desde la ventana del proyecto de sonido, se añadirá automáticamente una lista de las pistas en la carátula posterior.</p>
@@ -50,7 +50,7 @@
     <item>
       <p>Para añadir un fondo a la carátula actual, pulse en el icono de <gui>Propiedades del fondo</gui> en la barra de herramientas, o pulse con el botón derecho del ratón sobre la carátula que quiere editar y seleccione <gui>Establecer las propiedades del fondo</gui>. Puede elegir usar un fondo coloreado o una imagen de fondo.</p>
       <note style="bug">
-        <p>A veces, <app>Brasero</app> se cuelga al pulsar el botón <gui>Cerrar</gui> si selecciona una imagen de fondo centrada.</p>
+        <p>A veces, <app>Burner</app> se cuelga al pulsar el botón <gui>Cerrar</gui> si selecciona una imagen de fondo centrada.</p>
       </note>
       <p>Pulse el botón <gui>Cerrar</gui> para aplicar los cambios y cerrar el diálogo <gui>Propiedades del fondo</gui>.</p>
     </item>

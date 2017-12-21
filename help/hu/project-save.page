@@ -24,7 +24,7 @@
 
   <title>Projekt mentése</title>
 
-  <p>A <app>Braseroban</app> elmentheti hang-, adat- vagy videoprojektjét későbbi szerkesztésre vagy kiírásra.</p>
+  <p>A <app>Burnerban</app> elmentheti hang-, adat- vagy videoprojektjét későbbi szerkesztésre vagy kiírásra.</p>
 
   <steps>
     <item>
@@ -38,7 +38,7 @@
     </item>
   </steps>
 
-  <p>Egy elmentett <app>Brasero</app> projektet számos módon nyithat meg:</p>
+  <p>Egy elmentett <app>Burner</app> projektet számos módon nyithat meg:</p>
 
   <list>
     <item>
@@ -53,14 +53,14 @@
     <item>
       <p>a projekt fájlböngészőből való megnyitásával</p>
       <note>
-        <p>Egyszerre csak egy <app>Brasero</app> példány lehet nyitva. Ha második példányt próbál megnyitni, akkor  már nyitott <app>Brasero</app> ablak kerül fókuszba.</p>
-        <p>Ha a <app>Brasero</app> már fut, és néhány fájlt a <app>Fájlok</app> alkalmazásból próbál vele megnyitni, akkor a fájlok hozzáadásra kerülnek az éppen megnyitott projekthez.</p>
+        <p>Egyszerre csak egy <app>Burner</app> példány lehet nyitva. Ha második példányt próbál megnyitni, akkor  már nyitott <app>Burner</app> ablak kerül fókuszba.</p>
+        <p>Ha a <app>Burner</app> már fut, és néhány fájlt a <app>Fájlok</app> alkalmazásból próbál vele megnyitni, akkor a fájlok hozzáadásra kerülnek az éppen megnyitott projekthez.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Ha megnyit egy mentett projektet, akkor a <app>Brasero</app> új projektként fogja azt kezelni: ha a projekt frissített verzióját szeretné menteni, akkor a projekt megkéri egy fájlnév megadására, ekkor felülírhatja a régi verziót, vagy másik fájlnév megadásával elmentheti új projektként.</p>
+    <p>Ha megnyit egy mentett projektet, akkor a <app>Burner</app> új projektként fogja azt kezelni: ha a projekt frissített verzióját szeretné menteni, akkor a projekt megkéri egy fájlnév megadására, ekkor felülírhatja a régi verziót, vagy másik fájlnév megadásával elmentheti új projektként.</p>
   </note>
 
 </page>

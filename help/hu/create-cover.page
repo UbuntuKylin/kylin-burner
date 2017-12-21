@@ -21,7 +21,7 @@
 
   <title>Lemezborító készítése</title>
 
-  <p>A <app>Brasero</app> segítségével lemezborítókat készíthet, amelyeket a műanyag tokokba helyezhet. A borítószerkesztő az <guiseq><gui>Eszközök</gui><gui>Borítószerkesztő</gui></guiseq> menüpont kiválasztásával érhető el.</p>
+  <p>A <app>Burner</app> segítségével lemezborítókat készíthet, amelyeket a műanyag tokokba helyezhet. A borítószerkesztő az <guiseq><gui>Eszközök</gui><gui>Borítószerkesztő</gui></guiseq> menüpont kiválasztásával érhető el.</p>
 
   <note style="tip">
     <p>Ha hangprojektet hoz létre, és a projekt összeállítását a borító elkészítése előtt fejezi be, akkor a megnyitásakor <gui>Borítószerkesztő</gui> a hangprojekt ablakból a számok automatikusan felsorolásra kerülnek a hátsó borítón.</p>
@@ -44,7 +44,7 @@
     <item>
       <p>Kattintson a <gui>Háttér tulajdonságai</gui> eszköztárikonra az aktuális borító hátterének hozzáadásához, vagy kattintson a jobb egérgombbal a szerkeszteni kívánt borítóra, és válassza a <gui>Háttér tulajdonságainak beállítása</gui> menüpontot. Használhat színezett hátteret, vagy kiválaszthat egy háttérképet.</p>
       <note style="bug">
-        <p>Ha középre igazított háttérképet használ, akkor a <app>Brasero</app> néha összeomlik a <gui>Bezárás</gui> gomb megnyomásakor.</p>
+        <p>Ha középre igazított háttérképet használ, akkor a <app>Burner</app> néha összeomlik a <gui>Bezárás</gui> gomb megnyomásakor.</p>
       </note>
       <p>Nyomja meg a <gui>Bezárás</gui> gombot a változtatások alkalmazásához, és a <gui>Háttér tulajdonságai</gui> ablak bezárásárhoz.</p>
     </item>

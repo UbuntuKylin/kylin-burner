@@ -1,16 +1,16 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* major version */
-#undef BRASERO_MAJOR_VERSION
+#undef BURNER_MAJOR_VERSION
 
 /* minor version */
-#undef BRASERO_MINOR_VERSION
+#undef BURNER_MINOR_VERSION
 
 /* sub version */
-#undef BRASERO_SUB
+#undef BURNER_SUB
 
 /* version */
-#undef BRASERO_VERSION
+#undef BURNER_VERSION
 
 /* define if you want to build cdrdao plugins */
 #undef BUILD_CDRDAO

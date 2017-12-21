@@ -35,7 +35,7 @@
 
   <title>Burn image</title>
 
-  <p><app>Brasero</app> le permite grabar imagenes de discos a CD o DVD. Soporta las siguientes extensiones de imágenes de discos ópticos: <file>.iso</file>, <file>.toc</file> y <file>.cue</file>.</p>
+  <p><app>Burner</app> le permite grabar imagenes de discos a CD o DVD. Soporta las siguientes extensiones de imágenes de discos ópticos: <file>.iso</file>, <file>.toc</file> y <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Los archivos de imagen son archivadores que contienen todos los datos en un CD o DVD. Solo una imagen de disco puede estar en un CD a la vez, pero cada archivador puede contener tantos datos como quiera, siempre que quepa en el disco.</p>
@@ -51,7 +51,7 @@
     </item>
     <item>
       <p>Seleccione de la lista desplegable bajo <gui>Seleccionar un disco en el que grabar</gui> el disco en el que quiere grabar. Se listarán todos los discos actualmente en las unidades en caso de que tenga más de una unidad de discos.</p>
-        <note><p>Después de elegir el disco, <app>Brasero</app> muestra cuánto espacio libre quedará en el disco después de grabarlo.</p></note>
+        <note><p>Después de elegir el disco, <app>Burner</app> muestra cuánto espacio libre quedará en el disco después de grabarlo.</p></note>
     </item>
     <item>
       <p>Pulse el botón <gui>Propiedades</gui> para seleccionar la velocidad de grabación y otras opciones.</p>
@@ -63,8 +63,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

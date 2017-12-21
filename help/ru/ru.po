@@ -1,10 +1,10 @@
-# Russian translation of brasero help
+# Russian translation of burner help
 # Copyright 2008 Free Software Foundation Inc.
 #
 # Yuri Kozlov <yuray@komyakino.ru>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero trunk\n"
+"Project-Id-Version: burner trunk\n"
 "POT-Creation-Date: 2011-10-31 19:52+0000\n"
 "PO-Revision-Date: 2011-11-24 22:31+0300\n"
 "Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
@@ -71,8 +71,8 @@ msgid "Check disc integrity"
 msgstr "Проверка целостности диска"
 
 #: C/tools-check-integrity.page:23(p)
-msgid "After burning a CD/DVD by using <app>Brasero</app>, you can check its integrity to make sure that the files in the disc are not corrupted."
-msgstr "После записи CD/DVD с помощью <app>Brasero</app>, вы можете проверить целостность диска, чтобы убедиться, что файлы на диске не повреждены."
+msgid "After burning a CD/DVD by using <app>Burner</app>, you can check its integrity to make sure that the files in the disc are not corrupted."
+msgstr "После записи CD/DVD с помощью <app>Burner</app>, вы можете проверить целостность диска, чтобы убедиться, что файлы на диске не повреждены."
 
 #: C/tools-check-integrity.page:27(p)
 msgid "Select <guiseq><gui>Tools</gui><gui>Check Integrity...</gui></guiseq>."
@@ -207,8 +207,8 @@ msgid "Split track for each silence"
 msgstr "Разбивка дорожки по тихим участкам"
 
 #: C/split-track.page:53(p)
-msgid "Select this method for <app>Brasero</app> to auto-detect silences in the recording and to split the track at those points."
-msgstr "Выберите этот метод, чтобы <app>Brasero</app> автоматически определил паузы и разбил дорожку по этим точкам."
+msgid "Select this method for <app>Burner</app> to auto-detect silences in the recording and to split the track at those points."
+msgstr "Выберите этот метод, чтобы <app>Burner</app> автоматически определил паузы и разбил дорожку по этим точкам."
 
 #: C/split-track.page:59(p)
 msgid "Proceed to split the track by clicking <gui>Slice</gui>."
@@ -241,8 +241,8 @@ msgid "Create a video project"
 msgstr "Создание видеопроекта"
 
 #: C/project-video.page:22(p)
-msgid "<app>Brasero</app> can be used to create video discs for playing in a DVD player or laptop."
-msgstr "<app>Brasero</app> можно использовать для создания видеодисков для проигрывателей DVD или ноутбуков."
+msgid "<app>Burner</app> can be used to create video discs for playing in a DVD player or laptop."
+msgstr "<app>Burner</app> можно использовать для создания видеодисков для проигрывателей DVD или ноутбуков."
 
 #: C/project-video.page:27(p)
 #| msgid ""
@@ -293,8 +293,8 @@ msgid "Save a project"
 msgstr "Сохранение проекта"
 
 #: C/project-save.page:22(p)
-msgid "You can save an audio, a data or a video project in <app>Brasero</app> for editing or burning later."
-msgstr "В <app>Brasero</app> можно сохранять различные проекты (звуковые, проект с данными, видеопроект) для дальнейшей работы и записи."
+msgid "You can save an audio, a data or a video project in <app>Burner</app> for editing or burning later."
+msgstr "В <app>Burner</app> можно сохранять различные проекты (звуковые, проект с данными, видеопроект) для дальнейшей работы и записи."
 
 #: C/project-save.page:27(p)
 msgid "Create the project and add the files you wish to use to the project."
@@ -309,8 +309,8 @@ msgid "Enter the name you wish to save the project under, then click <gui>Save</
 msgstr "Введите название, под которым должен быть сохранён проект, и нажмите <gui>Сохранить</gui>."
 
 #: C/project-save.page:39(p)
-msgid "There are a number of ways which can be used for opening a saved <app>Brasero</app> project by:"
-msgstr "Открыть сохранённый ранее проект в <app>Brasero</app> можно несколькими способами:"
+msgid "There are a number of ways which can be used for opening a saved <app>Burner</app> project by:"
+msgstr "Открыть сохранённый ранее проект в <app>Burner</app> можно несколькими способами:"
 
 #: C/project-save.page:44(p)
 #| msgid ""
@@ -332,12 +332,12 @@ msgid "opening the project from a file browser"
 msgstr "открыть проект из файлового браузера"
 
 #: C/project-save.page:57(p)
-msgid "If <app>Brasero</app> is already running, opening the project from a file browser will cause a second instance of <app>Brasero</app> to start and will cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
-msgstr "Если <app>Brasero</app> уже запущен, попытка открытия проекта из файлового браузера приведёт к запуску второго экземпляра <app>Brasero</app> и можете вызвать аварийное завершение программы. Подробнее см. <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link>."
+msgid "If <app>Burner</app> is already running, opening the project from a file browser will cause a second instance of <app>Burner</app> to start and will cause both instances to crash. See <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link> for more information."
+msgstr "Если <app>Burner</app> уже запущен, попытка открытия проекта из файлового браузера приведёт к запуску второго экземпляра <app>Burner</app> и можете вызвать аварийное завершение программы. Подробнее см. <link href=\"https://bugzilla.gnome.org/show_bug.cgi?id=644011\">GNOME bug 644011</link>."
 
 #: C/project-save.page:67(p)
-msgid "If you open a saved project, <app>Brasero</app> will treat it as a new project: if you want to save an updated version of the project, it will ask you to enter a name for it, at this point you can overwrite the old version or save it as a new project by entering a different file name."
-msgstr "Если вы открыли сохранённый проект, <app>Brasero</app> будет обрабатывать его как новый проект. Если вы хотите сохранить обновлённую версию проекта, приложение попросит ввести название для проекта, вы можете перезаписать старую версию или сохранить проект под другим названием."
+msgid "If you open a saved project, <app>Burner</app> will treat it as a new project: if you want to save an updated version of the project, it will ask you to enter a name for it, at this point you can overwrite the old version or save it as a new project by entering a different file name."
+msgstr "Если вы открыли сохранённый проект, <app>Burner</app> будет обрабатывать его как новый проект. Если вы хотите сохранить обновлённую версию проекта, приложение попросит ввести название для проекта, вы можете перезаписать старую версию или сохранить проект под другим названием."
 
 #: C/project-image-burn.page:11(desc)
 msgid "Burn an existing disc image to a CD or DVD."
@@ -358,8 +358,8 @@ msgid "Burn image"
 msgstr "Запись образа"
 
 #: C/project-image-burn.page:27(p)
-msgid "<app>Brasero</app> allows you to burn disc images to a CD or DVD. It supports the following extensions of optical disc images: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
-msgstr "С помощью <app>Brasero</app> можно записывать образы дисков на CD или DVD. Приложение поддерживает следующие форматы образов: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
+msgid "<app>Burner</app> allows you to burn disc images to a CD or DVD. It supports the following extensions of optical disc images: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
+msgstr "С помощью <app>Burner</app> можно записывать образы дисков на CD или DVD. Приложение поддерживает следующие форматы образов: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>."
 
 #: C/project-image-burn.page:32(p)
 msgid "Disc images are archive files which contain all the data that is on a CD or DVD. Only one disc image can be on a CD at a time, but each archive can contain as little or as much data as you want, as long as it fits on the disc."
@@ -386,8 +386,8 @@ msgid "Select the disc that you want to use from drop down list below <gui>Selec
 msgstr "Выберите нужный диск из выпадающего списка <gui>Выберите диск для записи</gui>. Если у вас больше одного привода, будут перечислены все находящиеся в них диски."
 
 #: C/project-image-burn.page:53(p)
-msgid "After choosing the disc <app>Brasero</app> shows how much free space will remain on the disc after burning."
-msgstr "После выбора диска <app>Brasero</app> покажет, сколько свободного места останется на диске после записи."
+msgid "After choosing the disc <app>Burner</app> shows how much free space will remain on the disc after burning."
+msgstr "После выбора диска <app>Burner</app> покажет, сколько свободного места останется на диске после записи."
 
 #: C/project-image-burn.page:57(p)
 #: C/project-disc-copy.page:35(p)
@@ -486,8 +486,8 @@ msgid "Write a music CD"
 msgstr "Запись музыкального CD"
 
 #: C/project-audio.page:19(p)
-msgid "<app>Brasero</app> can write audio files to a CD, which you can then use for playing in CD players and so on. It is usually best to use a non-rewritable CD because not all CD players will play rewritable CDs."
-msgstr "<app>Brasero</app> может записывать звуковый файлы на CD, который можно будет воспроизводить в проигрывателях и других устройствах. Музыку рекомендуется записывать на неперезаписываемый CD, т. к. не все проигрыватели могут работать с перезаписываемыми дисками. "
+msgid "<app>Burner</app> can write audio files to a CD, which you can then use for playing in CD players and so on. It is usually best to use a non-rewritable CD because not all CD players will play rewritable CDs."
+msgstr "<app>Burner</app> может записывать звуковый файлы на CD, который можно будет воспроизводить в проигрывателях и других устройствах. Музыку рекомендуется записывать на неперезаписываемый CD, т. к. не все проигрыватели могут работать с перезаписываемыми дисками. "
 
 #: C/project-audio.page:26(p)
 #| msgid ""
@@ -569,13 +569,13 @@ msgstr "Перезапишите CD как звукового проект."
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/introduction.page:36(None)
 #| msgid ""
-#| "@@image: 'figures/brasero_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
-msgid "@@image: 'figures/brasero-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
-msgstr "@@image: 'figures/brasero-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
+#| "@@image: 'figures/burner_main.png'; md5=dfc32ea3caef05364043a4529125d2e2"
+msgid "@@image: 'figures/burner-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
+msgstr "@@image: 'figures/burner-main-window.png'; md5=11e5cc148d7c8c8dc0c63e68b2f611f3"
 
 #: C/introduction.page:7(desc)
-msgid "Introduction to the <app>Brasero</app> disc burning application."
-msgstr "Вводная информация о приложении для записи дисков <app>Brasero</app>."
+msgid "Introduction to the <app>Burner</app> disc burning application."
+msgstr "Вводная информация о приложении для записи дисков <app>Burner</app>."
 
 #: C/introduction.page:17(title)
 msgid "Introduction"
@@ -583,16 +583,16 @@ msgstr "Введение"
 
 #: C/introduction.page:19(p)
 #| msgid ""
-#| "<application>Brasero</application> is an application for burning CD-R/Ws "
+#| "<application>Burner</application> is an application for burning CD-R/Ws "
 #| "and DVD-R/Ws, designed to be easy to use, while providing all the tools "
 #| "necessary for burning."
-msgid "<app>Brasero</app> is an application for burning CDs and DVDs, designed to be easy to use, while providing all the tools necessary for burning."
-msgstr "<application>Brasero</application> — приложение для записи CD-R/W и DVD-R/W. <application>Brasero</application> легко пользоваться, и оно предоставляет все необходимые инструменты для записи."
+msgid "<app>Burner</app> is an application for burning CDs and DVDs, designed to be easy to use, while providing all the tools necessary for burning."
+msgstr "<application>Burner</application> — приложение для записи CD-R/W и DVD-R/W. <application>Burner</application> легко пользоваться, и оно предоставляет все необходимые инструменты для записи."
 
 #: C/introduction.page:22(p)
-#| msgid "With <application>Brasero</application> you can:"
-msgid "With <app>Brasero</app> you can:"
-msgstr "С помощью <application>Brasero</application> можно:"
+#| msgid "With <application>Burner</application> you can:"
+msgid "With <app>Burner</app> you can:"
+msgstr "С помощью <application>Burner</application> можно:"
 
 #: C/introduction.page:24(p)
 #| msgid "Burn data to CD-R/Ws and DVD-R/Ws"
@@ -627,14 +627,14 @@ msgid "Check the integrity of discs and disc images"
 msgstr "Проверять целостность данных на диске и в файле образа"
 
 #: C/introduction.page:35(title)
-#| msgid "Brasero Main Window"
-msgid "The <gui>Brasero</gui> main window"
-msgstr "Главное окно <gui>Brasero</gui>"
+#| msgid "Burner Main Window"
+msgid "The <gui>Burner</gui> main window"
+msgstr "Главное окно <gui>Burner</gui>"
 
 #: C/index.page:5(title)
-#| msgid "Brasero"
-msgid "Brasero Help"
-msgstr "Руководство Brasero"
+#| msgid "Burner"
+msgid "Burner Help"
+msgstr "Руководство Burner"
 
 #: C/index.page:8(title)
 #| msgid "Creating a New Project"
@@ -658,8 +658,8 @@ msgid "Create a cover"
 msgstr "Создание обложки"
 
 #: C/create-cover.page:19(p)
-msgid "You can use <app>Brasero</app> to create inlays for your jewel cases. Access the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></guiseq>."
-msgstr "С помощью <app>Brasero</app> можно создавать вкладыши для упаковок. Чтобы приступить к созданию вкладыша, выберите в меню <guiseq><gui>Инструменты</gui><gui>Редактор обложек</gui></guiseq>."
+msgid "You can use <app>Burner</app> to create inlays for your jewel cases. Access the creator by clicking <guiseq><gui>Tools</gui><gui>Cover Editor</gui></guiseq>."
+msgstr "С помощью <app>Burner</app> можно создавать вкладыши для упаковок. Чтобы приступить к созданию вкладыша, выберите в меню <guiseq><gui>Инструменты</gui><gui>Редактор обложек</gui></guiseq>."
 
 #: C/create-cover.page:24(p)
 msgid "If you are creating an audio project and finish putting together the project before creating an inlay, then when you access the <gui>Cover Editor</gui> interface from the audio project window, the tracks will automatically be listed on the back cover."
@@ -686,8 +686,8 @@ msgid "Click the <gui>Background properties</gui> toolbar icon to add a backgrou
 msgstr "Чтобы добавить фон для текущей обложки, нажмите на значок <gui>Свойства фонаs</gui> или нажмите правую кнопку мыши на обложке и выберите <gui>Установить свойства фона</gui>. Вы можете выбрать в качестве фона определённый цвет или изображение."
 
 #: C/create-cover.page:53(p)
-msgid "If you select a centered background image, <app>Brasero</app> sometimes crashes when you click the <gui>Close</gui> button."
-msgstr "Если вы выбрали для фона центрированное изображение, <app>Brasero</app> иногда будет аварийно завершать работу при нажатии на кнопку <gui>Закрыть</gui>."
+msgid "If you select a centered background image, <app>Burner</app> sometimes crashes when you click the <gui>Close</gui> button."
+msgstr "Если вы выбрали для фона центрированное изображение, <app>Burner</app> иногда будет аварийно завершать работу при нажатии на кнопку <gui>Закрыть</gui>."
 
 #: C/create-cover.page:56(p)
 msgid "Click the <gui>Close</gui> button to apply the changes and close the <gui>Background Properties</gui> dialog."

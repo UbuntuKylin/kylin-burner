@@ -21,7 +21,7 @@
 
 2009-03-09  Milo Casagrande  <milo@ubuntu.com>
 
-	* C/brasero.xml: Fixed two typos, closes bug #572267.
+	* C/burner.xml: Fixed two typos, closes bug #572267.
 
 2009-03-02  Milo Casagrande  <milo@ubuntu.com>
 
@@ -48,7 +48,7 @@
 
 2009-02-06  Claude Paroz  <claude@2xlibre.net>
 
-	* fr/figures/brasero_main.png:
+	* fr/figures/burner_main.png:
 	* fr/fr.po: Updated French translation by Bruno Brouard and Claude Paroz
 
 2009-01-24  Mario Blättermann  <mariobl@svn.gnome.org>
@@ -61,7 +61,7 @@
 
 2009-01-21  Luis Medinas  <lmedinas@gnome.org>
 
-	* C/brasero.xml:
+	* C/burner.xml:
 	
 	Update Documentation. Patch from his author:
 	Milo Casagrande <milo@ubuntu.com> 
@@ -83,7 +83,7 @@
 	Fixed typos
 	Fix #562007 – typos in the documentation
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-10-22  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
@@ -97,19 +97,19 @@
 
 	Update burn option dialogs sections
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
 
 	Update disc title/label sections for new UI
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
 
 	Fix #559154 – Help with regard to "simulate burn" not up to date
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
     
@@ -126,12 +126,12 @@
 2008-09-14  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
 	* es/es.po: Updated Spanish translation
-	* es/figures/brasero_main.png: Updated Spanish screenshot
+	* es/figures/burner_main.png: Updated Spanish screenshot
 
 2008-09-09  Luca Ferretti  <elle.uca@libero.it>
 
 	* it/it.po: Updated Italian translation by Milo Casagrande.
-	* it/figures/brasero_main.png: ditto.
+	* it/figures/burner_main.png: ditto.
 
 2008-09-04  Jochen Skulj  <jochen@jochenskulj.de>
 
@@ -141,7 +141,7 @@
 
 	Patch by Milo Casagrande to fix typos in help manual
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-08-31  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
@@ -154,9 +154,9 @@
 
 2008-08-24  Philippe Rouquier  <ykw@localhost.localdomain>
 
-	Fix #547111 – Brasero ships out-of-date manual
+	Fix #547111 – Burner ships out-of-date manual
 
-	* C/brasero.xml:
+	* C/burner.xml:
 
 2008-08-17  Andre Klapper  <a9016009@gmx.de>
 

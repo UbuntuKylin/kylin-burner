@@ -23,7 +23,7 @@
 
   <title>Gravar imaxe</title>
 
-  <p><app>Brasero</app> permítelle grabar imaxes de disco a un CD ou DVD. É compatíbel coas seguintes extensións de imaxes de disco: <file>.iso</file>, <file>.toc</file> e <file>.cue</file>.</p>
+  <p><app>Burner</app> permítelle grabar imaxes de disco a un CD ou DVD. É compatíbel coas seguintes extensións de imaxes de disco: <file>.iso</file>, <file>.toc</file> e <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>As imaxes de disco son arquivos que conteñen todos os datos que están nun CD ou DVD. Só pode haber unha imaxe de disco nun CD á vez, pero cada arquivo pode conter tanta información como queira, namentres colla nun disco.</p>
@@ -41,7 +41,7 @@
     </item>
     <item>
       <p>Seleccione o disco que quere copiar desde a lista despregábel de embaixo <gui>Seleccionar un disco a gravar</gui>. Se ten máis dunha unidade de disco, deberíanse mostrar tódolos discos.</p>
-        <note><p>Despois de seleccionar o disco, <app>Brasero</app> mostra canto espazo libre quedará dispoñíbel no disco despois de gravar.</p></note>
+        <note><p>Despois de seleccionar o disco, <app>Burner</app> mostra canto espazo libre quedará dispoñíbel no disco despois de gravar.</p></note>
     </item>
     <item>
       <p>Prema o botón <gui>Propiedades</gui> para seleccionar a velocidade de gravación e outras opcións personalizadas.</p>
@@ -53,8 +53,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

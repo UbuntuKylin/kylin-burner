@@ -1,8 +1,8 @@
-# Brasero plaadikirjutaja eesti keele tõlge.
-# Estonian translation of Brasero CD burner.
+# Burner plaadikirjutaja eesti keele tõlge.
+# Estonian translation of Burner CD burner.
 #
 # Copyright (C) 2008–2010 The GNOME Project.
-# This file is distributed under the same license as the Brasero package.
+# This file is distributed under the same license as the Burner package.
 #
 # Priit Laes <plaes plaes org>, 2009.
 # Ivar Smolin <okul linux ee>, 2009–2011.
@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: brasero master\n"
+"Project-Id-Version: burner master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=brasero&keywords=I18N+L10N&component=general\n"
+"product=burner&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-03-15 04:02+0000\n"
 "PO-Revision-Date: 2015-03-15 04:35+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
@@ -25,27 +25,27 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 msgid ""
-"Brasero is a application to burn CD/DVD for the GNOME Desktop. It is "
+"Burner is a application to burn CD/DVD for the GNOME Desktop. It is "
 "designed to be as simple as possible and has some unique features to enable "
 "users to create their discs easily and quickly."
 msgstr ""
-"Brasero on CD ja DVD plaatide kirjutamise rakendus GNOME töölaual. See on "
+"Burner on CD ja DVD plaatide kirjutamise rakendus GNOME töölaual. See on "
 "tehtud nii lihtsaks kui võimalik ning sisaldab mõningaid unikaalseid "
 "võimalusi, tänu millele on plaatide kirjutamine lihtne ja kiire."
 
 msgid ""
-"Brasero can create, copy and burn Data and Audio CD/DVDs. It fully supports "
+"Burner can create, copy and burn Data and Audio CD/DVDs. It fully supports "
 "CD-TEXT, multisession and joliet extensions. You can simply drag and drop "
 "files from other local applications or from remote shared drives to easily "
 "burn them to a disc."
 msgstr ""
-"Braseroga saab luua, kopeerida ja kirjutada andme- ja audio CD ja DVD "
+"Burnerga saab luua, kopeerida ja kirjutada andme- ja audio CD ja DVD "
 "plaate. See toetab CD-TEXT vormingut, multisessioone ning jolieti laiendusi. "
 "Paatide kirjutamiseks võid lohistada faile kaustadest, teistest rakendustest "
 "või kaugketastelt, et need mugavalt plaadile kirjutada."
 
-msgid "Brasero"
-msgstr "Brasero"
+msgid "Burner"
+msgstr "Burner"
 
 msgid "Disc Burner and Copier"
 msgstr "Plaadikirjutaja ja -kopeerija"
@@ -57,8 +57,8 @@ msgid "disc;cdrom;dvd;burn;audio;video;"
 msgstr ""
 "disk;plaat;cdrom;dvd;kirjutamine;kõrvetamine;audio;heliplaat;videoplaat;"
 
-msgid "Brasero Disc Burner"
-msgstr "Brasero plaadikirjutaja"
+msgid "Burner Disc Burner"
+msgstr "Burner plaadikirjutaja"
 
 msgid "Open a New Window"
 msgstr "Uue akna avamine"
@@ -72,8 +72,8 @@ msgstr "Audioprojekti loomine"
 msgid "Create a Video Project"
 msgstr "Videoprojekti loomine"
 
-msgid "Brasero project file"
-msgstr "Brasero projektifail"
+msgid "Burner project file"
+msgstr "Burner projektifail"
 
 msgid "Should Nautilus extension output debug statements"
 msgstr "Kas Nautiluse laiendus peaks väljastama silumisteateid"
@@ -98,11 +98,11 @@ msgid "Directory to use for temporary files"
 msgstr "Ajutiste failide kataloog"
 
 msgid ""
-"Contains the path to the directory where brasero should store temporary "
+"Contains the path to the directory where burner should store temporary "
 "files. If that value is empty, the default directory set for glib will be "
 "used."
 msgstr ""
-"Sisaldab kataloogi, kus brasero võib hoida ajutisi faile. Kui see on tühi, "
+"Sisaldab kataloogi, kus burner võib hoida ajutisi faile. Kui see on tühi, "
 "kasutatakse glib-i vaikimisi kataloogi."
 
 msgid "Favourite burn engine"
@@ -117,11 +117,11 @@ msgid "White list of additional plugins to use"
 msgstr "Täiendavate pluginate lubamise nimekiri"
 
 msgid ""
-"Contains the list of additional plugins Brasero will use to burn discs. If "
-"set to NULL, Brasero will load them all."
+"Contains the list of additional plugins Burner will use to burn discs. If "
+"set to NULL, Burner will load them all."
 msgstr ""
-"Sisaldab nimekirja pluginatest, mida Brasero kasutab plaatide kirjutamisel. "
-"Kui väärtus on NULL, laadib Brasero need kõik."
+"Sisaldab nimekirja pluginatest, mida Burner kasutab plaatide kirjutamisel. "
+"Kui väärtus on NULL, laadib Burner need kõik."
 
 msgid "Enable the \"-immed\" flag with cdrecord"
 msgstr "Luba cdrecord-iga \"-immed\" lipp"
@@ -138,10 +138,10 @@ msgstr "Kas growisofs'iga kasutada \"-use-the-force-luke=dao\" lippu"
 
 msgid ""
 "Whether to use the \"-use-the-force-luke=dao\" flag with growisofs. Set to "
-"false, brasero won't use it; it may be a workaround for some drives/setups."
+"false, burner won't use it; it may be a workaround for some drives/setups."
 msgstr ""
 "Kas growisofs'iga kasutada \"-use-the-force-luke=dao\" lippu. Kui väärtuseks "
-"määrata väär, siis brasero ei kasuta seda; see võib olla asenduslahendus "
+"määrata väär, siis burner ei kasuta seda; see võib olla asenduslahendus "
 "mõnede seadmete kasutamiseks."
 
 msgid "Used in conjunction with the \"-immed\" flag with cdrecord"
@@ -155,10 +155,10 @@ msgstr "Kas cdrdao'ga kasutada \"--driver generic-mmc-raw\" lippu"
 
 msgid ""
 "Whether to use the \"--driver generic-mmc-raw\" flag with cdrdao. Set to "
-"True, brasero will use it; it may be a workaround for some drives/setups."
+"True, burner will use it; it may be a workaround for some drives/setups."
 msgstr ""
 "Kas cdrdao'ga kasutada \"--driver generic-mmc-raw\" lippu. Kui väärtuseks "
-"määrata tõene, siis brasero kasutab seda; see võib olla asenduslahendus "
+"määrata tõene, siis burner kasutab seda; see võib olla asenduslahendus "
 "mõnede seadmete kasutamiseks."
 
 msgid "The last browsed folder while looking for images to burn"
@@ -177,35 +177,35 @@ msgstr "Failide eelvaatlus lubatud"
 msgid "Whether to display file preview. Set to true to use it."
 msgstr "Kas näidata faili eelvaadet. Eelvaate jaoks määra väärtus tõeseks."
 
-msgid "Should brasero filter hidden files"
-msgstr "Kas brasero peaks filtreerima varjatud failid"
+msgid "Should burner filter hidden files"
+msgstr "Kas burner peaks filtreerima varjatud failid"
 
 msgid ""
-"Should brasero filter hidden files. Set to true, brasero will filter hidden "
+"Should burner filter hidden files. Set to true, burner will filter hidden "
 "files."
 msgstr ""
-"Kas brasero peaks filtreerima varjatud failid. Kui tõene, filtreerib brasero "
+"Kas burner peaks filtreerima varjatud failid. Kui tõene, filtreerib burner "
 "varjatud failid."
 
 msgid "Replace symbolic links by their targets"
 msgstr "Sümbolviidad asendatakse sihtfailidega"
 
 msgid ""
-"Should brasero replace symbolic links by their target files in the project. "
-"Set to true, brasero will replace symbolic links."
+"Should burner replace symbolic links by their target files in the project. "
+"Set to true, burner will replace symbolic links."
 msgstr ""
-"Kas brasero peaks sümbolviidad asendama sihtfailidega. Kui tõene, asendab "
-"brasero sümbolviidad."
+"Kas burner peaks sümbolviidad asendama sihtfailidega. Kui tõene, asendab "
+"burner sümbolviidad."
 
-msgid "Should brasero filter broken symbolic links"
-msgstr "Kas brasero peaks filtreerima vigased sümbolviidad"
+msgid "Should burner filter broken symbolic links"
+msgstr "Kas burner peaks filtreerima vigased sümbolviidad"
 
 msgid ""
-"Should brasero filter broken symbolic links. Set to true, brasero will "
+"Should burner filter broken symbolic links. Set to true, burner will "
 "filter broken symbolic links."
 msgstr ""
-"Kas brasero peaks filtreerima vigased sümbolviidad. Kui tõene, filtreerib "
-"brasero vigased sümbolviidad."
+"Kas burner peaks filtreerima vigased sümbolviidad. Kui tõene, filtreerib "
+"burner vigased sümbolviidad."
 
 msgid "The priority value for the plugin"
 msgstr "Plugina olulisuse hinne"
@@ -359,8 +359,8 @@ msgstr "Ajutise tõmmise vormingut pole võimalik leida"
 msgid "An internal error occurred"
 msgstr "Esines sisemine tõrge"
 
-msgid "Brasero notification"
-msgstr "Brasero märguanne"
+msgid "Burner notification"
+msgstr "Burner märguanne"
 
 #. Translators: This string is used in the title bar %s is the action currently performed
 #, c-format
@@ -964,7 +964,7 @@ msgid "Unknown song"
 msgstr "Tundmatu lugu"
 
 #. Reminder: if this string happens to be used
-#. * somewhere else in brasero we'll need a
+#. * somewhere else in burner we'll need a
 #. * context with C_() macro
 #. Translators: %s is the name of the artist.
 #. * This text is the one written on the cover of a disc.
@@ -998,7 +998,7 @@ msgstr "%s: \"%s\""
 
 #. Translators: this string is only used when the user
 #. * wants to copy a disc using the same destination and
-#. * source drive. It tells him that brasero will use as
+#. * source drive. It tells him that burner will use as
 #. * destination disc a new one (once the source has been
 #. * copied) which is to be inserted in the drive currently
 #. * holding the source disc
@@ -1017,7 +1017,7 @@ msgstr "%s: pole piisavalt vaba ruumi"
 msgid "%s: %s of free space"
 msgstr "%s: %s vaba ruumi"
 
-#. Translators: the first %s is the path of the directory where brasero
+#. Translators: the first %s is the path of the directory where burner
 #. * will store its temporary files; the second one is the size available
 #, c-format
 msgid "%s: %s free"
@@ -1072,10 +1072,10 @@ msgid "_Simulate before burning"
 msgstr "_Simulatsioon enne kirjutamist"
 
 msgid ""
-"Brasero will simulate the burning and, if it is successful, go on with "
+"Burner will simulate the burning and, if it is successful, go on with "
 "actual burning after 10 seconds"
 msgstr ""
-"Brasero simuleerib kirjutamist ning kui see lõpeb edukalt, jätkab 10 sekundi "
+"Burner simuleerib kirjutamist ning kui see lõpeb edukalt, jätkab 10 sekundi "
 "pärast tegeliku kirjutamisega."
 
 msgid "Use burn_proof (decrease the risk of failures)"
@@ -1225,12 +1225,12 @@ msgstr "Kas \"%s\" lisada tõesti valikusse?"
 
 msgid ""
 "The children of this directory will have 7 parent directories.\n"
-"Brasero can create an image of such a file hierarchy and burn it but the "
+"Burner can create an image of such a file hierarchy and burn it but the "
 "disc may not be readable on all operating systems.\n"
 "Note: Such a file hierarchy is known to work on Linux."
 msgstr ""
 "Selle kataloogi alamkataloogil oleks 7 ülemkataloogi.\n"
-"Brasero võib sellisest failihierarhiast tõmmise luua ja selle kirjutada; aga "
+"Burner võib sellisest failihierarhiast tõmmise luua ja selle kirjutada; aga "
 "plaat ei pruugi olla kõigis operatsioonisüsteemides loetav.\n"
 "MÄRKUS: selline failihierarhia töötab Linuxis."
 
@@ -1501,14 +1501,14 @@ msgstr "Edukas"
 msgid "Ejecting medium"
 msgstr "Andmekandja väljastamine"
 
-msgid "Display debug statements on stdout for Brasero burn library"
-msgstr "Brasero plaadikogu silumise teadete kuvamine standardväljundis"
+msgid "Display debug statements on stdout for Burner burn library"
+msgstr "Burner plaadikogu silumise teadete kuvamine standardväljundis"
 
-msgid "Brasero media burning library"
-msgstr "Brasero plaadikogu"
+msgid "Burner media burning library"
+msgstr "Burner plaadikogu"
 
-msgid "Display options for Brasero-burn library"
-msgstr "Brasero plaadikogu kuvavalikud"
+msgid "Display options for Burner-burn library"
+msgstr "Burner plaadikogu kuvavalikud"
 
 #. Translators: %s is the plugin name
 #, c-format
@@ -1581,7 +1581,7 @@ msgstr "\"%s\" on sümbolviit, mis viitab teisele rakendusele"
 msgid "\"%s\" could not be found"
 msgstr "\"%s\" ei leitud"
 
-#. Translators: %s is the name of the brasero element
+#. Translators: %s is the name of the burner element
 #, c-format
 msgid "Process \"%s\" ended with an error code (%i)"
 msgstr "Protsess \"%s\" lõpetas veakoodiga (%i)"
@@ -1595,14 +1595,14 @@ msgstr "Tõmmis"
 msgid "Unnamed CD/DVD Drive"
 msgstr "Nimetu CD/DVD ajam"
 
-msgid "Display debug statements on stdout for Brasero media library"
-msgstr "Kuva Brasero meediakogu silumise teated standardväljundis"
+msgid "Display debug statements on stdout for Burner media library"
+msgstr "Kuva Burner meediakogu silumise teated standardväljundis"
 
-msgid "Brasero optical media library"
-msgstr "Brasero optilise meedia kogu"
+msgid "Burner optical media library"
+msgstr "Burner optilise meedia kogu"
 
-msgid "Display options for Brasero media library"
-msgstr "Brasero meediakogu kuvavalikud"
+msgid "Display options for Burner media library"
+msgstr "Burner meediakogu kuvavalikud"
 
 msgid "File"
 msgstr "Fail"
@@ -1933,14 +1933,14 @@ msgstr "\"%s\" pole võimalik GStreameriga käsitseda."
 msgid "%s element could not be created"
 msgstr "%s elementi pole võimalik luua"
 
-msgid "Display debug statements on stdout for Brasero utilities library"
-msgstr "Brasero-utils teegi silumise teatete kuvamine standardväljundis"
+msgid "Display debug statements on stdout for Burner utilities library"
+msgstr "Burner-utils teegi silumise teatete kuvamine standardväljundis"
 
-msgid "Brasero utilities library"
-msgstr "Brasero utiliitide teek"
+msgid "Burner utilities library"
+msgstr "Burner utiliitide teek"
 
-msgid "Display options for Brasero-utils library"
-msgstr "Brasero-utils teegi kuvavalikud"
+msgid "Display options for Burner-utils library"
+msgstr "Burner-utils teegi kuvavalikud"
 
 msgid "Pick a Color"
 msgstr "Värvuse valimine"
@@ -2213,18 +2213,18 @@ msgstr "Loob video-DVD jaoks sobiliku tõmmisfaili"
 
 #. Translators: %s is the path to a drive. "regionset %s"
 #. * should be left as is just like "DVDCSS_METHOD=title
-#. * brasero --no-existing-session"
+#. * burner --no-existing-session"
 #, c-format
 msgid ""
 "Error while retrieving a key used for encryption. You may solve such a "
 "problem with one of the following methods: in a terminal either set the "
 "proper DVD region code for your CD/DVD player with the \"regionset %s\" "
-"command or run the \"DVDCSS_METHOD=title brasero --no-existing-session\" "
+"command or run the \"DVDCSS_METHOD=title burner --no-existing-session\" "
 "command"
 msgstr ""
 "Viga krüpteerimise võtme hankimisel. Sa võid selle lahendada järgnevalt: "
 "määrata terminalis õige DVD regiooni koodi CD/DVD mängija jaoks käsuga "
-"\"regionset %s\" või käivitada brasero käsuga \"DVDCSS_METHOD=title brasero "
+"\"regionset %s\" või käivitada burner käsuga \"DVDCSS_METHOD=title burner "
 "--no-existing-session\""
 
 msgid "Retrieving DVD keys"
@@ -2330,7 +2330,7 @@ msgstr ""
 "Võimaldab Nautiluse \"CD/DVD loomise kausta\" failide plaadile kirjutamise"
 
 #. Translators: This message is sent
-#. * when brasero could not link together
+#. * when burner could not link together
 #. * two gstreamer plugins so that one
 #. * sends its data to the second for further
 #. * processing. This data transmission is
@@ -2395,8 +2395,8 @@ msgstr "A_bi"
 msgid "P_lugins"
 msgstr "P_luginad"
 
-msgid "Choose plugins for Brasero"
-msgstr "Brasero jaoks pluginate valimine"
+msgid "Choose plugins for Burner"
+msgstr "Burner jaoks pluginate valimine"
 
 msgid "E_ject"
 msgstr "_Väljasta"
@@ -2416,8 +2416,8 @@ msgstr "_Kontrolli terviklust…"
 msgid "Check data integrity of disc"
 msgstr "Plaadi andmete tervikluse kontrollimine"
 
-msgid "Quit Brasero"
-msgstr "Brasero sulgemine"
+msgid "Quit Burner"
+msgstr "Burner sulgemine"
 
 msgid "_Contents"
 msgstr "_Sisukord"
@@ -2441,30 +2441,30 @@ msgid "The project is empty"
 msgstr "See projekt on tühi"
 
 msgid ""
-"Brasero is free software; you can redistribute it and/or modify it under the "
+"Burner is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Brasero on vaba tarkvara; te võite seda edasi levitada ja/või muuta "
+"Burner on vaba tarkvara; te võite seda edasi levitada ja/või muuta "
 "vastavalt GNU Üldise Avaliku Litsentsi tingimustele, nagu need on Vaba "
 "Tarkvara Fondi poolt avaldatud; kas Litsentsi versioon number 2 või "
 "(vastavalt teie valikule) ükskõik milline hilisem versioon."
 
 msgid ""
-"Brasero is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Burner is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Brasero't levitatakse lootuses, et see on kasulik, kuid ILMA IGASUGUSE "
+"Burner't levitatakse lootuses, et see on kasulik, kuid ILMA IGASUGUSE "
 "GARANTIITA; isegi ilma KESKMISE/TAVALISE KVALITEEDI GARANTIITA või "
 "SOBIVUSELE TEATUD KINDLAKS EESMÄRGIKS. Üksikasjade suhtes vaata GNU Üldist "
 "Avalikku Litsentsi."
 
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
-"Brasero; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+"Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301, USA"
 msgstr ""
 "Te peaks olema saanud GNU Üldise Avaliku Litsentsi koopia koos selle "
@@ -2474,8 +2474,8 @@ msgstr ""
 msgid "A simple to use CD/DVD burning application for GNOME"
 msgstr "Lihtne CD/DVD kirjutamise rakendus GNOME'le"
 
-msgid "Brasero Homepage"
-msgstr "Brasero kodulehekülg"
+msgid "Burner Homepage"
+msgstr "Burner kodulehekülg"
 
 #. Translators: This is a special message that shouldn't be translated
 #. * literally. It is used in the about box to give credits to
@@ -2667,8 +2667,8 @@ msgstr "Kirjutatava tõmmise URI (isetuvastatud)"
 msgid "PATH TO IMAGE"
 msgstr "TÕMMISE ASUKOHT"
 
-msgid "Force Brasero to display the project selection page"
-msgstr "Brasero sundimine projektivaliku lehte kuvama"
+msgid "Force Burner to display the project selection page"
+msgstr "Burner sundimine projektivaliku lehte kuvama"
 
 msgid "Open the blank disc dialog"
 msgstr "Plaaditühjendamise dialoogi avamine"
@@ -2697,9 +2697,9 @@ msgstr "ASUKOHT"
 
 #. Translators: the xid is a number identifying each window in the X11
 #. * world (not Windows, MacOS X). The following sentence says that
-#. * brasero will be set to be always on top of the window identified by
-#. * xid. In other words, the window with the given xid will become brasero
-#. * parent as if brasero was a dialog for the parent application
+#. * burner will be set to be always on top of the window identified by
+#. * xid. In other words, the window with the given xid will become burner
+#. * parent as if burner was a dialog for the parent application
 msgid "The XID of the parent window"
 msgstr "Põhiakna XID-number"
 
@@ -3063,8 +3063,8 @@ msgstr "_Deaktiveeri kõik"
 msgid "Options for plugin %s"
 msgstr "Plugina \"%s\" valikud"
 
-msgid "Brasero Plugins"
-msgstr "Brasero pluginad"
+msgid "Burner Plugins"
+msgstr "Burner pluginad"
 
 msgid "Save current project"
 msgstr "Käesoleva projekti salvestamine"
@@ -3189,18 +3189,18 @@ msgstr "_Eemalda"
 
 #. Translators: %s is the name of the project
 #, c-format
-msgid "Brasero — %s (Data Disc)"
-msgstr "Brasero — %s (andmeplaat)"
+msgid "Burner — %s (Data Disc)"
+msgstr "Burner — %s (andmeplaat)"
 
 #. Translators: %s is the name of the project
 #, c-format
-msgid "Brasero — %s (Audio Disc)"
-msgstr "Brasero — %s (audioplaat)"
+msgid "Burner — %s (Audio Disc)"
+msgstr "Burner — %s (audioplaat)"
 
 #. Translators: %s is the name of the project
 #, c-format
-msgid "Brasero — %s (Video Disc)"
-msgstr "Brasero — %s (videoplaat)"
+msgid "Burner — %s (Video Disc)"
+msgstr "Burner — %s (videoplaat)"
 
 msgid "Your project has not been saved."
 msgstr "Sinu projekti pole salvestatud."
@@ -3217,8 +3217,8 @@ msgstr "Sulge _ilma salvestamata"
 msgid "Save Current Project"
 msgstr "Selle projekti salvestamine"
 
-msgid "Save project as a Brasero audio project"
-msgstr "Salvesta projekt Brasero audioprojektina"
+msgid "Save project as a Burner audio project"
+msgstr "Salvesta projekt Burner audioprojektina"
 
 msgid "Save project as a plain text list"
 msgstr "Salvesta projekt lihttekstis nimekirjana"
@@ -3334,20 +3334,20 @@ msgstr[1] "Ükski fail pole toetatud (%i valitud faili)"
 msgid "No file selected"
 msgstr "Ükski fail pole valitud"
 
-msgid "Brasero — New Audio Disc Project"
-msgstr "Brasero — Uus audioplaadi projekt"
+msgid "Burner — New Audio Disc Project"
+msgstr "Burner — Uus audioplaadi projekt"
 
-msgid "Brasero — New Data Disc Project"
-msgstr "Brasero — Uus andmeplaadi projekt"
+msgid "Burner — New Data Disc Project"
+msgstr "Burner — Uus andmeplaadi projekt"
 
-msgid "Brasero — New Video Disc Project"
-msgstr "Brasero — Uus videoplaadi projekt"
+msgid "Burner — New Video Disc Project"
+msgstr "Burner — Uus videoplaadi projekt"
 
-msgid "Brasero — New Image File"
-msgstr "Brasero — Uus tõmmis"
+msgid "Burner — New Image File"
+msgstr "Burner — Uus tõmmis"
 
-msgid "Brasero — Disc Copy"
-msgstr "Brasero — Plaadi kopeerimine"
+msgid "Burner — Disc Copy"
+msgstr "Burner — Plaadi kopeerimine"
 
 msgid "Open Project"
 msgstr "Projekti avamine"
@@ -3386,8 +3386,8 @@ msgstr "Seda projekti pole võimalik avada"
 msgid "The file is empty"
 msgstr "See fail on tühi"
 
-msgid "It does not seem to be a valid Brasero project"
-msgstr "Tundub, et see pole sobiv Brasero projektifail"
+msgid "It does not seem to be a valid Burner project"
+msgstr "Tundub, et see pole sobiv Burner projektifail"
 
 msgid "Audi_o project"
 msgstr "Audi_oprojekt"
@@ -3463,7 +3463,7 @@ msgstr "lõppu"
 msgid "Delete every occurrence of"
 msgstr "Kustuta iga esinemine"
 
-#. Reminder: if this string happens to be used somewhere else in brasero
+#. Reminder: if this string happens to be used somewhere else in burner
 #. * we'll need a context with C_() macro
 #. Translators: this goes with above verb to say "_Replace" [Entry]
 #. * "with" [Entry].

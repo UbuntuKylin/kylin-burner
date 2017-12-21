@@ -88,14 +88,14 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = brasero$(EXEEXT)
+bin_PROGRAMS = burner$(EXEEXT)
 @BUILD_PLAYLIST_TRUE@am__append_1 = \
-@BUILD_PLAYLIST_TRUE@	brasero-playlist.c         \
-@BUILD_PLAYLIST_TRUE@	brasero-playlist.h
+@BUILD_PLAYLIST_TRUE@	burner-playlist.c         \
+@BUILD_PLAYLIST_TRUE@	burner-playlist.h
 
 @BUILD_TRACKER_TRUE@am__append_2 = \
-@BUILD_TRACKER_TRUE@		   brasero-search-tracker.h	\
-@BUILD_TRACKER_TRUE@		   brasero-search-tracker.c
+@BUILD_TRACKER_TRUE@		   burner-search-tracker.h	\
+@BUILD_TRACKER_TRUE@		   burner-search-tracker.c
 
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -109,74 +109,74 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am__brasero_SOURCES_DIST = brasero-marshal.c brasero-marshal.h main.c \
-	brasero-utils.h brasero-utils.c brasero-player.c \
-	brasero-player.h brasero-eject-dialog.c brasero-eject-dialog.h \
-	brasero-disc.c brasero-disc.h brasero-audio-disc.c \
-	brasero-audio-disc.h brasero-project.c brasero-project.h \
-	brasero-project-type-chooser.c brasero-project-type-chooser.h \
-	brasero-player-bacon.c brasero-player-bacon.h \
-	brasero-song-properties.c brasero-song-properties.h \
-	brasero-uri-container.c brasero-uri-container.h \
-	brasero-project-manager.c brasero-project-manager.h \
-	brasero-layout.c brasero-layout.h brasero-file-chooser.c \
-	brasero-file-chooser.h eggtreemultidnd.c eggtreemultidnd.h \
-	brasero-multi-dnd.c brasero-multi-dnd.h \
-	brasero-layout-object.c brasero-layout-object.h \
-	brasero-plugin-manager-ui.c brasero-plugin-manager-ui.h \
-	brasero-pref.h brasero-pref.c brasero-plugin-option.h \
-	brasero-plugin-option.c brasero-split-dialog.h \
-	brasero-split-dialog.c brasero-time-button.h \
-	brasero-time-button.c brasero-preview.h brasero-preview.c \
-	brasero-data-disc.h brasero-data-disc.c \
-	brasero-file-filtered.h brasero-file-filtered.c \
-	brasero-filter-option.h brasero-filter-option.c \
+am__burner_SOURCES_DIST = burner-marshal.c burner-marshal.h main.c \
+	burner-utils.h burner-utils.c burner-player.c \
+	burner-player.h burner-eject-dialog.c burner-eject-dialog.h \
+	burner-disc.c burner-disc.h burner-audio-disc.c \
+	burner-audio-disc.h burner-project.c burner-project.h \
+	burner-project-type-chooser.c burner-project-type-chooser.h \
+	burner-player-bacon.c burner-player-bacon.h \
+	burner-song-properties.c burner-song-properties.h \
+	burner-uri-container.c burner-uri-container.h \
+	burner-project-manager.c burner-project-manager.h \
+	burner-layout.c burner-layout.h burner-file-chooser.c \
+	burner-file-chooser.h eggtreemultidnd.c eggtreemultidnd.h \
+	burner-multi-dnd.c burner-multi-dnd.h \
+	burner-layout-object.c burner-layout-object.h \
+	burner-plugin-manager-ui.c burner-plugin-manager-ui.h \
+	burner-pref.h burner-pref.c burner-plugin-option.h \
+	burner-plugin-option.c burner-split-dialog.h \
+	burner-split-dialog.c burner-time-button.h \
+	burner-time-button.c burner-preview.h burner-preview.c \
+	burner-data-disc.h burner-data-disc.c \
+	burner-file-filtered.h burner-file-filtered.c \
+	burner-filter-option.h burner-filter-option.c \
 	baobab-cell-renderer-progress.c \
-	baobab-cell-renderer-progress.h brasero-multi-song-props.h \
-	brasero-multi-song-props.c brasero-rename.h brasero-rename.c \
-	brasero-video-disc.c brasero-video-disc.h \
-	brasero-video-tree-model.c brasero-video-tree-model.h \
-	brasero-app.c brasero-app.h brasero-project-name.c \
-	brasero-project-name.h brasero-project-parse.c \
-	brasero-project-parse.h brasero-setting.h brasero-setting.c \
-	brasero-search-engine.h brasero-search-engine.c \
-	brasero-drive-settings.h brasero-drive-settings.c \
-	brasero-song-control.h brasero-song-control.c brasero-cli.c \
-	brasero-cli.h brasero-playlist.c brasero-playlist.h \
-	brasero-search-tracker.h brasero-search-tracker.c
-@BUILD_PLAYLIST_TRUE@am__objects_1 = brasero-playlist.$(OBJEXT)
-@BUILD_TRACKER_TRUE@am__objects_2 = brasero-search-tracker.$(OBJEXT)
-am_brasero_OBJECTS = brasero-marshal.$(OBJEXT) main.$(OBJEXT) \
-	brasero-utils.$(OBJEXT) brasero-player.$(OBJEXT) \
-	brasero-eject-dialog.$(OBJEXT) brasero-disc.$(OBJEXT) \
-	brasero-audio-disc.$(OBJEXT) brasero-project.$(OBJEXT) \
-	brasero-project-type-chooser.$(OBJEXT) \
-	brasero-player-bacon.$(OBJEXT) \
-	brasero-song-properties.$(OBJEXT) \
-	brasero-uri-container.$(OBJEXT) \
-	brasero-project-manager.$(OBJEXT) brasero-layout.$(OBJEXT) \
-	brasero-file-chooser.$(OBJEXT) eggtreemultidnd.$(OBJEXT) \
-	brasero-multi-dnd.$(OBJEXT) brasero-layout-object.$(OBJEXT) \
-	brasero-plugin-manager-ui.$(OBJEXT) brasero-pref.$(OBJEXT) \
-	brasero-plugin-option.$(OBJEXT) brasero-split-dialog.$(OBJEXT) \
-	brasero-time-button.$(OBJEXT) brasero-preview.$(OBJEXT) \
-	brasero-data-disc.$(OBJEXT) brasero-file-filtered.$(OBJEXT) \
-	brasero-filter-option.$(OBJEXT) \
+	baobab-cell-renderer-progress.h burner-multi-song-props.h \
+	burner-multi-song-props.c burner-rename.h burner-rename.c \
+	burner-video-disc.c burner-video-disc.h \
+	burner-video-tree-model.c burner-video-tree-model.h \
+	burner-app.c burner-app.h burner-project-name.c \
+	burner-project-name.h burner-project-parse.c \
+	burner-project-parse.h burner-setting.h burner-setting.c \
+	burner-search-engine.h burner-search-engine.c \
+	burner-drive-settings.h burner-drive-settings.c \
+	burner-song-control.h burner-song-control.c burner-cli.c \
+	burner-cli.h burner-playlist.c burner-playlist.h \
+	burner-search-tracker.h burner-search-tracker.c
+@BUILD_PLAYLIST_TRUE@am__objects_1 = burner-playlist.$(OBJEXT)
+@BUILD_TRACKER_TRUE@am__objects_2 = burner-search-tracker.$(OBJEXT)
+am_burner_OBJECTS = burner-marshal.$(OBJEXT) main.$(OBJEXT) \
+	burner-utils.$(OBJEXT) burner-player.$(OBJEXT) \
+	burner-eject-dialog.$(OBJEXT) burner-disc.$(OBJEXT) \
+	burner-audio-disc.$(OBJEXT) burner-project.$(OBJEXT) \
+	burner-project-type-chooser.$(OBJEXT) \
+	burner-player-bacon.$(OBJEXT) \
+	burner-song-properties.$(OBJEXT) \
+	burner-uri-container.$(OBJEXT) \
+	burner-project-manager.$(OBJEXT) burner-layout.$(OBJEXT) \
+	burner-file-chooser.$(OBJEXT) eggtreemultidnd.$(OBJEXT) \
+	burner-multi-dnd.$(OBJEXT) burner-layout-object.$(OBJEXT) \
+	burner-plugin-manager-ui.$(OBJEXT) burner-pref.$(OBJEXT) \
+	burner-plugin-option.$(OBJEXT) burner-split-dialog.$(OBJEXT) \
+	burner-time-button.$(OBJEXT) burner-preview.$(OBJEXT) \
+	burner-data-disc.$(OBJEXT) burner-file-filtered.$(OBJEXT) \
+	burner-filter-option.$(OBJEXT) \
 	baobab-cell-renderer-progress.$(OBJEXT) \
-	brasero-multi-song-props.$(OBJEXT) brasero-rename.$(OBJEXT) \
-	brasero-video-disc.$(OBJEXT) \
-	brasero-video-tree-model.$(OBJEXT) brasero-app.$(OBJEXT) \
-	brasero-project-name.$(OBJEXT) brasero-project-parse.$(OBJEXT) \
-	brasero-setting.$(OBJEXT) brasero-search-engine.$(OBJEXT) \
-	brasero-drive-settings.$(OBJEXT) \
-	brasero-song-control.$(OBJEXT) brasero-cli.$(OBJEXT) \
+	burner-multi-song-props.$(OBJEXT) burner-rename.$(OBJEXT) \
+	burner-video-disc.$(OBJEXT) \
+	burner-video-tree-model.$(OBJEXT) burner-app.$(OBJEXT) \
+	burner-project-name.$(OBJEXT) burner-project-parse.$(OBJEXT) \
+	burner-setting.$(OBJEXT) burner-search-engine.$(OBJEXT) \
+	burner-drive-settings.$(OBJEXT) \
+	burner-song-control.$(OBJEXT) burner-cli.$(OBJEXT) \
 	$(am__objects_1) $(am__objects_2)
-brasero_OBJECTS = $(am_brasero_OBJECTS)
+burner_OBJECTS = $(am_burner_OBJECTS)
 am__DEPENDENCIES_1 =
-brasero_DEPENDENCIES =  \
-	$(top_builddir)/libbrasero-media/libbrasero-media3.la \
-	$(top_builddir)/libbrasero-burn/libbrasero-burn3.la \
-	$(top_builddir)/libbrasero-utils/libbrasero-utils3.la \
+burner_DEPENDENCIES =  \
+	$(top_builddir)/libburner-media/libburner-media3.la \
+	$(top_builddir)/libburner-burn/libburner-burn3.la \
+	$(top_builddir)/libburner-utils/libburner-utils3.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
@@ -221,8 +221,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(brasero_SOURCES)
-DIST_SOURCES = $(am__brasero_SOURCES_DIST)
+SOURCES = $(burner_SOURCES)
+DIST_SOURCES = $(am__burner_SOURCES_DIST)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -258,42 +258,42 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
-BRASERO_CANBERRA_CFLAGS = @BRASERO_CANBERRA_CFLAGS@
-BRASERO_CANBERRA_LIBS = @BRASERO_CANBERRA_LIBS@
-BRASERO_GIO_CFLAGS = @BRASERO_GIO_CFLAGS@
-BRASERO_GIO_LIBS = @BRASERO_GIO_LIBS@
-BRASERO_GLIB_CFLAGS = @BRASERO_GLIB_CFLAGS@
-BRASERO_GLIB_LIBS = @BRASERO_GLIB_LIBS@
-BRASERO_GMODULE_CFLAGS = @BRASERO_GMODULE_CFLAGS@
-BRASERO_GMODULE_EXPORT_CFLAGS = @BRASERO_GMODULE_EXPORT_CFLAGS@
-BRASERO_GMODULE_EXPORT_LIBS = @BRASERO_GMODULE_EXPORT_LIBS@
-BRASERO_GMODULE_LIBS = @BRASERO_GMODULE_LIBS@
-BRASERO_GSTREAMER_BASE_CFLAGS = @BRASERO_GSTREAMER_BASE_CFLAGS@
-BRASERO_GSTREAMER_BASE_LIBS = @BRASERO_GSTREAMER_BASE_LIBS@
-BRASERO_GSTREAMER_CFLAGS = @BRASERO_GSTREAMER_CFLAGS@
-BRASERO_GSTREAMER_LIBS = @BRASERO_GSTREAMER_LIBS@
-BRASERO_GTHREAD_CFLAGS = @BRASERO_GTHREAD_CFLAGS@
-BRASERO_GTHREAD_LIBS = @BRASERO_GTHREAD_LIBS@
-BRASERO_GTK_CFLAGS = @BRASERO_GTK_CFLAGS@
-BRASERO_GTK_LIBS = @BRASERO_GTK_LIBS@
-BRASERO_LIBBURNIA_CFLAGS = @BRASERO_LIBBURNIA_CFLAGS@
-BRASERO_LIBBURNIA_LIBS = @BRASERO_LIBBURNIA_LIBS@
-BRASERO_LIBNOTIFY_CFLAGS = @BRASERO_LIBNOTIFY_CFLAGS@
-BRASERO_LIBNOTIFY_LIBS = @BRASERO_LIBNOTIFY_LIBS@
-BRASERO_LIBXML_CFLAGS = @BRASERO_LIBXML_CFLAGS@
-BRASERO_LIBXML_LIBS = @BRASERO_LIBXML_LIBS@
-BRASERO_MAJOR_VERSION = @BRASERO_MAJOR_VERSION@
-BRASERO_MINOR_VERSION = @BRASERO_MINOR_VERSION@
-BRASERO_PLUGIN_DIRECTORY = @BRASERO_PLUGIN_DIRECTORY@
-BRASERO_PL_PARSER_CFLAGS = @BRASERO_PL_PARSER_CFLAGS@
-BRASERO_PL_PARSER_LIBS = @BRASERO_PL_PARSER_LIBS@
-BRASERO_SCSI_LIBS = @BRASERO_SCSI_LIBS@
-BRASERO_SEARCH_CFLAGS = @BRASERO_SEARCH_CFLAGS@
-BRASERO_SEARCH_LIBS = @BRASERO_SEARCH_LIBS@
-BRASERO_SM_CFLAGS = @BRASERO_SM_CFLAGS@
-BRASERO_SM_LIBS = @BRASERO_SM_LIBS@
-BRASERO_SUB = @BRASERO_SUB@
-BRASERO_VERSION = @BRASERO_VERSION@
+BURNER_CANBERRA_CFLAGS = @BURNER_CANBERRA_CFLAGS@
+BURNER_CANBERRA_LIBS = @BURNER_CANBERRA_LIBS@
+BURNER_GIO_CFLAGS = @BURNER_GIO_CFLAGS@
+BURNER_GIO_LIBS = @BURNER_GIO_LIBS@
+BURNER_GLIB_CFLAGS = @BURNER_GLIB_CFLAGS@
+BURNER_GLIB_LIBS = @BURNER_GLIB_LIBS@
+BURNER_GMODULE_CFLAGS = @BURNER_GMODULE_CFLAGS@
+BURNER_GMODULE_EXPORT_CFLAGS = @BURNER_GMODULE_EXPORT_CFLAGS@
+BURNER_GMODULE_EXPORT_LIBS = @BURNER_GMODULE_EXPORT_LIBS@
+BURNER_GMODULE_LIBS = @BURNER_GMODULE_LIBS@
+BURNER_GSTREAMER_BASE_CFLAGS = @BURNER_GSTREAMER_BASE_CFLAGS@
+BURNER_GSTREAMER_BASE_LIBS = @BURNER_GSTREAMER_BASE_LIBS@
+BURNER_GSTREAMER_CFLAGS = @BURNER_GSTREAMER_CFLAGS@
+BURNER_GSTREAMER_LIBS = @BURNER_GSTREAMER_LIBS@
+BURNER_GTHREAD_CFLAGS = @BURNER_GTHREAD_CFLAGS@
+BURNER_GTHREAD_LIBS = @BURNER_GTHREAD_LIBS@
+BURNER_GTK_CFLAGS = @BURNER_GTK_CFLAGS@
+BURNER_GTK_LIBS = @BURNER_GTK_LIBS@
+BURNER_LIBBURNIA_CFLAGS = @BURNER_LIBBURNIA_CFLAGS@
+BURNER_LIBBURNIA_LIBS = @BURNER_LIBBURNIA_LIBS@
+BURNER_LIBNOTIFY_CFLAGS = @BURNER_LIBNOTIFY_CFLAGS@
+BURNER_LIBNOTIFY_LIBS = @BURNER_LIBNOTIFY_LIBS@
+BURNER_LIBXML_CFLAGS = @BURNER_LIBXML_CFLAGS@
+BURNER_LIBXML_LIBS = @BURNER_LIBXML_LIBS@
+BURNER_MAJOR_VERSION = @BURNER_MAJOR_VERSION@
+BURNER_MINOR_VERSION = @BURNER_MINOR_VERSION@
+BURNER_PLUGIN_DIRECTORY = @BURNER_PLUGIN_DIRECTORY@
+BURNER_PL_PARSER_CFLAGS = @BURNER_PL_PARSER_CFLAGS@
+BURNER_PL_PARSER_LIBS = @BURNER_PL_PARSER_LIBS@
+BURNER_SCSI_LIBS = @BURNER_SCSI_LIBS@
+BURNER_SEARCH_CFLAGS = @BURNER_SEARCH_CFLAGS@
+BURNER_SEARCH_LIBS = @BURNER_SEARCH_LIBS@
+BURNER_SM_CFLAGS = @BURNER_SM_CFLAGS@
+BURNER_SM_LIBS = @BURNER_SM_LIBS@
+BURNER_SUB = @BURNER_SUB@
+BURNER_VERSION = @BURNER_VERSION@
 CATALOGS = @CATALOGS@
 CATOBJEXT = @CATOBJEXT@
 CC = @CC@
@@ -352,7 +352,7 @@ INTROSPECTION_TYPELIBDIR = @INTROSPECTION_TYPELIBDIR@
 ITSTOOL = @ITSTOOL@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
-LIBBRASERO_LT_VERSION = @LIBBRASERO_LT_VERSION@
+LIBBURNER_LT_VERSION = @LIBBURNER_LT_VERSION@
 LIBBURNIA_CFLAGS = @LIBBURNIA_CFLAGS@
 LIBBURNIA_LIBS = @LIBBURNIA_LIBS@
 LIBM = @LIBM@
@@ -468,86 +468,86 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)							\
-	-I$(top_srcdir)/libbrasero-utils/				\
-	-I$(top_builddir)/libbrasero-utils/				\
-	-I$(top_srcdir)/libbrasero-media/				\
-	-I$(top_builddir)/libbrasero-media/				\
-	-I$(top_srcdir)/libbrasero-burn/				\
-	-I$(top_builddir)/libbrasero-burn/				\
-	-DBRASERO_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
-	-DBRASERO_PREFIX=\"$(prefix)\"           			\
-	-DBRASERO_SYSCONFDIR=\"$(sysconfdir)\"   			\
-	-DBRASERO_DATADIR=\"$(datadir)/brasero\"     	    		\
-	-DBRASERO_LIBDIR=\"$(libdir)\"  	         		\
+	-I$(top_srcdir)/libburner-utils/				\
+	-I$(top_builddir)/libburner-utils/				\
+	-I$(top_srcdir)/libburner-media/				\
+	-I$(top_builddir)/libburner-media/				\
+	-I$(top_srcdir)/libburner-burn/				\
+	-I$(top_builddir)/libburner-burn/				\
+	-DBURNER_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" 	\
+	-DBURNER_PREFIX=\"$(prefix)\"           			\
+	-DBURNER_SYSCONFDIR=\"$(sysconfdir)\"   			\
+	-DBURNER_DATADIR=\"$(datadir)/burner\"     	    		\
+	-DBURNER_LIBDIR=\"$(libdir)\"  	         		\
 	-DEGG_SM_CLIENT_BACKEND_XSMP					\
 	$(WARN_CFLAGS)							\
 	$(DISABLE_DEPRECATED)						\
-	$(BRASERO_GLIB_CFLAGS)						\
-	$(BRASERO_GIO_CFLAGS)						\
-	$(BRASERO_GSTREAMER_CFLAGS)					\
-	$(BRASERO_GSTREAMER_BASE_CFLAGS)				\
-	$(BRASERO_GTK_CFLAGS)						\
-	$(BRASERO_DBUS_CFLAGS)						\
-	$(BRASERO_LIBXML_CFLAGS)					\
-	$(BRASERO_SEARCH_CFLAGS)					\
-	$(BRASERO_PL_PARSER_CFLAGS)					\
-	$(BRASERO_SM_CFLAGS)
+	$(BURNER_GLIB_CFLAGS)						\
+	$(BURNER_GIO_CFLAGS)						\
+	$(BURNER_GSTREAMER_CFLAGS)					\
+	$(BURNER_GSTREAMER_BASE_CFLAGS)				\
+	$(BURNER_GTK_CFLAGS)						\
+	$(BURNER_DBUS_CFLAGS)						\
+	$(BURNER_LIBXML_CFLAGS)					\
+	$(BURNER_SEARCH_CFLAGS)					\
+	$(BURNER_PL_PARSER_CFLAGS)					\
+	$(BURNER_SM_CFLAGS)
 
 GLIB_GENMARSHAL = `pkg-config --variable=glib_genmarshal glib-2.0`
-RECMARSHALFILES = brasero-marshal.h brasero-marshal.c
-brasero_SOURCES = brasero-marshal.c brasero-marshal.h main.c \
-	brasero-utils.h brasero-utils.c brasero-player.c \
-	brasero-player.h brasero-eject-dialog.c brasero-eject-dialog.h \
-	brasero-disc.c brasero-disc.h brasero-audio-disc.c \
-	brasero-audio-disc.h brasero-project.c brasero-project.h \
-	brasero-project-type-chooser.c brasero-project-type-chooser.h \
-	brasero-player-bacon.c brasero-player-bacon.h \
-	brasero-song-properties.c brasero-song-properties.h \
-	brasero-uri-container.c brasero-uri-container.h \
-	brasero-project-manager.c brasero-project-manager.h \
-	brasero-layout.c brasero-layout.h brasero-file-chooser.c \
-	brasero-file-chooser.h eggtreemultidnd.c eggtreemultidnd.h \
-	brasero-multi-dnd.c brasero-multi-dnd.h \
-	brasero-layout-object.c brasero-layout-object.h \
-	brasero-plugin-manager-ui.c brasero-plugin-manager-ui.h \
-	brasero-pref.h brasero-pref.c brasero-plugin-option.h \
-	brasero-plugin-option.c brasero-split-dialog.h \
-	brasero-split-dialog.c brasero-time-button.h \
-	brasero-time-button.c brasero-preview.h brasero-preview.c \
-	brasero-data-disc.h brasero-data-disc.c \
-	brasero-file-filtered.h brasero-file-filtered.c \
-	brasero-filter-option.h brasero-filter-option.c \
+RECMARSHALFILES = burner-marshal.h burner-marshal.c
+burner_SOURCES = burner-marshal.c burner-marshal.h main.c \
+	burner-utils.h burner-utils.c burner-player.c \
+	burner-player.h burner-eject-dialog.c burner-eject-dialog.h \
+	burner-disc.c burner-disc.h burner-audio-disc.c \
+	burner-audio-disc.h burner-project.c burner-project.h \
+	burner-project-type-chooser.c burner-project-type-chooser.h \
+	burner-player-bacon.c burner-player-bacon.h \
+	burner-song-properties.c burner-song-properties.h \
+	burner-uri-container.c burner-uri-container.h \
+	burner-project-manager.c burner-project-manager.h \
+	burner-layout.c burner-layout.h burner-file-chooser.c \
+	burner-file-chooser.h eggtreemultidnd.c eggtreemultidnd.h \
+	burner-multi-dnd.c burner-multi-dnd.h \
+	burner-layout-object.c burner-layout-object.h \
+	burner-plugin-manager-ui.c burner-plugin-manager-ui.h \
+	burner-pref.h burner-pref.c burner-plugin-option.h \
+	burner-plugin-option.c burner-split-dialog.h \
+	burner-split-dialog.c burner-time-button.h \
+	burner-time-button.c burner-preview.h burner-preview.c \
+	burner-data-disc.h burner-data-disc.c \
+	burner-file-filtered.h burner-file-filtered.c \
+	burner-filter-option.h burner-filter-option.c \
 	baobab-cell-renderer-progress.c \
-	baobab-cell-renderer-progress.h brasero-multi-song-props.h \
-	brasero-multi-song-props.c brasero-rename.h brasero-rename.c \
-	brasero-video-disc.c brasero-video-disc.h \
-	brasero-video-tree-model.c brasero-video-tree-model.h \
-	brasero-app.c brasero-app.h brasero-project-name.c \
-	brasero-project-name.h brasero-project-parse.c \
-	brasero-project-parse.h brasero-setting.h brasero-setting.c \
-	brasero-search-engine.h brasero-search-engine.c \
-	brasero-drive-settings.h brasero-drive-settings.c \
-	brasero-song-control.h brasero-song-control.c brasero-cli.c \
-	brasero-cli.h $(am__append_1) $(am__append_2)
-brasero_LDADD = \
-	$(top_builddir)/libbrasero-media/libbrasero-media3.la	\
-	$(top_builddir)/libbrasero-burn/libbrasero-burn3.la	\
-	$(top_builddir)/libbrasero-utils/libbrasero-utils3.la	\
-	$(BRASERO_GLIB_LIBS)		\
-	$(BRASERO_GTHREAD_LIBS)				\
-	$(BRASERO_GIO_LIBS)		\
-	$(BRASERO_GSTREAMER_LIBS)	\
-	$(BRASERO_GSTREAMER_BASE_LIBS)	\
-	$(BRASERO_GTK_LIBS)		\
-	$(BRASERO_GMODULE_LIBS)		\
-	$(BRASERO_DBUS_LIBS)		\
-	$(BRASERO_LIBXML_LIBS)		\
-	$(BRASERO_SEARCH_LIBS)		\
-	$(BRASERO_PL_PARSER_LIBS)	\
-	$(BRASERO_SM_LIBS)
+	baobab-cell-renderer-progress.h burner-multi-song-props.h \
+	burner-multi-song-props.c burner-rename.h burner-rename.c \
+	burner-video-disc.c burner-video-disc.h \
+	burner-video-tree-model.c burner-video-tree-model.h \
+	burner-app.c burner-app.h burner-project-name.c \
+	burner-project-name.h burner-project-parse.c \
+	burner-project-parse.h burner-setting.h burner-setting.c \
+	burner-search-engine.h burner-search-engine.c \
+	burner-drive-settings.h burner-drive-settings.c \
+	burner-song-control.h burner-song-control.c burner-cli.c \
+	burner-cli.h $(am__append_1) $(am__append_2)
+burner_LDADD = \
+	$(top_builddir)/libburner-media/libburner-media3.la	\
+	$(top_builddir)/libburner-burn/libburner-burn3.la	\
+	$(top_builddir)/libburner-utils/libburner-utils3.la	\
+	$(BURNER_GLIB_LIBS)		\
+	$(BURNER_GTHREAD_LIBS)				\
+	$(BURNER_GIO_LIBS)		\
+	$(BURNER_GSTREAMER_LIBS)	\
+	$(BURNER_GSTREAMER_BASE_LIBS)	\
+	$(BURNER_GTK_LIBS)		\
+	$(BURNER_GMODULE_LIBS)		\
+	$(BURNER_DBUS_LIBS)		\
+	$(BURNER_LIBXML_LIBS)		\
+	$(BURNER_SEARCH_LIBS)		\
+	$(BURNER_PL_PARSER_LIBS)	\
+	$(BURNER_SM_LIBS)
 
 EXTRA_DIST = \
-	brasero-marshal.list
+	burner-marshal.list
 
 CLEANFILES = \
 	$(RECMARSHALFILES)
@@ -635,9 +635,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-brasero$(EXEEXT): $(brasero_OBJECTS) $(brasero_DEPENDENCIES) $(EXTRA_brasero_DEPENDENCIES) 
-	@rm -f brasero$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(brasero_OBJECTS) $(brasero_LDADD) $(LIBS)
+burner$(EXEEXT): $(burner_OBJECTS) $(burner_DEPENDENCIES) $(EXTRA_burner_DEPENDENCIES) 
+	@rm -f burner$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(burner_OBJECTS) $(burner_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -646,45 +646,45 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/baobab-cell-renderer-progress.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-app.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-audio-disc.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-cli.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-data-disc.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-disc.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-drive-settings.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-eject-dialog.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-file-chooser.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-file-filtered.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-filter-option.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-layout-object.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-layout.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-marshal.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-multi-dnd.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-multi-song-props.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-player-bacon.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-player.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-playlist.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-plugin-manager-ui.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-plugin-option.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-pref.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-preview.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-project-manager.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-project-name.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-project-parse.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-project-type-chooser.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-project.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-rename.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-search-engine.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-search-tracker.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-setting.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-song-control.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-song-properties.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-split-dialog.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-time-button.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-uri-container.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-utils.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-video-disc.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/brasero-video-tree-model.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-app.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-audio-disc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-cli.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-data-disc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-disc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-drive-settings.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-eject-dialog.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-file-chooser.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-file-filtered.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-filter-option.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-layout-object.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-layout.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-marshal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-multi-dnd.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-multi-song-props.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-player-bacon.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-player.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-playlist.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-plugin-manager-ui.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-plugin-option.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-pref.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-preview.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-project-manager.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-project-name.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-project-parse.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-project-type-chooser.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-project.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-rename.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-search-engine.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-search-tracker.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-setting.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-song-control.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-song-properties.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-split-dialog.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-time-button.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-uri-container.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-utils.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-video-disc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/burner-video-tree-model.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eggtreemultidnd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 
@@ -924,10 +924,10 @@ uninstall-am: uninstall-binPROGRAMS
 .PRECIOUS: Makefile
 
 
-brasero-marshal.h: brasero-marshal.list
-	( $(GLIB_GENMARSHAL) --prefix=brasero_marshal $(srcdir)/brasero-marshal.list --header > brasero-marshal.h )
-brasero-marshal.c: brasero-marshal.h
-	( $(GLIB_GENMARSHAL) --prefix=brasero_marshal $(srcdir)/brasero-marshal.list --body --header > brasero-marshal.c )
+burner-marshal.h: burner-marshal.list
+	( $(GLIB_GENMARSHAL) --prefix=burner_marshal $(srcdir)/burner-marshal.list --header > burner-marshal.h )
+burner-marshal.c: burner-marshal.h
+	( $(GLIB_GENMARSHAL) --prefix=burner_marshal $(srcdir)/burner-marshal.list --body --header > burner-marshal.c )
 
 -include $(top_srcdir)/git.mk
 

@@ -1,6 +1,6 @@
-MIMEFILES = brasero.xml.in
+MIMEFILES = burner.xml.in
 mimedir = $(datadir)/mime/packages
-mime_DATA = brasero.xml
+mime_DATA = burner.xml
 
 @INTLTOOL_XML_RULE@
 

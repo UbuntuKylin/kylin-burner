@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Ievads<app>Brasero</app> disku rakstīšanas lietotnē.</desc>
+    <desc>Ievads<app>Burner</app> disku rakstīšanas lietotnē.</desc>
     <credit type="author">
       <name>Ekaterina Gerasimova</name>
       <email>kittykat3756@googlemail.com</email>
@@ -15,9 +15,9 @@
 
   <title>Ievads</title>
 
-  <p><app>Brasero</app> ir CD un DVD ierakstīšanas programma, veidota, lai to varētu viegli izmantot, vienlaikus nodrošinot visus nepieciešamos rīkus ierakstīšanai.</p>
+  <p><app>Burner</app> ir CD un DVD ierakstīšanas programma, veidota, lai to varētu viegli izmantot, vienlaikus nodrošinot visus nepieciešamos rīkus ierakstīšanai.</p>
 
-  <p>Ar <app>Brasero</app> jūs varat:</p>
+  <p>Ar <app>Burner</app> jūs varat:</p>
   <list>
     <item><p>Ierakstīt datus CD un DVD diskos</p></item>
     <item><p>Ierakstīt audio diskus no digitālajiem audio failiem (piemēram, OGG, FLAC un MP3)</p></item>
@@ -29,8 +29,8 @@
   </list>
 
   <figure>
-    <title><gui>Brasero</gui> galvenais logs</title>
-    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+    <title><gui>Burner</gui> galvenais logs</title>
+    <media type="image" mime="image/png" src="figures/burner-main-window.png"/>
   </figure>
 
 </page>

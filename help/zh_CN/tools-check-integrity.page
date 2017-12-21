@@ -19,7 +19,7 @@
 
   <title>检查盘片完整性</title>
 
-  <p>在使用 <app>Brasero</app> 刻录一张 CD/DVD 后，您可以通过检查光盘完整性来确认光盘中的文件完整无损。</p>
+  <p>在使用 <app>Burner</app> 刻录一张 CD/DVD 后，您可以通过检查光盘完整性来确认光盘中的文件完整无损。</p>
 
   <steps>
     <item>

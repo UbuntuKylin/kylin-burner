@@ -36,7 +36,7 @@
 
   <title>Enregistrement d'un projet</title>
 
-  <p>Vous pouvez enregistrer un projet audio, vidéo ou un projet de données dans <app>Brasero</app> pour le modifier ou le graver plus tard.</p>
+  <p>Vous pouvez enregistrer un projet audio, vidéo ou un projet de données dans <app>Burner</app> pour le modifier ou le graver plus tard.</p>
 
   <steps>
     <item>
@@ -50,7 +50,7 @@
     </item>
   </steps>
 
-  <p>Il y a de nombreuses façons d'ouvrir un projet <app>Brasero</app> sauvegardé :</p>
+  <p>Il y a de nombreuses façons d'ouvrir un projet <app>Burner</app> sauvegardé :</p>
 
   <list>
     <item>
@@ -65,14 +65,14 @@
     <item>
       <p>ouvrez le projet depuis le navigateur de fichiers.</p>
       <note>
-        <p>Une seule instance de <app>Brasero</app> peut être ouverte à la fois. Si vous essayez d'ouvrir une seconde instance, la fenêtre actuellement ouverte de <app>Brasero</app> aura le focus.</p>
-        <p>Si <app>Brasero</app> est déjà en cours d'exécution et que vous essayez d'ouvrir certains fichiers avec ce logiciel à partir de l'application <app>Fichiers</app>, ceux-ci seront ajoutés au projet sur lequel vous travaillez actuellement.</p>
+        <p>Une seule instance de <app>Burner</app> peut être ouverte à la fois. Si vous essayez d'ouvrir une seconde instance, la fenêtre actuellement ouverte de <app>Burner</app> aura le focus.</p>
+        <p>Si <app>Burner</app> est déjà en cours d'exécution et que vous essayez d'ouvrir certains fichiers avec ce logiciel à partir de l'application <app>Fichiers</app>, ceux-ci seront ajoutés au projet sur lequel vous travaillez actuellement.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Si vous ouvrez un projet enregistré, <app>Brasero</app> va le traiter comme un nouveau projet : si vous voulez enregistrer une version actualisée du projet, il vous est demandé de saisir un nouveau nom, à ce stade vous pouvez écraser l’ancienne version ou l'enregistrer en tant que nouveau projet sous un nom de fichier différent.</p>
+    <p>Si vous ouvrez un projet enregistré, <app>Burner</app> va le traiter comme un nouveau projet : si vous voulez enregistrer une version actualisée du projet, il vous est demandé de saisir un nouveau nom, à ce stade vous pouvez écraser l’ancienne version ou l'enregistrer en tant que nouveau projet sous un nom de fichier différent.</p>
   </note>
 
 </page>

@@ -18,7 +18,7 @@
 
   <title>Saglabāt projektu</title>
 
-  <p>Jūs varat saglabāt audio, datu vai video projektu <app>Brasero</app> programmā, lai varētu to vēlāk rediģēt vai ierakstīt diskā.</p>
+  <p>Jūs varat saglabāt audio, datu vai video projektu <app>Burner</app> programmā, lai varētu to vēlāk rediģēt vai ierakstīt diskā.</p>
 
   <steps>
     <item>
@@ -32,7 +32,7 @@
     </item>
   </steps>
 
-  <p>Saglabātu <app>Brasero</app> projektu var atvērt vairākos veidos:</p>
+  <p>Saglabātu <app>Burner</app> projektu var atvērt vairākos veidos:</p>
 
   <list>
     <item>
@@ -47,14 +47,14 @@
     <item>
       <p>atverot projektu ar failu pārlūku</p>
       <note>
-        <p>Vienlaicīgi var atvērt tikai vienu <app>Brasero</app> instanci. Ja mēģināsiet atvērt otru instanci, tiks fokusēts pašlaik atvērtais <app>Brasero</app> logs.</p>
-        <p>Ja <app>Brasero</app> ir jau palaists un jūs mēģināt atvērt kādas datnes ar to no lietotnes <app>Datnes</app>, datnes tiks automātiski pievienotas projektam, ar ko pašlaik strādājat.</p>
+        <p>Vienlaicīgi var atvērt tikai vienu <app>Burner</app> instanci. Ja mēģināsiet atvērt otru instanci, tiks fokusēts pašlaik atvērtais <app>Burner</app> logs.</p>
+        <p>Ja <app>Burner</app> ir jau palaists un jūs mēģināt atvērt kādas datnes ar to no lietotnes <app>Datnes</app>, datnes tiks automātiski pievienotas projektam, ar ko pašlaik strādājat.</p>
       </note>
     </item>
   </list>
 
   <note>
-    <p>Atverot saglabātu projektu, <app>Brasero</app> uzskatīs to par jaunu projektu: ja vēlaties saglabāt atjaunināto projekta versiju, tas lūgs ievadīt tā nosaukumu. Šajā brīdī jūs varat pārrakstīt veco versiju vai arī saglabāt to kā jaunu projektu, ievadot citu faila nosaukumu.</p>
+    <p>Atverot saglabātu projektu, <app>Burner</app> uzskatīs to par jaunu projektu: ja vēlaties saglabāt atjaunināto projekta versiju, tas lūgs ievadīt tā nosaukumu. Šajā brīdī jūs varat pārrakstīt veco versiju vai arī saglabāt to kā jaunu projektu, ievadot citu faila nosaukumu.</p>
   </note>
 
 </page>

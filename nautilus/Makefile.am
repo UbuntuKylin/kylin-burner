@@ -1,12 +1,12 @@
 module_flags = -avoid-version -module
 
 AM_CPPFLAGS =					\
-	-I$(top_srcdir)/libbrasero-utils/	\
-	-I$(top_builddir)/libbrasero-utils/	\
-	-I$(top_srcdir)/libbrasero-media/	\
-	-I$(top_builddir)/libbrasero-media/	\
-	-I$(top_srcdir)/libbrasero-burn/	\
-	-I$(top_builddir)/libbrasero-burn/	\
+	-I$(top_srcdir)/libburner-utils/	\
+	-I$(top_builddir)/libburner-utils/	\
+	-I$(top_srcdir)/libburner-media/	\
+	-I$(top_builddir)/libburner-media/	\
+	-I$(top_srcdir)/libburner-burn/	\
+	-I$(top_builddir)/libburner-burn/	\
 	-I$(top_srcdir)/src/			\
 	-I$(top_builddir)/src/			\
 	$(WARN_CFLAGS)							\
@@ -20,14 +20,14 @@ AM_CPPFLAGS =					\
 	-DBINDIR=\""$(bindir)"\"		\
 	-DLIBEXECDIR=\""$(libexecdir)"\"	\
 	-DSHAREDIR=\""$(datadir)"\"		\
-	-DDATADIR=\""$(datadir)/brasero"\"	\
+	-DDATADIR=\""$(datadir)/burner"\"	\
 	$(NAUTILUS_EXTENSION_CFLAGS)		\
 	$(DISABLE_DEPRECATED)
 
 @INTLTOOL_DESKTOP_RULE@
 
 desktopdir=$(datadir)/applications
-desktop_in_files = brasero-nautilus.desktop.in
+desktop_in_files = burner-nautilus.desktop.in
 
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
@@ -37,19 +37,19 @@ DISTCLEANFILES = $(NULL)
 
 ### Nautilus Extension
 nautilus_extensiondir = $(NAUTILUSDIR)
-nautilus_extension_LTLIBRARIES = libnautilus-brasero-extension.la
+nautilus_extension_LTLIBRARIES = libnautilus-burner-extension.la
 
-libnautilus_brasero_extension_la_SOURCES = 	\
+libnautilus_burner_extension_la_SOURCES = 	\
 	nautilus-burn-bar.c			\
 	nautilus-burn-bar.h			\
 	nautilus-burn-extension.c
 
-libnautilus_brasero_extension_la_LIBADD =	\
+libnautilus_burner_extension_la_LIBADD =	\
 	$(NAUTILUS_EXTENSION_LIBS)		\
-	../libbrasero-utils/libbrasero-utils3.la	\
-	../libbrasero-media/libbrasero-media3.la	\
-	../libbrasero-burn/libbrasero-burn3.la
+	../libburner-utils/libburner-utils3.la	\
+	../libburner-media/libburner-media3.la	\
+	../libburner-burn/libburner-burn3.la
 	
-libnautilus_brasero_extension_la_LDFLAGS = $(module_flags)
+libnautilus_burner_extension_la_LDFLAGS = $(module_flags)
 
 -include $(top_srcdir)/git.mk

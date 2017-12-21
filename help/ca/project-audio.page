@@ -27,7 +27,7 @@
 
   <title>Escriure un CD de música</title>
 
-  <p><app>Brasero</app> can write audio files to a CD, which you can then use
+  <p><app>Burner</app> can write audio files to a CD, which you can then use
   for playing in CD players and so on. It is usually best to
   use a non-rewritable CD because not all CD players will play rewritable
   CDs.</p>

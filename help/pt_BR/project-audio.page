@@ -27,7 +27,7 @@
 
   <title>Gravando um CD de música</title>
 
-  <p>O <app>Brasero</app> pode gravar arquivos de áudio em um CD, então deste modo você poderá usá-lo para tocar em reprodutores de CD e por aí vai. Geralmente é melhor usar um CD não-regravável pois nem todos os reprodutores de CD irão tocar CDs regraváveis.</p>
+  <p>O <app>Burner</app> pode gravar arquivos de áudio em um CD, então deste modo você poderá usá-lo para tocar em reprodutores de CD e por aí vai. Geralmente é melhor usar um CD não-regravável pois nem todos os reprodutores de CD irão tocar CDs regraváveis.</p>
 
   <steps>
     <item>

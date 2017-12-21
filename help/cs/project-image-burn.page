@@ -41,7 +41,7 @@
 
   <title>Vypálit obraz</title>
 
-  <p><app>Brasero</app> vám umožňuje vypalovat obrazy disků na CD nebo DVD. Podporuje následující přípony: <file>.iso</file>, <file>.toc</file> a <file>.cue</file>.</p>
+  <p><app>Burner</app> vám umožňuje vypalovat obrazy disků na CD nebo DVD. Podporuje následující přípony: <file>.iso</file>, <file>.toc</file> a <file>.cue</file>.</p>
 
   <note style="advanced">
     <p>Obrazy disků jsou archivy souborů obsahující všechna data, která jsou na CD nebo DVD. Na disku CD může být vždy jen jeden obraz disku, ale každý archiv může obsahovat takové množství dat, jaké potřebujete, dokud se vejde na disk.</p>
@@ -57,7 +57,7 @@
     </item>
     <item>
       <p>Vyberte disk, který chcete využít, z rozbalovací nabídky <gui>Vyberte disk pro zápis</gui>. Pokud máte více než jednu mechaniku, všechny disky, které jsou momentálně uvnitř, by měly být v nabídce.</p>
-        <note><p>Po výběru disku aplikace <app>Brasero</app> ukáže, kolik volného místa zůstane na disku po vypálení.</p></note>
+        <note><p>Po výběru disku aplikace <app>Burner</app> ukáže, kolik volného místa zůstane na disku po vypálení.</p></note>
     </item>
     <item>
       <p>Klikněte na tlačítko <gui>Vlastnosti</gui> pro výběr rychlosti vypalování a další možnosti.</p>
@@ -69,8 +69,8 @@
         </note>
     </item>
     <!-- There are some problems with multiple burn. After burning one copy,
-    Brasero asks for manual ejecting and then often doesn't detect it. The same
-    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    Burner asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Burner doesn't always
     detect it. Besides the multiple burn option has the same functionality as
     Burn - they both allow to burn one or several copies, so one option would be
     enough.-->

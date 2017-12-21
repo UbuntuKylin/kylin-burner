@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>burner-media: Libburner-media Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Libburner-media Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference for Libburner-media">
+<link rel="prev" href="ch01.html" title="API Reference for Libburner-media">
+<link rel="next" href="libburner-media-burner-units.html" title="burner-units">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libburner-media-burner-media.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libburner-media-burner-units.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libburner-media-burner-media"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libburner-media-burner-media.top_of_page"></a>burner-media</span></h2>
+<p>burner-media</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libburner-media-burner-media.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#burner-media-library-start" title="burner_media_library_start ()">burner_media_library_start</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#burner-media-library-stop" title="burner_media_library_stop ()">burner_media_library_stop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#burner-media-get-option-group" title="burner_media_get_option_group ()">burner_media_get_option_group</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#burner-media-quark" title="burner_media_quark ()">burner_media_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-VALID:CAPS" title="BURNER_MEDIUM_VALID()">BURNER_MEDIUM_VALID</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-TYPE:CAPS" title="BURNER_MEDIUM_TYPE()">BURNER_MEDIUM_TYPE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-ATTR:CAPS" title="BURNER_MEDIUM_ATTR()">BURNER_MEDIUM_ATTR</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-STATUS:CAPS" title="BURNER_MEDIUM_STATUS()">BURNER_MEDIUM_STATUS</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-SUBTYPE:CAPS" title="BURNER_MEDIUM_SUBTYPE()">BURNER_MEDIUM_SUBTYPE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-INFO:CAPS" title="BURNER_MEDIUM_INFO()">BURNER_MEDIUM_INFO</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-IS:CAPS" title="BURNER_MEDIUM_IS()">BURNER_MEDIUM_IS</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-RANDOM-WRITABLE:CAPS" title="BURNER_MEDIUM_RANDOM_WRITABLE()">BURNER_MEDIUM_RANDOM_WRITABLE</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libburner-media-burner-media.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MAJOR:CAPS" title="LIBBURNER_MEDIA_VERSION_MAJOR">LIBBURNER_MEDIA_VERSION_MAJOR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MINOR:CAPS" title="LIBBURNER_MEDIA_VERSION_MINOR">LIBBURNER_MEDIA_VERSION_MINOR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#LIBBURNER-MEDIA-VERSION-MICRO:CAPS" title="LIBBURNER_MEDIA_VERSION_MICRO">LIBBURNER_MEDIA_VERSION_MICRO</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#LIBBURNER-MEDIA-AGE:CAPS" title="LIBBURNER_MEDIA_AGE">LIBBURNER_MEDIA_AGE</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#LIBBURNER-MEDIA-INSTALL:CAPS" title="LIBBURNER_MEDIA_INSTALL">LIBBURNER_MEDIA_INSTALL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIA-ERROR:CAPS" title="BURNER_MEDIA_ERROR">BURNER_MEDIA_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BurnerMediaError" title="enum BurnerMediaError">BurnerMediaError</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BurnerMedia" title="enum BurnerMedia">BurnerMedia</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-CDROM:CAPS" title="BURNER_MEDIUM_CDROM">BURNER_MEDIUM_CDROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-CDR:CAPS" title="BURNER_MEDIUM_CDR">BURNER_MEDIUM_CDR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-CDRW:CAPS" title="BURNER_MEDIUM_CDRW">BURNER_MEDIUM_CDRW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVD-ROM:CAPS" title="BURNER_MEDIUM_DVD_ROM">BURNER_MEDIUM_DVD_ROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR:CAPS" title="BURNER_MEDIUM_DVDR">BURNER_MEDIUM_DVDR</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW:CAPS" title="BURNER_MEDIUM_DVDRW">BURNER_MEDIUM_DVDRW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-RESTRICTED:CAPS" title="BURNER_MEDIUM_DVDRW_RESTRICTED">BURNER_MEDIUM_DVDRW_RESTRICTED</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-DL:CAPS" title="BURNER_MEDIUM_DVDR_DL">BURNER_MEDIUM_DVDR_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-JUMP-DL:CAPS" title="BURNER_MEDIUM_DVDR_JUMP_DL">BURNER_MEDIUM_DVDR_JUMP_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-PLUS:CAPS" title="BURNER_MEDIUM_DVDR_PLUS">BURNER_MEDIUM_DVDR_PLUS</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-PLUS:CAPS" title="BURNER_MEDIUM_DVDRW_PLUS">BURNER_MEDIUM_DVDRW_PLUS</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDR-PLUS-DL:CAPS" title="BURNER_MEDIUM_DVDR_PLUS_DL">BURNER_MEDIUM_DVDR_PLUS_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVDRW-PLUS-DL:CAPS" title="BURNER_MEDIUM_DVDRW_PLUS_DL">BURNER_MEDIUM_DVDRW_PLUS_DL</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-DVD-RAM:CAPS" title="BURNER_MEDIUM_DVD_RAM">BURNER_MEDIUM_DVD_RAM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-BD-ROM:CAPS" title="BURNER_MEDIUM_BD_ROM">BURNER_MEDIUM_BD_ROM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-SRM:CAPS" title="BURNER_MEDIUM_BDR_SRM">BURNER_MEDIUM_BDR_SRM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-SRM-POW:CAPS" title="BURNER_MEDIUM_BDR_SRM_POW">BURNER_MEDIUM_BDR_SRM_POW</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-BDR-RANDOM:CAPS" title="BURNER_MEDIUM_BDR_RANDOM">BURNER_MEDIUM_BDR_RANDOM</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libburner-media-burner-media.html#BURNER-MEDIUM-BDRE:CAPS" title="BURNER_MEDIUM_BDRE">BURNER_MEDIUM_BDRE</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libburner-media-burner-media.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libburner-media-burner-media.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="burner-media-library-start"></a><h3>burner_media_library_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+burner_media_library_start (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Initialize the library.</p>
+<p>You should call this function before using any other from the library.</p>
+<p>Rename to: init</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="burner-media-library-stop"></a><h3>burner_media_library_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+burner_media_library_stop (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>De-initialize the library once you do not need the library anymore.</p>
+<p>Rename to: deinit</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="burner-media-get-option-group"></a><h3>burner_media_get_option_group ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="returnvalue">GOptionGroup</span></a> *
+burner_media_get_option_group (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Returns a GOptionGroup for the commandline arguments recognized by libburner-media.
+You should add this to your GOptionContext if your are using <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#g-option-context-parse"><code class="function">g_option_context_parse()</code></a>
+to parse your commandline arguments.</p>
+<div class="refsect3">
+<a name="id-1.2.2.6.4.5"></a><h4>Returns</h4>
+<p> a <a href="https://developer.gnome.org/glib/unstable/glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> *</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="burner-media-quark"></a><h3>burner_media_quark ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+burner_media_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.2.2.6.5.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-VALID:CAPS"></a><h3>BURNER_MEDIUM_VALID()</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_VALID(media)</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-TYPE:CAPS"></a><h3>BURNER_MEDIUM_TYPE()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_TYPE(media) ((media) &amp; 0x003F)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-ATTR:CAPS"></a><h3>BURNER_MEDIUM_ATTR()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_ATTR(media) ((media) &amp; 0x1C000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-STATUS:CAPS"></a><h3>BURNER_MEDIUM_STATUS()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_STATUS(media) ((media) &amp; 0xE0000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-SUBTYPE:CAPS"></a><h3>BURNER_MEDIUM_SUBTYPE()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_SUBTYPE(media) ((media) &amp; 0x1FC0)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-INFO:CAPS"></a><h3>BURNER_MEDIUM_INFO()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_INFO(media) ((media) &amp; 0xFE0000)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-IS:CAPS"></a><h3>BURNER_MEDIUM_IS()</h3>
+<pre class="programlisting">#define BURNER_MEDIUM_IS(media, type) (((media)&amp;(type))==(type))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-RANDOM-WRITABLE:CAPS"></a><h3>BURNER_MEDIUM_RANDOM_WRITABLE()</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_RANDOM_WRITABLE(media)</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libburner-media-burner-media.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="LIBBURNER-MEDIA-VERSION-MAJOR:CAPS"></a><h3>LIBBURNER_MEDIA_VERSION_MAJOR</h3>
+<pre class="programlisting">#define             LIBBURNER_MEDIA_VERSION_MAJOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBBURNER-MEDIA-VERSION-MINOR:CAPS"></a><h3>LIBBURNER_MEDIA_VERSION_MINOR</h3>
+<pre class="programlisting">#define             LIBBURNER_MEDIA_VERSION_MINOR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBBURNER-MEDIA-VERSION-MICRO:CAPS"></a><h3>LIBBURNER_MEDIA_VERSION_MICRO</h3>
+<pre class="programlisting">#define             LIBBURNER_MEDIA_VERSION_MICRO</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBBURNER-MEDIA-AGE:CAPS"></a><h3>LIBBURNER_MEDIA_AGE</h3>
+<pre class="programlisting">#define             LIBBURNER_MEDIA_AGE</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="LIBBURNER-MEDIA-INSTALL:CAPS"></a><h3>LIBBURNER_MEDIA_INSTALL</h3>
+<pre class="programlisting">#define             LIBBURNER_MEDIA_INSTALL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIA-ERROR:CAPS"></a><h3>BURNER_MEDIA_ERROR</h3>
+<pre class="programlisting">#define BURNER_MEDIA_ERROR burner_media_quark()
+</pre>
+<p>The GQuark used for BurnerMediaError</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BurnerMediaError"></a><h3>enum BurnerMediaError</h3>
+<p>Error codes returned by libburner-media</p>
+<div class="refsect3">
+<a name="id-1.2.2.7.8.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIA-ERROR-NONE:CAPS"></a>BURNER_MEDIA_ERROR_NONE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIA-ERROR-GENERAL:CAPS"></a>BURNER_MEDIA_ERROR_GENERAL</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIA-ERROR-IMAGE-INVALID:CAPS"></a>BURNER_MEDIA_ERROR_IMAGE_INVALID</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BurnerMedia"></a><h3>enum BurnerMedia</h3>
+<p>This enum allows to define all characteristics for a media (closed, writable, ...)
+and identify all types of optical media.</p>
+<div class="refsect3">
+<a name="id-1.2.2.7.9.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-UNSUPPORTED:CAPS"></a>BURNER_MEDIUM_UNSUPPORTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-BUSY:CAPS"></a>BURNER_MEDIUM_BUSY</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-NONE:CAPS"></a>BURNER_MEDIUM_NONE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-FILE:CAPS"></a>BURNER_MEDIUM_FILE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-CD:CAPS"></a>BURNER_MEDIUM_CD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-DVD:CAPS"></a>BURNER_MEDIUM_DVD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-BD:CAPS"></a>BURNER_MEDIUM_BD</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-DUAL-L:CAPS"></a>BURNER_MEDIUM_DUAL_L</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-RAM:CAPS"></a>BURNER_MEDIUM_RAM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-PLUS:CAPS"></a>BURNER_MEDIUM_PLUS</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-SEQUENTIAL:CAPS"></a>BURNER_MEDIUM_SEQUENTIAL</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-RESTRICTED:CAPS"></a>BURNER_MEDIUM_RESTRICTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-JUMP:CAPS"></a>BURNER_MEDIUM_JUMP</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-RANDOM:CAPS"></a>BURNER_MEDIUM_RANDOM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-SRM:CAPS"></a>BURNER_MEDIUM_SRM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-POW:CAPS"></a>BURNER_MEDIUM_POW</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-REWRITABLE:CAPS"></a>BURNER_MEDIUM_REWRITABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-WRITABLE:CAPS"></a>BURNER_MEDIUM_WRITABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-ROM:CAPS"></a>BURNER_MEDIUM_ROM</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-BLANK:CAPS"></a>BURNER_MEDIUM_BLANK</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-CLOSED:CAPS"></a>BURNER_MEDIUM_CLOSED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-APPENDABLE:CAPS"></a>BURNER_MEDIUM_APPENDABLE</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-UNFORMATTED:CAPS"></a>BURNER_MEDIUM_UNFORMATTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-PROTECTED:CAPS"></a>BURNER_MEDIUM_PROTECTED</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-HAS-DATA:CAPS"></a>BURNER_MEDIUM_HAS_DATA</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="BURNER-MEDIUM-HAS-AUDIO:CAPS"></a>BURNER_MEDIUM_HAS_AUDIO</p></td>
+<td class="enum_member_description"> </td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-CDROM:CAPS"></a><h3>BURNER_MEDIUM_CDROM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_CDROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-CDR:CAPS"></a><h3>BURNER_MEDIUM_CDR</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_CDR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-CDRW:CAPS"></a><h3>BURNER_MEDIUM_CDRW</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_CDRW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVD-ROM:CAPS"></a><h3>BURNER_MEDIUM_DVD_ROM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVD_ROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDR:CAPS"></a><h3>BURNER_MEDIUM_DVDR</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDR</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDRW:CAPS"></a><h3>BURNER_MEDIUM_DVDRW</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDRW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDRW-RESTRICTED:CAPS"></a><h3>BURNER_MEDIUM_DVDRW_RESTRICTED</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDRW_RESTRICTED</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDR-DL:CAPS"></a><h3>BURNER_MEDIUM_DVDR_DL</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDR_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDR-JUMP-DL:CAPS"></a><h3>BURNER_MEDIUM_DVDR_JUMP_DL</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDR_JUMP_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDR-PLUS:CAPS"></a><h3>BURNER_MEDIUM_DVDR_PLUS</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDR_PLUS</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDRW-PLUS:CAPS"></a><h3>BURNER_MEDIUM_DVDRW_PLUS</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDRW_PLUS</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDR-PLUS-DL:CAPS"></a><h3>BURNER_MEDIUM_DVDR_PLUS_DL</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDR_PLUS_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVDRW-PLUS-DL:CAPS"></a><h3>BURNER_MEDIUM_DVDRW_PLUS_DL</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVDRW_PLUS_DL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-DVD-RAM:CAPS"></a><h3>BURNER_MEDIUM_DVD_RAM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_DVD_RAM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-BD-ROM:CAPS"></a><h3>BURNER_MEDIUM_BD_ROM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_BD_ROM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-BDR-SRM:CAPS"></a><h3>BURNER_MEDIUM_BDR_SRM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_BDR_SRM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-BDR-SRM-POW:CAPS"></a><h3>BURNER_MEDIUM_BDR_SRM_POW</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_BDR_SRM_POW</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-BDR-RANDOM:CAPS"></a><h3>BURNER_MEDIUM_BDR_RANDOM</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_BDR_RANDOM</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BURNER-MEDIUM-BDRE:CAPS"></a><h3>BURNER_MEDIUM_BDRE</h3>
+<pre class="programlisting">#define             BURNER_MEDIUM_BDRE</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>
