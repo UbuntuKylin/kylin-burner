@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>创建一个相同的光盘副本。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>复制光盘</title>
+
+  <steps>
+    <item>
+      <p>点击主窗口中的 <guibutton>光盘复制</guibutton> 或选择 <menuchoice><guimenu>项目</guimenu><guisubmenu>新建项目</guisubmenu><guimenuitem>复制光盘...</guimenuitem></menuchoice>。</p>
+    </item>
+    <item>
+      <p>在 <gui>选择要复制的光盘</gui> 下方的下拉菜单中选择您希望复制的光盘。如果您有不止一台光驱，那么会列出所有光驱的光盘。</p>
+    </item>
+    <item>
+      <p>选择是否希望制作光盘备份或创建镜像文件供以后使用。</p>
+    </item>
+    <item>
+      <p>点击 <gui>属性</gui> 按钮来选择刻录速度或者其他自定义选项。</p>
+    </item>
+    <item>
+      <p>点击<gui>复制</gui> 开始复制光盘。如果您想制作多个副本，点击<gui>制作多个副本</gui>。 </p>
+      <note>
+	<p>如果您只有一台光驱，则程序会在将光盘文件暂存到硬盘上以后要您将光驱的光盘更换为一张可擦写光盘。</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

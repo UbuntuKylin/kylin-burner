@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Po zapisu diska lahko preverite njegovo celovitost.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Preverjanje celovitosti podatkov na disku</title>
+
+  <p>Po zapisu CD-ja/DVD-ja z <app>Braserom</app> lahko preverite njegovo celovitost, da se prepričate, da datoteke na disku niso pokvarjene.</p>
+
+  <steps>
+    <item>
+      <p>Izberite <guiseq><gui>Orodja</gui><gui>Preveri celovitost  ...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Če vam je ljubša možnost <gui>Uporabi datoteko MD5 za preverjanje diska</gui>, če vam je ljubša.</p>
+	<note style="advanced">
+	<list>
+	<item><p>MD5 (Message-Digest algoritem 5) je funkcija kriptografskega razprševanja, ki se pogosto uporablja za preverjanje celovitosti podatkov.</p></item>
+	<item><p>Če izberete to možnost, boste morali najti datoteko MD5 s klikom na ikono mape postavljeno spodaj.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Pritisnite <gui>Preveri</gui> za nadaljevanje ali <gui>Zapri</gui> za preklic.</p>
+    </item>
+    <item>
+      <p>Ko je preverjanje končano, lahko izberete <gui>Preveri ponovno</gui> ali enostavno kliknite <gui>Zapri</gui>.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Сохранение проекта для последующей работы.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Сохранение проекта</title>
+
+  <p>В <app>Brasero</app> можно сохранять различные проекты (звуковые, проект с данными, видеопроект) для дальнейшей работы и записи.</p>
+
+  <steps>
+    <item>
+      <p>Создайте проект, добавьте файлы, которые должны войти в проект.</p>
+    </item>
+    <item>
+      <p>Чтобы сохранить проект, нажмите <guiseq><gui>Проект</gui><gui>Сохранить</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Введите название, под которым должен быть сохранён проект, и нажмите <gui>Сохранить</gui>.</p>
+    </item>
+  </steps>
+
+  <p>Открыть сохранённый ранее проект в <app>Brasero</app> можно несколькими способами:</p>
+
+  <list>
+    <item>
+      <p>выбрать проект из списка на стартовой странице в разделе <gui>Недавние проекты</gui></p>
+    </item>
+    <item>
+      <p>выбрать <guiseq><gui>Проект</gui><gui>Недавние проекты</gui></guiseq></p>
+    </item>
+    <item>
+      <p>выбрать <guiseq><gui>Проект</gui><gui>Открыть</gui></guiseq></p>
+    </item>
+    <item>
+      <p>открыть проект из файлового браузера</p>
+      <note>
+        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        If you try to open a second instance, the currently open
+        <app>Brasero</app> window will be focused.</p>
+        <p>If <app>Brasero</app> is already running and you try to open some
+        files with it from <app>Files</app>, the files will be added to the
+        project that you are currently working on.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Если вы открыли сохранённый проект, <app>Brasero</app> будет обрабатывать его как новый проект. Если вы хотите сохранить обновлённую версию проекта, приложение попросит ввести название для проекта, вы можете перезаписать старую версию или сохранить проект под другим названием.</p>
+  </note>
+
+</page>

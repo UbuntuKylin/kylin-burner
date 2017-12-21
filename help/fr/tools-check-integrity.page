@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Vous pouvez tester l'intégrité d'un disque après sa gravure.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Vérification de l'intégrité d'un disque</title>
+
+  <p>Après avoir gravé un CD/DVD en utilisant <app>Brasero</app>, vous pouvez vérifier son intégrité pour être sûr que les fichiers sur le disque ne sont pas corrompus.</p>
+
+  <steps>
+    <item>
+      <p>Sélectionnez <guiseq><gui>Outils</gui><gui>Vérifier l'intégrité…</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Vous pouvez sélectionner l'option <gui>Utiliser un fichier MD5 pour vérifier le disque</gui> si vous préférez.</p>
+	<note style="advanced">
+	<list>
+	<item><p>Un MD5 (Message-Digest Algorithm 5) est une fonction de hachage cryptographique largement utilisée pour vérifier l'intégrité de données.</p></item>
+	<item><p>Si vous choisissez cette option, vous devrez rechercher le fichier MD5 en cliquant sur l'icône de dossier située en dessous.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Vérifier</gui> pour continuer ou sur <gui>Fermer</gui> pour annuler</p>
+    </item>
+    <item>
+      <p>Lorsque la vérification est terminée, vous pouvez soit choisir de <gui>Vérifier à nouveau</gui> ou tout simplement de <gui>Fermer</gui>.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Izveidojiet audio projektu.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Ierakstīt mūzikas CD</title>
+
+  <p><app>Brasero</app> var ierakstīt audio failus diskā, kurus pēc tam var atskaņot CD atskaņotājos un tamlīdzīgi. Parasti labāk ir izmantot vienreiz rakstāmos diskus, jo ne visi CD atskaņotāji atskaņos pārrakstāmos diskus.</p>
+
+  <steps>
+    <item>
+      <p>Spiediet <gui>Audio projekts</gui> sākuma lapā, vai izvēlieties <guiseq><gui>Projekts</gui><gui>Jauns projekts</gui><gui>Jauns audio projekts</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pievienojiet projektam audio failus, spiežot <gui>Pievienot</gui> rīkjoslā un izvēloties failus. Jūs varat arī pievienot failus, tos ievelkot un nometot projektā vai spiežot <guiseq><gui>Rediģēt</gui><gui>Pievienot failus</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Jūs varat pievienot CD nosaukumu teksta ievades laukā zem projekta.</p>
+    </item>
+    <item>
+      <p>Izvēlaties tukšu disku izkrītošajā izvēlnē.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt...</gui>, lai turpinātu.</p>
+    </item>
+    <item>
+      <p>Izvēlieties <gui>rakstīšanas ātrumu</gui> no izkrītošā saraksta, un citas opcijas.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt</gui>, lai vienā diskā ierakstītu projektu, vai <gui>Ierakstīt vairākas kopijas</gui>, lai ierakstītu jūsu projektu vairākos diskos.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Jūs varat sadalīt arī atsevišķus celiņus vairākos celiņos, izmantojot <gui>Sadalīt</gui> rīku un pievienojot divu sekunžu pārtraukumu pēc dziesmas, izmantojot <gui>Pauze</gui> pogu.</p>
+  </note>
+
+</page>

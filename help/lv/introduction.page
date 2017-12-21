@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Ievads<app>Brasero</app> disku rakstīšanas lietotnē.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Ievads</title>
+
+  <p><app>Brasero</app> ir CD un DVD ierakstīšanas programma, veidota, lai to varētu viegli izmantot, vienlaikus nodrošinot visus nepieciešamos rīkus ierakstīšanai.</p>
+
+  <p>Ar <app>Brasero</app> jūs varat:</p>
+  <list>
+    <item><p>Ierakstīt datus CD un DVD diskos</p></item>
+    <item><p>Ierakstīt audio diskus no digitālajiem audio failiem (piemēram, OGG, FLAC un MP3)</p></item>
+    <item><p>Kopēt CD un DVD diskus</p></item>
+    <item><p>Veidot video DVD vai SVCD</p></item>
+    <item><p>Veidot disku attēlu failus un ierakstīt esošus attēlu failus.</p></item>
+    <item><p>Izdzēst CD-RW un DVD-RW diskus</p></item>
+    <item><p>Pārbaudīt disku un disku attēlu integritāti</p></item>
+  </list>
+
+  <figure>
+    <title><gui>Brasero</gui> galvenais logs</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Moji MP3-ji se ne predvajanju v CD ali DVD predvajalniku.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>CD se ne predvaja v CD predvajalniku</title>
+
+  <p>Če se vaš CD ne predvaja v vašemu prevajalniku CD ali glasbenem stolpu, je to verjetno zato, ker glasba ni bila pravilno zapisana na disk ali ker ste za zapis glasbe na CD uporabili podatkovni namesto zvočnega projekta.</p>
+
+  <note>
+    <p>Veliko novih CD in DVD predvajalnikov predvaja glasbene CD-je, ki so bili ustvarjeni s podatkovnim projektom, večina starejših predvajalnikov pa ne.</p>
+  </note>
+
+  <note>
+    <p>Stari CD predvajalniki morda ne bodo mogli predvajati CD-RW-jev .</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Če uporabljate CD-RW, spraznite CD.</p>
+    </item>
+    <item>
+      <p>Prepis CD-ja kot zvočni projekt.</p>
+    </item>
+  </steps>
+
+</page>

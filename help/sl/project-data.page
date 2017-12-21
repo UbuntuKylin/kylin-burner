@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Zapis podatkov na CD ali DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Ustvarjanje podatkovnega projekta</title>
+
+  <p>Podatkovni projekt se uporablja za zapisovanje podatkov (na primer datotek, fotografij ali glasbe) na disk brez spreminjanja datotek na kakršenkoli način. To je lahko uporabno za prenašanje datotek med računalniki.</p>
+
+  <steps>
+    <item>
+      <p>Na začetni strani kliknite <gui>Podatkovni projekt</gui> ali izberite <guiseq><gui>Projekt</gui><gui>Nov projekt</gui><gui>Nov podatkovni projekt</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Želene datoteke dodajte projektu s klikom na <gui>Dodaj</gui> v orodni vrstici in izbiro datotek. Datoteke lahko dodate tudi z vlečenjem in spuščanjem na področje projekta ali s klikom na <guiseq><gui>Uredi</gui><gui>Dodaj datoteke</gui></guiseq>.</p>
+      <note style="tip">
+	<p>Za shranjevanje podatkov na CD-ju na bolj strukturiran način lahko ustvarite mape. Za ustvaritev mape kliknite <gui>Nova mapa</gui> v orodni vrstici ali izberite  <guiseq><gui>Uredi</gui><gui>Nova mapa</gui></guiseq> iz menijske vrstice. Mape lahko ustvarite tudi znotraj drugih map.</p>
+      </note>
+    </item>
+    <item>
+      <p>Naslov diska lahko dodate v besedilnem polju pod področjem projekta.</p>
+    </item>
+    <item>
+      <p>V spustnemu seznamu izberite prazen disk.</p>
+    </item>
+    <item>
+      <p>Za nadaljevanje kliknite <gui>Zapiši ...</gui>.</p>
+    </item>
+    <item>
+      <p>V spustnem seznamu izberite <gui>Hitrost zapisovanja</gui> in druge možnosti, ki jih morda želite.</p>
+    </item>
+    <item>
+      <p>Kliknite <gui>Zapiši</gui> za zapis enega CD-ja projekta ali <gui>Zapiši več kopij</gui> za zapis projekta na več CD-jev</p>
+      <note>
+        <p>Če uporabljate prepisljiv disk, ki že vsebuje podatke, boste vprašani, če ga želite izprazniti ali vstaviti drug disk. </p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Če uporabljate prepisljiv disk in podatki nanj niso pravilno zapisani, boste mora pred ponovnim poskusom morali narediti polno (ne hitro) praznjenje diska.</p>
+
+</page>

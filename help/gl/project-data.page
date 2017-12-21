@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Escribir datos nun CD ou DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>Creando un proxecto de datos</title>
+
+  <p>Un proxecto de datos úsase para escribir datos(por exemplo, ficheiros, fotos ou música) a un disco, sen cambiar os ficheiros. Isto pode ser útil para transferir ficheiros entre computadores.</p>
+
+  <steps>
+    <item>
+      <p>Prema en <gui>Proxecto de datos</gui> na xanela principal ou seleccione <guiseq><gui>Proxecto</gui><gui>Novo proxecto</gui><gui>Novo proxecto de datos</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Engada os ficheiros desexados ao proxecto premendo <gui>Engadir</gui> na barra de ferramentas e seleccione os ficheiros. Pode engadir ficheiros arrastrándoos á área do proxecto ou premendo <guiseq><gui>Editar</gui><gui>Engadir ficheiros</gui></guiseq>.</p>
+      <note style="tip">
+	<p>Pode engadir cartafoles ao CD para gardar os seus datos de forma máis estruturada. Para engadir un cartafol, prema <gui>Novo cartafol</gui> desde a barra de ferramentas ou seleccione <guiseq><gui>Editar</gui><gui>Novo cartafol</gui></guiseq> desde a barra de menú. Tamén pode crear cartafoles dentro de outros.</p>
+      </note>
+    </item>
+    <item>
+      <p>Pode engadir un título para o disco no campo de texto embaixo da área do proxecto.</p>
+    </item>
+    <item>
+      <p>Seleccione o disco borrado desde a lista despregábel.</p>
+    </item>
+    <item>
+      <p>Prema <gui>Gravar…</gui> para continuar.</p>
+    </item>
+    <item>
+      <p>Seleccione <gui>Velocidade de grabación</gui> desde a lista despregábel e outras opcións que desexe.</p>
+    </item>
+    <item>
+      <p>Prema <gui>Gravar</gui> para gravar un único CD do proxecto ou <gui>Gravar varias copias</gui> para gravar o seu proxecto en varios CD.</p>
+      <note>
+        <p>Se usa un disco regravábel, que tamén contén datos preguntaráselle se quere borralo ou inserir un disco distinto.</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Se está usando un disco rescribíbel e os datos non se escribiron correctamente nel, debe facer un borrado completo do disco antes de tentalo de novo.</p>
+
+</page>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Nem tudok DVD-R vagy DVD-RW lemezre írni.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>DVD-készítési hiba</title>
+
+  <p>Egyes DVD-R és DVD-RW lemezek nem kompatibilisek minden íróval. A következők ellenőrzésével meggyőződhet róla, hogy a lemez használható-e az adott íróval.</p>
+
+  <steps>
+    <item>
+      <p>Ellenőrizze, hogy a DVD meghajtó  elfogad-e DVD+ vagy DVD- lemezeket, ha a felirata „multi”, akkor általában mindkettőt elfogadja. Ellenőrizze, hogy a lemez felirata megfelel-e a meghajtó feliratának.</p>
+    </item>
+    <item>
+      <p>Ellenőrizze, hogy lemeze egy- vagy kétrétegű-e. Egyes DVD-meghajtók nem képesek a kétrétegű lemezek írására.</p>
+    </item>
+    <item>
+      <p>Ha DVD-R lemezt próbál használni, ellenőrizze, hogy nem volt-e már rá írva. Ha DVD-RW lemezt használ, akkor próbálja törölni, mielőtt írna rá.</p>
+    </item>
+  </steps>
+
+</page>

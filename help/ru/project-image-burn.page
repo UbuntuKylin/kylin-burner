@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Запись образа диска на CD или DVD.</desc>
+    <credit type="author">
+      <name>Марта Богданович (Marta Bogdanowicz)</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Запись образа</title>
+
+  <p>С помощью <app>Brasero</app> можно записывать образы дисков на CD или DVD. Приложение поддерживает следующие форматы образов: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Образы дисков — это архивы, которые содержат все данные с CD или DVD. На диске может находиться не более одного образа диска, но каждый архив может содержать произвольное количество данных, но эти данные должны помещаться на диск.</p>
+  </note>
+
+  <p>Чтобы записать образ диска на CD или DVD, следуйте этим инструкциям:</p>
+  <steps>
+    <item>
+      <p>Click <gui>Burn image</gui> on the start page or select
+      <guiseq><gui>Project</gui><gui>New Project</gui><gui>Burn image…</gui>
+      </guiseq>.</p>
+    </item>
+    <item>
+      <p>Выберите образ диска для записи, нажав <gui>Нажмите, чтобы выбрать образ диска</gui>.</p>
+    </item>
+    <item>
+      <p>Выберите нужный диск из выпадающего списка <gui>Выберите диск для записи</gui>. Если у вас больше одного привода, будут перечислены все находящиеся в них диски.</p>
+        <note><p>После выбора диска <app>Brasero</app> покажет, сколько свободного места останется на диске после записи.</p></note>
+    </item>
+    <item>
+      <p>Нажмите <gui>Свойства</gui>, чтобы выбрать скорость записи и другие параметры.</p>
+    </item>
+    <item>
+      <p>Чтобы начать запись образа, нажмите <gui>Записать</gui>. После этого можно завершить запись или сделать ещё одну копию образа.</p>
+        <note>
+          <p>Если вы выбрали перезаписываемый диск, на котором уже записаны какие-то данные, приложение позволит произвести очистку этого диска или вставить другой диск.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

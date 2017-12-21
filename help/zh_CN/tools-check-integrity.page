@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>您可以在刻录光盘后检查其完整性。</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>检查盘片完整性</title>
+
+  <p>在使用 <app>Brasero</app> 刻录一张 CD/DVD 后，您可以通过检查光盘完整性来确认光盘中的文件完整无损。</p>
+
+  <steps>
+    <item>
+      <p>选择 <guiseq><gui>工具</gui><gui>检查完整性...</gui></guiseq>。</p>
+    </item>
+    <item>
+      <p>如果您愿意，可以选择 <guilabel>使用 MD5 文件检查光盘</guilabel> 选项。</p>
+	<note style="advanced">
+	<list>
+	<item><p>MD5 (信息摘要算法 5) 是 一种广泛应用于数据完整性检查的密码散列函数。</p></item>
+	<item><p>如果您选择了该选项，那么需要通过点击下方的文件夹图标来找到对应的 MD5 文件。</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>点击 <gui>检查</gui> 继续，或点击 <gui>关闭</gui> 取消检查。</p>
+    </item>
+    <item>
+      <p>在检查完成后，您可以选择<gui>重新检查</gui> 或直接 <gui>关闭</gui>。</p>
+    </item>
+  </steps>
+
+</page>

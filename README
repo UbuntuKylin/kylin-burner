@@ -1,0 +1,77 @@
+Brasero is a CD/DVD mastering tool for the GNOME Desktop. It is designed to be simple and easy to use. 
+
+Features:
+
+Data CD/DVD:
+- supports edition of discs contents (remove/move/rename files inside directories)
+- can burn data CD/DVD on the fly
+- automatic filtering for unwanted files (hidden files, broken/recursive symlinks, files not conforming to joliet standard, ...)
+- supports multisession
+- supports joliet extension
+- can write the image to the hard drive
+
+Audio CD:
+- write CD-TEXT information (automatically found thanks to gstreamer)
+- supports the edition of CD-TEXT information
+- can burn audio CD on the fly
+- can use all audio files handled by GStreamer local installation (ogg, flac, mp3, ...)
+- can search for audio files inside dropped folders 
+- can insert a pause
+- can split a track
+
+CD/DVD copy:
+- can copy a CD/DVD to the hard drive
+- can copy DVD and CD on the fly
+- supports single-session data DVD
+- supports any kind of CD
+- can copy encrypted Video DVDs (needs libdvdcss)
+
+Others:
+- erase CD/DVD
+- can save/load projects
+- can burn CD/DVD images and cue files
+- song, image and video previewer
+- device detection thanks to HAL
+- file change notification (requires kernel > 2.6.13)
+- supports Drag and Drop / Cut'n'Paste from nautilus (and others apps)
+- can use files on a network as long as the protocol is handled by gnome-vfs
+- can search for files thanks to beagle (search is based on keywords or on file type)
+- can display a playlist and its contents (note that playlists are automatically searched through beagle)
+- all disc IO is done asynchronously to prevent the application from blocking
+- Brasero default backend is provided by cdrtools/cdrkit but libburn can be used as an alternative
+
+
+Notes on plugins for advanced users
+
+1. configuration
+
+From the UI you can only configure (choose to use or not to use mostly) non essential plugins; that is all those that don't burn, blank, or image.
+If you really want to choose which of the latters you want brasero to use, one simple solution is to remove the offending plugin from brasero plugin directory ("install_path"/lib/brasero/plugins/) if you're sure that you won't want to use it.
+You can also set priorities between plugins. They all have a hardcoded priority that can be overriden through GSettings.
+If you set this key to -1 this turns off the plugin.
+If you set this key to 0 this leaves the internal hardcoded priority - the default that basically lets brasero decide what's best.
+If you set this key to more than 0 then that priority will become the one of the plugin - the higher, the more it has chance to be picked up.
+
+2. additional note
+
+Some plugins have overlapping functionalities (i.e. libburn/wodim/cdrecord/growisofs, mkisofs/libisofs/genisoimage); but they don't always do the same things or sometimes they don't do it in the same way. Some plugins have a "speciality" where they are the best. That's why it's usually good to have them all around
+As examples, from my experience:
+- growisofs is good at handling DVD+RW and DVD-RW restricted overwrite
+- cdrdao is best for on the fly CD copying
+- libburn returns a progress when it blanks/formats
+
+
+Requirements:
+- gtk+ >= 3.x
+- gnome 3.x (gio)
+- gstreamer (>=1.0.0)
+- libxml2
+- cdrtools or cdrkit
+- growisofs
+- a fairly new kernel (>= 2.6.13 because of inotify) (optional)
+- cairo
+- libcanberra
+- totem (>= 3.0) (optional)
+- tracker (>= 0.10.0) (optional)
+- libburn (>=0.4.0) (optional)
+- libisofs (>=0.6.2) (optional)

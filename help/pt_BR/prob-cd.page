@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="pt-BR">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Meus MP3s não são reproduzidos em um reprodutor de DVD ou CD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Licença Creative Commons Atribuição Compartilhada 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Enrico Nicoletto</mal:name>
+      <mal:email>liverig@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Rafael Ferreira</mal:name>
+      <mal:email>rafael.f.f1@gmail.com</mal:email>
+      <mal:years>2013, 2014.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>CD não é reproduzido em um reprodutor de CD</title>
+
+  <p>Se seu CD não está sendo reproduzido em seu reprodutor de CD ou rádio, provavelmente é porque a música não foi corretamente escrita ao disco ou por que você usou um projeto de dados para escrever a música no CD ao invés de usar um projeto de áudio.</p>
+
+  <note>
+    <p>Mutios dos reprodutores novos de CD e DVD irão reproduzir CDs de música que foram criados usando um projeto de dados, mas a maioria dos reprodutores antigos não irão.</p>
+  </note>
+
+  <note>
+    <p>Reprodutores de CD antigos podem não serem aptos a reproduzirem CD-RWs.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Se você está usando um CD-RW, apague o CD.</p>
+    </item>
+    <item>
+      <p>Reescreva o CD como um projeto de áudio.</p>
+    </item>
+  </steps>
+
+</page>

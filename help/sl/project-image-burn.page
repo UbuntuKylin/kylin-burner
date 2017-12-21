@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Zapis obstoječega odtisa diska na CD ali DVD.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Zapis odtisa</title>
+
+  <p><app>Brasero</app> vam omogoča zapis odtisov na CD ali DVD. Podpira naslednje pripone za odtise optičnih diskov: <file>.iso</file>, <file>.toc</file> and <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Odtisi diska so datoteke arhivov, ki vsebujejo vse podatke na CD-ju ali DVD-ju. Hkrati je lahko na CD-ju le en odtis diska, vendar lahko vsak arhiv vsebuje kolikor malo ali kolikor veliko podatkov želite, dokler se prilega na disk.</p>
+  </note>
+
+  <p>Za zapis odtisa diska na CD ali DVD sledite tem korakom:</p>
+  <steps>
+    <item>
+      <p>Click <gui>Burn image</gui> on the start page or select
+      <guiseq><gui>Project</gui><gui>New Project</gui><gui>Burn image…</gui>
+      </guiseq>.</p>
+    </item>
+    <item>
+      <p>Izberite odtis diska za zapisovanje s klikom na <gui>Kliknite tukaj za zapis odtisa na disku</gui>.</p>
+    </item>
+    <item>
+      <p>Izberite disk, na katerega bi radi zapisovali v spustnem meniju <gui>Izbor diska za pisanje</gui>. Če imate več kot en diskovni pogon, bodo izpisani vsi pogoni v katerih je disk.</p>
+        <note><p>Po izbiri diska <app>Brasero</app> pokaže koliko praznega prostora bo ostalo na disku po zapisovanju.</p></note>
+    </item>
+    <item>
+      <p>Kliknite na gumb <gui>Lastnosti</gui> za izbiro hitrosti zapisovanja in drugih možnosti po meri.button to select burning speed and other custom options.</p>
+    </item>
+    <item>
+      <p>Kliknite <gui>Zapiši</gui> za začetek zapisovanja odtisa. Po tem opravilu lahko končate z zapisovanjem ali naredite še eno kopijo odtisa.</p>
+        <note>
+          <p>Če uporabljate prepisljiv disk, ki že vsebuje podatke, boste vprašani, če ga želite izprazniti ali vstaviti drug disk. </p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

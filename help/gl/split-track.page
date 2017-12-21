@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Dividir un proxecto de pista de son en múltiples pistas.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>Dividir unha pista de audio</title>
+
+  <p>Pode dividir unha única pisca de audio en múltiples pistas cando o pon xunto nun proxecto de audio</p>
+
+  <steps>
+    <item>
+      <p>Inicie un proxecto de audio e engada as pistas que desexe.</p>
+    </item>
+    <item>
+      <p>Seleccione a pista que desexa dividir preméndoa, logo prema tanto en <guiseq><gui>Editar</gui><gui>Dividir pista…</gui></guiseq> ou prema co botón dereito sobr eunha pista e seleccione <gui>Dividir pista…</gui> desde o menú.</p>
+    </item>
+    <item>
+      <p>Seleccione o seu método prefirido de división de pistas:</p>
+      <terms>
+        <item>
+          <title>Dividir a pista de forma manual</title>
+          <p>Esta opción permítelle seleccionar a lonxitude exacta para cada nova sección de pista manualmente.</p>
+       </item>
+       <item>
+          <title>Dividir as pistas en partes con unha lonxitude fixa</title>
+          <p>Use este método para dividr as pistas en múltiples seccións de igual lonxitude</p>
+        </item>
+        <item>
+          <title>Dividir a pista nun número fixo de partes</title>
+          <p>Este método permítelle dividir a pista nun conxunto de seccións, todos da mesma lonxitude</p>
+        </item>
+        <item>
+          <title>Dividir a pista en cada silencio</title>
+          <p>Seleccione este método para que <app>Brasero</app> autodetecte silencies nas grabacións e divida as pistas neses puntos.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Proceda coa división da pista premendo <gui>Dividir</gui>.</p>
+      <note>
+        <p>Se tenta dividr unha pista nunha sección máis curta que seis segundos, a nova sección dita sección será ampliada até os 6 segundos.</p>
+      </note>
+    </item>
+    <item>
+      <p>Prema <gui>OK</gui> para confirmar as divisións de pista e aplicar os cambios.</p>
+      <note>
+        <p>Pode dividir ou combinar a mesma pista tantas veces como queira, mentres estea vendo o diálogo de división de pista. En canto confirme a división da súa pista premendo <gui>Aceptar</gui>, xa non poderá combinar as seccións que antes dividiu. Para reverter os cambios, elimine as seccións dividas da pista do proxecto e engada de novo a pista.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

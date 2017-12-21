@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>Запись видео на DVD или SVCD.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Создание видеопроекта</title>
+
+  <p><app>Brasero</app> можно использовать для создания видеодисков для проигрывателей DVD или ноутбуков.</p>
+
+  <steps>
+    <item>
+      <p>Нажмите кнопку <guibutton>Видеопроект</guibutton> на начальной странице или выберите <guiseq><gui>Проект</gui><gui>Создать проект</gui><gui>Новый видеопроект</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Добавьте видеофайлы в проект, нажав левую кнопку мыши на кнопке <gui>Добавить</gui> в панели инструментов и выбрав файлы. Файлы также можно добавлять в проект, перетаскивая их в область проекта или выбрав в меню <guiseq><gui>Правка</gui><gui>Добавить файлы</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Вы можете добавить название диска, введя название в текстовое поле, находящееся под областью проекта.</p>
+    </item>
+    <item>
+      <p>Выберите чистый диск в выпадающем списке.</p>
+    </item>
+    <item>
+      <p>Чтобы продолжить, нажмите <gui>Записать...</gui>.</p>
+    </item>
+    <item>
+      <p>Выберите <gui>Скорость записи</gui> в выпадающем списке, а также другие параметры, которые вы хотели бы установить.</p>
+    </item>
+    <item>
+      <p>Чтобы записать один диск, нажмите <gui>Записать</gui>, или нажмите <gui>Записать несколько копий</gui>, чтобы записать проект на несколько дисков.</p>
+    </item>
+  </steps>
+
+</page>

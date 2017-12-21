@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Création d'un projet audio.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Gravure d'un CD de musique</title>
+
+  <p><app>Brasero</app> peut graver des fichiers audio sur un CD, que vous pouvez ensuite utiliser dans des lecteurs CD ou autres. Il est généralement préférable d'utiliser un CD non ré-inscriptible car tous les lecteurs de CD ne lisent pas les CD ré-inscriptibles.</p>
+
+  <steps>
+    <item>
+      <p>Cliquez sur <gui>Projet audio</gui> dans la fenêtre principale ou choisissez <guiseq><gui>Projet</gui><gui>Nouveau projet</gui><gui>Nouveau projet audio</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pour ajouter des fichiers audio au projet, cliquez sur <gui>Ajouter</gui> dans la barre d'outils et sélectionner les fichiers. Vous pouvez aussi ajouter des fichiers par glisser-déposer dans la fenêtre du projet ou en cliquant sur <guiseq><gui>Édition</gui><gui>Ajouter des fichiers</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Vous pouvez ajouter un titre pour le CD dans le champ de saisie de texte, en dessous de la fenêtre du projet.</p>
+    </item>
+    <item>
+      <p>Sélectionnez un CD vierge dans la liste déroulante.</p>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Graver...</gui> pour continuer.</p>
+    </item>
+    <item>
+      <p>Sélectionnez la <gui>Vitesse de gravure</gui> depuis la liste déroulante, ainsi que les autres options souhaitées.</p>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Graver</gui> pour graver le projet sur un seul disque ou <gui>Graver plusieurs copies</gui> pour graver le projet sur plusieurs disques.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Vous pouvez aussi diviser des pistes individuelles en plusieurs pistes en utilisant l'outil <gui>Diviser</gui> et ajouter une pause de deux secondes après une piste en utilisant le bouton <gui>Silence</gui>.</p>
+  </note>
+
+</page>

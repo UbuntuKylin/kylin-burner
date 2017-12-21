@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>Ierakstiet video uz DVD vai SVCD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Veidot video projektu</title>
+
+  <p><app>Brasero</app> var izmantot, lai veidotu video diskus, kurus atskaņot DVD atskaņotājā vai portatīvajā datorā.</p>
+
+  <steps>
+    <item>
+      <p>Spiediet <gui>Video projekts</gui> sākuma lapā, vai izvēlieties <guiseq><gui>Projekts</gui><gui>Jauns projekts</gui><gui>Jauns video projekts</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pievienojiet projektam video, spiežot <gui>Pievienot</gui> rīkjoslā un izvēloties failus. Jūs varat arī pievienot failus, tos ievelkot un nometot projektā vai spiežot <guiseq><gui>Rediģēt</gui><gui>Pievienot failus</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Jūs varat pievienot diska nosaukumu teksta ievades laukā zem projekta.</p>
+    </item>
+    <item>
+      <p>Izvēlaties tukšo disku izkrītošajā izvēlnē.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt...</gui>, lai turpinātu.</p>
+    </item>
+    <item>
+      <p>Izvēlieties <gui>rakstīšanas ātrumu</gui> no izkrītošā saraksta, un citas opcijas.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt</gui>, lai vienā diskā ierakstītu projektu, vai <gui>Ierakstīt vairākas kopijas</gui>, lai ierakstītu jūsu projektu vairākos diskos.</p>
+    </item>
+  </steps>
+
+</page>

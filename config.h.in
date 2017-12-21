@@ -1,0 +1,157 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* major version */
+#undef BRASERO_MAJOR_VERSION
+
+/* minor version */
+#undef BRASERO_MINOR_VERSION
+
+/* sub version */
+#undef BRASERO_SUB
+
+/* version */
+#undef BRASERO_VERSION
+
+/* define if you want to build cdrdao plugins */
+#undef BUILD_CDRDAO
+
+/* define if you want to build cdrkit plugins */
+#undef BUILD_CDRKIT
+
+/* define if you want to build cdrtools plugins */
+#undef BUILD_CDRTOOLS
+
+/* define if you want to build growisofs plugins */
+#undef BUILD_GROWISOFS
+
+/* define if you want to build inotify */
+#undef BUILD_INOTIFY
+
+/* define if you want to build libburnia plugins */
+#undef BUILD_LIBBURNIA
+
+/* define if you want to build playlist pane */
+#undef BUILD_PLAYLIST
+
+/* define if you want to build preview pane */
+#undef BUILD_PREVIEW
+
+/* define if you want to use search pane */
+#undef BUILD_SEARCH
+
+/* define if you want to use search pane */
+#undef BUILD_TRACKER
+
+/* always defined to indicate that i18n is enabled */
+#undef ENABLE_NLS
+
+/* Package name for gettext */
+#undef GETTEXT_PACKAGE
+
+/* Define the location where the catalogs will be installed */
+#undef GNOMELOCALEDIR
+
+/* Define to 1 if you have the `bind_textdomain_codeset' function. */
+#undef HAVE_BIND_TEXTDOMAIN_CODESET
+
+/* Define to 1 if you have the <camlib.h> header file. */
+#undef HAVE_CAMLIB_H
+
+/* Define to 1 if you have the `dcgettext' function. */
+#undef HAVE_DCGETTEXT
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define if the GNU gettext() function is already present or preinstalled. */
+#undef HAVE_GETTEXT
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define if your <locale.h> file defines LC_MESSAGES. */
+#undef HAVE_LC_MESSAGES
+
+/* Define to 1 if you have the <locale.h> header file. */
+#undef HAVE_LOCALE_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if the system has the type `scsireq_t'. */
+#undef HAVE_SCSIREQ_T
+
+/* Define to 1 if the system has the type `sg_io_hdr_t'. */
+#undef HAVE_SG_IO_HDR_T
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if the system has the type `struct uscsi_cmd'. */
+#undef HAVE_STRUCT_USCSI_CMD
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define the PACKAGE_DATA_DIR. */
+#undef PACKAGE_DATA_DIR
+
+/* Location of package locale files */
+#undef PACKAGE_LOCALE_DIR
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
+#endif
+
+/* Number of bits in a file offset, on hosts where this is settable. */
+#undef _FILE_OFFSET_BITS
+
+/* Define for large files, on AIX-style hosts. */
+#undef _LARGE_FILES

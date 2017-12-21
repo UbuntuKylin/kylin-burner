@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="el">
+
+  <title><media type="image" src="figures/logo48.png" its:translate="no"/> Βοήθεια Brasero</title>
+
+  <section id="new-project" style="2column">
+    <title>Δημιουργία νέου έργου</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>Αντιμετώπιση προβλημάτων</title>
+  </section>
+
+  <section id="tools" style="2column">
+    <title>Άλλα εργαλεία</title>
+  </section>
+
+</page>

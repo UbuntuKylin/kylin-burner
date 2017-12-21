@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="ca">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Creació d'un projecte d'àudio.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Francisco Domech</mal:name>
+      <mal:email>frandj72@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Escriure un CD de música</title>
+
+  <p><app>Brasero</app> can write audio files to a CD, which you can then use
+  for playing in CD players and so on. It is usually best to
+  use a non-rewritable CD because not all CD players will play rewritable
+  CDs.</p>
+
+  <steps>
+    <item>
+      <p>Feu clic a <gui>Projecte d'àudio</gui> a la finestra principal o trieu <guiseq><gui>Projecte</gui><gui>Projecte nou</gui><gui>Projecte d'àudio nou</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Add audio files to the project by clicking <gui>Add</gui> in the
+      toolbar and selecting the desired files. You can also add files by
+      dragging and dropping them onto the project area or by clicking
+      <guiseq><gui>Edit</gui><gui>Add Files</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>You can add a title for the CD in the text entry field below the
+      project area.</p>
+    </item>
+    <item>
+      <p>Select the blank CD in the drop down list.</p>
+    </item>
+    <item>
+      <p>Feu clic a <gui>Enregistra...</gui> per continuar.</p>
+    </item>
+    <item>
+      <p>Trieu la <gui>Velocitat d'enregistrament</gui> des de la llista desplegable i qualsevol altra opció que vulgueu canviar </p>
+    </item>
+    <item>
+      <p>Click <gui>Burn</gui> to burn a single disc of the project or
+      <gui>Burn Several Copies</gui> to burn your project to multiple discs.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>You can also split individual tracks into multiple tracks using the
+    <gui>Split</gui> tool and add a two second break after a track using the
+    <gui>Pause</gui> button.</p>
+  </note>
+
+</page>

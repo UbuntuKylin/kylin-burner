@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="id">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Pecah trek projek audio ke beberapa trek.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Pecah suatu trek audio</title>
+
+  <p>Anda dapat memecah suatu trek audio tunggal ke dalam beberapa trek ketika Anda menyusun suatu projek audio.</p>
+
+  <steps>
+    <item>
+      <p>Mulai projek audio dan menambah trek yang ingin Anda pakai.</p>
+    </item>
+    <item>
+      <p>Pilih trek yang ingin Anda pecah dengan mengkliknya, lalu klik <guiseq><gui>Sunting</gui><gui>Pecah Trek…</gui></guiseq> atau klik kanan pada trek dan pilih <gui>Pecah Trek…</gui> dari menu.</p>
+    </item>
+    <item>
+      <p>Pilih metoda yang Anda sukai untuk memecah trek:</p>
+      <terms>
+        <item>
+          <title>Pecah trek secara manual</title>
+          <p>Opsi ini memungkinkan Anda memilih panjang eksak dari setiap seksi baru dari trek secara manual.</p>
+       </item>
+       <item>
+          <title>Pecah trek ke dalam bagian-bagian dengan panjang tetap</title>
+          <p>Gunakan metoda ini untuk memecah trek ke beberapa bagian dengan panjang yang sama.</p>
+        </item>
+        <item>
+          <title>Pecah trek ke sejumlah tertentu bagian</title>
+          <p>Metoda ini memungkinkan Anda memecah trek ke sejumlah seksi, semua akan memiliki panjang yang sama.</p>
+        </item>
+        <item>
+          <title>Pecah trek setiap ada keheningan</title>
+          <p>Pilih metoda ini agar <app>Brasero</app> mendeteksi secara otomatis keheningan dan rekaman dan memecah trek pada titik-titik tersebut.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Lanjutkan memecah trek dengan mengklik <gui>Iris</gui>.</p>
+      <note>
+        <p>Bila Anda mencoba memecah trek ke dalam bagian yang kurang dari enam detik, seksi baru akan diganjal agar panjangnya 6 detik.</p>
+      </note>
+    </item>
+    <item>
+      <p>Klik <gui>Ok</gui> untuk mengkonfirmasi pemecahan trek Anda dan menerapkan perubahan.</p>
+      <note>
+        <p>Anda dapat memecah dan menggabung trek yang sama berapa kalipun sebanyak yang Anda mau ketika Anda sedang melihat dialog pecah trek. Sekali Anda mengkonfirmasi pemecahan trek Anda dengan mengklik <gui>Ok</gui>, Anda tak akan bisa lagi menggabung bagian yang telah Anda pecah. Untuk membatalkan perubahan, hapus bagian pemecahan dari trek dari projek ANda dan tambahkan ulang trek.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Effacer un CD ou un DVD ré-inscriptible.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Effacement d'un disque</title>
+
+  <p>Vous pouvez préparer un disque ré-inscriptible, contenant des données ou pas, pour l'écriture en l'effaçant.</p>
+
+  <steps>
+    <item>
+      <p>Sélectionnez <guiseq><gui>Outils</gui><gui>Effacer...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Si vous avez plus d'un lecteur de disque contenant un disque ré-inscriptible, vous pouvez sélectionner le disque à réécrire sous <gui>Choisissez un disque</gui>.</p>
+    </item>
+    <item>
+      <p>Vous pouvez choisir <gui>Effacement rapide</gui> pour effacer le CD plus rapidement.</p>
+      <note>
+        <p>Si vous rencontrez des problèmes lors de l'écriture d'un disque effacé rapidement, essayez de désactiver l'effacement rapide et réessayez à nouveau.</p>
+      </note>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Effacer</gui> pour continuer.</p>
+    </item>
+    <item>
+      <p>Le disque est éjecté quand l'effacement est terminé.</p>
+    </item>
+  </steps>
+
+</page>

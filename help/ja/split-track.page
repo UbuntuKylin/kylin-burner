@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>音楽プロジェクトのトラックを複数のトラックに分割します。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>音楽トラックを分割する</title>
+
+  <p>音楽プロジェクトを作る際、単一の音楽トラックを複数のトラックへと分割することができます。</p>
+
+  <steps>
+    <item>
+      <p>音楽プロジェクトを開始して、使用したいトラックを追加します。</p>
+    </item>
+    <item>
+      <p>分割したいトラックをクリックして選択肢、<guiseq><gui>編集</gui><gui>トラックの分割…</gui></guiseq>、または、そのトラックの上で右クリックしてメニューから<gui>トラックの分割…</gui>を選択します。</p>
+    </item>
+    <item>
+      <p>トラックを分割するお好みの方法を選択してください。</p>
+      <terms>
+        <item>
+          <title>手動で分割する</title>
+          <p>このオプションでは、トラックのセクションごとにその長さを厳密に指定できます。</p>
+       </item>
+       <item>
+          <title>固定の長さで分割する</title>
+          <p>この方法を使えば、トラックを同じ長さの複数のセクションへと分割できます。</p>
+        </item>
+        <item>
+          <title>数を固定して分割する</title>
+          <p>この方法では指定された数のセクションにトラックが分割され、それぞれの長さは等しくなります。</p>
+        </item>
+        <item>
+          <title>無音部分で分割する</title>
+          <p>この方法を選択すると<app>Brasero</app>は自動的に録音の無音部分を検出し、その箇所でトラックを分割します。</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p><gui>分割する</gui>をクリックしてトラックを分割します。</p>
+      <note>
+        <p>6秒未満のセクションにトラックを分割しようとすると、新しいセクションは6秒になるように埋め合わせられます。</p>
+      </note>
+    </item>
+    <item>
+      <p><gui>OK</gui>をクリックしてトラックの分割を確定し、変更を適用します。</p>
+      <note>
+        <p>トラックの分割ダイアログを開いている間は同じトラックを何度でも分割したり結合したりできます。<gui>OK</gui>をクリックしてトラックの分割を確定したあとは、分割したセクションを結合し直すことはできません。変更を元に戻すには、分割されたトラックのセクションをプロジェクトから削除して、トラックを追加し直してください。</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

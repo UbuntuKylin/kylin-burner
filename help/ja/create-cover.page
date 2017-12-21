@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>CDケースのジャケットを作成する</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>ジャケットを作成する</title>
+
+  <p><app>Brasero</app>を使って、CDケースのジャケットを作成することができます。<guiseq><gui>ツール</gui> <gui>ジャケットの編集</gui></guiseq>からクリエイターにアクセスしてください。</p>
+
+  <note style="tip">
+    <p>音楽プロジェクトを作成していて、ジャケットを作成する前にプロジェクトを作り終えた場合、音楽プロジェクトウィンドウから<gui>ジャケットの編集</gui>インターフェースにアクセスすると、裏面カバーに自動的にトラックが列挙されます。</p>
+  </note>
+
+  <note style="important">
+    <p><gui>ジャケットの編集</gui>を閉じると変更は失われます。</p>
+  </note>
+
+  <steps>
+    <item>
+      <p><gui>ジャケットの編集</gui>を開きます。</p>
+    </item>
+    <item>
+      <p>テキストに使用したいフォーマットを選んでテキストを入力します。下へスクロールすると、CDケースの側面および裏面を表示されます。</p>
+      <note style="tip">
+        <p><gui>ジャケットの編集</gui>ダイアログを最初に開いたとき、テキストフォーマットのオプションはどれもクリックできません。使えるようにするには作業したいジャケットをクリックしてください。</p>
+      </note>
+    </item>
+    <item>
+      <p>作業中のカバーに背景を追加するには<gui>背景のプロパティ</gui>ツールバーアイコンをクリックし、編集したいジャケットを選んで右クリックして<gui>背景のプロパティを指定する</gui>を選びます。色の背景を使ったり、背景画像を選んだりできます。</p>
+      <note style="bug">
+        <p>画像のスタイルで「中央」を指定して<gui>閉じる</gui>ボタンをクリックすると、<app>Brasero</app>がクラッシュすることがあります。</p>
+      </note>
+      <p><gui>閉じる</gui>ボタンをクリックして変更を適用し、<gui>背景のプロパティ</gui>ダイアログを閉じます。</p>
+    </item>
+    <item>
+      <p>ジャケットを印刷するにはダイアログの右上の角にある<gui>印刷</gui>ボタンをクリックします。</p>
+    </item>
+  </steps>
+
+</page>

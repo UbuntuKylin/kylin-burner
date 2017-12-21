@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>我的 MP3 文件在 DVD 或 CD 播放器中不能播放。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>CD 在 CD 播放器中不能播放</title>
+
+  <p>如果您的 CD 在 CD 播放器中不能播放，很可能是由于音乐文件没有正确的写入光盘，或者是因为您使用了数据项目来将音乐文件写入 CD，而不是用音频项目。</p>
+
+  <note>
+    <p>许多新的 CD 和 DVD 播放器可以播放数据项目创建的音乐 CD，但大多数老的播放器则不能。</p>
+  </note>
+
+  <note>
+    <p>老 CD 播放器可能无法播放 CD-RW 盘片。</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>如果您使用的是一张 CD-RW 光盘, 请先清空它。</p>
+    </item>
+    <item>
+      <p>以音频项目来重写该 CD。</p>
+    </item>
+  </steps>
+
+</page>

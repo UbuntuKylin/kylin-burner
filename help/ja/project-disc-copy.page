@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>ディスクの完全なコピーを作成します。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>ディスクをコピーする</title>
+
+  <steps>
+    <item>
+      <p>スタートページの<gui>ディスクのコピー</gui>をクリックするか、<guiseq><gui>プロジェクト</gui><gui>新しいプロジェクト</gui><gui>ディスクのコピー</gui></guiseq>を選択します。</p>
+    </item>
+    <item>
+      <p><gui>コピー元のディスクの選択</gui>の下のドロップダウンリストからコピーしたいディスクを選択します。ディスクドライブが複数ある場合、ドライブに挿入されているすべてのディスクが列挙されます。</p>
+    </item>
+    <item>
+      <p>別のディスクにコピーを作成するか、あとで利用するためにイメージを作成するかを選択します。</p>
+    </item>
+    <item>
+      <p><gui>プロパティ</gui>をクリックして書き込み速度やその他のカスタムオプションを選択します。</p>
+    </item>
+    <item>
+      <p><gui>コピー</gui>をクリックしてディスクのコピーを開始します。複数枚のコピーを作る場合は、<gui>複数のディスクの作成</gui>をクリックします。</p>
+      <note>
+	<p>コピーの際、ディスクドライブが1つしかない場合、コピー元のディスクの内容を一時的にハードディスクにコピーした後、書き込み可能なディスクに入れ替えるように求められます。</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

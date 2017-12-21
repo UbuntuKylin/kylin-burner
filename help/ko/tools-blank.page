@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="ko">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>쓸 수 있는 CD나 DVD를 비워서 지웁니다.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Seong-ho Cho</mal:name>
+      <mal:email>darkcircle.0426@gmail.com</mal:email>
+      <mal:years>2011, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>디스크 비우기</title>
+
+  <p>쓰려면 비운다는 조건 하에 데이터가 들어있는 다시 쓸 수 있는 디스크를 준비할 수 있습니다.</p>
+
+  <steps>
+    <item>
+      <p><guiseq><gui>도구</gui><gui>비우기...</gui></guiseq>를 선택합니다.</p>
+    </item>
+    <item>
+      <p>하나 이상의 디스크 드라이브에 다시 쓸 수 있는 디스크가 들어있다면, <gui>디스크 선택</gui> 에서 다시 쓸 수 있는 디스크를 선택할 수 있습니다.</p>
+    </item>
+    <item>
+      <p>CD를 빠르게 비우려면 <gui>빠르게 비우기</gui>를 선택할 수 있습니다.</p>
+      <note>
+        <p>빠르게 비운 디스크를 쓰는데 문제가 있다면, 빠르게 비우기를 끄고 다시 비워 보십시오.</p>
+      </note>
+    </item>
+    <item>
+      <p>계속하려면 <gui>비우기</gui>를 누릅니다.</p>
+    </item>
+    <item>
+      <p>비우기가 완료되면 디스크가 빠집니다.</p>
+    </item>
+  </steps>
+
+</page>

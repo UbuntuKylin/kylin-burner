@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>API Reference for Libbrasero-burn: Libbrasero-burn Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Libbrasero-burn Reference Manual">
+<link rel="up" href="index.html" title="Libbrasero-burn Reference Manual">
+<link rel="prev" href="index.html" title="Libbrasero-burn Reference Manual">
+<link rel="next" href="libbrasero-burn-brasero-burn-lib.html" title="brasero-burn-lib">
+<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><img src="up-insensitive.png" width="16" height="16" border="0"></td>
+<td><a accesskey="p" href="index.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libbrasero-burn-brasero-burn-lib.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="id-1.2"></a>API Reference for Libbrasero-burn</h1></div></div></div>
+<div class="toc"><dl class="toc">
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-burn-lib.html">brasero-burn-lib</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-error.html">brasero-error</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-tags.html">brasero-tags</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-status.html">brasero-status</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-enums.html">brasero-enums</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-track-type.html">brasero-track-type</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrack.html">BraseroTrack</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrackDisc.html">BraseroTrackDisc</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-track-data.html">BraseroTrackData</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-brasero-track-data-cfg.html">BraseroTrackDataCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrackStream.html">BraseroTrackStream</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrackStreamCfg.html">BraseroTrackStreamCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrackImage.html">BraseroTrackImage</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroTrackImageCfg.html">BraseroTrackImageCfg</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroBurnSession.html">BraseroBurnSession</a></span><span class="refpurpose"> — Store parameters when burning and blanking</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroSessionSpan.html">BraseroSessionSpan</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroSessionCfg.html">BraseroSessionCfg</a></span><span class="refpurpose">Configure automatically a <span class="type">BraseroBurnSession</span> object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroBurnOptions.html">BraseroBurnOptions</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroBurn.html">BraseroBurn</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroBurnDialog.html">BraseroBurnDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroToolDialog.html">BraseroToolDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroSumDialog.html">BraseroSumDialog</a></span><span class="refpurpose"></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libbrasero-burn-BraseroBlankDialog.html">BraseroBlankDialog</a></span><span class="refpurpose"></span>
+</dt>
+</dl></div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21.1</div>
+</body>
+</html>

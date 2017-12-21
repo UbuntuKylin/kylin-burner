@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Izveidojiet identisku diska kopiju.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Kopēt disku</title>
+
+  <steps>
+    <item>
+      <p>Spiediet <gui>Kopēt disku</gui> sākuma lapā, vai izvēlieties <guiseq><gui>Projekts</gui><gui>Jauns projekts</gui><gui>Kopēt disku... </gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Izvēlaties disku, kuru vēlaties kopēt, no izkrītošā saraksta zem <gui>Izvēlieties disku, ko kopēt</gui>. Ja ir vairāk par vienu diskdzini, sarakstā vajadzētu būt visiem diskiem, kas pašlaik ir tajos ievietoti.</p>
+    </item>
+    <item>
+      <p>Izvēlieties, vai vēlaties veidot kopiju uz cita diska, vai izveidot diska attēlu, ko izmantot vēlāk.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Īpašības</gui> pogu, lai izvēlētos rakstīšanas ātrumu un citas opcijas.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Kopēt</gui>, lai sāktu kopēt disku, vai <gui>Izveidot vairākas kopijas</gui>, ja plānojat izveidot vairākas diska kopijas.</p>
+      <note>
+	<p>Ja kopējat disku, bet jums ir tikai viens diskdzinis, jums palūgs aizstāt disku, kuru kopējat, ar disku kurā kopēsiet failus, pēc tam, kad saturs uz laiku tiek iekopēts cietajā diskā.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

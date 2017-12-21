@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Διαχωρίστε ένα μουσικό κομμάτι σε πολλαπλά κομμάτια.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Διαχωρίστε ένα κομμάτι ήχου</title>
+
+  <p>Μπορείτε να χωρίσετε ένα κομμάτι ήχου σε πολλαπλά κομμάτια όταν δημιουργείτε ένα ηχητικό έργο.</p>
+
+  <steps>
+    <item>
+      <p>Ξεκινήστε ένα ηχητικό έργο και προσθέστε τα κομμάτια που θέλετε να χρησιμοποιήσετε.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε το κομμάτι που θέλετε να χωρίσετε πατώντας επάνω του, μετά πατήστε είτε <guiseq><gui>Επεξεργασία</gui><gui>Διαχωρισμός κομματιού…</gui></guiseq> είτε δεξί κλικ στο κομμάτι και επιλέξτε από το μενού <gui>Διαχωρισμός κομματιού…</gui>.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε την μέθοδο που προτιμάτε για τον χωρισμό των κομματιών:</p>
+      <terms>
+        <item>
+          <title>Χειροκίνητος διαχωρισμός κομματιού</title>
+          <p>Αυτή η επιλογή σας επιτρέπει να επιλέξετε χειροκίνητα την ακριβή διάρκεια κάθε τομέα του κομματιού.</p>
+       </item>
+       <item>
+          <title>Διαχωρισμός κομματιού σε μέρη με ίση διάρκεια</title>
+          <p>Χρησιμοποιήστε αυτή την μέθοδο για να χωρίσετε το κομμάτι σε πολλαπλούς τομείς ίσης διάρκειας.</p>
+        </item>
+        <item>
+          <title>Διαχωρισμός κομματιού σε ίσο αριθμό μερών</title>
+          <p>Αυτή η μέθοδος σας επιτρέπει να χωρίσετε το κομμάτι σε ένα αριθμό τομέων, που θα έχουν την ίδια διάρκεια.</p>
+        </item>
+        <item>
+          <title>Διαχωρισμός κομματιού για κάθε σιωπή</title>
+          <p>Επιλέξτε αυτή τη μέθοδο ώστε το <app>Brasero</app> να ανιχνεύσει αυτόματα και να χωρίσει το κομμάτι σε κάθε σιωπή.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Συνεχίστε στον χωρισμό του κομματιού πατώντας <gui>Τεμαχισμός</gui>.</p>
+      <note>
+        <p>Αν προσπαθήσετε να χωρίσετε ένα κομμάτι σε μέρη μικρότερα των 6 δευτερολέπτων, ένα νέο μέρος θα προστεθεί και θα το κάνει 6 δευτερόλεπτα μεγαλύτερο.</p>
+      </note>
+    </item>
+    <item>
+      <p>Πατήστε <gui>OK</gui> για να επιβεβαιώσετε τον χωρισμό του κομματιού και να εφαρμόσετε τις αλλαγές.</p>
+      <note>
+        <p>Μπορείτε να χωρίσετε και ενώσετε το ίδιο κομμάτι όσες φορές θέλετε καθώς βλέπετε τον διάλογο χωρίσματος των τραγουδιών. Μόλις επιβεβαιώσετε τον χωρισμό του κομματιού πατώντας <gui>OK</gui>, δεν θα μπορείτε πλέον να ενώσετε κομμάτια που έχετε ήδη χωρίσει. Για να αντιστρέψετε αυτές τις αλλαγές, αφαιρέστε τα χωρισμένα μέρη του κομματιού από το έργο και ξαναπροσθέστε το κομμάτι.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

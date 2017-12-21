@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="zh-TW">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>將影片燒錄製 DVD 或 SVCD。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>建立一個影片專案</title>
+
+  <p>「<app>Brasero</app>」可以用來製作讓DVD播放機或筆記型電腦播放的影音光碟。</p>
+
+  <steps>
+    <item>
+      <p>在主視窗中按「<guibutton>影片專案</guibutton>」或選擇「<menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>新影片專案</guimenuitem></menuchoice>」。</p>
+    </item>
+    <item>
+      <p>在工具列上按一下「<gui>加入</gui>」選擇影片檔案並將檔案加入專案之中。您也可以拖曳您想要加入的檔案至專案區域上頭或按一下「<guiseq><gui>編輯</gui><gui>新增檔案</gui></guiseq>」。</p>
+    </item>
+    <item>
+      <p>You can add a title for the disc in the text entry field below the
+      project area.</p>
+    </item>
+    <item>
+      <p>Select the blank disc in the drop down list.</p>
+    </item>
+    <item>
+      <p>按一下「<gui>燒錄‧‧‧</gui>」以繼續。</p>
+    </item>
+    <item>
+      <p>在下拉式清單「<gui>燒錄速度</gui>」中您可以選擇任一您想要的燒錄速度。</p>
+    </item>
+    <item>
+      <p>Click <gui>Burn</gui> to burn a single disc of the project or
+      <gui>Burn Several Copies</gui> to burn your project to multiple discs.</p>
+    </item>
+  </steps>
+
+</page>

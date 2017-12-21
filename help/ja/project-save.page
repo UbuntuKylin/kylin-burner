@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>あとで編集あるいは書き込むためにプロジェクトを保存します。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>プロジェクトを保存する</title>
+
+  <p>音楽、データ、動画プロジェクトは、あとで編集したり、書き込んだりするために<app>Brasero</app>に保存することができます。</p>
+
+  <steps>
+    <item>
+      <p>プロジェクトを作成して、使用するファイルをプロジェクトに追加します。</p>
+    </item>
+    <item>
+      <p><guiseq><gui>プロジェクト</gui><gui>保存</gui></guiseq>をクリックしてプロジェクトを保存します。</p>
+    </item>
+    <item>
+      <p>プロジェクトの名前を入力し、<gui>保存</gui>をクリックしてプロジェクトを保存します。</p>
+    </item>
+  </steps>
+
+  <p>保存した<app>Brasero</app>のプロジェクトを開く方法はいくつかあります。</p>
+
+  <list>
+    <item>
+      <p>スタートページにある<gui>最近開いたプロジェクト</gui>の下にあるリストから選択する</p>
+    </item>
+    <item>
+      <p><guiseq><gui>プロジェクト</gui><gui>最近開いたプロジェクト</gui></guiseq>をクリックする</p>
+    </item>
+    <item>
+      <p><guiseq><gui>プロジェクト</gui><gui>開く</gui></guiseq>をクリックしてプロジェクトを選ぶ</p>
+    </item>
+    <item>
+      <p>ファイルブラウザーからプロジェクトを開く</p>
+      <note>
+        <p><app>Brasero</app>のインスタンスは常に1つしか起動できません。2つ目のインスタンスを開こうとすると、現在開いている<app>Brasero</app>ウィンドウにフォーカスします。</p>
+        <p><app>Brasero</app>がすでに起動している状態で<apps>ファイル</apps>ブラウザーからファイルを開こうとすると、現在作業中のプロジェクトにファイルが追加されます。</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>保存したプロジェクトを開こうとすると<app>Brasero</app>はそのプロジェクトを新しいプロジェクトのように取り扱います。つまり、プロジェクトの更新版を保存する場合、名前を入力するよう求められ、ここで旧版を上書きするか、別の名前を入力して新しいプロジェクトとして保存するかができます。</p>
+  </note>
+
+</page>

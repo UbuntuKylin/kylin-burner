@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Pode probar a integridade do disco despois de gravalo.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>Comprobar a integridade do disco</title>
+
+  <p>Despois de gravar un CD/DVD usando <app>Brasero</app>, pode comprobar a súa integridade para asegurarse de que os ficheiros non están corrompidos.</p>
+
+  <steps>
+    <item>
+      <p>Seleccione <guiseq><gui>Ferramentas</gui><gui>Comprobar integridade…</gui></guiseq></p>
+    </item>
+    <item>
+      <p>Pode seleccionar a opción <guilabel>Usar un ficheiro MD5 para comprobar o disco</guilabel> se o prefire.</p>
+	<note style="advanced">
+	<list>
+	<item><p>Un MD5 (Message-Digest Algorithm 5) é unha función de hash criptográfico amplamento usada para comprobar a integridade de datos.</p></item>
+	<item><p>Se escolle esta opción, debe buscar o ficheiro MD5 premendo na icona do cartafol máis abaixo.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Prema <gui>Comprobar</gui> para continuar ou <gui>Pechar</gui> para cancelar.</p>
+    </item>
+    <item>
+      <p>Cando a comprobación remate pode escoller <gui>Comprobar de novo</gui> ou simplemente <gui>Pechar</gui>.</p>
+    </item>
+  </steps>
+
+</page>

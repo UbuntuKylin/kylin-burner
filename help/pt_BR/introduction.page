@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="pt-BR">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Introdução sobre o aplicativo de gravação de disco <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Licença Creative Commons Atribuição Compartilhada 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Enrico Nicoletto</mal:name>
+      <mal:email>liverig@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Rafael Ferreira</mal:name>
+      <mal:email>rafael.f.f1@gmail.com</mal:email>
+      <mal:years>2013, 2014.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Introdução</title>
+
+  <p>O <app>Brasero</app> é um aplicativo para gravar CDs e DVDs, projetado para ser fácil de usar, enquanto oferece todas as ferramentas necessárias para gravação.</p>
+
+  <p>Com <app>Brasero</app> você pode:</p>
+  <list>
+    <item><p>Gravar dados em CDs e DVDs</p></item>
+    <item><p>Gravar CDs de áudio a partir de arquivos de áudio digitais (como OGG, FLAC e MP3)</p></item>
+    <item><p>Copiar CDs e DVDs</p></item>
+    <item><p>Criar DVDs de vídeo ou SVCDs</p></item>
+    <item><p>Criar arquivos de imagem e gravar arquivos de imagem existentes</p></item>
+    <item><p>Apagar CD-RWs e DVD-RWs</p></item>
+    <item><p>Verificar a integridade de discos e imagens de discos</p></item>
+  </list>
+
+  <figure>
+    <title>A janela principal do <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Ierakstiet esošu diska attēlu CD vai DVD diskā.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Ierakstīt diska attēlu</title>
+
+  <p><app>Brasero</app> ļauj ierakstīt disku attēlus CD vai DVD diskos. Tas atbalsta sekojošos paplašinājumus optisko disku attēliem: <file>.iso</file>, <file>.toc</file> un <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Disku attēli ir arhīva faili, kas satur visu datus, kas ir uz CD vai DVD diskiem. Uz CD vienlaicīgi var būt tikai viens diska attēls, bet katrs arhīvs var saturēt cik daudz datus vēlaties, ja vien tas atbilst diska izmēram.</p>
+  </note>
+
+  <p>Lai ierakstītu diska attēlu uz CD vai DVD, sekojiet šiem soļiem:</p>
+  <steps>
+    <item>
+      <p>Spiediet <gui>Ierakstīt diska attēlu</gui> sākuma lapā vai izvēlieties <guiseq><gui>Projekts</gui><gui>Jauns projekts</gui><gui>Ierakstīt diska attēlu…</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Izvēlieties ierakstāmā diska attēlu, spiežot <gui>Spiediet šeit, lai izvēlētos diska attēlu</gui>.</p>
+    </item>
+    <item>
+      <p>Izvēlieties disku, kuru jūs vēlaties izmantot, no izkrītošā saraksta zem <gui>Izvēlieties disku, kur ierakstīt</gui>. Ja ir vairāk nekā viens diskdzinis, tad sarakstā vajadzētu būt visiem diskdziņi, kas jums pašlaik ir.</p>
+        <note><p>Izvēloties disku <app>Brasero</app>, parādīs cik brīvas vietas pēc ierakstīšanas paliks diskā.</p></note>
+    </item>
+    <item>
+      <p>Spiediet <gui>Īpašības</gui> pogu, lai izvēlētos rakstīšanas ātrumu un citas opcijas.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt</gui> lai sāktu ierakstīt attēlu. Pēc šīs darbības jūs varat vai nu beigt rakstīšanu vai veidot citas kopijas šim attēlam.</p>
+        <note>
+          <p>Ja izmantojat pārrakstāmo disku, kas jau satur datus, jums jautās vai vēlaties to dzēst, vai ievietot citu disku.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

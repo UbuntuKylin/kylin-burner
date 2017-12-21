@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="ca">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Introducció a l'aplicació d'enregistrament de discs <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Francisco Domech</mal:name>
+      <mal:email>frandj72@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Introducció</title>
+
+  <p>El <app>Brasero</app> és una aplicació per a enregistrar CD i DVD, dissenyat per a ser fàcil d'utilitzar i al mateix temps proporcionar totes les eines necessàries per a l'enregistrament.</p>
+
+  <p>Amb el <app>Brasero</app> podeu:</p>
+  <list>
+    <item><p>Enregistrar dades a CD i DVD</p></item>
+    <item><p>Enregistrar CD d'àudio des de fitxers d'àudio digitals (com ara ogg, flac i mp3)</p></item>
+    <item><p>Copiar CD i DVD</p></item>
+    <item><p>Crear DVD de vídeo o SVCD</p></item>
+    <item><p>Crear fitxers imatge i enregistrar-ne d'existents</p></item>
+    <item><p>Esborrar CD-RW i DVD-RW</p></item>
+    <item><p>Comprovar la integritat dels discs i les imatges de disc</p></item>
+  </list>
+
+  <figure>
+    <title>Finestra principal del <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="pt-BR">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>Escreva um vídeo para um DVD ou SVCD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Licença Creative Commons Atribuição Compartilhada 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Enrico Nicoletto</mal:name>
+      <mal:email>liverig@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Rafael Ferreira</mal:name>
+      <mal:email>rafael.f.f1@gmail.com</mal:email>
+      <mal:years>2013, 2014.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Criando um projeto de vídeo</title>
+
+  <p>O <app>Brasero</app> pode ser usado para criar discos de vídeo para reproduzir em um laptop ou reprodutor de DVD.</p>
+
+  <steps>
+    <item>
+      <p>Clique em <gui>Projeto de vídeo</gui> na página inicial ou selecione <guiseq><gui>Projeto</gui><gui>Novo projeto</gui><gui>Novo projeto de vídeo</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Adicione os vídeos ao projeto clicando em <gui>Adicionar</gui> na barra de ferramentas e selecionando os arquivos. Você também pode adicionar arquivos arrastando e soltando-os na área de projeto ou clicando <guiseq><gui>Editar</gui><gui>Adicionar arquivos</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Você pode adicionar um título para o disco no campo de entrada de texto abaixo da área do projeto.</p>
+    </item>
+    <item>
+      <p>Selecione o disco vazio na lista suspensa.</p>
+    </item>
+    <item>
+      <p>Clique em <gui>Gravar...</gui> para continuar.</p>
+    </item>
+    <item>
+      <p>Selecione a <gui>Velocidade de gravação</gui> a partir da lista suspensa, e quaisquer outras opções que deseje.</p>
+    </item>
+    <item>
+      <p>Clique em <gui>Gravar</gui> para gravar um disco único do projeto ou <gui>Gravar vários discos</gui> para gravar seu projeto para vários discos.</p>
+    </item>
+  </steps>
+
+</page>

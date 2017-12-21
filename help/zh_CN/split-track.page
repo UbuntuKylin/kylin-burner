@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>将一个音频项目的轨道分割成多条。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>分割一条音轨</title>
+
+  <p>当您合并一个音频项目时，可以将一条音轨分割成多条。</p>
+
+  <steps>
+    <item>
+      <p>启动音频项目，并添加您想要使用的轨道。</p>
+    </item>
+    <item>
+      <p>通过单击选择您想要分割的轨道，然后点击 <guiseq><gui>编辑</gui><gui>分割轨道…</gui></guiseq> 或者在轨道上右击并从菜单中选择 <gui>分割轨道…</gui>。</p>
+    </item>
+    <item>
+      <p>选择您偏好的轨道分割方法：</p>
+      <terms>
+        <item>
+          <title>手动分割轨道</title>
+          <p>此选项让您手动选择该音轨的各个新片段的精确长度。</p>
+       </item>
+       <item>
+          <title>按照固定长度分割轨道</title>
+          <p>此方法可以将轨道分割成等长的多个片段。</p>
+        </item>
+        <item>
+          <title>按照固定的分割片数分割轨道</title>
+          <p>此方法让您将音轨分成指定数目的几个片段，各段长度相同。</p>
+        </item>
+        <item>
+          <title>根据每个无声部分分割轨道</title>
+          <p>选择此方法，<app>Brasero</app> 会自动检测录音中的无声部分，并在相应位置分割音轨。</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>点击 <gui>分片</gui> 进行音轨分割。</p>
+      <note>
+        <p>如果您想将一条音轨分割成不到 6 秒的片段，则新分割的片段会被填充到 6 秒长。</p>
+      </note>
+    </item>
+    <item>
+      <p>点击 <gui>确定</gui> 来确认您的分割音轨操作并应用更改。</p>
+      <note>
+        <p>在查看分割轨道对话框时，您可以多次分割或合并同一音轨。一旦您通过点击 <gui>确定</gui> 确认轨道分割，将不能再合并已经分出去的片段。要还原更改，请从您的项目中移除分割的轨道片段，然后重新加载该轨道。</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

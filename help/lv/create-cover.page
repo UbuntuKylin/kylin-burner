@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Izveidot papīru vāciņam.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Izveidot vāku</title>
+
+  <p>Jūs varat izmantot <app>Brasero</app>, lai izveidotu papīru diska vāciņiem. Piekļūstiet vāciņu veidotājam, spiežot <guiseq><gui>Rīki</gui><gui>Vāciņu redaktors</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Ja veidojat audio projektu un beidzot liekat kopā projektu pirms veidojiet apdari, kad jūs piekļūstat <gui>Vāciņu redaktora</gui> saskarnei no audio projekta loga, celiņi automātiski tiks uzskaitītas uz aizmugurējā vāciņa.</p>
+  </note>
+
+  <note style="important">
+    <p>Ja aizverat <gui>Vāciņu redaktoru</gui>, izmaiņas tiks pazaudētas.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Atveriet <gui>Vāciņu redaktoru</gui>.</p>
+    </item>
+    <item>
+      <p>Izvēlieties formātu, kuru jūs vēlaties izmantot tekstam un rakstiet tekstu, ritiniet uz leju, lai redzētu sānu un aizmugurējo apdari vāciņam.</p>
+      <note style="tip">
+        <p>Pirmo reizi ieraugot <gui>Vāciņu redaktora</gui> dialoga logu, jūs nevarēsiet nospiest uz nevienas teksta formatēšanas opcijas. Spiediet uz vāciņa, ar kuru jūs vēlaties strādāt, lai varētu izmantot šos rīkus.</p>
+      </note>
+    </item>
+    <item>
+      <p>Spiediet <gui>Fona īpašības</gui> rīkjoslas ikonu, lai pievienotu fonu pašreizējajam vāciņam, vai labais peles klikšķis uz vāciņa, kuru jūs vēlaties rediģēt, un spiediet <gui>Iestatīt fona īpašības</gui>. Jūs varat izvēlēties izmantot krāsainu fonu vai izvēlēties fona attēlu.</p>
+      <note style="bug">
+        <p>Ja izvēlaties centrētu fona attēlu, <app>Brasero</app> reizēm avarē, spiežot pogu <gui>Aizvērt</gui>.</p>
+      </note>
+      <p>Spiediet pogu <gui>Aizvērt</gui>, lai apstiprinātu izmaiņas un aizveriet <gui>Fona īpašības</gui> dialoglodziņu.</p>
+    </item>
+    <item>
+      <p>Izdrukājiet vāciņu, izmantojot <gui>Drukāt</gui> pogu, kas ir novietota labajā augšējajā stūrī dialoglodziņā.</p>
+    </item>
+  </steps>
+
+</page>

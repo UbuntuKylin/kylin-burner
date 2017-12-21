@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Εγγραφή δεδομένων σε ένα CD ή DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Δημιουργία ενός έργου δεδομένων</title>
+
+  <p>Ένα έργο δεδομένων χρησιμοποιείται για την εγγραφή δεδομένων (για παράδειγμα, αρχεία, φωτογραφίες ή μουσική) σε έναν δίσκο, χωρίς να επηρεαστούν αυτά τα αρχεία. Αυτό ίσως είναι χρήσιμο για την μεταφορά αρχείων μεταξύ υπολογιστών.</p>
+
+  <steps>
+    <item>
+      <p>Πατήστε στο <gui>Έργο δεδομένων</gui> στο κεντρικό παράθυρο ή επιλέξτε <guiseq><gui>Έργο</gui><gui>Νέο έργο</gui><gui>Νέο έργο δεδομένων</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Προσθέστε τα αρχεία στο έργο πατώντας <gui>Προσθήκη</gui> στην εργαλειοθήκη και επιλέγοντας τα αρχεία. Μπορείτε επίσης να προσθέσετε αρχεία τραβώντας τα μέσα στην περιοχή του έργου ή πατώντας <guiseq><gui>Επεξεργασία</gui><gui>Προσθήκη αρχείων</gui></guiseq>.</p>
+      <note style="tip">
+	<p>Μπορείτε να δημιουργήσετε φακέλου σε ένα CD για να αποθηκεύσετε τα δεδομένα σε έναν πιο δομημένο τρόπο. Για να δημιουργήσετε έναν φάκελο, πατήστε <gui>Νέος φάκελος</gui> στην εργαλειοθήκη ή επιλέξτε <guiseq><gui>Επεξεργασία</gui><gui>Νέος φάκελος</gui></guiseq> από την μπάρα του μενού. Μπορείτε επίσης να δημιουργήσετε φακέλους μέσα σε άλλους φακέλους.</p>
+      </note>
+    </item>
+    <item>
+      <p>Μπορείτε να προσθέσετε έναν τίτλο στον δίσκο στο πεδίου κειμένου κάτω από την περιοχή του έργου.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε τον κενό δίσκο από την αναδιπλούμενη λίστα.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Εγγραφή...</gui> για να συνεχίσετε.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε την <gui>Ταχύτητα εγγραφής</gui> από την αναδιπλούμενη λίστα, και όποια άλλη επιλογή θέλετε.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Εγγραφή</gui> για να γράψετε το έργο σε ένα CD ή <gui>Εγγραφή πολλών αντιγράφων</gui> για να γράψετε το έργο σε πολλά CD</p>
+      <note>
+        <p>Αν χρησιμοποιείτε έναν επανεγγράψιμο δίσκο, που περιέχει ήδη δεδομένα, θα ερωτηθείτε αν θέλετε να τον αδειάσετε ή να εισάγεται άλλον δίσκο.</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Αν χρησιμοποιείτε ένα επανεγγράψιμο δίσκο και τα δεδομένα δεν έχουν γραφτεί σωστά, ίσως χρειαστεί να κάνετε ένα πλήρες (όχι γρήγορο) άδειασμα του δίσκου πριν δοκιμάσετε ξανά.</p>
+
+</page>

@@ -1,0 +1,15 @@
+Description: Allow overriding plugin install directory
+Author: Jeremy Bicha <jbicha@ubuntu.com>
+Index: brasero-3.12.1/configure.ac
+===================================================================
+--- brasero-3.12.1.orig/configure.ac
++++ brasero-3.12.1/configure.ac
+@@ -295,7 +295,7 @@ AM_CONDITIONAL(BUILD_NAUTILUS, test x"$b
+ # Installation path for plugins
+ #
+ 
+-BRASERO_PLUGIN_DIRECTORY=${libdir}/brasero3/plugins
++BRASERO_PLUGIN_DIRECTORY=${BRASERO_PLUGIN_DIRECTORY:-'${libdir}/brasero3/plugins'}
+ AC_SUBST(BRASERO_PLUGIN_DIRECTORY)
+ 
+ dnl ****************check for libburn (optional)**************

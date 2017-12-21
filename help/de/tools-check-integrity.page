@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Sie können ein Medium nach dem Brennen auf Unversehrtheit prüfen.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Das Medium auf Unversehrtheit prüfen</title>
+
+  <p>Nach dem Brennen einer CD oder DVD mit <app>Brasero</app> können Sie deren Unversehrtheit prüfen, um sicher zu stellen, dass die Dateien auf dem Medium nicht beschädigt sind.</p>
+
+  <steps>
+    <item>
+      <p>Wählen Sie <guiseq><gui>Werkzeuge</gui><gui>Auf Unversehrtheit prüfen</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Falls gewünscht, können Sie die Option <gui>Zur Überprüfung der CD/DVD eine MD5-Datei verwenden</gui> wählen.</p>
+	<note style="advanced">
+	<list>
+	<item><p>Eine MD5-Prüfsumme (Message-Digest-Algorithmus 5) ist eine kryptografische Prüfsummenfunktion, die zur Prüfung der Datenintegrität verwendet wird.</p></item>
+	<item><p>Wenn Sie diese Option wählen, müssen Sie die MD5-Datei auswählen, indem Sie auf das darunter abgebildete Ordnersymbol klicken.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Klicken Sie auf <gui>Überprüfen</gui>, um fortzusetzen, oder auf <gui>Schließen</gui>, um den Vorgang abzubrechen.</p>
+    </item>
+    <item>
+      <p>Wenn die Überprüfung beendet ist, können Sie entweder <gui>Erneut prüfen</gui> oder <gui>Schließen</gui>.</p>
+    </item>
+  </steps>
+
+</page>

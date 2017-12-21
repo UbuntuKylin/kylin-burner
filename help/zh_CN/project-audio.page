@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>创建一个新音频的项目。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>写入一张音乐 CD</title>
+
+  <p><app>Brasero</app> 可以将音频文件写入CD，以供您在 CD 播放器中播放等使用。最好用不可重写的 CD 刻录，因为不是所有的 CD 播放器都能播放可重写 CD。</p>
+
+  <steps>
+    <item>
+      <p>点击开始页面中的 <guibutton>音频项目</guibutton>，或选择 <menuchoice><guimenu>项目</guimenu><guisubmenu>新建项目</guisubmenu><guimenuitem>新建音频项目</guimenuitem></menuchoice>。</p>
+    </item>
+    <item>
+      <p>点击 工具栏中的 <gui>添加</gui> 并选择想要的文件来向项目中添加音频文件。您也可以通过将文件拖放到项目区域或者点击 <guiseq><gui>编辑</gui><gui>添加文件</gui></guiseq> 来添加文件。</p>
+    </item>
+    <item>
+      <p>您可以在项目区域下方的文字输入区域为 CD 添加一个标题。</p>
+    </item>
+    <item>
+      <p>在下拉菜单中选择空 CD。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录...</gui> 继续。</p>
+    </item>
+    <item>
+      <p>从下拉菜单中选择 <gui>刻录速度</gui> 和其他需要的选项。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录</gui> 开始刻录单张项目光盘，或点击 <gui>刻录多份副本</gui> 来将项目刻录到多张光盘</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>您可以通过 <gui>分割</gui> 工具来将一个单独的轨道分割为多个轨道，并通过 <gui>暂停</gui> 按钮在每条轨道后添加一个 2 秒的间隔。</p>
+  </note>
+
+</page>

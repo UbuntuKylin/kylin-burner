@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="ro">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Scrie date pe un CD sau DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Atribuire - Distribuire-în-condiții-identice 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Șerbănescu</mal:name>
+      <mal:email>daniel [at] serbanescu [dot] dk</mal:email>
+      <mal:years>2010 , 2012, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Laurențiu Cristian Ion</mal:name>
+      <mal:email>ionlaurentiucristian@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Crearea unui proiect de date</title>
+
+  <p>Un proiect de date este folosit pentru scrierea datelor (de exemplu, fișiere, fotografii sau muzică) pe un disc, fără a schimba aceste fișiere în niciun fel. Acest lucru poate fi util pentru a transfera fișiere între calculatoare.</p>
+
+  <steps>
+    <item>
+      <p>Apăsați pe <gui>Proiect de date</gui> de pe pagina principală, sau alegeți <guiseq><gui>Proiect</gui><gui>Proiect nou</gui><gui>Proiect de date nou</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Adăugați fișierele la proiect apăsând pe <gui>Adaugă</gui> în bara de instrumente și selectând fișierele. Puteți să adăugați fișiere și prin tragere și plasare în zona de proiect sau apăsând pe <guiseq><gui>Editare</gui><gui>Adaugă fișiere</gui></guiseq>.</p>
+      <note style="tip">
+	<p>Puteți să creați dosare pe CD pentru a memora datele într-o manieră mai structurată. Pentru a crea un dosar, apăsați pe <gui>Dosar nou</gui> în bara de instrumente sau alegeți <guiseq><gui>Editare</gui><gui>Dosar nou</gui></guiseq> din bara de meniu. De asemenea puteți să creați dosare în interiorul altor dosare.</p>
+      </note>
+    </item>
+    <item>
+      <p>Puteți adăuga un titlu pentru disc în câmpul de introducere text de sub zona de proiect.</p>
+    </item>
+    <item>
+      <p>Alegeți discul gol din lista de selecție.</p>
+    </item>
+    <item>
+      <p>Apăsați pe <gui>Scrie...</gui> pentru a continua.</p>
+    </item>
+    <item>
+      <p>Alegeți <gui>Viteză de scriere</gui> din lista de selecție, și orice alte opțiuni doriți.</p>
+    </item>
+    <item>
+      <p>Apăsați pe <gui>Scrie</gui> pentru a scrie un singur CD al proiectului sau <gui>Scrie mai multe discuri</gui> pentru a scrie proiectul dumneavoastră pe mai multe CD-uri</p>
+      <note>
+        <p>Dacă folosiți un disc reinscriptibil, care conține deja date, veți fi întrebat dacă doriți să-l goliți sau să inserați un disc diferit.</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Dacă folosiți un disc reinscriptibil și datele nu sunt scrise corect pe el, s-ar putea să trebuiască să faceți o golire completă (non-rapidă) a discului înainte de a încerca din nou.</p>
+
+</page>

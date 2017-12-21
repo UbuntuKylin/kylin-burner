@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="ca">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Esborrament d'un CD o d'un DVD reenregistrable </desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Francisco Domech</mal:name>
+      <mal:email>frandj72@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Esborrament d'un disc</title>
+
+  <p>Podeu preparar un disc reenregistrable, que ja contingui dades, per escriure-hi esborrant-ne les dades.</p>
+
+  <steps>
+    <item>
+      <p>Trieu <guiseq><gui>Eines</gui><gui>Esborra...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Si teniu més d'una unitat de disc amb un disc reenregistrable a dins, podeu triar quin disc voleu reenregistrar a <gui>Seleccioneu un disc</gui>.</p>
+    </item>
+    <item>
+      <p>Podeu triar <gui>Esborrament ràpid</gui> per esborrar el CD més ràpidament.</p>
+      <note>
+        <p>Si teniu problemes escrivint un disc que heu esborrat ràpidament, intenteu desactivar l'esborrat ràpid i esborreu-lo de nou.</p>
+      </note>
+    </item>
+    <item>
+      <p>Feu clic a <gui>Esborra</gui> per continuar.</p>
+    </item>
+    <item>
+      <p>És possible que s'expulsi el disc quan s'acabi l'esborrat.</p>
+    </item>
+  </steps>
+
+</page>

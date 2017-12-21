@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Leeren Sie eine wiederbeschreibbare CD oder DVD, indem Sie sie löschen.</desc>
+    <credit type="author">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Eine CD/DVD löschen</title>
+
+  <p>Sie können eine Daten enthaltende wiederbeschreibbare CD oder DVD vorbereiten, indem Sie sie löschen.</p>
+
+  <steps>
+    <item>
+      <p>Wählen Sie <guiseq><gui>Werkzeuge</gui><gui>Löschen …</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Falls Sie über mehr als ein optisches Laufwerk verfügen, in dem sich eine wiederbeschreibbare CD oder DVD befindet, wählen Sie mit <gui>CD/DVD auswählen</gui> die zu benutzende CD oder DVD aus.</p>
+    </item>
+    <item>
+      <p>Sie können <gui>Schnelles Löschen</gui> wählen, um die CD zügiger zu leeren.</p>
+      <note>
+        <p>Falls beim Schreiben auf schnell gelöschte CDs Probleme auftreten, versuchen Sie das schnelle Löschen zu deaktivieren und versuchen Sie es erneut.</p>
+      </note>
+    </item>
+    <item>
+      <p>Klicken Sie auf <gui>Löschen</gui>, um fortzusetzen.</p>
+    </item>
+    <item>
+      <p>Die CD/DVD kann ausgeworfen werden, wenn der Löschvorgang abgeschlossen ist.</p>
+    </item>
+  </steps>
+
+</page>

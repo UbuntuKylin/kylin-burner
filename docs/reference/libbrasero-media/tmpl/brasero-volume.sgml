@@ -1,0 +1,108 @@
+<!-- ##### SECTION Title ##### -->
+BraseroVolume
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BraseroVolume ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION brasero_volume_get_name ##### -->
+<para>
+
+</para>
+
+@volume: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_get_icon ##### -->
+<para>
+
+</para>
+
+@volume: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_get_gvolume ##### -->
+<para>
+
+</para>
+
+@volume: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_is_mounted ##### -->
+<para>
+
+</para>
+
+@volume: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_get_mount_point ##### -->
+<para>
+
+</para>
+
+@volume: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_umount ##### -->
+<para>
+
+</para>
+
+@volume: 
+@wait: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_mount ##### -->
+<para>
+
+</para>
+
+@volume: 
+@parent_window: 
+@wait: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_volume_cancel_current_operation ##### -->
+<para>
+
+</para>
+
+@volume: 
+
+

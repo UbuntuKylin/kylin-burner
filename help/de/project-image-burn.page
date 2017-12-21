@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Ein vorhandenes Medienabbild auf eine CD oder DVD schreiben.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Ein Abbild brennen</title>
+
+  <p><app>Brasero</app> ermöglicht Ihnen das Brennen von Abbildern auf eine CD oder DVD. Die folgenden Erweiterungen von Abbildern für optische Medien werden unterstützt: <file>.iso</file>, <file>.toc</file> und <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Medienabbilder sind Archivdateien, die alle Daten einer CD oder DVD enthalten. Auf einer CD können sich nicht mehrere Medienabbilder befinden, aber jedes Archiv kann so wenig oder so viel Daten enthalten, wie Sie wollen, solange diese auf die CD/DVD passen.</p>
+  </note>
+
+  <p>Um ein CD/DVD-Abbild auf eine CD oder DVD zu brennen, gehen Sie wie folgt vor:</p>
+  <steps>
+    <item>
+      <p>Klicken Sie auf <gui>Abbild brennen</gui> im Startfenster oder wählen Sie <guiseq><gui>Projekt</gui><gui>Neues Projekt</gui><gui>Abbild brennen …</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Klicken Sie auf <gui>Hier klicken, um ein Abbild auszuwählen</gui>, um ein Abbild zum Brennen auszuwählen.</p>
+    </item>
+    <item>
+      <p>Wählen Sie die zu verwendende CD/DVD in der Auswahlliste unterhalb von <gui>Wählen Sie die zu kopierende CD/DVD</gui> aus. Falls Sie über mehr als ein optisches Laufwerk verfügen, werden alle aktuell darin befindlichen CDs/DVDs aufgelistet.</p>
+        <note><p>Nach der Auswahl der CD/DVD zeigt <app>Brasero</app> den nach dem Brennen verbleibenden freien Platz auf dem Medium an.</p></note>
+    </item>
+    <item>
+      <p>Klicken Sie auf den Knopf <gui>Eigenschaften</gui>, um die Brenngeschwindigkeit und weitere anpassbare Optionen auswählen zu können.</p>
+    </item>
+    <item>
+      <p>Klicken Sie auf <gui>Brennen</gui>, um mit dem Brennen des Abbildes zu beginnen. Danach können Sie das Brennen entweder beenden oder weitere Kopien erstellen.</p>
+        <note>
+          <p>Wenn Sie eine wiederbeschreibbare CD/DVD verwenden, die bereits Daten enthält, werden Sie gefragt, ob Sie die CD/DVD löschen oder eine andere CD/DVD einlegen wollen.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

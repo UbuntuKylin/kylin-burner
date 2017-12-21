@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Crear un proxecto de son.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>Escribir un CD de música</title>
+
+  <p><app>Brasero</app> pode escribir ficheiros de son nun CD, que logo pode usar para reproducir en reprodutores de CD. Xeralmente é mellor usar un CD non reescribíbel xa que non tódolos reprodutores de CD reproducen CD regravábeis.</p>
+
+  <steps>
+    <item>
+      <p>Prema en <gui>Proxecto de audio</gui> na páxina de inicio, ou seleccione <guiseq><gui>Proxecto</gui><gui>Novo proxecto</gui><gui>Novo proxecto de audio</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Engadir ficheiros de son a un proxecto premendo <gui>Engadir</gui> na barra de ferramentas e seleccionando os ficheiros desexados. Tamén pode engadir ficheiros arrastrándoos á área do proxecto ou premendo <guiseq><gui>Editar</gui><gui>Engadir ficheiros</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pode engadir un título ao CD desde o campo de texto embaixo da área do proxecto.</p>
+    </item>
+    <item>
+      <p>Seleccione o CD limpo desde a lista despregábel.</p>
+    </item>
+    <item>
+      <p>Prema <gui>Gravar…</gui> para continuar.</p>
+    </item>
+    <item>
+      <p>Seleccione <gui>Velocidade de grabación</gui> desde a lista despregábel e outras opcións que desexe.</p>
+    </item>
+    <item>
+      <p>Prema <gui>Borrar</gui> para borrar un único disco do proxecto ou <gui>Gravar varias copias</gui> para gravar o seu proxecto en varios discos.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Tamén pode dividir unha pista en múltiples pistas usando a ferramenta <gui>Dividir</gui> e engadir un salto de dous segundos despois dunha pista usando o botón <gui>Pausa</gui>.</p>
+  </note>
+
+</page>

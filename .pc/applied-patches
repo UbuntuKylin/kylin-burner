@@ -1,0 +1,5 @@
+allow-overriding-plugin-directory.patch
+01_current_libdvdcss_symbol.patch
+012_appindicator.patch
+013_unity_launcher_progress.patch
+build-with-tracker2.patch

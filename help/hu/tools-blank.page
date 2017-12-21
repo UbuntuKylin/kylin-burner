@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Újraírható CD vagy DVD törlése.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Lemez törlése</title>
+
+  <p>Az adatokat tartalmazó újraírható lemez törléssel előkészíthető az újabb írásra.</p>
+
+  <steps>
+    <item>
+      <p>Válassza az <guiseq><gui>Eszközök</gui><gui>Törlés</gui></guiseq> menüpontot.</p>
+    </item>
+    <item>
+      <p>Ha több újraírható lemezt tartalmazó lemezmeghajtója van, akkor a <gui>Válasszon lemezt</gui> alatt kiválaszthatja az újraírni kívánt lemezt.</p>
+    </item>
+    <item>
+      <p>A CD gyorsabb törléséhez kiválaszthatja a <gui>Gyors törlés</gui> jelölőnégyzetet.</p>
+      <note>
+        <p>Ha a gyors törlés használatával törölt lemezre írás gondot okoz, akkor próbálja meg letiltani a gyors törlést, és törölje újra.</p>
+      </note>
+    </item>
+    <item>
+      <p>Nyomja meg a <gui>Törlés</gui> gombot a folytatáshoz.</p>
+    </item>
+    <item>
+      <p>A törlés végén a lemez kiadásra kerülhet.</p>
+    </item>
+  </steps>
+
+</page>

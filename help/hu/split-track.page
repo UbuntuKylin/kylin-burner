@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Hangprojekt sávjának több sávra vágása.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Hangsáv szétvágása</title>
+
+  <p>Egy hangsávot szétvághat több sávvá hangprojekt összeállításakor.</p>
+
+  <steps>
+    <item>
+      <p>Kezdjen el egy hangprojektet, és vegye fel a használni kívánt sávokat.</p>
+    </item>
+    <item>
+      <p>Egy kattintással válassza ki a szétvágni kívánt számot, majd válassza a <guiseq><gui>Szerkesztés</gui><gui>Szám szétvágása</gui></guiseq> menüpontot, vagy kattintson a jobb egérgombbal a sávra, és válassza a <gui>Szám szétvágása</gui> menüpontot.</p>
+    </item>
+    <item>
+      <p>Válassza ki a szétvágás kívánt módját:</p>
+      <terms>
+        <item>
+          <title>A szám szétvágása saját kezűleg</title>
+          <p>Ez a beállítás lehetővé teszi, hogy saját kezűleg adja meg a szám minden új szakaszának pontos hosszát.</p>
+       </item>
+       <item>
+          <title>A szám szétvágása rögzített hosszúságú darabokra</title>
+          <p>Ezzel a módszerrel a számot több egyenlő hosszúságú szakaszra vághatja.</p>
+        </item>
+        <item>
+          <title>A szám szétvágása rögzített számú darabra</title>
+          <p>Ezzel a módszerrel a számot megadott számú, azonos hosszúságú szakaszra oszthatja fel.</p>
+        </item>
+        <item>
+          <title>Szám szétvágása minden csendnél</title>
+          <p>Ha ezt a módszert választja, akkor a <app>Brasero</app> automatikusan felismeri a csendet a felvételben, és azoknál a pontoknál vágja szét a számot.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Vágja szét a számot a <gui>Szétvágás</gui> gomb megnyomásával.</p>
+      <note>
+        <p>Ha egy számot hat másodpercnél rövidebb szakaszba próbál vágni, akkor az új szakasz hat másodperc hosszúságúra lesz kitöltve.</p>
+      </note>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>OK</gui> gombot a számok szétvágásának megerősítéséhez, és a változtatások alkalmazásához.</p>
+      <note>
+        <p>Egy adott számot tetszőleges számú alkalommal vághat szét és egyesíthet a Szám szétvágása ablakban. Az <gui>OK</gui> gomb megnyomása után azonban nem lesz lehetősége az előzőleg szétvágott számok egyesítésére. A változtatások visszavonásához távolítsa el a szám szétvágott szakaszait a projektből, és adja hozzá a számot újra.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Hangprojekt létrehozása.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Zenei CD írása</title>
+
+  <p>A <app>Brasero</app> segítségével hangfájlokat is írhat CD-re, amelyet aztán CD-lejátszókban játszhat le. Általában jobb nem újraírható CD-ket használni, mert nem minden CD-lejátszó képes az újraírható CD-k lejátszására.</p>
+
+  <steps>
+    <item>
+      <p>Nyomja meg a <gui>Hangprojekt</gui> gombot a főablakban, vagy válassza a <guiseq><gui>Projekt</gui><gui>Új projekt</gui><gui>Új hangprojekt</gui></guiseq> menüpontot.</p>
+    </item>
+    <item>
+      <p>Az eszköztár <gui>Hozzáadás</gui> gombjának megnyomásával és a fájlok kiválasztásával adja a kívánt hangfájlokat a projekthez. Fájlokat hozzáadhat a projektterületre húzással, vagy a <guiseq><gui>Szerkesztés</gui><gui>Fájlok hozzáadása</gui></guiseq> menüpont kiválasztásával is.</p>
+    </item>
+    <item>
+      <p>A projektterület alatti szövegmezőben megadhatja a CD címét.</p>
+    </item>
+    <item>
+      <p>Válassza ki az üres CD-t a legördülő listából.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>Írás</gui> gombot a folytatáshoz.</p>
+    </item>
+    <item>
+      <p>Válassza ki az <gui>Írási sebességet</gui> a legördülő listából, és az esetleges további kívánt beállításokat.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>Írás</gui> gombot a projekt kiírásához egy lemezre, vagy a <gui>Több másolat írása</gui> gombot a projekt több lemezre való kiírásához.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Az egyes számokat több számmá is szétvághatja a <gui>Szétvágás</gui> eszköz használatával és a <gui>Szünet</gui> gombot megnyomva két másodperc szünet beszúrásával a szám után.</p>
+  </note>
+
+</page>

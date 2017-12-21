@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="pt-BR">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Crie um encarte para uma caixa de CD/DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Licença Creative Commons Atribuição Compartilhada 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Enrico Nicoletto</mal:name>
+      <mal:email>liverig@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Rafael Ferreira</mal:name>
+      <mal:email>rafael.f.f1@gmail.com</mal:email>
+      <mal:years>2013, 2014.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Criando uma capa</title>
+
+  <p>Você pode usar o <app>Brasero</app> para criar encartes para caixas de CD/DVD. Acesse a ferramenta de criação em <guiseq><gui>Ferramentas</gui> <gui>Editor de capa</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Se você está criando um projeto de áudio e finaliza-o colocando junto ao projeto antes de criar um encarte, ao acessar a interface do <gui>Editor de capa</gui> da janela do projeto de áudio, as faixas serão automaticamente listadas nacontracapa.</p>
+  </note>
+
+  <note style="important">
+    <p>Se você fechar o <gui>Editor de capa</gui>, suas alterações serão perdidas.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Abrindo o <gui>Editor de capa</gui>.</p>
+    </item>
+    <item>
+      <p>Escolha a formatação que você deseja utilizar para o texto e digite-o, Para ver os lados e a contracapa do encarte para a caixa de CD/DVD, role para baixo.</p>
+      <note style="tip">
+        <p>À primeira vista, você não poderá clicar em nenhuma das opções de formatação de texto do diálogo <gui>Editor de capa</gui>. Para poder usá-las, clique na capa que você deseja trabalhar.</p>
+      </note>
+    </item>
+    <item>
+      <p>Clique no ícone <gui>Propriedades do fundo</gui> da barra de ferramentas para adicionar um plano de fundo para a capa atual, ou clique com o botão direito na capa que você deseja editar e selecione <gui>Definir propriedades do fundo</gui>. Você pode optar por usar um plano de fundo colorido ou por selecionar uma imagem de plano de fundo.</p>
+      <note style="bug">
+        <p>Se você seleciona uma imagem de plano de fundo centralizada, algumas vezes o <app>Brasero</app> trava quando você clica no botão <gui>Fechar</gui>.</p>
+      </note>
+      <p>Clique no botão <gui>Fechar</gui> para aplicar as alterações e fechar o diálogo <gui>Propriedades do fundo</gui>.</p>
+    </item>
+    <item>
+      <p>Imprima a capa usando o botão <gui>Imprimir</gui>, que está localizado no canto superior direito do diálogo.</p>
+    </item>
+  </steps>
+
+</page>

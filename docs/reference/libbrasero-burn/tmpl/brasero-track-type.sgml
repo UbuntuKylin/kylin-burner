@@ -1,0 +1,206 @@
+<!-- ##### SECTION Title ##### -->
+brasero-track-type
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BraseroTrackType ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION brasero_track_type_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_free ##### -->
+<para>
+
+</para>
+
+@type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_is_empty ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_has_data ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_has_image ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_has_stream ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_has_medium ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_has_data ##### -->
+<para>
+
+</para>
+
+@type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_has_image ##### -->
+<para>
+
+</para>
+
+@type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_has_stream ##### -->
+<para>
+
+</para>
+
+@type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_has_medium ##### -->
+<para>
+
+</para>
+
+@type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_stream_format ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_image_format ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_medium_type ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_get_data_fs ##### -->
+<para>
+
+</para>
+
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_stream_format ##### -->
+<para>
+
+</para>
+
+@type: 
+@format: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_image_format ##### -->
+<para>
+
+</para>
+
+@type: 
+@format: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_medium_type ##### -->
+<para>
+
+</para>
+
+@type: 
+@media: 
+
+
+<!-- ##### FUNCTION brasero_track_type_set_data_fs ##### -->
+<para>
+
+</para>
+
+@type: 
+@fs_type: 
+
+
+<!-- ##### FUNCTION brasero_track_type_equal ##### -->
+<para>
+
+</para>
+
+@type_A: 
+@type_B: 
+@Returns: 
+
+

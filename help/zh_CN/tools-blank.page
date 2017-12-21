@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>通过清空内容来擦除一张可读写 CD 或 DVD 光盘。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>擦除光盘</title>
+
+  <p>您可以准备一张等待清空的、存有数据的可擦写光盘。</p>
+
+  <steps>
+    <item>
+      <p>选择 <guiseq><gui>工具</gui><gui>擦除...</gui></guiseq>。</p>
+    </item>
+    <item>
+      <p>如果您有不止一台放有可读写光盘的光驱，可以用 <gui>选择一张光盘</gui>选择对哪一张光盘进行修改。</p>
+    </item>
+    <item>
+      <p>您可以选择 <gui>快速擦除</gui> 来更快的清空 CD。</p>
+      <note>
+        <p>如果您在写入快速擦除后的光盘时出现问题，请尝试禁用快速擦除并重新擦除它。</p>
+      </note>
+    </item>
+    <item>
+      <p>点击 <gui>擦除</gui> 按钮继续。</p>
+    </item>
+    <item>
+      <p>当清空完成时光盘将会弹出。</p>
+    </item>
+  </steps>
+
+</page>

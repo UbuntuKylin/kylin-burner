@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+-include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
+
+SOVERSION := $(shell sed -rn 's/^Package:[[:space:]]*libbrasero-media([0-9-]+)[[:space:]]*$$/\1/p' debian/control)
+SHLIBS := 3.0.0
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+# 3.12.1 fails to build with -z defs
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,--as-needed
+
+export BRASERO_PLUGIN_DIRECTORY = /usr/lib/${DEB_HOST_MULTIARCH}/brasero$(SOVERSION)/plugins
+
+ifneq ($(DEB_BUILD_ARCH_OS), linux)
+CONFFLAGS += --disable-inotify
+endif
+
+%:
+	dh $@ --with gir,gnome
+
+override_dh_autoreconf:
+	dh_autoreconf --as-needed
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--disable-cdrtools \
+		--disable-caches \
+		--enable-search \
+		--enable-unity \
+		--enable-introspection \
+		--enable-gtk-doc \
+		$(CONFFLAGS)
+
+override_dh_install:
+	find . -name "*.la" -delete
+	dh_install --fail-missing
+
+override_dh_makeshlibs:
+	dh_makeshlibs -plibbrasero-media$(SOVERSION) -V 'libbrasero-media$(SOVERSION) (>= $(SHLIBS))' -Xplugins -- -c4
+	dh_makeshlibs -pbrasero --no-act
+	dh_makeshlibs -pbrasero-cdrkit --no-act

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Créer une jaquette pour un boîtier.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Création d'une pochette</title>
+
+  <p>Vous pouvez utiliser <app>Brasero</app> pour créer la jaquette de votre boîtier. Accédez au créateur depuis <guiseq><gui>Outils</gui> <gui>Éditeur de pochette</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Si vous créez un projet audio et que vous avez fini d'assembler le projet avant de créer une pochette, alors lorsque vous accédez à l'interface <gui>Éditeur de pochette</gui> depuis la fenêtre principale du projet audio, les pistes seront automatiquement inscrites sur la face arrière.</p>
+  </note>
+
+  <note style="important">
+    <p>Si vous fermez l'<gui>Éditeur de pochette</gui>, vos modifications seront perdues.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Ouvrez l'<gui>Éditeur de pochette</gui></p>
+    </item>
+    <item>
+      <p>Choisissez le format que vous souhaitez utiliser pour le texte et saisissez-le, faites défiler vers le bas pour voir le côté et la face arrière du boîtier.</p>
+      <note style="tip">
+        <p>Lorsque la fenêtre de l'<gui>Éditeur de pochette</gui> s'ouvre, vous ne pouvez pas cliquer sur l'une des options de formatage de texte. Cliquez sur la pochette que vous voulez modifier pour pouvoir les utiliser.</p>
+      </note>
+    </item>
+    <item>
+      <p>Cliquez sur l’icône <gui>Propriétés d'arrière-plan</gui> dans la barre d'outils pour ajouter une image d'arrière-plan à la pochette actuelle, ou faites un clic droit sur la pochette à modifier et sélectionnez <gui>Définir les propriétés d'arrière-plan</gui>. Vous pouvez choisir d'utiliser un arrière-plan coloré ou sélectionner une image d'arrière-plan.</p>
+      <note style="bug">
+        <p>Si vous sélectionnez une image d'arrière-plan centrée, parfois <app>Brasero</app> s'arrête brutalement quand vous cliquez sur le bouton <gui>Fermer</gui>.</p>
+      </note>
+      <p>Cliquez sur <gui>Fermer</gui> pour appliquer les changements et fermer les <gui>Propriétés d'arrière-plan</gui>.</p>
+    </item>
+    <item>
+      <p>Pour imprimer la pochette, utilisez le bouton <gui>Imprimer</gui> qui est situé dans le coin supérieur droit de la boîte de dialogue.</p>
+    </item>
+  </steps>
+
+</page>

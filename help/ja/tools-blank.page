@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>書き換え可能なCD/DVDを消去して空にします。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>ディスクを消去する</title>
+
+  <p>すでにデータの入っている書き換え可能なディスクを書き込み可能なように消去することで準備できます。</p>
+
+  <steps>
+    <item>
+      <p><guiseq><gui>ツール</gui><gui>消去する…</gui></guiseq>を選択します</p>
+    </item>
+    <item>
+      <p>ディスクドライブが複数ある場合、<gui>ディスクの選択</gui>の下から、書き換えるディスクを選択します。</p>
+    </item>
+    <item>
+      <p><gui>高速に消去する</gui>を選択するとより速く消去できます。</p>
+      <note>
+        <p>高速に消去したディスクへの書き込みに問題がある場合、これを無効にして再度、消去してみてください。</p>
+      </note>
+    </item>
+    <item>
+      <p><gui>消去する</gui>をクリックして続けてください。</p>
+    </item>
+    <item>
+      <p>消去が完了したらディスクが取り出されます。</p>
+    </item>
+  </steps>
+
+</page>

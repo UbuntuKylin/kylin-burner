@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Rozdělte stopu hudebního projektu do více stop.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Rozdělit hudební stopu</title>
+
+  <p>Můžete rozdělit jednotlivé hudební stopy do více stop, když vytváříte hudební projekt.</p>
+
+  <steps>
+    <item>
+      <p>Vytvořte hudební projekt a přidejte stopy, které v něm chcete použít.</p>
+    </item>
+    <item>
+      <p>Klikněte na stopu, kterou chcete rozdělit, a poté klikněte buď na <guiseq><gui>Upravit</gui><gui>Rozdělit stopu…</gui></guiseq> nebo klikněte pravým tlačítkem na stopu a zvolte v menu <gui>Rozdělit stopu…</gui>.</p>
+    </item>
+    <item>
+      <p>Zvolte svou preferovanou metodu rozdělování stopy:</p>
+      <terms>
+        <item>
+          <title>Rozdělit stopu ručně</title>
+          <p>Tato možnost vám dovoluje ručně zvolit přesnou délku každé nové sekce stopy.</p>
+       </item>
+       <item>
+          <title>Rozdělit stopu na části stejné délky.</title>
+          <p>Použijte tuto metodu pro rozdělení stopy do více sekcí stejné délky.</p>
+        </item>
+        <item>
+          <title>Rozdělit stopu na určený počet částí</title>
+          <p>Tato metoda vám dovoluje rozdělit stopu do určeného počtu sekcí, které budou všechny stejně dlouhé.</p>
+        </item>
+        <item>
+          <title>Rozdělit stopu v místech ticha</title>
+          <p>Zvolte tuto metodu, aby <app>Brasero</app> samo detekovalo místa ticha v nahrávce a rozdělilo stopu v těchto místech.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Rozdělte stopu kliknutím na <gui>Rozdělit</gui>.</p>
+      <note>
+        <p>Pokud se pokusíte rozdělit stopu do sekcí kratších než šest sekund, nová sekce bude prodloužena na šest sekund.</p>
+      </note>
+    </item>
+    <item>
+      <p>Klikněte na <gui>OK</gui> pro potvrzení, aby se vaše stopy rozdělily a provedly se změny.</p>
+      <note>
+        <p>Můžete rozdělovat a spojovat stejnou stopu kolikrát chcete, dokud vidíte dialog rozdělování stop. Jakmile potvrdíte rozdělení stop kliknutím na <gui>OK</gui>, už nebudete moci spojit sekce, které jste rozdělili. Pro vrácení změn odstraňte rozdělené sekce stopy z projektu a poté stopu opět přidejte.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

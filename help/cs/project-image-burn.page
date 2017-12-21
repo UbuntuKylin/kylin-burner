@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Vypálit existujicí obraz disku na CD nebo DVD.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Vypálit obraz</title>
+
+  <p><app>Brasero</app> vám umožňuje vypalovat obrazy disků na CD nebo DVD. Podporuje následující přípony: <file>.iso</file>, <file>.toc</file> a <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Obrazy disků jsou archivy souborů obsahující všechna data, která jsou na CD nebo DVD. Na disku CD může být vždy jen jeden obraz disku, ale každý archiv může obsahovat takové množství dat, jaké potřebujete, dokud se vejde na disk.</p>
+  </note>
+
+  <p>Pro vypálení obrazu disku na CD nebo DVD postupujte podle těchto kroků:</p>
+  <steps>
+    <item>
+      <p>Na úvodní stránce klikněte na <gui>Vypálit obraz</gui> nebo zvolte <guiseq><gui>Projekt</gui><gui>Nový projekt</gui><gui>Vypálit obraz…</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Vyberte obraz disku k zápisu kliknutím na <gui>Klikněte zde pro výběr obrazu disku</gui>.</p>
+    </item>
+    <item>
+      <p>Vyberte disk, který chcete využít, z rozbalovací nabídky <gui>Vyberte disk pro zápis</gui>. Pokud máte více než jednu mechaniku, všechny disky, které jsou momentálně uvnitř, by měly být v nabídce.</p>
+        <note><p>Po výběru disku aplikace <app>Brasero</app> ukáže, kolik volného místa zůstane na disku po vypálení.</p></note>
+    </item>
+    <item>
+      <p>Klikněte na tlačítko <gui>Vlastnosti</gui> pro výběr rychlosti vypalování a další možnosti.</p>
+    </item>
+    <item>
+      <p>Klikněte na <gui>Vypálit</gui> pro zahájení vypalování obrazu. Po této operaci můžete buď dokončit vypalování nebo udělat další kopii obrazu.</p>
+        <note>
+          <p>Pokud používáte přepisovatelný disk, který už obsahuje data, budete dotázáni, jestli chcete obsah vymazat nebo vložit jiný disky.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

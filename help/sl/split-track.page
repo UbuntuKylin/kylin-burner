@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Razdelitev skladbe zvočnega projekta v več skladb.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Razdelitev skladbe</title>
+
+  <p>Med sestavljanjem zvočnega projekta lahko eno skladbo razdelite v več skladb.</p>
+
+  <steps>
+    <item>
+      <p>Začnite zvočni projekt in dodajte skladbe, ki jih želite uporabiti.</p>
+    </item>
+    <item>
+      <p>S klikom izberite skladbo, ki jo želite razdeliti, ter nato kliknite <guiseq><gui>Uredi</gui><gui>Razdeli skladbo …</gui></guiseq> ali desno kliknite na skladbo in v meniju izberite <gui>Razdeli skladbo …</gui></p>
+    </item>
+    <item>
+      <p>Izberite način razdeljevanja skladb:</p>
+      <terms>
+        <item>
+          <title>Razdeli skladbo ročno</title>
+          <p>Ta možnost vam omogoča ročno izbiro natančne dolžine za vsak nov odsek skladbe. </p>
+       </item>
+       <item>
+          <title>Razdelitev skladb na dele z določeno dolžino</title>
+          <p>Uporabite ta način za razdelitev skladbe v več odsekov enake dolžine.</p>
+        </item>
+        <item>
+          <title>Razdelitev skladbe na določeno število delov</title>
+          <p>Ta način vam omogoča razdelitev skladbe v številne odseke, ki bodo vsi enake dolžine.</p>
+        </item>
+        <item>
+          <title>Razdeli skladbo za vsako tišino</title>
+          <p>Izberite ta način, da bo <app>Brasero</app> samodejno zaznal tišino pri snemanju in razdelil skladbe na teh točkah.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Nadaljujte z razdeljevanjem skladb s klikom <gui>Razreži</gui>.</p>
+      <note>
+        <p>Če skladbo poskusite razdeliti na odsek, ki je krajši od šestih sekund, mu bo pripet nov posnetek, tako da bo posnetek dolg 6 sekund.</p>
+      </note>
+    </item>
+    <item>
+      <p>Kliknite <gui>V redu</gui> za potrditev razdelitve skladb in uveljavitev sprememb.</p>
+      <note>
+        <p>Medtem ko ste v pogovornem oknu razdeljevanja skladb, lahko skladbo razdelite in združite kolikokrat hočete. Ko s klikom na <gui>V redu</gui> potrdite razdelitev skladb, razdeljenih odsekov ne boste mogli več združiti. Za povrnitev sprememb odstranite vse odseke skladbe iz projekta in skladbo ponovno dodajte.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

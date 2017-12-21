@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>我的MP3檔案沒有辦法在CD或是DVD播放機中播放。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>不能在CD播放機中播放CD光碟。</title>
+
+  <p>If your CD is not playing in your CD player or stereo, it is probably
+  because the music was not correctly written to the disc or because you used 
+  a data project to write the music to the CD instead of an audio project.</p>
+
+  <note>
+    <p>很多新的CD和DVD播放器可以播放由資料專案製作出來的音樂CD，但是其他大部分的老舊播放器可能沒有辦法做到。</p>
+  </note>
+
+  <note>
+    <p>其他CD播放機可能沒有辦法播放 CD-RW 格式的光碟。</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>如果你正在使用 CD-RW，請將它抹除。</p>
+    </item>
+    <item>
+      <p>重新並使用音樂專案來燒錄這張CD。</p>
+    </item>
+  </steps>
+
+</page>

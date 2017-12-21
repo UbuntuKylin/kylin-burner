@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>DVD/SVCDに動画を書き込みます。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>動画プロジェクトを作成する</title>
+
+  <p><app>Brasero</app>を使えば、DVDプレイヤーやラップトップで再生するための動画ディスクを作成することができます。</p>
+
+  <steps>
+    <item>
+      <p>スタートページの<gui>動画プロジェクト</gui>をクリックするか、<guiseq><gui>プロジェクト</gui><gui>新しいプロジェクト</gui><gui>新しい動画プロジェクト</gui></guiseq>を選択します。</p>
+    </item>
+    <item>
+      <p>書き込みたいファイルをプロジェクトに追加するには、ツールバーの<gui>追加</gui>をクリックしてお好みのファイルを選択します。また、ファイルをプロジェクトエリアにドラッグアンドドロップする、あるいは、<guiseq><gui>編集</gui><gui>ファイルの追加</gui></guiseq>をクリックすることでファイルを追加することもできます。</p>
+    </item>
+    <item>
+      <p>プロジェクトエリアの下にあるテキスト入力フィールドでディスクのタイトルを追加することができます。</p>
+    </item>
+    <item>
+      <p>空のディスクをドロップダウンリストで選択します。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックして続けてください。</p>
+    </item>
+    <item>
+      <p><gui>書き込み速度</gui>をドロップダウンリストから選択して、必要であればその他のオプションも選択してください。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックしてプロジェクトを1枚のディスクに書き込むか、<gui>複数のディスクの書き込み</gui>をクリックしてプロジェクトを複数のディスクに書き込みます。</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>建立一個音樂專案。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>燒錄一張音樂CD</title>
+
+  <p><app>Brasero</app> can write audio files to a CD, which you can then use
+  for playing in CD players and so on. It is usually best to
+  use a non-rewritable CD because not all CD players will play rewritable
+  CDs.</p>
+
+  <steps>
+    <item>
+      <p>在主視窗中按「<guibutton>音樂專案</guibutton>」或選擇「<menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>新音樂專案</guimenuitem></menuchoice>」。</p>
+    </item>
+    <item>
+      <p>Add audio files to the project by clicking <gui>Add</gui> in the
+      toolbar and selecting the desired files. You can also add files by
+      dragging and dropping them onto the project area or by clicking
+      <guiseq><gui>Edit</gui><gui>Add Files</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>You can add a title for the CD in the text entry field below the
+      project area.</p>
+    </item>
+    <item>
+      <p>Select the blank CD in the drop down list.</p>
+    </item>
+    <item>
+      <p>按一下「<gui>燒錄‧‧‧</gui>」以繼續。</p>
+    </item>
+    <item>
+      <p>在下拉式清單「<gui>燒錄速度</gui>」中你可以選擇任一你想要的燒錄速度。</p>
+    </item>
+    <item>
+      <p>Click <gui>Burn</gui> to burn a single disc of the project or
+      <gui>Burn Several Copies</gui> to burn your project to multiple discs.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>You can also split individual tracks into multiple tracks using the
+    <gui>Split</gui> tool and add a two second break after a track using the
+    <gui>Pause</gui> button.</p>
+  </note>
+
+</page>

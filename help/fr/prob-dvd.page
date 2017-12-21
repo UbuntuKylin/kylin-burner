@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Je ne peux pas graver sur un DVD-R ou un DVD-RW.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Problème lors de la création d'un DVD</title>
+
+  <p>Certains types de DVD-R et DVD-RW ne sont pas compatibles avec tous les graveurs. Vérifiez les points suivants pour savoir si ceux-ci peuvent être utilisés avec le votre.</p>
+
+  <steps>
+    <item>
+      <p>Vérifiez si votre lecteur DVD accepte les disques DVD+ ou DVD- ; s'il est marquée d'un « multi », cela indique généralement qu'il accepte les deux. Vérifiez que votre disque est du même type que le lecteur DVD.</p>
+    </item>
+    <item>
+      <p>Vérifiez si votre disque est double couche ou simple couche : certains lecteurs de DVD ne peuvent pas écrire sur un disque double couche.</p>
+    </item>
+    <item>
+      <p>Si vous essayez d'utiliser un DVD-R, vérifiez qu'il n'a pas été déjà gravé auparavant. Si vous utilisez un DVD-RW, essayez de l'effacer avant de tenter d'y écrire.</p>
+    </item>
+  </steps>
+
+</page>

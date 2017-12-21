@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Moje MP3 soubory se nepřehrávají v DVD nebo CD přehrávači.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>CD nehraje v CD přehravači.</title>
+
+  <p>Pokud vaše CD nehraje ve vašem CD přehravači nebo stereu, je to pravděpodobně způsobeno tím, že nebyla hudba správně zapsána na disk nebo protože jste vytvořili datový projekt k zapsání hudby místo hudebního projektu.</p>
+
+  <note>
+    <p>Hodně nových CD a DVD přehravačů přehrává disky CD, které byly vytvořeny s pomocí datového projektu, ale většina starších ne.</p>
+  </note>
+
+  <note>
+    <p>Starší CD přehravače nemusí umět přehrávat disky CD-RW.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Pokud používáte CD-RW, smažte CD.</p>
+    </item>
+    <item>
+      <p>Přepište CD jako hudební projekt.</p>
+    </item>
+  </steps>
+
+</page>

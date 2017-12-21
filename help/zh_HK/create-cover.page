@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Create an inlay for a jewel case.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>建立一個封套</title>
+
+  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  Access the creator by clicking <guiseq><gui>Tools</gui>
+  <gui>Cover Editor</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>If you are creating an audio project and finish putting together the
+    project before creating an inlay, then when you access the <gui>Cover
+    Editor</gui> interface from the audio project window, the tracks will
+    automatically be listed on the back cover.</p>
+  </note>
+
+  <note style="important">
+    <p>If you close the <gui>Cover Editor</gui>, your changes will be lost.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>開啟「<gui>封套編輯器</gui>」。</p>
+    </item>
+    <item>
+      <p>Choose the formatting you wish to use for the text and type the text,
+      scrolling down to see the side and back inlay for the jewel case.</p>
+      <note style="tip">
+        <p>When you first see the <gui>Cover Editor</gui> dialog, you will not
+        be able to click on any of the text formatting options. Click on the
+        cover you want to work on to be able to use those.</p>
+      </note>
+    </item>
+    <item>
+      <p>按一下位於工具列的「<gui>背景屬性</gui>」圖示然後為你現在的封套建立背景，或直接在你想要編輯的封套上按右鍵「<gui>設定背景屬性</gui>」。你可以選擇單色的背景顏色或是選擇背景圖片。</p>
+      <note style="bug">
+        <p>如果你選擇將背景圖片置中，「<app>Brasero</app>」有時候會在你按下「<gui>關閉</gui>」按鈕的時候沒有回應。</p>
+      </note>
+      <p>按一下「<gui>關閉</gui>」來套用更改並關閉「<gui>背景屬性</gui>」對話視窗。</p>
+    </item>
+    <item>
+      <p>按一下「<gui>列印</gui>」來將你的封套輸出，這個按鈕位在視窗右上角的下拉式選單裏。</p>
+    </item>
+  </steps>
+
+</page>

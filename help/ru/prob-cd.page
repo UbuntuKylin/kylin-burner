@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Мои MP3-файлы не воспроизводятся в DVD- или CD-проигрывателе.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>CD не будет воспроизводится в CD-проигрывателе</title>
+
+  <p>Если CD не воспроизводится в проигрывателе или стереосистеме, это может быть связано с тем, что музыка была записана на диск некорректно, или вы записали на диск вместо звукового проекта проект с данными.</p>
+
+  <note>
+    <p>Многие новые CD- и DVD-проигрыватели будут воспроизводить музыкальные CD, которые были созданы как проекты с данными, но некоторые старые проигрыватели не смогут воспроизвести такие диски.</p>
+  </note>
+
+  <note>
+    <p>Старые CD-проигрыватели могут не поддерживать CD-RW.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Если вы используете CD-RW, очистите диск.</p>
+    </item>
+    <item>
+      <p>Перезапишите CD как звукового проект.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Mentse a projektet a későbbi szerkesztéshez vagy kiíráshoz.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Projekt mentése</title>
+
+  <p>A <app>Braseroban</app> elmentheti hang-, adat- vagy videoprojektjét későbbi szerkesztésre vagy kiírásra.</p>
+
+  <steps>
+    <item>
+      <p>Hozza létre a projektet, és vegye fel a projekthez használni kívánt fájlokat.</p>
+    </item>
+    <item>
+      <p>Válassza a <guiseq><gui>Projekt</gui><gui>Mentés</gui></guiseq> menüpontot a projekt mentéséhez.</p>
+    </item>
+    <item>
+      <p>Adja meg a projekt nevét, és nyomja meg a <gui>Mentés</gui> gombot a projekt mentéséhez.</p>
+    </item>
+  </steps>
+
+  <p>Egy elmentett <app>Brasero</app> projektet számos módon nyithat meg:</p>
+
+  <list>
+    <item>
+      <p>kiválaszthatja a kezdőoldalon lévő <gui>Legutóbbi projektek</gui> listából</p>
+    </item>
+    <item>
+      <p>a <guiseq><gui>Projekt</gui><gui>Legutóbbi projektek</gui></guiseq> menüpont kiválasztásával</p>
+    </item>
+    <item>
+      <p>a <guiseq><gui>Projekt</gui><gui>Megnyitás</gui></guiseq> menüpont, majd a projekt kiválasztásával</p>
+    </item>
+    <item>
+      <p>a projekt fájlböngészőből való megnyitásával</p>
+      <note>
+        <p>Egyszerre csak egy <app>Brasero</app> példány lehet nyitva. Ha második példányt próbál megnyitni, akkor  már nyitott <app>Brasero</app> ablak kerül fókuszba.</p>
+        <p>Ha a <app>Brasero</app> már fut, és néhány fájlt a <app>Fájlok</app> alkalmazásból próbál vele megnyitni, akkor a fájlok hozzáadásra kerülnek az éppen megnyitott projekthez.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Ha megnyit egy mentett projektet, akkor a <app>Brasero</app> új projektként fogja azt kezelni: ha a projekt frissített verzióját szeretné menteni, akkor a projekt megkéri egy fájlnév megadására, ekkor felülírhatja a régi verziót, vagy másik fájlnév megadásával elmentheti új projektként.</p>
+  </note>
+
+</page>

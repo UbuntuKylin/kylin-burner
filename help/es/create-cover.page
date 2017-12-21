@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="es">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Crear una carátura para una caja de CD o DVD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Mustieles</mal:name>
+      <mal:email>daniel.mustieles@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jorge González</mal:name>
+      <mal:email>jorgegonz@svn.gnome.org</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Crear una carátula</title>
+
+  <p>Puede usar <app>Brasero</app> para crear carátulas para sus cajas de CD o DVD. Acceda al creador pulsando <guiseq><gui>Herramientas</gui><gui>Editor de carátulas</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Si está creando un proyecto de sonido y está termina el proyecto antes de crear la carátula, al acceder al <gui>Editor de carátulas</gui> desde la ventana del proyecto de sonido, se añadirá automáticamente una lista de las pistas en la carátula posterior.</p>
+  </note>
+
+  <note style="important">
+    <p>Se perderán sus cambios si cierra el <gui>Editor de carátulas</gui>.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Abra el <gui>Editor de carátulas</gui>.</p>
+    </item>
+    <item>
+      <p>Elija el formato que quiere usar para el texto y escríbalo, desplazándose hacia abajo para ver el lateral y la parte trasera de la caja.</p>
+      <note style="tip">
+        <p>La primera vez que vea el diálogo del <gui>Editor de carátulas</gui> no podrá pulsar en ninguna opción de formateo de texto. Pulse sobre la carátula en la que quiere trabajar para poder usar las opciones.</p>
+      </note>
+    </item>
+    <item>
+      <p>Para añadir un fondo a la carátula actual, pulse en el icono de <gui>Propiedades del fondo</gui> en la barra de herramientas, o pulse con el botón derecho del ratón sobre la carátula que quiere editar y seleccione <gui>Establecer las propiedades del fondo</gui>. Puede elegir usar un fondo coloreado o una imagen de fondo.</p>
+      <note style="bug">
+        <p>A veces, <app>Brasero</app> se cuelga al pulsar el botón <gui>Cerrar</gui> si selecciona una imagen de fondo centrada.</p>
+      </note>
+      <p>Pulse el botón <gui>Cerrar</gui> para aplicar los cambios y cerrar el diálogo <gui>Propiedades del fondo</gui>.</p>
+    </item>
+    <item>
+      <p>Imprima la carátula usando el botón <gui>Imprimir</gui>, ubicado en la esquina superior derecha del diálogo.</p>
+    </item>
+  </steps>
+
+</page>

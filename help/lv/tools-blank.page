@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Dzēsiet pārrakstāmos CD vai DVD diskus, tos iztukšojot.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Dzēst disku</title>
+
+  <p>Jūs varat rakstīšanai sagatavot pārrakstāmo disku, ar tajā jau esošiem datiem, to nodzēšot.</p>
+
+  <steps>
+    <item>
+      <p>Spiediet <guiseq><gui>Rīki</gui><gui>Dzēst...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Ja tajā ir vairāk nekā viens pārrakstāmais disks, jūs varat izvēlēties, kuru disku pārrakstīt zem <gui>Izvēlieties disku</gui>.</p>
+    </item>
+    <item>
+      <p>Varat izvēlēties <gui>Ātrā dzēšana</gui>, lai dzēstu disku ātrāk.</p>
+      <note>
+        <p>Ja rodas problēmas, rakstot ātri dzēstajā diskā, pamēģiniet deaktivēt ātro dzēšanu un dzēsiet to vēlreiz.</p>
+      </note>
+    </item>
+    <item>
+      <p>Spiediet <gui>Dzēst</gui>, lai turpinātu.</p>
+    </item>
+    <item>
+      <p>Disks var tikt izgrūsts, kad ir pabeigta dzēšana.</p>
+    </item>
+  </steps>
+
+</page>

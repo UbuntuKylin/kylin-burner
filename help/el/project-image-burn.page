@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Γράψτε μια εικόνα δίσκου σε ένα CD ή DVD.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Εγγραφή εικόνας</title>
+
+  <p>Το <app>Brasero</app> σας επιτρέπει να γράψετε εικόνες δίσκου σε ένα CD ή DVD. Υποστηρίζει τις ακόλουθες επεκτάσεις των οπτικών δίσκων: <file>.iso</file>, <file>.toc</file> και <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Οι εικόνες δίσκου είναι συμπιεσμένα αρχεία που περιέχουν όλα τα δεδομένα του CD ή DVD. Μόνο μια εικόνα δίσκου μπορεί να υπάρχει σε ένα CD κάθε φορά, αλλά κάθε συμπιεσμένο αρχείο μπορεί να περιέχει όσα δεδομένα θέλετε, αρκεί να χωράνε στον δίσκο.</p>
+  </note>
+
+  <p>Για να γράψετε μια εικόνα δίσκου στο CD ή DVD, ακολουθήστε τα βήματα:</p>
+  <steps>
+    <item>
+      <p>Πατήστε στο <gui>Εγγραφή εικόνας</gui> στο κεντρικό παράθυρο ή επιλέξτε <guiseq><gui>Έργο</gui><gui>Νέο έργο</gui><gui>Εγγραφή εικόνας…</gui> </guiseq>.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε μια εικόνα δίσκου για να γράψετε πατώντας <gui>Πατήστε εδώ για να επιλέξετε μια εικόνα δίσκου</gui>.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε τον δίσκο τον οποίο θέλετε να χρησιμοποιήσετε από την αναδιπλούμενη λίστα παρακάτω <gui>Επιλέξτε τον δίσκο στον οποίο θα γράψετε</gui>. Αν έχετε πάνω από μια συσκευή δίσκου, όλοι οι δίσκοι που είναι μέσα τους θα εμφανιστούν στην λίστα.</p>
+        <note><p>Αφού διαλέξετε τον δίσκο το <app>Brasero</app> θα δείξει πόσος ελεύθερος χώρος θα απομείνει στον δίσκο μετά την εγγραφή.</p></note>
+    </item>
+    <item>
+      <p>Πατήστε το κουμπί <gui>Προτιμήσεις</gui> για να επιλέξετε την ταχύτητα εγγραφής και άλλες επιλογές.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Εγγραφή</gui> για να ξεκινήσετε την εγγραφή της εικόνας. Μετά μπορείτε είτε να τελειώσετε την εγγραφή είτε να κάνετε και άλλο αντίγραφο της εικόνας.</p>
+        <note>
+          <p>Αν χρησιμοποιείται έναν επανεγγράψιμο δίσκο, που περιέχει ήδη δεδομένα, θα ερωτηθείτε αν θέλετε να τον αδειάσετε ή να εισάγεται άλλον δίσκο.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

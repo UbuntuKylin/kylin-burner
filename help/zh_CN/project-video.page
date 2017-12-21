@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>将视频写入 DVD 或 SVCD。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>创建一个新视频的项目</title>
+
+  <p>Brasero 可以用来创建能在 DVD 播放器或笔记本电脑上播放的视频光盘。</p>
+
+  <steps>
+    <item>
+      <p>点击主窗口中的 <guibutton>视频项目</guibutton> 或选择 <menuchoice><guimenu>项目</guimenu><guisubmenu>新建项目</guisubmenu><guimenuitem>新建视频项目</guimenuitem></menuchoice>。</p>
+    </item>
+    <item>
+      <p>点击工具栏上的 <gui>添加</gui> 然后选择要添加进项目的视频文件。您也可以通过把文件拖放到项目区或点击 <guiseq><gui>编辑</gui><gui>添加文件</gui></guiseq> 的方式来添加文件。</p>
+    </item>
+    <item>
+      <p>您可以在项目区下面的文字输入框中为光盘添加一个标题。</p>
+    </item>
+    <item>
+      <p>在下拉列表中选择空白光盘。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录...</gui> 继续。</p>
+    </item>
+    <item>
+      <p>从下拉菜单中选择 <gui>刻录速度</gui> 和其他需要的选项。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录</gui> 开始刻录单张项目光盘，或点击 <gui>刻录多份副本</gui> 来将项目刻录到多张光盘</p>
+    </item>
+  </steps>
+
+</page>

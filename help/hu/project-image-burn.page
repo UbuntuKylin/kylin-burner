@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Meglévő lemezkép írása CD-re vagy DVD-re.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Lemezkép írása</title>
+
+  <p>A <app>Brasero</app> lehetővé teszi lemezképek CD-re vagy DVD-re írását. A következő kiterjesztéseket támogatja optikai lemezképekhez: <file>.iso</file>, <file>.toc</file> és <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>A lemezképek olyan archívumfájlok, amelyek a CD-re vagy DVD-re írandó minden adatot tartalmaznak. Egy CD egyszerre csak egy lemezképet tartalmazhat, de minden archívum olyan sok vagy kevés adatot tartalmazhat, amennyit csak Ön szeretne, amíg azok elférnek a lemezen.</p>
+  </note>
+
+  <p>Lemezkép CD-re vagy DVD-re írásához tegye a következőket:</p>
+  <steps>
+    <item>
+      <p>Nyomja meg a kezdőoldal <gui>Lemezkép kiírása</gui> gombját, vagy válassza a <guiseq><gui>Projekt</gui><gui>Új projekt</gui><gui>Lemezkép kiírása</gui></guiseq> menüpontot.</p>
+    </item>
+    <item>
+      <p>Válassza ki a kiírandó lemezképet a <gui>Kattintson a lemezkép kiválasztásához</gui> gomb megnyomásával.</p>
+    </item>
+    <item>
+      <p>A <gui>Válassza ki az írandó lemezt</gui> alatti legördülő listából válassza ki a használni kívánt lemezt. Ha több lemezmeghajtója van, akkor minden lemez megjelenik a listában.</p>
+        <note><p>A lemez kiválasztása után a <app>Brasero</app> megjeleníti, mennyi szabad hely marad a lemezen az írás után.</p></note>
+    </item>
+    <item>
+      <p>Nyomja meg a <gui>Tulajdonságok</gui> gombot az írási sebesség és egyéb beállítások megadásához.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>Írás</gui> gombot a lemezkép írásának megkezdéséhez. A művelet befejeződése után befejezheti az írást, vagy újabb másolatot készíthet a lemezképből.</p>
+        <note>
+          <p>Ha olyan újraírható lemezt használ, amelyen már vannak adatok, akkor a program megkérdezi, hogy törli-e a lemezt, vagy másikat helyez-e be.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Ierakstiet datus CD vai DVD diskā.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Izveidot datu projektu</title>
+
+  <p>Datu projekts tiek izmantots, lai ierakstītu datus (piemēram, failus, fotogrāfijas vai mūziku) diskā, nekādā veidā nemainot šos failus. Tas var būt noderīgs, lai pārvietotu failus no viena datora uz otru.</p>
+
+  <steps>
+    <item>
+      <p>Spiediet <gui>Datu projekts</gui> sākuma lapā, vai izvēlieties <guiseq><gui>Projekts</gui><gui>Jauns projekts</gui><gui>Jauns datu projekts</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pievienojiet vēlamos failus projektam, spiežot <gui>Pievienot</gui> rīkjoslā un izvēlieties failus. Jūs varat arī pievienot failus ievelkot un nometot tos projektā, vai spiežot <guiseq><gui>Rediģēt</gui><gui>Pievienot failus</gui></guiseq>.</p>
+      <note style="tip">
+	<p>Jūs varat izveidot mapes diskā, lai uzglabātu datus strukturētā veidā. Lai izveidotu mapi, spiediet <gui>Jauna mape</gui> rīkjoslā, vai izvēlieties <guiseq><gui>Rediģēt</gui><gui>Jauna mape</gui></guiseq> izvēļņu joslā. Jūs varat arī veidot mapes citās mapēs.</p>
+      </note>
+    </item>
+    <item>
+      <p>Jūs varat pievienot diska nosaukumu teksta ievades laukā zem projekta.</p>
+    </item>
+    <item>
+      <p>Izvēlaties tukšo disku izkrītošajā izvēlnē.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt...</gui>, lai turpinātu.</p>
+    </item>
+    <item>
+      <p>Izvēlieties <gui>rakstīšanas ātrumu</gui> no izkrītošā saraksta, un citas opcijas.</p>
+    </item>
+    <item>
+      <p>Spiediet <gui>Rakstīt</gui>, lai vienā CD ierakstītu projektu, vai <gui>Ierakstīt vairākas kopijas</gui>, lai ierakstītu jūsu projektu vairākos CD</p>
+      <note>
+        <p>Ja izmantojat rakstāmo disku, kas jau satur datus, jums jautās vai vēlaties to dzēst, vai ievietot citu disku.</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Ja izmantojat pārrakstāmo disku un dati nav tajā ierakstīti pareizi, jums varētu vajadzēt veikt pilno (nevis ātro) diska dzēšanu pirms mēģināt vēlreiz.</p>
+
+</page>

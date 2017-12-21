@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="ro">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Introducere la aplicația de scriere de discuri <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Atribuire - Distribuire-în-condiții-identice 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Șerbănescu</mal:name>
+      <mal:email>daniel [at] serbanescu [dot] dk</mal:email>
+      <mal:years>2010 , 2012, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Laurențiu Cristian Ion</mal:name>
+      <mal:email>ionlaurentiucristian@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Introducere</title>
+
+  <p><app>Brasero</app> este o aplicație pentru scrierea CD-urilor și DVD-urilor, concepută pentru a fi ușor de utilizat, oferind în același timp toate instrumentele necesare pentru scrierea discurilor.</p>
+
+  <p>Cu <app>Brasero</app> puteți:</p>
+  <list>
+    <item><p>Scrie date pe CD-uri și DVD-uri</p></item>
+    <item><p>Scrie CD-uri audio digitale pornind de la fișiere audio (cum ar fi OGG, FLAC și MP3)</p></item>
+    <item><p>Copia CD-uri și DVD-uri</p></item>
+    <item><p>Crea DVD-uri video sau SVCD-uri</p></item>
+    <item><p>Crea fișiere imagine și scrie fișiere imagini existente</p></item>
+    <item><p>Goli CD-RW-uri și DVD-RW-uri</p></item>
+    <item><p>Verifica integritatea discurilor și imaginilor discurilor</p></item>
+  </list>
+
+  <figure>
+    <title>Fereastra principală <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

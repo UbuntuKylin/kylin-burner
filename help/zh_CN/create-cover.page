@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Create an inlay for a jewel case.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>创建封面</title>
+
+  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  Access the creator by clicking <guiseq><gui>Tools</gui>
+  <gui>Cover Editor</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>If you are creating an audio project and finish putting together the
+    project before creating an inlay, then when you access the <gui>Cover
+    Editor</gui> interface from the audio project window, the tracks will
+    automatically be listed on the back cover.</p>
+  </note>
+
+  <note style="important">
+    <p>如果您关闭 <gui>封面编辑器</gui>，您的更改将丢失。</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>打开 <gui>封面编辑器</gui>。</p>
+    </item>
+    <item>
+      <p>Choose the formatting you wish to use for the text and type the text,
+      scrolling down to see the side and back inlay for the jewel case.</p>
+      <note style="tip">
+        <p>当您第一次看到 <gui>封面编辑器</gui> 对话框，您不能点击任何文本格式选项。点击您想要加工的封面才能使用它们。</p>
+      </note>
+    </item>
+    <item>
+      <p>点击 <gui>背景属性</gui> 工具栏图标来为当前封面添加背景，或在您要编辑的封面上右击，选择 <gui>设置背景属性</gui>。您可以选择使用纯色背景或选择一张背景图像。</p>
+      <note style="bug">
+        <p>如果您选择了一个居中的背景图像，则当您选点击 <gui>关闭</gui> 按钮时，<app>Brasero</app>有时候会崩溃。</p>
+      </note>
+      <p>点击 <gui>关闭</gui> 按钮来应用更改并关闭 <gui>背景属性</gui> 对话框。</p>
+    </item>
+    <item>
+      <p>使用位于对话框右上角的 <gui>打印</gui> 按钮来打印封面。</p>
+    </item>
+  </steps>
+
+</page>

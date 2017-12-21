@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>A <app>Brasero</app> lemezíró alkalmazás bemutatása.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Bevezetés</title>
+
+  <p>A <app>Brasero</app> egy CD-k és DVD-k írására szolgáló alkalmazás. Tervezésekor az egyszerű használhatóság volt a cél, miközben a lemezíráshoz szükséges összes eszközt tartalmazza.</p>
+
+  <p>A <app>Brasero</app> használatával:</p>
+  <list>
+    <item><p>adatok írhat CD-kre és DVD-kre</p></item>
+    <item><p>hang CD-ket készíthet hangfájlokból, például OGG, FLAC és MP3 fájlokból</p></item>
+    <item><p>CD-ket és DVD-ket másolhat</p></item>
+    <item><p>Videó DVD-ket vagy SVCD-ket készíthet</p></item>
+    <item><p>lemezképeket hozhat létre, és meglévő lemezképfájlokat írhat ki</p></item>
+    <item><p>CD-RW-ket és DVD-RW-ket törölhet</p></item>
+    <item><p>ellenőrizheti a lemezek és lemezképek épségét</p></item>
+  </list>
+
+  <figure>
+    <title>A <gui>Brasero</gui> főablaka</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

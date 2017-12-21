@@ -1,0 +1,209 @@
+2009-03-28  Simos Xenitellis  <simos@gnome.org>
+
+	* el/figures/*.png: Added screenshots by FotisTsamis.
+	* el/el.po: Updated Greek translation by Marios Zindilis.
+
+2009-03-16  Philip Withnall  <philip@tecnocode.co.uk>
+
+	* en_GB/en_GB.po: Updated British English translation.
+
+2009-03-15  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Updated Swedish translation.
+
+2009-03-10  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated German translation.
+
+2009-03-09  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation.
+
+2009-03-09  Milo Casagrande  <milo@ubuntu.com>
+
+	* C/brasero.xml: Fixed two typos, closes bug #572267.
+
+2009-03-02  Milo Casagrande  <milo@ubuntu.com>
+
+	* it/it.po: Updated Italian translation.
+	* if/figures/: Updated Italian screenshot.
+
+2009-03-01  Philip Withnall  <philip@tecnocode.co.uk>
+
+	* Makefile.am:
+	* en_GB/en_GB.po: Added British English translation.
+
+2009-03-01  Simos Xenitellis  <simos@gnome.org>
+
+	* el/el.po: Updated Greek translation (Marios Zindilis)
+
+2009-02-19  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Updated Swedish translation.
+
+2009-02-18  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Updated Swedish translation.
+	* sv/figures/*png: Updated screenshot.
+
+2009-02-06  Claude Paroz  <claude@2xlibre.net>
+
+	* fr/figures/brasero_main.png:
+	* fr/fr.po: Updated French translation by Bruno Brouard and Claude Paroz
+
+2009-01-24  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated German translation.
+
+2009-01-23  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation.
+
+2009-01-21  Luis Medinas  <lmedinas@gnome.org>
+
+	* C/brasero.xml:
+	
+	Update Documentation. Patch from his author:
+	Milo Casagrande <milo@ubuntu.com> 
+
+2008-12-05  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated German translation.
+
+2008-11-28  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated German translation.
+
+2008-10-23  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation.
+
+2008-11-23  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Fixed typos
+	Fix #562007 – typos in the documentation
+
+	* C/brasero.xml:
+
+2008-10-22  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation.
+
+2008-11-21  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated German translation.
+
+2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Update burn option dialogs sections
+
+	* C/brasero.xml:
+
+2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Update disc title/label sections for new UI
+
+	* C/brasero.xml:
+
+2008-11-19  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Fix #559154 – Help with regard to "simulate burn" not up to date
+
+	* C/brasero.xml:
+
+2008-09-28  Nickolay V. Shmyrev  <nshmyrev@yandex.ru>
+    
+	* ru/ru.po: Added Russian translation by Yuri Myasoedov.
+
+2008-09-18  Simos Xenitellis  <simos@gnome.org>
+
+	* el/el.po: Fixed typo (newline in message).
+
+2008-09-18 Kostas Papadimas <pkst@gnome.org>
+
+	* el/el.po: Added Greek Translation by Fotis Tsamis <ftsamis@gmail.com>
+
+2008-09-14  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation
+	* es/figures/brasero_main.png: Updated Spanish screenshot
+
+2008-09-09  Luca Ferretti  <elle.uca@libero.it>
+
+	* it/it.po: Updated Italian translation by Milo Casagrande.
+	* it/figures/brasero_main.png: ditto.
+
+2008-09-04  Jochen Skulj  <jochen@jochenskulj.de>
+
+	* de/de.po: Updated german translation.
+
+2008-09-01  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Patch by Milo Casagrande to fix typos in help manual
+
+	* C/brasero.xml:
+
+2008-08-31  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation
+
+2008-08-29  Mario Blättermann  <mariobl@svn.gnome.org>
+
+	* de/de.po: Updated german translation.
+	* de/figures/*: Updated screenshot.
+
+2008-08-24  Philippe Rouquier  <ykw@localhost.localdomain>
+
+	Fix #547111 – Brasero ships out-of-date manual
+
+	* C/brasero.xml:
+
+2008-08-17  Andre Klapper  <a9016009@gmx.de>
+
+	* Makefile.am: Added de to DOC_LINGUAS.
+	* de/de.po: Added initial German translation by Mario
+	Blättermann.
+	* de/figures/*: Added screenshot.
+
+2008-08-14  Tomasz Dominikowski <tdominikowski@aviary.pl>
+
+	* pl/pl.po: Updated Polish translation.
+
+2008-08-14  Tomasz Dominikowski <tdominikowski@aviary.pl>
+
+	* Makefile.am: Added pl to DOC_LINGUAS.
+	* pl/pl.po: Added Polish translation.
+	* pl/figures/*: Added screenshot.
+
+2008-07-25  Daniel Nylander <po@danielnylander.se>
+
+	* sv/sv.po: Added Swedish translation.
+	* sv/figures/*png: Added screenshot.
+	* Makefile.am: Added sv to DOC_LINGUAS.
+
+2008-06-28  Claude Paroz  <claude@2xlibre.net>
+
+	* Makefile.am: Added fr to DOC_LINGUAS.
+	* fr/fr.po: Added French translation.
+	* fr/figures/*: Added translated screenshot.
+
+2008-06-22 Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation
+
+2008-06-20 Jorge Gonzalez  <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Updated Spanish translation
+
+2008-06-18  Luca Ferretti  <elle.uca@libero.it>
+
+	* ChangeLog: Added file to track changes in user documentation
+
+	* Makefile.am: Added it to DOC_LINGUAS
+
+	* it/it.po:
+	* it/figures/*:
+	Added Italian translation and figures by Milo Casagrande
+
+
+

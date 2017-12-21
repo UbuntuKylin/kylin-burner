@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Создание вкладыша для упаковки.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Создание обложки</title>
+
+  <p>You can use <app>Brasero</app> to create inlays for your jewel cases.
+  Access the creator by clicking <guiseq><gui>Tools</gui>
+  <gui>Cover Editor</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Если вы создаёте звуковой проект и закончили его, вы можете открыть <gui>Редактор обложек</gui> из окна проекта, дорожки будут автоматически помещены в список на задней обложке.</p>
+  </note>
+
+  <note style="important">
+    <p>Если закрыть <gui>Редактор обложек</gui>, все изменения будут потеряны.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Откройте <gui>Редактор обложек</gui>.</p>
+    </item>
+    <item>
+      <p>Выберите форматирование для текста и введите текст; используйте прокрутку, чтобы посмотреть боковой и задний вкладыши.</p>
+      <note style="tip">
+        <p>Когда вы откроете <gui>Редактор обложек</gui>, вы не сможете выбрать ни одного параметра форматирования текста. Для этого сначала нужно нажать левую кнопку мыши на обложке.</p>
+      </note>
+    </item>
+    <item>
+      <p>Чтобы добавить фон для текущей обложки, нажмите на значок <gui>Свойства фонаs</gui> или нажмите правую кнопку мыши на обложке и выберите <gui>Установить свойства фона</gui>. Вы можете выбрать в качестве фона определённый цвет или изображение.</p>
+      <note style="bug">
+        <p>Если вы выбрали для фона центрированное изображение, <app>Brasero</app> иногда будет аварийно завершать работу при нажатии на кнопку <gui>Закрыть</gui>.</p>
+      </note>
+      <p>Чтобы применить изменения, нажмите кнопку <gui>Закрыть</gui> и закройте диалоговое окно <gui>Свойства фона</gui>.</p>
+    </item>
+    <item>
+      <p>Выведите на печать обложку, нажав кнопку <gui>Печать</gui>, которая расположена в правом верхнем углу диалогового окна.</p>
+    </item>
+  </steps>
+
+</page>

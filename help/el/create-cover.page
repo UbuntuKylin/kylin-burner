@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Δημιουργήστε ένα ψηφιδωτό για την θήκη.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Δημιουργία εξωφύλλου</title>
+
+  <p>Μπορείτε να χρησιμοποιήσετε το <app>Brasero</app> για να δημιουργήσετε ψηφιδωτά για τις περιπτώσεις στολισμού. Ανοίξτε τον επεξεργαστή πατώντας <guiseq><gui>Εργαλεία</gui> <gui>Επεξεργαστής εξωφύλλου</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Αν δημιουργείτε ένα έργο ήχου και το τελειώσατε πριν δημιουργήσετε ένα ψηφιδωτό, τότε όταν ανοίξετε τον <gui>Επεξεργαστή εξωφύλλου</gui> από το παράθυρο του έργου ήχου, τα κομμάτια αυτόματα θα εμφανιστούν στο οπισθόφυλλο.</p>
+  </note>
+
+  <note style="important">
+    <p>Αν κλείσετε τον <gui>Επεξεργαστή εξώφυλλων</gui> οι αλλαγές σας θα χαθούν.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Ανοίξτε τον <gui>Επεξεργαστή εξώφυλλων</gui>.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε την μορφή που θέλετε και γράψτε το κείμενο, κυλίστε προς τα κάτω για να δείτε το πλάι και το πίσω μέρος του ψηφιδωτού για την θήκη.</p>
+      <note style="tip">
+        <p>Όταν ανοίξετε τον <gui>Επεξεργαστή εξωφύλλου</gui> για πρώτη φορά, δε θα μπορείτε να πατήσετε σε καμία επιλογή μορφοποίησης κειμένου. Πατήστε στο εξώφυλλο που θέλετε να δουλέψετε και θα μπορείτε να τα χρησιμοποιήσετε.</p>
+      </note>
+    </item>
+    <item>
+      <p>Πατήστε στην εργαλειοθήκη το <gui>Προτιμήσεις παρασκηνίου</gui> για να προσθέσετε ένα παρασκήνιο για το εξώφυλλο, ή δεξί κλικ στο εξώφυλλο που θέλετε να επεξεργαστείτε και επιλέξτε <gui>Ορισμός Ρυθμίσεων Παρασκηνίου</gui>. Μπορείτε να διαλέξετε ένα πολύχρωμο παρασκήνιο ή μια εικόνα.</p>
+      <note style="bug">
+        <p>Αν επιλέξετε μια εικόνα παρασκηνίου για το κέντρο, το <app>Brasero</app> μερικές φορές κρασάρει όταν πατάτε το κουμπί <gui>Κλείσιμο</gui>.</p>
+      </note>
+      <p>Πατήστε το κουμπί <gui>Κλείσιμο</gui> για να εφαρμόσετε τις αλλαγές και να κλείσετε τον διάλογο <gui>Ρυθμίσεις παρασκηνίου</gui>.</p>
+    </item>
+    <item>
+      <p>Εκτυπώστε το εξώφυλλο χρησιμοποιώντας το κουμπί <gui>Εκτύπωση</gui>, το οποίο βρίσκεται στην πάνω δεξιά γωνία του διαλόγου.</p>
+    </item>
+  </steps>
+
+</page>

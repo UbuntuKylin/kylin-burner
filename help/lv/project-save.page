@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Saglabājiet projektu, lai varētu to vēlāk labot vai ierakstīt diskā.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Saglabāt projektu</title>
+
+  <p>Jūs varat saglabāt audio, datu vai video projektu <app>Brasero</app> programmā, lai varētu to vēlāk rediģēt vai ierakstīt diskā.</p>
+
+  <steps>
+    <item>
+      <p>Izveidojiet projektu un pievienojiet projektam failus, kurus vēlaties izmantot.</p>
+    </item>
+    <item>
+      <p>Spiediet <guiseq><gui>Projekts</gui><gui>Saglabāt</gui></guiseq>, lai saglabātu projektu.</p>
+    </item>
+    <item>
+      <p>Ievadiet zemāk nosaukumu, ar kādu vēlaties saglabāt projektu, pēc tam spiediet <gui>Saglabāt</gui>, lai saglabātu projektu.</p>
+    </item>
+  </steps>
+
+  <p>Saglabātu <app>Brasero</app> projektu var atvērt vairākos veidos:</p>
+
+  <list>
+    <item>
+      <p>izvēloties to sākuma lapā no saraksta sadaļā <gui>Nesenie projekti</gui></p>
+    </item>
+    <item>
+      <p>spiežot <guiseq><gui>Projekts</gui><gui>Nesenie projekti</gui></guiseq></p>
+    </item>
+    <item>
+      <p>spiežot <guiseq><gui>Projekts</gui><gui>Atvērt</gui></guiseq> un izvēloties projektu</p>
+    </item>
+    <item>
+      <p>atverot projektu ar failu pārlūku</p>
+      <note>
+        <p>Vienlaicīgi var atvērt tikai vienu <app>Brasero</app> instanci. Ja mēģināsiet atvērt otru instanci, tiks fokusēts pašlaik atvērtais <app>Brasero</app> logs.</p>
+        <p>Ja <app>Brasero</app> ir jau palaists un jūs mēģināt atvērt kādas datnes ar to no lietotnes <app>Datnes</app>, datnes tiks automātiski pievienotas projektam, ar ko pašlaik strādājat.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Atverot saglabātu projektu, <app>Brasero</app> uzskatīs to par jaunu projektu: ja vēlaties saglabāt atjaunināto projekta versiju, tas lūgs ievadīt tā nosaukumu. Šajā brīdī jūs varat pārrakstīt veco versiju vai arī saglabāt to kā jaunu projektu, ievadot citu faila nosaukumu.</p>
+  </note>
+
+</page>

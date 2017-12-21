@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Ustvarjanje enake kopije diska.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Kopiranje diska</title>
+
+  <steps>
+    <item>
+      <p>Na začetni strani kliknite na <gui>Kopiraj disk</gui> ali izberite <guiseq><gui>Projekt</gui><gui>Nov Projekt</gui><gui>Kopiraj disk ...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Izberite disk s katerega bi radi kopirali v spustnem meniju pod <gui>Izbor diska za kopiranje</gui>. Če imate več kot en diskovni pogon, bodo izpisani vsi pogoni v katerih je disk.</p>
+    </item>
+    <item>
+      <p>Izberite ali želite narediti kopijo na drug disk ali ustvariti odtis za kasnejšo uporabo.</p>
+    </item>
+    <item>
+      <p>Kliknite na gumb <gui>Lastnosti</gui> za izbiro hitrosti zapisovanja in drugih možnosti po meri.button to select burning speed and other custom options.</p>
+    </item>
+    <item>
+      <p>Kliknite <gui>Kopiraj</gui> za začetek kopiranja diska ali <gui>Naredi več kopij</gui>, če nameravate narediti več kot eno kopijo diska.</p>
+      <note>
+	<p>Če disk kopirate in imate le en diskovni pogon, boste morali disk, ki ga kopirate, zamenjati z zapisljivim diskom potem ko bo bila vsebina začasno prekopirana na trdi disk.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Εισαγωγή στην εφαρμογή εγγραφής δίσκου του <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Εισαγωγή</title>
+
+  <p>Το <app>Brasero</app> είναι μια εφαρμογή για εγγραφή CD-RW και DVD-RW, σχεδιασμένη να είναι εύκολη στη χρήση, ενώ προσφέρει όλα τα απαραίτητα εργαλεία για την εγγραφή.</p>
+
+  <p>Με το <app>Brasero</app> μπορείτε:</p>
+  <list>
+    <item><p>Εγγραφή δεδομένων σε CD-RW και DVD-RW</p></item>
+    <item><p>Εγγραφή CD ήχου από ψηφιακά αρχεία ήχου (όπως ogg, flac και mp3)</p></item>
+    <item><p>Αντιγραφή CD και DVD</p></item>
+    <item><p>Δημιουργία DVD ή SVCD με βίντεο</p></item>
+    <item><p>Να δημιουργήσετε αρχεία εικόνων να γράψετε υπάρχοντα αρχεία εικόνων</p></item>
+    <item><p>Διαγραφή CD-RW και DVD-RW</p></item>
+    <item><p>Να ελέγξετε την εγκυρότητα δίσκων και εικονικών δίσκων</p></item>
+  </list>
+
+  <figure>
+    <title>Το κύριο παράθυρο του <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

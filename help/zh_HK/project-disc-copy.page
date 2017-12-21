@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>建立一個完整的光碟副本。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>複製光碟</title>
+
+  <steps>
+    <item>
+      <p>在主視窗中按「<guibutton>光碟複製</guibutton>」或選擇「<menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>光碟複製</guimenuitem></menuchoice>」。</p>
+    </item>
+    <item>
+      <p>Select the disc you would like to copy from the drop down list below
+      <gui>Select disc to copy</gui>. If you have more than one disc drive, all
+      discs which are currently in them should be listed.</p>
+    </item>
+    <item>
+      <p>Choose whether you want to make a copy to another disc or create an
+      image for later use.</p>
+    </item>
+    <item>
+      <p>Click the <gui>Properties</gui> button to select burning speed and
+      other custom options.</p>
+    </item>
+    <item>
+      <p>Click <gui>Copy</gui> to start copying the disc, or <gui>Make Several
+      Copies</gui>, if you plan to make more than one copy of the disc.</p>
+      <note>
+	<p>If you are copying the disc and have only one disc drive, you will
+	be asked to replace the disc you are copying with a writable one after
+	the contents are copied temporarily to your hard disk.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Lemezborító készítése műanyag tokhoz.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Lemezborító készítése</title>
+
+  <p>A <app>Brasero</app> segítségével lemezborítókat készíthet, amelyeket a műanyag tokokba helyezhet. A borítószerkesztő az <guiseq><gui>Eszközök</gui><gui>Borítószerkesztő</gui></guiseq> menüpont kiválasztásával érhető el.</p>
+
+  <note style="tip">
+    <p>Ha hangprojektet hoz létre, és a projekt összeállítását a borító elkészítése előtt fejezi be, akkor a megnyitásakor <gui>Borítószerkesztő</gui> a hangprojekt ablakból a számok automatikusan felsorolásra kerülnek a hátsó borítón.</p>
+  </note>
+
+  <note style="important">
+    <p>Ha bezárja a <gui>Borítószerkesztőt</gui>, akkor változtatásai elvesznek.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Nyissa meg a <gui>Borítószerkesztőt</gui>.</p>
+    </item>
+    <item>
+      <p>Válassza ki a szöveghez használandó formázást, és írja be a szöveget. Lefelé görgetve láthatja a tok oldalsó és hátsó borítóját.</p>
+      <note style="tip">
+        <p>A <gui>Borítószerkesztő</gui> ablak első megnyitásakor nem fog tudni a szövegformázási beállításokra kattintatni. Kattintson a szerkeszteni kívánt borítóra, ezután használhatja a beállításokat.</p>
+      </note>
+    </item>
+    <item>
+      <p>Kattintson a <gui>Háttér tulajdonságai</gui> eszköztárikonra az aktuális borító hátterének hozzáadásához, vagy kattintson a jobb egérgombbal a szerkeszteni kívánt borítóra, és válassza a <gui>Háttér tulajdonságainak beállítása</gui> menüpontot. Használhat színezett hátteret, vagy kiválaszthat egy háttérképet.</p>
+      <note style="bug">
+        <p>Ha középre igazított háttérképet használ, akkor a <app>Brasero</app> néha összeomlik a <gui>Bezárás</gui> gomb megnyomásakor.</p>
+      </note>
+      <p>Nyomja meg a <gui>Bezárás</gui> gombot a változtatások alkalmazásához, és a <gui>Háttér tulajdonságai</gui> ablak bezárásárhoz.</p>
+    </item>
+    <item>
+      <p>Nyomtassa ki a borítót az ablak jobb felső sarkában lévő <gui>Nyomtatás</gui> gomb megnyomásával.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="ca">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Partició d'una pista d'un projecte d'àudio en múltiples pistes.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Francisco Domech</mal:name>
+      <mal:email>frandj72@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gil Forcada</mal:name>
+      <mal:email>gilforcada@guifi.net</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Partició d'una pista d'àudio</title>
+
+  <p>Podeu partir una pista d'àudio en múltiples pistes quan creeu un projecte d'àudio.</p>
+
+  <steps>
+    <item>
+      <p>Creeu un projecte d'àudio i afegiu les pistes que desitgeu.</p>
+    </item>
+    <item>
+      <p>Feu clic a la pista que vulgueu partir i llavors feu clic a, o bé <guiseq><gui>Edita</gui><gui>Parteix la pista…</gui></guiseq>, o bé, feu clic amb el botó secundari a la pista i trieu <gui>Parteix la pista…</gui> en el menú.</p>
+    </item>
+    <item>
+      <p>Trieu el mètode que preferiu per partir les pistes:</p>
+      <terms>
+        <item>
+          <title>Partició manual de la pista</title>
+          <p>Aquesta opció us permet triar manualment la longitud exacta de cada porció nova de la pista.</p>
+       </item>
+       <item>
+          <title>Partició de la pista en parts de mida fixa</title>
+          <p>Aquest mètode parteix la pista en múltiples porcions de la mateixa durada.</p>
+        </item>
+        <item>
+          <title>Partició de la pista en un nombre fix de porcions</title>
+          <p>Aquest mètode permet partir la pista en un nombre prefixat de porcions, totes elles de la mateixa durada.</p>
+        </item>
+        <item>
+          <title>Partició de la pista a cada silenci</title>
+          <p>Trieu aquest mètode perquè el <app>Brasero</app> auto-detecti silencis en l'enregistrament i divideixi la pista en aquells punts.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Feu la partició de la pista fent clic a <gui>Partició</gui>.</p>
+      <note>
+        <p>Si intenteu partir una pista en una porció de menys de sis segons de durada, s'augmentarà la durada de la porció nova fins als sis segons de durada.</p>
+      </note>
+    </item>
+    <item>
+      <p>Feu clic a <gui>D'acord</gui> per confirmar les particions de la pista i aplicar els canvis.</p>
+      <note>
+        <p>You can split and merge the same track as many times as you like
+        while you are viewing the split track dialog. Once you confirm your
+        track splitting by clicking <gui>OK</gui>, you will no longer be able to
+        merge the sections you have already split off. To revert the changes,
+        remove the split sections of the track from your project and re-add the
+        track.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

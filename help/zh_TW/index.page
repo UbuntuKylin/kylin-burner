@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" id="index" xml:lang="zh-TW">
+
+  <title>
+    <media type="image" src="figures/logo48.png" its:translate="no"/>
+    Brasero Help
+  </title>
+
+  <section id="new-project" style="2column">
+    <title>建立新專案</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>疑難排解</title>
+  </section>
+
+  <section id="tools" style="2column">
+    <title>其他工具</title>
+  </section>
+
+</page>

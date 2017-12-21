@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="id">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Simpan suatu projek untuk penyuntingan atau pembakaran nanti.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Menyimpan projek</title>
+
+  <p>Anda dapat menyimpan projek audio, data, atau video dalam <app>Brasero</app> untuk penyuntingan atau pembakaran nanti.</p>
+
+  <steps>
+    <item>
+      <p>Buat projek dan tambahkan berkas yang ingin Anda pakai ke projek.</p>
+    </item>
+    <item>
+      <p>Klik <guiseq><gui>Projek</gui><gui>Simpan</gui></guiseq> untuk menyimpan projek.</p>
+    </item>
+    <item>
+      <p>Masukkan nama yang ingin Anda pakai untuk menyimpan projek, lalu klik <gui>Simpan</gui> untuk menyimpan projek.</p>
+    </item>
+  </steps>
+
+  <p>Ada beberapa cara yang dapat dipakai untuk membuka projek <app>Brasero</app> yang disimpan yaitu:</p>
+
+  <list>
+    <item>
+      <p>memilihnya daru daftar pada halaman awal, di bawah <gui>Projek baru-baru ini</gui></p>
+    </item>
+    <item>
+      <p>mengklik <guiseq><gui>Projek</gui><gui>Projek Baru-baru Ini</gui></guiseq></p>
+    </item>
+    <item>
+      <p>mengklik <guiseq><gui>Projek</gui><gui>Buka</gui></guiseq> dan memilih projek tersebut</p>
+    </item>
+    <item>
+      <p>membuka projek dari suatu peramban berkas</p>
+      <note>
+        <p>Hanya satu instansi dari <app>Brasero</app> yang dapat dibuka setiap saat. Bila Anda mencoba membuka instansi kedua, jendela <app>Brasero</app> yang sedang terbuka akan terfokus.</p>
+        <p>Bila <app>Brasero</app> telah berjalan dan Anda mencoba membuka berkas dengannya dari <app>Berkas</app>, berkas akan ditambahkan ke projek yang sedang Anda tangani.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Bila Anda membuka projek yang disimpan, <app>Brasero</app> akan memperlakukannya sebagai projek baru: bila Anda ingin menyimpan versi termutakhirkan dari projek, itu akan meminta Anda memasukkan nama untuknya, pada titik ini Anda dapat menimpa versi lama atau menyimpannya sebagai projek baru dengan memasukkan nama berkas yang berbeda.</p>
+  </note>
+
+</page>

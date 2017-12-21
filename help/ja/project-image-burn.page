@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>既存のディスクイメージをCD/DVDに書き込みます。</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>イメージを書き込む</title>
+
+  <p><app>Brasero</app>を使えば、ディスクイメージをCDやDVDに書き込むことができます。<app>Brasero</app>では<file>.iso</file>、<file>.toc</file>、および<file>.cue</file>という拡張子を持つ光学ディスクイメージをサポートします。</p>
+
+  <note style="advanced">
+    <p>ディスクイメージはCDやDVDにあるデータをすべて含んだアーカイブファイルです。1つのCDには1つのディスクイメージしか書き込めませんが、各アーカイブにはディスク容量の範囲内でデータを必要なだけ含められます。</p>
+  </note>
+
+  <p>CDやDVDにディスクイメージを書き込む手順は次のとおりです。</p>
+  <steps>
+    <item>
+      <p>スタートページの<gui>イメージの書き込み</gui>をクリックするか、<guiseq><gui>プロジェクト</gui><gui>新しいプロジェクト</gui><gui>イメージの書き込み</gui></guiseq>を選択します。</p>
+    </item>
+    <item>
+      <p><gui>ここをクリックしてディスクイメージを作成</gui>をクリックして、書き込むディスクイメージを選択します。</p>
+    </item>
+    <item>
+      <p><gui>書き込み先のディスクの選択</gui>の下のドロップダウンリストより使用するディスクを選択します。ディスクドライブが複数ある場合は、ドライブに挿入されているすべてのディスクが列挙されます。</p>
+        <note><p>ディスクを選ぶと、<app>Brasero</app>は書き込み後のディスクの残容量を表示します。</p></note>
+    </item>
+    <item>
+      <p><gui>プロパティ</gui>をクリックして書き込み速度やその他のカスタムオプションを選択します。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックするとイメージの書き込みを開始します。この操作の後に書き込みを終了するか、イメージのコピーをもっと作るかを選択できます。</p>
+        <note>
+          <p>すでにデータが書き込まれている書き換え可能なディスクを使用している場合、そのディスクを消去するか、別のディスクを挿入するかが尋ねられます。</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

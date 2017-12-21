@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Introdución ao aplicativo de gravación <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>Introducción</title>
+
+  <p><app>Brasero</app> é un aplicativo para gravar CD-R e DVD, deseñado para un uso sinxelo á vez que fornece todas as ferramentas necesarias para o gravado.</p>
+
+  <p>Con <app>Brasero</app> vostede pode:</p>
+  <list>
+    <item><p>Gravar datos en CD e DVD</p></item>
+    <item><p>Gravar CDs de audio desde ficheiros de audio dixitais (coma OGG, FLAC ou MP3)</p></item>
+    <item><p>Copiar CDs e DVDs</p></item>
+    <item><p>Crear un DVD de vídeo ou un SVCD</p></item>
+    <item><p>Crear ficheiros de imaxes e gravar ficheiros de imaxes existentes</p></item>
+    <item><p>Borrar CD-RW e DVD-RW</p></item>
+    <item><p>Comprobar a integridade dos discos e das imaxes de discos</p></item>
+  </list>
+
+  <figure>
+    <title>Xanela principal de <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

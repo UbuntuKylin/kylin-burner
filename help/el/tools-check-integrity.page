@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Μπορείτε να ελέγξετε την ακεραιότητα του δίσκου μετά την εγγραφή.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Έλεγχος ακεραιότητας δίσκου</title>
+
+  <p>Μετά την εγγραφή ενός CD/DVD με την χρήση του <app>Brasero</app>, μπορείτε να ελέγξετε την ακεραιότητα του για να σιγουρευτείτε ότι τα αρχεία στον δίσκο δεν είναι κατεστραμμένα.</p>
+
+  <steps>
+    <item>
+      <p>Επιλέξτε <guiseq><gui>Εργαλεία</gui><gui>Έλεγχος ακεραιότητας...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Μπορείτε να επιλέξετε <gui>Χρήση ενός αρχείου MD5 για να ελέγξετε τον δίσκο</gui> εάν το προτιμάτε.</p>
+	<note style="advanced">
+	<list>
+	<item><p>Ένα MD5 (Message-Digest Algorithm 5) είναι μια συνάρτηση κρυπτογραφικού κερματισμού που χρησιμοποιείται ευρέως για τον έλεγχο ακεραιότητας δεδομένων.</p></item>
+	<item><p>Εάν το επιλέξετε, θα πρέπει να βρείτε το αρχείο MD5 πατώντας στον εικονίδιο του φακέλου που είναι τοποθετημένο από κάτω.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Έλεγχος</gui> για να συνεχίσετε ή <gui>Κλείσιμο</gui> για να το ακυρώσετε.</p>
+    </item>
+    <item>
+      <p>Όταν ο έλεγχος τελειώσει μπορεί είτε να επιλέξετε <gui>Έλεγχος ξανά</gui> ή απλά <gui>Κλείσιμο</gui>.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Вводная информация о приложении для записи дисков <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Введение</title>
+
+  <p><application>Brasero</application> — приложение для записи CD-R/W и DVD-R/W. <application>Brasero</application> легко пользоваться, и оно предоставляет все необходимые инструменты для записи.</p>
+
+  <p>С помощью <application>Brasero</application> можно:</p>
+  <list>
+    <item><p>Записывать данные на CD и DVD</p></item>
+    <item><p>Записывать звуковые CD, используя цифровые звуковые файлы (такие, как OGG, FLAC и MP3)</p></item>
+    <item><p>Копировать CD и DVD</p></item>
+    <item><p>Создавать DVD или SVCD</p></item>
+    <item><p>Создавать файл образа или записать диск из существующего файла образа диска</p></item>
+    <item><p>Стирать CD-RW и DVD-RW</p></item>
+    <item><p>Проверять целостность данных на диске и в файле образа</p></item>
+  </list>
+
+  <figure>
+    <title>Главное окно <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

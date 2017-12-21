@@ -1,0 +1,107 @@
+<!-- ##### SECTION Title ##### -->
+BraseroMediumMonitor
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BraseroMediumMonitor ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION brasero_medium_monitor_get_default ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### ENUM BraseroMediaType ##### -->
+<para>
+
+</para>
+
+@BRASERO_MEDIA_TYPE_NONE: 
+@BRASERO_MEDIA_TYPE_FILE: 
+@BRASERO_MEDIA_TYPE_DATA: 
+@BRASERO_MEDIA_TYPE_AUDIO: 
+@BRASERO_MEDIA_TYPE_WRITABLE: 
+@BRASERO_MEDIA_TYPE_REWRITABLE: 
+@BRASERO_MEDIA_TYPE_ANY_IN_BURNER: 
+@BRASERO_MEDIA_TYPE_CD: 
+@BRASERO_MEDIA_TYPE_ALL_BUT_FILE: 
+@BRASERO_MEDIA_TYPE_ALL: 
+
+<!-- ##### ENUM BraseroDriveType ##### -->
+<para>
+
+</para>
+
+@BRASERO_DRIVE_TYPE_NONE: 
+@BRASERO_DRIVE_TYPE_FILE: 
+@BRASERO_DRIVE_TYPE_WRITER: 
+@BRASERO_DRIVE_TYPE_READER: 
+@BRASERO_DRIVE_TYPE_ALL_BUT_FILE: 
+@BRASERO_DRIVE_TYPE_ALL: 
+
+<!-- ##### FUNCTION brasero_medium_monitor_get_media ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_medium_monitor_get_drives ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_medium_monitor_get_drive ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@device: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_medium_monitor_is_probing ##### -->
+<para>
+
+</para>
+
+@monitor: 
+@Returns: 
+
+

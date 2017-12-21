@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Αποθηκεύστε ένα έργο για επεξεργασία ή εγγραφή αργότερα.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Αποθήκευση έργου</title>
+
+  <p>Μπορείτε να αποθηκεύσετε ένα έργο μουσικής, δεδομένων ή βίντεο με το <app>Brasero</app> για να το επεξεργαστείτε ή να εγγράψετε αργότερα.</p>
+
+  <steps>
+    <item>
+      <p>Δημιουργήστε το έργο και προσθέστε τα αρχεία που θέλετε να χρησιμοποιήσετε στο έργο.</p>
+    </item>
+    <item>
+      <p>Πατήστε <guiseq><gui>Έργο</gui><gui>Αποθήκευση</gui></guiseq> για να αποθηκεύσετε το έργο.</p>
+    </item>
+    <item>
+      <p>Εισάγετε το όνομα με το οποίο θέλετε να αποθηκεύσετε το αρχείο, μετά πατήστε <gui>Αποθήκευση</gui> για να αποθηκεύσετε το έργο.</p>
+    </item>
+  </steps>
+
+  <p>Υπάρχουν πολλοί τρόποι με τους οποίους μπορείτε να ανοίξετε ένα αποθηκευμένο έργο με το <app>Brasero</app>:</p>
+
+  <list>
+    <item>
+      <p>επιλέγοντάς το από την λίστα στην αρχική σελίδα, στις <gui>Πρόσφατες εργασίες</gui>.</p>
+    </item>
+    <item>
+      <p>πατήστε <guiseq><gui>Έργο</gui><gui>Πρόσφατα έργα</gui></guiseq></p>
+    </item>
+    <item>
+      <p>πατήστε <guiseq><gui>Έργο</gui><gui>Άνοιγμα</gui></guiseq> και επιλέξτε το έργο</p>
+    </item>
+    <item>
+      <p>ανοίξτε το έργο από έναν διαχειριστή αρχείων</p>
+      <note>
+        <p>Μόνο ένα στιγμιότυπο του <app>Brasero</app> μπορεί να ανοιχτεί οποτεδήποτε. Αν δοκιμάσετε να ανοίξετε ένα δεύτερο στιγμιότυπο, το τρέχον ανοιχτό παράθυρο του <app>Brasero</app> θα εστιαστεί.</p>
+        <p>Αν το <app>Brasero</app> εκτελείται ήδη και δοκιμάσετε να ανοίξετε κάποια αρχεία με αυτό από τα <app>Αρχεία</app>, τα αρχεία θα προστεθούν στο έργο στο οποίο δουλεύετε.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Αν ανοίξετε ένα αποθηκευμένο έργο, το <app>Brasero</app> θα του συμπεριφερθεί σαν νέο έργο: αν θέλετε να αποθηκεύσετε μια ενημερωμένη έκδοση του έργου, θα πρέπει να εισάγεται το όνομα του, σε αυτό το σημείο μπορείτε να αντικαταστήσετε το παλιό ή να το αποθηκεύσετε σαν νέο έργο με άλλο όνομα.</p>
+  </note>
+
+</page>

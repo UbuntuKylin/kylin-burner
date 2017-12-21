@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>DVD-R/DVD-RWに書き込めません。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>DVD作成に関する問題</title>
+
+  <p>DVD-RやDVD-RWの種類の中には、書き込みドライブにより対応していないものがあります。お使いのドライブで使えるかどうかを調べるため、次の項目をチェックしてください。</p>
+
+  <steps>
+    <item>
+      <p>お使いのDVDドライブがDVD+あるいはDVD-ディスクに対応しているか確認してください。ドライブに"multi"という表示がある場合、通常は両方に対応しています。また、ディスクがDVDドライブの対応するものと同じであることを確認してください。</p>
+    </item>
+    <item>
+      <p>ディスクが2層であるか1層であるかをチェックしてください。DVDドライブの中には2層ディスクに書き込みできないものがあります。</p>
+    </item>
+    <item>
+      <p>DVD-Rを使用する場合は、すでに何かのデータがディスクに書き込まれていないか確認してください。DVD-RWの場合は、書き込みをする前に中身を空にしてみてください。</p>
+    </item>
+  </steps>
+
+</page>

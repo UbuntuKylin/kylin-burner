@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Не удаётся записать DVD-R или DVD-RW.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Проблема при создании DVD</title>
+
+  <p>Не все типы носителей DVD-R и DVD-RW бывают совместимы с приводами. Проверьте, может ли ваш привод работать с этими носителями.</p>
+
+  <steps>
+    <item>
+      <p>Проверьте, понимает ли ваш привод диски DVD+ и DVD-; если на приводе есть пометка «multi», значит, скорее всего, привод понимает оба типа. Проверьте диск, чтобы убедиться, что он имеет совместимый с приводом тип.</p>
+    </item>
+    <item>
+      <p>Проверьте, является ли диск однослойным или двуслойным: некоторые приводы не умеют читать двуслойный диски.</p>
+    </item>
+    <item>
+      <p>Если вы используете DVD-R, проверьте, не использовался ли он до этого для записи. Если вы используете DVD-RW, попробуйте его очистить перед записью.</p>
+    </item>
+  </steps>
+
+</page>

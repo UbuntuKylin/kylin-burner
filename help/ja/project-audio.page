@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>音楽プロジェクトを作成します。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>音楽CDを書き込む</title>
+
+  <p><app>Brasero</app>で音声ファイルをCDに書き込んで、その後CDプレイヤーなどで再生することができます。書き換え可能でないCDを使うのが通常は最善です。CDプレイヤーによっては、書き換え可能なCDを再生できないものがあるからです。</p>
+
+  <steps>
+    <item>
+      <p>スタートページの<gui>音楽プロジェクト</gui>をクリックするか、<guiseq><gui>プロジェクト</gui><gui>新しいプロジェクト</gui><gui>新しい音楽プロジェクト</gui></guiseq>を選択します。</p>
+    </item>
+    <item>
+      <p>音楽ファイルをプロジェクトに追加するには、ツールバーの<gui>追加</gui>をクリックしてお好みのファイルを選択します。また、ファイルをプロジェクトエリアにドラッグアンドドロップする、あるいは<guiseq><gui>編集</gui><gui>ファイルの追加</gui></guiseq>をクリックしても、ファイルを追加できます。</p>
+    </item>
+    <item>
+      <p>プロジェクトエリアの下にあるテキスト入力フィールドでCDのタイトルを追加することができます。</p>
+    </item>
+    <item>
+      <p>空のCDをドロップダウンリストで選択します。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックして続けてください。</p>
+    </item>
+    <item>
+      <p><gui>書き込み速度</gui>をドロップダウンリストから選択して、必要であればその他のオプションも選択してください。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックしてプロジェクトを1枚のディスクに書き込むか、<gui>複数のディスクの書き込み</gui>をクリックしてプロジェクトを複数のディスクに書き込みます。</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>また、<gui>トラックの分割</gui>ツールを使って個々のトラックを分割したり、<gui>ポーズ</gui>ボタンを使ってトラックの後に2秒間の間を入れることができます。</p>
+  </note>
+
+</page>

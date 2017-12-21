@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Az MP3 fájljaim nem játszhatók le a DVD- vagy CD-lejátszóval.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>A CD-t nem játssza le a CD-lejátszó</title>
+
+  <p>Ha a CD-t nem játssza le a CD-lejátszó vagy a hifi, akkor valószínűleg a zene nem megfelelően került kiírásra a lemezre, vagy a zenét adatprojektként és nem hangprojektként írta a CD-re.</p>
+
+  <note>
+    <p>Számos új CD- és DVD-lejátszó lejátssza az adatprojektként létrehozott zenei CD-ket, de a legtöbb régebbi lejátszó nem.</p>
+  </note>
+
+  <note>
+    <p>A régebbi CD-lejátszók nem játsszák le a CD-RW-ket.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Ha CD-RW lemezt használ, akkor törölje a CD-t.</p>
+    </item>
+    <item>
+      <p>Írja újra a CD-t hangprojektként.</p>
+    </item>
+  </steps>
+
+</page>

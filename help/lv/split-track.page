@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>Sadaliet audio projekta celiņu vairākos celiņos.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Sadalīt audio celiņu</title>
+
+  <p>Jūs varat sadalīt vienu audio celiņu vairākos celiņos, liekot kopā audio projektu.</p>
+
+  <steps>
+    <item>
+      <p>Sāciet audio projektu un pievienojiet celiņus.</p>
+    </item>
+    <item>
+      <p>Izvelieties celiņu kuru vēlaties sadalīt, uzspiežot uz tā, tad spiediet <guiseq><gui>Rediģēt</gui><gui>Sadalīt celiņu…</gui></guiseq>, vai labais peles klikšķis uz celiņa un spiediet <gui>Sadalīt celiņu…</gui> izvēlnē.</p>
+    </item>
+    <item>
+      <p>Izvēlieties vēlamo metodi kā sadalīt celiņus:</p>
+      <terms>
+        <item>
+          <title>Sadalīt celiņu manuāli</title>
+          <p>Šī iespēja ļauj izvēlēties precīzu katras jaunas celiņa daļas garumu manuāli.</p>
+       </item>
+       <item>
+          <title>Sadalīt celiņu fiksēta garuma daļās</title>
+          <p>Izmantojiet šo metodi, lai sadalītu dziesmu vairākās vienāda garuma daļās.</p>
+        </item>
+        <item>
+          <title>Sadalīt celiņu fiksētā skaitā daļu</title>
+          <p>Šī metode ļauj sadalīt celiņu noteiktā skaitā daļu, kas visas būs vienāda garuma.</p>
+        </item>
+        <item>
+          <title>Veidot jaunu daļu pēc katra klusuma</title>
+          <p>Izvēlieties šo <app>Brasero</app> metodi, lai automātiski noteiktu klusumus ierakstā un sadalītu dziesmu šajos punktos.</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>Sadaliet dziesmu spiežot <gui>Sadalīt</gui>.</p>
+      <note>
+        <p>Ja mēģiniet sadalīt celiņu daļās, kas ir mazāk nekā sešas sekundes garas, jaunā sadaļa tiks pagarināta, lai tā būtu 6 sekundes gara.</p>
+      </note>
+    </item>
+    <item>
+      <p>Spiediet <gui>Labi</gui>, lai apstiprinātu celiņa sadali un pielietotu izmaiņas.</p>
+      <note>
+        <p>Jūs varat sadalīt un apvienot to pašu celiņu, cik reizes vien vēlaties, kamēr skatāt dziesmu sadales dialoglodziņu. Kad apstiprināt dziesmu sadalīšanai, spiežot <gui>Labi</gui>, jūs vairs nevarēsiet apvienot daļas, kuras esat sadalījis. Lai atgrieztu izmaiņas, noņemiet celiņa sadalītos daļas no projekta un no jauna pievienojiet dziesmu.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

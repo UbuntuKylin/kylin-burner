@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="id">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Buat sampul dalam bagi kotak CD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Buat sampul</title>
+
+  <p>Anda dapat memakai <app>Brasero</app> untuk membuat sampul dalam bagi kotak CD Anda. Akseslah pembuatnya dengan mengklik <guiseq><gui>Perkakas</gui> <gui>Penyunting Sampul</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Bila Anda membuat suatu projek audio dan selesai menyusun projek sebelum membuat suatu sampul dalam, maka ketika Anda mengakses antar muka <gui>Penyunting Sampul</gui> dari jendela projek audio, trek akan didaftar secara otomatis pada sampul belakang.</p>
+  </note>
+
+  <note style="important">
+    <p>Bila Anda menutup <gui>Penyunting Sampul</gui>, perubahan Anda akan hilang.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Buka <gui>Penyunting Sampul</gui>.</p>
+    </item>
+    <item>
+      <p>Pilih format yang ingin Anda akai bagi teks dan ketikkan teks, menggulir turun untuk melihat sisi dan belakang sampul dalam bagi kotak CD.</p>
+      <note style="tip">
+        <p>Ketika Anda pertama melihat dialog <gui>Penyunting Sampul</gui>, Anda tak akan bisa mengklik sebarang opsi pemformatan teks. Klik pada sampul yang ingin Anda garap agar bisa memakai mereka.</p>
+      </note>
+    </item>
+    <item>
+      <p>Klik pada ikon bilah alat <gui>Properti latar belakang</gui> untuk menambah latar belakang bagi sampul saat ini, atau klik kanan pada sampul yang ingin Anda sunting dan pilih <gui>Tata Properti Latar Belakang</gui>. Anda dapat memilih untuk memakai latar belakang yang diwarnai atau memilih citra latar belakang.</p>
+      <note style="bug">
+        <p>Bila Anda memilih suatu citra latar belakang yang diletakkan di tengah, kadang-kadang <app>Brasero</app> crash ketika Anda mengklik tombol <gui>Tutup</gui>.</p>
+      </note>
+      <p>Klik tombol <gui>Tutup</gui> untuk menerapkan perubahan dan tutup dialog <gui>Properti Latar Belakang</gui>.</p>
+    </item>
+    <item>
+      <p>Cetak sampul memakai tombol <gui>Cetak</gui>, yang terletak di pojok kanan atas dialog.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Es nevaru ierakstīt DVD-R vai DVD-RW diskos.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Problēmas, veidojot DVD diskus</title>
+
+  <p>Daži DVD-R un DVD-RW tipi nav savietojami ar visiem rakstītājiem. Pārbaudiet sekojošo, lai uzzinātu, vai tos var izmantot jūsu rakstītājā.</p>
+
+  <steps>
+    <item>
+      <p>Pārbaudiet vai jūsu DVD iekārta pieņem DVD+ vai DVD- diskus, ja tas ir marķēts ar "multi", tas parasti norāda, ka tas pieņem abus. Pārbaudiet savu disku, lai redzētu vai tas ir tāds pats kā DVD iekārta.</p>
+    </item>
+    <item>
+      <p>Pārbaudiet, vai jūsu diskam ir divi slāņi vai viens slānis: dažas DVD iekārtas nevar ierakstīt divu slāņu diskos.</p>
+    </item>
+    <item>
+      <p>Ja mēģināt izmantot DVD-R, pārbaudiet, vai tajā jau ir iepriekš rakstīts. Ja izmantojat DVD-RW, mēģiniet to izdzēst, pirms jūs mēģināt tajā rakstīt.</p>
+    </item>
+  </steps>
+
+</page>

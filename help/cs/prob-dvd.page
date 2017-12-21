@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Nemůžu zapisovat na DVD-R nebo DVD-RW.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Problém při vytváření DVD</title>
+
+  <p>Některé typy disků DVD-R a DVD-RW nejsou kompatibilní se všemi vypalovačkami. Zkontrolujte následující, abyste zjistili, jestli může být váš disk použit s vaší vypalovačkou.</p>
+
+  <steps>
+    <item>
+      <p>Zkontrolujte jestli vaše DVD mechanika umí pracovat s DVD+ nebo DVD- disky; pokud je popsána "multi", tak to většinou znamená, že umí pracovat s obojím. Zkontrolujte jestli je váš disk stejného typu jako mechanika.</p>
+    </item>
+    <item>
+      <p>Zkontrolujte jestli je váš disk dvojvrstvý nebo jednovrstvý: některé DVD mechaniky neumí zapisovat na dvojvrstvé disky.</p>
+    </item>
+    <item>
+      <p>Pokud chcete použít DVD-R, zkontrolujte jestli už se na něj dříve zapisovalo. Pokud používáte DVD-RW, zkuste ho nejprve vymazat a až poté zapisovat.</p>
+    </item>
+  </steps>
+
+</page>

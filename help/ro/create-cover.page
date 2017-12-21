@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="ro">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Creează o copertă pentru o carcasă de CD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Atribuire - Distribuire-în-condiții-identice 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Șerbănescu</mal:name>
+      <mal:email>daniel [at] serbanescu [dot] dk</mal:email>
+      <mal:years>2010 , 2012, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Laurențiu Cristian Ion</mal:name>
+      <mal:email>ionlaurentiucristian@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Crearea unei coperți</title>
+
+  <p>Puteți folosi <app>Brasero</app> pentru a crea coperți pentru carcasele dumneavoastră de CD. Accesați creatorul apăsând pe <guiseq><gui>Instrumente</gui><gui>Editor de coperți</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Dacă creați un proiect audio și finalizați proiectul înainte de a crea o copertă, atunci când accesați interfața <gui>Editor de coperți</gui> din fereastra proiectului audio, piesele vor fi listate automat pe spatele coperții.</p>
+  </note>
+
+  <note style="important">
+    <p>Dacă închideți <gui>Editorul de coperți</gui>, modificările vor fi pierdute.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Deschideți <gui>Editorul de coperți</gui>.</p>
+    </item>
+    <item>
+      <p>Alegeți formatarea pe care doriți să o utilizați pentru text și tastați textul, derulând în jos pentru a vedea laterala și spatele coperții pentru carcasa de CD.</p>
+      <note style="tip">
+        <p>Când vedeți caseta de dialog <gui>Editor de coperți</gui> prima dată, nu veți fi capabil să apăsați pe vreo opțiune de formatare a textului. Apăsați pe coperta la care doriți să lucrați pentru a folosi opțiunile de formatare a textului.</p>
+      </note>
+    </item>
+    <item>
+      <p>Clic pe pictograma barei de instrumente <gui>Proprietăți fundal</gui> pentru a adăuga un fundal pentru coperta curentă, sau clic dreapta pe coperta pe care doriți să o editați și alegeți <gui>Definiți proprietățile fundalului</gui>. Puteți alege să utilizați un fundal colorat sau să selectați o imagine de fundal.</p>
+      <note style="bug">
+        <p>Dacă alegeți o imagine de fundal centrată, <app>Brasero</app> uneori se închide prematur când apăsați pe butonul <gui>Închide</gui>.</p>
+      </note>
+      <p>Apăsați pe butonul <gui>Închide</gui> pentru a aplica modificările și închideți dialogul <gui>Proprietăți fundal</gui>.</p>
+    </item>
+    <item>
+      <p>Tipăriți coperta utilizând butonul <gui>Tipărește</gui>, care se află în colțul din dreapta-sus a dialogului.</p>
+    </item>
+  </steps>
+
+</page>

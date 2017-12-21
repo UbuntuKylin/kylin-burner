@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Manas MP3 dziesmas netiek atskaņotas DVD vai CD atskaņotājā.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>CD netiek atskaņots CD atskaņotājā</title>
+
+  <p>Ja kompaktdisku neatskaņo CD atskaņotājā vai stereo, iespējams, ka tas ir tādēļ, ka mūzika netika pareizi ierakstīta diskā vai jūs izmantojāt datu projektu, lai ierakstītu mūziku diskā, nevis audio projektu.</p>
+
+  <note>
+    <p>Daudzi jaunie CD un DVD atskaņotāji atskaņos mūziku no diskiem, kas tika veidoti izmantojot datu projektu, bet lielākā daļa vecāko atskaņotāju neatskaņos.</p>
+  </note>
+
+  <note>
+    <p>Vecāki CD atskaņotāji varētu neatskaņot CD-RW diskus.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Ja izmantojat CD-RW, izdzēsiet disku.</p>
+    </item>
+    <item>
+      <p>Pārrakstiet disku kā audio projektu.</p>
+    </item>
+  </steps>
+
+</page>

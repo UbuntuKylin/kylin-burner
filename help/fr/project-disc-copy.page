@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Créer une copie identique d'un disque.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Copie d'un disque</title>
+
+  <steps>
+    <item>
+      <p>Cliquez sur <gui>Copier un disque</gui> dans la fenêtre principale ou choisissez <guiseq><gui>Projet</gui><gui>Nouveau projet</gui><gui>Copier un disque...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Sélectionner le disque que vous voulez copier dans la liste déroulante en dessous de <gui>Choisissez le disque à copier</gui>. Si vous avez plusieurs lecteurs contenant un disque, ils devraient apparaître dans cette liste.</p>
+    </item>
+    <item>
+      <p>Choisissez si vous voulez faire une copie sur un autre disque ou créer une image pour une utilisation ultérieure.</p>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Propriétés</gui> pour sélectionner la vitesse de gravure et d'autres options de personnalisation.</p>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Copier</gui> pour démarrer la copie du disque, ou <gui>Créer plusieurs copies</gui>, si vous voulez faire plus d'une copie du disque.</p>
+      <note>
+	<p>Si vous copiez le disque en n'ayant qu'un seul lecteur de disque, il vous est demandé de remplacer le disque à copier par celui à graver, après que son contenu a été copié temporairement sur votre disque dur.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

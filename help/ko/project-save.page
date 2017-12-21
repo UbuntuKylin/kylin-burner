@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="ko">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>다음에 편집하거나 구우려면 프로젝트를 저장합니다.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Seong-ho Cho</mal:name>
+      <mal:email>darkcircle.0426@gmail.com</mal:email>
+      <mal:years>2011, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>프로젝트 저장하기</title>
+
+  <p>나중에 편집하거나 구우려면 <app>브라세로</app>에서 오디오 프로젝트나, 데이터 프로젝트 혹은 비디오 프로젝트를 저장할 수 있습니다.</p>
+
+  <steps>
+    <item>
+      <p>프로젝트를 만들고 프로젝트에서 사용하고 싶은 파일을 더합니다.</p>
+    </item>
+    <item>
+      <p><guiseq><gui>프로젝트</gui><gui>저장</gui></guiseq>을 눌러 프로젝트를 저장합니다.</p>
+    </item>
+    <item>
+      <p>프로젝트 안의 저장하고 싶은 것에 대한 이름을 입력하고, <gui>저장</gui>을 눌러 프로젝트를 저장합니다.</p>
+    </item>
+  </steps>
+
+  <p>저장된 <app>브라세로</app> 프로젝트를 열기 위한 방법은 다음과 같은 여러가지가 있습니다:</p>
+
+  <list>
+    <item>
+      <p><gui>최근 프로젝트</gui>의 시작 페이지의 목록에서 선택합니다</p>
+    </item>
+    <item>
+      <p><guiseq><gui>프로젝트</gui><gui>최근 프로젝트</gui></guiseq>를 누릅니다</p>
+    </item>
+    <item>
+      <p><guiseq><gui>프로젝트</gui><gui>최근 프로젝트</gui></guiseq>를 누르고 프로젝트를 선택합니다</p>
+    </item>
+    <item>
+      <p>파일 탐색기로부터 프로젝트 열기</p>
+      <note>
+        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        If you try to open a second instance, the currently open
+        <app>Brasero</app> window will be focused.</p>
+        <p>If <app>Brasero</app> is already running and you try to open some
+        files with it from <app>Files</app>, the files will be added to the
+        project that you are currently working on.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>저장된 프로젝트를 열면, <app>브라세로</app>는 이것을 새 프로젝트처럼 다룹니다: 프로젝트의 최신 버전을 저장하려면, 프로젝트의 이름을 입력할 것을 요구할 것이고, 이 시점에서 다른 파일 이름을 입력하여 옛 버전을 덮어 쓰거나 새 프로젝트처럼 쓸 수 있습니다.</p>
+  </note>
+
+</page>

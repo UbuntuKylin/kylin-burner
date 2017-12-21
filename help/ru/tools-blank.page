@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Очистка перезаписываемого CD или DVD.</desc>
+    <credit type="author">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>Очистка диска</title>
+
+  <p>Вы можете подготовить перезаписываемый диск с данными, очистив его.</p>
+
+  <steps>
+    <item>
+      <p>Выберите <guiseq><gui>Инструменты</gui><gui>Очистить...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Если у вас больше одного привода, в который вставлен перезаписываемый диск, вы можете выбрать диск для перезаписи в <gui>Выберите диск</gui>.</p>
+    </item>
+    <item>
+      <p>Вы можете выбрать <gui>Быстрая очситка</gui>, чтобы быстрее очистить диск.</p>
+      <note>
+        <p>Если во время записи очищенного диска возникли проблемы, попробуйте отключить быструю очистку и очистите диск ещё раз.</p>
+      </note>
+    </item>
+    <item>
+      <p>Чтобы продолжить, нажмите <gui>Очистить</gui>.</p>
+    </item>
+    <item>
+      <p>Диск может быть извлечён после завершения очистки.</p>
+    </item>
+  </steps>
+
+</page>

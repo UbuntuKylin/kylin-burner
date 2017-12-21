@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Po vypálení můžete zkontrolovat integritu disku.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Zkontrolujte integritu disku</title>
+
+  <p>Po vypálení disku CD/DVD pomocí <app>Brasero</app> můžete zkontrolovat jeho integritu, abyste se ujistili, že soubory na disku nejsou poškozeny.</p>
+
+  <steps>
+    <item>
+      <p>Zvolte <guiseq><gui>Nástroje</gui><gui>Zkontrolovat integritu...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Pokud chcete, můžete zvolit možnost <guilabel>Použít soubor MD5 pro kontrolu disku</guilabel>.</p>
+	<note style="advanced">
+	<list>
+	<item><p>MD5 (Message-Digest Algorithm 5) je šifrovací hešovací funkce hojně používaná pro kontrolu integrity dat.</p></item>
+	<item><p>Pokud zvolíte tuto možnost, budete muset najít soubor MD5 kliknutím na ikonu složky umístěnou níže.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Stiskněte <gui>Zkontrolovat</gui> pro pokračování nebo <gui>Zavřít</gui> pro ukončení.</p>
+    </item>
+    <item>
+      <p>Jakmile je kontrolova hotová, můžete buď zvolit <gui>Znovu zkontrolovat</gui> nebo prostě <gui>Zavřít</gui>.</p>
+    </item>
+  </steps>
+
+</page>

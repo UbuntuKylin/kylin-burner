@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Ne morem zapisati DVD-R ali DVD-RW.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Težave z ustvarjanjem DVD-jev</title>
+
+  <p>Nekatere vrste DVD-R-jev in DVD-RW-jev niso združljive z vsemi zapisovalniki. Preverite naslednje in izvedite, če jih lahko uporabite s svojim zapisovalnikom.</p>
+
+  <steps>
+    <item>
+      <p>Preverite, ali vaš pogon DVD sprejema diske DVD+ ali DVD-. Če je označen z "multi", to običajno pomeni, da sprejema oboje. Preverite svoj disk, če je enake vrste kot pogon DVD.</p>
+    </item>
+    <item>
+      <p>Preverite, če je disk eno ali dvoslojni: nekateri pogoni DVD ne morejo zapisovati na dvoslojni disk.</p>
+    </item>
+    <item>
+      <p>Če poskušate uporabiti DVD-R, preverite ali ste nanj že zapisovali. Če uporabljati DVD-RW, ga poskusite pred poskusom zapisovanja sprazniti.</p>
+    </item>
+  </steps>
+
+</page>

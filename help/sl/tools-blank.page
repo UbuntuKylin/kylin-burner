@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Izbris prepisljivega CD-ja ali DVD-ja s praznjenjem</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Praznjenje diska</title>
+
+  <p>Prepisljiv disk z obstoječimi podatki lahko pripravite na pisanje s praznjenjem.</p>
+
+  <steps>
+    <item>
+      <p>Izberite <guiseq><gui>Orodja</gui><gui>Sprazni ...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Če imate v več kot enem pogonu prepisljiv disk, lahko pod <gui>Izbor diska</gui> izberete kateri disk želite prepisati. </p>
+    </item>
+    <item>
+      <p>Za hitrejše praznjenje CD-ja lahko izberete <gui>Hitro praznjenje</gui>-</p>
+      <note>
+        <p>Če imate težave pri pisanju na disk, ki ste ga hitro spraznili, hitro praznjenje onemogočite in poskusite znova.</p>
+      </note>
+    </item>
+    <item>
+      <p>Za nadaljevanje kliknite <gui>Prazno</gui>.</p>
+    </item>
+    <item>
+      <p>Disk bo morda ob končanju praznjenja izvržen.</p>
+    </item>
+  </steps>
+
+</page>

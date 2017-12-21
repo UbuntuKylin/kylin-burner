@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Introduction to the <app>Brasero</app> disc burning application.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>引言</title>
+
+  <p>「<application>Brasero</application>」是用來燒錄 CD 和 DVD 的應用程式，它被設計成易於使用，並且提供所有燒錄所需的工具。</p>
+
+  <p>在「<application>Brasero</application>」中你可以：</p>
+  <list>
+    <item><p>將資料燒錄至 CD 和 DVD</p></item>
+    <item><p>將數碼音樂檔案（例如 ogg、flac 和 mp3）燒錄為音樂 CD</p></item>
+    <item><p>複製 CD 和 DVD</p></item>
+    <item><p>建立影片 DVD 或 SVCD</p></item>
+    <item><p>建立映像檔和燒錄既存的映像檔</p></item>
+    <item><p>抹除 CD-RW 和 DVD-RW</p></item>
+    <item><p>檢查光碟和光碟映像檔的完整性</p></item>
+  </list>
+
+  <figure>
+    <title>「<gui>Brasero</gui>」主視窗</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

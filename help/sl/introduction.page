@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Uvod v <app>Brasero</app>, program za zapisovanje diskov.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Uvod</title>
+
+  <p><app>Brasero</app> je program za zapisovanje CD-R/W-jev in DVD-R/W-jev, zasnovan za enostavno uporabo in zagotavljanje vseh orodij potrebnih za zapisovanje.</p>
+
+  <p>Z <app>Brasero</app> lahko:</p>
+  <list>
+    <item><p>Zapišete podatke na CD-je in DVD-je</p></item>
+    <item><p>Zapišete zvočne CD-je iz digitalnih zvočnih datotek (kot so ogg, flac in mp3)</p></item>
+    <item><p>Kopirante CD-je in DVD-je</p></item>
+    <item><p>Ustvarite video DVD-je ali SVCD-je</p></item>
+    <item><p>Ustvarite datoteke odtisa in zapišete obstoječe datoteke odtisa</p></item>
+    <item><p>Izbrišete CD-R/W-je in DRD-R/W-je</p></item>
+    <item><p>Preverite celovitost diskov in diskovnih odtisov</p></item>
+  </list>
+
+  <figure>
+    <title>Glavno okno <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

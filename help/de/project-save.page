@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Speichern Sie das Projekt, um es später bearbeiten oder brennen zu können.</desc>
+    <credit type="author">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Ein Projekt speichern</title>
+
+  <p>Sie können ein Audio-, Daten- oder Video-Projekt in <app>Brasero</app> speichern, um es später bearbeiten oder brennen zu können.</p>
+
+  <steps>
+    <item>
+      <p>Erstellen Sie das Projekt und fügen Sie die gewünschten Dateien hinzu.</p>
+    </item>
+    <item>
+      <p>Klicken Sie auf <guiseq><gui>Projekt</gui><gui>Speichern</gui></guiseq>, um das Projekt zu speichern.</p>
+    </item>
+    <item>
+      <p>Geben Sie den gewünschten Namen ein, unter dem Sie das Projekt speichern wollen, und klicken Sie auf <gui>Speichern</gui>.</p>
+    </item>
+  </steps>
+
+  <p>Ein gespeichertes <app>Brasero</app>-Projekt lässt sich auf verschiedene Arten öffnen:</p>
+
+  <list>
+    <item>
+      <p>durch Auswählen aus einer Liste im Hauptfenster in den <gui>Letzten Projekten</gui></p>
+    </item>
+    <item>
+      <p>über <guiseq><gui>Projekt</gui><gui>Letzte Projekte</gui></guiseq></p>
+    </item>
+    <item>
+      <p>über <guiseq><gui>Projekt</gui><gui>Öffnen</gui></guiseq> und Auswählen des Projekts</p>
+    </item>
+    <item>
+      <p>durch Öffnen des Projekts in einer Dateiverwaltung</p>
+      <note>
+        <p>Es können nicht mehrere Instanzen von <app>Brasero</app> gleichzeitig geöffnet werden. Wenn Sie versuchen, eine zweite Instanz zu öffnen, wird das aktuell geöffnete <app>Brasero</app>-Fenster fokussiert.</p>
+        <p>Falls <app>Brasero</app> bereits läuft und Sie versuchen, einige Dateien damit in <app>Files</app> zu öffnen, werden die Dateien zu dem Projekt hinzugefügt, an dem Sie gegenwärtig arbeiten.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Wenn Sie ein gespeichertes Projekt öffnen, behandelt <app>Brasero</app> es als neues Projekt. Falls Sie eine aktualisierte Version des Projekts speichern wollen, werden Sie um die Eingabe eines Namens für das Projekt gebeten. An dieser Stelle können Sie die alte Version überschreiben oder das Projekt als neues Projekt speichern, indem Sie einen anderen Dateinamen eingeben.</p>
+  </note>
+
+</page>

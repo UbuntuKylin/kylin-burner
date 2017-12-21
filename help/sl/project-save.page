@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Shranjevanje projekta za kasnejše urejanje ali zapis.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Shrani projekt</title>
+
+  <p>V programu <app>Brasero</app></p>
+
+  <steps>
+    <item>
+      <p>Ustvarite projekt in mu dodajte datoteke, ki jih želite uporabiti.</p>
+    </item>
+    <item>
+      <p>Za shranjevanje projekta kliknite <guiseq><gui>Projekt</gui><gui>Shrani-</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Vnesite ime pod katerim želite projekt shraniti in nato kliknite <gui>Shrani</gui> za shranjevanje projekta.</p>
+    </item>
+  </steps>
+
+  <p>Obstaja več načinov s katerimi lahko odprete shranjen projekt <app>Brasero</app>:</p>
+
+  <list>
+    <item>
+      <p>izberite ga s seznama na začetni strani pod <gui>Nedavni projekti</gui>.</p>
+    </item>
+    <item>
+      <p>kliknite na <guiseq><gui>Projekt</gui><gui>Nedavni projekti</gui></guiseq></p>
+    </item>
+    <item>
+      <p>kliknite na <guiseq><gui>Projekt</gui><gui>Odpri</gui></guiseq> in izberite projekt</p>
+    </item>
+    <item>
+      <p>Odpiranje projekta iz brskalnika datotek</p>
+      <note>
+        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        If you try to open a second instance, the currently open
+        <app>Brasero</app> window will be focused.</p>
+        <p>If <app>Brasero</app> is already running and you try to open some
+        files with it from <app>Files</app>, the files will be added to the
+        project that you are currently working on.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Ko odprete shranjen projekt, ga bo <app>Brasero</app> obravnaval kot nov projekt. Če želite shraniti posodobljeno različico vas bo vprašal za njegovo ime. Izberete lahko isto ime in staro različico prepišete ali pa izberete drugo ime in staro različico obdržite.</p>
+  </note>
+
+</page>

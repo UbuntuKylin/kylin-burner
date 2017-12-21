@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Ich kann nicht auf eine DVD-R oder DVD-RW schreiben.</desc>
+    <credit type="author">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Problem beim Erstellen einer DVD</title>
+
+  <p>Einige Typen von DVD-Rs und DVD-RWs sind nicht mit allen Brennern kompatibel. Prüfen Sie Folgendes, um herauszufinden, ob diese DVDs in Ihrem Brenner verwendet werden können.</p>
+
+  <steps>
+    <item>
+      <p>Überprüfen Sie, ob Ihr DVD-Laufwerk DVD+- oder DVD-Medien akzeptiert. Falls es mit »multi« beschriftet ist, ist das üblicherweise ein Anzeichen dafür, dass beide Typen unterstützt werden. Schauen Sie auf Ihrer DVD nach, ob es sich um das gleiche System wie Ihr Laufwerk handelt.</p>
+    </item>
+    <item>
+      <p>Überprüfen Sie, ob Ihre DVD einschichtig oder zweischichtig ist. Einige DVD-Laufwerke können mit zweischichtigen DVDs nicht umgehen.</p>
+    </item>
+    <item>
+      <p>Wenn Sie eine DVD-R verwenden, stellen Sie sicher, dass diese vorher noch nicht beschrieben wurde. Bei einer DVD-RW versuchen Sie zunächst, sie vor dem Brennvorgang zu löschen.</p>
+    </item>
+  </steps>
+
+</page>

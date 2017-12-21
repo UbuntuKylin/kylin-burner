@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Úvod do aplikace na vypalování <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Úvod</title>
+
+  <p><app>Brasero</app> je aplikace pro vypalování disků CD a DVD, navržená pro jednoduché používání a poskytující všechny nástroje nutné k vypalování.</p>
+
+  <p>S aplikací <application>Brasero</application> můžete:</p>
+  <list>
+    <item><p>Vypalovat data na CD a DVD</p></item>
+    <item><p>Vypalovat hudební CD z hudebních digitálních souborů (jako např. OGG, FLAC a MP3)</p></item>
+    <item><p>Kopírovat CD a DVD</p></item>
+    <item><p>Vytvářet videa DVD nebo SVCD</p></item>
+    <item><p>Vytvářet obrazy souborů a vypalovat je</p></item>
+    <item><p>Mazat CD-RW a DVD-RW</p></item>
+    <item><p>Kontrolovat integritu dat na discích a obrazech disků</p></item>
+  </list>
+
+  <figure>
+    <title>Hlavní okno <gui>Brasero</gui></title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="zh-TW">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>先儲存專案便於稍後編輯或燒錄。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>儲存為一個專案</title>
+
+  <p>您可以在「<app>Brasero</app>」中先將音樂、資料或影片專案先儲存以便於稍後編輯或燒錄。</p>
+
+  <steps>
+    <item>
+      <p>新建一個專案然後將您想要使用的檔案增加進專案之中。</p>
+    </item>
+    <item>
+      <p>按一下「<guiseq><gui>專案</gui><gui>儲存</gui></guiseq>」來儲存您的專案。</p>
+    </item>
+    <item>
+      <p>輸入您想要為這個專案取的名字然後按一下「<gui>儲存</gui>」來儲存您的專案。</p>
+    </item>
+  </steps>
+
+  <p>有許多方式可以用來開啟已經儲存的「<app>Brasero</app>」專案，這些方法為：</p>
+
+  <list>
+    <item>
+      <p>從主視窗的「<guilabel>選擇最近使用的專案</guilabel>」點選要開啟的專案。</p>
+    </item>
+    <item>
+      <p>按一下「<guiseq><gui>專案</gui><gui>最近使用的專案</gui></guiseq>」</p>
+    </item>
+    <item>
+      <p>按一下「<guiseq><gui>專案</gui><gui>開啟</gui></guiseq>」並選擇您想要開啟的專案。</p>
+    </item>
+    <item>
+      <p>在檔案管理員中直接開啟一個專案檔案。</p>
+      <note>
+        <p>Only one instance of <app>Brasero</app> can be opened at any time.
+        If you try to open a second instance, the currently open
+        <app>Brasero</app> window will be focused.</p>
+        <p>If <app>Brasero</app> is already running and you try to open some
+        files with it from <app>Files</app>, the files will be added to the
+        project that you are currently working on.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>If you open a saved project, <app>Brasero</app> will treat it as a new
+    project: if you want to save an updated version of the project, it will ask
+    you to enter a name for it, at this point you can overwrite the old version
+    or save it as a new project by entering a different file name.</p>
+  </note>
+
+</page>

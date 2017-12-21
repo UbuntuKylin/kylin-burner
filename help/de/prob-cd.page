@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Meine MP3-Titel werden in einem DVD- oder CD-Spieler nicht wiedergegeben.</desc>
+    <credit type="author">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Die CD wird im CD-Spieler nicht wiedergegeben</title>
+
+  <p>Falls sich Ihre CD nicht in Ihrem CD-Spieler wiedergeben lässt, wurde die Musik wahrscheinlich nicht korrekt auf die CD gebrannt oder Sie haben versehentlich ein Daten-Projekt anstelle eines Audio-Projekts zum Schreiben der Musik auf die CD verwendet.</p>
+
+  <note>
+    <p>Viele neuere CD-Spieler können Musik-CDs wiedergeben, die eigentlich als Daten-Projekt erstellt wurden, aber die meisten älteren Geräte können das nicht.</p>
+  </note>
+
+  <note>
+    <p>Ältere CD-Spieler könnten nicht in der Lage sein, CD-RWs wiederzugeben.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Falls Sie eine CD-RW verwenden, löschen Sie sie.</p>
+    </item>
+    <item>
+      <p>Erstellen Sie die CD neu als Audio-Projekt.</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-save" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="project-data"/>
+    <desc>Uložte projekt pro upravování nebo vypalování později.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Uložit projekt</title>
+
+  <p>Můžete uložit zvuk, data nebo videoprojekt v aplikaci <app>Braser</app> pro upravování nebo vypalování později.</p>
+
+  <steps>
+    <item>
+      <p>Vytvořte projekt a přidejte soubory, které si přejete v projektu použít.</p>
+    </item>
+    <item>
+      <p>Klikněte na <guiseq><gui>Projekt</gui><gui>Uložit</gui></guiseq> pro uložení projektu.</p>
+    </item>
+    <item>
+      <p>Vložte název, pod kterým si přejete projekt uložit, a poté klikněte na <gui>Save</gui> pro uložení projektu.</p>
+    </item>
+  </steps>
+
+  <p>Je několik způsobů, jak otevřít uložený projekt <app>Brasero</app>:</p>
+
+  <list>
+    <item>
+      <p>Vybráním projektu na úvodní stránce ze seznamu <gui>Nedávné projekty</gui></p>
+    </item>
+    <item>
+      <p>kliknutím na <guiseq><gui>Projekt</gui><gui>Nedávné projekty</gui></guiseq></p>
+    </item>
+    <item>
+      <p>kliknutím na <guiseq><gui>Projekt</gui><gui>Otevřít</gui></guiseq> a zvolením projektu</p>
+    </item>
+    <item>
+      <p>otevřením projektu v prohlížeči souborů</p>
+      <note>
+        <p>V kterýkoliv okamžik může být spuštěna pouze jedna instance aplikace <app>Brasero</app>. Když se pokusíte otevřít druhou instanci, tak akorát současné otevřeno okno <app>Brasero</app> získá zaměření.</p>
+        <p>Pokud již <app>Brasero</app> běží a vy v něm zkusíte pomocí <app>Soubory</app> otevřít nějaké soubory, budou tyto soubory přidány do projektu, na kterém se právě pracuje.</p>
+      </note>
+    </item>
+  </list>
+
+  <note>
+    <p>Pokud otevřete uložený projekt, <app>Brasero</app> s ním bude pracovat jako s novým projektem: pokud chcete uložit aktualizovanou verzi projektu, budete muset vyplnit jeho název. V tuto chvíli můžete buď přepsat starou verzi nebo ho uložit jako nový projekt napsáním odlišného názvu souboru.</p>
+  </note>
+
+</page>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>我无法写入 DVD-R 或 DVD-RW 光盘。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>创建 DVD 有问题</title>
+
+  <p>某些类型的 DVD-R 和 DVD-RW 光盘不能和所有的刻录机兼容，请检查以下内容了解您的刻录机是否可以使用这些盘片。</p>
+
+  <steps>
+    <item>
+      <p>检查您的 DVD 光驱是否接受 DVD+ 或者 DVD- 盘片；如果它上面标有“multi(多重)”，通常说明它可以使用这两种光盘。检查您的光盘看是否有与 DVD 光驱同样的标记。</p>
+    </item>
+    <item>
+      <p>检查您的盘片是的多层的还是单层的：有些 DVD 光驱不能对多层盘片进行写入操作。</p>
+    </item>
+    <item>
+      <p>如果您想使用 DVD-R 盘片，检查它是否已经被写过了。如果您想使用 DVD-RW 盘片，请尝试清空原有数据再进行写操作。</p>
+    </item>
+  </steps>
+
+</page>

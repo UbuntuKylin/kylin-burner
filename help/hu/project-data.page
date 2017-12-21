@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Adatok írása CD-re vagy DVD-re.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Adatprojekt létrehozása</title>
+
+  <p>Az adatprojekt adatok (például fájlok, fényképek vagy zenék) változatlan formában való lemezre írására használható. Ez fájlok számítógépek közti átviteléhez hasznos.</p>
+
+  <steps>
+    <item>
+      <p>Nyomja meg az <gui>Adatprojekt</gui> gombot a kezdőoldalon, vagy válassza a <guiseq><gui>Projekt</gui><gui>Új projekt</gui><gui>Új adatprojekt</gui></guiseq> menüpontot.</p>
+    </item>
+    <item>
+      <p>Az eszköztár <gui>Hozzáadás</gui> gombjának megnyomásával és a fájlok kiválasztásával adja a kívánt fájlokat a projekthez. Fájlokat hozzáadhat a projektterületre húzással, vagy a <guiseq><gui>Szerkesztés</gui><gui>Fájlok hozzáadása</gui></guiseq> menüpont kiválasztásával is.</p>
+      <note style="tip">
+	<p>A CD-n létrehozhat mappákat az adatok rendszerezéséhez. Mappa létrehozásához válassza az eszköztár <gui>Új mappa</gui> gombját, vagy a <guiseq><gui>Szerkesztés</gui><gui>Új mappa</gui></guiseq> menüpontot. Mappákat más mappákon belül is létrehozhat.</p>
+      </note>
+    </item>
+    <item>
+      <p>A projektterület alatti szövegmezőben megadhatja a lemez címét.</p>
+    </item>
+    <item>
+      <p>Válassza ki az üres lemezt a legördülő listából.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>Írás</gui> gombot a folytatáshoz.</p>
+    </item>
+    <item>
+      <p>Válassza ki az <gui>Írási sebességet</gui> a legördülő listából, és az esetleges további kívánt beállításokat.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui>Írás</gui> gombot a projekt kiírásához egy lemezre, vagy a <gui>Több másolat írása</gui> gombot a projekt több lemezre való kiírásához</p>
+      <note>
+        <p>Ha olyan újraírható lemezt használ, amelyen már vannak adatok, akkor a program megkérdezi, hogy törli-e a lemezt, vagy másikat helyez-e be.</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>Ha újraírható lemezt használ, és az adatok írása nem sikerül, akkor a lemez teljes (nem gyors) törlésére lehet szükség az újrapróbálkozás előtt.</p>
+
+</page>

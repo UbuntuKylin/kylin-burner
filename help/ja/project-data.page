@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>CDやDVDにデータを書き込みます。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>データプロジェクトを作成する</title>
+
+  <p>データプロジェクトは、ファイルや写真、音楽といったデータで今後変更しないものを書き込むのに使用します。コンピューター間でデータを移すのに便利です。</p>
+
+  <steps>
+    <item>
+      <p>スタートページの<gui>データプロジェクト</gui>をクリックするか、<guiseq><gui>プロジェクト</gui><gui>新しいプロジェクト</gui><gui>新しいデータプロジェクト</gui></guiseq>を選択します。</p>
+    </item>
+    <item>
+      <p>書き込みたいファイルをプロジェクトに追加するには、ツールバーの<gui>追加</gui>をクリックしてお好みのファイルを選択します。また、ファイルをプロジェクトエリアにドラッグアンドドロップする、あるいは、<guiseq><gui>編集</gui><gui>ファイルの追加</gui></guiseq>をクリックすることでファイルを追加することもできます。</p>
+      <note style="tip">
+	<p>CDにフォルダーを作成して、より構造化された方法でデータを保管することができます。フォルダーを作成するにはツールバーの<gui>新しいフォルダー</gui>をクリックするか、メニューバーから<guiseq><gui>編集</gui><gui>新しいフォルダー</gui></guiseq>を選択してください。フォルダーの中にフォルダーを作ることもできます。</p>
+      </note>
+    </item>
+    <item>
+      <p>プロジェクトエリアの下にあるテキスト入力フィールドでディスクのタイトルを追加することができます。</p>
+    </item>
+    <item>
+      <p>空のディスクをドロップダウンリストで選択します。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックして続けてください。</p>
+    </item>
+    <item>
+      <p><gui>書き込み速度</gui>をドロップダウンリストから選択して、必要であればその他のオプションも選択してください。</p>
+    </item>
+    <item>
+      <p><gui>書き込む</gui>をクリックしてプロジェクトを1枚のCDに書き込むか、<gui>複数のディスクの書き込み</gui>をクリックしてプロジェクトを複数のCDに書き込みます。</p>
+      <note>
+        <p>すでにデータが書き込まれている書き換え可能なディスクを使用している場合、そのディスクを消去するか、別のディスクを挿入するかが尋ねられます。</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>書き換え可能なディスクを使用していてデータが正しく書き込めない場合は、再試行する前にディスクを完全に消去(非高速)しなければならない場合があります。</p>
+
+</page>

@@ -1,0 +1,144 @@
+<!-- ##### SECTION Title ##### -->
+BraseroTrackData
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT BraseroGraftPt ##### -->
+<para>
+
+</para>
+
+@uri: 
+@path: 
+
+<!-- ##### FUNCTION brasero_graft_point_free ##### -->
+<para>
+
+</para>
+
+@graft: 
+
+
+<!-- ##### FUNCTION brasero_graft_point_copy ##### -->
+<para>
+
+</para>
+
+@graft: 
+@Returns: 
+
+
+<!-- ##### STRUCT BraseroTrackData ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION brasero_track_data_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_set_source ##### -->
+<para>
+
+</para>
+
+@track: 
+@grafts: 
+@unreadable: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_add_fs ##### -->
+<para>
+
+</para>
+
+@track: 
+@fstype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_rm_fs ##### -->
+<para>
+
+</para>
+
+@track: 
+@fstype: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_set_data_blocks ##### -->
+<para>
+
+</para>
+
+@track: 
+@blocks: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_set_file_num ##### -->
+<para>
+
+</para>
+
+@track: 
+@number: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_get_grafts ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_get_file_num ##### -->
+<para>
+
+</para>
+
+@track: 
+@file_num: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_track_data_get_fs ##### -->
+<para>
+
+</para>
+
+@track: 
+@Returns: 
+
+

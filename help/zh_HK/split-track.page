@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="split-track" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <link type="seealso" xref="project-audio"/>
+    <revision version="3.2" date="2011-10-20" status="review"/>
+    <desc>分割一個音樂專案成多個音軌。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>分割一個音軌</title>
+
+  <p>當你將音樂檔案放入一個音樂專案時，你可以分割一個音樂音軌成多個音軌。</p>
+
+  <steps>
+    <item>
+      <p>開始一個音樂專案然後新增你想要使用的音軌。</p>
+    </item>
+    <item>
+      <p>選擇你想要分割的音軌，然後選擇「<guiseq><gui>編輯</gui><gui>分割軌道‧‧‧</gui></guiseq>」或直接在音軌上點擊右鍵然後在選單中選擇「<gui>分割軌道‧‧‧</gui>」。</p>
+    </item>
+    <item>
+      <p>選擇你偏好於分割音軌的方式：</p>
+      <terms>
+        <item>
+          <title>手動分割音軌</title>
+          <p>這個選項可以讓你手動選擇這首音軌每個新區塊適當的長度。</p>
+       </item>
+       <item>
+          <title>將音軌分割為固定長度的等分</title>
+          <p>選擇這個選項將你選擇的音軌分割成多個相同長度的等分。</p>
+        </item>
+        <item>
+          <title>將音軌分割為固定數量的等分</title>
+          <p>這個方式可以讓你將你選擇的音軌分割成你設定數量的等分，每個等分會是相同的長度。</p>
+        </item>
+        <item>
+          <title>以每個分割點來分割音軌</title>
+          <p>選擇這項將可以使「<app>Brasero</app>」自動偵測音軌中的靜音處並且將音軌以靜音處作分割。</p>
+        </item>
+      </terms>
+    </item>
+    <item>
+      <p>按一下「<gui>分割</gui>」來開始分割音軌。</p>
+      <note>
+        <p>如果你嘗試將一個音軌分割成一個少於六秒鐘的分割，這個分割將會重新調整為六秒鐘的長度。</p>
+      </note>
+    </item>
+    <item>
+      <p>按一下「<gui>確定</gui>」來確認你即將要做的分割方式和對音軌的改變。</p>
+      <note>
+        <p>You can split and merge the same track as many times as you like
+        while you are viewing the split track dialog. Once you confirm your
+        track splitting by clicking <gui>OK</gui>, you will no longer be able to
+        merge the sections you have already split off. To revert the changes,
+        remove the split sections of the track from your project and re-add the
+        track.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

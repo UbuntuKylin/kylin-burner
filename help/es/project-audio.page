@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="es">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Crear un proyecto de sonido.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Mustieles</mal:name>
+      <mal:email>daniel.mustieles@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Jorge González</mal:name>
+      <mal:email>jorgegonz@svn.gnome.org</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Grabar un CD de música</title>
+
+  <p><app>Brasero</app> puede grabar archivos de sonido a un CD, que se puede reproducir en reproductores de CD y similares. Generalmente, es preferible usar un disco no regrabable, ya que no todos los reproductores de CD reproducen CD regrabables.</p>
+
+  <steps>
+    <item>
+      <p>Pulse en <gui>Proyecto de sonido</gui> en la ventana principal o seleccione <guiseq><gui>Proyecto</gui><gui>Proyecto nuevo</gui><gui>Proyecto de sonido nuevo</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Añada archivos de sonido al proyecto pulsando <gui>Añadir</gui> en la barra de herramientas y seleccionando los archivos que quiera. También puede añadir archivos arrastrándolos y soltándolos en el área de proyecto o pulsando <guiseq><gui>Editar</gui><gui>Añadir archivos</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Puede añadir un título para el CD en la caja de texto de debajo del área del proyecto.</p>
+    </item>
+    <item>
+      <p>Seleccione el CD vírgen de la lista desplegable.</p>
+    </item>
+    <item>
+      <p>Pulse <gui>Grabar...</gui> para continuar.</p>
+    </item>
+    <item>
+      <p>Seleccione la <gui>Velocidad de grabación</gui> de la lista desplegable y cualquier otra opción que quiera.</p>
+    </item>
+    <item>
+      <p>Pulse <gui>Grabar</gui> para grabar un solo disco del proyecto o <gui>Grabar varios discos</gui> para grabar su proyecto a varios discos.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>También puede partir pistas individuales en varias pistas usando la herramienta <gui>Partir</gui> y añadir una pausa de dos segundos después de una pista, usando el botón <gui>Pausa</gui>.</p>
+  </note>
+
+</page>

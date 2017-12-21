@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>MP3ファイルがDVD/CDプレイヤーで再生されません。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>CDがCDプレイヤーで再生されない</title>
+
+  <p>CDプレイヤー/ステレオでCDが再生されない場合、それは音楽が正しくディスクに書き込まれていない、あるいは、音楽プロジェクトではなくデータプロジェクトでCDに音楽を書き込んでしまったということが考えられます。</p>
+
+  <note>
+    <p>最新のCD/DVDプレイヤーの多くはデータプロジェクトで書き込んでしまった音楽CDを再生することができますが、古いプレイヤーの多くは再生できません。</p>
+  </note>
+
+  <note>
+    <p>古いCDプレイヤーはCD-RWを再生できないことがあります。</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>CD-RWを使用している場合、CDを空にしてください。</p>
+    </item>
+    <item>
+      <p>CDを音楽プロジェクトとして再書き込みしてください。</p>
+    </item>
+  </steps>
+
+</page>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="ro">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Ștergerea unui CD sau DVD reinscriptibil prin golirea lui.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Atribuire - Distribuire-în-condiții-identice 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Șerbănescu</mal:name>
+      <mal:email>daniel [at] serbanescu [dot] dk</mal:email>
+      <mal:years>2010 , 2012, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Laurențiu Cristian Ion</mal:name>
+      <mal:email>ionlaurentiucristian@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Golirea unui disc</title>
+
+  <p>Puteți pregăti un disc reinscriptibil, cu date existente pe el, pentru scriere, golindu-l.</p>
+
+  <steps>
+    <item>
+      <p>Alegeți <guiseq><gui>Instrumente</gui><gui>Golește...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Dacă aveți mai mult de o unitate de disc cu un disc reinscriptibil în ea, puteți alege ce disc să rescrieți folosind secțiunea <gui>Alegeți un disc</gui>.</p>
+    </item>
+    <item>
+      <p>Aveți posibilitatea să alegeți <gui>Golire rapidă</gui> pentru a goli CD-ul mai repede.</p>
+      <note>
+        <p>Dacă aveți probleme la scrierea pe un disc pe care l-ați golit rapid, încercați dezactivarea golirii rapide și goliți-l din nou.</p>
+      </note>
+    </item>
+    <item>
+      <p>Apăsați pe <gui>Golire</gui> pentru a continua.</p>
+    </item>
+    <item>
+      <p>Discul poate fi scos atunci când golirea este completă.</p>
+    </item>
+  </steps>
+
+</page>

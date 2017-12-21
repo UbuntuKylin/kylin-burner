@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Δημιουργήστε ένα αντίγραφο του δίσκου.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Αντιγραφή δίσκου</title>
+
+  <steps>
+    <item>
+      <p>Πατήστε στο <gui>Αντιγραφή δίσκου</gui> στο κεντρικό παράθυρο ή επιλέξτε <guiseq><gui>Έργο</gui><gui>Νέο έργο</gui><gui>Αντιγραφή δίσκου... </gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε τον δίσκο που θέλετε να αντιγράψετε από την αναδιπλούμενη λίστα <gui>Επιλέξτε δίσκο για αντιγραφή</gui>. Αν έχετε πάνω από μια συσκευή δίσκων, όλοι οι δίσκοι θα εμφανιστούν στην λίστα.</p>
+    </item>
+    <item>
+      <p>Διαλέξτε άμα θέλετε να πάρετε αντίγραφο από άλλον δίσκο ή να δημιουργήσετε μια εικόνα για χρήση αργότερα.</p>
+    </item>
+    <item>
+      <p>Πατήστε το κουμπί <gui>Προτιμήσεις</gui> για να επιλέξετε την ταχύτητα εγγραφής και άλλες επιλογές.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Αντιγραφή</gui> για να ξεκινήσετε την αντιγραφή του δίσκου, ή <gui>Κάντε πολλά αντίγραφα</gui>, αν σκοπεύετε να κάνετε πάνω απο ένα αντίγραφο του δίσκου.</p>
+      <note>
+	<p>Αν αντιγράφετε τον δίσκο και έχετε μόνο μια συσκευή δίσκων, θα πρέπει να αλλάξετε τον δίσκο που αντιγράφετε με έναν εγγράψιμο μετά την προσωρινή αντιγραφή των δεδομένων στον σκληρό σας.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

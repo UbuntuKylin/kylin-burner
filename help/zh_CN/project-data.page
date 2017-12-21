@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>向 CD 或 DVD 写入数据。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>创建一个新的数据项目</title>
+
+  <p>一个数据项目是用来将数据(如文件、照片、音乐)写入光盘，而不对这些文件做任何的改动。这在计算机间传输文件时非常有用。</p>
+
+  <steps>
+    <item>
+      <p>在开始页面点击 <guibutton>数据项目</guibutton>，或选择 <menuchoice><guimenu>项目</guimenu><guisubmenu>新建项目</guisubmenu><guimenuitem>新建数据项目</guimenuitem></menuchoice>。</p>
+    </item>
+    <item>
+      <p>通过点击工具栏上的 <gui>添加</gui> 并选择文件来向项目中添加需要的文件。您可以通过将文件拖放到项目区域或点击 <guiseq><gui>编辑</gui><gui>添加文件</gui></guiseq> 的方式来添加文件。</p>
+      <note style="tip">
+	<p>您可以在 CD 上创建文件夹来更结构化的储存您的数据。要创建文件夹，在工具栏上点击<gui>新文件夹</gui>，或者在菜单栏中选择 <guiseq><gui>编辑</gui><gui>新文件夹</gui></guiseq>。您也可以在文件夹中创建文件夹。</p>
+      </note>
+    </item>
+    <item>
+      <p>您可以在项目区下面的文字输入框中为光盘添加一个标题。</p>
+    </item>
+    <item>
+      <p>在下拉列表中选择空白光盘。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录...</gui> 继续。</p>
+    </item>
+    <item>
+      <p>从下拉菜单中选择 <gui>刻录速度</gui> 和其他需要的选项。</p>
+    </item>
+    <item>
+      <p>点击 <gui>刻录</gui> 来刻录单张项目 CD，或点击<gui>刻录多份副本</gui>来将您的项目刻录为多张 CD</p>
+      <note>
+        <p>如果您使用是的包含数据的可读写光盘，程序会询问您是想擦除它还是插入另一张新的光盘。</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>如果您使用是的一张刻录不正确的可读写光盘，在重试之前您可能需要对光盘做一次完整(非快速方式的)清空。</p>
+
+</page>

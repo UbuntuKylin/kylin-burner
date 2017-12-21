@@ -1,0 +1,23 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide"
+      id="index">
+
+  <title>
+    <media type="image" src="figures/logo48.png" its:translate="no"/>
+    Brasero Help
+  </title>
+
+  <section id="new-project" style="2column">
+    <title>Create a new project</title>
+  </section>
+
+  <section id="troubleshooting" style="2column">
+    <title>Troubleshooting</title>
+  </section>
+
+  <section id="tools" style="2column">
+    <title>Other tools</title>
+  </section>
+
+</page>

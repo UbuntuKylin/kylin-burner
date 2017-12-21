@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="ja">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc><app>Brasero</app>ディスク書き込みアプリケーションをご紹介します。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Akira Tanaka</mal:name>
+      <mal:email>root.167d36d4acb91@gmail.com</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>はじめに</title>
+
+  <p><app>Brasero</app>は、CDやDVDを作成するためのアプリケーションです。使いやすさを第一に考慮しながらも、ディスク作成に必要な機能をすべて備えています。</p>
+
+  <p><app>Brasero</app>で次のようなことができます。</p>
+  <list>
+    <item><p>CDやDVDにデータを書き込む</p></item>
+    <item><p>デジタルの音声ファイル(OGGやFLAC、MP3)から音楽CDを作成する</p></item>
+    <item><p>CDやDVDをコピーする</p></item>
+    <item><p>映像用DVDやSVCDを作成する</p></item>
+    <item><p>イメージファイルを作成する、また既存イメージファイルを書き込む</p></item>
+    <item><p>CD-RWやDVD-RWを消去する</p></item>
+    <item><p>ディスクやディスクイメージの整合性をチェックする</p></item>
+  </list>
+
+  <figure>
+    <title><app>Brasero</app>のメインウィンドウ</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

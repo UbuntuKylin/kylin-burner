@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-blank" xml:lang="zh-HK">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>使用填充的方式抹除一張可複寫的CD或DVD光碟。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>抹除一張光碟</title>
+
+  <p>你可以準備一張有檔案在上頭的可複寫光碟，這張光碟將要使用填充的方式來抹除。</p>
+
+  <steps>
+    <item>
+      <p>選擇「<guiseq><gui>工具</gui><gui>抹除‧‧‧</gui></guiseq>」。</p>
+    </item>
+    <item>
+      <p>如果你有超過一台的光碟機且包含可複寫光碟的話，你可以在「<gui>選擇光碟</gui>」中選擇你想要抹除的光碟。</p>
+    </item>
+    <item>
+      <p>你可以選擇「<gui>快速抹除</gui>」來加快抹除光碟的速度。</p>
+      <note>
+        <p>如果你在快速抹除的光碟下發生了燒錄的問題，嘗試取消快速抹除的選項然後再將光碟抹除一遍。</p>
+      </note>
+    </item>
+    <item>
+      <p>點一下「<gui>抹除</gui>」以繼續。</p>
+    </item>
+    <item>
+      <p>光碟有可能會在抹除完畢的時候退出。</p>
+    </item>
+  </steps>
+
+</page>

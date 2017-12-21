@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-dvd" xml:lang="zh-TW">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-video"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>我不能燒錄一張 DVD-R 或 DVD-RW。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>在建立DVD時發生的問題</title>
+
+  <p>一些 DVD-R 和 DVD-RW 可能沒有辦法相容於所有的燒錄裝置。依照下面所列的資訊來得知它們能不能用於您的燒錄裝置。</p>
+
+  <steps>
+    <item>
+      <p>Check if your DVD drive accepts DVD+ or DVD- discs; if it is labelled
+      with "multi", that usually indicates that it accepts both. Check your disc
+      to see if it is the same as the DVD drive.</p>
+    </item>
+    <item>
+      <p>檢查您的光碟是否是雙層光碟或單層光碟：一些DVD裝置沒有辦法寫入雙層光碟。</p>
+    </item>
+    <item>
+      <p>如果您想要使用 DVD-R，檢查它是否有寫入過。如果您想要使用 DVD-RW，試著在您要燒錄之前先將它抹除。</p>
+    </item>
+  </steps>
+
+</page>

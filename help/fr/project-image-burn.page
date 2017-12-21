@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-image-burn" xml:lang="fr">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="project-disc-copy"/>
+    <link type="seealso" xref="project-video"/>
+    <revision version="3.3" date="2011-10-14" status="review"/>
+    <desc>Graver une image disque existante sur un CD ou un DVD.</desc>
+    <credit type="author">
+      <name>Marta Bogdanowicz</name>
+      <email>majus85@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Bruno Brouard</mal:name>
+      <mal:email>annoa.b@gmail.com</mal:email>
+      <mal:years>2008-2009,2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Claude Paroz</mal:name>
+      <mal:email>claude@2xlibre.net</mal:email>
+      <mal:years>2008-2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Æzaerth</mal:name>
+      <mal:email>aezaerth@gmx.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Gravure d'images</title>
+
+  <p><app>Brasero</app> vous permet de graver des images de disque sur un CD ou un DVD. Il prend en charge les extensions d'images de disque optique suivantes : <file>.iso</file>, <file>.toc</file> et <file>.cue</file>.</p>
+
+  <note style="advanced">
+    <p>Les images disque sont des fichiers archives qui contiennent toutes les données qui sont sur un CD ou un DVD. Il ne peut y avoir qu'une seule image disque à la fois sur un CD, mais chaque archive peut contenir autant de données que vous voulez dès l'instant où cela rentre sur le disque.</p>
+  </note>
+
+  <p>Pour graver une image disque sur un CD ou un DVD, suivez ces étapes :</p>
+  <steps>
+    <item>
+      <p>Cliquez sur <gui>Graver une image</gui> dans la fenêtre principale ou choisissez <guiseq><gui>Projet</gui><gui>Nouveau projet</gui><gui>Graver une image...</gui></guiseq> .</p>
+    </item>
+    <item>
+      <p>Choisissez une image disque à graver en cliquant sur <gui>Cliquez ici pour sélectionner une image disque</gui>.</p>
+    </item>
+    <item>
+      <p>Sélectionner le disque que vous voulez utiliser dans la liste déroulante en dessous de <gui>Choisissez un disque à graver</gui>. Si vous avez plusieurs lecteurs de disques, tous les disques actuellement chargés devraient apparaître dans cette liste.</p>
+        <note><p>Après avoir sélectionné le disque, <app>Brasero</app> affiche combien d'espace libre il reste sur le disque après la gravure.</p></note>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Propriétés</gui> pour sélectionner la vitesse de gravure et d'autres options de personnalisation.</p>
+    </item>
+    <item>
+      <p>Cliquez sur <gui>Graver</gui> pour démarrer la gravure de l'image. Après cette opération vous pouvez soit arrêter de graver ou faire une autre copie de l'image.</p>
+        <note>
+          <p>Si vous utilisez un disque ré-inscriptible, contenant déjà des données, il vous est demandé si vous voulez l'effacer ou insérer un autre disque.</p>
+        </note>
+    </item>
+    <!-- There are some problems with multiple burn. After burning one copy,
+    Brasero asks for manual ejecting and then often doesn't detect it. The same
+    problem appears by putting inside new CD or DVD - Brasero doesn't always
+    detect it. Besides the multiple burn option has the same functionality as
+    Burn - they both allow to burn one or several copies, so one option would be
+    enough.-->
+
+  </steps>
+
+</page>

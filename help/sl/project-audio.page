@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="sl">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Ustvarjanje zvočnega projekta.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons - deljenje pod enakimi pogoji 3.0</p>
+    </license>
+  </info>
+
+  <title>Zapis glasbenega DCja</title>
+
+  <p><app>Brasero</app> lahko zvočne datoteke zapiše na CD, ki lahko nato uporabite za predvajanje v predvajalnikih CD in tako naprej. Najboljše je, da uporabite neprepisljiv CD, saj nekateri predvajalniki CD-jev ne predvajajo prepisljivih CD-jev.</p>
+
+  <steps>
+    <item>
+      <p>Na začetni strani kliknite <guibutton>Zvočni projekt</guibutton> ali izberite <guiseq><gui>Projekt</gui><gui>Nov projekt</gui><gui>Nov zvočni projekt</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Projektu dodajte zvočne datoteke s klikom na <gui>Dodaj</gui> v orodni vrstici in izbiro želenih datotek. Datoteke lahko dodate z vlečenjem in spuščanjem na podočje projekta s klikom na <guiseq><gui>Uredi</gui><gui>Dodaj datoteke</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Naslov CD-ja lahko dodate v besedilno polje pod področjem projekta.</p>
+    </item>
+    <item>
+      <p>V spustnem seznamu izberite prazen CD.</p>
+    </item>
+    <item>
+      <p>Za nadaljevanje kliknite <gui>Zapiši ...</gui>.</p>
+    </item>
+    <item>
+      <p>V spustnem seznamu izberite <gui>Hitrost zapisovanja</gui> in druge možnosti, ki jih morda želite.</p>
+    </item>
+    <item>
+      <p>Kliknite <gui>zapiši</gui> za zapis enega diska ali <gui>zapiši več kopij</gui> za zapis vašega projekta na več diskov.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Posamezne sledi lahko razdelite v več sledi z uporabo orodja <gui>Razdeli</gui> in dodate dve sekundni premor za skladbo z uporabo gumba <gui>Premor</gui>.</p>
+  </note>
+
+</page>

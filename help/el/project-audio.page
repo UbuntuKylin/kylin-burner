@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-audio" xml:lang="el">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Δημιουργία ενός έργου ήχου.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Ευστάθιος Ιωσηφίδης</mal:name>
+      <mal:email>diamond_gr@freemail.gr</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Εγγραφή μουσικής σε CD</title>
+
+  <p>To <app>Brasero</app> μπορεί να γράψει αρχεία μουσικής σε ένα CD, το οποίο μπορεί να παίξει σε αναπαραγωγείς CD και λοιπά. Συνήθως είναι καλύτερα να χρησιμοποιήσετε ένα μη επανεγγράψιμο CD επειδή δεν παίζουν όλοι οι αναπαραγωγείς CD επανεγγράψιμα CD.</p>
+
+  <steps>
+    <item>
+      <p>Πατήστε <gui>Έργο ήχου</gui> στο κεντρικό μενού ή επιλέξτε <guiseq><gui>Έργο</gui><gui>Νέο έργο</gui><gui>Νέο έργο ήχου</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Προσθέστε αρχεία ήχου στο έργο πατώντας <gui>Προσθήκη</gui> στην εργαλειοθήκη και επιλέξτε τα αρχεία που θέλετε. Μπορείτε επίσης να προσθέσετε τραβώντας αρχεία μέσα στην περιοχή του έργου ή πατώντας <guiseq><gui>Επεξεργασία</gui><gui>Προσθήκη αρχείων</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Μπορείτε να προσθέσετε έναν τίτλο σε ένα CD γράφοντας στην καταχώρηση κειμένου κάτω από την περιοχή του έργου.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε το άδεια CD από την αναδιπλούμενη λίστα.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Εγγραφή...</gui> για να συνεχίσετε.</p>
+    </item>
+    <item>
+      <p>Επιλέξτε την <gui>Ταχύτητα εγγραφής</gui> από την αναδιπλούμενη λίστα, και όποια άλλη επιλογή θέλετε.</p>
+    </item>
+    <item>
+      <p>Πατήστε <gui>Εγγραφή</gui> για να εγγράψετε ένα δίσκο με το έργο ή <gui>Εγγραφή πολλαπλών αρχείων</gui> για να εγγράψετε το έργο σε πολλούς δίσκους.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Μπορείτε να χωρίσετε κομμάτια σε πολλαπλά κομμάτια χρησιμοποιώντας το εργαλείο <gui>Διαχωρισμός</gui> και να προσθέσετε ένα διάλειμμα των δύο δευτερολέπτων μετά το κομμάτι χρησιμοποιώντας το κουμπί <gui>Παύση</gui>.</p>
+  </note>
+
+</page>

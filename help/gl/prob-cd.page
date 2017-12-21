@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="prob-cd" xml:lang="gl">
+
+  <info>
+    <link type="guide" xref="index#troubleshooting"/>
+    <link type="seealso" xref="project-audio"/>
+    <link type="seealso" xref="tools-blank"/>
+    <desc>Os meus MP3 non se reproducen nun reprodutor de DVD ou CD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Compartir Igual 3.0</p>
+    </license>
+  </info>
+
+  <title>O CD non reproduce nun reprodutor de CD</title>
+
+  <p>Se o CD non se reproduce no reprodutor de CD ou estéreo, probábelmente será porque a música non se escribiu correctamente ou porque usou un proxecto de datos para gravar a música no CD no lugar dun proxecto de son.</p>
+
+  <note>
+    <p>Algúns reprodutores de CD e DVD reproducirán CD de música que foran creados usando un proxecto de datos, pero os reprodutores máis antigos non poderán.</p>
+  </note>
+
+  <note>
+    <p>Os reprodutores de CD máis antigos non poderán reproducir CD-RW.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Se está usando un CD-RW, borre o CD.</p>
+    </item>
+    <item>
+      <p>Reescribir o CD como un proxecto de son.</p>
+    </item>
+  </steps>
+
+</page>

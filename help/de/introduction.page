@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="de">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc>Einführung in das CD/DVD-Brennprogramm <app>Brasero</app>.</desc>
+    <credit type="author">
+      <name>Jekaterina Gerassimowa</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Mario Blättermann</mal:name>
+      <mal:email>mario.blaettermann@gmail.com</mal:email>
+      <mal:years>2008-2012</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Gabor Karsay</mal:name>
+      <mal:email>gabor.karsay@gmx.at</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Einführung</title>
+
+  <p><app>Brasero</app> ist eine Anwendung zum Brennen von CDs und DVDs, optimiert auf einfache Anwendbarkeit, jedoch ausgestattet mit allen für das Brennen erforderlichen Werkzeugen.</p>
+
+  <p>Mit <app>Brasero</app> können Sie:</p>
+  <list>
+    <item><p>Daten auf CDs und DVDs brennen</p></item>
+    <item><p>Audio-CDs aus digitalen Audio-Dateien erstellen (wie ogg, flac oder mp3)</p></item>
+    <item><p>CDs und DVDs kopieren</p></item>
+    <item><p>Erstellen von DVDs oder SVCDs</p></item>
+    <item><p>Abbilddateien erstellen und bestehende Abbilddateien brennen</p></item>
+    <item><p>CD-RWs und DVD-RWs löschen</p></item>
+    <item><p>Die Unversehrtheit von CDs/DVDs oder Abbildern überprüfen</p></item>
+  </list>
+
+  <figure>
+    <title>Das <gui>Brasero</gui>-Hauptfenster</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

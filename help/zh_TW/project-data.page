@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-data" xml:lang="zh-TW">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>將資料寫入一張 CD 或 DVD。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  </info>
+
+  <title>建立一個資料專案</title>
+
+  <p>A data project is used for writing data (for example, files, photos or
+  music) to a disc, without changing those files in any way. This can be useful
+  for transferring files between computers.</p>
+
+  <steps>
+    <item>
+      <p>按下主視窗的「<guibutton>資料專案</guibutton>」或選擇「<menuchoice><guimenu>專案</guimenu><guisubmenu>新專案</guisubmenu><guimenuitem>新資料專案</guimenuitem></menuchoice>」。</p>
+    </item>
+    <item>
+      <p>Add the desired files to the project by clicking <gui>Add</gui> in the
+      toolbar and selecting the files. You can also add files by
+      dragging and dropping them onto the project area or by clicking
+      <guiseq><gui>Edit</gui><gui>Add Files</gui></guiseq>.</p>
+      <note style="tip">
+	<p>You can create folders on the CD to store your data in a more
+	structured manner. To create a folder, click <gui>New Folder</gui> in
+	the toolbar or select <guiseq><gui>Edit</gui><gui>New
+	Folder</gui></guiseq> from the menu bar. You can also create folders
+	inside other folders.</p>
+      </note>
+    </item>
+    <item>
+      <p>You can add a title for the disc in the text entry field below the
+      project area.</p>
+    </item>
+    <item>
+      <p>Select the blank disc in the drop down list.</p>
+    </item>
+    <item>
+      <p>按一下「<gui>燒錄‧‧‧</gui>」以繼續。</p>
+    </item>
+    <item>
+      <p>在下拉式清單「<gui>燒錄速度</gui>」中您可以選擇任一您想要的燒錄速度。</p>
+    </item>
+    <item>
+      <p>Click <gui>Burn</gui> to burn a single CD of the project or
+      <gui>Burn Several Copies</gui> to burn your project to multiple CDs</p>
+      <note>
+        <p>如果您正要使用一張可複寫光碟，且上頭已經包含資料，那麼您將會被詢問是否要抹除這張光碟或是插入另一張新的光碟來進行動作。</p>
+      </note>
+    </item>
+  </steps>
+
+  <p>如果您正想要使用一張上頭包含未完成燒錄資料的可複寫光碟，您可能需要在您嘗試進行動作之前先完全抹除〈不是快速抹除〉這張光碟。</p>
+
+</page>

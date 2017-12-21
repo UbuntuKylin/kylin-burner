@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="tools-check-integrity" xml:lang="id">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Anda dapat memeriksa integritas suatu cakram setelah membakarnya.</desc>
+    <credit type="author">
+      <name>Paulina Gonzalez</name>
+      <email>pau.gonzalezbr@gmail.com</email>
+    </credit>
+    <credit type="editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Memeriksa integritas cakram</title>
+
+  <p>Setelah membakar CD/DVD memakai <app>Brasero</app>, Anda dapat memeriksa integritasnya untuk memastikan bahwa berkas dalam cakram tidak rusak.</p>
+
+  <steps>
+    <item>
+      <p>Pilih <guiseq><gui>Perkakas</gui><gui>Periksa Integritas...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Anda dapat memilih opsi <gui>Pakai berkas MD5 untuk memeriksa cakram</gui> bila Anda suka.</p>
+	<note style="advanced">
+	<list>
+	<item><p>Suatu MD5 (Message-Digest Algorithm 5) adalah suatu fungsi hash kriptografis yang umum dipakai untuk memeriksa integritas data.</p></item>
+	<item><p>Bila Anda memilih opsi ini, Anda mesti mencari berkas MD5 dengan mengklik dalam ikon folder yang ditempatkan di bawah.</p></item>
+	</list>
+	</note>
+    </item>
+    <item>
+      <p>Tekan <gui>Periksa</gui> untuk melanjutkan atau <gui>Tutup</gui> untuk membatalkannya.</p>
+    </item>
+    <item>
+      <p>Ketika pemeriksaan selesai Anda bisa memilih untuk <gui>Periksa Lagi</gui> atau sekedar <gui>Tutup</gui>.</p>
+    </item>
+  </steps>
+
+</page>

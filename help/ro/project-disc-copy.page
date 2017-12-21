@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="ro">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Crearea unei cópii identice a unui disc.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Atribuire - Distribuire-în-condiții-identice 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Șerbănescu</mal:name>
+      <mal:email>daniel [at] serbanescu [dot] dk</mal:email>
+      <mal:years>2010 , 2012, 2014</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Laurențiu Cristian Ion</mal:name>
+      <mal:email>ionlaurentiucristian@gmail.com</mal:email>
+      <mal:years>2011, 2012</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Copierea unui disc</title>
+
+  <steps>
+    <item>
+      <p>Apăsați pe <gui>Copiere disc</gui> de pe pagina principală, sau alegeți <guiseq><gui>Proiect</gui><gui>Proiect nou</gui><gui>Copiază discul...</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Alegeți discul pe care doriți să îl copiați din lista de selecție de mai jos <gui>Alegeți disc pentru copiere</gui>. Dacă aveți mai mult de o unitate de disc, ar trebui să fie enumerate toate discurile care sunt în ele.</p>
+    </item>
+    <item>
+      <p>Alegeți dacă doriți să faceți o copie unui alt disc sau pentru a crea o imagine pentru o utilizare ulterioară.</p>
+    </item>
+    <item>
+      <p>Apăsați pe butonul <gui>Proprietăți</gui> pentru a alege viteza de scriere și alte opțiuni specifice.</p>
+    </item>
+    <item>
+      <p>Apăsați pe <gui>Copiază</gui> pentru a începe copierea discului, sau <gui>Fă mai multe cópii</gui> dacă aveți de gând să faceți mai multe cópii de disc.</p>
+      <note>
+	<p>Dacă copiați discul și aveți doar o unitate de disc, veți fi solicitat să înlocuiți discul pe care îl copiați cu unul inscripționabil după ce conținutul se copiază temporar pe hard disc.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>

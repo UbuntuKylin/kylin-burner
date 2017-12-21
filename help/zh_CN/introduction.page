@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="introduction" xml:lang="zh-CN">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <desc><app>Brasero</app> 光盘刻录程序介绍。</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>知识共享协议 相同方式共享许可 3.0</p>
+    </license>
+  </info>
+
+  <title>介绍</title>
+
+  <p><application>Brasero</application> 是一款用于刻录 CD 和 DVD 的应用程序，简单易用，并提供了刻录所需的所有工具。</p>
+
+  <p>使用 <application>Brasero</application> 您可以：</p>
+  <list>
+    <item><p>刻录数据到 CD 和 DVD</p></item>
+    <item><p>将数字音乐文件(如 ogg、flac 和 mp3)刻录为音乐 CD</p></item>
+    <item><p>复制 CD 和 DVD</p></item>
+    <item><p>创建视频 DVD 或 SVCD</p></item>
+    <item><p>创建镜像文件和刻录已有的镜像文件</p></item>
+    <item><p>擦除 CD-R/W 和 DVD-R/W</p></item>
+    <item><p>检查光盘和光盘镜像的完整性</p></item>
+  </list>
+
+  <figure>
+    <title><gui>Brasero</gui> 主窗口</title>
+    <media type="image" mime="image/png" src="figures/brasero-main-window.png"/>
+  </figure>
+
+</page>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="create-cover" xml:lang="cs">
+
+  <info>
+    <link type="guide" xref="index#tools"/>
+    <desc>Vytvořit štítky do obalu na CD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Adrian Guniš</mal:name>
+      <mal:email>andygun696@gmail.com</mal:email>
+      <mal:years>2009, 2010</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Štěpán Šimsa</mal:name>
+      <mal:email>simsa.st@gmail.com</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Marek Černocký</mal:name>
+      <mal:email>marek@manet.cz</mal:email>
+      <mal:years>2013</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Vytvořit obal</title>
+
+  <p>Můžete použít aplikaci <app>Brasero</app> pro vytváření štítků do svých obalů na CD. Otevřete editor obalů kliknutím na <guiseq><gui>Nástroje</gui><gui>Editor obalů</gui></guiseq>.</p>
+
+  <note style="tip">
+    <p>Pokud vytváříte hudební projekt a sestavíte projekt před vytvářením štítků do obalů, tak potom, když otevřete prostředí <gui>Editor obalů</gui> z okna hudebního projektu, stopy budou automaticky vypsány na zadním obalu.</p>
+  </note>
+
+  <note style="important">
+    <p>Když zavřete <gui>Editor obalů</gui>, vaše změny budou ztraceny.</p>
+  </note>
+
+  <steps>
+    <item>
+      <p>Otevřete <gui>Editor obalu</gui>.</p>
+    </item>
+    <item>
+      <p>Vyberte formátování pro text, které chcete použít, a napište text. Skrolováním dolů uvidíte postranní a zadní štítky do obalu na CD.</p>
+      <note style="tip">
+        <p>Když zobrazíte dialog <gui>Editor obalů</gui>, nebudete moci kliknout na žádný nástroj k formátování textu. Klikněte na obal, se kterým chcete pracovat, abyste tyto nástroje mohli používat.</p>
+      </note>
+    </item>
+    <item>
+      <p>Klikněte na ikonu <gui>Vlastnosti pozadí</gui> v panelu nástrojů pro přidání pozadí pro aktuální obal, nebo klikněte pravým tlačítkem na obal, který chcete upravit, a zvolte <gui>Nastavit vlastnosti pozadí</gui>. Můžete si vybrat barevné pozadí nebo obrázek na pozadí.</p>
+      <note style="bug">
+        <p>Pokud vyberte centrovaný obrázek na pozadí, <app>Brasero</app> občas spadne, když kliknete na tlačítko <gui>Zavřít</gui>.</p>
+      </note>
+      <p>Pro schválení změn klikněte na tlačítko <gui>Zavřít</gui> a zavřete dialog <gui>Vlastnosti pozadí</gui>.</p>
+    </item>
+    <item>
+      <p>Vytiskněte obal pomocí tlačítka <gui>Tisk</gui>, které je umístěno v pravém horním rohu dialogu.</p>
+    </item>
+  </steps>
+
+</page>

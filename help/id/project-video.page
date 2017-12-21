@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Current version is crashing for me when I click "Burn" -->
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-video" xml:lang="id">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <title type="sort">3</title>
+    <desc>Menulis video ke DVD atau SVCD.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Andika Triwidada</mal:name>
+      <mal:email>andika@gmail.com</mal:email>
+      <mal:years>2013, 2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Membuat projek video</title>
+
+  <p><app>Brasero</app> dapat dipakai untuk membuat cakram video untuk dimainkan dalam pemutar DVD atau laptop.</p>
+
+  <steps>
+    <item>
+      <p>Klik <gui>Projek video</gui> pada halaman awal, atau pilih <guiseq><gui>Projek</gui><gui>Projek Baru</gui><gui>Projek Video Baru</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Tambahkan video ke projek dengan mengklik <gui>Tambah</gui> dalam bilah alat dan memilih berkas. Anda juga dapat menambahkan berkas dengan menyeret dan menjatuhkan mereka ke area projek atau dengan mengklik <guiseq><gui>Sunting</gui><gui>Tambah Berkas</gui></guiseq></p>
+    </item>
+    <item>
+      <p>Anda dapat menambahkan judul bagi cakram dalam ruas entri teks di bawah wilayah projek.</p>
+    </item>
+    <item>
+      <p>Pilih cakram kosong dalam daftar drop down.</p>
+    </item>
+    <item>
+      <p>Klik <gui>Bakar...</gui> untuk melanjutkan.</p>
+    </item>
+    <item>
+      <p>Pilih <gui>Kecepatan bakar</gui> dari daftar drop down, dan sebarang opsi lain yang mungkin Anda inginkan.</p>
+    </item>
+    <item>
+      <p>Klik <gui>Bakar</gui> untuk membakar satu cakram dari projek atau <gui>Bakar Beberapa Salinan</gui> untuk membakar projek Anda ke beberapa cakram.</p>
+    </item>
+  </steps>
+
+</page>

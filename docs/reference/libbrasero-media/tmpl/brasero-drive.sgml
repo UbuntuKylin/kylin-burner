@@ -1,0 +1,213 @@
+<!-- ##### SECTION Title ##### -->
+BraseroDrive
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### ENUM BraseroDriveCaps ##### -->
+<para>
+
+</para>
+
+@BRASERO_DRIVE_CAPS_NONE: 
+@BRASERO_DRIVE_CAPS_CDR: 
+@BRASERO_DRIVE_CAPS_CDRW: 
+@BRASERO_DRIVE_CAPS_DVDR: 
+@BRASERO_DRIVE_CAPS_DVDRW: 
+@BRASERO_DRIVE_CAPS_DVDR_PLUS: 
+@BRASERO_DRIVE_CAPS_DVDRW_PLUS: 
+@BRASERO_DRIVE_CAPS_DVDR_PLUS_DL: 
+@BRASERO_DRIVE_CAPS_DVDRW_PLUS_DL: 
+@BRASERO_DRIVE_CAPS_DVDRAM: 
+@BRASERO_DRIVE_CAPS_BDR: 
+@BRASERO_DRIVE_CAPS_BDRW: 
+
+<!-- ##### STRUCT BraseroDrive ##### -->
+<para>
+
+</para>
+
+@parent_instance: 
+
+<!-- ##### FUNCTION brasero_drive_reprobe ##### -->
+<para>
+
+</para>
+
+@drive: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_medium ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_gdrive ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_udi ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_is_fake ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_display_name ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_device ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_block_device ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_bus_target_lun_string ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_get_caps ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_can_write ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_can_eject ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_eject ##### -->
+<para>
+
+</para>
+
+@drive: 
+@wait: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_cancel_current_operation ##### -->
+<para>
+
+</para>
+
+@drive: 
+
+
+<!-- ##### FUNCTION brasero_drive_is_door_open ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_can_use_exclusively ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_lock ##### -->
+<para>
+
+</para>
+
+@drive: 
+@reason: 
+@reason_for_failure: 
+@Returns: 
+
+
+<!-- ##### FUNCTION brasero_drive_unlock ##### -->
+<para>
+
+</para>
+
+@drive: 
+@Returns: 
+
+

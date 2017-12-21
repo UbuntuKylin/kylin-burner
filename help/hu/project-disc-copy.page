@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="project-disc-copy" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#new-project"/>
+    <desc>Másolat létrehozása egy lemezről.</desc>
+    <credit type="author">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@googlemail.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Lemez másolása</title>
+
+  <steps>
+    <item>
+      <p>Nyomja meg a kezdőoldal <gui>Lemezmásolás</gui> gombját, vagy válassza a <guiseq><gui>Projekt</gui><gui>Új projekt</gui><gui>Lemez másolása</gui></guiseq> menüpontot.</p>
+    </item>
+    <item>
+      <p>A <gui>Válassza ki a másolandó lemezt</gui> alatti legördülő listából válassza ki a másolni kívánt lemezt. Ha több lemezmeghajtója van, akkor minden lemez megjelenik a listában.</p>
+    </item>
+    <item>
+      <p>Válassza ki, hogy másolatot szeretne-e készíteni egy másik lemezre, vagy lemezképet későbbi felhasználásra.</p>
+    </item>
+    <item>
+      <p>Nyomja meg a <gui>Tulajdonságok</gui> gombot az írási sebesség és egyéb beállítások megadásához.</p>
+    </item>
+    <item>
+      <p>Nyomja meg a <gui>Másolás</gui> gombot a lemez másolásának megkezdéséhez, vagy ha több másolat készítését tervezi, akkor a <gui>Több másolat készítése</gui> gombot.</p>
+      <note>
+	<p>Ha a lemezt úgy másolja, hogy csak egy CD/DVD-meghajtója van, akkor a program, miután ideiglenesen átmásolta a tartalmát a merevlemezre, megkéri egy írható lemez behelyezésére.</p>
+      </note>
+    </item>
+  </steps>
+
+</page>
