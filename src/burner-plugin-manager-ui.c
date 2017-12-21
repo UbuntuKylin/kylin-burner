@@ -3,6 +3,7 @@
  * This file is part of burner
  *
  * Copyright (C) 2007 Philippe Rouquier
+ * Copyright (C) 2017,Tianjin KYLIN Information Technology Co., Ltd.
  *
  * Based on gedit code (gedit/gedit-plugin-manager.c) by: 
  * 	- Paolo Maggi <paolo@gnome.org>

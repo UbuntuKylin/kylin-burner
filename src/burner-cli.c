@@ -2,6 +2,7 @@
 /*
  * Burner
  * Copyright (C) Philippe Rouquier 2005-2010 <bonfire-app@wanadoo.fr>
+ * Copyright (C) 2017,Tianjin KYLIN Information Technology Co., Ltd.
  * 
  *  Burner is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

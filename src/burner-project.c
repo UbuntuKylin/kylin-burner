@@ -5,6 +5,7 @@
  *
  *  mar nov 29 09:32:17 2005
  *  Copyright  2005  Rouquier Philippe
+ * Copyright (C) 2017,Tianjin KYLIN Information Technology Co., Ltd.
  *  burner-app@wanadoo.fr
  ***************************************************************************/
 
