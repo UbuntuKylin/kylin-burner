@@ -63,6 +63,7 @@
 
 #include "brasero-session-helper.h"
 #include "brasero-burn.h"
+#include "brasero-customize-title.h"
 
 G_DEFINE_TYPE (BraseroSumDialog, brasero_sum_dialog, BRASERO_TYPE_TOOL_DIALOG);
 
@@ -127,6 +128,7 @@ brasero_sum_dialog_message (BraseroSumDialog *self,
 	gtk_window_set_icon_name (GTK_WINDOW (message),
 	                          gtk_window_get_icon_name (GTK_WINDOW (self)));
 
+	brasero_message_title(message);
 	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 						  "%s.",
 						  secondary_message);
@@ -144,6 +146,7 @@ brasero_sum_dialog_message (BraseroSumDialog *self,
 			       GTK_STOCK_CLOSE,
 			       GTK_RESPONSE_CLOSE);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 
@@ -209,6 +212,7 @@ brasero_sum_dialog_corruption_warning (BraseroSumDialog *self,
 	gtk_window_set_icon_name (GTK_WINDOW (message),
 	                          gtk_window_get_icon_name (GTK_WINDOW (self)));
 
+	brasero_message_title(message);
 	gtk_window_set_resizable (GTK_WINDOW (message), TRUE);
 	gtk_widget_set_size_request (GTK_WIDGET (message), 440, 300);
 
@@ -265,6 +269,7 @@ brasero_sum_dialog_corruption_warning (BraseroSumDialog *self,
 
 	gtk_widget_show_all (scroll);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 

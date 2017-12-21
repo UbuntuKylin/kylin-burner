@@ -50,6 +50,7 @@
 #include "brasero-session-cfg.h"
 #include "brasero-track-stream.h"
 #include "brasero-video-options.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroVideoDiscPrivate BraseroVideoDiscPrivate;
 struct _BraseroVideoDiscPrivate
@@ -370,6 +371,7 @@ brasero_video_disc_directory_dialog (BraseroVideoDisc *self)
 				NULL);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -652,6 +654,7 @@ brasero_video_disc_edit_song_properties_list (BraseroVideoDisc *self,
 				 GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show (GTK_WIDGET (props));
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (props)));
 	result = gtk_dialog_run (GTK_DIALOG (props));
 	gtk_widget_hide (GTK_WIDGET (props));
 	if (result != GTK_RESPONSE_ACCEPT)
@@ -740,6 +743,7 @@ brasero_video_disc_edit_song_properties_file (BraseroVideoDisc *self,
 				 GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show (GTK_WIDGET (props));
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (props)));
 	result = gtk_dialog_run (GTK_DIALOG (props));
 	gtk_widget_hide (GTK_WIDGET (props));
 	if (result != GTK_RESPONSE_ACCEPT)

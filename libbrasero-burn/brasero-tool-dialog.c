@@ -49,6 +49,7 @@
 
 #include "brasero-medium.h"
 #include "brasero-drive.h"
+#include "brasero-customize-title.h"
 
 G_DEFINE_TYPE (BraseroToolDialog, brasero_tool_dialog, GTK_TYPE_DIALOG);
 
@@ -281,7 +282,8 @@ brasero_tool_dialog_pack_options (BraseroToolDialog *self,
 		list = g_slist_prepend (list, child);
 	va_end (vlist);
 
-	title = g_strdup_printf ("<b>%s</b>", _("Options"));
+//	title = g_strdup_printf ("<b>%s</b>", _("Options"));
+	title = g_strdup_printf (_("Options"));
 	priv->options = brasero_utils_pack_properties_list (title, list);
 	g_free (title);
 
@@ -413,6 +415,8 @@ brasero_tool_dialog_cancel_dialog (GtkWidget *toplevel)
 	gtk_window_set_icon_name (GTK_WINDOW (message),
 	                          gtk_window_get_icon_name (GTK_WINDOW (toplevel)));
 
+	brasero_message_title(message);
+
 	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 						  _("Interrupting the process may make disc unusable."));
 	gtk_dialog_add_buttons (GTK_DIALOG (message),
@@ -427,6 +431,7 @@ brasero_tool_dialog_cancel_dialog (GtkWidget *toplevel)
 	gtk_dialog_add_action_widget (GTK_DIALOG (message),
 				      button, GTK_RESPONSE_OK);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	result = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 
@@ -553,7 +558,8 @@ brasero_tool_dialog_init (BraseroToolDialog *obj)
 	priv->selector = brasero_medium_selection_new ();
 	gtk_widget_show (GTK_WIDGET (priv->selector));
 
-	title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+//	title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+	title_str = g_strdup_printf (_("Select a disc"));
 	gtk_box_pack_start (GTK_BOX (priv->upper_box),
 			    brasero_utils_pack_properties (title_str,
 							   priv->selector,
@@ -580,7 +586,8 @@ brasero_tool_dialog_init (BraseroToolDialog *obj)
 			    FALSE,
 			    0);
 
-	title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+//	title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+	title_str = g_strdup_printf (_("Progress"));
 	title = gtk_label_new (title_str);
 	g_free (title_str);
 

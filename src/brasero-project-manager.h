@@ -34,6 +34,7 @@
 
 #include <gtk/gtk.h>
 
+#include "brasero-io.h"
 #include "brasero-medium.h"
 #include "brasero-project-parse.h"
 #include "brasero-project-type-chooser.h"
@@ -55,9 +56,27 @@ typedef struct {
 	BraseroProjectManagerPrivate *priv;
 } BraseroProjectManager;
 
+struct BraseroProjectManagerPrivate {
+	BraseroProjectType type;
+	BraseroIOJobBase *size_preview;
+
+	GtkWidget *project;
+	GtkWidget *layout;
+
+	gchar **selected;
+	guint preview_id;
+
+	guint status_ctx;
+
+	GtkActionGroup *action_group;
+};
+
 typedef struct {
 	GtkNotebookClass parent_class;	
 } BraseroProjectManagerClass;
+
+BraseroProjectManager *manager_chooser;
+GtkWidget *type;
 
 GType brasero_project_manager_get_type (void);
 GtkWidget *brasero_project_manager_new (void);

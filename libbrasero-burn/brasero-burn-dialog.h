@@ -59,6 +59,8 @@ GType brasero_burn_dialog_get_type (void) G_GNUC_CONST;
 
 GtkWidget *brasero_burn_dialog_new (void);
 
+GtkWidget *dlabel;
+
 gboolean
 brasero_burn_dialog_run (BraseroBurnDialog *dialog,
 			 BraseroBurnSession *session);

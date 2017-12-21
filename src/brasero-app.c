@@ -34,12 +34,14 @@
 #include "brasero-misc.h"
 #include "brasero-io.h"
 
+#include "brasero-project.h"
 #include "brasero-app.h"
 #include "brasero-setting.h"
 #include "brasero-blank-dialog.h"
 #include "brasero-sum-dialog.h"
 #include "brasero-eject-dialog.h"
 #include "brasero-project-manager.h"
+#include "brasero-project-type-chooser.h"
 #include "brasero-pref.h"
 
 #include "brasero-drive.h"
@@ -63,6 +65,40 @@
 
 #include "burn-plugin-manager.h"
 #include "brasero-drive-settings.h"
+#include "brasero-customize-title.h"
+
+static ItemDescription items [] = {
+	{N_("W_elcom project"),
+	N_("Create a data CD/DVD"),
+	N_("Create a CD/DVD containing any type of data that can only be read on a computer"),
+	"media-optical-welc-new",
+	BRASERO_PROJECT_TYPE_WELC},
+//       {N_("Audi_o project"),
+//      N_("Create a traditional audio CD"),
+//      N_("Create a traditional audio CD that will be playable on computers and stereos"),
+//      "media-optical-audio-new",
+//      BRASERO_PROJECT_TYPE_AUDIO},
+	{N_("D_ata project"),
+	N_("Create a data CD/DVD"),
+	N_("Create a CD/DVD containing any type of data that can only be read on a computer"),
+	"media-optical-data-new1",
+	BRASERO_PROJECT_TYPE_DATA},
+//       {N_("_Video project"),
+//      N_("Create a video DVD or an SVCD"),
+//      N_("Create a video DVD or an SVCD that is readable on TV readers"),
+//      "media-optical-video-new",
+//      BRASERO_PROJECT_TYPE_VIDEO},
+//       {N_("Disc _copy"),
+//    N_("Create 1:1 copy of a CD/DVD"),
+//    N_("Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on another CD/DVD"),
+//    "media-optical-copy",
+//    BRASERO_PROJECT_TYPE_COPY},
+	{N_("Burn _image"),
+	N_("Burn an existing CD/DVD image to disc"),
+	N_("Burn an existing CD/DVD image to disc"),
+	"iso-image-burn",
+	BRASERO_PROJECT_TYPE_ISO},
+};
 
 typedef struct _BraseroAppPrivate BraseroAppPrivate;
 struct _BraseroAppPrivate
@@ -83,6 +119,8 @@ struct _BraseroAppPrivate
 
 	GtkWidget *projects;
 	GtkWidget *contents;
+	GtkWidget *contents2;
+	GtkWidget *contents3;
 	GtkWidget *statusbar1;
 	GtkWidget *statusbar2;
 	GtkUIManager *manager;
@@ -163,12 +201,12 @@ static const gchar *description = {
 		"<separator/>"
 		"<menuitem action='Plugins'/>"
 	    "</menu>"
-	    "<menu action='ViewMenu'>"
-		"<placeholder name='ViewPlaceholder'/>"
-	    "</menu>"
+//	    "<menu action='ViewMenu'>"
+//		"<placeholder name='ViewPlaceholder'/>"
+//	    "</menu>"
 	    "<menu action='ToolMenu'>"
 		"<placeholder name='DiscPlaceholder'/>"
-		"<menuitem action='Eject'/>"
+//		"<menuitem action='Eject'/>"
 		"<menuitem action='Blank'/>"
 		"<menuitem action='Check'/>"
 	    "</menu>"
@@ -361,6 +399,7 @@ brasero_app_dialog (BraseroApp *app,
 					 "%s",
 					 primary_message);
 
+	brasero_message_title(dialog);
 	if (!toplevel && priv->parent) {
 		gtk_widget_realize (GTK_WIDGET (dialog));
 		gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
@@ -422,6 +461,7 @@ brasero_app_alert (BraseroApp *app,
 		gtk_window_set_skip_taskbar_hint (GTK_WINDOW (alert), FALSE);
 	}
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (alert)));
 	gtk_dialog_run (GTK_DIALOG (alert));
 	gtk_widget_destroy (alert);
 }
@@ -536,6 +576,7 @@ brasero_app_burn (BraseroApp *app,
 	priv->burn_dialog = dialog;
 
 	brasero_app_set_toplevel (app, GTK_WINDOW (dialog));
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	if (!multi)
 		success = brasero_burn_dialog_run (BRASERO_BURN_DIALOG (dialog),
 						   BRASERO_BURN_SESSION (session));
@@ -560,6 +601,7 @@ brasero_app_burn_options (BraseroApp *app,
 	brasero_app_set_toplevel (app, GTK_WINDOW (dialog));
 	gtk_window_set_icon_name (GTK_WINDOW (dialog), "brasero");
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 
 	/* The destruction of the dialog will bring the main window forward */
@@ -599,6 +641,7 @@ brasero_app_session_burn (BraseroApp *app,
 			GtkWidget *status_dialog;
 
 			status_dialog = brasero_status_dialog_new (BRASERO_BURN_SESSION (session), NULL);
+			brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (status_dialog)));
 			gtk_dialog_run (GTK_DIALOG (status_dialog));
 			gtk_widget_destroy (status_dialog);
 
@@ -971,6 +1014,7 @@ brasero_app_blank (BraseroApp *app,
 	priv = BRASERO_APP_PRIVATE (app);
 	dialog = brasero_blank_dialog_new ();
 	gtk_window_set_icon_name (GTK_WINDOW (dialog), "brasero");
+	brasero_dialog_title(GTK_DIALOG(dialog),gtk_window_get_title (GTK_WINDOW (dialog)));
 
 	if (burner) {
 		BraseroMedium *medium;
@@ -999,6 +1043,7 @@ brasero_app_blank (BraseroApp *app,
 		gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 	}
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (GTK_WIDGET (dialog));
 	priv->tool_dialog = NULL;
@@ -1030,6 +1075,7 @@ on_eject_cb (GtkAction *action, BraseroApp *app)
 	gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 
 	priv->tool_dialog = dialog;
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	priv->tool_dialog = NULL;
 
@@ -1049,6 +1095,7 @@ brasero_app_check (BraseroApp *app,
 	dialog = brasero_sum_dialog_new ();
 	gtk_window_set_icon_name (GTK_WINDOW (dialog), "brasero");
 
+	brasero_dialog_title(GTK_DIALOG(dialog),gtk_window_get_title (GTK_WINDOW (dialog)));
 	priv->tool_dialog = GTK_WIDGET (dialog);
 
 	if (burner) {
@@ -1077,6 +1124,7 @@ brasero_app_check (BraseroApp *app,
 		gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 	}
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (GTK_WIDGET (dialog));
 	priv->tool_dialog = NULL;
@@ -1119,10 +1167,12 @@ brasero_app_set_toplevel (BraseroApp *app, GtkWindow *window)
 	}
 	else {
 		/* hide main dialog if it is shown */
-		gtk_widget_hide (GTK_WIDGET (priv->mainwin));
+//		gtk_widget_hide (GTK_WIDGET (priv->mainwin));
 
-		gtk_window_set_skip_taskbar_hint (GTK_WINDOW (window), FALSE);
-		gtk_window_set_skip_pager_hint (GTK_WINDOW (window), FALSE);
+//		gtk_window_set_skip_taskbar_hint (GTK_WINDOW (window), FALSE);
+//		gtk_window_set_skip_pager_hint (GTK_WINDOW (window), FALSE);
+		gtk_window_set_skip_taskbar_hint (GTK_WINDOW (window), TRUE);
+		gtk_window_set_skip_pager_hint (GTK_WINDOW (window), TRUE);
 		gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
 	}
 
@@ -1152,6 +1202,7 @@ on_prefs_cb (GtkAction *action, BraseroApp *app)
 	gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 }
@@ -1247,6 +1298,9 @@ on_help_cb (GtkAction *action, BraseroApp *app)
 					    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
 					    GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
 					    "%s", error->message);
+		brasero_message_title(d);
+
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (d)));
 		gtk_dialog_run (GTK_DIALOG(d));
 		gtk_widget_destroy (d);
 		g_error_free (error);
@@ -1861,16 +1915,73 @@ brasero_caps_changed_cb (BraseroPluginManager *manager,
 		gtk_widget_set_sensitive (widget, TRUE);
 }
 
+static gboolean drag_handle(GtkWidget *widget, GdkEventButton *event, GdkWindowEdge edge)
+{
+	if (event->button == 1) {//左键单击
+		gtk_window_begin_move_drag(GTK_WINDOW(gtk_widget_get_toplevel(widget)), event->button, event->x_root, event->y_root, event->time);
+	}
+ 
+	return FALSE;
+}
+
+static void
+on_minimize_cb(GtkButton *button,BraseroApp *app)
+{
+	BraseroAppPrivate *priv;
+
+	priv = BRASERO_APP_PRIVATE (app);
+
+	gtk_window_iconify(priv->mainwin);
+}
+
+static void
+on_maximize_cb(GtkButton *button,BraseroApp *app)
+{
+	BraseroAppPrivate *priv;
+
+	priv = BRASERO_APP_PRIVATE (app);
+	printf("on_maximize_cb: %d \n",priv->is_maximized);
+	if(priv->is_maximized == 0)
+	{
+		gtk_widget_show (maximize_bt);
+		gtk_widget_hide (unmaximize_bt);
+		gtk_window_maximize(priv->mainwin);
+	}
+	else
+	{
+		gtk_widget_show (unmaximize_bt);
+		gtk_widget_hide (maximize_bt);
+		gtk_window_unmaximize(priv->mainwin);
+	}
+
+}
+
 void
 brasero_app_create_mainwin (BraseroApp *app)
 {
 	GtkWidget *hbox;
+	GtkWidget *vbox;
 	GtkWidget *menubar;
 	GError *error = NULL;
 	BraseroAppPrivate *priv;
 	GtkAccelGroup *accel_group;
 	GtkActionGroup *action_group;
 	BraseroPluginManager *plugin_manager;
+	GtkWidget *image;
+
+	GtkWidget *minimize_bt;
+	GtkWidget *close_bt;
+	GtkWidget *alignment;
+	GtkWidget *project_box;
+	GtkWidget *separator;
+	GtkWidget *table;
+	GtkWidget *label;
+	GtkWidget *main_title;
+	int nb_rows = 1;
+	gchar *string;
+	int rows;
+	int i;
+	GdkRGBA contents_color;
 
 	priv = BRASERO_APP_PRIVATE (app);
 
@@ -1879,6 +1990,10 @@ brasero_app_create_mainwin (BraseroApp *app)
 
 	/* New window */
 	priv->mainwin = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_default_size(priv->mainwin,1000,750);
+	gtk_container_set_border_width (GTK_CONTAINER (priv->mainwin), 2);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (priv->mainwin), "mainwin");
+	gtk_window_set_decorated(priv->mainwin,FALSE);
 	gtk_window_set_icon_name (GTK_WINDOW (priv->mainwin), "brasero");
 
 	g_signal_connect (G_OBJECT (priv->mainwin),
@@ -1892,9 +2007,93 @@ brasero_app_create_mainwin (BraseroApp *app)
 
 	/* contents */
 	priv->contents = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (priv->contents), "contents");
 	gtk_widget_show (priv->contents);
 
 	gtk_container_add (GTK_CONTAINER (priv->mainwin), priv->contents);
+
+	/*main title */
+	main_title = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (main_title), "main_title");
+	gtk_widget_set_size_request(GTK_WIDGET(main_title),1000,36);
+	gtk_box_pack_start (GTK_BOX (priv->contents),main_title , FALSE, TRUE, 0);
+	gtk_widget_show (main_title);
+	gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+	g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+	image = gtk_image_new_from_icon_name ("brasero", GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+	gtk_widget_show (image);
+	gtk_misc_set_alignment (GTK_MISC (image), 0.5, 0.5);
+ 	gtk_box_pack_start (GTK_BOX (main_title), image, FALSE, FALSE, 10);
+
+	label = gtk_label_new (_("Brasero"));
+	gtk_widget_show (label);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
+//    gtk_misc_set_padding (GTK_MISC (label), 6.0, 0.0);
+	gtk_box_pack_start (GTK_BOX (main_title), label, FALSE, FALSE, 0);
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_widget_show (hbox);
+	gtk_box_pack_end (GTK_BOX (main_title), vbox, TRUE, TRUE, 0);
+	alignment = gtk_alignment_new (1.0, 0.5, 0.0, 0.0);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (vbox), alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), hbox);
+
+	/* maximize minimize and close */
+	maximize_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(maximize_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(maximize_bt),45,30);
+	if(priv->is_maximized == 1)
+		gtk_widget_show (maximize_bt);
+	else
+		gtk_widget_hide (maximize_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (maximize_bt), "maximize_bt");
+
+	unmaximize_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(unmaximize_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(unmaximize_bt),45,30);
+	if(priv->is_maximized == 0)
+		gtk_widget_show (unmaximize_bt);
+	else
+		gtk_widget_hide (unmaximize_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (unmaximize_bt), "unmaximize_bt");
+
+	minimize_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(minimize_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(minimize_bt),45,30);
+	gtk_widget_show (minimize_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (minimize_bt), "minimize_bt");
+
+	close_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
+	gtk_widget_show (close_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (close_bt), "close_bt");
+
+	gtk_box_pack_start (GTK_BOX (hbox), minimize_bt, FALSE, TRUE, 2);
+	gtk_box_pack_start (GTK_BOX (hbox), maximize_bt, FALSE, TRUE, 2);
+ 	gtk_box_pack_start (GTK_BOX (hbox), unmaximize_bt, FALSE, TRUE, 2);
+	gtk_box_pack_end (GTK_BOX (hbox), close_bt, FALSE, TRUE, 2);
+
+	g_signal_connect (minimize_bt,
+		"clicked",
+		G_CALLBACK (on_minimize_cb),
+		app);
+	g_signal_connect (maximize_bt,
+		"clicked",
+		G_CALLBACK (on_maximize_cb),
+		app);
+	g_signal_connect (unmaximize_bt,
+		"clicked",
+		G_CALLBACK (on_maximize_cb),
+		app);
+	g_signal_connect (close_bt,
+		"clicked",
+		G_CALLBACK (on_exit_cb),
+		app);
 
 	/* menu and toolbar */
 	priv->manager = gtk_ui_manager_new ();
@@ -1924,16 +2123,87 @@ brasero_app_create_mainwin (BraseroApp *app)
 	}
 
 	menubar = gtk_ui_manager_get_widget (priv->manager, "/menubar");
+	gtk_widget_set_size_request(GTK_WIDGET(menubar),1000,28);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (menubar), "main_menubar");
 	gtk_box_pack_start (GTK_BOX (priv->contents), menubar, FALSE, FALSE, 0);
+
+	/* window contents */
+//	priv->projects = brasero_project_manager_new ();
+//	gtk_widget_show (priv->projects);
+
+//	gtk_box_pack_start (GTK_BOX (priv->contents), priv->projects, TRUE, TRUE, 0);
+
+	/* wenbo, left project */
+	priv->contents2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_widget_show (priv->contents2);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (priv->contents2), "contents2");
+	gtk_box_pack_end (GTK_BOX (priv->contents),priv->contents2 , TRUE, TRUE, 0);
+
+
+	project_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (project_box);
+//    gtk_style_context_add_class ( gtk_widget_get_style_context (project_box), "project_left_box");
+	gtk_box_pack_start (GTK_BOX (priv->contents2), project_box, FALSE, TRUE, 0);
+
+//    separator = gtk_separator_new (GTK_ORIENTATION_VERTICAL);
+//    gtk_widget_show (separator);
+//    gtk_box_pack_start (GTK_BOX (priv->contents2), separator, FALSE, TRUE, 0);
+
+
+	priv->contents3 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (priv->contents3);
+	gtk_box_pack_end (GTK_BOX (priv->contents2),priv->contents3 , TRUE, TRUE, 0);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (priv->contents3), "project_right_box");
 
 	/* window contents */
 	priv->projects = brasero_project_manager_new ();
 	gtk_widget_show (priv->projects);
 
-	gtk_box_pack_start (GTK_BOX (priv->contents), priv->projects, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (priv->contents3), priv->projects, TRUE, TRUE, 0);
+
+//    string = g_strdup_printf ("<span size='x-large'><b>%s</b></span>", _("Create a new project:"));
+//    label = gtk_label_new (string);
+//    g_free (string);
+
+//    gtk_widget_show (label);
+//    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
+//    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.0);
+//    gtk_misc_set_padding (GTK_MISC (label), 6.0, 0.0);
+//    gtk_box_pack_start (GTK_BOX (project_box), label, FALSE, TRUE, 0);
+
+	/* get the number of rows */
+	nb_items = sizeof (items) / sizeof (ItemDescription);
+	rows = nb_items / nb_rows;
+	if (nb_items % nb_rows)
+		rows ++;
+
+	table = gtk_table_new (rows, nb_rows, TRUE);
+	gtk_container_set_border_width (GTK_CONTAINER (table), 1);
+//    gtk_container_set_border_width (GTK_CONTAINER (table), 0);
+//    gtk_style_context_add_class ( gtk_widget_get_style_context (table), "left_table");
+	gtk_box_pack_start (GTK_BOX (project_box), table, FALSE, TRUE, 1);
+
+	gtk_table_set_col_spacings (GTK_TABLE (table), 0);
+	gtk_table_set_row_spacings (GTK_TABLE (table), 0);
+
+
+	for (i = 0; i < nb_items; i ++) {
+		widget[i] = brasero_project_type_chooser_new_item (type, items + i);
+		gtk_table_attach (GTK_TABLE (table),
+			widget[i],
+			i % nb_rows,
+			i % nb_rows + 1,
+			i / nb_rows,
+			i / nb_rows + 1,
+			GTK_EXPAND|GTK_FILL,
+			GTK_FILL,
+			0,
+			0);
+	}
+	gtk_widget_show_all (table);
 
 	/* status bar to display the size of selected files */
-	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+/*	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show (hbox);
 	gtk_box_pack_end (GTK_BOX (priv->contents), hbox, FALSE, TRUE, 0);
 
@@ -1945,6 +2215,34 @@ brasero_app_create_mainwin (BraseroApp *app)
 	priv->statusbar1 = gtk_statusbar_new ();
 	gtk_widget_show (priv->statusbar1);
 	gtk_box_pack_start (GTK_BOX (hbox), priv->statusbar1, FALSE, TRUE, 0);
+*/
+	statusbarbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+//      gtk_widget_show (statusbarbox);
+	gtk_box_pack_end (GTK_BOX (priv->contents3), statusbarbox, FALSE, TRUE, 0);
+
+	priv->statusbar2 = gtk_statusbar_new ();
+	gtk_widget_show (priv->statusbar2);
+	priv->tooltip_ctx = gtk_statusbar_get_context_id (GTK_STATUSBAR (priv->statusbar2), "tooltip_info");
+	gtk_box_pack_start (GTK_BOX (statusbarbox), priv->statusbar2, FALSE, TRUE, 0);
+
+	priv->statusbar1 = gtk_statusbar_new ();
+	gtk_widget_show (priv->statusbar1);
+	gtk_box_pack_start (GTK_BOX (statusbarbox), priv->statusbar1, FALSE, TRUE, 0);
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	gtk_box_pack_end (GTK_BOX (statusbarbox), vbox, TRUE, TRUE, 0);
+
+//    gdk_rgba_parse(&contents_color,"red");
+//    gtk_widget_override_background_color(GTK_WIDGET(vbox),GTK_STATE_NORMAL,&contents_color);
+//    gtk_widget_set_size_request(GTK_WIDGET(statusbarbox),840,50);
+	alignment = gtk_alignment_new (0.95, 0.5, 0.0, 0.0);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (vbox), alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), burn_button);
+ 
+ 
+//    gtk_box_pack_end (GTK_BOX (statusbarbox), burn_button, FALSE, TRUE, 0);
 
 	/* Update everything */
 	brasero_project_manager_register_ui (BRASERO_PROJECT_MANAGER (priv->projects),

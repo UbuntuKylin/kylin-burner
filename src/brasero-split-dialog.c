@@ -40,6 +40,7 @@
 #include "brasero-split-dialog.h"
 #include "brasero-song-control.h"
 #include "brasero-utils.h"
+#include "brasero-customize-title.h"
 
 enum {
 	START_COL,
@@ -171,6 +172,7 @@ brasero_split_dialog_size_error (BraseroSplitDialog *self)
 					  GTK_BUTTONS_NONE,
 					  _("Do you really want to split the track?"));
 
+	brasero_message_title(message);
 	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 						  _("If you split the track, the size of the new track will be shorter than 6 seconds and will be padded."));
 
@@ -181,6 +183,7 @@ brasero_split_dialog_size_error (BraseroSplitDialog *self)
 			       _("_Split"),
 			       GTK_RESPONSE_YES);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 
@@ -707,6 +710,7 @@ brasero_split_dialog_clear_confirm_dialog (BraseroSplitDialog *self,
 					  GTK_BUTTONS_NONE,
 					  "%s",
 					  primary);
+	brasero_message_title(message);
 
 	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 						  _("This will remove all previous results."));
@@ -718,6 +722,7 @@ brasero_split_dialog_clear_confirm_dialog (BraseroSplitDialog *self,
 			       ok_button,
 			       GTK_RESPONSE_YES);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 

@@ -59,6 +59,7 @@
 
 #include "brasero-volume.h"
 #include "brasero-setting.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroDataDiscPrivate BraseroDataDiscPrivate;
 struct _BraseroDataDiscPrivate
@@ -128,7 +129,8 @@ static GtkActionEntry entries [] = {
 	 G_CALLBACK (brasero_data_disc_delete_activated_cb)},
 	{"PasteData", NULL, N_("Paste files"), NULL, N_("Add the files stored in the clipboard"),
 	 G_CALLBACK (brasero_data_disc_paste_activated_cb)},
-	{"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+//	{"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+	{"NewFolder", "newfolder-bt", N_("New _Folder"), NULL, N_("Create a new empty folder"),
 	 G_CALLBACK (brasero_data_disc_new_folder_clicked_cb)},
 };
 
@@ -150,7 +152,7 @@ static const gchar *description = {
 	"</popup>"
 	"<toolbar name='Toolbar'>"
 		"<placeholder name='DiscButtonPlaceholder'>"
-			"<separator/>"
+//			"<separator/>"
 			"<toolitem action='NewFolder'/>"
 		"</placeholder>"
 	"</toolbar>"
@@ -634,6 +636,7 @@ brasero_data_disc_image_uri_cb (BraseroTrackDataCfg *vfs,
 				      GTK_RESPONSE_YES);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -738,6 +741,7 @@ brasero_data_disc_joliet_rename_cb (BraseroTrackDataCfg *project,
 	gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Disable Full Windows Compatibility"), GTK_RESPONSE_CANCEL);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -796,6 +800,7 @@ brasero_data_disc_name_collision_cb (BraseroTrackDataCfg *project,
 	gtk_dialog_add_button (GTK_DIALOG (dialog), _("Al_ways Replace"), GTK_RESPONSE_ACCEPT);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -840,6 +845,7 @@ brasero_data_disc_2G_file_cb (BraseroTrackDataCfg *project,
 	gtk_dialog_add_button (GTK_DIALOG (dialog), _("Al_ways Add Such File"), GTK_RESPONSE_ACCEPT);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -884,6 +890,7 @@ brasero_data_disc_deep_directory_cb (BraseroTrackDataCfg *project,
 	gtk_dialog_add_button (GTK_DIALOG (dialog), _("Al_ways Add Such File"), GTK_RESPONSE_ACCEPT);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -956,6 +963,8 @@ static GtkAction *
 brasero_data_disc_import_button_new (BraseroDataDisc *self,
 				     BraseroMedium *medium)
 {
+	GtkWidget *import_bt;
+	GtkWidget *import_bt_child;
 	int merge_id;
 	gchar *string;
 	gchar *tooltip;
@@ -987,9 +996,13 @@ brasero_data_disc_import_button_new (BraseroDataDisc *self,
 	g_free (volume_name);
 	volume_name = string;
 
-	toggle_entry.name = action_name;
+/*	toggle_entry.name = action_name;
 	toggle_entry.stock_id = "drive-optical";
 	toggle_entry.label = string;
+*/
+	toggle_entry.name = "Import";
+	toggle_entry.stock_id = "drive-optical";
+	toggle_entry.label = N_("Import Disc");
 	toggle_entry.tooltip = tooltip;
 	toggle_entry.callback = G_CALLBACK (brasero_data_disc_import_session_cb);
 
@@ -1000,7 +1013,8 @@ brasero_data_disc_import_button_new (BraseroDataDisc *self,
 	g_free (volume_name);
 	g_free (tooltip);
 
-	action = gtk_action_group_get_action (priv->import_group, action_name);
+//	action = gtk_action_group_get_action (priv->import_group, action_name);
+	action = gtk_action_group_get_action (priv->import_group, "Import");
 	if (!action) {
 		g_free (action_name);
 		return NULL;
@@ -1020,18 +1034,21 @@ brasero_data_disc_import_button_new (BraseroDataDisc *self,
 				       "<menubar name='menubar'>"
 				       "<menu action='EditMenu'>"
 				       "<placeholder name='EditPlaceholder'>"
-				       "<menuitem action='%s'/>"
+//				       "<menuitem action='%s'/>"
+				       "<menuitem action='Import'/>"
 				       "</placeholder>"
 				       "</menu>"
 				       "</menubar>"
 				       "<toolbar name='Toolbar'>"
 				       "<placeholder name='DiscButtonPlaceholder'>"
-				       "<toolitem action='%s'/>"
+//				       "<toolitem action='%s'/>"
+				       "<toolitem action='Import'/>"
 				       "</placeholder>"
 				       "</toolbar>"
-				       "</ui>",
-				       action_name,
-				       action_name);
+//				       "</ui>",
+//				       action_name,
+//				       action_name);
+				       "</ui>");
 
 	merge_id = gtk_ui_manager_add_ui_from_string (priv->manager,
 						      description,
@@ -1040,6 +1057,11 @@ brasero_data_disc_import_button_new (BraseroDataDisc *self,
 	g_object_set_data (G_OBJECT( action),
 			   BRASERO_DATA_DISC_MERGE_ID,
 			   GINT_TO_POINTER (merge_id));
+	import_bt = gtk_ui_manager_get_widget (priv->manager, "/Toolbar/DiscButtonPlaceholder/Import");
+	import_bt_child = (gtk_container_get_children(GTK_CONTAINER(import_bt)))->data;
+	gtk_style_context_add_class ( gtk_widget_get_style_context (import_bt_child), "import_bt");
+	gtk_widget_set_size_request(GTK_WIDGET(import_bt),60,27);
+	gtk_tool_item_set_is_important(import_bt, TRUE);
 
 	g_free (description);
 	g_free (action_name);
@@ -1723,6 +1745,8 @@ brasero_data_disc_add_ui (BraseroDisc *disc,
 	GError *error = NULL;
 	GtkAction *action;
 	guint merge_id;
+	GtkWidget *newfolder_bt;
+	GtkWidget *newfolder_bt_child;
 
 	priv = BRASERO_DATA_DISC_PRIVATE (disc);
 	if (priv->message) {
@@ -1757,7 +1781,12 @@ brasero_data_disc_add_ui (BraseroDisc *disc,
 		g_object_set (action,
 			      "short-label", _("New _Folder"), /* for toolbar buttons */
 			      NULL);
-	
+		newfolder_bt = gtk_ui_manager_get_widget (manager, "/Toolbar/DiscButtonPlaceholder/NewFolder");
+		newfolder_bt_child = (gtk_container_get_children(GTK_CONTAINER(newfolder_bt)))->data;
+		gtk_style_context_add_class ( gtk_widget_get_style_context (newfolder_bt_child), "newfolder_bt");
+		gtk_widget_set_size_request(GTK_WIDGET(newfolder_bt),60,27);
+		gtk_tool_item_set_is_important(newfolder_bt, TRUE);
+
 		priv->manager = manager;
 		g_object_ref (manager);
 	}
@@ -1919,6 +1948,7 @@ brasero_data_disc_rename_activated (BraseroDataDisc *disc)
 		gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), frame, TRUE, TRUE, 0);
 		gtk_widget_show (dialog);
 
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		answer = gtk_dialog_run (GTK_DIALOG (dialog));
 		if (answer != GTK_RESPONSE_APPLY) {
 			gtk_widget_destroy (dialog);

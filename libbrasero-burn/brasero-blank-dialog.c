@@ -51,6 +51,7 @@
 #include "brasero-tool-dialog.h"
 #include "brasero-tool-dialog-private.h"
 #include "brasero-blank-dialog.h"
+#include "brasero-customize-title.h"
 
 G_DEFINE_TYPE (BraseroBlankDialog, brasero_blank_dialog, BRASERO_TYPE_TOOL_DIALOG);
 
@@ -224,6 +225,7 @@ brasero_blank_dialog_activate (BraseroToolDialog *dialog,
 		gtk_window_set_icon_name (GTK_WINDOW (message),
 					  gtk_window_get_icon_name (GTK_WINDOW (self)));
 
+		brasero_message_title(message);
 		button = brasero_utils_make_button (_("Blank _Again"),
 						    NULL,
 						    "media-optical-blank",
@@ -243,6 +245,7 @@ brasero_blank_dialog_activate (BraseroToolDialog *dialog,
 			gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 								  _("Unknown error."));
 
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 		answer = gtk_dialog_run (GTK_DIALOG (message));
 		gtk_widget_destroy (message);
 
@@ -266,6 +269,7 @@ brasero_blank_dialog_activate (BraseroToolDialog *dialog,
 		gtk_window_set_icon_name (GTK_WINDOW (message),
 					  gtk_window_get_icon_name (GTK_WINDOW (self)));
 
+		brasero_message_title(message);
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),
 							  _("The disc is ready for use."));
 
@@ -288,6 +292,7 @@ brasero_blank_dialog_activate (BraseroToolDialog *dialog,
 					CA_PROP_EVENT_DESCRIPTION, _("The disc was successfully blanked."),
 					NULL);
 
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 		answer = gtk_dialog_run (GTK_DIALOG (message));
 		gtk_widget_destroy (message);
 

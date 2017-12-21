@@ -42,6 +42,7 @@ fy
 #include "brasero-plugin-information.h"
 #include "brasero-burn-lib.h"
 #include "brasero-plugin-option.h"
+#include "brasero-customize-title.h"
 
 typedef enum {
 	BRASERO_PLUGIN_BURN_ENGINE			= 0,
@@ -160,6 +161,7 @@ about_button_cb (GtkWidget          *button,
 	gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 }
@@ -183,7 +185,8 @@ configure_button_cb (GtkWidget          *button,
 
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 	gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER_ON_PARENT);
-	
+
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 }

@@ -765,12 +765,26 @@ brasero_jacket_edit_new (void)
 	return g_object_new (BRASERO_TYPE_JACKET_EDIT, NULL);
 }
 
+static void
+on_exit_cb (GtkWidget *button, GtkWidget *dialog)
+{
+	if (dialog)
+		gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
+}
+
 GtkWidget *
 brasero_jacket_edit_dialog_new (GtkWidget *toplevel,
 				BraseroJacketEdit **contents_ret)
 {
 	GtkWidget *window;
 	GtkWidget *contents;
+	GtkWidget *action_area;
+	GtkWidget *box;
+	GtkWidget *vbox;
+	GtkWidget *title;
+	GtkWidget *close_bt;
+	GtkWidget *label;
+	GtkWidget *alignment;
 
 	window = gtk_dialog_new_with_buttons (_("Cover Editor"),
 					      GTK_WINDOW (toplevel),

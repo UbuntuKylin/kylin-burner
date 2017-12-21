@@ -66,6 +66,7 @@ brasero_filter_option_init (BraseroFilterOption *object)
 	g_settings_bind (priv->settings, BRASERO_PROPS_FILTER_HIDDEN,
 	                 button_hidden, "active",
 	                 G_SETTINGS_BIND_DEFAULT);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (button_hidden), "filter_option_bt1");
 	gtk_widget_show (button_hidden);
 
 	/* replace symlink */
@@ -73,6 +74,7 @@ brasero_filter_option_init (BraseroFilterOption *object)
 	g_settings_bind (priv->settings, BRASERO_PROPS_FILTER_REPLACE_SYMLINK,
 	                 button_sym, "active",
 	                 G_SETTINGS_BIND_DEFAULT);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (button_sym), "filter_option_bt2");
 	gtk_widget_show (button_sym);
 
 	/* filter broken symlink button */
@@ -80,10 +82,12 @@ brasero_filter_option_init (BraseroFilterOption *object)
 	g_settings_bind (priv->settings, BRASERO_PROPS_FILTER_BROKEN,
 	                 button_broken, "active",
 	                 G_SETTINGS_BIND_DEFAULT);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (button_broken), "filter_option_bt3");
 	gtk_widget_show (button_broken);
 
-	string = g_strdup_printf ("<b>%s</b>", _("Filtering options"));
-	frame = brasero_utils_pack_properties (string,
+//	string = g_strdup_printf ("<b>%s</b>", _("Filtering options"));
+//	frame = brasero_utils_pack_properties (string,
+	frame = brasero_utils_pack_properties (NULL,
 					       button_sym,
 					       button_broken,
 					       button_hidden,

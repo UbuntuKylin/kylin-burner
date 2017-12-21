@@ -48,11 +48,11 @@ msgstr ""
 
 #: ../data/brasero.desktop.in.in.h:1
 msgid "Brasero"
-msgstr "Brasero"
+msgstr "光盘刻录器"
 
 #: ../data/brasero.desktop.in.in.h:2
 msgid "Disc Burner and Copier"
-msgstr "光盘刻录和复制器"
+msgstr "光盘刻录器"
 
 #: ../data/brasero.desktop.in.in.h:3
 msgid "Create and copy CDs and DVDs"
@@ -64,7 +64,7 @@ msgstr "disc;cdrom;dvd;burn;audio;video;光盘;音频;视频;"
 
 #: ../data/brasero.desktop.in.in.h:5
 msgid "Brasero Disc Burner"
-msgstr "Brasero 光盘刻录器"
+msgstr "光盘刻录器"
 
 #: ../data/brasero.desktop.in.in.h:6
 msgid "Open a New Window"
@@ -76,15 +76,15 @@ msgstr "刻录镜像文件"
 
 #: ../data/brasero.desktop.in.in.h:8
 msgid "Create an Audio Project"
-msgstr "创建一个音频项目"
+msgstr "创建音频项目"
 
 #: ../data/brasero.desktop.in.in.h:9
 msgid "Create a Video Project"
-msgstr "创建一个视频项目"
+msgstr "创建视频项目"
 
 #: ../data/mime/brasero.xml.in.h:1
 msgid "Brasero project file"
-msgstr "Brasero 项目文件"
+msgstr "项目文件"
 
 #: ../data/org.gnome.brasero.gschema.xml.h:1
 msgid "Should Nautilus extension output debug statements"
@@ -1408,19 +1408,19 @@ msgstr "刻录前先模拟(_S)"
 msgid ""
 "Brasero will simulate the burning and, if it is successful, go on with "
 "actual burning after 10 seconds"
-msgstr "Brasero 将模拟刻录，如果成功，就在10秒后进行实际刻录"
+msgstr "将模拟刻录，如果成功，就在10秒后进行实际刻录"
 
 #: ../libbrasero-burn/brasero-drive-properties.c:726
 msgid "Use burn_proof (decrease the risk of failures)"
-msgstr "使用 Burn-_Proof (降低失败风险)"
+msgstr "使用 Burn-_Proof (降低失败风险，建议勾选"
 
 #: ../libbrasero-burn/brasero-drive-properties.c:728
 msgid "Burn the image directly _without saving it to disc"
-msgstr "直接刻录镜像文件而不保存到光盘(_W)"
+msgstr "直接刻录镜像文件而不保存到光盘(建议勾选)"
 
 #: ../libbrasero-burn/brasero-drive-properties.c:730
 msgid "Leave the disc _open to add other files later"
-msgstr "不关闭盘片以稍后添加另外的文件(_O)"
+msgstr "不关闭盘片以下次能追加刻录另外的文件(建议勾选)"
 
 #: ../libbrasero-burn/brasero-drive-properties.c:731
 msgid "Allow to add more data to the disc later"
@@ -2745,7 +2745,12 @@ msgstr "cdrkit 刻录套件"
 #: ../plugins/libburnia/burn-libisofs.c:518
 #, c-format
 msgid "Last session import failed"
-msgstr "上一区段导入失败"
+msgstr "光盘导入失败"
+
+#: Translators: This is a verb. It's a toolbar button.
+#: ../src/brasero-data-disc.c:1016
+msgid "Import Disc"
+msgstr "导入光盘"
 
 #: ../plugins/cdrkit/burn-genisoimage.c:125
 #: ../plugins/cdrkit/burn-genisoimage.c:132
@@ -3908,7 +3913,7 @@ msgstr "设定文件过滤的选项"
 #. filter hidden files
 #: ../src/brasero-filter-option.c:65
 msgid "Filter _hidden files"
-msgstr "过滤隐藏文件(_h"
+msgstr "过滤隐藏文件(_h)"
 
 #. replace symlink
 #: ../src/brasero-filter-option.c:72
@@ -4112,7 +4117,7 @@ msgstr "添加文件(_A)"
 
 #: ../src/brasero-project.c:200
 msgid "Add files to the project"
-msgstr "添加到项目"
+msgstr "添加文件到项目"
 
 #: ../src/brasero-project.c:201
 msgid "_Remove Files"
@@ -4338,7 +4343,7 @@ msgstr "创建一个能够在计算机和立体音响上播放的传统音频光
 
 #: ../src/brasero-project-manager.c:103
 msgid "New _Data Project"
-msgstr "新建数据项目(_D)"
+msgstr "新建数据刻录(_D)"
 
 #: ../src/brasero-project-manager.c:104
 #: ../src/brasero-project-type-chooser.c:81
@@ -4423,23 +4428,23 @@ msgstr "没有选择文件"
 
 #: ../src/brasero-project-manager.c:590
 msgid "Brasero — New Audio Disc Project"
-msgstr "Brasero - 新建音乐光盘项目"
+msgstr "光盘刻录器 - 新建音乐光盘项目"
 
 #: ../src/brasero-project-manager.c:604
 msgid "Brasero — New Data Disc Project"
-msgstr "Brasero - 新建数据光盘项目"
+msgstr "光盘刻录器 - 新建数据光盘项目"
 
 #: ../src/brasero-project-manager.c:618
 msgid "Brasero — New Video Disc Project"
-msgstr "Brasero - 新建视频光盘项目"
+msgstr "光盘刻录器 - 新建视频光盘项目"
 
 #: ../src/brasero-project-manager.c:628
 msgid "Brasero — New Image File"
-msgstr "Brasero - 新建镜像文件"
+msgstr "光盘刻录器 - 新建镜像文件"
 
 #: ../src/brasero-project-manager.c:643
 msgid "Brasero — Disc Copy"
-msgstr "Brasero - 复制光盘"
+msgstr "光盘刻录器 - 复制光盘"
 
 #: ../src/brasero-project-manager.c:727
 msgid "Open Project"
@@ -4502,7 +4507,7 @@ msgstr "创建一个传统音频光盘"
 
 #: ../src/brasero-project-type-chooser.c:79
 msgid "D_ata project"
-msgstr "数据项目(_A)"
+msgstr "数据刻录(_A)"
 
 #: ../src/brasero-project-type-chooser.c:80
 msgid "Create a data CD/DVD"
@@ -4510,7 +4515,11 @@ msgstr "创建一个数据 CD/DVD"
 
 #: ../src/brasero-project-type-chooser.c:84
 msgid "_Video project"
-msgstr "视频项目(_V)"
+msgstr "视频刻录(_V)"
+
+#: ../src/brasero-app.c:72
+msgid "W_elcom project"
+msgstr "欢迎界面(_E)"
 
 #: ../src/brasero-project-type-chooser.c:85
 msgid "Create a video DVD or an SVCD"
@@ -4525,8 +4534,9 @@ msgid "Create 1:1 copy of a CD/DVD"
 msgstr "创建 CD/DVD 的 1:1 副本"
 
 #: ../src/brasero-project-type-chooser.c:94
+#: ../src/brasero-app.c:97
 msgid "Burn _image"
-msgstr "刻录镜像(_I)"
+msgstr "镜像刻录(_I)"
 
 #: ../src/brasero-project-type-chooser.c:292
 msgid "Last _Unsaved Project"
@@ -4830,6 +4840,9 @@ msgstr "搜索目录(_S)"
 #, c-format
 msgid "\"%s\" does not have a suitable type for video projects."
 msgstr "“%s”没有含有适合视频项目的类型"
+
+msgid "Prompt information"
+msgstr "提示信息"
 
 #: ../src/brasero-video-disc.c:415
 msgid "Please only add files with video content"

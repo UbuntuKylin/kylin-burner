@@ -18,6 +18,22 @@ public_icons = \
 	$(NULL)
 
 private_icons = \
+	hicolor_actions_16x16_add-bt.png \
+	hicolor_actions_16x16_deleall-bt.png \
+	hicolor_actions_16x16_dele-bt.png \
+	hicolor_actions_16x16_newfolder-bt.png \
+	hicolor_actions_16x16_close-clicked.png \
+	hicolor_actions_16x16_close-hover.png \
+	hicolor_actions_16x16_close.png \
+	hicolor_actions_16x16_maximize-clicked.png \
+	hicolor_actions_16x16_maximize-hover.png \
+	hicolor_actions_16x16_maximize.png \
+	hicolor_actions_16x16_minimize-clicked.png \
+	hicolor_actions_16x16_minimize-hover.png \
+	hicolor_actions_16x16_minimize.png \
+	hicolor_actions_16x16_unmaximize-clicked.png \
+	hicolor_actions_16x16_unmaximize-hover.png \
+	hicolor_actions_16x16_unmaximize.png \
 	hicolor_actions_16x16_insert-pause.png \
 	hicolor_actions_16x16_iso-image-burn.png \
 	hicolor_actions_16x16_iso-image-new.png \
@@ -25,7 +41,7 @@ private_icons = \
 	hicolor_actions_16x16_media-optical-blank.png \
 	hicolor_actions_16x16_media-optical-burn.png \
 	hicolor_actions_16x16_media-optical-copy.png \
-	hicolor_actions_16x16_media-optical-data-new.png \
+	hicolor_actions_16x16_media-optical-data-new1.png \
     hicolor_actions_16x16_media-optical-video-new.png \
 	hicolor_actions_16x16_transform-crop-and-resize.png \
 	hicolor_actions_22x22_insert-pause.png \
@@ -35,7 +51,7 @@ private_icons = \
 	hicolor_actions_22x22_media-optical-blank.png \
 	hicolor_actions_22x22_media-optical-burn.png \
 	hicolor_actions_22x22_media-optical-copy.png \
-	hicolor_actions_22x22_media-optical-data-new.png \
+	hicolor_actions_22x22_media-optical-data-new1.png \
     hicolor_actions_22x22_media-optical-video-new.png \
 	hicolor_actions_22x22_transform-crop-and-resize.png \
 	hicolor_actions_24x24_insert-pause.png \
@@ -45,7 +61,7 @@ private_icons = \
 	hicolor_actions_24x24_media-optical-blank.png \
 	hicolor_actions_24x24_media-optical-burn.png \
 	hicolor_actions_24x24_media-optical-copy.png \
-	hicolor_actions_24x24_media-optical-data-new.png \
+	hicolor_actions_24x24_media-optical-data-new1.png \
     hicolor_actions_24x24_media-optical-video-new.png \
 	hicolor_actions_24x24_transform-crop-and-resize.png \
 	hicolor_actions_32x32_insert-pause.png \
@@ -55,10 +71,17 @@ private_icons = \
 	hicolor_actions_32x32_media-optical-blank.png \
 	hicolor_actions_32x32_media-optical-burn.png \
 	hicolor_actions_32x32_media-optical-copy.png \
-	hicolor_actions_32x32_media-optical-data-new.png \
+	hicolor_actions_32x32_media-optical-data-new1.png \
     hicolor_actions_32x32_media-optical-video-new.png \
 	hicolor_actions_32x32_transform-crop-and-resize.png \
-    hicolor_actions_48x48_media-optical-video-new.png \
+	hicolor_actions_48x48_media-optical-video-new.png \
+	hicolor_actions_48x48_iso-image-burn.png \
+	hicolor_actions_48x48_media-optical-data-new1.png \
+	hicolor_actions_48x48_dialog-message.png \
+	hicolor_actions_48x48_media-optical-welc-new.png \
+	hicolor_actions_56x56_media-optical-welc-new.png \
+	hicolor_actions_56x56_media-optical-data-new1.png \
+	hicolor_actions_56x56_iso-image-burn.png \
 	hicolor_actions_scalable_insert-pause.svg \
 	hicolor_actions_scalable_iso-image-burn.svg \
 	hicolor_actions_scalable_iso-image-new.svg \
@@ -66,7 +89,7 @@ private_icons = \
 	hicolor_actions_scalable_media-optical-blank.svg \
 	hicolor_actions_scalable_media-optical-burn.svg \
 	hicolor_actions_scalable_media-optical-copy.svg \
-	hicolor_actions_scalable_media-optical-data-new.svg \
+	hicolor_actions_scalable_media-optical-data-new1.svg \
 	hicolor_actions_scalable_transform-crop-and-resize.svg \
 	hicolor_status_16x16_brasero-disc-00.png \
 	hicolor_status_16x16_brasero-disc-05.png \
@@ -183,7 +206,7 @@ noinst_DATA = \
 	hicolor_actions_16x16_media-optical-blank.svg \
 	hicolor_actions_16x16_media-optical-burn.svg \
 	hicolor_actions_16x16_media-optical-copy.svg \
-	hicolor_actions_16x16_media-optical-data-new.svg \
+	hicolor_actions_16x16_media-optical-data-new1.svg \
 	hicolor_actions_16x16_transform-crop-and-resize.xcf.bz2 \
 	hicolor_actions_22x22_insert-pause.svg \
 	hicolor_actions_22x22_iso-image-burn.svg \
@@ -192,7 +215,7 @@ noinst_DATA = \
 	hicolor_actions_22x22_media-optical-blank.svg \
 	hicolor_actions_22x22_media-optical-burn.svg \
 	hicolor_actions_22x22_media-optical-copy.svg \
-	hicolor_actions_22x22_media-optical-data-new.svg \
+	hicolor_actions_22x22_media-optical-data-new1.svg \
 	hicolor_actions_22x22_transform-crop-and-resize.xcf.bz2 \
 	hicolor_actions_32x32_insert-pause.svg \
 	hicolor_actions_32x32_iso-image-burn.svg \
@@ -201,7 +224,7 @@ noinst_DATA = \
 	hicolor_actions_32x32_media-optical-blank.svg \
 	hicolor_actions_32x32_media-optical-burn.svg \
 	hicolor_actions_32x32_media-optical-copy.svg \
-	hicolor_actions_32x32_media-optical-data-new.svg \
+	hicolor_actions_32x32_media-optical-data-new1.svg \
 	hicolor_actions_32x32_transform-crop-and-resize.svg \
 	hicolor_apps_src_brasero.svg \
 	hicolor_status_16x16_brasero-disc-00.svg \

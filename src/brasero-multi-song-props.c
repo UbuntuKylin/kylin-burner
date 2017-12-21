@@ -305,7 +305,8 @@ brasero_multi_song_props_init (BraseroMultiSongProps *object)
 	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (box);
 
-	title = g_strdup_printf ("<b>%s</b>", _("Options"));
+//	title = g_strdup_printf ("<b>%s</b>", _("Options"));
+	title = g_strdup_printf (_("Options"));
 	frame = brasero_utils_pack_properties (title, box, NULL);
 	g_free (title);
 	priv->gap_box = frame;

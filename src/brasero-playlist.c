@@ -53,6 +53,7 @@
 #include "brasero-metadata.h"
 #include "brasero-io.h"
 #include "eggtreemultidnd.h"
+#include "brasero-customize-title.h"
 
 #include "brasero-uri-container.h"
 #include "brasero-layout-object.h"
@@ -596,6 +597,7 @@ brasero_playlist_add_cb (GtkButton *button, BraseroPlaylist *playlist)
 						 g_get_home_dir ());
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	result = gtk_dialog_run (GTK_DIALOG (dialog));
 	if (result == GTK_RESPONSE_CANCEL) {
 		gtk_widget_destroy (dialog);

@@ -60,6 +60,7 @@
 #include "brasero-song-properties.h"
 #include "brasero-split-dialog.h"
 #include "brasero-video-tree-model.h"
+#include "brasero-customize-title.h"
 
 #include "eggtreemultidnd.h"
 
@@ -677,6 +678,7 @@ brasero_audio_disc_video_file_dialog (BraseroAudioDisc *disc,
 			       _("_Add File"),
 			       GTK_RESPONSE_OK);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -759,6 +761,7 @@ brasero_audio_disc_add_dir (BraseroAudioDisc *disc, const gchar *uri)
 				NULL);
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -1319,6 +1322,7 @@ brasero_audio_disc_split (BraseroAudioDisc *disc)
 					     brasero_track_stream_get_start (BRASERO_TRACK_STREAM (track)),
 					     brasero_track_stream_get_end (BRASERO_TRACK_STREAM (track)));
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	response = gtk_dialog_run (GTK_DIALOG (dialog));
 	if (response != GTK_RESPONSE_OK) {
 		gtk_widget_destroy (dialog);
@@ -1499,6 +1503,7 @@ brasero_audio_disc_edit_multi_song_properties (BraseroAudioDisc *disc,
 				 GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show (GTK_WIDGET (props));
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (props)));
 	result = gtk_dialog_run (GTK_DIALOG (props));
 	gtk_widget_hide (GTK_WIDGET (props));
 	if (result != GTK_RESPONSE_ACCEPT) {
@@ -1622,6 +1627,7 @@ brasero_audio_disc_edit_single_song_properties (BraseroAudioDisc *disc,
 				 GTK_WIN_POS_CENTER_ON_PARENT);
 
 	gtk_widget_show (GTK_WIDGET (props));
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (props)));
 	result = gtk_dialog_run (GTK_DIALOG (props));
 	gtk_widget_hide (GTK_WIDGET (props));
 	if (result != GTK_RESPONSE_ACCEPT) {

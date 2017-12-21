@@ -11,6 +11,7 @@ libbrasero-burn/brasero-burn-dialog.c
 libbrasero-burn/brasero-burn-options.c
 libbrasero-burn/brasero-caps-burn.c
 libbrasero-burn/brasero-cover.c
+libbrasero-burn/brasero-customize-title.c
 libbrasero-burn/brasero-data-session.c
 libbrasero-burn/brasero-data-vfs.c
 libbrasero-burn/brasero-dest-selection.c

@@ -2493,8 +2493,8 @@ brasero_burn_session_set_property (GObject *object,
 		                               g_value_get_int64 (value));
 		break;
 	case PROP_FLAGS:
-		brasero_burn_session_set_flags (BRASERO_BURN_SESSION (object),
-		                                g_value_get_int (value));
+//		brasero_burn_session_set_flags (BRASERO_BURN_SESSION (object),
+//		                                g_value_get_int (value));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);

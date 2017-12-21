@@ -50,6 +50,7 @@
 #include "burn-basics.h"
 #include "burn-debug.h"
 #include "brasero-drive-properties.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroDrivePropertiesPrivate BraseroDrivePropertiesPrivate;
 struct _BraseroDrivePropertiesPrivate
@@ -235,6 +236,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 		gtk_window_set_icon_name (GTK_WINDOW (dialog),
 					  gtk_window_get_icon_name (GTK_WINDOW (toplevel)));
 
+		brasero_message_title(dialog);
 		string = g_strdup_printf ("%s.", error->message);
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog), "%s", string);
 		g_error_free (error);
@@ -246,6 +248,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 					NULL);
 
 		gtk_widget_show_all (dialog);
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		answer = gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
 
@@ -274,6 +277,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 		gtk_window_set_icon_name (GTK_WINDOW (dialog),
 					  gtk_window_get_icon_name (GTK_WINDOW (toplevel)));
 
+		brasero_message_title(dialog);
 		string = g_strdup_printf ("%s.", _("You do not have the required permission to write at this location"));
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog), "%s", string);
 		g_free (string);
@@ -284,6 +288,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 					NULL);
 
 		gtk_widget_show_all (dialog);
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		answer = gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
 
@@ -326,6 +331,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 		gtk_window_set_icon_name (GTK_WINDOW (dialog),
 					  gtk_window_get_icon_name (GTK_WINDOW (toplevel)));
 
+		brasero_message_title(dialog);
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
 							  _("The filesystem on this volume does not support large files (size over 2 GiB)."
 							    "\nThis can be a problem when writing DVDs or large images."));
@@ -336,6 +342,7 @@ brasero_drive_properties_check_tmpdir (BraseroDriveProperties *self,
 					NULL);
 
 		gtk_widget_show_all (dialog);
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		answer = gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
 
@@ -372,6 +379,7 @@ brasero_drive_properties_tmpdir_clicked (GtkButton *button,
 
 	path = brasero_burn_session_get_tmpdir (BRASERO_BURN_SESSION (priv->session));
 	gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (chooser), path);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (chooser)));
 	res = gtk_dialog_run (GTK_DIALOG (chooser));
 	if (res != GTK_RESPONSE_OK) {
 		gtk_widget_destroy (chooser);
@@ -707,11 +715,18 @@ brasero_drive_properties_init (BraseroDriveProperties *object)
 
 	priv->speed = gtk_combo_box_new_with_model (model);
 	gtk_widget_show (priv->speed);
-	string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
+/*	string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    brasero_utils_pack_properties (string,
 							   priv->speed, NULL),
-			    FALSE, FALSE, 0);
+			    FALSE, FALSE, 0);*/
+
+	string = g_strdup_printf (_("Burning speed"));
+	box = brasero_utils_pack_properties (string,priv->speed, NULL);
+//    gtk_widget_set_size_request(GTK_WIDGET(priv->speed),130,100);
+	gtk_box_pack_start (GTK_BOX (vbox),
+			box,
+			FALSE, FALSE, 0);
 	g_free (string);
 
 	renderer = gtk_cell_renderer_text_new ();
@@ -748,7 +763,8 @@ brasero_drive_properties_init (BraseroDriveProperties *object)
 			  G_CALLBACK (brasero_drive_properties_no_tmp_toggled),
 			  object);
 
-	string = g_strdup_printf ("<b>%s</b>", _("Options"));
+//	string = g_strdup_printf ("<b>%s</b>", _("Options"));
+	string = g_strdup_printf (_("Options"));
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    brasero_utils_pack_properties (string,
 							   priv->dummy,
@@ -785,7 +801,8 @@ brasero_drive_properties_init (BraseroDriveProperties *object)
 	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show (box);
 
-	string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+//	string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+	string = g_strdup_printf (_("Temporary files"));
 	gtk_box_pack_start (GTK_BOX (vbox),
 			    brasero_utils_pack_properties (string,
 							   box,

@@ -51,6 +51,7 @@ G_BEGIN_DECLS
 #define BRASERO_PROJECT_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), BRASERO_TYPE_PROJECT, BraseroProjectClass))
 
 typedef struct BraseroProjectPrivate BraseroProjectPrivate;
+GtkWidget *burn_button;
 
 typedef struct {
 	GtkBox parent;

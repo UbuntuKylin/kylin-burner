@@ -417,6 +417,13 @@ brasero_utils_make_button (const gchar *text,
 	return button;
 }
 
+static void
+on_exit_cb (GtkWidget *button, GtkWidget *dialog)
+{
+	if (dialog)
+		gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
+}
+
 GtkWidget *
 brasero_utils_create_message_dialog (GtkWidget *parent,
 				     const gchar *primary_message,
@@ -424,6 +431,13 @@ brasero_utils_create_message_dialog (GtkWidget *parent,
 				     GtkMessageType type)
 {
 	GtkWidget *message;
+	GtkWidget *box;
+	GtkWidget *vbox;
+	GtkWidget *title;
+	GtkWidget *close_bt;
+	GtkWidget *label;
+	GtkWidget *alignment;
+	GtkWidget *action_area;
 
 	message = gtk_message_dialog_new (GTK_WINDOW (parent),
 					  0,
@@ -436,6 +450,45 @@ brasero_utils_create_message_dialog (GtkWidget *parent,
 	                          parent? gtk_window_get_icon_name (GTK_WINDOW (parent)):"brasero");
 
 	gtk_window_set_title (GTK_WINDOW (message), "");
+
+	gtk_window_set_decorated(GTK_WINDOW(message),FALSE);
+	box = gtk_dialog_get_content_area (GTK_DIALOG (message));
+//    gtk_widget_set_halign(box,GTK_ALIGN_CENTER);
+//    gtk_container_set_border_width (GTK_CONTAINER ((gtk_container_get_children(GTK_CONTAINER(box)))->data), 20);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (box), "message_dialog");
+	action_area = gtk_dialog_get_action_area(message);
+	gtk_widget_set_hexpand(GTK_WIDGET(action_area), FALSE);
+	gtk_widget_set_hexpand_set(GTK_WIDGET(action_area), TRUE);
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	alignment = gtk_alignment_new (0, 0, 1.0, 0.9);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (box), alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), vbox);
+	gtk_box_reorder_child(GTK_BOX(box), GTK_WIDGET(alignment), 0);
+
+	title = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start (GTK_BOX (vbox),title , FALSE, TRUE, 4);
+	gtk_widget_show (title);
+//    gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+//    g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+
+	label = gtk_label_new (_("Prompt information"));
+	gtk_widget_show (label);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
+	gtk_box_pack_start (GTK_BOX (title), label, FALSE, FALSE, 15);
+
+	close_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
+	gtk_widget_show (close_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (close_bt), "close_bt");
+	gtk_box_pack_end (GTK_BOX (title), close_bt, FALSE, TRUE, 5);
+	g_signal_connect (close_bt,
+		"clicked",
+		G_CALLBACK (on_exit_cb),
+		message);
 
 	if (secondary_message)
 		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message),

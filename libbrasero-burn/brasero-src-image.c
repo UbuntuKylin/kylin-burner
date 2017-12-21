@@ -52,6 +52,7 @@
 #include "brasero-track-image-cfg.h"
 #include "brasero-src-image.h"
 #include "burn-image-format.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroSrcImagePrivate BraseroSrcImagePrivate;
 struct _BraseroSrcImagePrivate
@@ -478,6 +479,7 @@ brasero_src_image_clicked (GtkButton *button)
 	brasero_src_image_set_formats (BRASERO_SRC_IMAGE (button));
 
 	gtk_widget_show (priv->file);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (priv->file)));
 	response = gtk_dialog_run (GTK_DIALOG (priv->file));
 
 	if (response == GTK_RESPONSE_OK)

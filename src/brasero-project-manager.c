@@ -51,6 +51,7 @@
 #include "brasero-file-chooser.h"
 #include "brasero-uri-container.h"
 #include "brasero-project-type-chooser.h"
+#include "brasero-customize-title.h"
 
 #ifdef BUILD_PLAYLIST
 #include "brasero-playlist.h"
@@ -94,13 +95,13 @@ brasero_project_manager_selected_uris_changed (BraseroURIContainer *container,
 static GtkActionEntry entries [] = {
 	{"Cover", NULL, N_("_Cover Editor"), NULL,
 	 N_("Design and print covers for CDs"), G_CALLBACK (brasero_project_manager_new_cover_cb)},
-	 {"New", GTK_STOCK_NEW, N_("_New Project"), NULL,
+	 {"New", NULL, N_("_New Project"), NULL,
 	 N_("Create a new project"), NULL },
 	{"NewChoose", GTK_STOCK_NEW, N_("_Empty Project"), NULL,
 	 N_("Let you choose your new project"), G_CALLBACK (brasero_project_manager_new_empty_prj_cb)},
 	{"NewAudio", "media-optical-audio-new", N_("New _Audio Project"), NULL,
 	 N_("Create a traditional audio CD that will be playable on computers and stereos"), G_CALLBACK (brasero_project_manager_new_audio_prj_cb)},
-	{"NewData", "media-optical-data-new", N_("New _Data Project"), NULL,
+	{"NewData", "media-optical-data-new1", N_("New _Data Project"), NULL,
 	 N_("Create a CD/DVD containing any type of data that can only be read on a computer"), G_CALLBACK (brasero_project_manager_new_data_prj_cb)},
 	{"NewVideo", "media-optical-video-new", N_("New _Video Project"), NULL,
 	 N_("Create a video DVD or an SVCD that is readable on TV readers"), G_CALLBACK (brasero_project_manager_new_video_prj_cb)},
@@ -119,10 +120,10 @@ static const char *description = {
 		"<menu action='ProjectMenu'>"
 			"<placeholder name='ProjectPlaceholder'>"
 				"<menu action='New'>"
-					"<menuitem action='NewAudio'/>"
+//					"<menuitem action='NewAudio'/>"
 					"<menuitem action='NewData'/>"
-					"<menuitem action='NewVideo'/>"
-					"<menuitem action='NewCopy'/>"	
+//					"<menuitem action='NewVideo'/>"
+//					"<menuitem action='NewCopy'/>"	
 					"<menuitem action='NewIso'/>"	
 				"</menu>"
 			"</placeholder>"
@@ -140,7 +141,7 @@ static const char *description = {
 
 			"<placeholder name='DiscPlaceholder'>"
 			    "<separator/>"
-			    "<menuitem action='Cover'/>"
+//			    "<menuitem action='Cover'/>"
 			    "<separator/>"
 			"</placeholder>"
 
@@ -148,7 +149,7 @@ static const char *description = {
 	    "</menubar>"
 	"</ui>"
 };
-
+/*
 struct BraseroProjectManagerPrivate {
 	BraseroProjectType type;
 	BraseroIOJobBase *size_preview;
@@ -163,7 +164,7 @@ struct BraseroProjectManagerPrivate {
 
 	GtkActionGroup *action_group;
 };
-
+*/
 #define BRASERO_PROJECT_MANAGER_CONNECT_CHANGED(manager, container)		\
 	g_signal_connect (container,						\
 			  "uri-selected",					\
@@ -218,6 +219,7 @@ brasero_project_manager_new_cover_cb (GtkAction *action,
 	/* This strange hack is a way to workaround #568358.
 	 * At one point we'll need to hide the dialog which means it
 	 * will anwer with a GTK_RESPONSE_NONE */
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	while (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_NONE)
 		gtk_widget_show (GTK_WIDGET (dialog));
 
@@ -510,6 +512,8 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 {
 	GtkWidget *toplevel;
 	GtkAction *action;
+	GdkRGBA eventbox_color;
+	int i;
 
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (manager));
 
@@ -565,7 +569,13 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 	action = gtk_action_group_get_action (manager->priv->action_group, "NewChoose");
 
 	manager->priv->type = type;
-	if (type == BRASERO_PROJECT_TYPE_INVALID) {
+//	if (type == BRASERO_PROJECT_TYPE_INVALID) {
+	if (type == BRASERO_PROJECT_TYPE_WELC)
+	{
+		gtk_widget_hide (statusbarbox);
+		gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 0);
+	}
+	else if (type == BRASERO_PROJECT_TYPE_INVALID) {
 		brasero_layout_load (BRASERO_LAYOUT (manager->priv->layout), BRASERO_LAYOUT_NONE);
 		brasero_project_set_none (BRASERO_PROJECT (manager->priv->project));
 
@@ -573,7 +583,7 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 		gtk_action_set_sensitive (action, FALSE);
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), "Brasero");
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
 	}
 	else if (type == BRASERO_PROJECT_TYPE_AUDIO) {
 		brasero_layout_load (BRASERO_LAYOUT (manager->priv->layout), BRASERO_LAYOUT_AUDIO);
@@ -587,9 +597,11 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 		}
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Audio Disc Project"));
+//			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Audio Disc Project"));
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
 	}
 	else if (type == BRASERO_PROJECT_TYPE_DATA) {
+		gtk_widget_show (statusbarbox);
 		brasero_layout_load (BRASERO_LAYOUT (manager->priv->layout), BRASERO_LAYOUT_DATA);
 
 		gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 1);
@@ -601,7 +613,7 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 		}
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Data Disc Project"));
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
 	}
 	else if (type == BRASERO_PROJECT_TYPE_VIDEO) {
 		brasero_layout_load (BRASERO_LAYOUT (manager->priv->layout), BRASERO_LAYOUT_VIDEO);
@@ -615,21 +627,39 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 		}
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Video Disc Project"));
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
 	}
 	else if (type == BRASERO_PROJECT_TYPE_ISO) {
 		brasero_layout_load (BRASERO_LAYOUT (manager->priv->layout), BRASERO_LAYOUT_NONE);
 		brasero_project_set_none (BRASERO_PROJECT (manager->priv->project));
 
-		gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 0);
+//		gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 0);
+		gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 1);
 		gtk_action_set_sensitive (action, FALSE);
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Image File"));
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
+/*			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — New Image File"));
 
 		brasero_project_manager_switch (manager,
 						BRASERO_PROJECT_TYPE_INVALID,
 						TRUE);
+		brasero_app_image (brasero_app_get_default (), NULL, NULL, FALSE);
+*/
+		for (i = 0; i < nb_items; i ++) {
+			gdk_rgba_parse(&eventbox_color,"#eaeaea");
+			gtk_widget_override_background_color(GTK_WIDGET(widget[i]),GTK_STATE_NORMAL,&eventbox_color);
+			gdk_rgba_parse(&eventbox_color,"#d1e8ff");
+			gtk_widget_override_background_color(GTK_WIDGET(widget[i]),GTK_STATE_PRELIGHT,&eventbox_color);
+
+		}
+		gdk_rgba_parse(&eventbox_color,"#c0ddf9");
+		gtk_widget_override_background_color(GTK_WIDGET(widget[2]),GTK_STATE_NORMAL,&eventbox_color);
+		gtk_widget_override_background_color(GTK_WIDGET(widget[2]),GTK_STATE_PRELIGHT,&eventbox_color);
+
+//              brasero_project_manager_switch (manager,
+//                                              BRASERO_PROJECT_TYPE_INVALID,
+//                                              TRUE);
 		brasero_app_image (brasero_app_get_default (), NULL, NULL, FALSE);
 	}
 	else if (type == BRASERO_PROJECT_TYPE_COPY) {
@@ -640,7 +670,8 @@ brasero_project_manager_switch (BraseroProjectManager *manager,
 		gtk_action_set_sensitive (action, FALSE);
 
 		if (toplevel)
-			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — Disc Copy"));
+//			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero — Disc Copy"));
+			gtk_window_set_title (GTK_WINDOW (toplevel), _("Brasero"));
 
 		brasero_project_manager_switch (manager,
 						BRASERO_PROJECT_TYPE_INVALID,
@@ -654,6 +685,10 @@ brasero_project_manager_type_changed_cb (BraseroProjectTypeChooser *chooser,
 					 BraseroProjectType type,
 					 BraseroProjectManager *manager)
 {
+//    if(type == BRASERO_PROJECT_TYPE_WELC)
+//        gtk_notebook_set_current_page (GTK_NOTEBOOK (manager), 0);
+//    else
+//	printf("brasero_project_manager_type_changed_cb 000\n");
 	brasero_project_manager_switch (manager, type, TRUE);
 }
 
@@ -735,6 +770,7 @@ brasero_project_manager_open_cb (GtkAction *action, BraseroProjectManager *manag
 					     g_get_home_dir ());
 	
 	gtk_widget_show (chooser);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (chooser)));
 	answer = gtk_dialog_run (GTK_DIALOG (chooser));
 	if (answer != GTK_RESPONSE_OK) {
 		gtk_widget_destroy (chooser);
@@ -809,11 +845,12 @@ brasero_project_manager_save_session (BraseroProjectManager *manager,
 static void
 brasero_project_manager_init (BraseroProjectManager *obj)
 {
-	GtkWidget *type;
+//	GtkWidget *type;
 	GtkAction *action;
 	GtkWidget *chooser;
 
 	obj->priv = g_new0 (BraseroProjectManagerPrivate, 1);
+	manager_chooser = obj;
 
 	gtk_notebook_set_show_border (GTK_NOTEBOOK (obj), FALSE);
 	gtk_notebook_set_show_tabs (GTK_NOTEBOOK (obj), FALSE);

@@ -223,7 +223,7 @@ brasero_song_props_init (BraseroSongProps *obj)
 	gtk_table_set_row_spacings (GTK_TABLE (table), 6);
 	gtk_table_set_col_spacings (GTK_TABLE (table), 6);
 
-	title_str = g_strdup_printf ("<b>%s</b>", _("Options"));
+	title_str = g_strdup_printf (_("Options"));
 	frame = brasero_utils_pack_properties (title_str,
 					       table,
 					       NULL);

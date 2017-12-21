@@ -43,6 +43,7 @@
 
 #include "brasero-project-name.h"
 #include "brasero-project-type-chooser.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroProjectNamePrivate BraseroProjectNamePrivate;
 struct _BraseroProjectNamePrivate
@@ -178,6 +179,7 @@ brasero_project_name_icon_button_clicked (BraseroProjectName *project,
 	}
 
 	gtk_widget_show (chooser);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (chooser)));
 	res = gtk_dialog_run (GTK_DIALOG (chooser));
 	if (res != GTK_RESPONSE_OK) {
 		gtk_widget_destroy (chooser);
@@ -520,11 +522,11 @@ brasero_project_name_init (BraseroProjectName *object)
 	priv = BRASERO_PROJECT_NAME_PRIVATE (object);
 
 	priv->label_modified = 0;
-	g_signal_connect (object,
+/*	g_signal_connect (object,
 			  "icon-release",
 			  G_CALLBACK (brasero_project_name_icon_button_clicked),
 			  NULL);
-
+*/
 	g_signal_connect (object,
 			  "insert_text",
 			  G_CALLBACK (brasero_project_name_label_insert_text),

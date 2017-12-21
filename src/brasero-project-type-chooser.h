@@ -61,8 +61,18 @@ typedef struct {
 					 BraseroProjectType type);
 } BraseroProjectTypeChooserClass;
 
+struct _ItemDescription {
+	gchar *text;
+	gchar *description;
+	gchar *tooltip;
+	gchar *image;
+	BraseroProjectType type;
+};
+typedef struct _ItemDescription ItemDescription;
+
 GType brasero_project_type_chooser_get_type (void);
 GtkWidget *brasero_project_type_chooser_new (void);
+GtkWidget *brasero_project_type_chooser_new_item (BraseroProjectTypeChooser *chooser, ItemDescription *description);
 
 G_END_DECLS
 

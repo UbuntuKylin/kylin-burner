@@ -37,6 +37,7 @@
 #include "brasero-utils.h"
 
 #include "brasero-track-data-cfg.h"
+#include "brasero-customize-title.h"
 
 
 typedef struct _BraseroFileFilteredPrivate BraseroFileFilteredPrivate;
@@ -124,25 +125,76 @@ brasero_file_filtered_row_deleted (GtkTreeModel *model,
 }
 
 static void
+on_exit_cb (GtkWidget *button, GtkWidget *dialog)
+{
+	if (dialog)
+		gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
+}
+
+static void
 brasero_file_filtered_option_pressed_cb (GtkButton *button,
 					 BraseroFileFiltered *self)
 {
 	GtkWidget *option;
 	GtkWidget *dialog;
 	GtkWidget *toplevel;
+	GtkWidget *box;
+	GtkWidget *vbox;
+	GtkWidget *title;
+	GtkWidget *close_bt;
+	GtkWidget *label;
+	GtkWidget *alignment;
 
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
 	dialog = gtk_dialog_new_with_buttons (_("Filter Options"),
 					      GTK_WINDOW (toplevel),
 					      GTK_DIALOG_DESTROY_WITH_PARENT |
 					      GTK_DIALOG_MODAL,
-					      GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
+					      NULL,
 					      NULL);
+	gtk_widget_set_size_request(GTK_WIDGET(dialog),280,200);
+	gtk_window_set_decorated(GTK_WINDOW(dialog),FALSE);
+	box = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+	gtk_style_context_add_class ( gtk_widget_get_style_context (box), "file_filtered_dialog");
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	alignment = gtk_alignment_new (0.5, 0.5, 1.0, 0.9);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (box), alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), vbox);
+
+	title = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start (GTK_BOX (vbox),title , FALSE, TRUE, 4);
+	gtk_widget_show (title);
+//    gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+//    g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+
+	label = gtk_label_new (_("Filter Options"));
+	gtk_widget_show (label);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
+	gtk_box_pack_start (GTK_BOX (title), label, FALSE, FALSE, 15);
+
+	close_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
+	gtk_widget_show (close_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (close_bt), "close_bt");
+	gtk_box_pack_end (GTK_BOX (title), close_bt, FALSE, TRUE, 5);
+	gtk_container_set_border_width(GTK_CONTAINER(dialog), 5);
+	g_signal_connect (close_bt,
+		"clicked",
+		G_CALLBACK (on_exit_cb),
+ 		dialog);
+
 	option = brasero_filter_option_new ();
 	gtk_widget_show (option);
-	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), option, FALSE, FALSE, 0);
+//	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), option, FALSE, FALSE, 0);
+	gtk_widget_set_halign(GTK_WIDGET(option), GTK_ALIGN_CENTER);
+	gtk_box_pack_start (GTK_BOX (vbox), option, FALSE, FALSE, 15);
 	gtk_widget_show (dialog);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);	
 }

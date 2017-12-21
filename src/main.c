@@ -29,6 +29,7 @@
 #  include <config.h>
 #endif
 
+#include<stdio.h>
 #include <string.h>
 #include <locale.h>
 
@@ -65,6 +66,11 @@ main (int argc, char **argv)
 	GApplication *gapp = NULL;
 	GOptionContext *context;
 
+	GdkScreen *screen = NULL;
+	GtkCssProvider *provider = NULL;
+	GFile *file = NULL;
+	GError *css_error = NULL;
+
 #ifdef ENABLE_NLS
 	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -98,6 +104,41 @@ main (int argc, char **argv)
 		return FALSE;
 	}
 	g_option_context_free (context);
+
+        /* gtk3.0+ use css */
+        screen = gdk_screen_get_default();
+        file = g_file_new_for_path("/usr/share/brasero/style.css");
+        if (file != NULL)
+        {
+            if (provider == NULL)
+            {
+                provider = gtk_css_provider_new();
+            }
+            gtk_css_provider_load_from_file(provider, file, NULL);
+            gtk_style_context_add_provider_for_screen(screen, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+            gtk_style_context_reset_widgets(screen);
+            gsize bytes_written, bytes_read;
+            gtk_css_provider_load_from_path(provider, g_filename_to_utf8("/usr/share/brasero/style.css", strlen("/usr/share/brasero/style.css"), &bytes_read, &bytes_written, &css_error), NULL);
+        }
+        else
+        {
+            if (NULL != provider)
+            {
+                gtk_style_context_remove_provider_for_screen(screen, GTK_STYLE_PROVIDER(provider));
+                g_object_unref(provider);
+                provider = NULL;
+            }
+            gtk_style_context_reset_widgets(screen);
+        }
+        if (NULL != css_error)
+        {
+            g_clear_error(&css_error);
+        }
+        if (NULL != file)
+        {
+            g_object_unref(file);
+            file = NULL;
+        }
 
 	if (cmd_line_options.not_unique == FALSE) {
 		GError *error = NULL;

@@ -72,9 +72,9 @@ const GOptionEntry prog_options [] = {
 
 #ifdef BUILD_PLAYLIST
 
-	 { "playlist", 'l', 0, G_OPTION_ARG_FILENAME, &cmd_line_options.playlist_uri,
-	  N_("Open the specified playlist as an audio project"),
-	  N_("PLAYLIST") },
+//	 { "playlist", 'l', 0, G_OPTION_ARG_FILENAME, &cmd_line_options.playlist_uri,
+//	  N_("Open the specified playlist as an audio project"),
+//	  N_("PLAYLIST") },
 
 #endif
 
@@ -86,9 +86,9 @@ const GOptionEntry prog_options [] = {
 	  N_("Create an image file instead of burning"),
 	  NULL },
 
-	{ "audio", 'a', 0, G_OPTION_ARG_NONE, &cmd_line_options.audio_project,
-	  N_("Open an audio project adding the URIs given on the command line"),
-	  NULL },
+//	{ "audio", 'a', 0, G_OPTION_ARG_NONE, &cmd_line_options.audio_project,
+//	  N_("Open an audio project adding the URIs given on the command line"),
+//	  NULL },
 
 	{ "data", 'd', 0, G_OPTION_ARG_NONE, &cmd_line_options.data_project,
          N_("Open a data project adding the URIs given on the command line"),
@@ -102,9 +102,9 @@ const GOptionEntry prog_options [] = {
 	  N_("Cover to use"),
 	  N_("PATH TO COVER") },
 
-	{ "video", 'o', 0, G_OPTION_ARG_NONE, &cmd_line_options.video_project,
-	  N_("Open a video project adding the URIs given on the command line"),
-	  NULL },
+//	{ "video", 'o', 0, G_OPTION_ARG_NONE, &cmd_line_options.video_project,
+//	  N_("Open a video project adding the URIs given on the command line"),
+//	  NULL },
 
 	{ "image", 'i', G_OPTION_FLAG_OPTIONAL_ARG|G_OPTION_FLAG_FILENAME, G_OPTION_ARG_CALLBACK, brasero_cli_image_project,
 	 N_("URI of an image file to burn (autodetected)"),

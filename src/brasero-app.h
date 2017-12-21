@@ -25,6 +25,7 @@
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
+#include <stdio.h>
 
 #include "brasero-session-cfg.h"
 
@@ -39,6 +40,11 @@ G_BEGIN_DECLS
 
 typedef struct _BraseroAppClass BraseroAppClass;
 typedef struct _BraseroApp BraseroApp;
+int nb_items;
+GtkWidget *widget[10];
+GtkWidget *statusbarbox;
+GtkWidget *maximize_bt;
+GtkWidget *unmaximize_bt;
 
 struct _BraseroAppClass
 {

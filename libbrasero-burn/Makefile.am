@@ -190,6 +190,8 @@ libbrasero_burn3_la_SOURCES = 		\
 	brasero-tool-dialog-private.h                 \
 	brasero-video-options.h                 \
 	brasero-video-options.c                 \
+	brasero-customize-title.h       \
+	brasero-customize-title.c       \
 	brasero-session-span.h                 \
 	brasero-session-span.c                 \
 	brasero-plugin-private.h                 

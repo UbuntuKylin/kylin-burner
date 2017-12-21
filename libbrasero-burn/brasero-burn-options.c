@@ -58,6 +58,7 @@
 #include "brasero-track-stream.h"
 #include "brasero-track-data-cfg.h"
 #include "brasero-track-image-cfg.h"
+#include "brasero-customize-title.h"
 
 #include "brasero-notify.h"
 #include "brasero-misc.h"
@@ -324,10 +325,10 @@ brasero_burn_options_setup_buttons (BraseroBurnOptions *self)
 							  label_m,
 							  GTK_RESPONSE_ACCEPT);
 
-	if (brasero_burn_session_is_dest_file (BRASERO_BURN_SESSION (priv->session)))
+//	if (brasero_burn_session_is_dest_file (BRASERO_BURN_SESSION (priv->session)))
 		gtk_widget_hide (priv->burn_multi);
-	else
-		gtk_widget_show (priv->burn_multi);
+//	else
+//		gtk_widget_show (priv->burn_multi);
 
 	if (priv->burn)
 		gtk_button_set_label (GTK_BUTTON (priv->burn), label);
@@ -585,6 +586,13 @@ brasero_burn_options_valid_cb (BraseroSessionCfg *session,
 }
 
 static void
+on_exit_cb (GtkWidget *button, GtkWidget *dialog)
+{
+	if (dialog)
+		gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
+}
+
+static void
 brasero_burn_options_init (BraseroBurnOptions *object)
 {
 }
@@ -601,6 +609,12 @@ brasero_burn_options_build_contents (BraseroBurnOptions *object)
 	GtkWidget *selection;
 	GtkWidget *alignment;
 	gchar *string;
+	GtkWidget *vbox;
+	GtkWidget *title;
+	GtkWidget *close_bt;
+	GtkWidget *label;
+	GtkWidget *box;
+//    GtkWidget *alignment;
 
 	priv = BRASERO_BURN_OPTIONS_PRIVATE (object);
 
@@ -619,11 +633,65 @@ brasero_burn_options_build_contents (BraseroBurnOptions *object)
 	/* Create an upper box for sources */
 	priv->source_placeholder = gtk_alignment_new (0.0, 0.5, 1.0, 1.0);
 	content_area = gtk_dialog_get_content_area (GTK_DIALOG (object));
-	gtk_box_pack_start (GTK_BOX (content_area),
+/*	gtk_box_pack_start (GTK_BOX (content_area),
 			    priv->source_placeholder,
 			    FALSE,
 			    TRUE,
-			    0);
+			    0); */
+
+	gtk_window_set_modal(GTK_WINDOW(object), FALSE);
+	gtk_widget_set_size_request(GTK_WIDGET(object),400,300);
+	gtk_window_set_decorated(GTK_WINDOW(object),FALSE);
+//    box = gtk_dialog_get_content_area (GTK_DIALOG (object));
+	gtk_style_context_add_class ( gtk_widget_get_style_context (content_area), "file_filtered_dialog");
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (content_area), alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), vbox);
+
+	title = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start (GTK_BOX (vbox),title , FALSE, TRUE, 4);
+	gtk_widget_show (title);
+//    gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+//    g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+
+	label = gtk_label_new (_("Image Burning Setup"));
+	gtk_widget_show (label);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
+	gtk_box_pack_start (GTK_BOX (title), label, FALSE, FALSE, 15);
+
+	close_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
+	gtk_widget_show (close_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (close_bt), "close_bt");
+	gtk_box_pack_end (GTK_BOX (title), close_bt, FALSE, TRUE, 5);
+	gtk_container_set_border_width(GTK_CONTAINER(object), 5);
+//    gtk_widget_set_halign(GTK_WIDGET(vbox),GTK_ALIGN_CENTER);
+ 
+	g_signal_connect (close_bt,
+		"clicked",
+		G_CALLBACK (on_exit_cb),
+		object);
+
+
+	box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_container_set_border_width (GTK_CONTAINER (box), 10);
+	gtk_widget_show (box);
+//    gtk_widget_set_halign(GTK_WIDGET(box),GTK_ALIGN_CENTER);
+	gtk_box_pack_start (GTK_BOX (content_area),
+			box,
+			FALSE,
+			TRUE,
+			0);
+	gtk_box_pack_start (GTK_BOX (box),
+			priv->source_placeholder,
+			FALSE,
+			TRUE,
+			0);
 
 	/* Medium selection box */
 	selection = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
@@ -643,7 +711,7 @@ brasero_burn_options_build_contents (BraseroBurnOptions *object)
 
 	priv->properties = brasero_medium_properties_new (priv->session);
 	gtk_size_group_add_widget (priv->size_group, priv->properties);
-	gtk_widget_show (priv->properties);
+//	gtk_widget_show (priv->properties);
 	gtk_box_pack_start (GTK_BOX (selection),
 			    priv->properties,
 			    FALSE,
@@ -654,7 +722,8 @@ brasero_burn_options_build_contents (BraseroBurnOptions *object)
 	priv->message_output = brasero_notify_new ();
 	gtk_widget_show (priv->message_output);
 
-	string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+//	string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+	string = g_strdup_printf (_("Select a disc to write to"));
 	selection = brasero_utils_pack_properties (string,
 						   priv->message_output,
 						   selection,
@@ -671,7 +740,8 @@ brasero_burn_options_build_contents (BraseroBurnOptions *object)
 	/* Create a lower box for options */
 	alignment = gtk_alignment_new (0.0, 0.5, 1.0, 1.0);
 	gtk_widget_show (alignment);
-	gtk_box_pack_start (GTK_BOX (content_area),
+//	gtk_box_pack_start (GTK_BOX (content_area),
+	gtk_box_pack_start (GTK_BOX (box),
 			    alignment,
 			    FALSE,
 			    TRUE,
@@ -798,6 +868,7 @@ brasero_status_dialog_uri_has_image (BraseroTrackDataCfg *track,
 	gtk_window_set_icon_name (GTK_WINDOW (dialog),
 	                          gtk_window_get_icon_name (GTK_WINDOW (self)));
 
+	brasero_message_title(dialog);
 	name = brasero_utils_get_uri_name (uri);
 	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
 			/* Translators: %s is the name of the image */
@@ -828,6 +899,7 @@ brasero_status_dialog_uri_has_image (BraseroTrackDataCfg *track,
 	}
 
 	gtk_widget_show_all (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -898,7 +970,8 @@ brasero_burn_options_setup_image (BraseroBurnOptions *self)
 	gtk_widget_show (file);
 
 	/* pack everything */
-	string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+//	string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+	string = g_strdup_printf (_("Select a disc image to write"));
 	brasero_burn_options_add_source (self, 
 					 string,
 					 file,

@@ -1,0 +1,252 @@
+.mainwin{
+    border:2px solid #c0c0c0;
+}
+
+.contents{
+    border:1px solid #c0c0c0;
+    background-color:#eaeaea;
+}
+
+.eventbox_btn{
+    border:none;
+    border-radius:0px;
+
+}
+
+.main_title{
+    background-color:#f5f5f5;
+}
+
+.main_menubar{
+    background-color:#f5f5f5;
+}
+
+.Recentprojects{
+    background-color:#eaeaea;
+    border:1px solid #c0c0c0;
+}
+
+.contents2{
+    border:1px solid #c0c0c0;
+}
+
+.project_left_box{
+    border:1px solid #c0c0c0;
+}
+
+.left_table{
+    border:1px solid #c0c0c0;
+}
+
+.project_right_box{
+    border:1px solid #c0c0c0;
+}
+
+.toolbar{
+    background-color:#eaeaea;
+/*    border:1px solid #c0c0c0;*/
+    border:none;
+}
+
+.add_bt{
+    background-color:#eaeaea;
+    border:none;
+    border-radius:0px;
+    font-size:10px;
+}
+.add_bt:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+}
+
+.add_bt:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.dele_bt{
+    background-color:#eaeaea;
+    border:none;
+    border-radius:0px;
+    font-size:10px;
+}
+
+.dele_bt:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+}
+
+.dele_bt:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.deleall_bt{
+    background-color:#eaeaea;
+    border:none;
+    border-radius:0px;
+    font-size:10px;
+}
+
+.deleall_bt:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+}
+
+.deleall_bt:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.newfolder_bt{
+    background-color:#eaeaea;
+    border:none;
+    font-size:10px;
+}
+
+.newfolder_bt:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+
+}
+
+.newfolder_bt:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.import_bt{
+    background-color:#eaeaea;
+    border:none;
+    font-size:10px;
+}
+
+.import_bt:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+
+}
+
+.import_bt:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.burn_button{
+/*    background-color:#ffffff;*/
+/*    border:1px solid #acacac;*/
+    font-size:9px;
+}
+
+
+.burn_button:hover{
+    background-color:#eff6fe;
+    border:1px solid #aad3fe;
+
+}
+
+.burn_button:active{
+    background-color:#d1e8ff;
+    border:1px solid #66a7e8;
+}
+
+.recent_box{
+    background-color:#f5f5f5;
+    border:1px solid #c0c0c0;
+}
+
+.minimize_bt{
+    background-image:url("icons/hicolor/16x16/actions/minimize.png");
+    background-color:#f5f5f5;
+    border:none;
+    border-radius:0px;
+}
+
+.minimize_bt:hover{
+    background-image:url("icons/hicolor/16x16/actions/minimize-hover.png");
+}
+
+.minimize_bt:active{
+    background-image:url("icons/hicolor/16x16/actions/minimize-clicked.png");
+}
+
+.maximize_bt{
+    background-image:url("icons/hicolor/16x16/actions/maximize.png");
+    background-color:#f5f5f5;
+    border:none;
+    border-radius:0px;
+}
+
+.maximize_bt:hover{
+    background-image:url("icons/hicolor/16x16/actions/maximize-hover.png");
+}
+
+.maximize_bt:active{
+    background-image:url("icons/hicolor/16x16/actions/maximize-clicked.png");
+}
+
+.unmaximize_bt{
+    background-image:url("icons/hicolor/16x16/actions/unmaximize.png");
+    background-color:#f5f5f5;
+    border:none;
+    border-radius:0px;
+}
+
+.unmaximize_bt:hover{
+    background-image:url("icons/hicolor/16x16/actions/unmaximize-hover.png");
+}
+
+.unmaximize_bt:active{
+    background-image:url("icons/hicolor/16x16/actions/unmaximize-clicked.png");
+}
+
+.close_bt{
+    background-image:url("icons/hicolor/16x16/actions/close.png");
+    background-color:#f5f5f5;
+    border:none;
+    border-radius:0px;
+}
+
+.close_bt:hover{
+    background-image:url("icons/hicolor/16x16/actions/close-hover.png");
+}
+
+.close_bt:active{
+    background-image:url("icons/hicolor/16x16/actions/close-clicked.png");
+}
+
+.filter_option_bt1{
+    font-size:9px
+}
+
+.filter_option_bt2{
+    font-size:9px
+}
+
+.filter_option_bt3{
+    font-size:9px
+}
+
+.file_filtered_dialog{
+    border:1px solid #c0c0c0;
+    box-shadow: 4px 4px 3px 0px #666 ;
+}
+
+.project_drive_properties_dialog{
+    border:1px solid #c0c0c0;
+    box-shadow: 4px 4px 3px 0px #666 ;
+/*    padding:50px 50px 50px 50px;*/
+}
+
+.app_burn_dialog{
+    border:1px solid #c0c0c0;
+    box-shadow: 4px 4px 3px 0px #666 ;
+/*    padding:50px 50px 50px 50px;*/
+}
+
+.message_dialog{
+    border:1px solid #c0c0c0;
+    box-shadow: 4px 4px 3px 0px #666 ;
+/*    padding:50px 50px 50px 50px;*/
+}
+

@@ -2167,6 +2167,9 @@ brasero_burn_session_get_burn_flags (BraseroBurnSession *session,
 	                                          &supported_flags,
 	                                          &compulsory_flags);
 
+	if(supported_flags == 175 || supported_flags == 135)
+		supported_flags = 191;
+
 	if (supported)
 		*supported = supported_flags;
 

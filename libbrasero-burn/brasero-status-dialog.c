@@ -48,6 +48,7 @@
 #include "brasero-session.h"
 #include "brasero-status-dialog.h"
 #include "burn-plugin-manager.h"
+#include "brasero-customize-title.h"
 
 typedef struct _BraseroStatusDialogPrivate BraseroStatusDialogPrivate;
 struct _BraseroStatusDialogPrivate
@@ -217,6 +218,7 @@ brasero_status_dialog_deep_directory_cb (BraseroTrackDataCfg *project,
 					  string);
 	g_free (string);
 
+	brasero_message_title(message);	
 	if (gtk_window_get_icon_name (GTK_WINDOW (dialog)))
 		gtk_window_set_icon_name (GTK_WINDOW (message),
 					  gtk_window_get_icon_name (GTK_WINDOW (dialog)));
@@ -232,6 +234,7 @@ brasero_status_dialog_deep_directory_cb (BraseroTrackDataCfg *project,
 	gtk_dialog_add_button (GTK_DIALOG (message), _("Ne_ver Add Such File"), GTK_RESPONSE_REJECT);
 	gtk_dialog_add_button (GTK_DIALOG (message), _("Al_ways Add Such File"), GTK_RESPONSE_ACCEPT);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 
@@ -279,6 +282,7 @@ brasero_status_dialog_2G_file_cb (BraseroTrackDataCfg *track,
 					  string);
 	g_free (string);
 
+	brasero_message_title(message);
 	if (gtk_window_get_icon_name (GTK_WINDOW (dialog)))
 		gtk_window_set_icon_name (GTK_WINDOW (message),
 					  gtk_window_get_icon_name (GTK_WINDOW (dialog)));
@@ -294,6 +298,7 @@ brasero_status_dialog_2G_file_cb (BraseroTrackDataCfg *track,
 	gtk_dialog_add_button (GTK_DIALOG (message), _("Ne_ver Add Such File"), GTK_RESPONSE_REJECT);
 	gtk_dialog_add_button (GTK_DIALOG (message), _("Al_ways Add Such File"), GTK_RESPONSE_ACCEPT);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 
@@ -329,6 +334,7 @@ brasero_status_dialog_joliet_rename_cb (BraseroTrackData *track,
 					  "%s",
 					  _("Should files be renamed to be fully Windows-compatible?"));
 
+	brasero_message_title(message);
 	if (gtk_window_get_icon_name (GTK_WINDOW (dialog)))
 		gtk_window_set_icon_name (GTK_WINDOW (message),
 					  gtk_window_get_icon_name (GTK_WINDOW (dialog)));
@@ -349,6 +355,7 @@ brasero_status_dialog_joliet_rename_cb (BraseroTrackData *track,
 			       _("_Rename for Full Windows Compatibility"),
 			       GTK_RESPONSE_YES);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (message)));
 	answer = gtk_dialog_run (GTK_DIALOG (message));
 	gtk_widget_destroy (message);
 

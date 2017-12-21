@@ -92,6 +92,7 @@
 #include "brasero-project-parse.h"
 #include "brasero-project-name.h"
 #include "brasero-drive-settings.h"
+#include "brasero-customize-title.h"
 
 static void brasero_project_class_init (BraseroProjectClass *klass);
 static void brasero_project_init (BraseroProject *sp);
@@ -196,12 +197,12 @@ static GtkActionEntry entries [] = {
 	 N_("Save current project"), G_CALLBACK (brasero_project_save_cb)},
 	{"SaveAs", GTK_STOCK_SAVE_AS, N_("Save _As…"), NULL,
 	 N_("Save current project to a different location"), G_CALLBACK (brasero_project_save_as_cb)},
-	{"Add", GTK_STOCK_ADD, N_("_Add Files"), NULL,
-	 N_("Add files to the project"), G_CALLBACK (brasero_project_add_uris_cb)},
-	{"DeleteProject", GTK_STOCK_REMOVE, N_("_Remove Files"), NULL,
+	{"Add", "add-bt", N_("_Add Files"), NULL,
+         N_("Add files to the project"), G_CALLBACK (brasero_project_add_uris_cb)},
+        {"DeleteProject", "dele-bt", N_("_Remove Files"), NULL,
 	 N_("Remove the selected files from the project"), G_CALLBACK (brasero_project_remove_selected_uris_cb)},
 	/* Translators: "empty" is a verb here */
-	{"DeleteAll", GTK_STOCK_CLEAR, N_("E_mpty Project"), NULL,
+	{"DeleteAll", "deleall-bt", N_("E_mpty Project"), NULL,
 	 N_("Remove all files from the project"), G_CALLBACK (brasero_project_empty_cb)},
 	{"Burn", "media-optical-burn", N_("_Burn…"), NULL,
 	 N_("Burn the disc"), G_CALLBACK (brasero_project_burn_cb)},
@@ -228,8 +229,8 @@ static const gchar *description = {
 			"</placeholder>"
 		"</menu>"
 
-		"<menu action='ViewMenu'>"
-		"</menu>"
+//		"<menu action='ViewMenu'>"
+//		"</menu>"
 
 		"<menu action='ToolMenu'>"
 			"<placeholder name='DiscPlaceholder'/>"
@@ -1085,7 +1086,7 @@ brasero_project_init (BraseroProject *obj)
 
 	obj->priv->burn = brasero_utils_make_button (_("_Burn…"),
 						     NULL,
-						     "media-optical-burn",
+						     NULL,
 						     GTK_ICON_SIZE_BUTTON);
 	gtk_widget_show (obj->priv->burn);
 	gtk_widget_set_sensitive (obj->priv->burn, FALSE);
@@ -1098,15 +1099,19 @@ brasero_project_init (BraseroProject *obj)
 				     _("Start to burn the contents of the selection"));
 	gtk_size_group_add_widget (GTK_SIZE_GROUP (size_group), obj->priv->burn);
 
-	alignment = gtk_alignment_new (1.0, 0.5, 0.0, 0.0);
-	gtk_widget_show (alignment);
-	gtk_container_add (GTK_CONTAINER (alignment), obj->priv->burn);
-	gtk_table_attach (GTK_TABLE (table), alignment,
-			  2, 3,
-			  1, 2,
-			  GTK_FILL,
-			  GTK_EXPAND,
-			  0, 0);
+	burn_button = obj->priv->burn;
+	gtk_widget_set_size_request(GTK_WIDGET(burn_button),85,27);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (burn_button), "burn_button");
+
+//	alignment = gtk_alignment_new (1.0, 0.5, 0.0, 0.0);
+//	gtk_widget_show (alignment);
+//	gtk_container_add (GTK_CONTAINER (alignment), obj->priv->burn);
+//	gtk_table_attach (GTK_TABLE (table), alignment,
+//			  2, 3,
+//			  1, 2,
+//			  GTK_FILL,
+//			  GTK_EXPAND,
+//			  0, 0);
 
 	/* Name widget */
 	obj->priv->name_display = brasero_project_name_new (BRASERO_BURN_SESSION (obj->priv->session));
@@ -1308,6 +1313,7 @@ brasero_project_check_status (BraseroProject *project)
                                             gtk_widget_get_toplevel (GTK_WIDGET (project)));
 
 	gtk_widget_show (dialog);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
         response = gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (dialog);
 
@@ -1480,6 +1486,13 @@ brasero_project_output_changed (BraseroBurnSession *session,
 	gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
 }
 
+static void
+on_exit_cb (GtkWidget *button, GtkWidget *dialog)
+{
+	if (dialog)
+		gtk_dialog_response (dialog, GTK_RESPONSE_CANCEL);
+}
+
 static BraseroBurnResult
 brasero_project_drive_properties (BraseroProject *project)
 {
@@ -1495,6 +1508,11 @@ brasero_project_drive_properties (BraseroProject *project)
 	GtkWidget *box;
 	gchar *header;
 	gchar *string;
+	GtkWidget *vbox;
+	GtkWidget *title;
+	GtkWidget *close_bt;
+	GtkWidget *label;
+	GtkWidget *alignment;
 
 	/* Build dialog */
 	drive = brasero_burn_session_get_burner (BRASERO_BURN_SESSION (project->priv->session));
@@ -1511,15 +1529,52 @@ brasero_project_drive_properties (BraseroProject *project)
 					      NULL);
 	g_free (header);
 
+	gtk_widget_set_size_request(GTK_WIDGET(dialog),480,400);
+	gtk_window_set_decorated(GTK_WINDOW(dialog),FALSE);
+	box = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+	gtk_style_context_add_class ( gtk_widget_get_style_context (box), "project_drive_properties_dialog");
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_show (vbox);
+	alignment = gtk_alignment_new (0.5, 0.5, 1.0, 0.9);
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (box), alignment);
+ 	gtk_container_add (GTK_CONTAINER (alignment), vbox);
+
+	title = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+//    gtk_style_context_add_class ( gtk_widget_get_style_context (main_title), "main_title");
+//    gtk_widget_set_size_request(GTK_WIDGET(main_title),1000,36);
+	gtk_box_pack_start (GTK_BOX (vbox),title , FALSE, TRUE, 4);
+	gtk_widget_show (title);
+//    gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+//    g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+
+	label = gtk_label_new (_("Disc Burning Setup"));
+	gtk_widget_show (label);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);
+	gtk_box_pack_start (GTK_BOX (title), label, FALSE, FALSE, 15);
+
+	close_bt = gtk_button_new ();
+	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
+	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
+	gtk_widget_show (close_bt);
+	gtk_style_context_add_class ( gtk_widget_get_style_context (close_bt), "close_bt");
+	gtk_box_pack_end (GTK_BOX (title), close_bt, FALSE, TRUE, 5);
+	gtk_container_set_border_width(GTK_CONTAINER(dialog), 5);
+	g_signal_connect (close_bt,
+			"clicked",
+			G_CALLBACK (on_exit_cb),
+			dialog);
+
 	/* This is in case the medium gets ejected instead of our locking it */
 	cancel_sig = g_signal_connect (project->priv->session,
 	                               "output-changed",
 	                               G_CALLBACK (brasero_project_output_changed),
 	                               dialog);
 
-	gtk_dialog_add_button (GTK_DIALOG (dialog),
-			       _("Burn _Several Copies"),
-			       GTK_RESPONSE_ACCEPT);
+//	gtk_dialog_add_button (GTK_DIALOG (dialog),
+//			       _("Burn _Several Copies"),
+//			       GTK_RESPONSE_ACCEPT);
 
 	button = brasero_utils_make_button (_("_Burn"),
 					    NULL,
@@ -1530,7 +1585,7 @@ brasero_project_drive_properties (BraseroProject *project)
 				      button,
 				      GTK_RESPONSE_OK);
 
-	box = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+//	box = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
 
 	track_type = brasero_track_type_new ();
 
@@ -1546,18 +1601,19 @@ brasero_project_drive_properties (BraseroProject *project)
 							 options,
 							 NULL);
 		g_free (string);
-		gtk_box_pack_start (GTK_BOX (box), options, FALSE, TRUE, 0);
+		gtk_box_pack_start (GTK_BOX (vbox), options, FALSE, TRUE, 0);
 	}
 
 	brasero_track_type_free (track_type);
 
 	medium_prop = brasero_drive_properties_new (project->priv->session);
-	gtk_box_pack_start (GTK_BOX (box), medium_prop, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (vbox), medium_prop, FALSE, TRUE, 0);
 	gtk_widget_show (medium_prop);
 
 	brasero_app_set_toplevel (brasero_app_get_default (), GTK_WINDOW (dialog));
 
 	/* launch the dialog */
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -1619,6 +1675,7 @@ brasero_project_image_properties (BraseroProject *project)
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
 	/* launch the dialog */
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -1704,6 +1761,7 @@ brasero_project_create_audio_cover (BraseroProject *project)
 	/* This strange hack is a way to workaround #568358.
 	 * At one point we'll need to hide the dialog which means it
 	 * will anwer with a GTK_RESPONSE_NONE */
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (window)));
 	while (gtk_dialog_run (GTK_DIALOG (window)) == GTK_RESPONSE_NONE)
 		gtk_widget_show (GTK_WIDGET (window));
 
@@ -1947,6 +2005,7 @@ brasero_project_confirm_switch (BraseroProject *project,
 				       GTK_RESPONSE_OK);
 	}
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	answer = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -2312,6 +2371,7 @@ brasero_project_empty_cb (GtkAction *action, BraseroProject *project)
 				       _("E_mpty Project"),
 				       GTK_RESPONSE_OK);
 
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		answer = gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
 
@@ -2341,6 +2401,15 @@ brasero_project_register_ui (BraseroProject *project, GtkUIManager *manager)
 	GError *error = NULL;
 	GtkAction *action;
 	GtkWidget *toolbar;
+	GtkWidget *add_bt;
+	GtkWidget *add_bt_child;
+	GtkWidget *dele_bt;
+	GtkWidget *dele_bt_child;
+	GtkWidget *deleall_bt;
+	GtkWidget *deleall_bt_child;
+	GdkRGBA contents_color;
+	GList *p;
+	GList *q;
 
 	/* menus */
 	project->priv->project_group = gtk_action_group_new ("ProjectActions1");
@@ -2360,8 +2429,47 @@ brasero_project_register_ui (BraseroProject *project, GtkUIManager *manager)
 	}
 
 	toolbar = gtk_ui_manager_get_widget (manager, "/Toolbar");
-	gtk_style_context_add_class (gtk_widget_get_style_context (toolbar),
-				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+//	gtk_style_context_add_class (gtk_widget_get_style_context (toolbar),
+//				     GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+
+	gtk_style_context_add_class ( gtk_widget_get_style_context (toolbar), "toolbar");
+	gtk_toolbar_set_style(GTK_TOOLBAR(toolbar), GTK_TOOLBAR_BOTH_HORIZ);
+	gtk_toolbar_set_icon_size(GTK_TOOLBAR(toolbar),GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+
+	add_bt = gtk_ui_manager_get_widget (manager, "/Toolbar/Add");
+	add_bt_child = (gtk_container_get_children(GTK_CONTAINER(add_bt)))->data;
+
+	dele_bt = gtk_ui_manager_get_widget (manager, "/Toolbar/DeleteProject");
+	dele_bt_child = (gtk_container_get_children(GTK_CONTAINER(dele_bt)))->data;
+
+	deleall_bt = gtk_ui_manager_get_widget (manager, "/Toolbar/DeleteAll");
+	deleall_bt_child = (gtk_container_get_children(GTK_CONTAINER(deleall_bt)))->data;
+
+
+	gtk_tool_item_set_is_important(add_bt, TRUE);
+	gtk_tool_item_set_is_important(dele_bt, TRUE);
+	gtk_tool_item_set_is_important(deleall_bt, TRUE);
+
+
+	gtk_style_context_add_class ( gtk_widget_get_style_context (add_bt_child), "add_bt");
+	gtk_style_context_add_class ( gtk_widget_get_style_context (dele_bt_child), "dele_bt");
+	gtk_style_context_add_class ( gtk_widget_get_style_context (deleall_bt_child), "deleall_bt");
+	gtk_widget_set_size_request(GTK_WIDGET(toolbar),100,37);
+	gtk_container_set_border_width(GTK_CONTAINER(toolbar),1);
+
+
+//    label = gtk_label_new (NULL);
+//    gtk_label_set_markup_with_mnemonic (GTK_LABEL (label), _("_Add Files"));
+//    gtk_tool_button_set_label(dele_bt,label);
+ 
+	gtk_widget_set_size_request(GTK_WIDGET(add_bt),62,25);
+	gtk_widget_set_size_request(GTK_WIDGET(dele_bt),62,25);
+	gtk_widget_set_size_request(GTK_WIDGET(deleall_bt),75,25);
+
+
+//    gdk_rgba_parse(&contents_color,"red");
+//    gtk_widget_override_background_color(GTK_WIDGET(child),GTK_STATE_NORMAL,&contents_color);
 
 	action = gtk_action_group_get_action (project->priv->project_group, "Save");
 	g_object_set (action,
@@ -2654,6 +2762,7 @@ brasero_project_save_project_dialog (BraseroProject *project,
 					GTK_STOCK_SAVE, GTK_RESPONSE_YES,
 					NULL);
 
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 	result = gtk_dialog_run (GTK_DIALOG (dialog));
 	gtk_widget_destroy (dialog);
 
@@ -2767,6 +2876,7 @@ brasero_project_save_project_ask_for_path (BraseroProject *project,
 	}
 
 	gtk_widget_show (chooser);
+	brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (chooser)));
 	answer = gtk_dialog_run (GTK_DIALOG (chooser));
 	if (answer == GTK_RESPONSE_OK) {
 		if (combo)
@@ -2936,6 +3046,7 @@ brasero_project_save_session (BraseroProject *project,
 		                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 		                        NULL);
 
+		brasero_dialog_button_image(gtk_dialog_get_action_area(GTK_DIALOG (dialog)));
 		response = gtk_dialog_run (GTK_DIALOG (dialog));
 		gtk_widget_destroy (dialog);
 
