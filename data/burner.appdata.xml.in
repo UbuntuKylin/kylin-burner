@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application>
-  <id type="desktop">burner.desktop</id>
+<component type="desktop-application">
+  <id>burner.desktop</id>
   <licence>CC0</licence>
   <description>
     <_p>
@@ -15,11 +15,13 @@
       remote shared drives to easily burn them to a disc.
     </_p>
   </description>
+
   <screenshots>
-    <screenshot type="default">https://wiki.gnome.org/Apps/Burner?action=AttachFile&amp;do=get&amp;target=copy-disc.png</screenshot>
-    <screenshot>https://wiki.gnome.org/Apps/Burner?action=AttachFile&amp;do=get&amp;target=audio-disc.png</screenshot>
-    <screenshot>https://wiki.gnome.org/Apps/Burner?action=AttachFile&amp;do=get&amp;target=data-project.png</screenshot>
+    <screenshot type="default">
+      <image>https://www.ubuntukylin.com/public/images/kylin-burner.png</image>
+    </screenshot>
   </screenshots>
-  <url type="homepage">https://projects.gnome.org/burner/</url>
-  <updatecontact>burner-list@gnome.org</updatecontact>
-</application>
+
+  <url type="homepage">https://github.com/ukui/kylin-burner/</url>
+  <project_group>GNOME</project_group>
+</component>
