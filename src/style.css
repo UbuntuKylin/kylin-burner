@@ -156,63 +156,63 @@
 }
 
 .minimize_bt{
-    background-image:url("icons/hicolor/16x16/actions/minimize.png");
+    background-image:url("icons/hicolor/45x30/actions/minimize.png");
     background-color:#f5f5f5;
     border:none;
     border-radius:0px;
 }
 
 .minimize_bt:hover{
-    background-image:url("icons/hicolor/16x16/actions/minimize-hover.png");
+    background-image:url("icons/hicolor/45x30/actions/minimize-hover.png");
 }
 
 .minimize_bt:active{
-    background-image:url("icons/hicolor/16x16/actions/minimize-clicked.png");
+    background-image:url("icons/hicolor/45x30/actions/minimize-clicked.png");
 }
 
 .maximize_bt{
-    background-image:url("icons/hicolor/16x16/actions/maximize.png");
+    background-image:url("icons/hicolor/45x30/actions/maximize.png");
     background-color:#f5f5f5;
     border:none;
     border-radius:0px;
 }
 
 .maximize_bt:hover{
-    background-image:url("icons/hicolor/16x16/actions/maximize-hover.png");
+    background-image:url("icons/hicolor/45x30/actions/maximize-hover.png");
 }
 
 .maximize_bt:active{
-    background-image:url("icons/hicolor/16x16/actions/maximize-clicked.png");
+    background-image:url("icons/hicolor/45x30/actions/maximize-clicked.png");
 }
 
 .unmaximize_bt{
-    background-image:url("icons/hicolor/16x16/actions/unmaximize.png");
+    background-image:url("icons/hicolor/45x30/actions/unmaximize.png");
     background-color:#f5f5f5;
     border:none;
     border-radius:0px;
 }
 
 .unmaximize_bt:hover{
-    background-image:url("icons/hicolor/16x16/actions/unmaximize-hover.png");
+    background-image:url("icons/hicolor/45x30/actions/unmaximize-hover.png");
 }
 
 .unmaximize_bt:active{
-    background-image:url("icons/hicolor/16x16/actions/unmaximize-clicked.png");
+    background-image:url("icons/hicolor/45x30/actions/unmaximize-clicked.png");
 }
 
 .close_bt{
-    background-image:url("icons/hicolor/16x16/actions/close.png");
+    background-image:url("icons/hicolor/45x30/actions/close.png");
     background-color:#f5f5f5;
     border:none;
     border-radius:0px;
 }
 
 .close_bt:hover{
-    background-image:url("icons/hicolor/16x16/actions/close-hover.png");
+    background-image:url("icons/hicolor/45x30/actions/close-hover.png");
 }
 
 .close_bt:active{
-    background-image:url("icons/hicolor/16x16/actions/close-clicked.png");
+    background-image:url("icons/hicolor/45x30/actions/close-clicked.png");
 }
 
 .filter_option_bt1{
