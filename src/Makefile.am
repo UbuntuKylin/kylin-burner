@@ -24,7 +24,8 @@ AM_CPPFLAGS = \
 	$(BURNER_LIBXML_CFLAGS)					\
 	$(BURNER_SEARCH_CFLAGS)					\
 	$(BURNER_PL_PARSER_CFLAGS)					\
-	$(BURNER_SM_CFLAGS)
+	$(BURNER_SM_CFLAGS)							\
+	-Wno-error=format-y2k
 
 GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
 RECMARSHALFILES = burner-marshal.h burner-marshal.c

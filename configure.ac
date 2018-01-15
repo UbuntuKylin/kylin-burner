@@ -1,8 +1,8 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([burner],[1.0.0])
+AC_INIT([burner],[3.0.0])
 AC_CONFIG_SRCDIR(src/main.c)
 
-BURNER_MAJOR_VERSION=1
+BURNER_MAJOR_VERSION=3
 BURNER_MINOR_VERSION=0
 BURNER_SUB=0
 BURNER_VERSION=$BURNER_MAJOR_VERSION.$BURNER_MINOR_VERSION.$BURNER_SUB
@@ -21,7 +21,7 @@ dnl   change to C+1:0:0
 dnl - If the interface is the same as the previous version, change to C:R+1:A
 
 LT_CURRENT=3
-LT_REVISION=6
+LT_REVISION=0
 LT_AGE=2
 
 AC_SUBST(LT_CURRENT)

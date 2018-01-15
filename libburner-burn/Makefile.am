@@ -19,7 +19,8 @@ AM_CPPFLAGS = \
 	$(BURNER_GTK_CFLAGS)						\
 	$(BURNER_LIBNOTIFY_CFLAGS) \
 	$(BURNER_GSTREAMER_CFLAGS)					\
-	$(BURNER_CANBERRA_CFLAGS)
+	$(BURNER_CANBERRA_CFLAGS)					\
+	-Wno-error=format-nonliteral
 
 GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
 RECMARSHALFILES = libburner-marshal.h libburner-marshal.c
@@ -194,7 +195,7 @@ libburner_burn3_la_SOURCES = 		\
 	burner-customize-title.c       \
 	burner-session-span.h                 \
 	burner-session-span.c                 \
-	burner-plugin-private.h                 
+	burner-plugin-private.h
 
 if BUILD_INOTIFY
 libburner_burn3_la_SOURCES += burner-file-monitor.c burner-file-monitor.h
@@ -257,8 +258,8 @@ BurnerBurn-@TYPELIB_VERSION@.gir: libburner-burn3.la $(INTROSPECTION_SCANNER)
             $(top_srcdir)/libburner-burn/burner-burn-options.h        			        \
             $(top_srcdir)/libburner-burn/burner-burn-dialog.h					\
             $(top_srcdir)/libburner-burn/burner-tool-dialog.h					\
-	    $(top_srcdir)/libburner-burn/burner-sum-dialog.h					\
-	    $(top_srcdir)/libburner-burn/*.c	    
+            $(top_srcdir)/libburner-burn/burner-sum-dialog.h					\
+            $(top_srcdir)/libburner-burn/*.c
 
 BurnerBurn-@TYPELIB_VERSION@.typelib: $(gir_DATA) $(INTROSPECTION_COMPILER)
 	$(INTROSPECTION_COMPILER) $(top_builddir)/libburner-burn/$(gir_DATA) --shared-library=libburner-burn3 -o $(typelibs_DATA) --includedir=$(top_builddir)/libburner-media
