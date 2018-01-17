@@ -1087,7 +1087,7 @@ msgstr "Tõmmis kirjutatakse _ilma seda vahepeal kettale salvestamata"
 msgid "Leave the disc _open to add other files later"
 msgstr "Plaat jäetakse _avatuks, et hiljem saaks teisi faile lisada"
 
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Võimaldab plaadile hiljem andmeid lisada"
 
 msgid "Options"

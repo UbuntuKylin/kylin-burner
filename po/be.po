@@ -1459,7 +1459,7 @@ msgstr ""
 "Пакінуць дыскавую сесію _адкрытай, каб пазней можна было дадаць яшчэ файлаў"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Дазволіць пазней дадаваць файлы да наяўных"
 
 #: ../libburner-burn/burner-drive-properties.c:751

@@ -1493,7 +1493,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Bez _zamykania sesji (pozwala na późniejsze dodawanie plików)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Zezwala na późniejsze dodawanie danych na płycie"
 
 #: ../libburner-burn/burner-drive-properties.c:751

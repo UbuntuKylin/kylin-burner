@@ -1492,7 +1492,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Кушода мондани диск, _то ин ки баъдтар файлҳои дигар сабт карда шаванд"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Иҷозат барои баъдтар илова кардани иттилооти иловагӣ ба диск"
 
 #: ../libburner-burn/burner-drive-properties.c:751

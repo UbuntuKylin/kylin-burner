@@ -1525,7 +1525,7 @@ msgstr ""
 "eile"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Ceadaich gun tèid barrachd dàta a chur ris an diosg àm eile"
 
 #: ../libburner-burn/burner-drive-properties.c:751

@@ -853,9 +853,9 @@ burner_burn_caps_new_checksuming_task (BurnerBurnCaps *self,
 	burner_burn_session_get_input_type (session, &input);
 	BURNER_BURN_LOG_WITH_TYPE (&input,
 				    BURNER_PLUGIN_IO_NONE,
-				    "Creating checksuming task with input");
+				    "Creating checksumming task with input");
 
-	/* first find a checksuming job that can output the type of required
+	/* first find a checksumming job that can output the type of required
 	 * checksum. Then go through the caps to see if the input type can be
 	 * found. */
 
@@ -917,7 +917,7 @@ burner_burn_caps_new_checksuming_task (BurnerBurnCaps *self,
 			if (!burner_plugin_get_active (plugin, 0))
 				continue;
 
-			/* note for checksuming task there is no group possible */
+			/* note for checksumming task there is no group possible */
 			if (!candidate)
 				candidate = plugin;
 			else if (burner_plugin_get_priority (plugin) >

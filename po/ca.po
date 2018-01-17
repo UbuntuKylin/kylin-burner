@@ -1482,7 +1482,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Deixa el disc _obert per afegir-hi altres fitxers més endavant"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Permet afegir més dades al disc més endavant"
 
 #: ../libburner-burn/burner-drive-properties.c:751

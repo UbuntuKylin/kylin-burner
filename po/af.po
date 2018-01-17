@@ -1434,7 +1434,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Los die skyf _oop om later nog lêers by te voeg"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Maak dit moontlik om later meer data by die skyf te voeg"
 
 #: ../libburner-burn/burner-drive-properties.c:751

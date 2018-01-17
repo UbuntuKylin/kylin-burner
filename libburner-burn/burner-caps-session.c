@@ -1072,7 +1072,7 @@ burner_burn_session_supported (BurnerBurnSession *session,
 	burner_burn_session_get_input_type (session, &input);
 	burner_caps_find_link_set_ctx (session, ctx, &input);
 
-	BURNER_BURN_LOG_TYPE (&output, "Checking support for session. Ouput is ");
+	BURNER_BURN_LOG_TYPE (&output, "Checking support for session. Output is ");
 	BURNER_BURN_LOG_TYPE (&input, "and input is");
 
 	if (ctx->check_session_flags) {

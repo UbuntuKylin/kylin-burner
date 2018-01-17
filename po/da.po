@@ -1481,7 +1481,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Efterlad disken _åben, så der senere kan tilføjes andre filer"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Tillader tilføjelse af mere data til disken senere"
 
 #: ../libburner-burn/burner-drive-properties.c:751

@@ -130,7 +130,7 @@ burner_burn_session_log (BurnerBurnSession *session,
 			  ...);
 
 /**
- * Allow to save a whole session settings/source and restore it later.
+ * Allow one to save a whole session settings/source and restore it later.
  * (used internally)
  */
 

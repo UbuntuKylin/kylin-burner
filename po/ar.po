@@ -1408,7 +1408,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "اترك القرص مفتو_حًا لإضافة ملفات أخرى لاحقًا"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "اسمح بإضافة بيانات اكثر للقرص مرة أخرى."
 
 #: ../libburner-burn/burner-drive-properties.c:751

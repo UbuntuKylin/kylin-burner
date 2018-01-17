@@ -1585,7 +1585,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "La plata vera _open for å leggja til fleire filer seinare"
 
 #: ../libburner-burn/burner-drive-properties.c:738
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Tillat å leggja til meire data til plata seinare"
 
 #: ../libburner-burn/burner-drive-properties.c:758

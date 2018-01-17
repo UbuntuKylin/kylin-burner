@@ -1379,7 +1379,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Dîskê vekirî bihêle ku paşê pel bikarin lê werin zêdekrini"
 
 #: ../libburner-burn/burner-drive-properties.c:755
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Bihêle ku paşê zêdetir pel li dîskê werin zêdekirin"
 
 #: ../libburner-burn/burner-drive-properties.c:779

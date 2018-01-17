@@ -1625,7 +1625,7 @@ msgstr "Neuzatvárať disk, aby sa neskôr dali pridať ďalšie súb_ory"
 
 # tooltip
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Umožní pridanie ďalších dát na disk v budúcnosti"
 
 #: ../libburner-burn/burner-drive-properties.c:751

@@ -744,7 +744,7 @@ burner_drive_properties_init (BurnerDriveProperties *object)
 	priv->notmp = gtk_check_button_new_with_mnemonic (_("Burn the image directly _without saving it to disc"));
 	gtk_widget_show (priv->notmp);
 	priv->multi = gtk_check_button_new_with_mnemonic (_("Leave the disc _open to add other files later"));
-	gtk_widget_set_tooltip_text (priv->multi, _("Allow to add more data to the disc later"));
+	gtk_widget_set_tooltip_text (priv->multi, _("Allow one to add more data to the disc later"));
 	gtk_widget_show (priv->multi);
 
 	g_signal_connect (priv->dummy,

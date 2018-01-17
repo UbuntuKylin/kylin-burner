@@ -1469,7 +1469,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Để lại đĩa _mở để thêm tập tin khác về sau"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Cho phép thêm dữ liệu nữa vào đĩa về sau"
 
 #: ../libburner-burn/burner-drive-properties.c:751

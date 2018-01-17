@@ -1501,7 +1501,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "পিছত কোনো সময় অন্যান্য ফাইল যোগ কৰাৰ উদ্দেশ্যে ডিস্ক মুক্ত ৰাখক (_o)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "ডিস্কত পিছত কোনো সময় তথ্য পূৰণ কৰাৰ সুবিধা উপস্থিত ৰাখক"
 
 #: ../libburner-burn/burner-drive-properties.c:751

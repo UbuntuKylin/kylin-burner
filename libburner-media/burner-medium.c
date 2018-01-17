@@ -1678,7 +1678,7 @@ burner_medium_track_get_info (BurnerMedium *self,
 		 * shorter.
 		 * So we read the volume descriptor. If it works, good otherwise
 		 * use the old value.
-		 * That's important for checksuming to have a perfect account of
+		 * That's important for checksumming to have a perfect account of
 		 * the data size. */
 		BURNER_MEDIA_LOG ("300 sectors size. Checking for real size");
 		burner_medium_track_volume_size (self, track, handle);
@@ -2700,7 +2700,7 @@ burner_medium_get_CD_TEXT (BurnerMedium *medium,
 		g_free (priv->CD_TEXT_title);
 
 	if (!utf8_string) {
-		BURNER_MEDIA_LOG ("Charset convertion failed");
+		BURNER_MEDIA_LOG ("Charset conversion failed");
 		priv->CD_TEXT_title = g_strdup (string);
 	}
 	else

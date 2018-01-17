@@ -1436,7 +1436,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "나중에 다른 파일을 추가할 수 있도록 열어 놓기(_O)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "나중에 데이터를 더 추가할 수 있도록 허용합니다"
 
 #: ../libburner-burn/burner-drive-properties.c:751

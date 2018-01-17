@@ -1423,7 +1423,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "不关闭盘片以下次能追加刻录另外的文件(建议勾选)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "允许稍后向光盘中添加更多数据"
 
 #: ../libburner-burn/burner-drive-properties.c:751

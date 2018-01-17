@@ -289,7 +289,7 @@ burner_checksum_image_checksum_file_input (BurnerChecksumImage *self,
 	}
 
 	BURNER_JOB_LOG (self,
-			 "Starting checksuming file %s (size = %"G_GOFFSET_FORMAT")",
+			 "Starting checksumming file %s (size = %"G_GOFFSET_FORMAT")",
 			 path,
 			 priv->total);
 
@@ -637,7 +637,7 @@ burner_checksum_image_start (BurnerJob *job,
 
 	burner_job_get_action (job, &action);
 	if (action == BURNER_JOB_ACTION_SIZE) {
-		/* say we won't write to disc if we're just checksuming "live" */
+		/* say we won't write to disc if we're just checksumming "live" */
 		if (burner_job_get_fd_in (job, NULL) == BURNER_BURN_OK)
 			return BURNER_BURN_NOT_SUPPORTED;
 

@@ -1509,7 +1509,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "(_o) வட்டை திறந்துவிடு. பின்னால் மற்ற கோப்புகளை சேர்க்க உதவும்."
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "வடுக்கு பின்னால் மேலும் தரவை சேர்க்க அனுமதி"
 
 #: ../libburner-burn/burner-drive-properties.c:751

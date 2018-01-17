@@ -1441,7 +1441,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Leuskel ar gantenn _digor a-benn ouzhpennañ restroù all diwezhatoc'h"
 
 #: ../libburner-burn/burner-drive-properties.c:739
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Aotren da ouzhpennañ roadennoù all diwezhatoc'h war ar gantenn"
 
 #: ../libburner-burn/burner-drive-properties.c:759

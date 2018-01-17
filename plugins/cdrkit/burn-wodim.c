@@ -346,7 +346,7 @@ burner_wodim_stdout_read (BurnerProcess *process, const gchar *line)
 
 		burner_job_start_progress (BURNER_JOB (wodim), FALSE);
 	}
-	else if (sscanf (line, "Formating in progress: %d.%d %% done", &mb_written, &mb_total) == 2) {
+	else if (sscanf (line, "Formatting in progress: %d.%d %% done", &mb_written, &mb_total) == 2) {
 		burner_job_set_current_action (BURNER_JOB (process),
 						BURNER_BURN_ACTION_BLANKING,
 						_("Formatting disc"),

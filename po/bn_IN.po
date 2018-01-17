@@ -1525,7 +1525,7 @@ msgstr ""
 "পরে কোনো সময় অন্যান্য ফাইল যোগ করার উদ্দেশ্যে ডিস্কটি মুক্ত রাখা হবে (_o)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "ডিস্কের মধ্যে পরে কোনো সময় তথ্য পূরণ করার সুবিধা উপস্থিত রাখা হবে"
 
 #: ../libburner-burn/burner-drive-properties.c:751

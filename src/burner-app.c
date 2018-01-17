@@ -1623,7 +1623,7 @@ burner_app_open_uri_drive_detection (BurnerApp *app,
 			media = burner_medium_get_status (medium);
 			if (BURNER_MEDIUM_IS (media, BURNER_MEDIUM_BLANK)) {
 				/* This medium is blank so it rules out blanking
-				 * copying, checksuming. Open a data project. */
+				 * copying, checksumming. Open a data project. */
 				g_object_unref (file);
 				g_object_unref (drive);
 				return FALSE;

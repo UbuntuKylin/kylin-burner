@@ -1474,7 +1474,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "Utzi diskoa _irekia, aurrerago beste fitxategi batzuk gehitzeko"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "Utzi aurrerago diskoari datuak gehitzen"
 
 #: ../libburner-burn/burner-drive-properties.c:751

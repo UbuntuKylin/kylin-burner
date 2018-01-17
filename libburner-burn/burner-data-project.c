@@ -161,7 +161,7 @@ burner_data_project_virtual_sibling (BurnerDataProject *self,
 	}
 	else {
 		/* Remove the virtual node. This should never happens */
-		g_warning ("Virtual nodes could not be transfered");
+		g_warning ("Virtual nodes could not be transferred");
 	}
 
 	/* Just destroy the node as it has no other 
@@ -1414,7 +1414,7 @@ burner_data_project_remove_sibling (BurnerDataProject *self,
 		}
 		else {
 			/* Remove the virtual node. This should never happens */
-			g_warning ("Virtual nodes could not be transfered");
+			g_warning ("Virtual nodes could not be transferred");
 		}
 
 		/* Just destroy the node as it has no other 

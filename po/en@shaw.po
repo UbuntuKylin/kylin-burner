@@ -1415,7 +1415,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "𐑤𐑰𐑝 𐑞 𐑛𐑦𐑕𐑒 _𐑴𐑐𐑩𐑯 𐑑 𐑨𐑛 𐑳𐑞𐑼 𐑓𐑲𐑤𐑟 𐑤𐑱𐑑𐑼"
 
 #: ../libburner-burn/burner-drive-properties.c:739
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "𐑩𐑤𐑬 𐑑 𐑨𐑛 𐑥𐑹 𐑛𐑱𐑑𐑩 𐑑 𐑞 𐑛𐑦𐑕𐑒 𐑤𐑱𐑑𐑼"
 
 #: ../libburner-burn/burner-drive-properties.c:759

@@ -72,7 +72,7 @@ G_DEFINE_TYPE (BurnerBurnSession, burner_burn_session, G_TYPE_OBJECT);
  * @include: burner-session.h
  *
  * This object stores all parameters for all operations performed by #BurnerBurn such as
- * burning, blanking and checksuming. To have this object configured automatically see
+ * burning, blanking and checksumming. To have this object configured automatically see
  * #BurnerSessionCfg.
  **/
 

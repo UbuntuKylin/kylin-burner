@@ -382,7 +382,7 @@ msgstr "ཤུལ་ལས་ཡིག་སྣོད་གཞན་མི་ཚ
 
 #: ../src/burner-disc-option-dialog.c:251
 #: ../src/burner-disc-option-dialog.c:252
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "ཌིསིཀ་ལུ་ཤུལ་མ་གནས་སྡུད་མངམ་ཁ་སྐོང་འབད་ཆོག"
 
 #: ../src/burner-disc-option-dialog.c:254
@@ -428,7 +428,7 @@ msgstr "གནས་སྡུད་ཆིག་སྒྲིལ་ཞིབ་ད
 
 #: ../src/burner-disc-option-dialog.c:408
 #: ../src/burner-disc-option-dialog.c:409
-msgid "Allow to check the integrity of files on the disc"
+msgid "Allow one to check the integrity of files on the disc"
 msgstr "ཌིསིཀ་གུ་ཡིག་སྣོད་ཚུ་གི་ཆིག་སྒྲིལ་འདི་ཞིབ་དཔྱད་འབད་བཅུག"
 
 #: ../src/burner-disc-option-dialog.c:421

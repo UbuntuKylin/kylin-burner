@@ -1469,7 +1469,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "ਡਿਸਕ ਖੁੱਲ੍ਹੀ ਛੱਡੋ ਅਤੇ ਫਾਇਲਾਂ ਬਾਅਦ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ(_o)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "ਡਿਸਕ ਉੱਤੇ ਡਾਟਾ ਬਾਅਦ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਸਹਾਇਕ ਹੈ"
 
 #: ../libburner-burn/burner-drive-properties.c:751

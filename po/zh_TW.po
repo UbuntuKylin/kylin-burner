@@ -1417,7 +1417,7 @@ msgid "Leave the disc _open to add other files later"
 msgstr "不關閉光碟，以後可以寫入其他新檔案(_O)"
 
 #: ../libburner-burn/burner-drive-properties.c:731
-msgid "Allow to add more data to the disc later"
+msgid "Allow one to add more data to the disc later"
 msgstr "允許稍候增加更多資料到光碟"
 
 #: ../libburner-burn/burner-drive-properties.c:751
