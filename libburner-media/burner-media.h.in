@@ -91,7 +91,7 @@ typedef enum {
 /**
  * BurnerMedia:
  *
- * This enum allows to define all characteristics for a media (closed, writable, ...)
+ * This enum allows one to define all characteristics for a media (closed, writable, ...)
  * and identify all types of optical media.
  *
  */

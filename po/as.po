@@ -5445,7 +5445,7 @@ msgstr "উপলব্ধ সকলো বিকল্পসমূহ জান
 #~ msgid "Error reading video DVD (%s)"
 #~ msgstr "ভিডিঅ' DVD পঢ়োতে সমস্যা (%s)"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss সহায়ত css দ্বাৰা এনক্ৰিপ্ট কৰা ভিডিঅ' DVD পঢ়া সম্ভৱ হ'ব"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

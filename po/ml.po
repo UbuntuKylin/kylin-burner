@@ -5380,7 +5380,7 @@ msgstr "ലഭ്യമാകുന്ന ഉപാധികള്‍ എല്�
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss ശരിയായി ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "css എന്‍ക്രിപ്റ്റ് ചെയ്ത ഡിവിഡികള്‍ വായിക്കുന്നതിനായി Dvdcss അനുവദിക്കുന്നു"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

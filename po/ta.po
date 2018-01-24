@@ -5372,7 +5372,7 @@ msgstr ""
 #~ msgid "Use cdrecord to burn CDs and DVDs"
 #~ msgstr "சிடி மற்றும் டிவிடி களை எழுத சிடிரெகார்ட் ஐ பயன்படுத்துக"
 
-#~ msgid "dvdcss allows to CSS-encrypted video DVDs to be read"
+#~ msgid "dvdcss allows one to CSS-encrypted video DVDs to be read"
 #~ msgstr "டிவிடிசிஎஸ்எஸ், சிஎஸ்எஸ் குறியாக்கம் செய்த டிவிடிகளை படிக்க அனுமதிக்கிறது."
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

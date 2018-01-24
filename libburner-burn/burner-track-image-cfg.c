@@ -359,7 +359,7 @@ burner_track_image_cfg_get_forced_format (BurnerTrackImageCfg *track)
  * @track: a #BurnerTrackImageCfg
  * @format: a #BurnerImageFormat
  *
- * This function allows to prevents the identification of the format of the image.
+ * This function allows one to prevents the identification of the format of the image.
  * It does not cancel size retrieval.
  * If @format is BURNER_IMAGE_FORMAT_NONE then the format of the image
  * will be retrieved.

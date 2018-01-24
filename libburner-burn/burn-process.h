@@ -62,7 +62,7 @@ typedef struct {
 						 GError **error);
 
 	/* since burn-process.c doesn't know if it should call finished_session
-	 * of finished track this allows to override the default call which is
+	 * of finished track this allows one to override the default call which is
 	 * burner_job_finished_track */
 	BurnerBurnResult      	(*post)       	(BurnerJob *job);
 } BurnerProcessClass;
@@ -70,7 +70,7 @@ typedef struct {
 GType burner_process_get_type (void);
 
 /**
- * This function allows to set an error that is used if the process doesn't 
+ * This function allows one to set an error that is used if the process doesn't 
  * return 0.
  */
 void

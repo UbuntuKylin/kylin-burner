@@ -5384,7 +5384,7 @@ msgstr "ਉਪਲੱਬਧ ਸਭ ਚੋਣਾਂ ਵੇਖਣ ਲਈ \"%s --hel
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss ਨੂੰ ਠੀਕ ਢੰਗ ਨਾਲ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss ਤੁਹਾਨੂੰ css ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਵਿਡੀਓ DVD ਪੜ੍ਹਨ ਲਈ ਸਹਾਇਕ ਹੈ"
 
 #~| msgid "Dvd+rw-format erases and formats DVD+/-R(W)"

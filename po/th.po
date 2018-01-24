@@ -5337,7 +5337,7 @@ msgstr "กรุณาพิมพ์ \"%s --help\" เพื่อดูตั
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "ไม่สามารถโหลด libdvdcss ได้สำเร็จ"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "dvdcss ช่วยอ่านดีวีดีภาพยนตร์ที่เข้ารหัสลับแบบ css"
 
 #~ msgid "Dvd+rw-format erases and formats DVD+/-R(W)"

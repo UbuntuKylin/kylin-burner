@@ -658,7 +658,7 @@ burner_io_mount_enclosing_volume (BurnerIO *self,
 }
 
 /**
- * This part deals with symlinks, that allows to get unique filenames by
+ * This part deals with symlinks, that allows one to get unique filenames by
  * replacing any parent symlink by its target and check for recursive
  * symlinks
  */

@@ -5471,7 +5471,7 @@ msgstr ""
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss సరిగా లోడవలేకపోయింది"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss అనునది css ఎన్క్రిప్టెడ్ వీడియో DVDలను చదువుటకు అనుమతిస్తుంది"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

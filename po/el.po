@@ -5510,7 +5510,7 @@ msgstr ""
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Δεν ήταν δυνατή η κανονική φόρτωση του libdvdcss"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr ""
 #~ "Το dvdcss σας επιτρέπει να κάνετε ανάγνωση css κρυπτογραφημένων DVD βίντεο"
 

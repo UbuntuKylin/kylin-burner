@@ -282,7 +282,7 @@ burner_growisofs_set_mkisofs_argv (BurnerGrowisofs *growisofs,
 		g_ptr_array_add (argv, g_strdup ("3"));
 
 		/* NOTE: the following is specific to genisoimage
-		 * It allows to burn files over 4 GiB.
+		 * It allows one to burn files over 4 GiB.
 		 * The only problem here is which are we using? mkisofs or
 		 * genisoimage? That's what we determined first. */
 		if (priv->use_genisoimage)
@@ -383,7 +383,7 @@ burner_growisofs_set_mkisofs_argv (BurnerGrowisofs *growisofs,
 	
 		/* FIXME! -sort is an interesting option allowing to decide where the 
 		 * files are written on the disc and therefore to optimize later reading */
-		/* FIXME: -hidden --hidden-list -hide-jolie -hide-joliet-list will allow to hide
+		/* FIXME: -hidden --hidden-list -hide-jolie -hide-joliet-list will allow one to hide
 		 * some files when we will display the contents of a disc we will want to merge */
 		/* FIXME: support preparer publisher options */
 

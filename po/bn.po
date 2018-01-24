@@ -5273,7 +5273,7 @@ msgstr "ডিস্ক অনুলিপিকারক"
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss সঠিকভাবে লোড করা যাবেনা"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss css এনক্রিপ্টকৃত ভিডিও DVD পড়তে অনুমোদন করে"
 
 #~ msgid "Dvd+rw-format erases and formats DVD+/-R(W)"

@@ -5365,7 +5365,7 @@ msgstr "Por favor, digite \"%s --help\" para ver todas as opções disponíveis\
 #~ msgstr "Não foi possível carregar corretamente a libdvdcss"
 
 #, fuzzy
-#~ msgid "dvdcss allows to CSS-encrypted video DVDs to be read"
+#~ msgid "dvdcss allows one to CSS-encrypted video DVDs to be read"
 #~ msgstr "O dvdcss permite ler DVDs de vídeo criptografados com CSS"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

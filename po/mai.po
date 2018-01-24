@@ -3729,7 +3729,7 @@ msgid "Copying Video DVD"
 msgstr ""
 
 #: ../src/plugins/dvdcss/burn-dvdcss.c:667
-msgid "Dvdcss allows to read css encrypted video DVDs"
+msgid "Dvdcss allows one to read css encrypted video DVDs"
 msgstr ""
 
 #: ../src/plugins/growisofs/burn-dvd-rw-format.c:177
@@ -3857,7 +3857,7 @@ msgid "Normalize"
 msgstr "सामान्यीकृत करु"
 
 #: ../src/plugins/transcode/burn-normalize.c:591
-msgid "Normalize allows to set consistent sound levels between tracks"
+msgid "Normalize allows one to set consistent sound levels between tracks"
 msgstr ""
 
 #. Translators: This message is sent
@@ -4586,7 +4586,7 @@ msgid "Converting video file to MPEG2"
 msgstr ""
 
 #: ../src/plugins/transcode/burn-vob.c:1216
-msgid "Vob allows to transcode any video file to a format suitable for video DVDs"
+msgid "Vob allows one to transcode any video file to a format suitable for video DVDs"
 msgstr ""
 
 #: ../src/plugins/vcdimager/burn-vcdimager.c:474

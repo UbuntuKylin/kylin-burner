@@ -5292,7 +5292,7 @@ msgstr "請輸入「%s --help」來查看所有可用的選項\n"
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss 無法正確載入"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss 可以讀取 css 加密的影片 DVD"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"
@@ -5945,7 +5945,7 @@ msgstr "請輸入「%s --help」來查看所有可用的選項\n"
 #~ msgstr "這個對 CD 來說太大了"
 
 #~ msgid ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 #~ msgstr ""
 #~ "無法取得軌道的起始點。請確定這個媒體是可以寫入檔案的（也就是還沒有被關閉）"

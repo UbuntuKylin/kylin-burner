@@ -1053,7 +1053,7 @@ burner_wodim_set_argv_blank (BurnerWodim *wodim, GPtrArray *argv)
 		 * - full: to do a full formatting => problem only reformats what is not done yet
 		 * - background: formatting in the background => problem cannot/doesn't want to reformat a disc already formated
 		 * conclusion: we can only accept unformated media.
-		 * The following option allows to do it more quickly:
+		 * The following option allows one to do it more quickly:
 		 * g_ptr_array_add (argv, g_strdup ("formattype=background");
 		 */
 				

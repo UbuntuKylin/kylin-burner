@@ -5493,7 +5493,7 @@ msgstr "Por favor, digite \"%s --help\" para ver todas as opções disponíveis\
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "Não foi possível carregar corretamente a libdvdcss"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss permite ler DVDs encriptados com css"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"

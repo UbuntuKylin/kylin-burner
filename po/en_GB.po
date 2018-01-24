@@ -5369,7 +5369,7 @@ msgstr "Please type \"%s --help\" to see all available options\n"
 #~ msgid "Libdvdcss could not be loaded properly"
 #~ msgstr "libdvdcss could not be loaded properly"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "dvdcss allows CSS-encrypted video DVDs to be read"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"
@@ -6177,10 +6177,10 @@ msgstr "Please type \"%s --help\" to see all available options\n"
 #~ msgstr "The file is too large for a CD"
 
 #~ msgid ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 #~ msgstr ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 
 #~ msgid "genisoimage could not be found in the path"

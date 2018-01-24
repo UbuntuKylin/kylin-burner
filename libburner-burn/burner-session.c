@@ -613,7 +613,7 @@ burner_burn_session_get_size (BurnerBurnSession *session,
 		res = burner_track_get_size (track, &track_blocks, &track_bytes);
 
 		/* That way we get the size even if the track has not completed
-		 * what's it's doing which allows to show progress */
+		 * what's it's doing which allows one to show progress */
 		if (res != BURNER_BURN_OK && res != BURNER_BURN_NOT_READY)
 			continue;
 
@@ -1013,7 +1013,7 @@ burner_burn_session_get_output_format_real (BurnerBurnSession *self)
 }
 
 /**
- * This function allows to tell where we should write the image. Depending on
+ * This function allows one to tell where we should write the image. Depending on
  * the type of image it can be a toc (cue) or the path of the image (all others)
  */
 

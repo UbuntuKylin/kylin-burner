@@ -5311,7 +5311,7 @@ msgstr "Tast \"%s --help\" for at se alle tilgængelige valgmuligheder\n"
 #~ msgid "libdvdcss could not be loaded properly"
 #~ msgstr "Libdvdcss kunne ikke indlæses ordentligt"
 
-#~ msgid "dvdcss allows to CSS-encrypted video DVDs to be read"
+#~ msgid "dvdcss allows one to CSS-encrypted video DVDs to be read"
 #~ msgstr "Dvdcss tillader læsning af css-krypterede video-dvd'er"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"
@@ -6189,7 +6189,7 @@ msgstr "Tast \"%s --help\" for at se alle tilgængelige valgmuligheder\n"
 #~ msgstr "Filen er for stor til en cd"
 
 #~ msgid ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 #~ msgstr ""
 #~ "det mislykkedes at hente sporets startpunkt. Undersøg om mediet tillader "

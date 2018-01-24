@@ -243,7 +243,7 @@ burner_dvdcss_create_scrambled_sectors_map (BurnerDvdcss *self,
 {
 	GList *iter;
 
-	/* this allows to cache keys for encrypted files */
+	/* this allows one to cache keys for encrypted files */
 	for (iter = parent->specific.dir.children; iter; iter = iter->next) {
 		BurnerVolFile *file;
 

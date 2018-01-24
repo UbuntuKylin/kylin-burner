@@ -62,7 +62,7 @@ GTK_DOC_CHECK([1.12])
 
 dnl ***************** GNOME MACROS *****************************
 
-dnl This allows to set warnings
+dnl This allows one to set warnings
 GNOME_COMPILE_WARNINGS([maximum])
 GNOME_CXX_WARNINGS
 

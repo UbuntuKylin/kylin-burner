@@ -1912,7 +1912,7 @@ msgid "The file is too large for a CD"
 msgstr "སི་ཌི་ཅིག་གི་དོན་ལུ་ཡིག་སྣོད་དེ་ཆེ་དྲགས་པས་"
 
 #: ../src/burn-mkisofs.c:711
-msgid "failed to get the start point of the track. Make sure the media allow to add files (it is not closed)"
+msgid "failed to get the start point of the track. Make sure the media allow one to add files (it is not closed)"
 msgstr "གླུ་རིམ་དེ་གི་འགོ་བཙུགས་ས་ཚིགས་དེ་ལེན་ནི་ལུ་འཐུས་ཤོར་འབྱུང་ནུག བརྡ་ལམ་དེ་གིས་ཡིག་སྣོད་ཚུ་ཁ་སྐོང་བརྐྱབ་ཆོགཔ་ངེས་ཏིག་བཟོ།(འདི་ཁ་མ་བསྡམ་པར་ཡོད་)"
 
 #: ../src/burn-readcd.c:540

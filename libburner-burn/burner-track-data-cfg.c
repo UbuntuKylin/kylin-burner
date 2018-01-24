@@ -2921,7 +2921,7 @@ burner_track_data_cfg_session_loaded_cb (BurnerDataSession *session,
  * @new_track: a #BurnerTrackData
  *
  * Creates a new #BurnerTrackData (stored in @new_track) from the files contained in @track. The sum of their sizes
- * does not exceed @sectors. This allows to burn a tree on multiple discs. This function can be
+ * does not exceed @sectors. This allows one to burn a tree on multiple discs. This function can be
  * called repeatedly; in this case if some files were left out after the previous calls, the newly created BurnerTrackData
  * is created with all or part of the remaining files.
  *

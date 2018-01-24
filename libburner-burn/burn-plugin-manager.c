@@ -210,7 +210,7 @@ burner_plugin_manager_set_plugins_state (BurnerPluginManager *self)
 
 			active = FALSE;
 			for (i = 0; i < name_num; i++) {
-				/* This allows to be able to support the old way
+				/* This allows one to be able to support the old way
 				 * burner had to save which plugins should be
 				 * used */
 				if (!g_strcmp0 (burner_plugin_get_name (plugin), names [i])
@@ -259,7 +259,7 @@ burner_plugin_manager_plugin_list_changed_cb (GSettings *settings,
 #if 0
 
 /**
- * This function is only for debugging purpose. It allows to load plugins in a
+ * This function is only for debugging purpose. It allows one to load plugins in a
  * particular order which is useful since sometimes it triggers some new bugs.
  */
 

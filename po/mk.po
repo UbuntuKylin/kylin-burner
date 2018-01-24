@@ -4835,7 +4835,7 @@ msgid "Normalization"
 msgstr "Нормализација"
 
 #: ../plugins/transcode/burn-normalize.c:645
-#| msgid "Normalize allows to set consistent sound levels between tracks"
+#| msgid "Normalize allows one to set consistent sound levels between tracks"
 msgid "Sets consistent sound levels between tracks"
 msgstr "Поставува слични нивоа на звукот помеѓу датотеките"
 
@@ -4865,7 +4865,7 @@ msgstr "Го транскодирам „%s“"
 
 #: ../plugins/transcode/burn-transcode.c:1773
 #| msgid ""
-#| "Vob allows to transcode any video file to a format suitable for video DVDs"
+#| "Vob allows one to transcode any video file to a format suitable for video DVDs"
 msgid "Converts any song file into a format suitable for audio CDs"
 msgstr "Ги конвертира датотеките со песни во формат соодветен за аудио CD"
 
@@ -5190,7 +5190,7 @@ msgid "File Checksum"
 msgstr "Проверка на исправност на датотеки"
 
 #: ../plugins/checksum/burn-checksum-files.c:1466
-#| msgid "allows to check file integrities on a disc"
+#| msgid "allows one to check file integrities on a disc"
 msgid "Checks file integrities on a disc"
 msgstr "Ја проверува исправноста на датотеките на дискот"
 
@@ -5228,7 +5228,7 @@ msgid "Image Checksum"
 msgstr "Проверка на исправноста на сликите"
 
 #: ../plugins/checksum/burn-checksum-image.c:832
-#| msgid "allows to check data integrity on disc after it is burnt"
+#| msgid "allows one to check data integrity on disc after it is burnt"
 msgid "Checks disc integrity after it is burnt"
 msgstr "Прави проверка на исправнотса на датотеките на дискот откако ќе се сними"
 
@@ -5370,7 +5370,7 @@ msgstr "Конвертирам видео датотека во MPEG2"
 
 #: ../plugins/transcode/burn-vob.c:1367
 #| msgid ""
-#| "Vob allows to transcode any video file to a format suitable for video DVDs"
+#| "Vob allows one to transcode any video file to a format suitable for video DVDs"
 msgid "Converts any video file into a format suitable for video DVDs"
 msgstr "Ги претвора видео датотеките во формат соодветен за видео DVD"
 
@@ -6086,7 +6086,7 @@ msgstr "Креира слики од диск соодветни за SVCD"
 #~ msgid "The file is too large for a CD"
 #~ msgstr "Датотеката е преголема за на CD"
 #~ msgid ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 #~ msgstr ""
 #~ "не успеав да ја добијам почетната точка на траката. Осигурајте се дека "
@@ -6167,7 +6167,7 @@ msgstr "Креира слики од диск соодветни за SVCD"
 #~ msgstr "податоците не можат да бидат запишани во цевката (%i: %s)"
 #~ msgid "the data couldn't be written to the file (%i: %s)"
 #~ msgstr "податоците не можат да бидат запишани во датотеката (%i: %s)"
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss овозможува читање на DVD-ња енкриптирани со css"
 #~ msgid "Unhandled error, aborting"
 #~ msgstr "Грешка со која што не можам да се справам, прекинувам"
@@ -6209,7 +6209,7 @@ msgstr "Креира слики од диск соодветни за SVCD"
 #~ msgstr "не е пронајден диск"
 #~ msgid "Copying `%s` locally"
 #~ msgstr "Го копирам „%s“ локално"
-#~ msgid "local-track allows to burn files not stored locally"
+#~ msgid "local-track allows one to burn files not stored locally"
 #~ msgstr ""
 #~ "local-track дозволува снимање на датотеки кои не се зачувани локално"
 #~ msgid "source can't be created"

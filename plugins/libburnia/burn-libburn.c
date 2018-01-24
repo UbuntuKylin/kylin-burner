@@ -656,7 +656,7 @@ burner_libburn_start_erase (BurnerLibburn *self,
 
 		/* NOTE: for an unknown reason (to me)
 		 * libburn when minimally blanking a DVD-RW
-		 * will only allow to write to it with DAO 
+		 * will only allow one to write to it with DAO 
 		 * afterwards... */
 		burn_disc_erase (priv->ctx->drive, (flags & BURNER_BURN_FLAG_FAST_BLANK) != 0);
 		return BURNER_BURN_OK;

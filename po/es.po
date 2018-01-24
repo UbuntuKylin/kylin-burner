@@ -5468,7 +5468,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgid "Use cdrecord to burn CDs and DVDs"
 #~ msgstr "Usar cdrecord para grabar CD y DVD"
 
-#~ msgid "Dvdcss allows to read css encrypted video DVDs"
+#~ msgid "Dvdcss allows one to read css encrypted video DVDs"
 #~ msgstr "Dvdcss permite leer DVD de vídeo cifrados con css"
 
 #~ msgid "Dvd+rw-format blanks and formats DVD+/-R(W)"
@@ -6073,7 +6073,7 @@ msgstr "Escriba «%s --help» para ver todas las opciones disponibles\n"
 #~ msgstr "El archivo es demasiado grande para un CD"
 
 #~ msgid ""
-#~ "failed to get the start point of the track. Make sure the media allow to "
+#~ "failed to get the start point of the track. Make sure the media allow one to "
 #~ "add files (it is not closed)"
 #~ msgstr ""
 #~ "fallo al obtener el punto de inicio de la pista. Asegúrese que el medio "

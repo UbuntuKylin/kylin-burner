@@ -375,7 +375,7 @@ burner_player_image (BurnerPlayer *player)
 	}
 
 	/* image */
-	/* FIXME: this does not allow to preview remote files */
+	/* FIXME: this does not allow one to preview remote files */
 	path = g_filename_from_uri (player->priv->uri, NULL, NULL);
 	player->priv->pixbuf = gdk_pixbuf_new_from_file (path, &error);
 

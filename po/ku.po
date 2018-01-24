@@ -4231,7 +4231,7 @@ msgid "Copying Video DVD"
 msgstr "Jibergirtina DVDya Vîdyoyê"
 
 #: ../plugins/dvdcss/burn-dvdcss.c:665
-msgid "Dvdcss allows to read css encrypted video DVDs"
+msgid "Dvdcss allows one to read css encrypted video DVDs"
 msgstr ""
 
 #: ../plugins/growisofs/burn-dvd-rw-format.c:183
@@ -4354,7 +4354,7 @@ msgid "Normalize"
 msgstr "Asayî Bike"
 
 #: ../plugins/transcode/burn-normalize.c:595
-msgid "Normalize allows to set consistent sound levels between tracks"
+msgid "Normalize allows one to set consistent sound levels between tracks"
 msgstr ""
 
 #. Translators: This message is sent
@@ -4857,7 +4857,7 @@ msgstr ""
 
 #: ../plugins/transcode/burn-vob.c:1234
 msgid ""
-"Vob allows to transcode any video file to a format suitable for video DVDs"
+"Vob allows one to transcode any video file to a format suitable for video DVDs"
 msgstr ""
 
 #: ../plugins/vcdimager/burn-vcdimager.c:486

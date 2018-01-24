@@ -1179,7 +1179,7 @@ burner_job_error (BurnerJob *self, GError *error)
 /**
  * Used to retrieve config for a job
  * If the parameter is missing for the next 4 functions
- * it allows to test if they could be used
+ * it allows one to test if they could be used
  */
 
 BurnerBurnResult

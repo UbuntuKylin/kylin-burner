@@ -1077,7 +1077,7 @@ burner_drive_medium_gdrive_changed_cb (BurnerDrive *gdrive,
 		/* Since the drive was locked, it should
 		 * not be possible that the medium
 		 * actually changed.
-		 * This allows to avoid probing while
+		 * This allows one to avoid probing while
 		 * we are burning something.
 		 * Delay the probe until burner_drive_unlock ()
 		 * is called.  */
@@ -1127,7 +1127,7 @@ burner_drive_update_gdrive (BurnerDrive *drive,
 		/* Since the drive was locked, it should
 		 * not be possible that the medium
 		 * actually changed.
-		 * This allows to avoid probing while
+		 * This allows one to avoid probing while
 		 * we are burning something.
 		 * Delay the probe until burner_drive_unlock ()
 		 * is called.  */

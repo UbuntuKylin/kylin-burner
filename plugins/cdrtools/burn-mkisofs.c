@@ -348,7 +348,7 @@ burner_mkisofs_set_argv_image (BurnerMkisofs *mkisofs,
 	
 	/* FIXME! -sort is an interesting option allowing to decide where the 
 	* files are written on the disc and therefore to optimize later reading */
-	/* FIXME: -hidden --hidden-list -hide-jolie -hide-joliet-list will allow to hide
+	/* FIXME: -hidden --hidden-list -hide-jolie -hide-joliet-list will allow one to hide
 	* some files when we will display the contents of a disc we will want to merge */
 	/* FIXME: support preparer publisher options */
 
@@ -361,7 +361,7 @@ burner_mkisofs_set_argv_image (BurnerMkisofs *mkisofs,
 		burner_job_get_next_writable_address (BURNER_JOB (mkisofs), &next_wr_add);
 		if (last_session == -1 || next_wr_add == -1) {
 			g_free (videodir);
-			BURNER_JOB_LOG (mkisofs, "Failed to get the start point of the track. Make sure the media allow to add files (it is not closed)"); 
+			BURNER_JOB_LOG (mkisofs, "Failed to get the start point of the track. Make sure the media allow one to add files (it is not closed)"); 
 			g_set_error (error,
 				     BURNER_BURN_ERROR,
 				     BURNER_BURN_ERROR_GENERAL,
