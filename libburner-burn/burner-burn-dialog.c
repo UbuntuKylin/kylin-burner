@@ -423,7 +423,7 @@ burner_burn_dialog_update_info (BurnerBurnDialog *dialog,
 				header = g_strdup_printf (_("Burning data CD"));
 
 			gtk_image_set_from_icon_name (GTK_IMAGE (priv->image),
-						      "media-optical-data-new",
+						      "media-optical-data-new1",
 						      GTK_ICON_SIZE_DIALOG);
 		}
 		else if (burner_track_type_get_has_medium (input)) {
