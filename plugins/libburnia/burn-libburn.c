@@ -557,7 +557,7 @@ burner_libburn_start_record (BurnerLibburn *self,
 	BURNER_JOB_LOG (BURNER_JOB (self), "Setting dummy %i", (flags & BURNER_BURN_FLAG_DUMMY) != 0);
 
 	burner_job_get_rate (BURNER_JOB (self), &rate);
-	burn_drive_set_speed (priv->ctx->drive, rate, 0);
+	burn_drive_set_speed (priv->ctx->drive, 0, 0);
 
 	if (burn_precheck_write (opts, priv->ctx->disc, reason, 0) < 1) {
 		BURNER_JOB_LOG (BURNER_JOB (self), "Precheck failed %s", reason);
@@ -702,7 +702,7 @@ burner_libburn_start_erase (BurnerLibburn *self,
 	burn_write_opts_set_underrun_proof (opts, 1);
 	burn_write_opts_set_simulate (opts, (flags & BURNER_BURN_FLAG_DUMMY));
 
-	burn_drive_set_speed (priv->ctx->drive, burn_drive_get_write_speed (priv->ctx->drive), 0);
+	burn_drive_set_speed (priv->ctx->drive, 0, 0);
 	burn_write_opts_set_write_type (opts,
 					BURN_WRITE_TAO,
 					BURN_BLOCK_MODE1);
