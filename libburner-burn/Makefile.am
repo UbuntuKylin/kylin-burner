@@ -224,7 +224,7 @@ typelibsdir = $(INTROSPECTION_TYPELIBDIR)
 typelibs_DATA = BurnerBurn-@TYPELIB_VERSION@.typelib
 
 BurnerBurn-@TYPELIB_VERSION@.gir: libburner-burn3.la $(INTROSPECTION_SCANNER)
-	$(INTROSPECTION_SCANNER) -v --namespace=BurnerBurn --nsversion=1.0 \
+	$(INTROSPECTION_SCANNER) -v --namespace=BurnerBurn --nsversion=3.1 \
 	    -I$(top_srcdir)/libburner-media	\
 	    -I$(top_builddir)/libburner-media	\
 	    -I$(top_srcdir)/libburner-burn		\

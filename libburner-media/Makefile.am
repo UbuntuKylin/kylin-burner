@@ -158,7 +158,7 @@ typelibsdir = $(INTROSPECTION_TYPELIBDIR)
 typelibs_DATA = BurnerMedia-@TYPELIB_VERSION@.typelib
 
 BurnerMedia-@TYPELIB_VERSION@.gir: libburner-media3.la $(INTROSPECTION_SCANNER)
-	$(INTROSPECTION_SCANNER) -v --namespace=BurnerMedia --nsversion=1.0 \
+	$(INTROSPECTION_SCANNER) -v --namespace=BurnerMedia --nsversion=3.1 \
             --include=Gtk-3.0 \
 	    -I$(top_srcdir)/libburner-media	\
 	    --library=burner-media3 \
