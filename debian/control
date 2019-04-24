@@ -1,0 +1,166 @@
+Source: kylin-burner
+Section: gnome
+Priority: optional
+Maintainer: Kylin Team <team+kylin@tracker.debian.org>
+Uploaders: wenbo <wenbo@kylinos.cn>,
+           handsome_feng <jianfengli@ubuntukylin.com>
+Build-Depends: debhelper (>= 11),
+               gnome-common,
+               gnome-pkg-tools (>= 0.7),
+               yelp-tools,
+               gtk-doc-tools (>= 1.12),
+               pkg-config,
+               libcam-dev [kfreebsd-any],
+               libglib2.0-dev (>= 2.29.14),
+               libgstreamer1.0-dev (>= 0.11.92),
+               libgstreamer-plugins-base1.0-dev (>= 0.11.92),
+               libxml2-dev (>= 2.6.0),
+               libsm-dev,
+               libice-dev,
+               libgtk-3-dev (>= 3.0.0),
+               libnotify-dev (>= 0.6.1),
+               libcanberra-dev (>= 0.1),
+               libcanberra-gtk3-dev (>= 0.1),
+               libnautilus-extension-dev (>= 3.21.92-3~),
+               libburn-dev (>= 0.4.0),
+               libisofs-dev (>= 0.6.4),
+               libtracker-sparql-2.0-dev (>= 1.0),
+               libtotem-plparser-dev (>= 2.32),
+               libappindicator3-dev (>= 0.0.7),
+               gobject-introspection (>= 0.6.3),
+               libgirepository1.0-dev (>= 0.6.3),
+               intltool (>= 0.50),
+               libglib2.0-doc,
+               libgtk-3-doc
+Standards-Version: 4.1.5
+Homepage: https://www.ukui.org
+Vcs-Git: https://github.com/ukui/kylin-burner.git
+Vcs-Browser: https://github.com/ukui/kylin-burner
+
+Package: kylin-burner
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         gstreamer1.0-plugins-base (>= 0.11.92),
+         gvfs,
+         libburner-media3-1 (= ${binary:Version}),
+         burner-common (= ${source:Version})
+Recommends: yelp,
+            burner-cdrkit,
+            nautilus-extension-burner
+Suggests: vcdimager,
+          libdvdcss2,
+          tracker
+Description: CD/DVD burning application for UKUI
+ Burner is a simple application to burn, copy and erase CD and DVD
+ media: audio, video or data. It features among other things:
+  * On-the-fly burning
+  * Multisession support
+  * On-the-fly conversion of music playlists in all formats supported by
+    GStreamer
+ .
+ This package contains the standalone app.
+ .
+ The following packages, if installed, will provide Burner with added
+ functionality:
+  * cdrdao to burn combined data/audio CDs and for byte-to-byte copy
+  * GStreamer backends to support more audio formats
+  * vcdimager to create VCDs or SVCDs
+  * libdvdcss2 to copy encrypted DVDs
+  * tracker to search for video, audio, image and document files
+
+Package: burner-common
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Common files for the Burner CD burning application and library
+ Burner is a simple application to burn, copy and erase CD and DVD media.
+ .
+ This package contains the common files and translations.
+
+Package: burner-cdrkit
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libburner-media3-1 (= ${binary:Version}),
+         genisoimage,
+         growisofs,
+         wodim
+Recommends: dvdauthor
+Suggests: readom
+Description: cdrkit extensions for the Burner burning application
+ Burner is a simple application to burn, copy and erase CD and DVD
+ media.
+ .
+ This package contains extensions for Burner, based on the genisoimage,
+ growisofs, wodim, readom and dvdauthor programs. They are only needed
+ for the following operations in Burner:
+  * Audio CD burning with CD-Text information
+  * Video DVD creation
+
+Package: libburner-media3-1
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         burner-common (= ${source:Version}),
+         dvd+rw-tools,
+Recommends: gstreamer1.0-plugins-good,
+            cdrdao (>= 1:1.2.3)
+Suggests: gstreamer1.0-plugins-bad,
+          gstreamer1.0-fluendo-mp3,
+          gstreamer1.0-plugins-ugly,
+Description: CD/DVD burning library for UKUI - runtime
+ Libburner is a simple library to burn, copy and erase CD and DVD
+ media.
+ .
+ This package contains the shared library.
+
+Package: libburner-media3-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: libburner-media3-1 (= ${binary:Version}),
+         gir1.2-burner-3.1 (= ${binary:Version}),
+         libglib2.0-dev,
+         libgtk-3-dev,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: CD/DVD burning library for GNOME - development
+ Libburner is a simple library to burn, copy and erase CD and DVD
+ media.
+ .
+ This package contains the development headers and API documentation.
+
+Package: gir1.2-burner-3.1
+Architecture: any
+Multi-Arch: same
+Section: introspection
+Depends: ${gir:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: CD/DVD burning library for UKUI - GObject introspection data
+ This package contains introspection data for the GNOME CD/DVD burning library
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
+
+Package: nautilus-extension-burner
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         gvfs,
+         libburner-media3-1 (= ${binary:Version}),
+Enhances: nautilus
+Description: CD/DVD burning integration for Nautilus
+ Burner is a simple application to burn, copy and erase CD and DVD
+ media: audio, video or data. It features among other things:
+  * On-the-fly burning
+  * Multisession support
+  * On-the-fly conversion of music playlists in all formats supported by
+    GStreamer
+ .
+ This package contains the extension for Nautilus, the GNOME Files app.

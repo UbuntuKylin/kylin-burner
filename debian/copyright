@@ -1,0 +1,406 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: kylin-burner
+Upstream-Contact: wenbo <wenbo@kylinos.cn>
+Source: https://github.com/ukui/kylin-burner
+
+Files: AUTHORS
+       COPYING
+       ChangeLog
+       INSTALL
+       MAINTAINERS
+       Makefile.am
+       NEWS
+       README
+       autogen.sh
+       configure.ac
+       data/*
+       debian/*
+       docs/*
+       gtk-doc.make
+       libburner-burn/Makefile.am
+       libburner-burn/burner-burn-lib.h.in
+       libburner-burn/libburner-marshal.list
+       libburner-utils/Makefile.am
+       libburner-burn3.pc.in
+       libburner-media3.pc.in
+       nautilus/Makefile.am
+       nautilus/burner-nautilus.desktop.in.in
+       src/Makefile.am
+       src/burner-marshal.list
+       src/style.css
+       po/*
+Copyright: 2018, wenbo <wenbo@kylnos.cn>
+License: GPL-2+
+Comment:
+ Using license from COPYING file.
+
+Files: libburner-burn/burner-session.c
+       libburner-burn/burner-status-dialog.c
+       libburner-burn/burner-burn-dialog.h
+       libburner-burn/burner-sum-dialog.c
+       libburner-burn/burner-customize-title.c
+       libburner-burn/burner-tool-dialog.c
+       libburner-burn/burner-burn-options.c
+       libburner-burn/burner-customize-title.h
+       libburner-burn/burner-drive-properties.c
+       libburner-burn/burner-medium-properties.c
+       libburner-burn/burner-src-image.c
+       libburner-burn/burner-blank-dialog.c
+       libburner-burn/burner-caps-session.c
+       src/burner-split-dialog.c
+       src/burner-file-filtered.c
+       src/burner-project-type-chooser.h
+       src/burner-project.h
+       src/burner-project-manager.h
+       src/burner-playlist.c
+       src/burner-app.h
+       src/burner-filter-option.c
+       src/burner-multi-song-props.c
+       src/burner-project-manager.c
+       src/burner-audio-disc.c
+       src/burner-app.c
+       src/burner-song-properties.c
+       src/burner-project-name.c
+       src/burner-project.c
+       src/burner-project-type-chooser.c
+       src/burner-video-disc.c
+       src/burner-layout.c
+       src/burner-plugin-manager-ui.c
+       src/main.c
+       src/burner-project-parse.h
+       src/burner-data-disc.c
+       libburner-utils/burner-misc.c
+       libburner-utils/burner-jacket-edit.c
+Copyright: 2017,Tianjin KYLIN Information Technology Co., Ltd.
+           2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: libburner-burn/burn-dbus.h
+       libburner-burn/burn-dbus.c
+       libburner-utils/burner-pk.c
+       libburner-utils/burner-pk.h
+       src/burner-eject-dialog.c
+       src/burner-eject-dialog.h
+Copyright: 2008 Luis Medinas <lmedinas@gmail.com>
+           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: src/burner-cli.c
+Copyright: 2017,Tianjin KYLIN Information Technology Co., Ltd.
+           2005-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: nautilus/nautilus-burn-bar.c
+Copyright: 2005 William Jon McCann <mccann@jhu.edu>
+           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: nautilus/nautilus-burn-bar.h
+Copyright: 2005 William Jon McCann <mccann@jhu.edu>
+License: GPL-2+
+
+Files: nautilus/nautilus-burn-extension.c
+Copyright: 2003 Novell, Inc.
+           2003-2004 Red Hat, Inc.
+           2005 William Jon McCann <mccann@jhu.edu>
+           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: libburner-burn/burner-app-indicator.h
+       libburner-burn/burner-app-indicator.c
+Copyright: 2010 Canonical
+License: GPL-2+
+
+Files: libburner-burn/burner-burn-dialog.c
+Copyright: 2010 Canonical
+           2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
+           2017,Tianjin KYLIN Information Technology Co., Ltd.
+License: GPL-2+
+
+Files: src/eggtreemultidnd.c
+       src/eggtreemultidnd.h
+Copyright: 2001  Red Hat, Inc.
+License: LGPL-2+
+
+Files: src/burner-split-dialog.h
+       src/burner-plugin-option.h
+       src/burner-time-button.c
+       src/burner-preview.c
+       src/burner-time-button.h
+       src/burner-pref.c
+       src/burner-plugin-option.c
+       src/burner-preview.h
+       src/burner-data-disc.h
+       src/burner-pref.h
+Copyright: 2007-2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: src/burner-setting.c
+       src/burner-setting.h
+Copyright: 2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: LGPL-3+
+
+Files: src/burner-search-tracker.c
+       src/burner-search-tracker.h
+       src/burner-song-control.h
+       src/burner-song-control.c
+Copyright: 2009-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-3+
+
+Files: src/burner-drive-settings.c
+       src/burner-drive-settings.h
+Copyright: 2005-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: src/baobab-cell-renderer-progress.h
+       src/baobab-cell-renderer-progress.c
+Copyright: 2006 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: LGPL-2+
+
+Files: plugins/*
+       libburner-media/*
+       libburner-utils/burner-metadata.c
+       libburner-utils/burner-jacket-font.c
+       libburner-utils/burner-notify.h
+       libburner-utils/burner-notify.c
+       libburner-utils/burner-tool-color-picker.c
+       libburner-utils/burner-disc-message.h
+       libburner-utils/burner-jacket-view.c
+       libburner-utils/burner-io.h
+       libburner-utils/burner-tool-color-picker.h
+       libburner-utils/burner-jacket-view.h
+       libburner-utils/burner-jacket-background.c
+       libburner-utils/burner-jacket-font.h
+       libburner-utils/burner-jacket-buffer.c
+       libburner-utils/burner-disc-message.c
+       libburner-utils/burner-jacket-background.h
+       libburner-utils/burner-jacket-buffer.h
+       libburner-utils/burner-misc.h
+       libburner-utils/burner-async-task-manager.h
+       libburner-utils/burner-async-task-manager.c
+       libburner-utils/burner-metadata.h
+       libburner-utils/burner-io.c
+       libburner-utils/burner-jacket-edit.h
+       src/burner-cli.h
+       src/burner-search-engine.c
+       src/burner-rename.c
+       src/burner-utils.c
+       src/burner-filter-option.h
+       src/burner-multi-song-props.h
+       src/burner-video-disc.h
+       src/burner-rename.h
+       src/burner-layout-object.c
+       src/burner-project-name.h
+       src/burner-search-engine.h
+       src/burner-uri-container.c
+       src/burner-playlist.h
+       src/burner-utils.h
+       src/burner-layout-object.h
+       src/burner-song-properties.h
+       src/burner-file-chooser.h
+       src/burner-uri-container.h
+       src/burner-project-parse.c
+       src/burner-video-tree-model.h
+       src/burner-multi-dnd.h
+       src/burner-multi-dnd.c
+       src/burner-file-chooser.c
+       src/burner-player.h
+       src/burner-layout.h
+       src/burner-player-bacon.c
+       src/burner-plugin-manager-ui.h
+       src/burner-audio-disc.h
+       src/burner-player-bacon.h
+       src/burner-disc.h
+       src/burner-file-filtered.h
+       src/burner-disc.c
+       src/burner-player.c
+       src/burner-video-tree-model.c
+       libburner-burn/burn-debug.c
+       libburner-burn/burner-track-data-cfg.h
+       libburner-burn/burner-blank-dialog.h
+       libburner-burn/burner-image-type-chooser.h
+       libburner-burn/burner-filtered-uri.c
+       libburner-burn/burner-track-image-cfg.h
+       libburner-burn/burner-session-helper.h
+       libburner-burn/burn-task.h
+       libburner-burn/burn-caps.c
+       libburner-burn/burn-plugin-manager.c
+       libburner-burn/burner-track-disc.h
+       libburner-burn/burner-src-selection.c
+       libburner-burn/burner-progress.h
+       libburner-burn/burner-session-span.h
+       libburner-burn/burner-track-disc.c
+       libburner-burn/burn-debug.h
+       libburner-burn/burner-caps-burn.h
+       libburner-burn/burner-file-monitor.c
+       libburner-burn/burn-mkisofs-base.h
+       libburner-burn/burner-track-stream.c
+       libburner-burn/burner-image-properties.h
+       libburner-burn/burner-src-image.h
+       libburner-burn/burner-status.h
+       libburner-burn/burner-track.c
+       libburner-burn/burner-enums.h
+       libburner-burn/burner-tool-dialog.h
+       libburner-burn/burner-filtered-uri.h
+       libburner-burn/burn-image-format.h
+       libburner-burn/burner-data-project.h
+       libburner-burn/burner-image-type-chooser.c
+       libburner-burn/burn-task-ctx.h
+       libburner-burn/burn-task.c
+       libburner-burn/burner-data-vfs.c
+       libburner-burn/burner-progress.c
+       libburner-burn/burner-track-stream-cfg.h
+       libburner-burn/burner-medium-properties.h
+       libburner-burn/burn-image-format.c
+       libburner-burn/burner-status-dialog.h
+       libburner-burn/burner-dest-selection.h
+       libburner-burn/burner-data-tree-model.c
+       libburner-burn/burner-cover.c
+       libburner-burn/burner-track.h
+       libburner-burn/burner-session-cfg.c
+       libburner-burn/burner-track-data.c
+       libburner-burn/burner-track-image-cfg.c
+       libburner-burn/burner-drive-properties.h
+       libburner-burn/burner-burn-options.h
+       libburner-burn/burner-video-options.c
+       libburner-burn/burner-file-node.c
+       libburner-burn/burner-caps-plugin.c
+       libburner-burn/burner-track-data-cfg.c
+       libburner-burn/burner-tags.h
+       libburner-burn/burn-task-ctx.c
+       libburner-burn/burn-plugin.c
+       libburner-burn/burner-data-tree-model.h
+       libburner-burn/burn-process.c
+       libburner-burn/burner-data-session.h
+       libburner-burn/burn-basics.c
+       libburner-burn/burner-status.c
+       libburner-burn/burner-caps-burn.c
+       libburner-burn/burner-plugin-information.h
+       libburner-burn/burn-caps.h
+       libburner-burn/burner-burn.h
+       libburner-burn/burner-dest-selection.c
+       libburner-burn/burner-session-cfg.h
+       libburner-burn/burner-error.h
+       libburner-burn/burner-track-image.c
+       libburner-burn/burner-data-project.c
+       libburner-burn/burner-file-node.h
+       libburner-burn/burn-task-item.h
+       libburner-burn/burner-session.h
+       libburner-burn/burner-image-properties.c
+       libburner-burn/burner-plugin-registration.h
+       libburner-burn/burn-process.h
+       libburner-burn/burn-job.h
+       libburner-burn/burner-session-span.c
+       libburner-burn/burner-xfer.c
+       libburner-burn/burner-file-monitor.h
+       libburner-burn/burner-track-type-private.h
+       libburner-burn/burn-mkisofs-base.c
+       libburner-burn/burner-track-type.h
+       libburner-burn/burner-burn.c
+       libburner-burn/burn-task-item.c
+       libburner-burn/burner-track-stream-cfg.c
+       libburner-burn/burner-plugin-private.h
+       libburner-burn/burner-data-vfs.h
+       libburner-burn/burner-track-type.c
+       libburner-burn/burner-plugin.h
+       libburner-burn/burner-sum-dialog.h
+       libburner-burn/burner-cover.h
+       libburner-burn/burner-track-stream.h
+       libburner-burn/burner-xfer.h
+       libburner-burn/burn-job.c
+       libburner-burn/burn-plugin-manager.h
+       libburner-burn/burner-src-selection.h
+       libburner-burn/burn-basics.h
+       libburner-burn/burner-track-data.h
+       libburner-burn/burner-track-image.h
+       libburner-burn/burner-video-options.h
+       libburner-burn/burner-data-session.c
+       libburner-burn/burner-tool-dialog-private.h
+Copyright: 2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
+License: GPL-2+
+
+Files: help/*
+Copyright: 2008-2012, Free Software Foundation Inc.
+           2012, Matīss Jānis Āboltiņš, Rūdolfs Mazurs
+           2011, Swecha Telugu Localisation Team <localization@swecha.net>
+           2009,  Krasimir Chonov <mk2616@abv.bg>
+License: GFDL-1.1+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Genaral Public License for more details.
+ .
+ You should have received a copy og the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ .
+ You should have received a copy of the GNU Library General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU Library General
+ Public License version 2 can be found in "/usr/share/common-licenses/LGPL-2".
+
+License: GPL-3+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Genaral Public License for more details.
+ .
+ You should have received a copy og the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: LGPL-3+
+ This package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 3 of the License, or (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+License: GFDL-1.1+
+ Permission is granted to copy, distribute and/or modify this
+ document under the terms of the GNU Free Documentation
+ License (GFDL), Version 1.1 or any later version published
+ by the Free Software Foundation with no Invariant Sections,
+ no Front-Cover Texts, and no Back-Cover Texts.
+ .
+ On Debian systems, the complete text of the GNU Free Documentation License
+ version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".

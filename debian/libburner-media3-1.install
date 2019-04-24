@@ -1,0 +1,14 @@
+usr/lib/*/*.so.*
+usr/lib/*/burner*/plugins/libburner-checksum.so
+usr/lib/*/burner*/plugins/libburner-audio2cue.so
+usr/lib/*/burner*/plugins/libburner-normalize.so
+usr/lib/*/burner*/plugins/libburner-dvdrwformat.so
+usr/lib/*/burner*/plugins/libburner-dvdcss.so
+usr/lib/*/burner*/plugins/libburner-burn-uri.so
+usr/lib/*/burner*/plugins/libburner-libburn.so
+usr/lib/*/burner*/plugins/libburner-checksum-file.so
+usr/lib/*/burner*/plugins/libburner-transcode.so
+usr/lib/*/burner*/plugins/libburner-local-track.so
+usr/lib/*/burner*/plugins/libburner-cdrdao.so
+usr/lib/*/burner*/plugins/libburner-libisofs.so
+usr/lib/*/burner*/plugins/libburner-vcdimager.so

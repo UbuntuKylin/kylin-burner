@@ -1,0 +1,6 @@
+usr/lib/*/burner*/plugins/libburner-dvdauthor.so
+usr/lib/*/burner*/plugins/libburner-vob.so
+usr/lib/*/burner*/plugins/libburner-genisoimage.so
+usr/lib/*/burner*/plugins/libburner-wodim.so
+usr/lib/*/burner*/plugins/libburner-readom.so
+usr/lib/*/burner*/plugins/libburner-growisofs.so
