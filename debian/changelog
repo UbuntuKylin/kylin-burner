@@ -6,8 +6,11 @@ kylin-burner (3.0.7-1) unstable; urgency=medium
     - Use debhelper-compat, bump to compat level version 12.
   * debian/control:
     - Bump standards-version to 4.4.1. No changes needed.
+    - Add Rules-Requires-Root: no.
   * debian/rules:
     - Remove enable-unity from dh_auto_configure.
+  * debian/copyright:
+    - Remove COPYING.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 05 Dec 2019 16:55:27 +0800
 
