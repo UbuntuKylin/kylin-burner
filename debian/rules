@@ -25,7 +25,6 @@ override_dh_auto_configure:
 		--disable-cdrtools \
 		--disable-caches \
 		--enable-search \
-		--enable-unity \
 		--enable-introspection \
 		--enable-gtk-doc \
 		$(CONFFLAGS)

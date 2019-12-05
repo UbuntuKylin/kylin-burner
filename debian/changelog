@@ -1,3 +1,16 @@
+kylin-burner (3.0.7-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fix build error with gtk-doc 1.32. (Closes: #939953)
+  * debian/{control,compat}
+    - Use debhelper-compat, bump to compat level version 12.
+  * debian/control:
+    - Bump standards-version to 4.4.1. No changes needed.
+  * debian/rules:
+    - Remove enable-unity from dh_auto_configure.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 05 Dec 2019 16:55:27 +0800
+
 kylin-burner (3.0.6-1) unstable; urgency=medium
 
   * Initial release. (Closes: #904003)

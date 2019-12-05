@@ -4,7 +4,6 @@ Upstream-Contact: wenbo <wenbo@kylinos.cn>
 Source: https://github.com/ukui/kylin-burner
 
 Files: AUTHORS
-       COPYING
        ChangeLog
        INSTALL
        MAINTAINERS
