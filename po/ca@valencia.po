@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: burner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-09 00:29+0200\n"
+"POT-Creation-Date: 2019-12-14 10:36+0800\n"
 "PO-Revision-Date: 2014-03-01 16:57+0100\n"
 "Last-Translator: Pau Iranzo <paugnu@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -24,9 +24,9 @@ msgstr ""
 
 #: ../data/burner.appdata.xml.in.h:1
 msgid ""
-"Burner is a application to burn CD/DVD for the GNOME Desktop. It is "
-"designed to be as simple as possible and has some unique features to enable "
-"users to create their discs easily and quickly."
+"Burner is a application to burn CD/DVD for the GNOME Desktop. It is designed "
+"to be as simple as possible and has some unique features to enable users to "
+"create their discs easily and quickly."
 msgstr ""
 "El Burner és una aplicació per enregistrar CD/DVD per a l'escriptori GNOME. "
 "Està dissenyat per ser senzill i té característiques úniques per permetre "
@@ -44,7 +44,12 @@ msgstr ""
 "els discos arrossegant i deixant anar fitxers des d'altres aplicacions o "
 "dispositius remots compartits."
 
-#: ../data/burner.desktop.in.in.h:1
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — New Audio Disc Project"));
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — Disc Copy"));
+#: ../data/burner.desktop.in.in.h:1 ../src/burner-app.c:2030
+#: ../src/burner-project-manager.c:587 ../src/burner-project-manager.c:602
+#: ../src/burner-project-manager.c:617 ../src/burner-project-manager.c:631
+#: ../src/burner-project-manager.c:642 ../src/burner-project-manager.c:675
 msgid "Burner"
 msgstr "Burner"
 
@@ -71,14 +76,6 @@ msgstr "Obri una finestra nova"
 #: ../data/burner.desktop.in.in.h:7
 msgid "Burn an Image File"
 msgstr "Enregistra un fitxer d'imatge"
-
-#: ../data/burner.desktop.in.in.h:8
-msgid "Create an Audio Project"
-msgstr "Crea un projecte d'àudio"
-
-#: ../data/burner.desktop.in.in.h:9
-msgid "Create a Video Project"
-msgstr "Crea un projecte de vídeo"
 
 #: ../data/mime/burner.xml.in.h:1
 msgid "Burner project file"
@@ -249,8 +246,8 @@ msgstr "Indica si el Burner ha de filtrar els enllaços simbòlics trencats"
 
 #: ../data/org.gnome.burner.gschema.xml.h:29
 msgid ""
-"Should burner filter broken symbolic links. Set to true, burner will "
-"filter broken symbolic links."
+"Should burner filter broken symbolic links. Set to true, burner will filter "
+"broken symbolic links."
 msgstr ""
 "Indica si el Burner ha de filtrar els enllaços simbòlics trencats. Si "
 "s'estableix a «True» (cert), el Burner els filtrarà."
@@ -296,42 +293,75 @@ msgstr ""
 "Este valor representa la velocitat que es va utilitzar per últim cop en este "
 "context."
 
-#: ../libburner-burn/burner-blank-dialog.c:222
+#: ../libburner-burn/burner-app-indicator.c:77 ../src/burner-audio-disc.c:157
+#: ../src/burner-data-disc.c:124 ../src/burner-video-disc.c:102
+msgid "Menu"
+msgstr "Menú"
+
+#: ../libburner-burn/burner-app-indicator.c:79
+#, fuzzy
+msgid "Cancel ongoing burning"
+msgstr "_Cancel·la l'enregistrament"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show _Dialog"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show dialog"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:256
+#, c-format
+msgid "%s, %d%% done, %s remaining"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:263
+#, c-format
+msgid "%s, %d%% done"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:273
+#, fuzzy, c-format
+msgid "Burner Disc Burner: %s"
+msgstr "Enregistrador de discs Burner"
+
+#: ../libburner-burn/burner-blank-dialog.c:224
 msgid "Error while blanking."
 msgstr "S'ha produït un error en esborrar."
 
-#: ../libburner-burn/burner-blank-dialog.c:227
-#: ../libburner-burn/burner-blank-dialog.c:272
+#: ../libburner-burn/burner-blank-dialog.c:230
+#: ../libburner-burn/burner-blank-dialog.c:277
 msgid "Blank _Again"
 msgstr "Esborra _de nou"
 
-#: ../libburner-burn/burner-blank-dialog.c:244
+#: ../libburner-burn/burner-blank-dialog.c:247
 msgid "Unknown error."
 msgstr "Error desconegut."
 
-#: ../libburner-burn/burner-blank-dialog.c:264
-#: ../libburner-burn/burner-blank-dialog.c:288
+#: ../libburner-burn/burner-blank-dialog.c:268
+#: ../libburner-burn/burner-blank-dialog.c:293
 msgid "The disc was successfully blanked."
 msgstr "El disc s'ha esborrat correctament."
 
-#: ../libburner-burn/burner-blank-dialog.c:270
+#: ../libburner-burn/burner-blank-dialog.c:275
 msgid "The disc is ready for use."
 msgstr "El disc és llest per ser utilitzat."
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-blank-dialog.c:371
+#: ../libburner-burn/burner-blank-dialog.c:377
 msgid "_Blank"
 msgstr "_Esborra"
 
-#: ../libburner-burn/burner-blank-dialog.c:402
+#: ../libburner-burn/burner-blank-dialog.c:408
 msgid "_Fast blanking"
 msgstr "Esborrament _ràpid"
 
-#: ../libburner-burn/burner-blank-dialog.c:403
+#: ../libburner-burn/burner-blank-dialog.c:409
 msgid "Activate fast blanking, as opposed to a longer, thorough blanking"
 msgstr "Activa l'esborrament ràpid en comptes d'un esborrament lent"
 
-#: ../libburner-burn/burner-blank-dialog.c:433
+#: ../libburner-burn/burner-blank-dialog.c:439
 msgid "Disc Blanking"
 msgstr "Esborrament del disc"
 
@@ -341,10 +371,10 @@ msgstr "S'està enregistrant el CD/DVD"
 
 #: ../libburner-burn/burner-burn.c:331
 #: ../libburner-burn/burner-data-session.c:123
-#: ../libburner-burn/burner-tool-dialog.c:89
-#: ../libburner-media/scsi-error.c:47 ../plugins/cdrdao/burn-cdrdao.c:243
-#: ../plugins/cdrkit/burn-readom.c:110 ../plugins/cdrkit/burn-wodim.c:135
-#: ../plugins/cdrkit/burn-wodim.c:144 ../plugins/cdrtools/burn-cdrecord.c:135
+#: ../libburner-burn/burner-tool-dialog.c:91 ../libburner-media/scsi-error.c:47
+#: ../plugins/cdrdao/burn-cdrdao.c:243 ../plugins/cdrkit/burn-readom.c:110
+#: ../plugins/cdrkit/burn-wodim.c:135 ../plugins/cdrkit/burn-wodim.c:144
+#: ../plugins/cdrtools/burn-cdrecord.c:135
 #: ../plugins/cdrtools/burn-cdrecord.c:144
 #: ../plugins/cdrtools/burn-readcd.c:111
 #: ../plugins/growisofs/burn-dvd-rw-format.c:84
@@ -355,8 +385,8 @@ msgid "The drive is busy"
 msgstr "La unitat està ocupada"
 
 #: ../libburner-burn/burner-burn.c:332
-#: ../libburner-burn/burner-burn-dialog.c:651
-#: ../libburner-burn/burner-tool-dialog.c:90
+#: ../libburner-burn/burner-burn-dialog.c:719
+#: ../libburner-burn/burner-tool-dialog.c:92
 msgid "Make sure another application is not using it"
 msgstr "Assegureu-vos que cap altra aplicació no l'estiga utilitzant"
 
@@ -405,13 +435,12 @@ msgstr "Procés d'enregistrament en curs"
 msgid "Ongoing checksumming operation"
 msgstr "Operació de suma de verificació en curs"
 
-#: ../libburner-burn/burner-burn.c:1623
-#: ../libburner-burn/burner-burn.c:1817
+#: ../libburner-burn/burner-burn.c:1623 ../libburner-burn/burner-burn.c:1817
 msgid "Merging data is impossible with this disc"
 msgstr "No es poden combinar dades amb este disc"
 
 #: ../libburner-burn/burner-burn.c:1624
-#: ../libburner-burn/burner-burn-dialog.c:2186
+#: ../libburner-burn/burner-burn-dialog.c:2317
 #: ../plugins/cdrkit/burn-genisoimage.c:206 ../plugins/cdrkit/burn-wodim.c:114
 #: ../plugins/cdrtools/burn-cdrecord.c:114
 #: ../plugins/cdrtools/burn-mkisofs.c:206
@@ -422,24 +451,21 @@ msgstr "No hi ha prou espai disponible al disc"
 
 #. Translators: %s is the name of a missing application
 #: ../libburner-burn/burner-burn.c:1708
-#: ../libburner-burn/burner-burn-options.c:1187
-#: ../src/burner-project.c:1385
+#: ../libburner-burn/burner-burn-options.c:1261 ../src/burner-project.c:1392
 #, c-format
 msgid "%s (application)"
 msgstr "%s (aplicació)"
 
 #. Translators: %s is the name of a missing library
 #: ../libburner-burn/burner-burn.c:1714
-#: ../libburner-burn/burner-burn-options.c:1193
-#: ../src/burner-project.c:1391
+#: ../libburner-burn/burner-burn-options.c:1267 ../src/burner-project.c:1398
 #, c-format
 msgid "%s (library)"
 msgstr "%s (biblioteca)"
 
 #. Translators: %s is the name of a missing GStreamer plugin
 #: ../libburner-burn/burner-burn.c:1719
-#: ../libburner-burn/burner-burn-options.c:1198
-#: ../src/burner-project.c:1396
+#: ../libburner-burn/burner-burn-options.c:1272 ../src/burner-project.c:1403
 #, c-format
 msgid "%s (GStreamer plugin)"
 msgstr "%s (connector de la GStreamer)"
@@ -470,195 +496,243 @@ msgstr "No s'ha pogut trobar el format de la imatge temporal"
 #. * is specified. A graft point is the path (on the
 #. * disc) where a file from any source will be added
 #. * ("grafted")
-#: ../libburner-burn/burner-burn.c:2846
-#: ../libburner-burn/burner-caps-burn.c:66
+#: ../libburner-burn/burner-burn.c:2846 ../libburner-burn/burner-caps-burn.c:66
 #: ../libburner-burn/burn-job.c:1219 ../libburner-burn/burn-job.c:1228
 #: ../libburner-burn/burn-mkisofs-base.c:302
 #: ../nautilus/nautilus-burn-extension.c:218
-#: ../plugins/cdrkit/burn-genisoimage.c:368
-#: ../plugins/cdrkit/burn-readom.c:129 ../plugins/cdrkit/burn-readom.c:370
-#: ../plugins/cdrkit/burn-wodim.c:725 ../plugins/cdrkit/burn-wodim.c:837
-#: ../plugins/cdrkit/burn-wodim.c:852 ../plugins/cdrtools/burn-cdrecord.c:835
+#: ../plugins/cdrkit/burn-genisoimage.c:368 ../plugins/cdrkit/burn-readom.c:129
+#: ../plugins/cdrkit/burn-readom.c:370 ../plugins/cdrkit/burn-wodim.c:725
+#: ../plugins/cdrkit/burn-wodim.c:837 ../plugins/cdrkit/burn-wodim.c:852
+#: ../plugins/cdrtools/burn-cdrecord.c:835
 #: ../plugins/cdrtools/burn-cdrecord.c:850
-#: ../plugins/cdrtools/burn-mkisofs.c:368
-#: ../plugins/cdrtools/burn-readcd.c:130 ../plugins/cdrtools/burn-readcd.c:380
-#: ../src/burner-app.c:786
+#: ../plugins/cdrtools/burn-mkisofs.c:368 ../plugins/cdrtools/burn-readcd.c:130
+#: ../plugins/cdrtools/burn-readcd.c:380 ../src/burner-app.c:830
 #, c-format
 msgid "An internal error occurred"
 msgstr "S'ha produït un error intern"
 
-#: ../libburner-burn/burner-burn-dialog.c:155
+#: ../libburner-burn/burner-burn-dialog.c:183
 msgid "Burner notification"
 msgstr "Notificació del Burner"
 
 #. Translators: This string is used in the title bar %s is the action currently performed
-#: ../libburner-burn/burner-burn-dialog.c:219
+#: ../libburner-burn/burner-burn-dialog.c:256
 #, c-format
 msgid "%s (%i%% Done)"
 msgstr "%s (%i%% fet)"
 
-#: ../libburner-burn/burner-burn-dialog.c:241
-#: ../libburner-burn/burner-burn-dialog.c:1161
+#: ../libburner-burn/burner-burn-dialog.c:278
+#: ../libburner-burn/burner-burn-dialog.c:1234
 msgid "Creating Image"
 msgstr "S'està creant la imatge"
 
-#: ../libburner-burn/burner-burn-dialog.c:246
-#: ../libburner-burn/burner-burn-dialog.c:1170
+#: ../libburner-burn/burner-burn-dialog.c:283
+#: ../libburner-burn/burner-burn-dialog.c:1243
 msgid "Burning DVD"
 msgstr "S'està enregistrant el DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:250
-#: ../libburner-burn/burner-burn-dialog.c:1166
+#: ../libburner-burn/burner-burn-dialog.c:287
+#: ../libburner-burn/burner-burn-dialog.c:1239
 msgid "Copying DVD"
 msgstr "S'està copiant el DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:256
-#: ../libburner-burn/burner-burn-dialog.c:1180
+#: ../libburner-burn/burner-burn-dialog.c:293
+#: ../libburner-burn/burner-burn-dialog.c:1253
 msgid "Burning CD"
 msgstr "S'està enregistrant el CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:260
-#: ../libburner-burn/burner-burn-dialog.c:381
-#: ../libburner-burn/burner-burn-dialog.c:1176
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying CD"));
+#: ../libburner-burn/burner-burn-dialog.c:297
+#: ../libburner-burn/burner-burn-dialog.c:435
+#: ../libburner-burn/burner-burn-dialog.c:1249
+#, c-format
 msgid "Copying CD"
 msgstr "S'està copiant el CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:266
-#: ../libburner-burn/burner-burn-dialog.c:1190
+#: ../libburner-burn/burner-burn-dialog.c:303
+#: ../libburner-burn/burner-burn-dialog.c:1263
 msgid "Burning Disc"
 msgstr "S'està enregistrant el disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:270
-#: ../libburner-burn/burner-burn-dialog.c:1186
+#: ../libburner-burn/burner-burn-dialog.c:307
+#: ../libburner-burn/burner-burn-dialog.c:1259
 msgid "Copying Disc"
 msgstr "S'està copiant el disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:300
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Creating image"));
+#: ../libburner-burn/burner-burn-dialog.c:339
 #: ../libburner-burn/burn-basics.c:78
+#, c-format
 msgid "Creating image"
 msgstr "S'està creant la imatge"
 
-#: ../libburner-burn/burner-burn-dialog.c:306
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:346
+#, c-format
 msgid "Simulation of video DVD burning"
 msgstr "S'està simulant l'enregistrament del DVD de vídeo"
 
-#: ../libburner-burn/burner-burn-dialog.c:308
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:349
+#, c-format
 msgid "Burning video DVD"
 msgstr "S'està enregistrant el DVD de vídeo"
 
-#: ../libburner-burn/burner-burn-dialog.c:316
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:358
+#, c-format
 msgid "Simulation of data DVD burning"
 msgstr "S'està simulant l'enregistrament del DVD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:318
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:361
+#, c-format
 msgid "Burning data DVD"
 msgstr "S'està enregistrant el DVD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:326
-msgid "Simulation of image to DVD burning"
-msgstr "S'està simulant l'enregistrament de la imatge al DVD"
-
-#: ../libburner-burn/burner-burn-dialog.c:328
-msgid "Burning image to DVD"
-msgstr "S'està enregistrant la imatge al DVD"
-
-#: ../libburner-burn/burner-burn-dialog.c:336
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to DVD burning"));
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:370
+#: ../libburner-burn/burner-burn-dialog.c:381
+#, c-format
 msgid "Simulation of data DVD copying"
 msgstr "S'està simulant la còpia del DVD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:338
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:373
+#, c-format
+msgid "Burning image to DVD"
+msgstr "S'està enregistrant la imatge al DVD"
+
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:384
+#, c-format
 msgid "Copying data DVD"
 msgstr "S'està copiant el DVD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:349
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of (S)VCD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:396
+#, c-format
 msgid "Simulation of (S)VCD burning"
 msgstr "S'està simulant l'enregistrament del VCD o SVCD"
 
-#: ../libburner-burn/burner-burn-dialog.c:351
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning (S)VCD"));
+#: ../libburner-burn/burner-burn-dialog.c:399
+#, c-format
 msgid "Burning (S)VCD"
 msgstr "S'està enregistrant el VCD o SVCD"
 
-#: ../libburner-burn/burner-burn-dialog.c:359
-#: ../libburner-burn/burner-burn-dialog.c:412
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of audio CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:408
+#: ../libburner-burn/burner-burn-dialog.c:471
+#, c-format
 msgid "Simulation of audio CD burning"
 msgstr "S'està simulant l'enregistrament del CD d'àudio"
 
-#: ../libburner-burn/burner-burn-dialog.c:361
-#: ../libburner-burn/burner-burn-dialog.c:414
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning audio CD"));
+#: ../libburner-burn/burner-burn-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:475
+#, c-format
 msgid "Burning audio CD"
 msgstr "S'està enregistrant el CD d'àudio"
 
-#: ../libburner-burn/burner-burn-dialog.c:369
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:420
+#, c-format
 msgid "Simulation of data CD burning"
 msgstr "S'està simulant l'enregistrament del CD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:371
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data CD"));
+#: ../libburner-burn/burner-burn-dialog.c:423
+#, c-format
 msgid "Burning data CD"
 msgstr "S'està enregistrant el CD de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:379
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of CD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:432
+#, c-format
 msgid "Simulation of CD copying"
 msgstr "S'està simulant la còpia del CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:389
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:444
+#, c-format
 msgid "Simulation of image to CD burning"
 msgstr "S'està simulant l'enregistrament de la imatge al CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:391
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to CD"));
+#: ../libburner-burn/burner-burn-dialog.c:447
+#, c-format
 msgid "Burning image to CD"
 msgstr "S'està enregistrant la imatge al CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:402
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:458
+#, c-format
 msgid "Simulation of video disc burning"
 msgstr "S'està simulant l'enregistrament del disc de vídeo"
 
-#: ../libburner-burn/burner-burn-dialog.c:404
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video disc"));
+#: ../libburner-burn/burner-burn-dialog.c:461
+#, c-format
 msgid "Burning video disc"
 msgstr "S'està enregistrant el disc de vídeo"
 
-#: ../libburner-burn/burner-burn-dialog.c:422
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:484
+#, c-format
 msgid "Simulation of data disc burning"
 msgstr "S'està simulant l'enregistrament del disc de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:424
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data disc"));
+#: ../libburner-burn/burner-burn-dialog.c:487
+#, c-format
 msgid "Burning data disc"
 msgstr "S'està enregistrant el disc de dades"
 
-#: ../libburner-burn/burner-burn-dialog.c:432
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of disc copying"));
+#: ../libburner-burn/burner-burn-dialog.c:496
+#, c-format
 msgid "Simulation of disc copying"
 msgstr "S'està simulant la còpia del disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:434
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying disc"));
+#: ../libburner-burn/burner-burn-dialog.c:499
 #: ../libburner-burn/burn-basics.c:82
+#, c-format
 msgid "Copying disc"
 msgstr "S'està copiant el disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:442
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:508
+#, c-format
 msgid "Simulation of image to disc burning"
 msgstr "S'està simulant l'enregistrament de la imatge al disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:444
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to disc"));
+#: ../libburner-burn/burner-burn-dialog.c:511
+#, c-format
 msgid "Burning image to disc"
 msgstr "S'està enregistrant la imatge al disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:549
+#: ../libburner-burn/burner-burn-dialog.c:617
 msgid "Please replace the disc with a rewritable disc holding data."
 msgstr "Substituïu el disc per un disc reenregistrable amb dades."
 
-#: ../libburner-burn/burner-burn-dialog.c:551
+#: ../libburner-burn/burner-burn-dialog.c:619
 msgid "Please replace the disc with a disc holding data."
 msgstr "Substituïu el disc per un disc que continga dades."
 
-#: ../libburner-burn/burner-burn-dialog.c:555
+#: ../libburner-burn/burner-burn-dialog.c:623
 msgid "Please insert a rewritable disc holding data."
 msgstr "Inseriu un disc reenregistrable amb dades."
 
-#: ../libburner-burn/burner-burn-dialog.c:557
-#: ../libburner-burn/burner-burn-options.c:501
+#: ../libburner-burn/burner-burn-dialog.c:625
+#: ../libburner-burn/burner-burn-options.c:503
 msgid "Please insert a disc holding data."
 msgstr "Inseriu un disc amb dades."
 
-#: ../libburner-burn/burner-burn-dialog.c:572
+#: ../libburner-burn/burner-burn-dialog.c:640
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD with at least %i MiB of free "
@@ -666,20 +740,20 @@ msgid ""
 msgstr ""
 "Substituïu el disc per un CD enregistrable amb almenys %i MiB d'espai lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:575
+#: ../libburner-burn/burner-burn-dialog.c:643
 msgid "Please replace the disc with a writable CD."
 msgstr "Substituïu el disc per un CD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:579
+#: ../libburner-burn/burner-burn-dialog.c:647
 #, c-format
 msgid "Please insert a writable CD with at least %i MiB of free space."
 msgstr "Inseriu un CD enregistrable amb almenys %i MiB d'espai lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:582
+#: ../libburner-burn/burner-burn-dialog.c:650
 msgid "Please insert a writable CD."
 msgstr "Inseriu un CD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:588
+#: ../libburner-burn/burner-burn-dialog.c:656
 #, c-format
 msgid ""
 "Please replace the disc with a writable DVD with at least %i MiB of free "
@@ -688,20 +762,20 @@ msgstr ""
 "Substituïu el disc per un DVD enregistrable amb almenys %i MiB d'espai "
 "lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:591
+#: ../libburner-burn/burner-burn-dialog.c:659
 msgid "Please replace the disc with a writable DVD."
 msgstr "Substituïu el disc per un DVD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:595
+#: ../libburner-burn/burner-burn-dialog.c:663
 #, c-format
 msgid "Please insert a writable DVD with at least %i MiB of free space."
 msgstr "Inseriu un DVD enregistrable amb almenys %i MiB d'espai lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:598
+#: ../libburner-burn/burner-burn-dialog.c:666
 msgid "Please insert a writable DVD."
 msgstr "Inseriu un DVD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:603
+#: ../libburner-burn/burner-burn-dialog.c:671
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD or DVD with at least %i MiB of "
@@ -710,23 +784,23 @@ msgstr ""
 "Substituïu el disc per un CD o DVD enregistrable amb almenys %i MiB d'espai "
 "lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:606
+#: ../libburner-burn/burner-burn-dialog.c:674
 msgid "Please replace the disc with a writable CD or DVD."
 msgstr "Substituïu el disc per un CD o DVD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:610
+#: ../libburner-burn/burner-burn-dialog.c:678
 #, c-format
 msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
 msgstr "Inseriu un CD o DVD enregistrable amb almenys %i MiB d'espai lliure."
 
-#: ../libburner-burn/burner-burn-dialog.c:613
-#: ../libburner-burn/burner-burn-dialog.c:2171
-#: ../libburner-burn/burner-burn-dialog.c:2185
-#: ../libburner-burn/burner-burn-options.c:457 ../src/burner-project.c:995
+#: ../libburner-burn/burner-burn-dialog.c:681
+#: ../libburner-burn/burner-burn-dialog.c:2302
+#: ../libburner-burn/burner-burn-dialog.c:2316
+#: ../libburner-burn/burner-burn-options.c:459 ../src/burner-project.c:997
 msgid "Please insert a writable CD or DVD."
 msgstr "Inseriu un CD o DVD enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:640
+#: ../libburner-burn/burner-burn-dialog.c:708
 msgid ""
 "An image of the disc has been created on your hard drive.\n"
 "Burning will begin as soon as a writable disc is inserted."
@@ -734,74 +808,74 @@ msgstr ""
 "S'ha creat una imatge del disc al disc dur.\n"
 "L'enregistrament començarà quan s'inserisca un disc enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:645
+#: ../libburner-burn/burner-burn-dialog.c:713
 msgid "A data integrity test will begin as soon as the disc is inserted."
 msgstr ""
 "La comprovació de la integritat de les dades començarà quan s'inserisca el "
 "disc."
 
-#: ../libburner-burn/burner-burn-dialog.c:646
+#: ../libburner-burn/burner-burn-dialog.c:714
 msgid "Please re-insert the disc in the CD/DVD burner."
 msgstr "Torneu a inserir el disc a l'enregistrador de CD/DVD."
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:650
+#: ../libburner-burn/burner-burn-dialog.c:718
 #, c-format
 msgid "\"%s\" is busy."
 msgstr "«%s» està ocupat."
 
-#: ../libburner-burn/burner-burn-dialog.c:654
+#: ../libburner-burn/burner-burn-dialog.c:722
 #, c-format
 msgid "There is no disc in \"%s\"."
 msgstr "No hi ha cap disc a «%s»."
 
-#: ../libburner-burn/burner-burn-dialog.c:658
+#: ../libburner-burn/burner-burn-dialog.c:726
 #, c-format
 msgid "The disc in \"%s\" is not supported."
 msgstr "El disc a «%s» no és compatible."
 
-#: ../libburner-burn/burner-burn-dialog.c:662
+#: ../libburner-burn/burner-burn-dialog.c:730
 #, c-format
 msgid "The disc in \"%s\" is not rewritable."
 msgstr "El disc a «%s» no és reenregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:666
+#: ../libburner-burn/burner-burn-dialog.c:734
 #, c-format
 msgid "The disc in \"%s\" is empty."
 msgstr "El disc a «%s» és buit."
 
-#: ../libburner-burn/burner-burn-dialog.c:670
+#: ../libburner-burn/burner-burn-dialog.c:738
 #, c-format
 msgid "The disc in \"%s\" is not writable."
 msgstr "El disc a «%s» no és enregistrable."
 
-#: ../libburner-burn/burner-burn-dialog.c:674
+#: ../libburner-burn/burner-burn-dialog.c:742
 #, c-format
 msgid "Not enough space available on the disc in \"%s\"."
 msgstr "No hi ha prou espai disponible al disc a «%s»."
 
-#: ../libburner-burn/burner-burn-dialog.c:682
+#: ../libburner-burn/burner-burn-dialog.c:750
 #, c-format
 msgid "The disc in \"%s\" needs to be reloaded."
 msgstr "És necessari recarregar el disc a «%s»."
 
-#: ../libburner-burn/burner-burn-dialog.c:683
+#: ../libburner-burn/burner-burn-dialog.c:751
 msgid "Please eject the disc and reload it."
 msgstr "Expulseu el disc i torneu-lo a carregar."
 
-#: ../libburner-burn/burner-burn-dialog.c:728
-#: ../libburner-burn/burner-sum-dialog.c:333
+#: ../libburner-burn/burner-burn-dialog.c:796
+#: ../libburner-burn/burner-sum-dialog.c:339
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr ""
 "No s'ha pogut crear un fitxer a la ubicació especificada per als fitxers "
 "temporals"
 
-#: ../libburner-burn/burner-burn-dialog.c:729
+#: ../libburner-burn/burner-burn-dialog.c:797
 msgid "The image could not be created at the specified location"
 msgstr "No s'ha pogut crear la imatge a la ubicació especificada"
 
-#: ../libburner-burn/burner-burn-dialog.c:730
+#: ../libburner-burn/burner-burn-dialog.c:798
 msgid ""
 "Do you want to specify another location for this session or retry with the "
 "current location?"
@@ -809,53 +883,53 @@ msgstr ""
 "Voleu especificar una altra ubicació per a esta sessió o tornar-ho a "
 "intentar amb la ubicació actual?"
 
-#: ../libburner-burn/burner-burn-dialog.c:742
+#: ../libburner-burn/burner-burn-dialog.c:810
 msgid "You may want to free some space on the disc and retry"
 msgstr "Podríeu alliberar espai del disc i tornar-ho a intentar"
 
-#: ../libburner-burn/burner-burn-dialog.c:749
-#: ../libburner-burn/burner-drive-properties.c:244
-#: ../libburner-burn/burner-drive-properties.c:282
-#: ../libburner-burn/burner-drive-properties.c:334
+#: ../libburner-burn/burner-burn-dialog.c:817
+#: ../libburner-burn/burner-drive-properties.c:247
+#: ../libburner-burn/burner-drive-properties.c:287
+#: ../libburner-burn/burner-drive-properties.c:341
 msgid "_Keep Current Location"
 msgstr "_Manté la ubicació actual"
 
-#: ../libburner-burn/burner-burn-dialog.c:751
-#: ../libburner-burn/burner-drive-properties.c:245
-#: ../libburner-burn/burner-drive-properties.c:283
-#: ../libburner-burn/burner-drive-properties.c:335
+#: ../libburner-burn/burner-burn-dialog.c:819
+#: ../libburner-burn/burner-drive-properties.c:248
+#: ../libburner-burn/burner-drive-properties.c:288
+#: ../libburner-burn/burner-drive-properties.c:342
 msgid "_Change Location"
 msgstr "_Canvia la ubicació"
 
-#: ../libburner-burn/burner-burn-dialog.c:773
+#: ../libburner-burn/burner-burn-dialog.c:842
 #: ../libburner-burn/burner-image-properties.c:459
 msgid "Location for Image File"
 msgstr "Ubicació del fitxer d'imatge"
 
-#: ../libburner-burn/burner-burn-dialog.c:781
-#: ../libburner-burn/burner-drive-properties.c:366
+#: ../libburner-burn/burner-burn-dialog.c:850
+#: ../libburner-burn/burner-drive-properties.c:374
 msgid "Location for Temporary Files"
 msgstr "Ubicació dels fitxers temporals"
 
-#: ../libburner-burn/burner-burn-dialog.c:889
-#: ../libburner-burn/burner-burn-dialog.c:1135
+#: ../libburner-burn/burner-burn-dialog.c:959
+#: ../libburner-burn/burner-burn-dialog.c:1208
 msgid "_Replace Disc"
 msgstr "_Substituïu el disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:930
+#: ../libburner-burn/burner-burn-dialog.c:1001
 msgid "Do you really want to blank the current disc?"
 msgstr "Segur que voleu esborrar el disc actual?"
 
-#: ../libburner-burn/burner-burn-dialog.c:931
+#: ../libburner-burn/burner-burn-dialog.c:1002
 msgid "The disc in the drive holds data."
 msgstr "El disc de la unitat té dades."
 
 #. Translators: Blank is a verb here
-#: ../libburner-burn/burner-burn-dialog.c:933
+#: ../libburner-burn/burner-burn-dialog.c:1004
 msgid "_Blank Disc"
 msgstr "_Esborra el disc"
 
-#: ../libburner-burn/burner-burn-dialog.c:947
+#: ../libburner-burn/burner-burn-dialog.c:1018
 msgid ""
 "If you import them you will be able to see and use them once the current "
 "selection of files is burned."
@@ -863,25 +937,25 @@ msgstr ""
 "Si els importeu podreu veure'ls i utilitzar-los quan s'haja enregistrat la "
 "selecció actual de fitxers."
 
-#: ../libburner-burn/burner-burn-dialog.c:948
+#: ../libburner-burn/burner-burn-dialog.c:1019
 msgid "If you don't, they will be invisible (though still readable)."
 msgstr ""
 "Si no ho feu, estos seran invisibles (tot i que encara es podran llegir)."
 
-#: ../libburner-burn/burner-burn-dialog.c:951
+#: ../libburner-burn/burner-burn-dialog.c:1022
 msgid ""
 "There are files already burned on this disc. Would you like to import them?"
 msgstr "Encara hi ha fitxers enregistrats en este disc. Voleu importar-los?"
 
-#: ../libburner-burn/burner-burn-dialog.c:953
+#: ../libburner-burn/burner-burn-dialog.c:1024
 msgid "_Import"
 msgstr "_Importa"
 
-#: ../libburner-burn/burner-burn-dialog.c:954
+#: ../libburner-burn/burner-burn-dialog.c:1025
 msgid "Only _Append"
 msgstr "Només _afig"
 
-#: ../libburner-burn/burner-burn-dialog.c:967
+#: ../libburner-burn/burner-burn-dialog.c:1038
 msgid ""
 "CD-RW audio discs may not play correctly in older CD players and CD-Text "
 "won't be written."
@@ -889,38 +963,38 @@ msgstr ""
 "És possible que els discs d'àudio CD-RW no es reproduïsquen correctament en "
 "reproductors de CD antics i no s'escriurà el CD-Text."
 
-#: ../libburner-burn/burner-burn-dialog.c:968
-#: ../libburner-burn/burner-burn-dialog.c:990
+#: ../libburner-burn/burner-burn-dialog.c:1039
+#: ../libburner-burn/burner-burn-dialog.c:1061
 msgid "Do you want to continue anyway?"
 msgstr "Voleu continuar igualment?"
 
-#: ../libburner-burn/burner-burn-dialog.c:971
+#: ../libburner-burn/burner-burn-dialog.c:1042
 msgid "Appending audio tracks to a CD is not advised."
 msgstr "No es recomana afegir pistes d'àudio a un CD."
 
-#: ../libburner-burn/burner-burn-dialog.c:973
-#: ../libburner-burn/burner-burn-dialog.c:995
-#: ../libburner-burn/burner-tool-dialog.c:422 ../src/burner-data-disc.c:572
+#: ../libburner-burn/burner-burn-dialog.c:1044
+#: ../libburner-burn/burner-burn-dialog.c:1066
+#: ../libburner-burn/burner-tool-dialog.c:427 ../src/burner-data-disc.c:575
 msgid "_Continue"
 msgstr "_Continua"
 
-#: ../libburner-burn/burner-burn-dialog.c:989
+#: ../libburner-burn/burner-burn-dialog.c:1060
 msgid "CD-RW audio discs may not play correctly in older CD players."
 msgstr ""
 "És possible que els discs d'àudio CD-RW no es reproduïsquen correctament en "
 "reproductors de CD antics."
 
-#: ../libburner-burn/burner-burn-dialog.c:993
+#: ../libburner-burn/burner-burn-dialog.c:1064
 msgid "Recording audio tracks on a rewritable disc is not advised."
 msgstr "No es recomana enregistrar pistes d'àudio a un disc reenregistrable."
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:1037
+#: ../libburner-burn/burner-burn-dialog.c:1108
 #, c-format
 msgid "Please eject the disc from \"%s\" manually."
 msgstr "Expulseu manualment el disc de «%s»."
 
-#: ../libburner-burn/burner-burn-dialog.c:1046
+#: ../libburner-burn/burner-burn-dialog.c:1117
 msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
@@ -928,117 +1002,116 @@ msgstr ""
 "No s'ha pogut expulsar el disc tot i que cal traure'l per poder continuar "
 "l'actual operació."
 
-#: ../libburner-burn/burner-burn-dialog.c:1133
+#: ../libburner-burn/burner-burn-dialog.c:1206
 msgid "Do you want to replace the disc and continue?"
 msgstr "Voleu reemplaçar el disc i continuar?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1134
+#: ../libburner-burn/burner-burn-dialog.c:1207
 msgid "The currently inserted disc could not be blanked."
 msgstr "No s'ha pogut esborrar el disc inserit actualment."
 
-#: ../libburner-burn/burner-burn-dialog.c:1143
+#: ../libburner-burn/burner-burn-dialog.c:1216
 msgid "Do you want to continue with full Windows compatibility disabled?"
 msgstr ""
 "Voleu continuar amb la compatibilitat total amb el Windows inhabilitada?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1144
-#: ../libburner-burn/burner-status-dialog.c:340
-#: ../src/burner-data-disc.c:734
+#: ../libburner-burn/burner-burn-dialog.c:1217
+#: ../libburner-burn/burner-status-dialog.c:347 ../src/burner-data-disc.c:738
 msgid ""
 "Some files don't have a suitable name for a fully Windows-compatible CD."
 msgstr ""
 "Alguns fitxers no tenen un nom adequat per a un CD totalment compatible amb "
 "el Windows."
 
-#: ../libburner-burn/burner-burn-dialog.c:1145
+#: ../libburner-burn/burner-burn-dialog.c:1218
 msgid "C_ontinue"
 msgstr "C_ontinua"
 
-#: ../libburner-burn/burner-burn-dialog.c:1365
-#: ../libburner-burn/burner-burn-dialog.c:1386
+#: ../libburner-burn/burner-burn-dialog.c:1456
+#: ../libburner-burn/burner-burn-dialog.c:1477
 msgid "The simulation was successful."
 msgstr "La simulació s'ha realitzat amb èxit."
 
-#: ../libburner-burn/burner-burn-dialog.c:1368
+#: ../libburner-burn/burner-burn-dialog.c:1459
 msgid "Real disc burning will take place in 10 seconds."
 msgstr "L'enregistrament de disc real començarà en 10 segons."
 
-#: ../libburner-burn/burner-burn-dialog.c:1371
+#: ../libburner-burn/burner-burn-dialog.c:1462
 msgid "Burn _Now"
 msgstr "Enregistra _ara"
 
-#: ../libburner-burn/burner-burn-dialog.c:1660
+#: ../libburner-burn/burner-burn-dialog.c:1783
 msgid "Save Current Session"
 msgstr "Guarda la sessió actual"
 
-#: ../libburner-burn/burner-burn-dialog.c:1735
+#: ../libburner-burn/burner-burn-dialog.c:1860
 msgid "An unknown error occurred."
 msgstr "S'ha produït un error desconegut."
 
-#: ../libburner-burn/burner-burn-dialog.c:1743
-#: ../libburner-burn/burner-burn-dialog.c:1761 ../src/burner-app.c:620
+#: ../libburner-burn/burner-burn-dialog.c:1868
+#: ../libburner-burn/burner-burn-dialog.c:1886 ../src/burner-app.c:664
 msgid "Error while burning."
 msgstr "S'ha produït un error durant l'enregistrament."
 
-#: ../libburner-burn/burner-burn-dialog.c:1751
+#: ../libburner-burn/burner-burn-dialog.c:1876
 msgid "_Save Log"
 msgstr "Al_ça el registre"
 
-#: ../libburner-burn/burner-burn-dialog.c:1786
+#: ../libburner-burn/burner-burn-dialog.c:1912
 msgid "Video DVD successfully burned"
 msgstr "El DVD de vídeo s'ha enregistrat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1788
+#: ../libburner-burn/burner-burn-dialog.c:1914
 msgid "(S)VCD successfully burned"
 msgstr "El VCD o SVCD s'ha enregistrat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1791
+#: ../libburner-burn/burner-burn-dialog.c:1917
 msgid "Audio CD successfully burned"
 msgstr "El CD d'àudio s'ha enregistrat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1793
-#: ../libburner-burn/burner-burn-dialog.c:1824
+#: ../libburner-burn/burner-burn-dialog.c:1919
+#: ../libburner-burn/burner-burn-dialog.c:1950
 msgid "Image successfully created"
 msgstr "La imatge s'ha creat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1798
+#: ../libburner-burn/burner-burn-dialog.c:1924
 msgid "DVD successfully copied"
 msgstr "El DVD s'ha copiat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1800
+#: ../libburner-burn/burner-burn-dialog.c:1926
 msgid "CD successfully copied"
 msgstr "El CD s'ha copiat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1804
+#: ../libburner-burn/burner-burn-dialog.c:1930
 msgid "Image of DVD successfully created"
 msgstr "La imatge del DVD s'ha creat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1806
+#: ../libburner-burn/burner-burn-dialog.c:1932
 msgid "Image of CD successfully created"
 msgstr "La imatge del CD s'ha creat amb èxit"
 
-#: ../libburner-burn/burner-burn-dialog.c:1812
+#: ../libburner-burn/burner-burn-dialog.c:1938
 msgid "Image successfully burned to DVD"
 msgstr "La imatge de DVD s'ha enregistrat correctament"
 
-#: ../libburner-burn/burner-burn-dialog.c:1814
+#: ../libburner-burn/burner-burn-dialog.c:1940
 msgid "Image successfully burned to CD"
 msgstr "La imatge de CD s'ha enregistrat correctament"
 
-#: ../libburner-burn/burner-burn-dialog.c:1820
+#: ../libburner-burn/burner-burn-dialog.c:1946
 msgid "Data DVD successfully burned"
 msgstr "El DVD de dades s'ha enregistrat correctament"
 
-#: ../libburner-burn/burner-burn-dialog.c:1822
+#: ../libburner-burn/burner-burn-dialog.c:1948
 msgid "Data CD successfully burned"
 msgstr "El CD de dades s'ha enregistrat correctament"
 
-#: ../libburner-burn/burner-burn-dialog.c:1881
+#: ../libburner-burn/burner-burn-dialog.c:2007
 #, c-format
 msgid "Copy #%i has been burned successfully."
 msgstr "La còpia número %i s'ha enregistrat correctament."
 
-#: ../libburner-burn/burner-burn-dialog.c:1889
+#: ../libburner-burn/burner-burn-dialog.c:2015
 msgid ""
 "Another copy will start as soon as you insert a new writable disc. If you do "
 "not want to burn another copy, press \"Cancel\"."
@@ -1046,178 +1119,176 @@ msgstr ""
 "S'iniciarà una altra còpia quan inseriu un disc enregistrable nou. Si no en "
 "voleu enregistrar una altra, premeu «Cancel·la»."
 
-#: ../libburner-burn/burner-burn-dialog.c:1963
-msgid "Make _More Copies"
-msgstr "Fes _més còpies"
-
-#: ../libburner-burn/burner-burn-dialog.c:1972
+#: ../libburner-burn/burner-burn-dialog.c:2101
 msgid "Create Co_ver"
 msgstr "_Crea una coberta"
 
-#: ../libburner-burn/burner-burn-dialog.c:2134
+#: ../libburner-burn/burner-burn-dialog.c:2265
 msgid "There are some files left to burn"
 msgstr "Encara hi ha alguns fitxers per enregistrar"
 
-#: ../libburner-burn/burner-burn-dialog.c:2141
+#: ../libburner-burn/burner-burn-dialog.c:2272
 msgid "There are some more videos left to burn"
 msgstr "Encara hi ha alguns vídeos per enregistrar"
 
-#: ../libburner-burn/burner-burn-dialog.c:2145
+#: ../libburner-burn/burner-burn-dialog.c:2276
 msgid "There are some more songs left to burn"
 msgstr "Encara hi ha algunes cançons per enregistrar"
 
-#: ../libburner-burn/burner-burn-dialog.c:2451
-#: ../libburner-burn/burner-tool-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:2583
+#: ../libburner-burn/burner-tool-dialog.c:414
 msgid "Do you really want to quit?"
 msgstr "Segur que voleu eixir?"
 
-#: ../libburner-burn/burner-burn-dialog.c:2455
-#: ../libburner-burn/burner-tool-dialog.c:417
+#: ../libburner-burn/burner-burn-dialog.c:2587
+#: ../libburner-burn/burner-tool-dialog.c:422
 msgid "Interrupting the process may make disc unusable."
 msgstr "Si interrompeu el procés pot ser que el disc esdevingui inservible."
 
-#: ../libburner-burn/burner-burn-dialog.c:2458
+#: ../libburner-burn/burner-burn-dialog.c:2590
 msgid "C_ontinue Burning"
 msgstr "C_ontinua l'enregistrament"
 
-#: ../libburner-burn/burner-burn-dialog.c:2465
+#: ../libburner-burn/burner-burn-dialog.c:2597
 msgid "_Cancel Burning"
 msgstr "_Cancel·la l'enregistrament"
 
-#: ../libburner-burn/burner-burn-options.c:228 ../src/burner-project.c:1020
+#: ../libburner-burn/burner-burn-options.c:230 ../src/burner-project.c:1022
 msgid ""
 "Please insert a writable CD or DVD if you don't want to write to an image "
 "file."
 msgstr ""
 "Inseriu un CD o DVD enregistrable si no voleu escriure a un fitxer d'imatge."
 
-#: ../libburner-burn/burner-burn-options.c:302 ../src/burner-project.c:1595
+#: ../libburner-burn/burner-burn-options.c:304 ../src/burner-project.c:1652
 msgid "Create _Image"
 msgstr "Crea una _imatge"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:307
+#: ../libburner-burn/burner-burn-options.c:309
 msgid "_Copy"
 msgstr "_Copia"
 
-#: ../libburner-burn/burner-burn-options.c:310
+#: ../libburner-burn/burner-burn-options.c:312
 msgid "Make _Several Copies"
 msgstr "Fes _diverses còpies"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:314 ../src/burner-project.c:1524
+#. gtk_dialog_add_button (GTK_DIALOG (dialog),
+#. _("Burn _Several Copies"),
+#. GTK_RESPONSE_ACCEPT);
+#: ../libburner-burn/burner-burn-options.c:316 ../src/burner-project.c:1580
 msgid "_Burn"
 msgstr "_Enregistra"
 
-#: ../libburner-burn/burner-burn-options.c:317 ../src/burner-project.c:1521
+#: ../libburner-burn/burner-burn-options.c:319
 msgid "Burn _Several Copies"
 msgstr "_Enregistra diverses còpies"
 
-#: ../libburner-burn/burner-burn-options.c:433 ../src/burner-project.c:949
+#: ../libburner-burn/burner-burn-options.c:435 ../src/burner-project.c:951
 msgid "Would you like to burn the selection of files across several media?"
 msgstr "Voleu enregistrar els fitxers seleccionats en diversos suports?"
 
-#: ../libburner-burn/burner-burn-options.c:434
-#: ../libburner-burn/burner-burn-options.c:451
+#: ../libburner-burn/burner-burn-options.c:436
+#: ../libburner-burn/burner-burn-options.c:453
 msgid "The data size is too large for the disc even with the overburn option."
 msgstr ""
 "La mida de les dades és massa gran per al disc, fins i tot amb l'opció de "
 "sobreescriptura."
 
-#: ../libburner-burn/burner-burn-options.c:439 ../src/burner-project.c:954
+#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
 msgid "_Burn Several Discs"
 msgstr "_Enregistra diversos discs"
 
-#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
+#: ../libburner-burn/burner-burn-options.c:443 ../src/burner-project.c:958
 msgid "Burn the selection of files across several media"
 msgstr "Enregistra els fitxers seleccionats en diversos suports"
 
-#: ../libburner-burn/burner-burn-options.c:450 ../src/burner-project.c:965
+#: ../libburner-burn/burner-burn-options.c:452 ../src/burner-project.c:967
 msgid "Please choose another CD or DVD or insert a new one."
 msgstr "Trieu un altre CD o DVD o inseriu-ne un de nou."
 
-#: ../libburner-burn/burner-burn-options.c:464 ../src/burner-project.c:1010
+#: ../libburner-burn/burner-burn-options.c:466 ../src/burner-project.c:1012
 msgid "No track information (artist, title, ...) will be written to the disc."
 msgstr ""
 "No s'escriurà cap informació sobre la pista (artista, títol...) al disc."
 
-#: ../libburner-burn/burner-burn-options.c:465 ../src/burner-project.c:1011
+#: ../libburner-burn/burner-burn-options.c:467 ../src/burner-project.c:1013
 msgid "This is not supported by the current active burning backend."
 msgstr "L'actual rerefons d'enregistrament actiu no ho admet."
 
-#: ../libburner-burn/burner-burn-options.c:477
+#: ../libburner-burn/burner-burn-options.c:479
 #: ../nautilus/nautilus-burn-extension.c:239
 msgid "Please add files."
 msgstr "Afegiu fitxers."
 
-#: ../libburner-burn/burner-burn-options.c:478
+#: ../libburner-burn/burner-burn-options.c:480
 #: ../libburner-burn/burner-track-data.c:672
 #: ../libburner-burn/burner-track-data-cfg.c:2432
 #: ../libburner-burn/burner-track-stream.c:402
-#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1277
+#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1283
 #, c-format
 msgid "There are no files to write to disc"
 msgstr "No hi ha fitxers per escriure al disc"
 
-#: ../libburner-burn/burner-burn-options.c:483
+#: ../libburner-burn/burner-burn-options.c:485
 msgid "Please add songs."
 msgstr "Afegiu cançons."
 
-#: ../libburner-burn/burner-burn-options.c:484 ../src/burner-project.c:1268
+#: ../libburner-burn/burner-burn-options.c:486 ../src/burner-project.c:1274
 msgid "There are no songs to write to disc"
 msgstr "No hi ha cap cançó per escriure al disc"
 
-#: ../libburner-burn/burner-burn-options.c:489
+#: ../libburner-burn/burner-burn-options.c:491
 msgid "Please add videos."
 msgstr "Afegiu vídeos."
 
-#: ../libburner-burn/burner-burn-options.c:490
+#: ../libburner-burn/burner-burn-options.c:492
 msgid "There are no videos to write to disc"
 msgstr "No hi ha cap vídeo per escriure al disc"
 
-#: ../libburner-burn/burner-burn-options.c:502
+#: ../libburner-burn/burner-burn-options.c:504
 msgid "There is no inserted disc to copy."
 msgstr "No s'ha inserit cap disc per copiar."
 
-#: ../libburner-burn/burner-burn-options.c:511
+#: ../libburner-burn/burner-burn-options.c:513
 msgid "Please select a disc image."
 msgstr "Seleccioneu una imatge de disc."
 
-#: ../libburner-burn/burner-burn-options.c:512
+#: ../libburner-burn/burner-burn-options.c:514
 msgid "There is no selected disc image."
 msgstr "No s'ha seleccionat cap imatge de disc."
 
 #. Translators: this is a disc image not a picture
 #. Translators: this is a disc image, not a picture
-#: ../libburner-burn/burner-burn-options.c:522
-#: ../libburner-burn/burner-src-image.c:167
+#: ../libburner-burn/burner-burn-options.c:524
+#: ../libburner-burn/burner-src-image.c:169
 msgctxt "disc"
 msgid "Please select another image."
 msgstr "Seleccioneu una altra imatge."
 
-#: ../libburner-burn/burner-burn-options.c:523
+#: ../libburner-burn/burner-burn-options.c:525
 msgid "It doesn't appear to be a valid disc image or a valid cue file."
 msgstr "Pareix que no és una imatge de disc o un fitxer CUE vàlids."
 
-#: ../libburner-burn/burner-burn-options.c:532
+#: ../libburner-burn/burner-burn-options.c:534
 msgid "Please insert a disc that is not copy protected."
 msgstr "Inseriu un disc que no estiga protegit contra còpia."
 
-#: ../libburner-burn/burner-burn-options.c:533
-#: ../libburner-burn/burner-burn-options.c:1235
-#: ../src/burner-project.c:1445
+#: ../libburner-burn/burner-burn-options.c:535
+#: ../libburner-burn/burner-burn-options.c:1309 ../src/burner-project.c:1452
 msgid "All required applications and libraries are not installed."
 msgstr "No són instal·lades totes les aplicacions i biblioteques necessàries."
 
-#: ../libburner-burn/burner-burn-options.c:540 ../src/burner-project.c:1003
+#: ../libburner-burn/burner-burn-options.c:542 ../src/burner-project.c:1005
 msgid "Please replace the disc with a supported CD or DVD."
 msgstr "Substituïu el disc per un CD o DVD compatible."
 
-#: ../libburner-burn/burner-burn-options.c:549 ../src/burner-project.c:976
+#: ../libburner-burn/burner-burn-options.c:551 ../src/burner-project.c:978
 msgid "Would you like to burn beyond the disc's reported capacity?"
 msgstr "Voleu enregistrar més enllà de la capacitat del disc?"
 
-#: ../libburner-burn/burner-burn-options.c:550
+#: ../libburner-burn/burner-burn-options.c:552
 msgid ""
 "The data size is too large for the disc and you must remove files from the "
 "selection otherwise.\n"
@@ -1232,42 +1303,52 @@ msgstr ""
 "sobreescriptura.\n"
 "NOTA: Esta opció pot provocar fallades."
 
-#: ../libburner-burn/burner-burn-options.c:557 ../src/burner-project.c:983
+#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
 msgid "_Overburn"
 msgstr "_Sobreescriptura"
 
-#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
+#: ../libburner-burn/burner-burn-options.c:561 ../src/burner-project.c:987
 msgid "Burn beyond the disc's reported capacity"
 msgstr "Enregistra més enllà de la capacitat del disc"
 
-#: ../libburner-burn/burner-burn-options.c:569
+#: ../libburner-burn/burner-burn-options.c:571
 msgid ""
 "The drive that holds the source disc will also be the one used to record."
 msgstr "La unitat que conté el disc font també s'utilitzarà per enregistrar."
 
-#: ../libburner-burn/burner-burn-options.c:570
+#: ../libburner-burn/burner-burn-options.c:572
 msgid ""
 "A new writable disc will be required once the currently loaded one has been "
 "copied."
 msgstr ""
 "Es necessitarà un disc enregistrable nou un cop s'haja copiat l'actual."
 
-#: ../libburner-burn/burner-burn-options.c:657
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:662
+#: ../libburner-burn/burner-burn-options.c:966
+msgid "Image Burning Setup"
+msgstr "Configuració de l'enregistrament de la imatge"
+
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+#: ../libburner-burn/burner-burn-options.c:727
+#, c-format
 msgid "Select a disc to write to"
 msgstr "Seleccioneu un disc on escriure"
 
-#: ../libburner-burn/burner-burn-options.c:737
-#: ../libburner-burn/burner-burn-options.c:755
-#: ../libburner-burn/burner-burn-options.c:875
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:808
+#: ../libburner-burn/burner-burn-options.c:826
+#: ../libburner-burn/burner-burn-options.c:948 ../src/burner-project.c:1553
 msgid "Disc Burning Setup"
 msgstr "Configuració de l'enregistrament del disc"
 
-#: ../libburner-burn/burner-burn-options.c:764 ../src/burner-project.c:1544
+#: ../libburner-burn/burner-burn-options.c:835 ../src/burner-project.c:1600
 msgid "Video Options"
 msgstr "Opcions de vídeo"
 
-#: ../libburner-burn/burner-burn-options.c:795
-#: ../src/burner-data-disc.c:613
+#: ../libburner-burn/burner-burn-options.c:866 ../src/burner-data-disc.c:616
 msgid ""
 "Do you want to create a disc from the contents of the image or with the "
 "image file inside?"
@@ -1276,7 +1357,7 @@ msgstr ""
 "dins?"
 
 #. Translators: %s is the name of the image
-#: ../libburner-burn/burner-burn-options.c:804
+#: ../libburner-burn/burner-burn-options.c:876
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
@@ -1285,33 +1366,30 @@ msgstr ""
 "Només s'ha seleccionat un fitxer («%s»). És la imatge d'un disc i el seu "
 "contingut es pot enregistrar."
 
-#: ../libburner-burn/burner-burn-options.c:809
+#: ../libburner-burn/burner-burn-options.c:881
 msgid "Burn as _File"
 msgstr "Enregistra com a _fitxer"
 
-#: ../libburner-burn/burner-burn-options.c:811
+#: ../libburner-burn/burner-burn-options.c:883
 msgid "Burn _Contents…"
 msgstr "Enregistra el _contingut…"
 
-#: ../libburner-burn/burner-burn-options.c:893
-msgid "Image Burning Setup"
-msgstr "Configuració de l'enregistrament de la imatge"
-
 #. pack everything
-#: ../libburner-burn/burner-burn-options.c:901
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+#: ../libburner-burn/burner-burn-options.c:975
+#, c-format
 msgid "Select a disc image to write"
 msgstr "Seleccioneu una imatge de disc a escriure"
 
-#: ../libburner-burn/burner-burn-options.c:921
+#: ../libburner-burn/burner-burn-options.c:995
 msgid "Copy CD/DVD"
 msgstr "Copia el CD/DVD"
 
-#: ../libburner-burn/burner-burn-options.c:927
+#: ../libburner-burn/burner-burn-options.c:1001
 msgid "Select disc to copy"
 msgstr "Seleccioneu el disc a copiar"
 
-#: ../libburner-burn/burner-burn-options.c:1229
-#: ../src/burner-project.c:1439
+#: ../libburner-burn/burner-burn-options.c:1303 ../src/burner-project.c:1446
 msgid "Please install the following manually and try again:"
 msgstr "Instal·leu manualment el que hi ha a continuació i torneu-ho a provar:"
 
@@ -1334,6 +1412,14 @@ msgstr "Cançó desconeguda"
 #, c-format
 msgid "by %s"
 msgstr "per %s"
+
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-customize-title.c:76
+#: ../libburner-utils/burner-misc.c:478
+#, fuzzy
+msgid "Prompt information"
+msgstr "Informació de la cançó"
 
 #: ../libburner-burn/burner-data-vfs.c:218
 #, c-format
@@ -1388,20 +1474,20 @@ msgstr "%s: %s d'espai lliure"
 
 #. Translators: the first %s is the path of the directory where burner
 #. * will store its temporary files; the second one is the size available
-#: ../libburner-burn/burner-drive-properties.c:192
+#: ../libburner-burn/burner-drive-properties.c:194
 #, c-format
 msgid "%s: %s free"
 msgstr "%s: %s lliures"
 
-#: ../libburner-burn/burner-drive-properties.c:233
-#: ../libburner-burn/burner-drive-properties.c:272
-#: ../libburner-burn/burner-drive-properties.c:324
+#: ../libburner-burn/burner-drive-properties.c:235
+#: ../libburner-burn/burner-drive-properties.c:276
+#: ../libburner-burn/burner-drive-properties.c:330
 msgid "Do you really want to choose this location?"
 msgstr "Segur que voleu seleccionar esta ubicació?"
 
-#: ../libburner-burn/burner-drive-properties.c:277
-#: ../libburner-burn/burner-session.c:1287
-#: ../libburner-burn/burner-session.c:1362 ../libburner-burn/burn-job.c:490
+#: ../libburner-burn/burner-drive-properties.c:282
+#: ../libburner-burn/burner-session.c:1288
+#: ../libburner-burn/burner-session.c:1363 ../libburner-burn/burn-job.c:490
 #: ../plugins/cdrkit/burn-genisoimage.c:199
 #: ../plugins/cdrtools/burn-mkisofs.c:199
 #: ../plugins/libburnia/burn-libisofs.c:246
@@ -1409,7 +1495,7 @@ msgstr "Segur que voleu seleccionar esta ubicació?"
 msgid "You do not have the required permission to write at this location"
 msgstr "No teniu els permisos necessaris per escriure a esta ubicació"
 
-#: ../libburner-burn/burner-drive-properties.c:330
+#: ../libburner-burn/burner-drive-properties.c:337
 msgid ""
 "The filesystem on this volume does not support large files (size over 2 "
 "GiB).\n"
@@ -1420,85 +1506,96 @@ msgstr ""
 "Això pot ser un problema quan s'escriuen DVD o imatges grans."
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:524
+#: ../libburner-burn/burner-drive-properties.c:533
 #, c-format
 msgid "%.1f× (DVD)"
 msgstr "%.1f× (DVD)"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:528
+#: ../libburner-burn/burner-drive-properties.c:537
 #, c-format
 msgid "%.1f× (CD)"
 msgstr "%.1f× (CD)"
 
 #. Translators %s.1f is the speed used to burn. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:532
+#: ../libburner-burn/burner-drive-properties.c:541
 #, c-format
 msgid "%.1f× (BD)"
 msgstr "%.1f× (BD)"
 
 #. Translators %s.1f is the speed used to burn for every medium
 #. * type. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:537
+#: ../libburner-burn/burner-drive-properties.c:546
 #, c-format
 msgid "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 msgstr "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 
-#: ../libburner-burn/burner-drive-properties.c:575
+#: ../libburner-burn/burner-drive-properties.c:584
 msgid "Impossible to retrieve speeds"
 msgstr "No s'han pogut obtindre les velocitats"
 
-#: ../libburner-burn/burner-drive-properties.c:584
+#: ../libburner-burn/burner-drive-properties.c:593
 msgid "Maximum speed"
 msgstr "Velocitat màxima"
 
-#: ../libburner-burn/burner-drive-properties.c:710
+#. string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
+#. gtk_box_pack_start (GTK_BOX (vbox),
+#. burner_utils_pack_properties (string,
+#. priv->speed, NULL),
+#. FALSE, FALSE, 0);
+#: ../libburner-burn/burner-drive-properties.c:725
+#, c-format
 msgid "Burning speed"
 msgstr "Velocitat d'enregistrament"
 
-#: ../libburner-burn/burner-drive-properties.c:723
+#: ../libburner-burn/burner-drive-properties.c:739
 msgid "_Simulate before burning"
 msgstr "_Simula abans d'enregistrar"
 
-#: ../libburner-burn/burner-drive-properties.c:724
+#: ../libburner-burn/burner-drive-properties.c:740
 msgid ""
-"Burner will simulate the burning and, if it is successful, go on with "
-"actual burning after 10 seconds"
+"Burner will simulate the burning and, if it is successful, go on with actual "
+"burning after 10 seconds"
 msgstr ""
 "El Burner simularà l'enregistrament i, si és correcte, continuarà amb este "
 "després de 10 segons"
 
-#: ../libburner-burn/burner-drive-properties.c:726
+#: ../libburner-burn/burner-drive-properties.c:742
 msgid "Use burn_proof (decrease the risk of failures)"
 msgstr "Utilitza el «burn_proof» (disminueix el risc de fallades)"
 
-#: ../libburner-burn/burner-drive-properties.c:728
+#: ../libburner-burn/burner-drive-properties.c:744
 msgid "Burn the image directly _without saving it to disc"
 msgstr "Enregistra la imatge directament _sense guardar-la al disc"
 
-#: ../libburner-burn/burner-drive-properties.c:730
+#: ../libburner-burn/burner-drive-properties.c:746
 msgid "Leave the disc _open to add other files later"
 msgstr "Deixa el disc _obert per afegir-hi altres fitxers més avant"
 
-#: ../libburner-burn/burner-drive-properties.c:731
+#: ../libburner-burn/burner-drive-properties.c:747
 msgid "Allow one to add more data to the disc later"
 msgstr "Permet afegir més dades al disc més avant"
 
-#: ../libburner-burn/burner-drive-properties.c:751
-#: ../libburner-burn/burner-tool-dialog.c:284
-#: ../src/burner-multi-song-props.c:308 ../src/burner-song-properties.c:226
+#. string = g_strdup_printf ("<b>%s</b>", _("Options"));
+#. title = g_strdup_printf ("<b>%s</b>", _("Options"));
+#: ../libburner-burn/burner-drive-properties.c:768
+#: ../libburner-burn/burner-tool-dialog.c:287
+#: ../src/burner-multi-song-props.c:310 ../src/burner-song-properties.c:227
+#, c-format
 msgid "Options"
 msgstr "Opcions"
 
-#: ../libburner-burn/burner-drive-properties.c:763
+#: ../libburner-burn/burner-drive-properties.c:780
 msgid "Location for _Temporary Files"
 msgstr "Ubicació dels fitxers _temporals"
 
-#: ../libburner-burn/burner-drive-properties.c:783
+#: ../libburner-burn/burner-drive-properties.c:800
 msgid "Set the directory where to store temporary files"
 msgstr "Estableix el directori on emmagatzemar els fitxers temporals"
 
-#: ../libburner-burn/burner-drive-properties.c:788
+#. string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+#: ../libburner-burn/burner-drive-properties.c:806
+#, c-format
 msgid "Temporary files"
 msgstr "Fitxers temporals"
 
@@ -1544,19 +1641,18 @@ msgstr "Imatge CUE"
 msgid "Cdrdao image"
 msgstr "Imatge cdrdao"
 
-#: ../libburner-burn/burner-medium-properties.c:93
-#: ../src/burner-project.c:1503
+#: ../libburner-burn/burner-medium-properties.c:96 ../src/burner-project.c:1522
 #, c-format
 msgid "Properties of %s"
 msgstr "Propietats de %s"
 
-#: ../libburner-burn/burner-medium-properties.c:133
+#: ../libburner-burn/burner-medium-properties.c:138
 msgid ""
 "Do you really want to keep the current extension for the disc image name?"
 msgstr ""
 "Segur que voleu mantindre l'extensió actual per al nom de la imatge de disc?"
 
-#: ../libburner-burn/burner-medium-properties.c:139
+#: ../libburner-burn/burner-medium-properties.c:145
 msgid ""
 "If you choose to keep it, programs may not be able to recognize the file "
 "type properly."
@@ -1564,15 +1660,15 @@ msgstr ""
 "Si trieu mantindre-la, pot ser que els programes no siguen capaços de "
 "reconèixer correctament el tipus de fitxer."
 
-#: ../libburner-burn/burner-medium-properties.c:142
+#: ../libburner-burn/burner-medium-properties.c:148
 msgid "_Keep Current Extension"
 msgstr "_Manté l'extensió actual"
 
-#: ../libburner-burn/burner-medium-properties.c:145
+#: ../libburner-burn/burner-medium-properties.c:151
 msgid "Change _Extension"
 msgstr "Canvia l'_extensió"
 
-#: ../libburner-burn/burner-medium-properties.c:234
+#: ../libburner-burn/burner-medium-properties.c:242
 msgid "Configure recording options"
 msgstr "Configura les opcions d'enregistrament"
 
@@ -1604,20 +1700,20 @@ msgid "Estimated drive speed:"
 msgstr "Velocitat estimada de la unitat:"
 
 #. Translators: %s is a path
-#: ../libburner-burn/burner-src-image.c:229
+#: ../libburner-burn/burner-src-image.c:231
 #, c-format
 msgid "\"%s\": loading"
 msgstr "«%s»: s'està carregant"
 
 #. Translators: %s is a path and image refers to a disc image
-#: ../libburner-burn/burner-src-image.c:236
+#: ../libburner-burn/burner-src-image.c:238
 #, c-format
 msgid "\"%s\": unknown disc image type"
 msgstr "«%s»: tipus d'imatge de disc desconegut"
 
 #. NOTE to translators, the first %s is the path of the image
 #. * file and the second its size.
-#: ../libburner-burn/burner-src-image.c:258
+#: ../libburner-burn/burner-src-image.c:260
 #, c-format
 msgid "\"%s\": %s"
 msgstr "«%s»: %s"
@@ -1625,48 +1721,46 @@ msgstr "«%s»: %s"
 #. This is hackish and meant to avoid ellipsization to make the
 #. * label too small.
 #. Translators: this is a disc image
-#: ../libburner-burn/burner-src-image.c:271
-#: ../libburner-burn/burner-src-image.c:554
+#: ../libburner-burn/burner-src-image.c:273
+#: ../libburner-burn/burner-src-image.c:557
 msgid "Click here to select a disc _image"
 msgstr "Feu clic per seleccionar una _imatge de disc"
 
-#: ../libburner-burn/burner-src-image.c:415
+#: ../libburner-burn/burner-src-image.c:417
 msgid "Select Disc Image"
 msgstr "Seleccioneu la imatge de disc"
 
-#: ../libburner-burn/burner-src-image.c:444
-#: ../nautilus/nautilus-burn-bar.c:236 ../src/burner-file-chooser.c:350
-#: ../src/burner-project.c:2225 ../src/burner-project-name.c:162
+#: ../libburner-burn/burner-src-image.c:446 ../nautilus/nautilus-burn-bar.c:236
+#: ../src/burner-file-chooser.c:350 ../src/burner-project.c:2285
+#: ../src/burner-project-name.c:164
 msgid "All files"
 msgstr "Tots els fitxers"
 
 #. Translators: this a disc image here
-#: ../libburner-burn/burner-src-image.c:450
+#: ../libburner-burn/burner-src-image.c:452
 msgctxt "disc"
 msgid "Image files"
 msgstr "Fitxers d'imatge"
 
-#: ../libburner-burn/burner-src-image.c:467
+#: ../libburner-burn/burner-src-image.c:469
 msgid "Image type:"
 msgstr "Tipus d'imatge:"
 
-#: ../libburner-burn/burner-status-dialog.c:147
+#: ../libburner-burn/burner-status-dialog.c:149
 #, c-format
 msgid "Estimated size: %s"
 msgstr "Mida estimada: %s"
 
-#: ../libburner-burn/burner-status-dialog.c:209
-#: ../src/burner-data-disc.c:870
+#: ../libburner-burn/burner-status-dialog.c:211 ../src/burner-data-disc.c:877
 #, c-format
 msgid "Do you really want to add \"%s\" to the selection?"
 msgstr "Segur que voleu afegir «%s» a la selecció?"
 
-#: ../libburner-burn/burner-status-dialog.c:228
-#: ../src/burner-data-disc.c:879
+#: ../libburner-burn/burner-status-dialog.c:231 ../src/burner-data-disc.c:886
 msgid ""
 "The children of this directory will have 7 parent directories.\n"
-"Burner can create an image of such a file hierarchy and burn it but the "
-"disc may not be readable on all operating systems.\n"
+"Burner can create an image of such a file hierarchy and burn it but the disc "
+"may not be readable on all operating systems.\n"
 "Note: Such a file hierarchy is known to work on Linux."
 msgstr ""
 "Els fills d'este directori tindran 7 nivells de directoris pare.\n"
@@ -1674,20 +1768,19 @@ msgstr ""
 "la però no tots els sistemes operatius podran llegir el disc.\n"
 "NOTA: esta jerarquia de fitxers funciona a Linux."
 
-#: ../libburner-burn/burner-status-dialog.c:232
-#: ../libburner-burn/burner-status-dialog.c:294
-#: ../src/burner-data-disc.c:839 ../src/burner-data-disc.c:883
+#: ../libburner-burn/burner-status-dialog.c:235
+#: ../libburner-burn/burner-status-dialog.c:299 ../src/burner-data-disc.c:845
+#: ../src/burner-data-disc.c:890
 msgid "Ne_ver Add Such File"
 msgstr "_No afiges mai este fitxer"
 
-#: ../libburner-burn/burner-status-dialog.c:233
-#: ../libburner-burn/burner-status-dialog.c:295
-#: ../src/burner-data-disc.c:840 ../src/burner-data-disc.c:884
+#: ../libburner-burn/burner-status-dialog.c:236
+#: ../libburner-burn/burner-status-dialog.c:300 ../src/burner-data-disc.c:846
+#: ../src/burner-data-disc.c:891
 msgid "Al_ways Add Such File"
 msgstr "_Afig sempre este fitxer"
 
-#: ../libburner-burn/burner-status-dialog.c:271
-#: ../src/burner-data-disc.c:826
+#: ../libburner-burn/burner-status-dialog.c:275 ../src/burner-data-disc.c:832
 #, c-format
 msgid ""
 "Do you really want to add \"%s\" to the selection and use the third version "
@@ -1696,8 +1789,7 @@ msgstr ""
 "Realment voleu afegir «%s» a la selecció i utilitzar la tercera versió de "
 "l'estàndard ISO9660 per admetre'l?"
 
-#: ../libburner-burn/burner-status-dialog.c:290
-#: ../src/burner-data-disc.c:835
+#: ../libburner-burn/burner-status-dialog.c:295 ../src/burner-data-disc.c:841
 msgid ""
 "The size of the file is over 2 GiB. Files larger than 2 GiB are not "
 "supported by the ISO9660 standard in its first and second versions (the most "
@@ -1717,115 +1809,110 @@ msgstr ""
 "Tot i així el MacOS X no pot llegir imatges creades amb la tercera versió de "
 "l'estàndard ISO9660."
 
-#: ../libburner-burn/burner-status-dialog.c:330
-#: ../src/burner-data-disc.c:729
+#: ../libburner-burn/burner-status-dialog.c:336 ../src/burner-data-disc.c:733
 msgid "Should files be renamed to be fully Windows-compatible?"
 msgstr ""
 "S'ha de canviar el nom dels fitxers perquè siguen totalment compatibles amb "
 "el Windows?"
 
-#: ../libburner-burn/burner-status-dialog.c:341
-#: ../src/burner-data-disc.c:735
+#: ../libburner-burn/burner-status-dialog.c:348 ../src/burner-data-disc.c:739
 msgid "Those names should be changed and truncated to 64 characters."
 msgstr "Estos noms s'han de canviar i truncar a 64 caràcters."
 
-#: ../libburner-burn/burner-status-dialog.c:346
-#: ../src/burner-data-disc.c:738
+#: ../libburner-burn/burner-status-dialog.c:353 ../src/burner-data-disc.c:742
 msgid "_Disable Full Windows Compatibility"
 msgstr "_Inhabilita la compatibilitat total amb el Windows"
 
-#: ../libburner-burn/burner-status-dialog.c:349
-#: ../src/burner-data-disc.c:737
+#: ../libburner-burn/burner-status-dialog.c:356 ../src/burner-data-disc.c:741
 msgid "_Rename for Full Windows Compatibility"
 msgstr "_Canvia el nom per a una compatibilitat total amb el Windows"
 
-#: ../libburner-burn/burner-status-dialog.c:566
+#: ../libburner-burn/burner-status-dialog.c:574
 msgid "Size Estimation"
 msgstr "Estimació de la mida"
 
-#: ../libburner-burn/burner-status-dialog.c:568
+#: ../libburner-burn/burner-status-dialog.c:576
 msgid "Please wait until the estimation of the size is completed."
 msgstr "Espereu mentre es completa l'estimació de la mida."
 
-#: ../libburner-burn/burner-status-dialog.c:569
+#: ../libburner-burn/burner-status-dialog.c:577
 msgid "All files need to be analysed to complete this operation."
 msgstr "S'han d'analitzar tots els fitxers per completar esta operació."
 
-#: ../libburner-burn/burner-sum-dialog.c:134
-#: ../libburner-burn/burner-sum-dialog.c:215
+#: ../libburner-burn/burner-sum-dialog.c:137
+#: ../libburner-burn/burner-sum-dialog.c:220
 msgid "Check _Again"
 msgstr "Comprov_a de nou"
 
-#: ../libburner-burn/burner-sum-dialog.c:165
-#: ../libburner-burn/burner-sum-dialog.c:514
+#: ../libburner-burn/burner-sum-dialog.c:169
+#: ../libburner-burn/burner-sum-dialog.c:520
 msgid "The file integrity check could not be performed."
 msgstr "No s'ha pogut realitzar la comprovació d'integritat del fitxer."
 
-#: ../libburner-burn/burner-sum-dialog.c:166 ../src/burner-data-disc.c:214
-#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:393
-#: ../src/burner-project.c:2625
+#: ../libburner-burn/burner-sum-dialog.c:170 ../src/burner-data-disc.c:217
+#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:395
+#: ../src/burner-project.c:2734
 msgid "An unknown error occurred"
 msgstr "S'ha produït un error desconegut"
 
-#: ../libburner-burn/burner-sum-dialog.c:178
+#: ../libburner-burn/burner-sum-dialog.c:182
 msgid "The file integrity check was performed successfully."
 msgstr "S'ha realitzat correctament la comprovació d'integritat del fitxer."
 
-#: ../libburner-burn/burner-sum-dialog.c:179
+#: ../libburner-burn/burner-sum-dialog.c:183
 msgid "There seem to be no corrupted files on the disc"
 msgstr "Pareix que no hi ha fitxers malmesos al disc"
 
-#: ../libburner-burn/burner-sum-dialog.c:207
+#: ../libburner-burn/burner-sum-dialog.c:211
 msgid "The following files appear to be corrupted:"
 msgstr "Pareix que els fitxers següents estan malmesos:"
 
-#: ../libburner-burn/burner-sum-dialog.c:250
+#: ../libburner-burn/burner-sum-dialog.c:255
 msgid "Corrupted Files"
 msgstr "Fitxers malmesos"
 
-#: ../libburner-burn/burner-sum-dialog.c:342
+#: ../libburner-burn/burner-sum-dialog.c:348
 msgid "Downloading MD5 file"
 msgstr "S'està baixant el fitxer MD5"
 
-#: ../libburner-burn/burner-sum-dialog.c:397
+#: ../libburner-burn/burner-sum-dialog.c:403
 #, c-format
 msgid "\"%s\" is not a valid URI"
 msgstr "«%s» no és un URI vàlid"
 
-#: ../libburner-burn/burner-sum-dialog.c:515
+#: ../libburner-burn/burner-sum-dialog.c:521
 msgid "No MD5 file was given."
 msgstr "No s'ha especificat cap fitxer MD5."
 
-#: ../libburner-burn/burner-sum-dialog.c:692
+#: ../libburner-burn/burner-sum-dialog.c:698
 msgid "Use an _MD5 file to check the disc"
 msgstr "Utilitza un fitxer _MD5 per comprovar el disc"
 
-#: ../libburner-burn/burner-sum-dialog.c:693
+#: ../libburner-burn/burner-sum-dialog.c:699
 msgid "Use an external .md5 file that stores the checksum of a disc"
 msgstr ""
 "Utilitza un fitxer .md5 extern que conté la suma de verificació del disc"
 
-#: ../libburner-burn/burner-sum-dialog.c:706
+#: ../libburner-burn/burner-sum-dialog.c:712
 msgid "Open an MD5 file"
 msgstr "Obri un fitxer MD5"
 
-#: ../libburner-burn/burner-sum-dialog.c:721
+#: ../libburner-burn/burner-sum-dialog.c:727
 msgid "_Check"
 msgstr "_Comprova"
 
-#: ../libburner-burn/burner-sum-dialog.c:752
+#: ../libburner-burn/burner-sum-dialog.c:758
 msgid "Disc Checking"
 msgstr "Comprovació del disc"
 
-#: ../libburner-burn/burner-tool-dialog.c:78
-#: ../libburner-burn/burner-tool-dialog.c:92
-#: ../libburner-burn/burner-tool-dialog.c:102
+#: ../libburner-burn/burner-tool-dialog.c:80
+#: ../libburner-burn/burner-tool-dialog.c:94
+#: ../libburner-burn/burner-tool-dialog.c:104
 msgid "The operation cannot be performed."
 msgstr "No es pot realitzar l'operació."
 
-#: ../libburner-burn/burner-tool-dialog.c:79
-#: ../plugins/cdrkit/burn-wodim.c:151 ../plugins/cdrkit/burn-wodim.c:421
-#: ../plugins/cdrtools/burn-cdrecord.c:151
+#: ../libburner-burn/burner-tool-dialog.c:81 ../plugins/cdrkit/burn-wodim.c:151
+#: ../plugins/cdrkit/burn-wodim.c:421 ../plugins/cdrtools/burn-cdrecord.c:151
 #: ../plugins/cdrtools/burn-cdrecord.c:407
 #: ../plugins/growisofs/burn-dvd-rw-format.c:77
 #: ../plugins/libburnia/burn-libburn.c:610
@@ -1833,16 +1920,19 @@ msgstr "No es pot realitzar l'operació."
 msgid "The disc is not supported"
 msgstr "El disc no és compatible"
 
-#: ../libburner-burn/burner-tool-dialog.c:103
+#: ../libburner-burn/burner-tool-dialog.c:105
 msgid "The drive is empty"
 msgstr "La unitat és buida"
 
-#: ../libburner-burn/burner-tool-dialog.c:554
-#: ../src/burner-eject-dialog.c:167
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+#: ../libburner-burn/burner-tool-dialog.c:563 ../src/burner-eject-dialog.c:167
+#, c-format
 msgid "Select a disc"
 msgstr "Seleccioneu un disc"
 
-#: ../libburner-burn/burner-tool-dialog.c:581
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+#: ../libburner-burn/burner-tool-dialog.c:591
+#, c-format
 msgid "Progress"
 msgstr "Progrés"
 
@@ -1850,14 +1940,13 @@ msgstr "Progrés"
 #: ../libburner-burn/burner-track-data-cfg.c:716
 #: ../libburner-burn/burner-track-data-cfg.c:727
 #: ../libburner-burn/burner-track-data-cfg.c:788
-#: ../libburner-burn/burner-track-data-cfg.c:793
-#: ../src/burner-playlist.c:536 ../src/burner-video-tree-model.c:342
+#: ../libburner-burn/burner-track-data-cfg.c:793 ../src/burner-playlist.c:538
+#: ../src/burner-video-tree-model.c:342
 msgid "(loading…)"
 msgstr "(s'està carregant…)"
 
 #: ../libburner-burn/burner-track-data-cfg.c:619
-#: ../libburner-burn/burner-track-data-cfg.c:799
-#: ../src/burner-playlist.c:497
+#: ../libburner-burn/burner-track-data-cfg.c:799 ../src/burner-playlist.c:499
 msgid "Empty"
 msgstr "Buit"
 
@@ -1893,7 +1982,7 @@ msgid "\"%s\" is a recursive symbolic link."
 msgstr "«%s» és un enllaç simbòlic recursiu."
 
 #. Translators: %s is the path of a drive
-#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:218
+#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:219
 #, c-format
 msgid "\"%s\" cannot be found."
 msgstr "No es pot trobar «%s»."
@@ -1918,7 +2007,7 @@ msgid "\"%s\" was removed from the file system."
 msgstr "S'ha suprimit «%s» del sistema de fitxers."
 
 #: ../libburner-burn/burner-track-stream-cfg.c:129
-#: ../src/burner-audio-disc.c:754 ../src/burner-video-disc.c:365
+#: ../src/burner-audio-disc.c:757 ../src/burner-video-disc.c:367
 #, c-format
 msgid "Directories cannot be added to video or audio discs"
 msgstr "No es poden afegir directoris als discs de vídeo o d'àudio"
@@ -2101,7 +2190,7 @@ msgstr ""
 "La ubicació que heu triat per emmagatzemar la imatge temporal no té prou "
 "espai lliure per a la imatge de disc (són necessaris %ld MiB)"
 
-#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:365
+#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:362
 #, c-format
 msgid "The size of the volume could not be retrieved"
 msgstr "No s'ha pogut obtindre la mida del volum"
@@ -2170,8 +2259,7 @@ msgstr "El procés «%s» ha acabat amb un codi d'error (%i)"
 #. Translators: This is a fake drive, a file, and means that
 #. * when we're writing, we're writing to a file and create an
 #. * image on the hard drive.
-#: ../libburner-media/burner-drive.c:607
-#: ../libburner-media/burner-medium.c:206
+#: ../libburner-media/burner-drive.c:607 ../libburner-media/burner-medium.c:206
 #: ../libburner-media/burner-volume.c:382
 msgid "Image File"
 msgstr "Fitxer d'imatge"
@@ -2346,8 +2434,7 @@ msgid "%s:%s:%s"
 msgstr "%s:%s:%s"
 
 #. Translators: this is 'hour:minute' or 'minute:second'
-#: ../libburner-media/burner-units.c:92
-#: ../libburner-media/burner-units.c:107
+#: ../libburner-media/burner-units.c:92 ../libburner-media/burner-units.c:107
 #, c-format
 msgid "%s:%s"
 msgstr "%s:%s"
@@ -2387,7 +2474,7 @@ msgstr "Disc d'àudio i de dades (%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ .
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:322
+#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:325
 #, c-format
 msgid "Audio disc (%s)"
 msgstr "Disc d'àudio (%s)"
@@ -2396,23 +2483,20 @@ msgstr "Disc d'àudio (%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ otherwise it gets truncated.
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:421
-#: ../nautilus/nautilus-burn-bar.c:115 ../src/burner-project-name.c:255
+#: ../libburner-media/burner-volume.c:421 ../nautilus/nautilus-burn-bar.c:115
+#: ../src/burner-project-name.c:258
 #, c-format
 msgid "Data disc (%s)"
 msgstr "Disc de dades (%s)"
 
-#: ../libburner-media/burn-iso9660.c:158
-#: ../libburner-media/burn-iso9660.c:167
-#: ../libburner-media/burn-iso9660.c:402
-#: ../libburner-media/burn-iso9660.c:439
-#: ../libburner-media/burn-iso9660.c:488
-#: ../libburner-media/burn-volume.c:128
+#: ../libburner-media/burn-iso9660.c:158 ../libburner-media/burn-iso9660.c:167
+#: ../libburner-media/burn-iso9660.c:402 ../libburner-media/burn-iso9660.c:439
+#: ../libburner-media/burn-iso9660.c:488 ../libburner-media/burn-volume.c:128
 #, c-format
 msgid "It does not appear to be a valid ISO image"
 msgstr "Pareix que no és una imatge ISO vàlida"
 
-#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:84
+#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:86
 msgid "Unknown error"
 msgstr "Error desconegut"
 
@@ -2532,55 +2616,55 @@ msgstr "Escalat"
 msgid "Background Properties"
 msgstr "Propietats del fons"
 
-#: ../libburner-utils/burner-jacket-edit.c:534
+#: ../libburner-utils/burner-jacket-edit.c:535
 msgid "Print"
 msgstr "Imprimeix"
 
-#: ../libburner-utils/burner-jacket-edit.c:546
+#: ../libburner-utils/burner-jacket-edit.c:547
 msgid "Bac_kground Properties"
 msgstr "Propietats del _fons"
 
-#: ../libburner-utils/burner-jacket-edit.c:549
+#: ../libburner-utils/burner-jacket-edit.c:550
 msgid "Background properties"
 msgstr "Propietats del fons"
 
-#: ../libburner-utils/burner-jacket-edit.c:564
+#: ../libburner-utils/burner-jacket-edit.c:565
 msgid "Align right"
 msgstr "Alinea a la dreta"
 
-#: ../libburner-utils/burner-jacket-edit.c:574
+#: ../libburner-utils/burner-jacket-edit.c:575
 msgid "Center"
 msgstr "Centra"
 
-#: ../libburner-utils/burner-jacket-edit.c:584
+#: ../libburner-utils/burner-jacket-edit.c:585
 msgid "Align left"
 msgstr "Alinea a l'esquerra"
 
-#: ../libburner-utils/burner-jacket-edit.c:598
+#: ../libburner-utils/burner-jacket-edit.c:599
 msgid "Underline"
 msgstr "Subratllat"
 
-#: ../libburner-utils/burner-jacket-edit.c:608
+#: ../libburner-utils/burner-jacket-edit.c:609
 msgid "Italic"
 msgstr "Cursiva"
 
-#: ../libburner-utils/burner-jacket-edit.c:618
+#: ../libburner-utils/burner-jacket-edit.c:619
 msgid "Bold"
 msgstr "Negreta"
 
-#: ../libburner-utils/burner-jacket-edit.c:644
+#: ../libburner-utils/burner-jacket-edit.c:645
 msgid "Font family and size"
 msgstr "Família i mida del tipus de lletra"
 
-#: ../libburner-utils/burner-jacket-edit.c:651
+#: ../libburner-utils/burner-jacket-edit.c:652
 msgid "_Text Color"
 msgstr "_Color del text"
 
-#: ../libburner-utils/burner-jacket-edit.c:652
+#: ../libburner-utils/burner-jacket-edit.c:653
 msgid "Text color"
 msgstr "Color del text"
 
-#: ../libburner-utils/burner-jacket-edit.c:775
+#: ../libburner-utils/burner-jacket-edit.c:790
 msgid "Cover Editor"
 msgstr "Editor de cobertes"
 
@@ -2606,7 +2690,7 @@ msgstr "COBERTA FRONTAL"
 msgid "The image could not be loaded."
 msgstr "No s'ha pogut carregar la imatge."
 
-#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:643
+#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:645
 #, c-format
 msgid "\"%s\" could not be handled by GStreamer."
 msgstr "La GStreamer no ha pogut gestionar «%s»."
@@ -2655,17 +2739,17 @@ msgstr "La GStreamer no ha pogut gestionar «%s»."
 msgid "%s element could not be created"
 msgstr "No s'ha pogut crear l'element %s"
 
-#: ../libburner-utils/burner-misc.c:74
+#: ../libburner-utils/burner-misc.c:75
 msgid "Display debug statements on stdout for Burner utilities library"
 msgstr ""
 "Mostra missatges de depuració de la biblioteca d'utilitats del Burner a la "
 "eixida estàndard"
 
-#: ../libburner-utils/burner-misc.c:91
+#: ../libburner-utils/burner-misc.c:92
 msgid "Burner utilities library"
 msgstr "Biblioteca d'utilitats del Burner"
 
-#: ../libburner-utils/burner-misc.c:92
+#: ../libburner-utils/burner-misc.c:93
 msgid "Display options for Burner-utils library"
 msgstr "Mostra les opcions per a la biblioteca d'utilitats del Burner"
 
@@ -2682,13 +2766,13 @@ msgstr "Creador de CD/DVD"
 msgid "Create CDs and DVDs"
 msgstr "Crea CD i DVD"
 
-#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:154
+#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:156
 msgid "Medium Icon"
 msgstr "Icona mitjana"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
 #: ../nautilus/nautilus-burn-bar.c:242 ../src/burner-file-chooser.c:375
-#: ../src/burner-project.c:2250 ../src/burner-project-name.c:168
+#: ../src/burner-project.c:2310 ../src/burner-project-name.c:170
 msgctxt "picture"
 msgid "Image files"
 msgstr "Fitxers d'imatge"
@@ -2767,7 +2851,7 @@ msgstr "No s'han pogut llegir les dades (%s)"
 #: ../plugins/checksum/burn-checksum-files.c:196
 #: ../plugins/checksum/burn-checksum-files.c:219
 #: ../plugins/checksum/burn-checksum-image.c:174
-#: ../plugins/dvdcss/burn-dvdcss.c:216 ../plugins/dvdcss/burn-dvdcss.c:495
+#: ../plugins/dvdcss/burn-dvdcss.c:213 ../plugins/dvdcss/burn-dvdcss.c:492
 #: ../plugins/libburnia/burn-libisofs.c:160
 #: ../plugins/libburnia/burn-libisofs.c:274
 #, c-format
@@ -3064,7 +3148,7 @@ msgstr "Crea imatges de disc adequades per a DVD de vídeo"
 #. Translators: %s is the path to a drive. "regionset %s"
 #. * should be left as is just like "DVDCSS_METHOD=title
 #. * burner --no-existing-session"
-#: ../plugins/dvdcss/burn-dvdcss.c:294
+#: ../plugins/dvdcss/burn-dvdcss.c:291
 #, c-format
 msgid ""
 "Error while retrieving a key used for encryption. You may solve such a "
@@ -3079,26 +3163,26 @@ msgstr ""
 "l'orde «regionset %s» o executar l'orde «DVDCSS_METHOD=title burner --no-"
 "existing-session»"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:339
+#: ../plugins/dvdcss/burn-dvdcss.c:336
 msgid "Retrieving DVD keys"
 msgstr "S'estan obtenint les claus del DVD"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:374
+#: ../plugins/dvdcss/burn-dvdcss.c:371
 #, c-format
 msgid "Video DVD could not be opened"
 msgstr "No s'ha pogut obrir el DVD de vídeo"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
-#: ../plugins/dvdcss/burn-dvdcss.c:483
+#: ../plugins/dvdcss/burn-dvdcss.c:392 ../plugins/dvdcss/burn-dvdcss.c:457
+#: ../plugins/dvdcss/burn-dvdcss.c:480
 #, c-format
 msgid "Error while reading video DVD (%s)"
 msgstr "S'ha produït un error en llegir el DVD de vídeo (%s)"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:402
+#: ../plugins/dvdcss/burn-dvdcss.c:399
 msgid "Copying video DVD"
 msgstr "S'està copiant el DVD de vídeo"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:695
+#: ../plugins/dvdcss/burn-dvdcss.c:692
 msgid "Copies CSS encrypted video DVDs to a disc image"
 msgstr "Copia DVD de vídeo xifrats amb CSS a una imatge de disc"
 
@@ -3294,104 +3378,150 @@ msgstr ""
 msgid "Creates disc images suitable for SVCDs"
 msgstr "Crea imatges de disc adequades per a SVCD"
 
-#: ../src/burner-app.c:123
+#: ../src/burner-app.c:72
+#, fuzzy
+msgid "W_elcom project"
+msgstr "Projecte de _vídeo"
+
+#: ../src/burner-app.c:73 ../src/burner-app.c:83
+msgid "Create a data CD/DVD"
+msgstr "Crea un CD/DVD de dades"
+
+#: ../src/burner-app.c:74 ../src/burner-app.c:84
+#: ../src/burner-project-manager.c:106
+msgid ""
+"Create a CD/DVD containing any type of data that can only be read on a "
+"computer"
+msgstr ""
+"Crea un CD/DVD amb qualsevol tipus de dades que només es llegiran a un "
+"ordinador"
+
+#. {N_("Audi_o project"),
+#. N_("Create a traditional audio CD"),
+#. N_("Create a traditional audio CD that will be playable on computers and stereos"),
+#. "media-optical-audio-new",
+#. BURNER_PROJECT_TYPE_AUDIO},
+#: ../src/burner-app.c:82
+msgid "D_ata project"
+msgstr "Projecte de _dades"
+
+#. {N_("_Video project"),
+#. N_("Create a video DVD or an SVCD"),
+#. N_("Create a video DVD or an SVCD that is readable on TV readers"),
+#. "media-optical-video-new",
+#. BURNER_PROJECT_TYPE_VIDEO},
+#. {N_("Disc _copy"),
+#. N_("Create 1:1 copy of a CD/DVD"),
+#. N_("Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on another CD/DVD"),
+#. "media-optical-copy",
+#. BURNER_PROJECT_TYPE_COPY},
+#: ../src/burner-app.c:97
+msgid "Burn _image"
+msgstr "Enregistra una i_matge"
+
+#: ../src/burner-app.c:98 ../src/burner-app.c:99
+#: ../src/burner-project-manager.c:112
+msgid "Burn an existing CD/DVD image to disc"
+msgstr "Enregistra una imatge de CD/DVD existent al disc"
+
+#: ../src/burner-app.c:162
 msgid "_Project"
 msgstr "_Projecte"
 
-#: ../src/burner-app.c:124
+#: ../src/burner-app.c:163
 msgid "_View"
 msgstr "_Visualització"
 
-#: ../src/burner-app.c:125
+#: ../src/burner-app.c:164
 msgid "_Edit"
 msgstr "_Edita"
 
-#: ../src/burner-app.c:126
+#: ../src/burner-app.c:165
 msgid "_Tools"
 msgstr "E_ines"
 
-#: ../src/burner-app.c:128
+#: ../src/burner-app.c:167
 msgid "_Help"
 msgstr "A_juda"
 
-#: ../src/burner-app.c:130
+#: ../src/burner-app.c:169
 msgid "P_lugins"
 msgstr "_Connectors"
 
-#: ../src/burner-app.c:131
+#: ../src/burner-app.c:170
 msgid "Choose plugins for Burner"
 msgstr "Seleccioneu connectors per al Burner"
 
-#: ../src/burner-app.c:133
+#: ../src/burner-app.c:172
 msgid "E_ject"
 msgstr "E_xpulsa"
 
-#: ../src/burner-app.c:134
+#: ../src/burner-app.c:173
 msgid "Eject a disc"
 msgstr "Expulsa un disc"
 
-#: ../src/burner-app.c:136
+#: ../src/burner-app.c:175
 msgid "_Blank…"
 msgstr "_Esborra…"
 
-#: ../src/burner-app.c:137
+#: ../src/burner-app.c:176
 msgid "Blank a disc"
 msgstr "Esborra un disc"
 
-#: ../src/burner-app.c:139
+#: ../src/burner-app.c:178
 msgid "_Check Integrity…"
 msgstr "_Comprova la integritat…"
 
-#: ../src/burner-app.c:140
+#: ../src/burner-app.c:179
 msgid "Check data integrity of disc"
 msgstr "Comprova la integritat del disc"
 
-#: ../src/burner-app.c:143
+#: ../src/burner-app.c:182
 msgid "Quit Burner"
 msgstr "Ix del Burner"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "_Contents"
 msgstr "_Contingut"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "Display help"
 msgstr "Mostra l'ajuda"
 
-#: ../src/burner-app.c:148
+#: ../src/burner-app.c:187
 msgid "About"
 msgstr "Quant a"
 
-#: ../src/burner-app.c:420 ../src/burner-app.c:2069
+#: ../src/burner-app.c:460 ../src/burner-app.c:2368
 msgid "Disc Burner"
 msgstr "Enregistrador de discs"
 
-#: ../src/burner-app.c:789 ../src/burner-app.c:822 ../src/burner-app.c:1451
+#: ../src/burner-app.c:833 ../src/burner-app.c:866 ../src/burner-app.c:1506
 msgid "Error while loading the project"
 msgstr "S'ha produït un error en carregar el projecte"
 
-#: ../src/burner-app.c:831 ../src/burner-app.c:860 ../src/burner-app.c:920
-#: ../src/burner-project.c:1276
+#: ../src/burner-app.c:875 ../src/burner-app.c:904 ../src/burner-app.c:964
+#: ../src/burner-project.c:1282
 msgid "Please add files to the project."
 msgstr "Afegiu fitxers al projecte."
 
-#: ../src/burner-app.c:832 ../src/burner-app.c:861 ../src/burner-app.c:921
+#: ../src/burner-app.c:876 ../src/burner-app.c:905 ../src/burner-app.c:965
 msgid "The project is empty"
 msgstr "El projecte està buit"
 
-#: ../src/burner-app.c:1176
+#: ../src/burner-app.c:1228
 msgid ""
 "Burner is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"El Burner és programari lliure; el podeu redistribuir i/o modificar sota "
-"els termes de la llicència de documentació lliure GNU, tal com està publicat "
-"per la Free Software Foundation; ja siga a la versió 2 de la llicència, o (a "
+"El Burner és programari lliure; el podeu redistribuir i/o modificar sota els "
+"termes de la llicència de documentació lliure GNU, tal com està publicat per "
+"la Free Software Foundation; ja siga a la versió 2 de la llicència, o (a "
 "elecció vostra) a qualsevol versió posterior."
 
-#: ../src/burner-app.c:1181
+#: ../src/burner-app.c:1233
 msgid ""
 "Burner is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -3403,7 +3533,7 @@ msgstr ""
 "IDONEÏTAT PER A USOS PARTICULARS. Vegeu la Llicència de documentació lliure "
 "GNU per a més detalls."
 
-#: ../src/burner-app.c:1186
+#: ../src/burner-app.c:1238
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -3414,12 +3544,12 @@ msgstr ""
 "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, "
 "USA"
 
-#: ../src/burner-app.c:1198
+#: ../src/burner-app.c:1250
 msgid "A simple to use CD/DVD burning application for GNOME"
 msgstr ""
 "Una aplicació d'enregistrament de CD/DVD fàcil d'utilitzar per al GNOME"
 
-#: ../src/burner-app.c:1215
+#: ../src/burner-app.c:1267
 msgid "Burner Homepage"
 msgstr "Pàgina web del Burner"
 
@@ -3431,117 +3561,112 @@ msgstr "Pàgina web del Burner"
 #. * this translation; in that case, please write each of them on a separate
 #. * line seperated by newlines (\n).
 #.
-#: ../src/burner-app.c:1227
+#: ../src/burner-app.c:1279
 msgid "translator-credits"
 msgstr ""
 "Carles Escrig (simkin) <simkin@ono.com>\n"
 "Francesc Vilches <francesc.vilches@gmail.com>\n"
 "Joan Duran <jodufi@gmail.com>"
 
-#: ../src/burner-app.c:1449
+#: ../src/burner-app.c:1504
 #, c-format
 msgid "The project \"%s\" does not exist"
 msgstr "No existeix el projecte «%s»"
 
-#: ../src/burner-app.c:1733 ../src/burner-app.c:1739
+#: ../src/burner-app.c:1788 ../src/burner-app.c:1794
 msgid "_Recent Projects"
 msgstr "Projectes _recents"
 
-#: ../src/burner-app.c:1734
+#: ../src/burner-app.c:1789
 msgid "Display the projects recently opened"
 msgstr "Mostra els projectes oberts recentment"
 
-#: ../src/burner-audio-disc.c:155 ../src/burner-data-disc.c:122
-#: ../src/burner-video-disc.c:100
-msgid "Menu"
-msgstr "Menú"
-
-#: ../src/burner-audio-disc.c:156 ../src/burner-data-disc.c:123
+#: ../src/burner-audio-disc.c:158 ../src/burner-data-disc.c:125
 msgid "Open the selected files"
 msgstr "Obri els fitxers seleccionats"
 
-#: ../src/burner-audio-disc.c:158 ../src/burner-video-disc.c:103
+#: ../src/burner-audio-disc.c:160 ../src/burner-video-disc.c:105
 msgid "_Edit Information…"
 msgstr "_Edita la informació…"
 
-#: ../src/burner-audio-disc.c:158
+#: ../src/burner-audio-disc.c:160
 msgid "Edit the track information (start, end, author, etc.)"
 msgstr "Edita la informació de la pista (inici, final, autor, etc.)"
 
-#: ../src/burner-audio-disc.c:160 ../src/burner-data-disc.c:127
-#: ../src/burner-project.c:202
+#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
+#: ../src/burner-project.c:204
 msgid "Remove the selected files from the project"
 msgstr "Suprimeix els fitxers seleccionats del projecte"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Paste files"
 msgstr "Apega els fitxers"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Add the files stored in the clipboard"
 msgstr "Afig fitxers emmagatzemats al porta-retalls"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "I_nsert a Pause"
 msgstr "I_nsereix una pausa"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "Add a 2 second pause after the track"
 msgstr "Afig una pausa de dos segons després de la pista"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "_Split Track…"
 msgstr "_Parteix la pista…"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "Split the selected track"
 msgstr "Parteix la pista seleccionada"
 
-#: ../src/burner-audio-disc.c:343 ../src/burner-video-tree-model.c:187
+#: ../src/burner-audio-disc.c:345 ../src/burner-video-tree-model.c:187
 msgid "Pause"
 msgstr "Pausa"
 
-#: ../src/burner-audio-disc.c:349
+#: ../src/burner-audio-disc.c:351
 msgid "Split"
 msgstr "Parteix"
 
-#: ../src/burner-audio-disc.c:418
+#: ../src/burner-audio-disc.c:420
 msgid "Track"
 msgstr "Pista"
 
-#: ../src/burner-audio-disc.c:458 ../src/burner-video-disc.c:1209
+#: ../src/burner-audio-disc.c:460 ../src/burner-video-disc.c:1214
 msgid "Title"
 msgstr "Títol"
 
-#: ../src/burner-audio-disc.c:480
+#: ../src/burner-audio-disc.c:482
 msgid "Artist"
 msgstr "Artista"
 
-#: ../src/burner-audio-disc.c:488 ../src/burner-playlist.c:772
-#: ../src/burner-split-dialog.c:1225
+#: ../src/burner-audio-disc.c:490 ../src/burner-playlist.c:775
+#: ../src/burner-split-dialog.c:1231
 msgid "Length"
 msgstr "Durada"
 
-#: ../src/burner-audio-disc.c:585
+#: ../src/burner-audio-disc.c:587
 msgid "The track will be padded at its end."
 msgstr "La pista s'emplenarà al final."
 
-#: ../src/burner-audio-disc.c:586
+#: ../src/burner-audio-disc.c:588
 msgid "The track is shorter than 6 seconds"
 msgstr "La pista dura menys de 6 segons"
 
-#: ../src/burner-audio-disc.c:646
+#: ../src/burner-audio-disc.c:648
 msgid "Make sure the appropriate codec is installed"
 msgstr "Assegureu-vos que el còdec apropiat està instal·lat"
 
-#: ../src/burner-audio-disc.c:662
+#: ../src/burner-audio-disc.c:664
 #, c-format
 msgid "Do you want to add \"%s\", which is a video file?"
 msgstr "Voleu afegir el fitxer de vídeo «%s»?"
 
-#: ../src/burner-audio-disc.c:671
+#: ../src/burner-audio-disc.c:673
 msgid ""
 "This file is a video and therefore only the audio part can be written to the "
 "disc."
@@ -3549,32 +3674,32 @@ msgstr ""
 "Este fitxer és un vídeo, per la qual cosa només se'n pot escriure l'àudio en "
 "el disc."
 
-#: ../src/burner-audio-disc.c:674
+#: ../src/burner-audio-disc.c:676
 msgid "_Discard File"
 msgstr "_Descarta el fitxer"
 
-#: ../src/burner-audio-disc.c:677
+#: ../src/burner-audio-disc.c:679
 msgid "_Add File"
 msgstr "_Afig el fitxer"
 
-#: ../src/burner-audio-disc.c:748
+#: ../src/burner-audio-disc.c:751
 msgid "Do you want to search for audio files inside the directory?"
 msgstr "Voleu cercar fitxers d'àudio dins del directori?"
 
-#: ../src/burner-audio-disc.c:758
+#: ../src/burner-audio-disc.c:761
 msgid "Search _Directory"
 msgstr "Cerca al _directori"
 
-#: ../src/burner-audio-disc.c:812 ../src/burner-video-disc.c:395
+#: ../src/burner-audio-disc.c:816 ../src/burner-video-disc.c:398
 #, c-format
 msgid "\"%s\" could not be opened."
 msgstr "No s'ha pogut obrir «%s»."
 
-#: ../src/burner-audio-disc.c:857
+#: ../src/burner-audio-disc.c:861
 msgid "Do you want to create an audio CD with DTS tracks?"
 msgstr "Voleu crear un CD d'àudio amb pistes DTS?"
 
-#: ../src/burner-audio-disc.c:858
+#: ../src/burner-audio-disc.c:862
 msgid ""
 "Some of the selected songs are suitable for creating DTS tracks.\n"
 "This type of audio CD track provides a higher quality of sound but can only "
@@ -3587,120 +3712,104 @@ msgstr ""
 "només es poden reproduir en reproductors digitals específics.\n"
 "Nota: si hi esteu d'acord, no s'aplicarà la normalització en estes pistes."
 
-#: ../src/burner-audio-disc.c:867
+#: ../src/burner-audio-disc.c:871
 msgid "Create _Regular Tracks"
 msgstr "Crea pistes _normals"
 
-#: ../src/burner-audio-disc.c:869
+#: ../src/burner-audio-disc.c:873
 msgid "Click here to burn all songs as regular tracks"
 msgstr "Feu clic ací per enregistrar totes les cançons com a pistes normals"
 
-#: ../src/burner-audio-disc.c:872
+#: ../src/burner-audio-disc.c:876
 msgid "Create _DTS Tracks"
 msgstr "Crea pistes _DTS"
 
-#: ../src/burner-audio-disc.c:874
+#: ../src/burner-audio-disc.c:878
 msgid "Click here to burn all suitable songs as DTS tracks"
 msgstr ""
 "Feu clic ací per enregistrar totes les cançons adequades com a pistes DTS"
 
-#: ../src/burner-audio-disc.c:1290
+#: ../src/burner-audio-disc.c:1294
 msgid "Select one song only please."
 msgstr "Seleccioneu només una cançó."
 
-#: ../src/burner-audio-disc.c:1291
+#: ../src/burner-audio-disc.c:1295
 msgid "Impossible to split more than one song at a time"
 msgstr "No es pot partir més d'una cançó a la vegada"
 
-#: ../src/burner-cli.c:70
+#: ../src/burner-cli.c:71
 msgid "Open the specified project"
 msgstr "Obri el projecte especificat"
 
-#: ../src/burner-cli.c:71
+#: ../src/burner-cli.c:72
 msgid "PROJECT"
 msgstr "PROJECTE"
 
-#: ../src/burner-cli.c:76
-msgid "Open the specified playlist as an audio project"
-msgstr "Obri la llista de reproducció especificada com un projecte d'àudio"
-
-#: ../src/burner-cli.c:77
-msgid "PLAYLIST"
-msgstr "LLISTA DE REPRODUCCIÓ"
-
-#: ../src/burner-cli.c:82
+#: ../src/burner-cli.c:83
 msgid "Set the drive to be used for burning"
 msgstr "Estableix la unitat a utilitzar per enregistrar"
 
-#: ../src/burner-cli.c:83
+#: ../src/burner-cli.c:84
 msgid "DEVICE PATH"
 msgstr "CAMÍ DE LA UNITAT"
 
-#: ../src/burner-cli.c:86
+#: ../src/burner-cli.c:87
 msgid "Create an image file instead of burning"
 msgstr "Crea un fitxer d'imatge en lloc d'enregistrar"
 
-#: ../src/burner-cli.c:90
-msgid "Open an audio project adding the URIs given on the command line"
-msgstr "Obri un projecte d'àudio afegint els URI donats a la línia d'ordes"
-
-#: ../src/burner-cli.c:94
+#: ../src/burner-cli.c:95
 msgid "Open a data project adding the URIs given on the command line"
 msgstr "Obri un projecte de dades afegint els URI donats a la línia d'ordes"
 
-#: ../src/burner-cli.c:98
+#: ../src/burner-cli.c:99
 msgid "Copy a disc"
 msgstr "Copia un disc"
 
-#: ../src/burner-cli.c:99 ../src/burner-cli.c:119 ../src/burner-cli.c:123
+#: ../src/burner-cli.c:100 ../src/burner-cli.c:120 ../src/burner-cli.c:124
 msgid "PATH TO DEVICE"
 msgstr "CAMÍ A LA UNITAT"
 
-#: ../src/burner-cli.c:102
+#: ../src/burner-cli.c:103
 msgid "Cover to use"
 msgstr "Coberta a utilitzar"
 
-#: ../src/burner-cli.c:103
+#: ../src/burner-cli.c:104
 msgid "PATH TO COVER"
 msgstr "CAMÍ A LA COBERTA"
 
-#: ../src/burner-cli.c:106
-msgid "Open a video project adding the URIs given on the command line"
-msgstr "Obri un projecte de vídeo afegint els URI donats a la línia d'ordes"
-
-#: ../src/burner-cli.c:110
+#: ../src/burner-cli.c:111
 msgid "URI of an image file to burn (autodetected)"
 msgstr "L'URI d'un fitxer d'imatge per enregistrar (autodetectat)"
 
-#: ../src/burner-cli.c:111
+#: ../src/burner-cli.c:112
 msgid "PATH TO IMAGE"
 msgstr "CAMÍ A LA IMATGE"
 
-#: ../src/burner-cli.c:114
+#: ../src/burner-cli.c:115
 msgid "Force Burner to display the project selection page"
 msgstr "Força el Burner a mostrar la pàgina de selecció del projecte"
 
-#: ../src/burner-cli.c:118
+#: ../src/burner-cli.c:119
 msgid "Open the blank disc dialog"
 msgstr "Obri el diàleg d'esborrar el disc"
 
-#: ../src/burner-cli.c:122
+#: ../src/burner-cli.c:123
 msgid "Open the check disc dialog"
 msgstr "Obri el diàleg de comprovar el disc"
 
-#: ../src/burner-cli.c:126
+#: ../src/burner-cli.c:127
 msgid "Burn the contents of the burn:// URI"
 msgstr "Enregistra el contingut de l'URI burn://"
 
-#: ../src/burner-cli.c:130
+#: ../src/burner-cli.c:131
 msgid "Start burning immediately."
 msgstr "Inicia l'enregistrament immediatament."
 
-#: ../src/burner-cli.c:134
+#: ../src/burner-cli.c:135
 msgid "Don't connect to an already-running instance"
 msgstr "No et connectes a una altra instància en execució"
 
-#: ../src/burner-cli.c:138
+#: ../src/burner-cli.c:139
 msgid ""
 "Burn the specified project and remove it.\n"
 "This option is mainly useful for integration with other applications."
@@ -3708,7 +3817,7 @@ msgstr ""
 "Enregistra el projecte especificat i el suprimeix.\n"
 "Principalment esta opció és útil per a la integració amb altres aplicacions."
 
-#: ../src/burner-cli.c:139
+#: ../src/burner-cli.c:140
 msgid "PATH"
 msgstr "CAMÍ"
 
@@ -3717,70 +3826,71 @@ msgstr "CAMÍ"
 #. * burner will be set to be always on top of the window identified by
 #. * xid. In other words, the window with the given xid will become burner
 #. * parent as if burner was a dialog for the parent application
-#: ../src/burner-cli.c:147
+#: ../src/burner-cli.c:148
 msgid "The XID of the parent window"
 msgstr "El XID de la finestra pare"
 
 #. Translators: %s is the path of drive
-#: ../src/burner-cli.c:204
+#: ../src/burner-cli.c:205
 #, c-format
 msgid "\"%s\" cannot write."
 msgstr "No es pot escriure «%s»."
 
-#: ../src/burner-cli.c:206 ../src/burner-cli.c:220
+#: ../src/burner-cli.c:207 ../src/burner-cli.c:221
 msgid "Wrong command line option."
 msgstr "Opció de la línia d'ordes incorrecte."
 
-#: ../src/burner-cli.c:297
+#: ../src/burner-cli.c:298
 msgid "Incompatible command line options used."
 msgstr "Opcions incompatibles utilitzades en la línia d'ordes."
 
-#: ../src/burner-cli.c:298
+#: ../src/burner-cli.c:299
 msgid "Only one option can be given at a time"
 msgstr "Només es pot especificar una opció a la vegada"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "R_ename…"
 msgstr "_Canvia el nom…"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "Rename the selected file"
 msgstr "Canvia el nom el fitxer seleccionat"
 
-#: ../src/burner-data-disc.c:131 ../src/burner-data-disc.c:1758
+#. {"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+#: ../src/burner-data-disc.c:134 ../src/burner-data-disc.c:1783
 msgid "New _Folder"
 msgstr "_Carpeta nova"
 
-#: ../src/burner-data-disc.c:131
+#: ../src/burner-data-disc.c:134
 msgid "Create a new empty folder"
 msgstr "Crea una carpeta buida nova"
 
-#: ../src/burner-data-disc.c:213
+#: ../src/burner-data-disc.c:216
 msgid "The session could not be imported."
 msgstr "No s'ha pogut importar la sessió."
 
-#: ../src/burner-data-disc.c:559
+#: ../src/burner-data-disc.c:562
 msgid "The contents of the project changed since it was saved."
 msgstr "S'ha canviat el contingut del projecte des que es va guardar."
 
-#: ../src/burner-data-disc.c:561
+#: ../src/burner-data-disc.c:564
 msgid "Discard the current modified project ?"
 msgstr "Voleu descartar el projecte actual modificat?"
 
-#: ../src/burner-data-disc.c:567
+#: ../src/burner-data-disc.c:570
 msgid "_Discard"
 msgstr "_Descarta"
 
-#: ../src/burner-data-disc.c:569
+#: ../src/burner-data-disc.c:572
 msgid "Discard the current modified project"
 msgstr "Descarta el projecte actual modificat"
 
-#: ../src/burner-data-disc.c:574
+#: ../src/burner-data-disc.c:577
 msgid "Continue with the current modified project"
 msgstr "Continua amb el projecte actual modificat"
 
 #. Translators: %s is the name of the image
-#: ../src/burner-data-disc.c:619
+#: ../src/burner-data-disc.c:622
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
@@ -3789,35 +3899,35 @@ msgstr ""
 "Només s'ha seleccionat un fitxer («%s»). És la imatge d'un disc i el seu "
 "contingut es pot enregistrar"
 
-#: ../src/burner-data-disc.c:625
+#: ../src/burner-data-disc.c:628
 msgid "Burn as _Data"
 msgstr "Enregistra com a _dades"
 
-#: ../src/burner-data-disc.c:627
+#: ../src/burner-data-disc.c:630
 msgid "Burn as _Image"
 msgstr "Enregistra com a _imatge"
 
-#: ../src/burner-data-disc.c:673 ../src/burner-data-disc.c:691
-#: ../src/burner-data-disc.c:709
+#: ../src/burner-data-disc.c:677 ../src/burner-data-disc.c:695
+#: ../src/burner-data-disc.c:713
 #, c-format
 msgid "\"%s\" cannot be added to the selection."
 msgstr "No es pot afegir «%s» a la selecció."
 
-#: ../src/burner-data-disc.c:694
+#: ../src/burner-data-disc.c:698
 msgid "It is a recursive symlink"
 msgstr "Este és un enllaç simbòlic recursiu"
 
-#: ../src/burner-data-disc.c:712
+#: ../src/burner-data-disc.c:716
 msgid "It does not exist at the specified location"
 msgstr "Este no existeix a la ubicació especificada"
 
 #. Translators: %s is the name of the file
-#: ../src/burner-data-disc.c:771
+#: ../src/burner-data-disc.c:776
 #, c-format
 msgid "Do you want to replace \"%s\"?"
 msgstr "Voleu reemplaçar «%s»?"
 
-#: ../src/burner-data-disc.c:779
+#: ../src/burner-data-disc.c:784
 msgid ""
 "A file with this name already exists in the folder.  Replacing it will "
 "overwrite its contents on the disc to be burnt."
@@ -3828,14 +3938,14 @@ msgstr ""
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:784
+#: ../src/burner-data-disc.c:789
 msgid "Always K_eep"
 msgstr "Manté s_empre"
 
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:788
+#: ../src/burner-data-disc.c:793
 msgid "_Keep"
 msgstr "_Manté"
 
@@ -3843,94 +3953,99 @@ msgstr "_Manté"
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
 #. Translators: this is a verb
-#: ../src/burner-data-disc.c:792 ../src/burner-rename.c:385
+#: ../src/burner-data-disc.c:797 ../src/burner-rename.c:385
 msgid "_Replace"
 msgstr "_Reemplaça"
 
 #. Translators: Replace means we're replacing the file that already
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
-#: ../src/burner-data-disc.c:796
+#: ../src/burner-data-disc.c:801
 msgid "Al_ways Replace"
 msgstr "Reemplaça _sempre"
 
 #. Translators: %s is a string describing the type of medium and the
 #. * drive it is in. It's a tooltip.
-#: ../src/burner-data-disc.c:979
+#: ../src/burner-data-disc.c:989
 #, c-format
 msgid "Import %s"
 msgstr "Importa %s"
 
 #. Translators: %s is the name of the volume to import. It's a menu
 #. * entry and toolbar button (text added later).
-#: ../src/burner-data-disc.c:986
+#: ../src/burner-data-disc.c:996
 #, c-format
 msgid "I_mport %s"
 msgstr "_Importa %s"
 
+#: ../src/burner-data-disc.c:1006
+#, fuzzy
+msgid "Import Disc"
+msgstr "Importa %s"
+
 #. Translators: This is a verb. It's a toolbar button.
-#: ../src/burner-data-disc.c:1016
+#: ../src/burner-data-disc.c:1031
 msgid "I_mport"
 msgstr "_Importa"
 
 #. Translators: %s is the name of the volume to import
-#: ../src/burner-data-disc.c:1098
+#: ../src/burner-data-disc.c:1121
 #, c-format
 msgid "Do you want to import the session from \"%s\"?"
 msgstr "Voleu importar la sessió des de «%s»?"
 
-#: ../src/burner-data-disc.c:1101
+#: ../src/burner-data-disc.c:1124
 msgid ""
 "That way, old files from previous sessions will be usable after burning."
 msgstr ""
 "D'esta manera els fitxers antics de sessions anteriors es podran utilitzar "
 "després d'enregistrar."
 
-#: ../src/burner-data-disc.c:1109
+#: ../src/burner-data-disc.c:1132
 msgid "I_mport Session"
 msgstr "_Importa una sessió"
 
-#: ../src/burner-data-disc.c:1111
+#: ../src/burner-data-disc.c:1134
 msgid "Click here to import its contents"
 msgstr "Feu clic ací per importar-ne el contingut"
 
-#: ../src/burner-data-disc.c:1490
+#: ../src/burner-data-disc.c:1513
 msgid "Please wait while the project is loading."
 msgstr "Espereu mentre s'està carregant el projecte."
 
-#: ../src/burner-data-disc.c:1500
+#: ../src/burner-data-disc.c:1523
 msgid "_Cancel Loading"
 msgstr "_Cancel·la la càrrega"
 
-#: ../src/burner-data-disc.c:1502
+#: ../src/burner-data-disc.c:1525
 msgid "Cancel loading current project"
 msgstr "Cancel·la la càrrega del projecte actual"
 
-#: ../src/burner-data-disc.c:1903
+#: ../src/burner-data-disc.c:1933
 msgid "File Renaming"
 msgstr "Canvi de nom del fitxer"
 
-#: ../src/burner-data-disc.c:1907
+#: ../src/burner-data-disc.c:1937
 msgid "_Rename"
 msgstr "_Canvia el nom"
 
-#: ../src/burner-data-disc.c:1913
+#: ../src/burner-data-disc.c:1943
 msgid "Renaming mode"
 msgstr "Mode de canvi de nom"
 
-#: ../src/burner-data-disc.c:2336 ../src/burner-file-filtered.c:256
+#: ../src/burner-data-disc.c:2367 ../src/burner-file-filtered.c:309
 msgid "Files"
 msgstr "Fitxers"
 
-#: ../src/burner-data-disc.c:2350 ../src/burner-video-disc.c:1227
+#: ../src/burner-data-disc.c:2381 ../src/burner-video-disc.c:1232
 msgid "Size"
 msgstr "Mida"
 
-#: ../src/burner-data-disc.c:2364
+#: ../src/burner-data-disc.c:2395
 msgid "Description"
 msgstr "Descripció"
 
-#: ../src/burner-data-disc.c:2380
+#: ../src/burner-data-disc.c:2411
 msgid "Space"
 msgstr "Espai"
 
@@ -3947,134 +4062,132 @@ msgstr "_Expulsa"
 msgid "Eject Disc"
 msgstr "Expulsa el disc"
 
-#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2230
+#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2290
 msgid "Audio files"
 msgstr "Fitxers d'àudio"
 
-#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2239
+#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2299
 msgid "Movies"
 msgstr "Pel·lícules"
 
-#: ../src/burner-file-filtered.c:75 ../src/burner-file-filtered.c:81
+#: ../src/burner-file-filtered.c:77 ../src/burner-file-filtered.c:83
 msgid "No file filtered"
 msgstr "No s'ha filtrat cap fitxer"
 
-#: ../src/burner-file-filtered.c:77
+#: ../src/burner-file-filtered.c:79
 #, c-format
 msgid "Hide the _filtered file list (%d file)"
 msgid_plural "Hide the _filtered file list (%d files)"
 msgstr[0] "Oculta la llista de fitxers _filtrats (%d fitxer)"
 msgstr[1] "Oculta la llista de fitxers _filtrats (%d fitxers)"
 
-#: ../src/burner-file-filtered.c:83
+#: ../src/burner-file-filtered.c:85
 #, c-format
 msgid "Show the _filtered file list (%d file)"
 msgid_plural "Show the _filtered file list (%d files)"
 msgstr[0] "Mostra la llista de fitxers _filtrats (%d fitxer)"
 msgstr[1] "Mostra la llista de fitxers _filtrats (%d fitxers)"
 
-#: ../src/burner-file-filtered.c:135
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../src/burner-file-filtered.c:150 ../src/burner-file-filtered.c:174
 msgid "Filter Options"
 msgstr "Opcions de filtrat"
 
-#: ../src/burner-file-filtered.c:218
+#: ../src/burner-file-filtered.c:271
 msgid ""
 "Select the files you want to restore and click on the \"Restore\" button"
 msgstr ""
 "Seleccioneu els fitxers que voleu restaurar i feu clic en el botó «Restaura»"
 
-#: ../src/burner-file-filtered.c:265
+#: ../src/burner-file-filtered.c:318
 msgid "Type"
 msgstr "Tipus"
 
-#: ../src/burner-file-filtered.c:292
+#: ../src/burner-file-filtered.c:345
 msgid "_Restore"
 msgstr "_Restaura"
 
-#: ../src/burner-file-filtered.c:301
+#: ../src/burner-file-filtered.c:354
 msgid "Restore the selected files"
 msgstr "Restaura els fitxers seleccionats"
 
-#: ../src/burner-file-filtered.c:303
+#: ../src/burner-file-filtered.c:356
 msgid "_Options…"
 msgstr "_Opcions…"
 
-#: ../src/burner-file-filtered.c:311
+#: ../src/burner-file-filtered.c:364
 msgid "Set the options for file filtering"
 msgstr "Estableix les opcions per al filtre de fitxers"
 
 #. filter hidden files
-#: ../src/burner-filter-option.c:65
+#: ../src/burner-filter-option.c:66
 msgid "Filter _hidden files"
 msgstr "Filtra els _fitxers ocults"
 
 #. replace symlink
-#: ../src/burner-filter-option.c:72
+#: ../src/burner-filter-option.c:74
 msgid "Re_place symbolic links"
 msgstr "_Reemplaça els enllaços simbòlics"
 
 #. filter broken symlink button
-#: ../src/burner-filter-option.c:79
+#: ../src/burner-filter-option.c:82
 msgid "Filter _broken symbolic links"
 msgstr "Filtra els _enllaços simbòlics trencats"
 
-#: ../src/burner-filter-option.c:85
-msgid "Filtering options"
-msgstr "Opcions de filtrat"
-
-#: ../src/burner-layout.c:104
+#: ../src/burner-layout.c:105
 msgid "P_review"
 msgstr "P_revisualitza"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
-#: ../src/burner-layout.c:106
+#: ../src/burner-layout.c:107
 msgid "Display video, audio and image preview"
 msgstr "Mostra la previsualització de vídeo, àudio i imatge"
 
-#: ../src/burner-layout.c:110
+#: ../src/burner-layout.c:111
 msgid "_Show Side Panel"
 msgstr "_Mostra el quadre lateral"
 
-#: ../src/burner-layout.c:111
+#: ../src/burner-layout.c:112
 msgid "Show a side pane along the project"
 msgstr "Mostra una subfinestra lateral durant del projecte"
 
-#: ../src/burner-layout.c:125
+#: ../src/burner-layout.c:126
 msgid "_Horizontal Layout"
 msgstr "Disposició _horitzontal"
 
-#: ../src/burner-layout.c:126
+#: ../src/burner-layout.c:127
 msgid "Set a horizontal layout"
 msgstr "Estableix una disposició horitzontal"
 
-#: ../src/burner-layout.c:128
+#: ../src/burner-layout.c:129
 msgid "_Vertical Layout"
 msgstr "Disposició _vertical"
 
-#: ../src/burner-layout.c:129
+#: ../src/burner-layout.c:130
 msgid "Set a vertical layout"
 msgstr "Estableix una disposició vertical"
 
-#: ../src/burner-layout.c:1193
+#: ../src/burner-layout.c:1194
 msgid "Click to close the side pane"
 msgstr "Feu clic per tancar la subfinestra lateral"
 
-#: ../src/burner-multi-song-props.c:89 ../src/burner-multi-song-props.c:97
-#: ../src/burner-multi-song-props.c:105 ../src/burner-multi-song-props.c:123
-#: ../src/burner-multi-song-props.c:139 ../src/burner-multi-song-props.c:160
-#: ../src/burner-multi-song-props.c:173 ../src/burner-multi-song-props.c:249
-#: ../src/burner-multi-song-props.c:270 ../src/burner-multi-song-props.c:291
+#: ../src/burner-multi-song-props.c:90 ../src/burner-multi-song-props.c:98
+#: ../src/burner-multi-song-props.c:106 ../src/burner-multi-song-props.c:124
+#: ../src/burner-multi-song-props.c:140 ../src/burner-multi-song-props.c:161
+#: ../src/burner-multi-song-props.c:174 ../src/burner-multi-song-props.c:250
+#: ../src/burner-multi-song-props.c:271 ../src/burner-multi-song-props.c:292
 #: ../src/burner-rename.c:90 ../src/burner-rename.c:321
 msgid "<Keep current values>"
 msgstr "<Manté els valors actuals>"
 
-#: ../src/burner-multi-song-props.c:126 ../src/burner-multi-song-props.c:143
+#: ../src/burner-multi-song-props.c:127 ../src/burner-multi-song-props.c:144
 msgid "Remove silences"
 msgstr "Suprimeix els silencis"
 
-#: ../src/burner-multi-song-props.c:211 ../src/burner-multi-song-props.c:252
-#: ../src/burner-multi-song-props.c:273 ../src/burner-song-properties.c:187
-#: ../src/burner-song-properties.c:199 ../src/burner-song-properties.c:211
+#: ../src/burner-multi-song-props.c:212 ../src/burner-multi-song-props.c:253
+#: ../src/burner-multi-song-props.c:274 ../src/burner-song-properties.c:188
+#: ../src/burner-song-properties.c:200 ../src/burner-song-properties.c:212
 msgid ""
 "This information will be written to the disc using CD-Text technology. It "
 "can be read and displayed by some audio CD players."
@@ -4082,31 +4195,31 @@ msgstr ""
 "Esta informació s'escriurà al disc utilitzant la tecnologia CD-Text. Alguns "
 "reproductors de CD poden llegir-la i mostrar-la."
 
-#: ../src/burner-multi-song-props.c:213
+#: ../src/burner-multi-song-props.c:214
 msgid "Song titles"
 msgstr "Títols de les cançons"
 
-#: ../src/burner-multi-song-props.c:230
+#: ../src/burner-multi-song-props.c:231
 msgid "Additional song information"
 msgstr "Informació addicional de la cançó"
 
-#: ../src/burner-multi-song-props.c:242 ../src/burner-song-properties.c:189
+#: ../src/burner-multi-song-props.c:243 ../src/burner-song-properties.c:190
 msgid "Artist:"
 msgstr "Artista:"
 
-#: ../src/burner-multi-song-props.c:263 ../src/burner-song-properties.c:201
+#: ../src/burner-multi-song-props.c:264 ../src/burner-song-properties.c:202
 msgid "Composer:"
 msgstr "Compositor:"
 
-#: ../src/burner-multi-song-props.c:317 ../src/burner-song-properties.c:247
+#: ../src/burner-multi-song-props.c:319 ../src/burner-song-properties.c:248
 msgid "Pause length:"
 msgstr "Durada de la pausa:"
 
-#: ../src/burner-multi-song-props.c:328 ../src/burner-song-properties.c:256
+#: ../src/burner-multi-song-props.c:330 ../src/burner-song-properties.c:257
 msgid "Gives the length of the pause that should follow the track"
 msgstr "Estableix la longitud de la pausa que precedeix a la pista"
 
-#: ../src/burner-multi-song-props.c:345 ../src/burner-song-properties.c:287
+#: ../src/burner-multi-song-props.c:347 ../src/burner-song-properties.c:288
 msgid "Song Information"
 msgstr "Informació de la cançó"
 
@@ -4120,68 +4233,66 @@ msgstr "%i × %i píxels"
 msgid "No preview"
 msgstr "Sense previsualització"
 
-#: ../src/burner-playlist.c:390
+#: ../src/burner-playlist.c:392
 #, c-format
 msgid "Error parsing playlist \"%s\"."
 msgstr "S'ha produït un error en analitzar la llista de reproducció «%s»."
 
 #. Translators: %d is the number of songs
-#: ../src/burner-playlist.c:499
+#: ../src/burner-playlist.c:501
 #, c-format
 msgid "%d song"
 msgid_plural "%d songs"
 msgstr[0] "%d cançó"
 msgstr[1] "%d cançons"
 
-#: ../src/burner-playlist.c:584
+#: ../src/burner-playlist.c:586
 msgid "Select Playlist"
 msgstr "Seleccioneu una llista de reproducció"
 
-#: ../src/burner-playlist.c:751
+#: ../src/burner-playlist.c:754
 msgid "Playlists"
 msgstr "Llistes de reproducció"
 
-#: ../src/burner-playlist.c:762
+#: ../src/burner-playlist.c:765
 msgid "Number of Songs"
 msgstr "Nombre de cançons"
 
-#: ../src/burner-playlist.c:782
+#: ../src/burner-playlist.c:785
 msgid "Genre"
 msgstr "Gènere"
 
-#: ../src/burner-plugin-manager-ui.c:62
+#: ../src/burner-plugin-manager-ui.c:66
 msgid "Plugin"
 msgstr "Connector"
 
-#: ../src/burner-plugin-manager-ui.c:63
+#: ../src/burner-plugin-manager-ui.c:67
 msgid "Enabled"
 msgstr "Habilitat"
 
 # c-format
-#: ../src/burner-plugin-manager-ui.c:143
+#: ../src/burner-plugin-manager-ui.c:147
 #, c-format
 msgid "Copyright %s"
 msgstr "Copyright %s"
 
-#: ../src/burner-plugin-manager-ui.c:579
-#: ../src/burner-plugin-manager-ui.c:967
+#: ../src/burner-plugin-manager-ui.c:581 ../src/burner-plugin-manager-ui.c:969
 msgid "_About"
 msgstr "_Quant a"
 
-#: ../src/burner-plugin-manager-ui.c:587
-#: ../src/burner-plugin-manager-ui.c:973
+#: ../src/burner-plugin-manager-ui.c:589 ../src/burner-plugin-manager-ui.c:975
 msgid "C_onfigure"
 msgstr "C_onfigura"
 
-#: ../src/burner-plugin-manager-ui.c:597
+#: ../src/burner-plugin-manager-ui.c:599
 msgid "A_ctivate"
 msgstr "A_ctiva"
 
-#: ../src/burner-plugin-manager-ui.c:609
+#: ../src/burner-plugin-manager-ui.c:611
 msgid "Ac_tivate All"
 msgstr "Ac_tiva-ho tot"
 
-#: ../src/burner-plugin-manager-ui.c:614
+#: ../src/burner-plugin-manager-ui.c:616
 msgid "_Deactivate All"
 msgstr "_Desactiva-ho tot"
 
@@ -4195,48 +4306,48 @@ msgstr "Opcions del connector %s"
 msgid "Burner Plugins"
 msgstr "Connectors del Burner"
 
-#: ../src/burner-project.c:196
+#: ../src/burner-project.c:198
 msgid "Save current project"
 msgstr "Guarda el projecte actual"
 
-#: ../src/burner-project.c:197
+#: ../src/burner-project.c:199
 msgid "Save _As…"
 msgstr "_Anomena i guarda…"
 
-#: ../src/burner-project.c:198
+#: ../src/burner-project.c:200
 msgid "Save current project to a different location"
 msgstr "Guarda el projecte actual a una ubicació diferent"
 
-#: ../src/burner-project.c:199
+#: ../src/burner-project.c:201
 msgid "_Add Files"
 msgstr "_Afig fitxers"
 
-#: ../src/burner-project.c:200
+#: ../src/burner-project.c:202
 msgid "Add files to the project"
 msgstr "Afig fitxers al projecte"
 
-#: ../src/burner-project.c:201
+#: ../src/burner-project.c:203
 msgid "_Remove Files"
 msgstr "_Suprimeix fitxers"
 
 #. Translators: "empty" is a verb here
-#: ../src/burner-project.c:204 ../src/burner-project.c:2312
+#: ../src/burner-project.c:206 ../src/burner-project.c:2372
 msgid "E_mpty Project"
 msgstr "_Buida el projecte"
 
-#: ../src/burner-project.c:205
+#: ../src/burner-project.c:207
 msgid "Remove all files from the project"
 msgstr "Suprimeix tots els fitxers del projecte"
 
-#: ../src/burner-project.c:206 ../src/burner-project.c:1086
+#: ../src/burner-project.c:208 ../src/burner-project.c:1088
 msgid "_Burn…"
 msgstr "_Enregistra…"
 
-#: ../src/burner-project.c:207
+#: ../src/burner-project.c:209
 msgid "Burn the disc"
 msgstr "Enregistra el disc"
 
-#: ../src/burner-project.c:695
+#: ../src/burner-project.c:697
 msgid ""
 "To add files to this project click the \"Add\" button or drag files to this "
 "area"
@@ -4244,7 +4355,7 @@ msgstr ""
 "Per afegir fitxers a este projecte feu clic al botó «Afig» o arrossegueu "
 "fitxers a esta àrea"
 
-#: ../src/burner-project.c:697
+#: ../src/burner-project.c:699
 msgid ""
 "To remove files select them then click on the \"Remove\" button or press "
 "\"Delete\" key"
@@ -4252,18 +4363,18 @@ msgstr ""
 "Per suprimir fitxers seleccioneu-los i feu clic al botó «Suprimeix» o premeu "
 "la tecla «Suprimir»"
 
-#: ../src/burner-project.c:804
+#: ../src/burner-project.c:806
 #, c-format
 msgid "Estimated project size: %s"
 msgstr "Mida estimada del projecte: %s"
 
-#: ../src/burner-project.c:950 ../src/burner-project.c:966
+#: ../src/burner-project.c:952 ../src/burner-project.c:968
 msgid "The project is too large for the disc even with the overburn option."
 msgstr ""
 "El projecte és massa gran per al disc, fins i tot amb l'opció de "
 "sobreescriptura."
 
-#: ../src/burner-project.c:977
+#: ../src/burner-project.c:979
 msgid ""
 "The project is too large for the disc and you must remove files from it.\n"
 "You may want to use this option if you're using 90 or 100 min CD-R(W) which "
@@ -4276,57 +4387,57 @@ msgstr ""
 "sobreescriptura.\n"
 "NOTA: Esta opció pot provocar fallades."
 
-#: ../src/burner-project.c:1098
+#: ../src/burner-project.c:1100
 msgid "Start to burn the contents of the selection"
 msgstr "Comença a enregistrar el contingut de la selecció"
 
-#: ../src/burner-project.c:1267
+#: ../src/burner-project.c:1273
 msgid "Please add songs to the project."
 msgstr "Afegiu cançons al projecte."
 
-#: ../src/burner-project.c:1904 ../src/burner-project.c:1939
+#: ../src/burner-project.c:1963 ../src/burner-project.c:1998
 msgid "Do you really want to create a new project and discard the current one?"
 msgstr "Voleu realment crear un projecte nou i descartar l'actual?"
 
-#: ../src/burner-project.c:1909
+#: ../src/burner-project.c:1968
 msgid "If you choose to create a new empty project, all changes will be lost."
 msgstr "Si creeu un projecte buit nou es perdran tots els canvis."
 
-#: ../src/burner-project.c:1912
+#: ../src/burner-project.c:1971
 msgid "_Discard Changes"
 msgstr "_Descarta els canvis"
 
-#: ../src/burner-project.c:1920
+#: ../src/burner-project.c:1979
 msgid "Do you want to discard the file selection or add it to the new project?"
 msgstr "Voleu descartar la selecció de fitxers o afegir-la al projecte nou?"
 
-#: ../src/burner-project.c:1925 ../src/burner-project.c:1944
+#: ../src/burner-project.c:1984 ../src/burner-project.c:2003
 msgid ""
 "If you choose to create a new empty project, the file selection will be "
 "discarded."
 msgstr "Si creeu un projecte buit nou es descartarà la selecció de fitxers."
 
-#: ../src/burner-project.c:1927
+#: ../src/burner-project.c:1986
 msgid "_Discard File Selection"
 msgstr "_Descarta la selecció de fitxers"
 
-#: ../src/burner-project.c:1931
+#: ../src/burner-project.c:1990
 msgid "_Keep File Selection"
 msgstr "_Manté la selecció de fitxers"
 
-#: ../src/burner-project.c:1946
+#: ../src/burner-project.c:2005
 msgid "_Discard Project"
 msgstr "_Descarta el projecte"
 
-#: ../src/burner-project.c:2188
+#: ../src/burner-project.c:2248
 msgid "Select Files"
 msgstr "Selecciona fitxers"
 
-#: ../src/burner-project.c:2301
+#: ../src/burner-project.c:2361
 msgid "Do you really want to empty the current project?"
 msgstr "Segur que voleu buidar el projecte actual?"
 
-#: ../src/burner-project.c:2306
+#: ../src/burner-project.c:2366
 msgid ""
 "Emptying a project will remove all files already added. All the work will be "
 "lost. Note that files will not be deleted from their own location, just no "
@@ -4336,146 +4447,134 @@ msgstr ""
 "per la qual cosa es perdrà tota la faena. Tingueu en compte que els fitxers "
 "no seran suprimits de la seua ubicació, simplement no es llistaran ací."
 
-#: ../src/burner-project.c:2368
+#: ../src/burner-project.c:2477
 msgid "_Save"
 msgstr "Al_ça"
 
-#: ../src/burner-project.c:2379
+#: ../src/burner-project.c:2488
 msgid "_Add"
 msgstr "_Afig"
 
-#: ../src/burner-project.c:2384 ../src/burner-split-dialog.c:1255
+#: ../src/burner-project.c:2493 ../src/burner-split-dialog.c:1261
 msgid "_Remove"
 msgstr "Sup_rimeix"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2448
+#: ../src/burner-project.c:2557
 #, c-format
 msgid "Burner — %s (Data Disc)"
 msgstr "Burner — %s (disc de dades)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2451
+#: ../src/burner-project.c:2560
 #, c-format
 msgid "Burner — %s (Audio Disc)"
 msgstr "Burner — %s (disc d'àudio)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2454
+#: ../src/burner-project.c:2563
 #, c-format
 msgid "Burner — %s (Video Disc)"
 msgstr "Burner — %s (disc de vídeo)"
 
-#: ../src/burner-project.c:2624 ../src/burner-project.c:2927
+#: ../src/burner-project.c:2733 ../src/burner-project.c:3038
 msgid "Your project has not been saved."
 msgstr "El projecte no s'ha guardat."
 
-#: ../src/burner-project.c:2638
+#: ../src/burner-project.c:2747
 msgid "Save the changes of current project before closing?"
 msgstr "Voleu guardar els canvis del projecte actual abans de tancar?"
 
-#: ../src/burner-project.c:2643 ../src/burner-project.c:2932
+#: ../src/burner-project.c:2752 ../src/burner-project.c:3043
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Si no ho guardeu, els canvis es perdran per sempre més."
 
-#: ../src/burner-project.c:2647 ../src/burner-project.c:2653
-#: ../src/burner-project.c:2935
+#: ../src/burner-project.c:2756 ../src/burner-project.c:2762
+#: ../src/burner-project.c:3046
 msgid "Cl_ose Without Saving"
 msgstr "_Tanca sense guardar"
 
-#: ../src/burner-project.c:2735
+#: ../src/burner-project.c:2845
 msgid "Save Current Project"
 msgstr "Guarda el projecte actual"
 
-#: ../src/burner-project.c:2753
+#: ../src/burner-project.c:2863
 msgid "Save project as a Burner audio project"
 msgstr "Guarda el projecte com un projecte d'àudio del Burner"
 
-#: ../src/burner-project.c:2754
+#: ../src/burner-project.c:2864
 msgid "Save project as a plain text list"
 msgstr "Guarda el projecte com una llista de text pla"
 
-#: ../src/burner-project.c:2758
+#: ../src/burner-project.c:2868
 msgid "Save project as a PLS playlist"
 msgstr "Guarda el projecte com una llista de reproducció PLS"
 
-#: ../src/burner-project.c:2759
+#: ../src/burner-project.c:2869
 msgid "Save project as an M3U playlist"
 msgstr "Guarda el projecte com una llista de reproducció M3U"
 
-#: ../src/burner-project.c:2760
+#: ../src/burner-project.c:2870
 msgid "Save project as an XSPF playlist"
 msgstr "Guarda el projecte com una llista de reproducció XSPF"
 
-#: ../src/burner-project.c:2761
+#: ../src/burner-project.c:2871
 msgid "Save project as an iriver playlist"
 msgstr "Guarda el projecte com una llista de reproducció iriver"
 
-#: ../src/burner-project-manager.c:95
+#: ../src/burner-project-manager.c:97
 msgid "_Cover Editor"
 msgstr "Editor de c_obertes"
 
-#: ../src/burner-project-manager.c:96
+#: ../src/burner-project-manager.c:98
 msgid "Design and print covers for CDs"
 msgstr "Dissenya i imprimeix cobertes per a CD"
 
-#: ../src/burner-project-manager.c:97
+#: ../src/burner-project-manager.c:99
 msgid "_New Project"
 msgstr "Projecte _nou"
 
-#: ../src/burner-project-manager.c:98
+#: ../src/burner-project-manager.c:100
 msgid "Create a new project"
 msgstr "Crea un projecte nou"
 
-#: ../src/burner-project-manager.c:99
+#: ../src/burner-project-manager.c:101
 msgid "_Empty Project"
 msgstr "_Buida el projecte"
 
-#: ../src/burner-project-manager.c:100
+#: ../src/burner-project-manager.c:102
 msgid "Let you choose your new project"
 msgstr "Vos permet seleccionar el projecte nou"
 
-#: ../src/burner-project-manager.c:101
+#: ../src/burner-project-manager.c:103
 msgid "New _Audio Project"
 msgstr "Projecte d'àudi_o nou"
 
-#: ../src/burner-project-manager.c:102
-#: ../src/burner-project-type-chooser.c:76
+#: ../src/burner-project-manager.c:104
 msgid ""
 "Create a traditional audio CD that will be playable on computers and stereos"
 msgstr ""
 "Crea un CD d'àudio tradicional que serà reproduïble a ordinadors i equips "
 "estèreo"
 
-#: ../src/burner-project-manager.c:103
+#: ../src/burner-project-manager.c:105
 msgid "New _Data Project"
 msgstr "Projecte de _dades nou"
 
-#: ../src/burner-project-manager.c:104
-#: ../src/burner-project-type-chooser.c:81
-msgid ""
-"Create a CD/DVD containing any type of data that can only be read on a "
-"computer"
-msgstr ""
-"Crea un CD/DVD amb qualsevol tipus de dades que només es llegiran a un "
-"ordinador"
-
-#: ../src/burner-project-manager.c:105
+#: ../src/burner-project-manager.c:107
 msgid "New _Video Project"
 msgstr "Projecte de _vídeo nou"
 
-#: ../src/burner-project-manager.c:106
-#: ../src/burner-project-type-chooser.c:86
+#: ../src/burner-project-manager.c:108
 msgid "Create a video DVD or an SVCD that is readable on TV readers"
 msgstr ""
 "Crea un DVD de vídeo o un SVCD que serà reproduïble a tots els lectors de TV"
 
-#: ../src/burner-project-manager.c:107
+#: ../src/burner-project-manager.c:109
 msgid "Copy _Disc…"
 msgstr "_Copia un disc…"
 
-#: ../src/burner-project-manager.c:108
-#: ../src/burner-project-type-chooser.c:91
+#: ../src/burner-project-manager.c:110
 msgid ""
 "Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on "
 "another CD/DVD"
@@ -4483,108 +4582,82 @@ msgstr ""
 "Crea una còpia exacta d'un CD d'àudio o un CD/DVD de dades al disc dur o a "
 "un altre CD/DVD"
 
-#: ../src/burner-project-manager.c:109
+#: ../src/burner-project-manager.c:111
 msgid "_Burn Image…"
 msgstr "Enregistra una _imatge…"
 
-#: ../src/burner-project-manager.c:110
-#: ../src/burner-project-type-chooser.c:95
-#: ../src/burner-project-type-chooser.c:96
-msgid "Burn an existing CD/DVD image to disc"
-msgstr "Enregistra una imatge de CD/DVD existent al disc"
-
-#: ../src/burner-project-manager.c:112
+#: ../src/burner-project-manager.c:114
 msgid "_Open…"
 msgstr "_Obri…"
 
-#: ../src/burner-project-manager.c:113
+#: ../src/burner-project-manager.c:115
 msgid "Open a project"
 msgstr "Obri un projecte"
 
 #. Translators: the %s is a string representing the total size
 #. * of the file selection
-#: ../src/burner-project-manager.c:259
+#: ../src/burner-project-manager.c:262
 #, c-format
 msgid "%d file selected (%s)"
 msgid_plural "%d files selected (%s)"
 msgstr[0] "%d fitxer seleccionat (%s)"
 msgstr[1] "%d fitxers seleccionats (%s)"
 
-#: ../src/burner-project-manager.c:270
+#: ../src/burner-project-manager.c:273
 #, c-format
 msgid "%d file is supported (%s)"
 msgid_plural "%d files are supported (%s)"
 msgstr[0] "%d fitxer és compatible (%s)"
 msgstr[1] "%d fitxers són compatibles (%s)"
 
-#: ../src/burner-project-manager.c:276
+#: ../src/burner-project-manager.c:279
 #, c-format
 msgid "%d file can be added (%s)"
 msgid_plural "%d selected files can be added (%s)"
 msgstr[0] "es pot afegir %d fitxer (%s)"
 msgstr[1] "es poden afegir %d fitxers (%s)"
 
-#: ../src/burner-project-manager.c:287
+#: ../src/burner-project-manager.c:290
 #, c-format
 msgid "No file can be added (%i selected file)"
 msgid_plural "No file can be added (%i selected files)"
 msgstr[0] "No es pot afegir cap fitxer (%i fitxer seleccionat)"
 msgstr[1] "No es pot afegir cap fitxer (%i fitxers seleccionats)"
 
-#: ../src/burner-project-manager.c:293
+#: ../src/burner-project-manager.c:296
 #, c-format
 msgid "No file is supported (%i selected file)"
 msgid_plural "No file is supported (%i selected files)"
 msgstr[0] "No hi ha cap fitxer compatible (%i fitxer seleccionat)"
 msgstr[1] "No hi ha cap fitxer compatible (%i fitxers seleccionats)"
 
-#: ../src/burner-project-manager.c:299 ../src/burner-project-manager.c:453
+#: ../src/burner-project-manager.c:302 ../src/burner-project-manager.c:456
 msgid "No file selected"
 msgstr "Cap fitxer seleccionat"
 
-#: ../src/burner-project-manager.c:590
-msgid "Burner — New Audio Disc Project"
-msgstr "Burner — Projecte de disc d'àudio nou"
-
-#: ../src/burner-project-manager.c:604
-msgid "Burner — New Data Disc Project"
-msgstr "Burner — Projecte de disc de dades nou"
-
-#: ../src/burner-project-manager.c:618
-msgid "Burner — New Video Disc Project"
-msgstr "Burner — Projecte de disc de vídeo nou"
-
-#: ../src/burner-project-manager.c:628
-msgid "Burner — New Image File"
-msgstr "Burner — Fitxer d'imatge nou"
-
-#: ../src/burner-project-manager.c:643
-msgid "Burner — Disc Copy"
-msgstr "Burner — Copia un disc"
-
-#: ../src/burner-project-manager.c:727
+#: ../src/burner-project-manager.c:763
 msgid "Open Project"
 msgstr "Obri un projecte"
 
-#: ../src/burner-project-manager.c:830
+#: ../src/burner-project-manager.c:868
 msgid "_New"
 msgstr "_Nou"
 
-#: ../src/burner-project-manager.c:834
+#: ../src/burner-project-manager.c:872
 msgid "_Open"
 msgstr "_Obri"
 
-#: ../src/burner-project-manager.c:885
+#: ../src/burner-project-manager.c:923
 msgid "Browse the file system"
 msgstr "Explora el sistema de fitxers"
 
-#: ../src/burner-project-manager.c:907
+#: ../src/burner-project-manager.c:945
 msgid "Display playlists and their contents"
 msgstr "Mostra les llistes de reproducció i els seus continguts"
 
 #. Translators: this is a picture not
 #. * a disc image
-#: ../src/burner-project-name.c:83
+#: ../src/burner-project-name.c:85
 msgctxt "picture"
 msgid "Please select another image."
 msgstr "Seleccioneu una altra imatge."
@@ -4592,7 +4665,7 @@ msgstr "Seleccioneu una altra imatge."
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_.
 #. * The %s is the date
-#: ../src/burner-project-name.c:269
+#: ../src/burner-project-name.c:272
 #, c-format
 msgid "Video disc (%s)"
 msgstr "Disc de vídeo (%s)"
@@ -4613,60 +4686,20 @@ msgstr "El fitxer és buit"
 msgid "It does not seem to be a valid Burner project"
 msgstr "Pareix que no és un projecte del Burner vàlid"
 
-#: ../src/burner-project-type-chooser.c:74
-msgid "Audi_o project"
-msgstr "Projecte d'àudi_o"
-
-#: ../src/burner-project-type-chooser.c:75
-msgid "Create a traditional audio CD"
-msgstr "Crea un CD d'àudio tradicional"
-
-#: ../src/burner-project-type-chooser.c:79
-msgid "D_ata project"
-msgstr "Projecte de _dades"
-
-#: ../src/burner-project-type-chooser.c:80
-msgid "Create a data CD/DVD"
-msgstr "Crea un CD/DVD de dades"
-
-#: ../src/burner-project-type-chooser.c:84
-msgid "_Video project"
-msgstr "Projecte de _vídeo"
-
-#: ../src/burner-project-type-chooser.c:85
-msgid "Create a video DVD or an SVCD"
-msgstr "Crea un DVD de vídeo o un SVCD"
-
-#: ../src/burner-project-type-chooser.c:89
-msgid "Disc _copy"
-msgstr "_Copia un disc"
-
-#: ../src/burner-project-type-chooser.c:90
-msgid "Create 1:1 copy of a CD/DVD"
-msgstr "Crea una còpia exacta d'un CD/DVD"
-
-#: ../src/burner-project-type-chooser.c:94
-msgid "Burn _image"
-msgstr "Enregistra una i_matge"
-
-#: ../src/burner-project-type-chooser.c:292
+#: ../src/burner-project-type-chooser.c:404
 msgid "Last _Unsaved Project"
 msgstr "Últim projecte _sense guardar"
 
-#: ../src/burner-project-type-chooser.c:308
+#: ../src/burner-project-type-chooser.c:420
 msgid "Load the last project that was not burned and not saved"
 msgstr ""
 "Carrega l'últim projecte que no es va enregistrar i tampoc es va guardar"
 
-#: ../src/burner-project-type-chooser.c:414
+#: ../src/burner-project-type-chooser.c:526
 msgid "No recently used project"
 msgstr "No s'han utilitzat projectes recentment"
 
-#: ../src/burner-project-type-chooser.c:463
-msgid "Create a new project:"
-msgstr "Crea un projecte nou:"
-
-#: ../src/burner-project-type-chooser.c:510
+#: ../src/burner-project-type-chooser.c:646
 msgid "Recent projects:"
 msgstr "Projectes recents:"
 
@@ -4745,32 +4778,32 @@ msgstr "Cap fitxer"
 msgid "Start and stop playing"
 msgstr "Comença i para la reproducció"
 
-#: ../src/burner-song-properties.c:177
+#: ../src/burner-song-properties.c:178
 msgid "Title:"
 msgstr "Títol:"
 
-#: ../src/burner-song-properties.c:235
+#: ../src/burner-song-properties.c:236
 msgid "Song start:"
 msgstr "Inici de la cançó:"
 
-#: ../src/burner-song-properties.c:241
+#: ../src/burner-song-properties.c:242
 msgid "Song end:"
 msgstr "Final de la cançó:"
 
-#: ../src/burner-song-properties.c:258
+#: ../src/burner-song-properties.c:259
 msgid "Track length:"
 msgstr "Durada de la pista:"
 
-#: ../src/burner-song-properties.c:365
+#: ../src/burner-song-properties.c:366
 #, c-format
 msgid "Song information for track %02i"
 msgstr "Informació de la cançó de la pista %02i"
 
-#: ../src/burner-split-dialog.c:172
+#: ../src/burner-split-dialog.c:174
 msgid "Do you really want to split the track?"
 msgstr "Segur que voleu partir la pista?"
 
-#: ../src/burner-split-dialog.c:175
+#: ../src/burner-split-dialog.c:178
 msgid ""
 "If you split the track, the size of the new track will be shorter than 6 "
 "seconds and will be padded."
@@ -4778,131 +4811,131 @@ msgstr ""
 "Si partiu la pista, la mida de la pista nova serà de menys de 6 segons i "
 "serà emplenada."
 
-#: ../src/burner-split-dialog.c:181 ../src/burner-split-dialog.c:752
+#: ../src/burner-split-dialog.c:184 ../src/burner-split-dialog.c:758
 msgid "_Split"
 msgstr "_Parteix"
 
-#: ../src/burner-split-dialog.c:609
+#: ../src/burner-split-dialog.c:613
 msgid "The track wasn't split."
 msgstr "No s'ha partit la pista."
 
-#: ../src/burner-split-dialog.c:610
+#: ../src/burner-split-dialog.c:614
 msgid "No silence could be detected"
 msgstr "No s'ha pogut detectar el silenci"
 
-#: ../src/burner-split-dialog.c:633
+#: ../src/burner-split-dialog.c:637
 msgid "An error occurred while detecting silences."
 msgstr "S'ha produït un error en detectar els silencis."
 
-#: ../src/burner-split-dialog.c:712
+#: ../src/burner-split-dialog.c:717
 msgid "This will remove all previous results."
 msgstr "Es suprimiran tots els resultats anteriors."
 
-#: ../src/burner-split-dialog.c:750
+#: ../src/burner-split-dialog.c:756
 msgid "Do you really want to carry on with automatic splitting?"
 msgstr "Encara voleu continuar amb la partició automàtica?"
 
-#: ../src/burner-split-dialog.c:751
+#: ../src/burner-split-dialog.c:757
 msgid "_Don't split"
 msgstr "_No partisques"
 
-#: ../src/burner-split-dialog.c:968
+#: ../src/burner-split-dialog.c:974
 msgid "Do you really want to empty the slices preview?"
 msgstr "Segur que voleu buidar la previsualització de les particions?"
 
-#: ../src/burner-split-dialog.c:970 ../src/burner-split-dialog.c:1269
+#: ../src/burner-split-dialog.c:976 ../src/burner-split-dialog.c:1275
 msgid "Re_move All"
 msgstr "Supri_meix-ho tot"
 
-#: ../src/burner-split-dialog.c:1055
+#: ../src/burner-split-dialog.c:1061
 msgid "Split Track"
 msgstr "Parteix la pista"
 
-#: ../src/burner-split-dialog.c:1072
+#: ../src/burner-split-dialog.c:1078
 msgid "M_ethod:"
 msgstr "Mè_tode:"
 
-#: ../src/burner-split-dialog.c:1078
+#: ../src/burner-split-dialog.c:1084
 msgid "Method to be used to split the track"
 msgstr "Mètode a utilitzar per partir la pista"
 
-#: ../src/burner-split-dialog.c:1081
+#: ../src/burner-split-dialog.c:1087
 msgid "Split track manually"
 msgstr "Parteix la pista manualment"
 
-#: ../src/burner-split-dialog.c:1082
+#: ../src/burner-split-dialog.c:1088
 msgid "Split track in parts with a fixed length"
 msgstr "Parteix la pista en parts de mida fixa"
 
-#: ../src/burner-split-dialog.c:1083
+#: ../src/burner-split-dialog.c:1089
 msgid "Split track in a fixed number of parts"
 msgstr "Parteix la pista en un nombre fix de parts"
 
-#: ../src/burner-split-dialog.c:1084
+#: ../src/burner-split-dialog.c:1090
 msgid "Split track for each silence"
 msgstr "Parteix la pista per cada silenci"
 
-#: ../src/burner-split-dialog.c:1090
+#: ../src/burner-split-dialog.c:1096
 msgid "_Slice"
 msgstr "_Partició"
 
-#: ../src/burner-split-dialog.c:1101
+#: ../src/burner-split-dialog.c:1107
 msgid "Add a splitting point"
 msgstr "Afig un punt de partició"
 
 #. Translators: this goes with the next (= "seconds")
-#: ../src/burner-split-dialog.c:1118
+#: ../src/burner-split-dialog.c:1124
 msgid "Split this track every"
 msgstr "Parteix la pista cada"
 
 #. Translators: this goes with the previous (= "Split track every")
-#: ../src/burner-split-dialog.c:1127
+#: ../src/burner-split-dialog.c:1133
 msgid "seconds"
 msgstr "segons"
 
 #. Translators: this goes with the next (= "parts")
-#: ../src/burner-split-dialog.c:1136
+#: ../src/burner-split-dialog.c:1142
 msgid "Split this track in"
 msgstr "Parteix la pista en"
 
 #. Translators: this goes with the previous (= "Split this track in")
-#: ../src/burner-split-dialog.c:1145
+#: ../src/burner-split-dialog.c:1151
 msgid "parts"
 msgstr "parts"
 
-#: ../src/burner-split-dialog.c:1153
+#: ../src/burner-split-dialog.c:1159
 msgid "Slicing Method"
 msgstr "Mètode de partició"
 
-#: ../src/burner-split-dialog.c:1211
+#: ../src/burner-split-dialog.c:1217
 msgid "Start"
 msgstr "Inici"
 
-#: ../src/burner-split-dialog.c:1218
+#: ../src/burner-split-dialog.c:1224
 msgid "End"
 msgstr "Final"
 
-#: ../src/burner-split-dialog.c:1241
+#: ../src/burner-split-dialog.c:1247
 msgid "Mer_ge"
 msgstr "_Combina"
 
-#: ../src/burner-split-dialog.c:1252
+#: ../src/burner-split-dialog.c:1258
 msgid "Merge a selected slice with the next selected one"
 msgstr "Combina una partició seleccionada amb la següent"
 
-#: ../src/burner-split-dialog.c:1266
+#: ../src/burner-split-dialog.c:1272
 msgid "Remove the selected slices"
 msgstr "Suprimeix les particions seleccionades"
 
-#: ../src/burner-split-dialog.c:1280
+#: ../src/burner-split-dialog.c:1286
 msgid "Clear the slices preview"
 msgstr "Neteja la previsualització de les particions"
 
-#: ../src/burner-split-dialog.c:1290
+#: ../src/burner-split-dialog.c:1296
 msgid "_List of slices that are to be created:"
 msgstr "_Llista de les particions que s'han de crear:"
 
-#: ../src/burner-split-dialog.c:1298
+#: ../src/burner-split-dialog.c:1304
 msgid "Slices Preview"
 msgstr "Previsualització de les particions"
 
@@ -4930,43 +4963,103 @@ msgstr "Segons"
 msgid "Frames (1 second = 75 frames)"
 msgstr "Quadres (1 segon = 75 quadres)"
 
-#: ../src/burner-video-disc.c:101
+#: ../src/burner-video-disc.c:103
 msgid "Open the selected video"
 msgstr "Obri el vídeo seleccionat"
 
-#: ../src/burner-video-disc.c:103
+#: ../src/burner-video-disc.c:105
 msgid "Edit the video information (start, end, author, etc.)"
 msgstr "Edita la informació del vídeo (inici, final, autor, etc.)"
 
-#: ../src/burner-video-disc.c:105
+#: ../src/burner-video-disc.c:107
 msgid "Remove the selected videos from the project"
 msgstr "Suprimeix els vídeos seleccionats del projecte"
 
-#: ../src/burner-video-disc.c:359
+#: ../src/burner-video-disc.c:361
 msgid "Do you want to search for video files inside the directory?"
 msgstr "Voleu cercar fitxers de vídeo dins del directori?"
 
-#: ../src/burner-video-disc.c:369
+#: ../src/burner-video-disc.c:371
 msgid "_Search Directory"
 msgstr "_Cerca al directori"
 
-#: ../src/burner-video-disc.c:412
+#: ../src/burner-video-disc.c:415
 #, c-format
 msgid "\"%s\" does not have a suitable type for video projects."
 msgstr "«%s» no té un tipus adequat per a projectes de vídeo."
 
-#: ../src/burner-video-disc.c:415
+#: ../src/burner-video-disc.c:418
 msgid "Please only add files with video content"
 msgstr "Afig només fitxers amb contingut de vídeo"
 
-#: ../src/main.c:84
+#: ../src/main.c:91
 msgid "[URI] [URI] …"
 msgstr "[URI] [URI] …"
 
-#: ../src/main.c:96
+#: ../src/main.c:103
 #, c-format
 msgid "Please type \"%s --help\" to see all available options\n"
 msgstr "Escriviu «%s --help» per mostrar totes les opcions disponibles\n"
+
+#~ msgid "Create an Audio Project"
+#~ msgstr "Crea un projecte d'àudio"
+
+#~ msgid "Create a Video Project"
+#~ msgstr "Crea un projecte de vídeo"
+
+#~ msgid "Simulation of image to DVD burning"
+#~ msgstr "S'està simulant l'enregistrament de la imatge al DVD"
+
+#~ msgid "Make _More Copies"
+#~ msgstr "Fes _més còpies"
+
+#~ msgid "Open the specified playlist as an audio project"
+#~ msgstr "Obri la llista de reproducció especificada com un projecte d'àudio"
+
+#~ msgid "PLAYLIST"
+#~ msgstr "LLISTA DE REPRODUCCIÓ"
+
+#~ msgid "Open an audio project adding the URIs given on the command line"
+#~ msgstr "Obri un projecte d'àudio afegint els URI donats a la línia d'ordes"
+
+#~ msgid "Open a video project adding the URIs given on the command line"
+#~ msgstr "Obri un projecte de vídeo afegint els URI donats a la línia d'ordes"
+
+#~ msgid "Filtering options"
+#~ msgstr "Opcions de filtrat"
+
+#~ msgid "Burner — New Audio Disc Project"
+#~ msgstr "Burner — Projecte de disc d'àudio nou"
+
+#~ msgid "Burner — New Data Disc Project"
+#~ msgstr "Burner — Projecte de disc de dades nou"
+
+#~ msgid "Burner — New Video Disc Project"
+#~ msgstr "Burner — Projecte de disc de vídeo nou"
+
+#~ msgid "Burner — New Image File"
+#~ msgstr "Burner — Fitxer d'imatge nou"
+
+#~ msgid "Burner — Disc Copy"
+#~ msgstr "Burner — Copia un disc"
+
+#~ msgid "Audi_o project"
+#~ msgstr "Projecte d'àudi_o"
+
+#~ msgid "Create a traditional audio CD"
+#~ msgstr "Crea un CD d'àudio tradicional"
+
+#~ msgid "Create a video DVD or an SVCD"
+#~ msgstr "Crea un DVD de vídeo o un SVCD"
+
+#~ msgid "Disc _copy"
+#~ msgstr "_Copia un disc"
+
+#~ msgid "Create 1:1 copy of a CD/DVD"
+#~ msgstr "Crea una còpia exacta d'un CD/DVD"
+
+#~ msgid "Create a new project:"
+#~ msgstr "Crea un projecte nou:"
 
 #~ msgid "File is not a valid .desktop file"
 #~ msgstr "El fitxer no és un fitxer .desktop vàlid"

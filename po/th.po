@@ -7,18 +7,38 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Burner\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=burner&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-04-17 03:52+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-14 10:36+0800\n"
 "PO-Revision-Date: 2012-09-06 20:56+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/burner.desktop.in.in.h:1
+#: ../data/burner.appdata.xml.in.h:1
+msgid ""
+"Burner is a application to burn CD/DVD for the GNOME Desktop. It is designed "
+"to be as simple as possible and has some unique features to enable users to "
+"create their discs easily and quickly."
+msgstr ""
+
+#: ../data/burner.appdata.xml.in.h:2
+msgid ""
+"Burner can create, copy and burn Data and Audio CD/DVDs. It fully supports "
+"CD-TEXT, multisession and joliet extensions. You can simply drag and drop "
+"files from other local applications or from remote shared drives to easily "
+"burn them to a disc."
+msgstr ""
+
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — New Audio Disc Project"));
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — Disc Copy"));
+#: ../data/burner.desktop.in.in.h:1 ../src/burner-app.c:2030
+#: ../src/burner-project-manager.c:587 ../src/burner-project-manager.c:602
+#: ../src/burner-project-manager.c:617 ../src/burner-project-manager.c:631
+#: ../src/burner-project-manager.c:642 ../src/burner-project-manager.c:675
 msgid "Burner"
 msgstr "Burner"
 
@@ -31,56 +51,52 @@ msgid "Create and copy CDs and DVDs"
 msgstr "สร้างและคัดลอกซีดี/ดีวีดี"
 
 #: ../data/burner.desktop.in.in.h:4
+msgid "disc;cdrom;dvd;burn;audio;video;"
+msgstr ""
+
+#: ../data/burner.desktop.in.in.h:5
 msgid "Burner Disc Burner"
 msgstr "โปรแกรมเขียนแผ่น Burner"
 
-#: ../data/burner.desktop.in.in.h:5
+#: ../data/burner.desktop.in.in.h:6
 msgid "Open a New Window"
 msgstr "เปิดหน้าต่างใหม่"
 
-#: ../data/burner.desktop.in.in.h:6
+#: ../data/burner.desktop.in.in.h:7
 msgid "Burn an Image File"
 msgstr "เขียนแฟ้มอิมเมจลงแผ่น"
-
-#: ../data/burner.desktop.in.in.h:7
-msgid "Create an Audio Project"
-msgstr "เริ่มโครงการซีดีเพลง"
-
-#: ../data/burner.desktop.in.in.h:8
-msgid "Create a Video Project"
-msgstr "เริ่มโครงการวีดิทัศน์"
 
 #: ../data/mime/burner.xml.in.h:1
 msgid "Burner project file"
 msgstr "แฟ้มโครงการ Burner"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:1
+#: ../data/org.gnome.burner.gschema.xml.h:1
 msgid "Should Nautilus extension output debug statements"
 msgstr "ส่วนขยาย Nautilus ควรจะเขียนข้อความดีบั๊กออกมาหรือไม่"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:2
+#: ../data/org.gnome.burner.gschema.xml.h:2
 msgid ""
 "Should Nautilus extension output debug statements. The value should be set "
 "to true if it should."
 msgstr "ส่วนขยาย Nautilus ควรจะเขียนข้อความดีบั๊กออกมาหรือไม่ ถ้าควร ก็กำหนดค่านี้เป็น true"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:3
+#: ../data/org.gnome.burner.gschema.xml.h:3
 msgid "The type of checksum used for images"
 msgstr "ชนิดของ checksum ที่จะใช้สำหรับอิมเมจต่างๆ"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:4
+#: ../data/org.gnome.burner.gschema.xml.h:4
 msgid "Set to 0 for MD5, 1 for SHA1 and 2 for SHA256"
 msgstr "กำหนดเป็น 0 จะใช้ MD5, ค่า 1 จะใช้ SHA1 และค่า 2 จะใช้ SHA256"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:5
+#: ../data/org.gnome.burner.gschema.xml.h:5
 msgid "The type of checksum used for files"
 msgstr "ชนิดของ checksum ที่จะใช้สำหรับแฟ้มต่างๆ"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:6
+#: ../data/org.gnome.burner.gschema.xml.h:6
 msgid "Directory to use for temporary files"
 msgstr "ไดเรกทอรีที่จะใช้เก็บแฟ้มชั่วคราว"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:7
+#: ../data/org.gnome.burner.gschema.xml.h:7
 msgid ""
 "Contains the path to the directory where burner should store temporary "
 "files. If that value is empty, the default directory set for glib will be "
@@ -89,21 +105,21 @@ msgstr ""
 "เก็บพาธของไดเรกทอรีที่ Burner จะใช้เก็บแฟ้มชั่วคราว ถ้าค่านี้ว่างเปล่า "
 "ก็จะใช้ไดเรกทอรีปริยายที่กำหนดไว้สำหรับ glib"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:8
+#: ../data/org.gnome.burner.gschema.xml.h:8
 msgid "Favourite burn engine"
 msgstr "กลไกการเขียนตัวโปรด"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:9
+#: ../data/org.gnome.burner.gschema.xml.h:9
 msgid ""
 "Contains the name of the favourite burn engine suite installed. It will be "
 "used if possible."
 msgstr "เก็บชื่อของชุดกลไกการเขียนตัวโปรดที่ได้ติดตั้งไว้ Burner จะใช้กลไกดังกล่าวถ้าเป็นไปได้"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:10
+#: ../data/org.gnome.burner.gschema.xml.h:10
 msgid "White list of additional plugins to use"
 msgstr "รายชื่อของปลั๊กอินเพิ่มเติมที่จะใช้"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:11
+#: ../data/org.gnome.burner.gschema.xml.h:11
 msgid ""
 "Contains the list of additional plugins Burner will use to burn discs. If "
 "set to NULL, Burner will load them all."
@@ -111,11 +127,11 @@ msgstr ""
 "เก็บรายชื่อของปลั๊กอินเพิ่มเติมที่ Burner จะใช้ในการเขียนแผ่นต่างๆ ถ้ากำหนดเป็น NULL "
 "ก็จะโหลดปลั๊กอินทั้งหมด"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:12
+#: ../data/org.gnome.burner.gschema.xml.h:12
 msgid "Enable the \"-immed\" flag with cdrecord"
 msgstr "เปิดใช้แฟล็ก \"-immed\" กับ cdrecord"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:13
+#: ../data/org.gnome.burner.gschema.xml.h:13
 msgid ""
 "Whether to use the \"-immed\" flag with cdrecord. Use with caution (set to "
 "true) as it's only a workaround for some drives/setups."
@@ -123,32 +139,31 @@ msgstr ""
 "กำหนดว่าจะใช้แฟล็ก \"-immed\" กับ cdrecord หรือไม่ โปรดใช้ (ด้วยการกำหนดเป็นค่าจริง) "
 "ด้วยความระมัดระวัง เพราะนี่เป็นแค่การแก้ปัญหาเฉพาะหน้าสำหรับบางไดรว์หรือบางระบบเท่านั้น"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:14
+#: ../data/org.gnome.burner.gschema.xml.h:14
 msgid "Whether to use the \"-use-the-force-luke=dao\" flag with growisofs"
 msgstr "จะใช้แฟล็ก \"-use-the-force-luke=dao\" กับ growisofs หรือไม่"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:15
+#: ../data/org.gnome.burner.gschema.xml.h:15
 msgid ""
 "Whether to use the \"-use-the-force-luke=dao\" flag with growisofs. Set to "
 "false, burner won't use it; it may be a workaround for some drives/setups."
 msgstr ""
 "กำหนดว่าจะใช้แฟล็ก \"-use-the-force-luke=dao\" กับ growisofs หรือไม่ "
-"ถ้ากำหนดเป็นค่าเท็จ Burner ก็จะไม่ใช้ "
-"ซึ่งอาจเป็นวิธีแก้ปัญหาเฉพาะหน้าสำหรับบางไดรว์หรือบางระบบ"
+"ถ้ากำหนดเป็นค่าเท็จ Burner ก็จะไม่ใช้ ซึ่งอาจเป็นวิธีแก้ปัญหาเฉพาะหน้าสำหรับบางไดรว์หรือบางระบบ"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:16
+#: ../data/org.gnome.burner.gschema.xml.h:16
 msgid "Used in conjunction with the \"-immed\" flag with cdrecord"
 msgstr "ใช้ร่วมกับแฟล็ก \"-immed\" สำหรับ cdrecord"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:17
+#: ../data/org.gnome.burner.gschema.xml.h:17
 msgid "Used in conjunction with the \"-immed\" flag with cdrecord."
 msgstr "ใช้ร่วมกับแฟล็ก \"-immed\" สำหรับ cdrecord"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:18
+#: ../data/org.gnome.burner.gschema.xml.h:18
 msgid "Whether to use the \"--driver generic-mmc-raw\" flag with cdrdao"
 msgstr "จะใช้แฟล็ก \"--driver generic-mmc-raw\" กับ cdrdao หรือไม่"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:19
+#: ../data/org.gnome.burner.gschema.xml.h:19
 msgid ""
 "Whether to use the \"--driver generic-mmc-raw\" flag with cdrdao. Set to "
 "True, burner will use it; it may be a workaround for some drives/setups."
@@ -156,39 +171,39 @@ msgstr ""
 "กำหนดว่าจะใช้แฟล็ก \"--driver generic-mmc-raw\" กับ cdrdao หรือไม่ ถ้ากำหนดเป็นค่าจริง "
 "Burner ก็จะใช้ ซึ่งอาจเป็นวิธีแก้ปัญหาเฉพาะหน้าสำหรับบางไดรว์หรือบางระบบ"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:20
+#: ../data/org.gnome.burner.gschema.xml.h:20
 msgid "The last browsed folder while looking for images to burn"
 msgstr "โฟลเดอร์สุดท้ายที่เรียกดูขณะหาอิมเมจที่จะใช้เขียน"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:21
+#: ../data/org.gnome.burner.gschema.xml.h:21
 msgid ""
 "Contains the absolute path of the directory that was last browsed for images "
 "to burn"
 msgstr "เก็บพาธเต็มของไดเรกทอรีที่เรียกดูล่าสุดในการหาอิมเมจที่จะใช้เขียน"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:22
+#: ../data/org.gnome.burner.gschema.xml.h:22
 msgid "Enable file preview"
 msgstr "เปิดใช้การแสดงตัวอย่างแฟ้ม"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:23
+#: ../data/org.gnome.burner.gschema.xml.h:23
 msgid "Whether to display file preview. Set to true to use it."
 msgstr "กำหนดว่าจะแสดงตัวอย่างแฟ้มหรือไม่ กำหนดเป็นค่าจริงถ้าต้องการใช้"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:24
+#: ../data/org.gnome.burner.gschema.xml.h:24
 msgid "Should burner filter hidden files"
 msgstr "Burner ควรกรองแฟ้มซ่อนออกหรือไม่"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:25
+#: ../data/org.gnome.burner.gschema.xml.h:25
 msgid ""
 "Should burner filter hidden files. Set to true, burner will filter hidden "
 "files."
 msgstr "Burner ควรกรองแฟ้มซ่อนออกหรือไม่ ถ้ากำหนดเป็นค่าจริง Burner ก็จะกรองแฟ้มซ่อนออก"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:26
+#: ../data/org.gnome.burner.gschema.xml.h:26
 msgid "Replace symbolic links by their targets"
 msgstr "แทนที่ลิงก์สัญลักษณ์ด้วยปลายทาง"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:27
+#: ../data/org.gnome.burner.gschema.xml.h:27
 msgid ""
 "Should burner replace symbolic links by their target files in the project. "
 "Set to true, burner will replace symbolic links."
@@ -196,23 +211,23 @@ msgstr ""
 "Burner ควรแทนที่ลิงก์สัญลักษณ์ในโครงการด้วยแฟ้มปลายทางหรือไม่ ถ้ากำหนดเป็นค่าจริง Burner "
 "ก็จะแทนที่ลิงก์สัญลักษณ์"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:28
+#: ../data/org.gnome.burner.gschema.xml.h:28
 msgid "Should burner filter broken symbolic links"
 msgstr "Burner ควรกรองลิงก์สัญลักษณ์ที่เสียออกหรือไม่"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:29
+#: ../data/org.gnome.burner.gschema.xml.h:29
 msgid ""
-"Should burner filter broken symbolic links. Set to true, burner will "
-"filter broken symbolic links."
+"Should burner filter broken symbolic links. Set to true, burner will filter "
+"broken symbolic links."
 msgstr ""
 "Burner ควรกรองลิงก์สัญลักษณ์ที่เสียออกหรือไม่ ถ้ากำหนดเป็นค่าจริง Burner "
 "ก็จะกรองลิงก์สัญลักษณ์ที่เสียออก"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:30
+#: ../data/org.gnome.burner.gschema.xml.h:30
 msgid "The priority value for the plugin"
 msgstr "ค่าลำดับความสำคัญของปลั๊กอิน"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:31
+#: ../data/org.gnome.burner.gschema.xml.h:31
 msgid ""
 "When several plugins are available for the same task, this value is used to "
 "determine which plugin should be given priority. 0 means the plugin's native "
@@ -223,62 +238,94 @@ msgstr ""
 "หมายถึงใช้ค่าลำดับความสำคัญที่กำหนดไว้ในตัวปลั๊กอิน ค่าบวกจะเป็นการทับค่าที่กำหนดไว้ในตัวปลั๊กอิน "
 "ค่าลบจะปิดการใช้งานปลั๊กอิน"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:32
+#: ../data/org.gnome.burner.gschema.xml.h:32
 msgid "Burning flags to be used"
 msgstr "ตัวเลือกของการเขียนที่จะใช้"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:33
+#: ../data/org.gnome.burner.gschema.xml.h:33
 msgid ""
 "This value represents the burning flags that were used in such a context the "
 "last time."
 msgstr "ค่านี้เก็บแฟล็กของการเขียนที่ใช้ในบริบทเดียวกันในครั้งที่แล้ว"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:34
+#: ../data/org.gnome.burner.gschema.xml.h:34
 msgid "The speed to be used"
 msgstr "ความเร็วที่จะใช้"
 
-#: ../data/org.gnome.burner.gschema.xml.in.h:35
+#: ../data/org.gnome.burner.gschema.xml.h:35
 msgid ""
 "This value represents the speed that was used in such a context the last "
 "time."
 msgstr "ค่านี้เก็บความเร็วที่ใช้ในบริบทเดียวกันในครั้งที่แล้ว"
 
-#: ../libburner-burn/burner-blank-dialog.c:222
+#: ../libburner-burn/burner-app-indicator.c:77 ../src/burner-audio-disc.c:157
+#: ../src/burner-data-disc.c:124 ../src/burner-video-disc.c:102
+msgid "Menu"
+msgstr "เมนู"
+
+#: ../libburner-burn/burner-app-indicator.c:79
+msgid "Cancel ongoing burning"
+msgstr "ยกเลิกการเขียนแผ่นที่กำลังทำอยู่"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show _Dialog"
+msgstr "แสดง_กล่องโต้ตอบ"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show dialog"
+msgstr "แสดงกล่องโต้ตอบ"
+
+#: ../libburner-burn/burner-app-indicator.c:256
+#, c-format
+msgid "%s, %d%% done, %s remaining"
+msgstr "%s, เสร็จแล้ว %d%%, เหลืออีก %s"
+
+#: ../libburner-burn/burner-app-indicator.c:263
+#, c-format
+msgid "%s, %d%% done"
+msgstr "%s, เสร็จแล้ว %d%%"
+
+#: ../libburner-burn/burner-app-indicator.c:273
+#, fuzzy, c-format
+msgid "Burner Disc Burner: %s"
+msgstr "โปรแกรมเขียนแผ่น Burner"
+
+#: ../libburner-burn/burner-blank-dialog.c:224
 msgid "Error while blanking."
 msgstr "เกิดข้อผิดพลาดขณะล้างข้อมูล"
 
-#: ../libburner-burn/burner-blank-dialog.c:227
-#: ../libburner-burn/burner-blank-dialog.c:272
+#: ../libburner-burn/burner-blank-dialog.c:230
+#: ../libburner-burn/burner-blank-dialog.c:277
 msgid "Blank _Again"
 msgstr "ล้างซ้ำ_อีกครั้ง"
 
-#: ../libburner-burn/burner-blank-dialog.c:244
+#: ../libburner-burn/burner-blank-dialog.c:247
 msgid "Unknown error."
 msgstr "ข้อผิดพลาดไม่ทราบสาเหตุ"
 
-#: ../libburner-burn/burner-blank-dialog.c:264
-#: ../libburner-burn/burner-blank-dialog.c:288
+#: ../libburner-burn/burner-blank-dialog.c:268
+#: ../libburner-burn/burner-blank-dialog.c:293
 msgid "The disc was successfully blanked."
 msgstr "ล้างข้อมูลในแผ่นสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-blank-dialog.c:270
+#: ../libburner-burn/burner-blank-dialog.c:275
 msgid "The disc is ready for use."
 msgstr "แผ่นพร้อมใช้งานแล้ว"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-blank-dialog.c:371
+#: ../libburner-burn/burner-blank-dialog.c:377
 msgid "_Blank"
 msgstr "_ล้างข้อมูล"
 
-#: ../libburner-burn/burner-blank-dialog.c:402
+#: ../libburner-burn/burner-blank-dialog.c:408
 msgid "_Fast blanking"
 msgstr "ล้างแบบเ_ร็ว"
 
-#: ../libburner-burn/burner-blank-dialog.c:403
+#: ../libburner-burn/burner-blank-dialog.c:409
 msgid "Activate fast blanking, as opposed to a longer, thorough blanking"
 msgstr "ใช้การล้างข้อมูลแบบเร็ว แทนการล้างแบบหมดจดที่กินเวลานานกว่า"
 
-#: ../libburner-burn/burner-blank-dialog.c:433
+#: ../libburner-burn/burner-blank-dialog.c:439
 msgid "Disc Blanking"
 msgstr "การล้างข้อมูลในแผ่น"
 
@@ -288,10 +335,10 @@ msgstr "กำลังเขียนซีดี/ดีวีดี"
 
 #: ../libburner-burn/burner-burn.c:331
 #: ../libburner-burn/burner-data-session.c:123
-#: ../libburner-burn/burner-tool-dialog.c:89
-#: ../libburner-media/scsi-error.c:47 ../plugins/cdrdao/burn-cdrdao.c:243
-#: ../plugins/cdrkit/burn-readom.c:110 ../plugins/cdrkit/burn-wodim.c:135
-#: ../plugins/cdrkit/burn-wodim.c:144 ../plugins/cdrtools/burn-cdrecord.c:135
+#: ../libburner-burn/burner-tool-dialog.c:91 ../libburner-media/scsi-error.c:47
+#: ../plugins/cdrdao/burn-cdrdao.c:243 ../plugins/cdrkit/burn-readom.c:110
+#: ../plugins/cdrkit/burn-wodim.c:135 ../plugins/cdrkit/burn-wodim.c:144
+#: ../plugins/cdrtools/burn-cdrecord.c:135
 #: ../plugins/cdrtools/burn-cdrecord.c:144
 #: ../plugins/cdrtools/burn-readcd.c:111
 #: ../plugins/growisofs/burn-dvd-rw-format.c:84
@@ -302,8 +349,8 @@ msgid "The drive is busy"
 msgstr "ไดรว์ไม่ว่าง"
 
 #: ../libburner-burn/burner-burn.c:332
-#: ../libburner-burn/burner-burn-dialog.c:649
-#: ../libburner-burn/burner-tool-dialog.c:90
+#: ../libburner-burn/burner-burn-dialog.c:719
+#: ../libburner-burn/burner-tool-dialog.c:92
 msgid "Make sure another application is not using it"
 msgstr "กรุณาตรวจสอบให้แน่ใจว่าไม่มีโปรแกรมอื่นใช้ไดรว์อยู่"
 
@@ -352,13 +399,12 @@ msgstr "กระบวนการเขียนแผ่นกำลังท
 msgid "Ongoing checksumming operation"
 msgstr "กระบวนการ checksum กำลังทำงานอยู่"
 
-#: ../libburner-burn/burner-burn.c:1623
-#: ../libburner-burn/burner-burn.c:1817
+#: ../libburner-burn/burner-burn.c:1623 ../libburner-burn/burner-burn.c:1817
 msgid "Merging data is impossible with this disc"
 msgstr "ไม่สามารถผสานข้อมูลโดยใช้แผ่นนี้ได้"
 
 #: ../libburner-burn/burner-burn.c:1624
-#: ../libburner-burn/burner-burn-dialog.c:2184
+#: ../libburner-burn/burner-burn-dialog.c:2317
 #: ../plugins/cdrkit/burn-genisoimage.c:206 ../plugins/cdrkit/burn-wodim.c:114
 #: ../plugins/cdrtools/burn-cdrecord.c:114
 #: ../plugins/cdrtools/burn-mkisofs.c:206
@@ -369,24 +415,21 @@ msgstr "มีเนื้อที่ว่างบนแผ่นไม่พ
 
 #. Translators: %s is the name of a missing application
 #: ../libburner-burn/burner-burn.c:1708
-#: ../libburner-burn/burner-burn-options.c:1180
-#: ../src/burner-project.c:1383
+#: ../libburner-burn/burner-burn-options.c:1261 ../src/burner-project.c:1392
 #, c-format
 msgid "%s (application)"
 msgstr "%s (โปรแกรม)"
 
 #. Translators: %s is the name of a missing library
 #: ../libburner-burn/burner-burn.c:1714
-#: ../libburner-burn/burner-burn-options.c:1186
-#: ../src/burner-project.c:1389
+#: ../libburner-burn/burner-burn-options.c:1267 ../src/burner-project.c:1398
 #, c-format
 msgid "%s (library)"
 msgstr "%s (ไลบรารี)"
 
 #. Translators: %s is the name of a missing GStreamer plugin
 #: ../libburner-burn/burner-burn.c:1719
-#: ../libburner-burn/burner-burn-options.c:1191
-#: ../src/burner-project.c:1394
+#: ../libburner-burn/burner-burn-options.c:1272 ../src/burner-project.c:1403
 #, c-format
 msgid "%s (GStreamer plugin)"
 msgstr "%s (ปลั๊กอิน GStreamer)"
@@ -415,258 +458,306 @@ msgstr "ไม่พบฟอร์แมตที่จะใช้สำหร
 #. * is specified. A graft point is the path (on the
 #. * disc) where a file from any source will be added
 #. * ("grafted")
-#: ../libburner-burn/burner-burn.c:2846
-#: ../libburner-burn/burner-caps-burn.c:66
+#: ../libburner-burn/burner-burn.c:2846 ../libburner-burn/burner-caps-burn.c:66
 #: ../libburner-burn/burn-job.c:1219 ../libburner-burn/burn-job.c:1228
 #: ../libburner-burn/burn-mkisofs-base.c:302
 #: ../nautilus/nautilus-burn-extension.c:218
-#: ../plugins/cdrkit/burn-genisoimage.c:368
-#: ../plugins/cdrkit/burn-readom.c:129 ../plugins/cdrkit/burn-readom.c:370
-#: ../plugins/cdrkit/burn-wodim.c:726 ../plugins/cdrkit/burn-wodim.c:838
-#: ../plugins/cdrkit/burn-wodim.c:853 ../plugins/cdrtools/burn-cdrecord.c:836
-#: ../plugins/cdrtools/burn-cdrecord.c:851
-#: ../plugins/cdrtools/burn-mkisofs.c:368
-#: ../plugins/cdrtools/burn-readcd.c:130 ../plugins/cdrtools/burn-readcd.c:380
-#: ../src/burner-app.c:784
+#: ../plugins/cdrkit/burn-genisoimage.c:368 ../plugins/cdrkit/burn-readom.c:129
+#: ../plugins/cdrkit/burn-readom.c:370 ../plugins/cdrkit/burn-wodim.c:725
+#: ../plugins/cdrkit/burn-wodim.c:837 ../plugins/cdrkit/burn-wodim.c:852
+#: ../plugins/cdrtools/burn-cdrecord.c:835
+#: ../plugins/cdrtools/burn-cdrecord.c:850
+#: ../plugins/cdrtools/burn-mkisofs.c:368 ../plugins/cdrtools/burn-readcd.c:130
+#: ../plugins/cdrtools/burn-readcd.c:380 ../src/burner-app.c:830
 #, c-format
 msgid "An internal error occurred"
 msgstr "เกิดข้อผิดพลาดภายใน"
 
-#: ../libburner-burn/burner-burn-dialog.c:155
+#: ../libburner-burn/burner-burn-dialog.c:183
 msgid "Burner notification"
 msgstr "การแจ้งเหตุของ Burner"
 
 #. Translators: This string is used in the title bar %s is the action currently performed
-#: ../libburner-burn/burner-burn-dialog.c:217
+#: ../libburner-burn/burner-burn-dialog.c:256
 #, c-format
 msgid "%s (%i%% Done)"
 msgstr "%s (เสร็จแล้ว %i%%)"
 
-#: ../libburner-burn/burner-burn-dialog.c:239
-#: ../libburner-burn/burner-burn-dialog.c:1159
+#: ../libburner-burn/burner-burn-dialog.c:278
+#: ../libburner-burn/burner-burn-dialog.c:1234
 msgid "Creating Image"
 msgstr "กำลังสร้างอิมเมจ"
 
-#: ../libburner-burn/burner-burn-dialog.c:244
-#: ../libburner-burn/burner-burn-dialog.c:1168
+#: ../libburner-burn/burner-burn-dialog.c:283
+#: ../libburner-burn/burner-burn-dialog.c:1243
 msgid "Burning DVD"
 msgstr "กำลังเขียนดีวีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:248
-#: ../libburner-burn/burner-burn-dialog.c:1164
+#: ../libburner-burn/burner-burn-dialog.c:287
+#: ../libburner-burn/burner-burn-dialog.c:1239
 msgid "Copying DVD"
 msgstr "กำลังทำสำเนาดีวีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:254
-#: ../libburner-burn/burner-burn-dialog.c:1178
+#: ../libburner-burn/burner-burn-dialog.c:293
+#: ../libburner-burn/burner-burn-dialog.c:1253
 msgid "Burning CD"
 msgstr "กำลังเขียนซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:258
-#: ../libburner-burn/burner-burn-dialog.c:379
-#: ../libburner-burn/burner-burn-dialog.c:1174
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying CD"));
+#: ../libburner-burn/burner-burn-dialog.c:297
+#: ../libburner-burn/burner-burn-dialog.c:435
+#: ../libburner-burn/burner-burn-dialog.c:1249
+#, c-format
 msgid "Copying CD"
 msgstr "กำลังทำสำเนาซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:264
-#: ../libburner-burn/burner-burn-dialog.c:1188
+#: ../libburner-burn/burner-burn-dialog.c:303
+#: ../libburner-burn/burner-burn-dialog.c:1263
 msgid "Burning Disc"
 msgstr "กำลังเขียนแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:268
-#: ../libburner-burn/burner-burn-dialog.c:1184
+#: ../libburner-burn/burner-burn-dialog.c:307
+#: ../libburner-burn/burner-burn-dialog.c:1259
 msgid "Copying Disc"
 msgstr "กำลังทำสำเนาแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:298
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Creating image"));
+#: ../libburner-burn/burner-burn-dialog.c:339
 #: ../libburner-burn/burn-basics.c:78
+#, c-format
 msgid "Creating image"
 msgstr "กำลังสร้างอิมเมจ"
 
-#: ../libburner-burn/burner-burn-dialog.c:304
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:346
+#, c-format
 msgid "Simulation of video DVD burning"
 msgstr "จำลองการเขียนแผ่นดีวีดีภาพยนตร์"
 
-#: ../libburner-burn/burner-burn-dialog.c:306
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:349
+#, c-format
 msgid "Burning video DVD"
 msgstr "กำลังเขียนดีวีดีภาพยนตร์"
 
-#: ../libburner-burn/burner-burn-dialog.c:314
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:358
+#, c-format
 msgid "Simulation of data DVD burning"
 msgstr "จำลองการเขียนแผ่นดีวีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:316
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:361
+#, c-format
 msgid "Burning data DVD"
 msgstr "กำลังเขียนดีวีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:324
-msgid "Simulation of image to DVD burning"
-msgstr "จำลองการเขียนอิมเมจลงแผ่นดีวีดี"
-
-#: ../libburner-burn/burner-burn-dialog.c:326
-msgid "Burning image to DVD"
-msgstr "กำลังเขียนอิมเมจลงดีวีดี"
-
-#: ../libburner-burn/burner-burn-dialog.c:334
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to DVD burning"));
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:370
+#: ../libburner-burn/burner-burn-dialog.c:381
+#, c-format
 msgid "Simulation of data DVD copying"
 msgstr "จำลองการทำสำเนาแผ่นดีวีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:336
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:373
+#, c-format
+msgid "Burning image to DVD"
+msgstr "กำลังเขียนอิมเมจลงดีวีดี"
+
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:384
+#, c-format
 msgid "Copying data DVD"
 msgstr "กำลังคัดลอกดีวีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:347
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of (S)VCD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:396
+#, c-format
 msgid "Simulation of (S)VCD burning"
 msgstr "จำลองการเขียนแผ่น (S)VCD"
 
-#: ../libburner-burn/burner-burn-dialog.c:349
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning (S)VCD"));
+#: ../libburner-burn/burner-burn-dialog.c:399
+#, c-format
 msgid "Burning (S)VCD"
 msgstr "กำลังเขียน (S)VCD"
 
-#: ../libburner-burn/burner-burn-dialog.c:357
-#: ../libburner-burn/burner-burn-dialog.c:410
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of audio CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:408
+#: ../libburner-burn/burner-burn-dialog.c:471
+#, c-format
 msgid "Simulation of audio CD burning"
 msgstr "จำลองการเขียนแผ่นซีดีเพลง"
 
-#: ../libburner-burn/burner-burn-dialog.c:359
-#: ../libburner-burn/burner-burn-dialog.c:412
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning audio CD"));
+#: ../libburner-burn/burner-burn-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:475
+#, c-format
 msgid "Burning audio CD"
 msgstr "กำลังเขียนซีดีเพลง"
 
-#: ../libburner-burn/burner-burn-dialog.c:367
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:420
+#, c-format
 msgid "Simulation of data CD burning"
 msgstr "จำลองการเขียนแผ่นซีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:369
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data CD"));
+#: ../libburner-burn/burner-burn-dialog.c:423
+#, c-format
 msgid "Burning data CD"
 msgstr "กำลังเขียนซีดีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:377
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of CD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:432
+#, c-format
 msgid "Simulation of CD copying"
 msgstr "จำลองการทำสำเนาซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:387
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:444
+#, c-format
 msgid "Simulation of image to CD burning"
 msgstr "จำลองการเขียนอิมเมจลงแผ่นซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:389
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to CD"));
+#: ../libburner-burn/burner-burn-dialog.c:447
+#, c-format
 msgid "Burning image to CD"
 msgstr "กำลังเขียนอิมเมจลงซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:400
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:458
+#, c-format
 msgid "Simulation of video disc burning"
 msgstr "จำลองการเขียนแผ่นภาพยนตร์"
 
-#: ../libburner-burn/burner-burn-dialog.c:402
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video disc"));
+#: ../libburner-burn/burner-burn-dialog.c:461
+#, c-format
 msgid "Burning video disc"
 msgstr "กำลังเขียนแผ่นภาพยนตร์"
 
-#: ../libburner-burn/burner-burn-dialog.c:420
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:484
+#, c-format
 msgid "Simulation of data disc burning"
 msgstr "จำลองการเขียนแผ่นข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:422
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data disc"));
+#: ../libburner-burn/burner-burn-dialog.c:487
+#, c-format
 msgid "Burning data disc"
 msgstr "เขียนแผ่นข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:430
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of disc copying"));
+#: ../libburner-burn/burner-burn-dialog.c:496
+#, c-format
 msgid "Simulation of disc copying"
 msgstr "จำลองการทำสำเนาแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:432
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying disc"));
+#: ../libburner-burn/burner-burn-dialog.c:499
 #: ../libburner-burn/burn-basics.c:82
+#, c-format
 msgid "Copying disc"
 msgstr "กำลังทำสำเนาแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:440
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:508
+#, c-format
 msgid "Simulation of image to disc burning"
 msgstr "จำลองการเขียนอิมเมจลงแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:442
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to disc"));
+#: ../libburner-burn/burner-burn-dialog.c:511
+#, c-format
 msgid "Burning image to disc"
 msgstr "กำลังเขียนอิมเมจลงแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:547
+#: ../libburner-burn/burner-burn-dialog.c:617
 msgid "Please replace the disc with a rewritable disc holding data."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นชนิดเขียนซ้ำที่มีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:549
+#: ../libburner-burn/burner-burn-dialog.c:619
 msgid "Please replace the disc with a disc holding data."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นที่มีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:553
+#: ../libburner-burn/burner-burn-dialog.c:623
 msgid "Please insert a rewritable disc holding data."
 msgstr "กรุณาใส่แผ่นชนิดเขียนซ้ำที่มีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:555
-#: ../libburner-burn/burner-burn-options.c:494
+#: ../libburner-burn/burner-burn-dialog.c:625
+#: ../libburner-burn/burner-burn-options.c:503
 msgid "Please insert a disc holding data."
 msgstr "กรุณาใส่แผ่นที่มีข้อมูล"
 
-#: ../libburner-burn/burner-burn-dialog.c:570
+#: ../libburner-burn/burner-burn-dialog.c:640
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD with at least %i MiB of free "
 "space."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นซีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:573
+#: ../libburner-burn/burner-burn-dialog.c:643
 msgid "Please replace the disc with a writable CD."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นซีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:577
+#: ../libburner-burn/burner-burn-dialog.c:647
 #, c-format
 msgid "Please insert a writable CD with at least %i MiB of free space."
 msgstr "กรุณาใส่แผ่นซีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:580
+#: ../libburner-burn/burner-burn-dialog.c:650
 msgid "Please insert a writable CD."
 msgstr "กรุณาใส่แผ่นซีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:586
+#: ../libburner-burn/burner-burn-dialog.c:656
 #, c-format
 msgid ""
 "Please replace the disc with a writable DVD with at least %i MiB of free "
 "space."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นดีวีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:589
+#: ../libburner-burn/burner-burn-dialog.c:659
 msgid "Please replace the disc with a writable DVD."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นดีวีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:593
+#: ../libburner-burn/burner-burn-dialog.c:663
 #, c-format
 msgid "Please insert a writable DVD with at least %i MiB of free space."
 msgstr "กรุณาใส่แผ่นดีวีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:596
+#: ../libburner-burn/burner-burn-dialog.c:666
 msgid "Please insert a writable DVD."
 msgstr "กรุณาใส่แผ่นดีวีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:601
+#: ../libburner-burn/burner-burn-dialog.c:671
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD or DVD with at least %i MiB of "
 "free space."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นซีดีหรือดีวีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:604
+#: ../libburner-burn/burner-burn-dialog.c:674
 msgid "Please replace the disc with a writable CD or DVD."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นซีดีหรือดีวีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:608
+#: ../libburner-burn/burner-burn-dialog.c:678
 #, c-format
 msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
 msgstr "กรุณาใส่แผ่นซีดีหรือดีวีดีชนิดเขียนได้ ซึ่งมีที่ว่างอย่างน้อย %i MiB"
 
-#: ../libburner-burn/burner-burn-dialog.c:611
-#: ../libburner-burn/burner-burn-dialog.c:2169
-#: ../libburner-burn/burner-burn-dialog.c:2183
-#: ../libburner-burn/burner-burn-options.c:450 ../src/burner-project.c:993
+#: ../libburner-burn/burner-burn-dialog.c:681
+#: ../libburner-burn/burner-burn-dialog.c:2302
+#: ../libburner-burn/burner-burn-dialog.c:2316
+#: ../libburner-burn/burner-burn-options.c:459 ../src/burner-project.c:997
 msgid "Please insert a writable CD or DVD."
 msgstr "กรุณาใส่แผ่นซีดีหรือดีวีดีชนิดเขียนได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:638
+#: ../libburner-burn/burner-burn-dialog.c:708
 msgid ""
 "An image of the disc has been created on your hard drive.\n"
 "Burning will begin as soon as a writable disc is inserted."
@@ -674,294 +765,293 @@ msgstr ""
 "สร้างอิมเมจของแผ่นไว้ในฮาร์ดไดรว์แล้ว\n"
 "จะเริ่มเขียนลงแผ่นทันทีที่คุณใส่แผ่นชนิดเขียนได้เข้ามา"
 
-#: ../libburner-burn/burner-burn-dialog.c:643
+#: ../libburner-burn/burner-burn-dialog.c:713
 msgid "A data integrity test will begin as soon as the disc is inserted."
 msgstr "จะเริ่มการทดสอบความถูกต้องของข้อมูลทันทีที่คุณใส่แผ่นเข้ามา"
 
-#: ../libburner-burn/burner-burn-dialog.c:644
+#: ../libburner-burn/burner-burn-dialog.c:714
 msgid "Please re-insert the disc in the CD/DVD burner."
 msgstr "กรุณาใส่แผ่นในเครื่องเขียนซีดี/ดีวีดีซ้ำอีกครั้ง"
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:648
+#: ../libburner-burn/burner-burn-dialog.c:718
 #, c-format
 msgid "\"%s\" is busy."
 msgstr "\"%s\" ไม่ว่าง"
 
-#: ../libburner-burn/burner-burn-dialog.c:652
+#: ../libburner-burn/burner-burn-dialog.c:722
 #, c-format
 msgid "There is no disc in \"%s\"."
 msgstr "ไม่มีแผ่นใน \"%s\""
 
-#: ../libburner-burn/burner-burn-dialog.c:656
+#: ../libburner-burn/burner-burn-dialog.c:726
 #, c-format
 msgid "The disc in \"%s\" is not supported."
 msgstr "ไม่รองรับชนิดของแผ่นที่อยู่ใน \"%s\""
 
-#: ../libburner-burn/burner-burn-dialog.c:660
+#: ../libburner-burn/burner-burn-dialog.c:730
 #, c-format
 msgid "The disc in \"%s\" is not rewritable."
 msgstr "แผ่นใน \"%s\" เขียนซ้ำไม่ได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:664
+#: ../libburner-burn/burner-burn-dialog.c:734
 #, c-format
 msgid "The disc in \"%s\" is empty."
 msgstr "แผ่นใน \"%s\" เป็นแผ่นเปล่า"
 
-#: ../libburner-burn/burner-burn-dialog.c:668
+#: ../libburner-burn/burner-burn-dialog.c:738
 #, c-format
 msgid "The disc in \"%s\" is not writable."
 msgstr "แผ่นใน \"%s\" เขียนไม่ได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:672
+#: ../libburner-burn/burner-burn-dialog.c:742
 #, c-format
 msgid "Not enough space available on the disc in \"%s\"."
 msgstr "มีเนื้อที่ว่างไม่พอบนแผ่นใน \"%s\""
 
-#: ../libburner-burn/burner-burn-dialog.c:680
+#: ../libburner-burn/burner-burn-dialog.c:750
 #, c-format
 msgid "The disc in \"%s\" needs to be reloaded."
 msgstr "ต้องใส่แผ่นใน \"%s\" ใหม่"
 
-#: ../libburner-burn/burner-burn-dialog.c:681
+#: ../libburner-burn/burner-burn-dialog.c:751
 msgid "Please eject the disc and reload it."
 msgstr "กรุณากดเอาแผ่นออกแล้วใส่เข้าไปใหม่"
 
-#: ../libburner-burn/burner-burn-dialog.c:726
-#: ../libburner-burn/burner-sum-dialog.c:333
+#: ../libburner-burn/burner-burn-dialog.c:796
+#: ../libburner-burn/burner-sum-dialog.c:339
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr "ไม่สามารถสร้างแฟ้มที่ตำแหน่งที่กำหนดไว้สำหรับสร้างแฟ้มชั่วคราว"
 
-#: ../libburner-burn/burner-burn-dialog.c:727
+#: ../libburner-burn/burner-burn-dialog.c:797
 msgid "The image could not be created at the specified location"
 msgstr "ไม่สามารถสร้างอิมเมจในตำแหน่งที่ระบุ"
 
-#: ../libburner-burn/burner-burn-dialog.c:728
+#: ../libburner-burn/burner-burn-dialog.c:798
 msgid ""
 "Do you want to specify another location for this session or retry with the "
 "current location?"
 msgstr "คุณต้องการใช้ตำแหน่งอื่นแทนสำหรับวาระนี้ หรือต้องการลองใหม่ที่ตำแหน่งเดิม?"
 
-#: ../libburner-burn/burner-burn-dialog.c:740
+#: ../libburner-burn/burner-burn-dialog.c:810
 msgid "You may want to free some space on the disc and retry"
 msgstr "คุณอาจต้องการเตรียมพื้นที่ว่างในดิสก์แล้วลองใหม่"
 
-#: ../libburner-burn/burner-burn-dialog.c:747
-#: ../libburner-burn/burner-drive-properties.c:244
-#: ../libburner-burn/burner-drive-properties.c:282
-#: ../libburner-burn/burner-drive-properties.c:334
+#: ../libburner-burn/burner-burn-dialog.c:817
+#: ../libburner-burn/burner-drive-properties.c:247
+#: ../libburner-burn/burner-drive-properties.c:287
+#: ../libburner-burn/burner-drive-properties.c:341
 msgid "_Keep Current Location"
 msgstr "ใ_ช้ตำแหน่งเดิม"
 
-#: ../libburner-burn/burner-burn-dialog.c:749
-#: ../libburner-burn/burner-drive-properties.c:245
-#: ../libburner-burn/burner-drive-properties.c:283
-#: ../libburner-burn/burner-drive-properties.c:335
+#: ../libburner-burn/burner-burn-dialog.c:819
+#: ../libburner-burn/burner-drive-properties.c:248
+#: ../libburner-burn/burner-drive-properties.c:288
+#: ../libburner-burn/burner-drive-properties.c:342
 msgid "_Change Location"
 msgstr "เ_ปลี่ยนตำแหน่ง"
 
-#: ../libburner-burn/burner-burn-dialog.c:771
+#: ../libburner-burn/burner-burn-dialog.c:842
 #: ../libburner-burn/burner-image-properties.c:459
 msgid "Location for Image File"
 msgstr "ตำแหน่งสำหรับแฟ้มอิมเมจ"
 
-#: ../libburner-burn/burner-burn-dialog.c:779
-#: ../libburner-burn/burner-drive-properties.c:366
+#: ../libburner-burn/burner-burn-dialog.c:850
+#: ../libburner-burn/burner-drive-properties.c:374
 msgid "Location for Temporary Files"
 msgstr "ตำแหน่งสำหรับแฟ้มชั่วคราว"
 
-#: ../libburner-burn/burner-burn-dialog.c:887
-#: ../libburner-burn/burner-burn-dialog.c:1133
+#: ../libburner-burn/burner-burn-dialog.c:959
+#: ../libburner-burn/burner-burn-dialog.c:1208
 msgid "_Replace Disc"
 msgstr "เ_ปลี่ยนแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:928
+#: ../libburner-burn/burner-burn-dialog.c:1001
 msgid "Do you really want to blank the current disc?"
 msgstr "ยืนยันที่จะล้างข้อมูลในแผ่นนี้หรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:929
+#: ../libburner-burn/burner-burn-dialog.c:1002
 msgid "The disc in the drive holds data."
 msgstr "แผ่นที่อยู่ในไดรว์มีข้อมูลอยู่"
 
 #. Translators: Blank is a verb here
-#: ../libburner-burn/burner-burn-dialog.c:931
+#: ../libburner-burn/burner-burn-dialog.c:1004
 msgid "_Blank Disc"
 msgstr "_ล้างข้อมูลในแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:945
+#: ../libburner-burn/burner-burn-dialog.c:1018
 msgid ""
 "If you import them you will be able to see and use them once the current "
 "selection of files is burned."
 msgstr ""
 "ถ้าคุณนำเข้าแฟ้มเหล่านี้ คุณจะมองเห็นและใช้งานแฟ้มดังกล่าวได้ หลังจากที่เขียนแฟ้มชุดปัจจุบันเสร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:946
+#: ../libburner-burn/burner-burn-dialog.c:1019
 msgid "If you don't, they will be invisible (though still readable)."
 msgstr "ถ้าคุณไม่นำเข้า แฟ้มเหล่านี้ก็จะมองไม่เห็น (แม้จะยังอ่านได้)"
 
-#: ../libburner-burn/burner-burn-dialog.c:949
+#: ../libburner-burn/burner-burn-dialog.c:1022
 msgid ""
 "There are files already burned on this disc. Would you like to import them?"
 msgstr "มีแฟ้มที่ได้เขียนไปก่อนแล้วในแผ่นนี้ คุณต้องการนำเข้าแฟ้มเหล่านี้หรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:951
+#: ../libburner-burn/burner-burn-dialog.c:1024
 msgid "_Import"
 msgstr "_นำเข้า"
 
-#: ../libburner-burn/burner-burn-dialog.c:952
+#: ../libburner-burn/burner-burn-dialog.c:1025
 msgid "Only _Append"
 msgstr "เขียนต่อ_ท้ายเท่านั้น"
 
-#: ../libburner-burn/burner-burn-dialog.c:965
+#: ../libburner-burn/burner-burn-dialog.c:1038
 msgid ""
 "CD-RW audio discs may not play correctly in older CD players and CD-Text "
 "won't be written."
 msgstr "แผ่นเพลง CD-RW อาจเล่นได้ไม่ถูกต้องในเครื่องเล่นซีดีรุ่นเก่า และจะไม่มีการเขียน CD-Text"
 
-#: ../libburner-burn/burner-burn-dialog.c:966
-#: ../libburner-burn/burner-burn-dialog.c:988
+#: ../libburner-burn/burner-burn-dialog.c:1039
+#: ../libburner-burn/burner-burn-dialog.c:1061
 msgid "Do you want to continue anyway?"
 msgstr "คุณยังคงต้องการทำต่อหรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:969
+#: ../libburner-burn/burner-burn-dialog.c:1042
 msgid "Appending audio tracks to a CD is not advised."
 msgstr "ไม่แนะนำให้เขียนเพลงต่อในแผ่นซีดี"
 
-#: ../libburner-burn/burner-burn-dialog.c:971
-#: ../libburner-burn/burner-burn-dialog.c:993
-#: ../libburner-burn/burner-tool-dialog.c:422 ../src/burner-data-disc.c:572
+#: ../libburner-burn/burner-burn-dialog.c:1044
+#: ../libburner-burn/burner-burn-dialog.c:1066
+#: ../libburner-burn/burner-tool-dialog.c:427 ../src/burner-data-disc.c:575
 msgid "_Continue"
 msgstr "_ทำต่อ"
 
-#: ../libburner-burn/burner-burn-dialog.c:987
+#: ../libburner-burn/burner-burn-dialog.c:1060
 msgid "CD-RW audio discs may not play correctly in older CD players."
 msgstr "แผ่นเพลง CD-RW อาจเล่นได้ไม่ถูกต้องในเครื่องเล่นซีดีรุ่นเก่า"
 
-#: ../libburner-burn/burner-burn-dialog.c:991
+#: ../libburner-burn/burner-burn-dialog.c:1064
 msgid "Recording audio tracks on a rewritable disc is not advised."
 msgstr "ไม่แนะนำให้บันทึกเพลงลงในแผ่นชนิดเขียนซ้ำได้"
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:1035
+#: ../libburner-burn/burner-burn-dialog.c:1108
 #, c-format
 msgid "Please eject the disc from \"%s\" manually."
 msgstr "กรุณากดเอาแผ่นออกจาก \"%s\""
 
-#: ../libburner-burn/burner-burn-dialog.c:1044
+#: ../libburner-burn/burner-burn-dialog.c:1117
 msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
 msgstr "ไม่สามารถดันแผ่นออกได้ แม้จะจำเป็นต้องเอาแผ่นออกเพื่อจะได้ทำงานต่อไปได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:1131
+#: ../libburner-burn/burner-burn-dialog.c:1206
 msgid "Do you want to replace the disc and continue?"
 msgstr "คุณต้องการเปลี่ยนแผ่นแล้วดำเนินการต่อหรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1132
+#: ../libburner-burn/burner-burn-dialog.c:1207
 msgid "The currently inserted disc could not be blanked."
 msgstr "แผ่นที่ใส่อยู่นี้ไม่สามารถล้างข้อมูลได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:1141
+#: ../libburner-burn/burner-burn-dialog.c:1216
 msgid "Do you want to continue with full Windows compatibility disabled?"
 msgstr "คุณต้องการทำต่อโดยไม่เปิดใช้คุณสมบัติความเข้ากันได้กับวินโดวส์แบบเต็มที่หรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1142
-#: ../libburner-burn/burner-status-dialog.c:340
-#: ../src/burner-data-disc.c:734
+#: ../libburner-burn/burner-burn-dialog.c:1217
+#: ../libburner-burn/burner-status-dialog.c:347 ../src/burner-data-disc.c:738
 msgid ""
 "Some files don't have a suitable name for a fully Windows-compatible CD."
 msgstr "แฟ้มบางแฟ้มมีชื่อไม่เหมาะกับการสร้างซีดีที่เข้ากับวินโดวส์แบบเต็มที่"
 
-#: ../libburner-burn/burner-burn-dialog.c:1143
+#: ../libburner-burn/burner-burn-dialog.c:1218
 msgid "C_ontinue"
 msgstr "ทำ_ต่อ"
 
-#: ../libburner-burn/burner-burn-dialog.c:1363
-#: ../libburner-burn/burner-burn-dialog.c:1384
+#: ../libburner-burn/burner-burn-dialog.c:1456
+#: ../libburner-burn/burner-burn-dialog.c:1477
 msgid "The simulation was successful."
 msgstr "การจำลองประสบความสำเร็จ"
 
-#: ../libburner-burn/burner-burn-dialog.c:1366
+#: ../libburner-burn/burner-burn-dialog.c:1459
 msgid "Real disc burning will take place in 10 seconds."
 msgstr "จะเริ่มเขียนแผ่นจริงใน 10 วินาที"
 
-#: ../libburner-burn/burner-burn-dialog.c:1369
+#: ../libburner-burn/burner-burn-dialog.c:1462
 msgid "Burn _Now"
 msgstr "เขียน_ทันที"
 
-#: ../libburner-burn/burner-burn-dialog.c:1658
+#: ../libburner-burn/burner-burn-dialog.c:1783
 msgid "Save Current Session"
 msgstr "บันทึกวาระการทำงานปัจจุบัน"
 
-#: ../libburner-burn/burner-burn-dialog.c:1733
+#: ../libburner-burn/burner-burn-dialog.c:1860
 msgid "An unknown error occurred."
 msgstr "เกิดข้อผิดพลาดไม่ทราบสาเหตุ"
 
-#: ../libburner-burn/burner-burn-dialog.c:1741
-#: ../libburner-burn/burner-burn-dialog.c:1759 ../src/burner-app.c:618
+#: ../libburner-burn/burner-burn-dialog.c:1868
+#: ../libburner-burn/burner-burn-dialog.c:1886 ../src/burner-app.c:664
 msgid "Error while burning."
 msgstr "เกิดข้อผิดพลาดขณะเขียนแผ่น"
 
-#: ../libburner-burn/burner-burn-dialog.c:1749
+#: ../libburner-burn/burner-burn-dialog.c:1876
 msgid "_Save Log"
 msgstr "_บันทึกปูม"
 
-#: ../libburner-burn/burner-burn-dialog.c:1784
+#: ../libburner-burn/burner-burn-dialog.c:1912
 msgid "Video DVD successfully burned"
 msgstr "เขียนแผ่นดีวีดีภาพยนตร์สำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1786
+#: ../libburner-burn/burner-burn-dialog.c:1914
 msgid "(S)VCD successfully burned"
 msgstr "เขียนแผ่น (S)VCD สำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1789
+#: ../libburner-burn/burner-burn-dialog.c:1917
 msgid "Audio CD successfully burned"
 msgstr "เขียนแผ่นซีดีเพลงสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1791
-#: ../libburner-burn/burner-burn-dialog.c:1822
+#: ../libburner-burn/burner-burn-dialog.c:1919
+#: ../libburner-burn/burner-burn-dialog.c:1950
 msgid "Image successfully created"
 msgstr "สร้างอิมเมจสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1796
+#: ../libburner-burn/burner-burn-dialog.c:1924
 msgid "DVD successfully copied"
 msgstr "ทำสำเนาดีวีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1798
+#: ../libburner-burn/burner-burn-dialog.c:1926
 msgid "CD successfully copied"
 msgstr "ทำสำเนาซีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1802
+#: ../libburner-burn/burner-burn-dialog.c:1930
 msgid "Image of DVD successfully created"
 msgstr "สร้างอิมเมจของดีวีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1804
+#: ../libburner-burn/burner-burn-dialog.c:1932
 msgid "Image of CD successfully created"
 msgstr "สร้างอิมเมจของซีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1810
+#: ../libburner-burn/burner-burn-dialog.c:1938
 msgid "Image successfully burned to DVD"
 msgstr "เขียนอิมเมจลงดีวีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1812
+#: ../libburner-burn/burner-burn-dialog.c:1940
 msgid "Image successfully burned to CD"
 msgstr "เขียนอิมเมจลงซีดีสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1818
+#: ../libburner-burn/burner-burn-dialog.c:1946
 msgid "Data DVD successfully burned"
 msgstr "เขียนแผ่นดีวีดีข้อมูลสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1820
+#: ../libburner-burn/burner-burn-dialog.c:1948
 msgid "Data CD successfully burned"
 msgstr "เขียนแผ่นซีดีข้อมูลสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1879
+#: ../libburner-burn/burner-burn-dialog.c:2007
 #, c-format
 msgid "Copy #%i has been burned successfully."
 msgstr "เขียนสำเนา #%i สำเร็จแล้ว"
 
-#: ../libburner-burn/burner-burn-dialog.c:1887
+#: ../libburner-burn/burner-burn-dialog.c:2015
 msgid ""
 "Another copy will start as soon as you insert a new writable disc. If you do "
 "not want to burn another copy, press \"Cancel\"."
@@ -969,174 +1059,173 @@ msgstr ""
 "จะเริ่มเขียนสำเนาถัดไปทันทีที่คุณใส่แผ่นชนิดเขียนได้เข้ามา ถ้าคุณไม่ต้องการจะเขียนสำเนาถัดไปอีก "
 "ก็กด \"ยกเลิก\""
 
-#: ../libburner-burn/burner-burn-dialog.c:1961
-msgid "Make _More Copies"
-msgstr "เขียนแผ่นสำเนาเ_พิ่ม"
-
-#: ../libburner-burn/burner-burn-dialog.c:1970
-msgid "_Create Cover"
+#: ../libburner-burn/burner-burn-dialog.c:2101
+#, fuzzy
+msgid "Create Co_ver"
 msgstr "สร้าง_ปก"
 
-#: ../libburner-burn/burner-burn-dialog.c:2132
+#: ../libburner-burn/burner-burn-dialog.c:2265
 msgid "There are some files left to burn"
 msgstr "ยังมีแฟ้มที่ต้องเขียนเหลืออยู่"
 
-#: ../libburner-burn/burner-burn-dialog.c:2139
+#: ../libburner-burn/burner-burn-dialog.c:2272
 msgid "There are some more videos left to burn"
 msgstr "ยังมีวีดิทัศน์ที่ต้องเขียนเหลืออยู่"
 
-#: ../libburner-burn/burner-burn-dialog.c:2143
+#: ../libburner-burn/burner-burn-dialog.c:2276
 msgid "There are some more songs left to burn"
 msgstr "ยังมีเพลงที่ต้องเขียนเหลืออยู่"
 
-#: ../libburner-burn/burner-burn-dialog.c:2449
-#: ../libburner-burn/burner-tool-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:2583
+#: ../libburner-burn/burner-tool-dialog.c:414
 msgid "Do you really want to quit?"
 msgstr "ยืนยันว่าจะออกจากโปรแกรมหรือไม่?"
 
-#: ../libburner-burn/burner-burn-dialog.c:2453
-#: ../libburner-burn/burner-tool-dialog.c:417
+#: ../libburner-burn/burner-burn-dialog.c:2587
+#: ../libburner-burn/burner-tool-dialog.c:422
 msgid "Interrupting the process may make disc unusable."
 msgstr "การหยุดกระบวนการเขียนกลางคัน อาจทำให้แผ่นใช้การไม่ได้"
 
-#: ../libburner-burn/burner-burn-dialog.c:2456
+#: ../libburner-burn/burner-burn-dialog.c:2590
 msgid "C_ontinue Burning"
 msgstr "เขียนแผ่น_ต่อไป"
 
-#: ../libburner-burn/burner-burn-dialog.c:2463
+#: ../libburner-burn/burner-burn-dialog.c:2597
 msgid "_Cancel Burning"
 msgstr "_ยกเลิกการเขียนแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:228 ../src/burner-project.c:1018
+#: ../libburner-burn/burner-burn-options.c:230 ../src/burner-project.c:1022
 msgid ""
 "Please insert a writable CD or DVD if you don't want to write to an image "
 "file."
 msgstr "กรุณาใส่แผ่นซีดีหรือดีวีดีชนิดเขียนได้ ถ้าคุณไม่ต้องการจะเขียนลงแฟ้มอิมเมจ"
 
-#: ../libburner-burn/burner-burn-options.c:302 ../src/burner-project.c:1593
+#: ../libburner-burn/burner-burn-options.c:304 ../src/burner-project.c:1652
 msgid "Create _Image"
 msgstr "สร้าง_อิมเมจ"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:307
+#: ../libburner-burn/burner-burn-options.c:309
 msgid "_Copy"
 msgstr "_ทำสำเนา"
 
-#: ../libburner-burn/burner-burn-options.c:310
+#: ../libburner-burn/burner-burn-options.c:312
 msgid "Make _Several Copies"
 msgstr "ทำสำเนาห_ลายชุด"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:314 ../src/burner-project.c:1522
+#. gtk_dialog_add_button (GTK_DIALOG (dialog),
+#. _("Burn _Several Copies"),
+#. GTK_RESPONSE_ACCEPT);
+#: ../libburner-burn/burner-burn-options.c:316 ../src/burner-project.c:1580
 msgid "_Burn"
 msgstr "เ_ขียนแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:317 ../src/burner-project.c:1519
+#: ../libburner-burn/burner-burn-options.c:319
 msgid "Burn _Several Copies"
 msgstr "เขียนสำเนาห_ลายชุด"
 
-#: ../libburner-burn/burner-burn-options.c:426 ../src/burner-project.c:947
+#: ../libburner-burn/burner-burn-options.c:435 ../src/burner-project.c:951
 msgid "Would you like to burn the selection of files across several media?"
 msgstr "คุณต้องการเขียนแฟ้มชุดนี้ข้ามแผ่นหลายแผ่นหรือไม่?"
 
-#: ../libburner-burn/burner-burn-options.c:427
-#: ../libburner-burn/burner-burn-options.c:444
+#: ../libburner-burn/burner-burn-options.c:436
+#: ../libburner-burn/burner-burn-options.c:453
 msgid "The data size is too large for the disc even with the overburn option."
 msgstr "ขนาดของข้อมูลใหญ่เกินความจุแผ่น ถึงแม้จะใช้ตัวเลือก overburn แล้ว"
 
-#: ../libburner-burn/burner-burn-options.c:432 ../src/burner-project.c:952
+#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
 msgid "_Burn Several Discs"
 msgstr "เ_ขียนลงหลายแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:434 ../src/burner-project.c:954
+#: ../libburner-burn/burner-burn-options.c:443 ../src/burner-project.c:958
 msgid "Burn the selection of files across several media"
 msgstr "เขียนชุดแฟ้มข้ามแผ่นหลายแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:443 ../src/burner-project.c:963
+#: ../libburner-burn/burner-burn-options.c:452 ../src/burner-project.c:967
 msgid "Please choose another CD or DVD or insert a new one."
 msgstr "กรุณาเลือกซีดีหรือดีวีดีแผ่นอื่น หรือใส่แผ่นใหม่เข้ามา"
 
-#: ../libburner-burn/burner-burn-options.c:457 ../src/burner-project.c:1008
+#: ../libburner-burn/burner-burn-options.c:466 ../src/burner-project.c:1012
 msgid "No track information (artist, title, ...) will be written to the disc."
 msgstr "จะไม่มีการเขียนข้อมูลเพลง (ศิลปิน, ชื่อเพลง ฯลฯ) ลงในแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:458 ../src/burner-project.c:1009
+#: ../libburner-burn/burner-burn-options.c:467 ../src/burner-project.c:1013
 msgid "This is not supported by the current active burning backend."
 msgstr "แบ็กเอนด์สำหรับเขียนที่ใช้อยู่ไม่รองรับการเขียนดังกล่าว"
 
-#: ../libburner-burn/burner-burn-options.c:470
+#: ../libburner-burn/burner-burn-options.c:479
 #: ../nautilus/nautilus-burn-extension.c:239
 msgid "Please add files."
 msgstr "กรุณาเพิ่มแฟ้ม"
 
-#: ../libburner-burn/burner-burn-options.c:471
+#: ../libburner-burn/burner-burn-options.c:480
 #: ../libburner-burn/burner-track-data.c:672
 #: ../libburner-burn/burner-track-data-cfg.c:2432
 #: ../libburner-burn/burner-track-stream.c:402
-#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1275
+#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1283
 #, c-format
 msgid "There are no files to write to disc"
 msgstr "ไม่มีแฟ้มที่จะเขียนลงแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:476
+#: ../libburner-burn/burner-burn-options.c:485
 msgid "Please add songs."
 msgstr "กรุณาเพิ่มเพลง"
 
-#: ../libburner-burn/burner-burn-options.c:477 ../src/burner-project.c:1266
+#: ../libburner-burn/burner-burn-options.c:486 ../src/burner-project.c:1274
 msgid "There are no songs to write to disc"
 msgstr "ไม่มีเพลงที่จะเขียนลงแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:482
+#: ../libburner-burn/burner-burn-options.c:491
 msgid "Please add videos."
 msgstr "กรุณาเพิ่มวีดิทัศน์"
 
-#: ../libburner-burn/burner-burn-options.c:483
+#: ../libburner-burn/burner-burn-options.c:492
 msgid "There are no videos to write to disc"
 msgstr "ไม่มีวีดิทัศน์ที่จะเขียนลงแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:495
+#: ../libburner-burn/burner-burn-options.c:504
 msgid "There is no inserted disc to copy."
 msgstr "ไม่ได้ใส่แผ่นที่จะทำสำเนา"
 
-#: ../libburner-burn/burner-burn-options.c:504
+#: ../libburner-burn/burner-burn-options.c:513
 msgid "Please select a disc image."
 msgstr "กรุณาเลือกอิมเมจของแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:505
+#: ../libburner-burn/burner-burn-options.c:514
 msgid "There is no selected disc image."
 msgstr "ไม่ได้เลือกอิมเมจของแผ่น"
 
 #. Translators: this is a disc image not a picture
 #. Translators: this is a disc image, not a picture
-#: ../libburner-burn/burner-burn-options.c:515
-#: ../libburner-burn/burner-src-image.c:167
+#: ../libburner-burn/burner-burn-options.c:524
+#: ../libburner-burn/burner-src-image.c:169
 msgctxt "disc"
 msgid "Please select another image."
 msgstr "กรุณาเลือกอิมเมจอื่น"
 
-#: ../libburner-burn/burner-burn-options.c:516
+#: ../libburner-burn/burner-burn-options.c:525
 msgid "It doesn't appear to be a valid disc image or a valid cue file."
 msgstr "ไม่ใช่อิมเมจของแผ่นหรือแฟ้ม cue ที่ถูกต้อง"
 
-#: ../libburner-burn/burner-burn-options.c:525
+#: ../libburner-burn/burner-burn-options.c:534
 msgid "Please insert a disc that is not copy protected."
 msgstr "กรุณาใส่แผ่นที่ไม่มีการป้องกันการทำสำเนา"
 
-#: ../libburner-burn/burner-burn-options.c:526
-#: ../libburner-burn/burner-burn-options.c:1228
-#: ../src/burner-project.c:1443
+#: ../libburner-burn/burner-burn-options.c:535
+#: ../libburner-burn/burner-burn-options.c:1309 ../src/burner-project.c:1452
 msgid "All required applications and libraries are not installed."
 msgstr "ไม่ได้ติดตั้งโปรแกรมและไลบรารีที่ต้องใช้ทั้งหมด"
 
-#: ../libburner-burn/burner-burn-options.c:533 ../src/burner-project.c:1001
+#: ../libburner-burn/burner-burn-options.c:542 ../src/burner-project.c:1005
 msgid "Please replace the disc with a supported CD or DVD."
 msgstr "กรุณาเปลี่ยนแผ่นเป็นแผ่นซีดีหรือดีวีดีชนิดที่โปรแกรมรองรับ"
 
-#: ../libburner-burn/burner-burn-options.c:542 ../src/burner-project.c:974
+#: ../libburner-burn/burner-burn-options.c:551 ../src/burner-project.c:978
 msgid "Would you like to burn beyond the disc's reported capacity?"
 msgstr "คุณต้องการเขียนข้อมูลเกินความจุแผ่นตามที่ได้รับรายงานหรือไม่?"
 
-#: ../libburner-burn/burner-burn-options.c:543
+#: ../libburner-burn/burner-burn-options.c:552
 msgid ""
 "The data size is too large for the disc and you must remove files from the "
 "selection otherwise.\n"
@@ -1150,48 +1239,58 @@ msgstr ""
 "ซึ่งไม่สามารถตรวจจับได้ และจำเป็นต้องใช้ตัวเลือก overburn\n"
 "หมายเหตุ: ตัวเลือกนี้อาจทำให้เขียนแผ่นไม่สำเร็จได้"
 
-#: ../libburner-burn/burner-burn-options.c:550 ../src/burner-project.c:981
+#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
 msgid "_Overburn"
 msgstr "_Overburn"
 
-#: ../libburner-burn/burner-burn-options.c:552 ../src/burner-project.c:983
+#: ../libburner-burn/burner-burn-options.c:561 ../src/burner-project.c:987
 msgid "Burn beyond the disc's reported capacity"
 msgstr "เขียนข้อมูลเกินความจุแผ่นตามที่ได้รับรายงาน"
 
-#: ../libburner-burn/burner-burn-options.c:562
+#: ../libburner-burn/burner-burn-options.c:571
 msgid ""
 "The drive that holds the source disc will also be the one used to record."
 msgstr "ไดรว์ที่เก็บแผ่นต้นฉบับจะใช้เขียนแผ่นด้วย"
 
-#: ../libburner-burn/burner-burn-options.c:563
+#: ../libburner-burn/burner-burn-options.c:572
 msgid ""
 "A new writable disc will be required once the currently loaded one has been "
 "copied."
 msgstr "จะต้องใส่แผ่นชนิดเขียนได้ลงในไดรว์นี้ หลังจากที่ได้คัดลอกแผ่นที่อยู่ในไดรว์ในขณะนี้เก็บไว้แล้ว"
 
-#: ../libburner-burn/burner-burn-options.c:650
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:662
+#: ../libburner-burn/burner-burn-options.c:966
+msgid "Image Burning Setup"
+msgstr "ตั้งค่าการเขียนอิมเมจ"
+
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+#: ../libburner-burn/burner-burn-options.c:727
+#, c-format
 msgid "Select a disc to write to"
 msgstr "เลือกแผ่นปลายทางที่ต้องการเขียน"
 
-#: ../libburner-burn/burner-burn-options.c:730
-#: ../libburner-burn/burner-burn-options.c:748
-#: ../libburner-burn/burner-burn-options.c:868
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:808
+#: ../libburner-burn/burner-burn-options.c:826
+#: ../libburner-burn/burner-burn-options.c:948 ../src/burner-project.c:1553
 msgid "Disc Burning Setup"
 msgstr "ตั้งค่าการเขียนแผ่น"
 
-#: ../libburner-burn/burner-burn-options.c:757 ../src/burner-project.c:1542
+#: ../libburner-burn/burner-burn-options.c:835 ../src/burner-project.c:1600
 msgid "Video Options"
 msgstr "ตัวเลือกวีดิทัศน์"
 
-#: ../libburner-burn/burner-burn-options.c:788
-#: ../src/burner-data-disc.c:613
+#: ../libburner-burn/burner-burn-options.c:866 ../src/burner-data-disc.c:616
 msgid ""
 "Do you want to create a disc from the contents of the image or with the "
 "image file inside?"
 msgstr "คุณต้องการจะเขียนแผ่นโดยใช้เนื้อหาในอิมเมจ หรือจะเขียนโดยบรรจุอิมเมจเป็นข้อมูลในแผ่น?"
 
 #. Translators: %s is the name of the image
-#: ../libburner-burn/burner-burn-options.c:797
+#: ../libburner-burn/burner-burn-options.c:876
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
@@ -1199,33 +1298,30 @@ msgid ""
 msgstr ""
 "มีแฟ้มที่เลือกไว้เพียงแฟ้มเดียว (\"%s\") ซึ่งเป็นอิมเมจของแผ่นและตัวเนื้อหาสามารถเขียนลงแผ่นได้"
 
-#: ../libburner-burn/burner-burn-options.c:802
+#: ../libburner-burn/burner-burn-options.c:881
 msgid "Burn as _File"
 msgstr "เขียนเป็นแ_ฟ้ม"
 
-#: ../libburner-burn/burner-burn-options.c:804
+#: ../libburner-burn/burner-burn-options.c:883
 msgid "Burn _Contents…"
 msgstr "เขียนเนื้อ_หา…"
 
-#: ../libburner-burn/burner-burn-options.c:886
-msgid "Image Burning Setup"
-msgstr "ตั้งค่าการเขียนอิมเมจ"
-
 #. pack everything
-#: ../libburner-burn/burner-burn-options.c:894
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+#: ../libburner-burn/burner-burn-options.c:975
+#, c-format
 msgid "Select a disc image to write"
 msgstr "เลือกอิมเมจของแผ่นที่จะเขียน"
 
-#: ../libburner-burn/burner-burn-options.c:914
+#: ../libburner-burn/burner-burn-options.c:995
 msgid "Copy CD/DVD"
 msgstr "ทำสำเนาซีดี/ดีวีดี"
 
-#: ../libburner-burn/burner-burn-options.c:920
+#: ../libburner-burn/burner-burn-options.c:1001
 msgid "Select disc to copy"
 msgstr "เลือกแผ่นต้นฉบับที่ต้องการทำสำเนา"
 
-#: ../libburner-burn/burner-burn-options.c:1222
-#: ../src/burner-project.c:1437
+#: ../libburner-burn/burner-burn-options.c:1303 ../src/burner-project.c:1446
 msgid "Please install the following manually and try again:"
 msgstr "กรุณาติดตั้งสิ่งต่างๆ ต่อไปนี้แล้วลองใหม่:"
 
@@ -1244,34 +1340,42 @@ msgstr "ไม่มีข้อมูลเพลง"
 #. Translators: %s is the name of the artist
 #. Translators: %s is the name of an artist.
 #: ../libburner-burn/burner-cover.c:146 ../src/burner-player.c:419
-#: ../src/burner-song-control.c:271
+#: ../src/burner-song-control.c:270
 #, c-format
 msgid "by %s"
 msgstr "โดย %s"
+
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-customize-title.c:76
+#: ../libburner-utils/burner-misc.c:478
+#, fuzzy
+msgid "Prompt information"
+msgstr "ข้อมูลเพลง"
 
 #: ../libburner-burn/burner-data-vfs.c:218
 #, c-format
 msgid "\"%s\" cannot be read"
 msgstr "\"%s\" ไม่สามารถอ่านได้"
 
-#: ../libburner-burn/burner-dest-selection.c:599
+#: ../libburner-burn/burner-dest-selection.c:605
 #: ../libburner-burn/burner-image-type-chooser.c:133
 msgid "SVCD image"
 msgstr "อิมเมจ SVCD"
 
-#: ../libburner-burn/burner-dest-selection.c:601
+#: ../libburner-burn/burner-dest-selection.c:607
 #: ../libburner-burn/burner-image-type-chooser.c:127
 msgid "VCD image"
 msgstr "อิมเมจ VCD"
 
-#: ../libburner-burn/burner-dest-selection.c:605
+#: ../libburner-burn/burner-dest-selection.c:611
 #: ../libburner-burn/burner-image-type-chooser.c:106
 msgid "Video DVD image"
 msgstr "อิมเมจดีวีดีภาพยนตร์"
 
 #. NOTE for translators: the first %s is medium_name ("File
 #. * Image") and the second the path for the image file
-#: ../libburner-burn/burner-dest-selection.c:617
+#: ../libburner-burn/burner-dest-selection.c:623
 #, c-format
 msgid "%s: \"%s\""
 msgstr "%s: \"%s\""
@@ -1282,40 +1386,40 @@ msgstr "%s: \"%s\""
 #. * destination disc a new one (once the source has been
 #. * copied) which is to be inserted in the drive currently
 #. * holding the source disc
-#: ../libburner-burn/burner-dest-selection.c:649
+#: ../libburner-burn/burner-dest-selection.c:655
 #, c-format
 msgid "New disc in the burner holding the source disc"
 msgstr "กรุณาใส่แผ่นใหม่ลงในไดรว์สำหรับเขียนที่บรรจุแผ่นต้นฉบับอยู่"
 
 #. NOTE for translators, the first %s is the medium name
-#: ../libburner-burn/burner-dest-selection.c:690
+#: ../libburner-burn/burner-dest-selection.c:696
 #, c-format
 msgid "%s: not enough free space"
 msgstr "%s: มีที่ว่างไม่พอ"
 
 #. NOTE for translators: the first %s is the medium name, the second %s
 #. * is its available free space. "Free" here is the free space available.
-#: ../libburner-burn/burner-dest-selection.c:721
+#: ../libburner-burn/burner-dest-selection.c:727
 #, c-format
 msgid "%s: %s of free space"
 msgstr "%s: พื้นที่ว่าง %s"
 
 #. Translators: the first %s is the path of the directory where burner
 #. * will store its temporary files; the second one is the size available
-#: ../libburner-burn/burner-drive-properties.c:192
+#: ../libburner-burn/burner-drive-properties.c:194
 #, c-format
 msgid "%s: %s free"
 msgstr "%s: ว่าง %s"
 
-#: ../libburner-burn/burner-drive-properties.c:233
-#: ../libburner-burn/burner-drive-properties.c:272
-#: ../libburner-burn/burner-drive-properties.c:324
+#: ../libburner-burn/burner-drive-properties.c:235
+#: ../libburner-burn/burner-drive-properties.c:276
+#: ../libburner-burn/burner-drive-properties.c:330
 msgid "Do you really want to choose this location?"
 msgstr "คุณต้องการเลือกตำแหน่งนี้จริงหรือ?"
 
-#: ../libburner-burn/burner-drive-properties.c:277
-#: ../libburner-burn/burner-session.c:1287
-#: ../libburner-burn/burner-session.c:1362 ../libburner-burn/burn-job.c:490
+#: ../libburner-burn/burner-drive-properties.c:282
+#: ../libburner-burn/burner-session.c:1288
+#: ../libburner-burn/burner-session.c:1363 ../libburner-burn/burn-job.c:490
 #: ../plugins/cdrkit/burn-genisoimage.c:199
 #: ../plugins/cdrtools/burn-mkisofs.c:199
 #: ../plugins/libburnia/burn-libisofs.c:246
@@ -1323,7 +1427,7 @@ msgstr "คุณต้องการเลือกตำแหน่งนี
 msgid "You do not have the required permission to write at this location"
 msgstr "คุณไม่มีสิทธิ์เขียนที่ตำแหน่งนี้"
 
-#: ../libburner-burn/burner-drive-properties.c:330
+#: ../libburner-burn/burner-drive-properties.c:337
 msgid ""
 "The filesystem on this volume does not support large files (size over 2 "
 "GiB).\n"
@@ -1333,83 +1437,94 @@ msgstr ""
 "อาจเป็นปัญหากับการเขียนดีวีดีหรืออิมเมจขนาดใหญ่"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:524
+#: ../libburner-burn/burner-drive-properties.c:533
 #, c-format
 msgid "%.1f× (DVD)"
 msgstr "%.1f× (DVD)"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:528
+#: ../libburner-burn/burner-drive-properties.c:537
 #, c-format
 msgid "%.1f× (CD)"
 msgstr "%.1f× (CD)"
 
 #. Translators %s.1f is the speed used to burn. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:532
+#: ../libburner-burn/burner-drive-properties.c:541
 #, c-format
 msgid "%.1f× (BD)"
 msgstr "%.1f× (BD)"
 
 #. Translators %s.1f is the speed used to burn for every medium
 #. * type. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:537
+#: ../libburner-burn/burner-drive-properties.c:546
 #, c-format
 msgid "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 msgstr "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 
-#: ../libburner-burn/burner-drive-properties.c:575
+#: ../libburner-burn/burner-drive-properties.c:584
 msgid "Impossible to retrieve speeds"
 msgstr "ไม่สามารถอ่านข้อมูลความเร็วไดรว์"
 
-#: ../libburner-burn/burner-drive-properties.c:584
+#: ../libburner-burn/burner-drive-properties.c:593
 msgid "Maximum speed"
 msgstr "ความเร็วสูงสุด"
 
-#: ../libburner-burn/burner-drive-properties.c:710
+#. string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
+#. gtk_box_pack_start (GTK_BOX (vbox),
+#. burner_utils_pack_properties (string,
+#. priv->speed, NULL),
+#. FALSE, FALSE, 0);
+#: ../libburner-burn/burner-drive-properties.c:725
+#, c-format
 msgid "Burning speed"
 msgstr "ความเร็วการเขียน"
 
-#: ../libburner-burn/burner-drive-properties.c:723
+#: ../libburner-burn/burner-drive-properties.c:739
 msgid "_Simulate before burning"
 msgstr "_จำลองก่อนเขียน"
 
-#: ../libburner-burn/burner-drive-properties.c:724
+#: ../libburner-burn/burner-drive-properties.c:740
 msgid ""
-"Burner will simulate the burning and, if it is successful, go on with "
-"actual burning after 10 seconds"
+"Burner will simulate the burning and, if it is successful, go on with actual "
+"burning after 10 seconds"
 msgstr "Burner จะจำลองการเขียนก่อน และถ้าสำเร็จ ก็จะเขียนจริงหลังจากนั้น 10 วินาที"
 
-#: ../libburner-burn/burner-drive-properties.c:726
+#: ../libburner-burn/burner-drive-properties.c:742
 msgid "Use burn_proof (decrease the risk of failures)"
 msgstr "ใ_ช้ burnproof (ลดโอกาสแผ่นเสีย)"
 
-#: ../libburner-burn/burner-drive-properties.c:728
+#: ../libburner-burn/burner-drive-properties.c:744
 msgid "Burn the image directly _without saving it to disc"
 msgstr "เขียนอิมเมจโดยตรงโดยไ_ม่ต้องบันทึกลงดิสก์ก่อน"
 
-#: ../libburner-burn/burner-drive-properties.c:730
+#: ../libburner-burn/burner-drive-properties.c:746
 msgid "Leave the disc _open to add other files later"
 msgstr "ไม่ต้องเขียน_ปิดแผ่น เพื่อเพิ่มแฟ้มต่อในภายหลัง"
 
-#: ../libburner-burn/burner-drive-properties.c:731
+#: ../libburner-burn/burner-drive-properties.c:747
 msgid "Allow one to add more data to the disc later"
 msgstr "อนุญาตให้เพิ่มข้อมูลลงแผ่นในภายหลัง"
 
-#: ../libburner-burn/burner-drive-properties.c:751
-#: ../libburner-burn/burner-tool-dialog.c:284
-#: ../src/burner-multi-song-props.c:308 ../src/burner-song-properties.c:226
+#. string = g_strdup_printf ("<b>%s</b>", _("Options"));
+#. title = g_strdup_printf ("<b>%s</b>", _("Options"));
+#: ../libburner-burn/burner-drive-properties.c:768
+#: ../libburner-burn/burner-tool-dialog.c:287
+#: ../src/burner-multi-song-props.c:310 ../src/burner-song-properties.c:227
+#, c-format
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: ../libburner-burn/burner-drive-properties.c:763
+#: ../libburner-burn/burner-drive-properties.c:780
 msgid "Location for _Temporary Files"
 msgstr "ตำแหน่งสำหรับแฟ้ม_ชั่วคราว"
 
-#: ../libburner-burn/burner-drive-properties.c:783
+#: ../libburner-burn/burner-drive-properties.c:800
 msgid "Set the directory where to store temporary files"
 msgstr "กำหนดไดเรกทอรีที่จะใช้เก็บแฟ้มชั่วคราว"
 
-#: ../libburner-burn/burner-drive-properties.c:788
+#. string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+#: ../libburner-burn/burner-drive-properties.c:806
+#, c-format
 msgid "Temporary files"
 msgstr "แฟ้มชั่วคราว"
 
@@ -1426,7 +1541,7 @@ msgid "Broken symbolic link"
 msgstr "ลิงก์เสีย"
 
 #: ../libburner-burn/burner-filtered-uri.c:60
-#: ../libburner-utils/burner-io.c:1188 ../libburner-utils/burner-io.c:2059
+#: ../libburner-utils/burner-io.c:1190 ../libburner-utils/burner-io.c:2061
 #, c-format
 msgid "Recursive symbolic link"
 msgstr "ลิงก์ที่วนเข้าหาตัวเอง"
@@ -1455,32 +1570,31 @@ msgstr "อิมเมจ Cue"
 msgid "Cdrdao image"
 msgstr "อิมเมจ Cdrdao"
 
-#: ../libburner-burn/burner-medium-properties.c:93
-#: ../src/burner-project.c:1501
+#: ../libburner-burn/burner-medium-properties.c:96 ../src/burner-project.c:1522
 #, c-format
 msgid "Properties of %s"
 msgstr "คุณสมบัติของ %s"
 
-#: ../libburner-burn/burner-medium-properties.c:133
+#: ../libburner-burn/burner-medium-properties.c:138
 msgid ""
 "Do you really want to keep the current extension for the disc image name?"
 msgstr "คุณต้องการคงนามสกุลปัจจุบันของแฟ้มอิมเมจหรือไม่?"
 
-#: ../libburner-burn/burner-medium-properties.c:139
+#: ../libburner-burn/burner-medium-properties.c:145
 msgid ""
 "If you choose to keep it, programs may not be able to recognize the file "
 "type properly."
 msgstr "ถ้าคุณเลือกคงนามสกุลไว้ โปรแกรมต่างๆ อาจไม่รู้จักนามสกุลแฟ้มชนิดนี้"
 
-#: ../libburner-burn/burner-medium-properties.c:142
+#: ../libburner-burn/burner-medium-properties.c:148
 msgid "_Keep Current Extension"
 msgstr "_คงนามสกุลปัจจุบัน"
 
-#: ../libburner-burn/burner-medium-properties.c:145
+#: ../libburner-burn/burner-medium-properties.c:151
 msgid "Change _Extension"
 msgstr "เ_ปลี่ยนนามสกุล"
 
-#: ../libburner-burn/burner-medium-properties.c:233
+#: ../libburner-burn/burner-medium-properties.c:242
 msgid "Configure recording options"
 msgstr "ตั้งค่าตัวเลือกการเขียน"
 
@@ -1512,20 +1626,20 @@ msgid "Estimated drive speed:"
 msgstr "ความเร็วไดรว์โดยประมาณ:"
 
 #. Translators: %s is a path
-#: ../libburner-burn/burner-src-image.c:229
+#: ../libburner-burn/burner-src-image.c:231
 #, c-format
 msgid "\"%s\": loading"
 msgstr "\"%s\": กำลังอ่าน"
 
 #. Translators: %s is a path and image refers to a disc image
-#: ../libburner-burn/burner-src-image.c:236
+#: ../libburner-burn/burner-src-image.c:238
 #, c-format
 msgid "\"%s\": unknown disc image type"
 msgstr "\"%s\": ไม่ทราบชนิดของอิมเมจแผ่น"
 
 #. NOTE to translators, the first %s is the path of the image
 #. * file and the second its size.
-#: ../libburner-burn/burner-src-image.c:258
+#: ../libburner-burn/burner-src-image.c:260
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
@@ -1533,48 +1647,46 @@ msgstr "\"%s\": %s"
 #. This is hackish and meant to avoid ellipsization to make the
 #. * label too small.
 #. Translators: this is a disc image
-#: ../libburner-burn/burner-src-image.c:271
-#: ../libburner-burn/burner-src-image.c:554
+#: ../libburner-burn/burner-src-image.c:273
+#: ../libburner-burn/burner-src-image.c:557
 msgid "Click here to select a disc _image"
 msgstr "คลิกที่นี่เพื่อเลือก_อิมเมจแผ่น"
 
-#: ../libburner-burn/burner-src-image.c:415
+#: ../libburner-burn/burner-src-image.c:417
 msgid "Select Disc Image"
 msgstr "เลือกอิมเมจแผ่น"
 
-#: ../libburner-burn/burner-src-image.c:444
-#: ../nautilus/nautilus-burn-bar.c:236 ../src/burner-file-chooser.c:350
-#: ../src/burner-project.c:2221 ../src/burner-project-name.c:162
+#: ../libburner-burn/burner-src-image.c:446 ../nautilus/nautilus-burn-bar.c:236
+#: ../src/burner-file-chooser.c:350 ../src/burner-project.c:2285
+#: ../src/burner-project-name.c:164
 msgid "All files"
 msgstr "แฟ้มทั้งหมด"
 
 #. Translators: this a disc image here
-#: ../libburner-burn/burner-src-image.c:450
+#: ../libburner-burn/burner-src-image.c:452
 msgctxt "disc"
 msgid "Image files"
 msgstr "แฟ้มอิมเมจ"
 
-#: ../libburner-burn/burner-src-image.c:467
+#: ../libburner-burn/burner-src-image.c:469
 msgid "Image type:"
 msgstr "ชนิดอิมเมจ:"
 
-#: ../libburner-burn/burner-status-dialog.c:147
+#: ../libburner-burn/burner-status-dialog.c:149
 #, c-format
 msgid "Estimated size: %s"
 msgstr "ขนาดโดยประมาณ: %s"
 
-#: ../libburner-burn/burner-status-dialog.c:209
-#: ../src/burner-data-disc.c:870
+#: ../libburner-burn/burner-status-dialog.c:211 ../src/burner-data-disc.c:877
 #, c-format
 msgid "Do you really want to add \"%s\" to the selection?"
 msgstr "คุณต้องการเพิ่ม \"%s\" ในรายการที่เลือกหรือไม่?"
 
-#: ../libburner-burn/burner-status-dialog.c:228
-#: ../src/burner-data-disc.c:879
+#: ../libburner-burn/burner-status-dialog.c:231 ../src/burner-data-disc.c:886
 msgid ""
 "The children of this directory will have 7 parent directories.\n"
-"Burner can create an image of such a file hierarchy and burn it but the "
-"disc may not be readable on all operating systems.\n"
+"Burner can create an image of such a file hierarchy and burn it but the disc "
+"may not be readable on all operating systems.\n"
 "Note: Such a file hierarchy is known to work on Linux."
 msgstr ""
 "รายการต่างๆ ในไดเรกทอรีนี้จะมีไดเรกทอรีแม่ถึง 7 ชั้น\n"
@@ -1582,20 +1694,19 @@ msgstr ""
 "แต่ระบบปฏิบัติการบางระบบอาจไม่สามารถอ่านแผ่นได้\n"
 "หมายเหตุ: โครงสร้างแฟ้มแบบนี้ใช้กับลินุกซ์ได้"
 
-#: ../libburner-burn/burner-status-dialog.c:232
-#: ../libburner-burn/burner-status-dialog.c:294
-#: ../src/burner-data-disc.c:839 ../src/burner-data-disc.c:883
+#: ../libburner-burn/burner-status-dialog.c:235
+#: ../libburner-burn/burner-status-dialog.c:299 ../src/burner-data-disc.c:845
+#: ../src/burner-data-disc.c:890
 msgid "Ne_ver Add Such File"
 msgstr "ไ_ม่ต้องเพิ่มแฟ้มดังกล่าวตลอดไป"
 
-#: ../libburner-burn/burner-status-dialog.c:233
-#: ../libburner-burn/burner-status-dialog.c:295
-#: ../src/burner-data-disc.c:840 ../src/burner-data-disc.c:884
+#: ../libburner-burn/burner-status-dialog.c:236
+#: ../libburner-burn/burner-status-dialog.c:300 ../src/burner-data-disc.c:846
+#: ../src/burner-data-disc.c:891
 msgid "Al_ways Add Such File"
 msgstr "เ_พิ่มแฟ้มดังกล่าวเสมอ"
 
-#: ../libburner-burn/burner-status-dialog.c:271
-#: ../src/burner-data-disc.c:826
+#: ../libburner-burn/burner-status-dialog.c:275 ../src/burner-data-disc.c:832
 #, c-format
 msgid ""
 "Do you really want to add \"%s\" to the selection and use the third version "
@@ -1604,8 +1715,7 @@ msgstr ""
 "คุณต้องการเพิ่ม \"%s\" ในรายการที่เลือก แล้วใช้มาตรฐาน ISO9660 "
 "รุ่นที่สามเพื่อรองรับรายการดังกล่าวหรือไม่?"
 
-#: ../libburner-burn/burner-status-dialog.c:290
-#: ../src/burner-data-disc.c:835
+#: ../libburner-burn/burner-status-dialog.c:295 ../src/burner-data-disc.c:841
 msgid ""
 "The size of the file is over 2 GiB. Files larger than 2 GiB are not "
 "supported by the ISO9660 standard in its first and second versions (the most "
@@ -1622,112 +1732,107 @@ msgstr ""
 "รวมถึงลินุกซ์และวินโดวส์ทุกรุ่น\n"
 "อย่างไรก็ดี Mac OS X ไม่สามารถอ่านอิมเมจที่สร้างด้วยมาตรฐาน ISO9660 รุ่นที่สามได้"
 
-#: ../libburner-burn/burner-status-dialog.c:330
-#: ../src/burner-data-disc.c:729
+#: ../libburner-burn/burner-status-dialog.c:336 ../src/burner-data-disc.c:733
 msgid "Should files be renamed to be fully Windows-compatible?"
 msgstr "ต้องการเปลี่ยนชื่อบางแฟ้มให้ใช้กับวินโดวส์ได้อย่างเต็มที่หรือไม่?"
 
-#: ../libburner-burn/burner-status-dialog.c:341
-#: ../src/burner-data-disc.c:735
+#: ../libburner-burn/burner-status-dialog.c:348 ../src/burner-data-disc.c:739
 msgid "Those names should be changed and truncated to 64 characters."
 msgstr "ควรเปลี่ยนชื่อแฟ้มดังกล่าวโดยตัดให้เหลือ 64 ตัวอักษร"
 
-#: ../libburner-burn/burner-status-dialog.c:346
-#: ../src/burner-data-disc.c:738
+#: ../libburner-burn/burner-status-dialog.c:353 ../src/burner-data-disc.c:742
 msgid "_Disable Full Windows Compatibility"
 msgstr "ไ_ม่เปิดคุณสมบัติความเข้ากันได้กับวินโดวส์แบบเต็มที่"
 
-#: ../libburner-burn/burner-status-dialog.c:349
-#: ../src/burner-data-disc.c:737
+#: ../libburner-burn/burner-status-dialog.c:356 ../src/burner-data-disc.c:741
 msgid "_Rename for Full Windows Compatibility"
 msgstr "เ_ปลี่ยนชื่อเพื่อความเข้ากันได้กับวินโดวส์แบบเต็มที่"
 
-#: ../libburner-burn/burner-status-dialog.c:566
+#: ../libburner-burn/burner-status-dialog.c:574
 msgid "Size Estimation"
 msgstr "การประเมินขนาด"
 
-#: ../libburner-burn/burner-status-dialog.c:568
+#: ../libburner-burn/burner-status-dialog.c:576
 msgid "Please wait until the estimation of the size is completed."
 msgstr "กรุณารอการประเมินขนาด"
 
-#: ../libburner-burn/burner-status-dialog.c:569
+#: ../libburner-burn/burner-status-dialog.c:577
 msgid "All files need to be analysed to complete this operation."
 msgstr "การกระทำนี้ต้องวิเคราะห์แฟ้มทุกแฟ้ม"
 
-#: ../libburner-burn/burner-sum-dialog.c:134
-#: ../libburner-burn/burner-sum-dialog.c:215
+#: ../libburner-burn/burner-sum-dialog.c:137
+#: ../libburner-burn/burner-sum-dialog.c:220
 msgid "Check _Again"
 msgstr "ตรวจสอบ_อีกครั้ง"
 
-#: ../libburner-burn/burner-sum-dialog.c:165
-#: ../libburner-burn/burner-sum-dialog.c:514
+#: ../libburner-burn/burner-sum-dialog.c:169
+#: ../libburner-burn/burner-sum-dialog.c:520
 msgid "The file integrity check could not be performed."
 msgstr "ไม่สามารถตรวจสอบความถูกต้องของข้อมูลแฟ้มได้"
 
-#: ../libburner-burn/burner-sum-dialog.c:166 ../src/burner-data-disc.c:214
-#: ../src/burner-eject-dialog.c:100 ../src/burner-playlist.c:393
-#: ../src/burner-project.c:2621
+#: ../libburner-burn/burner-sum-dialog.c:170 ../src/burner-data-disc.c:217
+#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:395
+#: ../src/burner-project.c:2734
 msgid "An unknown error occurred"
 msgstr "เกิดข้อผิดพลาดไม่ทราบสาเหตุ"
 
-#: ../libburner-burn/burner-sum-dialog.c:178
+#: ../libburner-burn/burner-sum-dialog.c:182
 msgid "The file integrity check was performed successfully."
 msgstr "ตรวจสอบความถูกต้องของข้อมูลแฟ้มสำเร็จแล้ว"
 
-#: ../libburner-burn/burner-sum-dialog.c:179
+#: ../libburner-burn/burner-sum-dialog.c:183
 msgid "There seem to be no corrupted files on the disc"
 msgstr "ดูเหมือนไม่มีแฟ้มเสียหายในดิสก์"
 
-#: ../libburner-burn/burner-sum-dialog.c:207
+#: ../libburner-burn/burner-sum-dialog.c:211
 msgid "The following files appear to be corrupted:"
 msgstr "ข้อมูลในแฟ้มต่อไปนี้เสียหาย:"
 
-#: ../libburner-burn/burner-sum-dialog.c:250
+#: ../libburner-burn/burner-sum-dialog.c:255
 msgid "Corrupted Files"
 msgstr "แฟ้มข้อมูลที่เสียหาย"
 
-#: ../libburner-burn/burner-sum-dialog.c:342
+#: ../libburner-burn/burner-sum-dialog.c:348
 msgid "Downloading MD5 file"
 msgstr "กำลังดาวน์โหลดแฟ้ม MD5"
 
-#: ../libburner-burn/burner-sum-dialog.c:397
+#: ../libburner-burn/burner-sum-dialog.c:403
 #, c-format
 msgid "\"%s\" is not a valid URI"
 msgstr "\"%s\" ไม่ใช่ URI ที่ถูกต้อง"
 
-#: ../libburner-burn/burner-sum-dialog.c:515
+#: ../libburner-burn/burner-sum-dialog.c:521
 msgid "No MD5 file was given."
 msgstr "ไม่ได้ระบุแฟ้ม MD5"
 
-#: ../libburner-burn/burner-sum-dialog.c:692
+#: ../libburner-burn/burner-sum-dialog.c:698
 msgid "Use an _MD5 file to check the disc"
 msgstr "ใช้ข้อมูลจากแฟ้ม _MD5 สำหรับตรวจสอบแผ่น"
 
-#: ../libburner-burn/burner-sum-dialog.c:693
+#: ../libburner-burn/burner-sum-dialog.c:699
 msgid "Use an external .md5 file that stores the checksum of a disc"
 msgstr "ใช้ข้อมูลจากแฟ้ม .md5 เพื่อตรวจสอบค่า checksum ของแผ่น"
 
-#: ../libburner-burn/burner-sum-dialog.c:706
+#: ../libburner-burn/burner-sum-dialog.c:712
 msgid "Open an MD5 file"
 msgstr "เปิดแฟ้ม MD5"
 
-#: ../libburner-burn/burner-sum-dialog.c:721
+#: ../libburner-burn/burner-sum-dialog.c:727
 msgid "_Check"
 msgstr "_ตรวจสอบ"
 
-#: ../libburner-burn/burner-sum-dialog.c:752
+#: ../libburner-burn/burner-sum-dialog.c:758
 msgid "Disc Checking"
 msgstr "การตรวจสอบแผ่น"
 
-#: ../libburner-burn/burner-tool-dialog.c:78
-#: ../libburner-burn/burner-tool-dialog.c:92
-#: ../libburner-burn/burner-tool-dialog.c:102
+#: ../libburner-burn/burner-tool-dialog.c:80
+#: ../libburner-burn/burner-tool-dialog.c:94
+#: ../libburner-burn/burner-tool-dialog.c:104
 msgid "The operation cannot be performed."
 msgstr "ไม่สามารถดำเนินการได้"
 
-#: ../libburner-burn/burner-tool-dialog.c:79
-#: ../plugins/cdrkit/burn-wodim.c:151 ../plugins/cdrkit/burn-wodim.c:421
-#: ../plugins/cdrtools/burn-cdrecord.c:151
+#: ../libburner-burn/burner-tool-dialog.c:81 ../plugins/cdrkit/burn-wodim.c:151
+#: ../plugins/cdrkit/burn-wodim.c:421 ../plugins/cdrtools/burn-cdrecord.c:151
 #: ../plugins/cdrtools/burn-cdrecord.c:407
 #: ../plugins/growisofs/burn-dvd-rw-format.c:77
 #: ../plugins/libburnia/burn-libburn.c:610
@@ -1735,16 +1840,19 @@ msgstr "ไม่สามารถดำเนินการได้"
 msgid "The disc is not supported"
 msgstr "ไม่รองรับชนิดของแผ่น"
 
-#: ../libburner-burn/burner-tool-dialog.c:103
+#: ../libburner-burn/burner-tool-dialog.c:105
 msgid "The drive is empty"
 msgstr "ไดรว์ไม่มีแผ่น"
 
-#: ../libburner-burn/burner-tool-dialog.c:539
-#: ../src/burner-eject-dialog.c:164
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+#: ../libburner-burn/burner-tool-dialog.c:563 ../src/burner-eject-dialog.c:167
+#, c-format
 msgid "Select a disc"
 msgstr "เลือกแผ่น"
 
-#: ../libburner-burn/burner-tool-dialog.c:572
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+#: ../libburner-burn/burner-tool-dialog.c:591
+#, c-format
 msgid "Progress"
 msgstr "ความคืบหน้า"
 
@@ -1752,14 +1860,13 @@ msgstr "ความคืบหน้า"
 #: ../libburner-burn/burner-track-data-cfg.c:716
 #: ../libburner-burn/burner-track-data-cfg.c:727
 #: ../libburner-burn/burner-track-data-cfg.c:788
-#: ../libburner-burn/burner-track-data-cfg.c:793
-#: ../src/burner-playlist.c:536 ../src/burner-video-tree-model.c:342
+#: ../libburner-burn/burner-track-data-cfg.c:793 ../src/burner-playlist.c:538
+#: ../src/burner-video-tree-model.c:342
 msgid "(loading…)"
 msgstr "(กำลังอ่าน…)"
 
 #: ../libburner-burn/burner-track-data-cfg.c:619
-#: ../libburner-burn/burner-track-data-cfg.c:799
-#: ../src/burner-playlist.c:497
+#: ../libburner-burn/burner-track-data-cfg.c:799 ../src/burner-playlist.c:499
 msgid "Empty"
 msgstr "ว่าง"
 
@@ -1794,7 +1901,7 @@ msgid "\"%s\" is a recursive symbolic link."
 msgstr "\"%s\" เป็นลิงก์สัญลักษณ์ที่วนเข้าหาตัวเอง"
 
 #. Translators: %s is the path of a drive
-#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:218
+#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:219
 #, c-format
 msgid "\"%s\" cannot be found."
 msgstr "ไม่พบ \"%s\""
@@ -1819,7 +1926,7 @@ msgid "\"%s\" was removed from the file system."
 msgstr "\"%s\" ถูกลบออกจากระบบแฟ้มไปแล้ว"
 
 #: ../libburner-burn/burner-track-stream-cfg.c:129
-#: ../src/burner-audio-disc.c:754 ../src/burner-video-disc.c:365
+#: ../src/burner-audio-disc.c:757 ../src/burner-video-disc.c:367
 #, c-format
 msgid "Directories cannot be added to video or audio discs"
 msgstr "ไม่สามารถเพิ่มไดเรกทอรีลงในแผ่นภาพยนตร์หรือแผ่นเพลงได้"
@@ -1998,7 +2105,7 @@ msgstr ""
 "ตำแหน่งที่คุณเลือกเป็นที่เก็บอิมเมจชั่วคราวมีเนื้อที่ว่างไม่พอสำหรับเก็บอิมเมจของแผ่น (ต้องการ %ld "
 "MiB)"
 
-#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:365
+#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:362
 #, c-format
 msgid "The size of the volume could not be retrieved"
 msgstr "ไม่สามารถอ่านข้อมูลขนาดของโวลุมได้"
@@ -2010,9 +2117,9 @@ msgstr "ไม่ได้ระบุพาธสำหรับอิมเม
 
 #. Translators: %s is the error returned by libburn
 #. Translators: the %s is the error message from errno
-#: ../libburner-burn/burn-job.c:768 ../plugins/cdrtools/burn-cdrecord.c:710
+#: ../libburner-burn/burn-job.c:768 ../plugins/cdrtools/burn-cdrecord.c:709
 #: ../plugins/libburnia/burn-libburn.c:717
-#: ../plugins/transcode/burn-transcode.c:826
+#: ../plugins/transcode/burn-transcode.c:790
 #, c-format
 msgid "An internal error occurred (%s)"
 msgstr "เกิดข้อผิดพลาดภายใน (%s)"
@@ -2031,28 +2138,28 @@ msgstr "แฟ้มไม่ได้เก็บอยู่ในเครื
 msgid "VIDEO_TS directory is missing or invalid"
 msgstr "ไดเรกทอรี VIDEO_TS ขาดหายไปหรือใช้การไม่ได้"
 
-#: ../libburner-burn/burn-plugin.c:645
+#: ../libburner-burn/burn-plugin.c:647
 #, c-format
 msgid "\"%s\" could not be found in the path"
 msgstr "ไม่พบ \"%s\" ในพาธโปรแกรม"
 
-#: ../libburner-burn/burn-plugin.c:649
+#: ../libburner-burn/burn-plugin.c:651
 #, c-format
 msgid "\"%s\" GStreamer plugin could not be found"
 msgstr "ไม่พบปลั๊กอิน \"%s\" ของ GStreamer"
 
-#: ../libburner-burn/burn-plugin.c:653 ../libburner-burn/burn-plugin.c:665
+#: ../libburner-burn/burn-plugin.c:655 ../libburner-burn/burn-plugin.c:667
 #, c-format
 msgid "The version of \"%s\" is too old"
 msgstr "รุ่นของ \"%s\" เก่าเกินไป"
 
-#: ../libburner-burn/burn-plugin.c:657
+#: ../libburner-burn/burn-plugin.c:659
 #, c-format
 msgid "\"%s\" is a symbolic link pointing to another program"
 msgstr "\"%s\" เป็นลิงก์สัญลักษณ์ไปยังโปรแกรมอื่น"
 
 #. Translators: %s is a filename
-#: ../libburner-burn/burn-plugin.c:661 ../plugins/cdrdao/burn-cdrdao.c:211
+#: ../libburner-burn/burn-plugin.c:663 ../plugins/cdrdao/burn-cdrdao.c:211
 #: ../plugins/growisofs/burn-growisofs.c:509
 #, c-format
 msgid "\"%s\" could not be found"
@@ -2067,8 +2174,7 @@ msgstr "โพรเซส \"%s\" จบการทำงานด้วยร�
 #. Translators: This is a fake drive, a file, and means that
 #. * when we're writing, we're writing to a file and create an
 #. * image on the hard drive.
-#: ../libburner-media/burner-drive.c:607
-#: ../libburner-media/burner-medium.c:206
+#: ../libburner-media/burner-drive.c:607 ../libburner-media/burner-medium.c:206
 #: ../libburner-media/burner-volume.c:382
 msgid "Image File"
 msgstr "แฟ้มอิมเมจ"
@@ -2241,8 +2347,7 @@ msgid "%s:%s:%s"
 msgstr "%s:%s:%s"
 
 #. Translators: this is 'hour:minute' or 'minute:second'
-#: ../libburner-media/burner-units.c:92
-#: ../libburner-media/burner-units.c:107
+#: ../libburner-media/burner-units.c:92 ../libburner-media/burner-units.c:107
 #, c-format
 msgid "%s:%s"
 msgstr "%s:%s"
@@ -2282,7 +2387,7 @@ msgstr "แผ่นเพลงและข้อมูล (%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ .
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:322
+#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:325
 #, c-format
 msgid "Audio disc (%s)"
 msgstr "แผ่นเพลง (%s)"
@@ -2291,23 +2396,20 @@ msgstr "แผ่นเพลง (%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ otherwise it gets truncated.
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:421
-#: ../nautilus/nautilus-burn-bar.c:115 ../src/burner-project-name.c:255
+#: ../libburner-media/burner-volume.c:421 ../nautilus/nautilus-burn-bar.c:115
+#: ../src/burner-project-name.c:258
 #, c-format
 msgid "Data disc (%s)"
 msgstr "แผ่นข้อมูล (%s)"
 
-#: ../libburner-media/burn-iso9660.c:158
-#: ../libburner-media/burn-iso9660.c:167
-#: ../libburner-media/burn-iso9660.c:402
-#: ../libburner-media/burn-iso9660.c:439
-#: ../libburner-media/burn-iso9660.c:488
-#: ../libburner-media/burn-volume.c:128
+#: ../libburner-media/burn-iso9660.c:158 ../libburner-media/burn-iso9660.c:167
+#: ../libburner-media/burn-iso9660.c:402 ../libburner-media/burn-iso9660.c:439
+#: ../libburner-media/burn-iso9660.c:488 ../libburner-media/burn-volume.c:128
 #, c-format
 msgid "It does not appear to be a valid ISO image"
 msgstr "ไม่ใช่อิมเมจ ISO ที่ถูกต้อง"
 
-#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:84
+#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:86
 msgid "Unknown error"
 msgstr "ข้อผิดพลาดไม่ทราบสาเหตุ"
 
@@ -2364,7 +2466,7 @@ msgstr "ซ่อ_นการเปลี่ยนแปลง"
 msgid "_Show changes"
 msgstr "แ_สดงการเปลี่ยนแปลง"
 
-#: ../libburner-utils/burner-io.c:1416
+#: ../libburner-utils/burner-io.c:1418
 #, c-format
 msgid "The file does not appear to be a playlist"
 msgstr "แฟ้มดูเหมือนไม่ใช่รายการการเล่น"
@@ -2427,55 +2529,55 @@ msgstr "ขยายให้พอดี"
 msgid "Background Properties"
 msgstr "คุณสมบัติพื้นหลัง"
 
-#: ../libburner-utils/burner-jacket-edit.c:589
+#: ../libburner-utils/burner-jacket-edit.c:535
 msgid "Print"
 msgstr "พิมพ์"
 
-#: ../libburner-utils/burner-jacket-edit.c:601
+#: ../libburner-utils/burner-jacket-edit.c:547
 msgid "Bac_kground Properties"
 msgstr "คุณสมบัติ_พื้นหลัง"
 
-#: ../libburner-utils/burner-jacket-edit.c:604
+#: ../libburner-utils/burner-jacket-edit.c:550
 msgid "Background properties"
 msgstr "คุณสมบัติพื้นหลัง"
 
-#: ../libburner-utils/burner-jacket-edit.c:619
+#: ../libburner-utils/burner-jacket-edit.c:565
 msgid "Align right"
 msgstr "ชิดขอบขวา"
 
-#: ../libburner-utils/burner-jacket-edit.c:629
+#: ../libburner-utils/burner-jacket-edit.c:575
 msgid "Center"
 msgstr "กึ่งกลาง"
 
-#: ../libburner-utils/burner-jacket-edit.c:639
+#: ../libburner-utils/burner-jacket-edit.c:585
 msgid "Align left"
 msgstr "ชิดขอบซ้าย"
 
-#: ../libburner-utils/burner-jacket-edit.c:653
+#: ../libburner-utils/burner-jacket-edit.c:599
 msgid "Underline"
 msgstr "ขีดเส้นใต้"
 
-#: ../libburner-utils/burner-jacket-edit.c:663
+#: ../libburner-utils/burner-jacket-edit.c:609
 msgid "Italic"
 msgstr "ตัวเอียง"
 
-#: ../libburner-utils/burner-jacket-edit.c:673
+#: ../libburner-utils/burner-jacket-edit.c:619
 msgid "Bold"
 msgstr "ตัวหนา"
 
-#: ../libburner-utils/burner-jacket-edit.c:699
+#: ../libburner-utils/burner-jacket-edit.c:645
 msgid "Font family and size"
 msgstr "ตระกูลแบบอักษรและขนาด"
 
-#: ../libburner-utils/burner-jacket-edit.c:706
+#: ../libburner-utils/burner-jacket-edit.c:652
 msgid "_Text Color"
 msgstr "สี_ข้อความ"
 
-#: ../libburner-utils/burner-jacket-edit.c:707
+#: ../libburner-utils/burner-jacket-edit.c:653
 msgid "Text color"
 msgstr "สีข้อความ"
 
-#: ../libburner-utils/burner-jacket-edit.c:830
+#: ../libburner-utils/burner-jacket-edit.c:790
 msgid "Cover Editor"
 msgstr "เครื่องมือแก้ไขปก"
 
@@ -2501,7 +2603,7 @@ msgstr "ปกหน้า"
 msgid "The image could not be loaded."
 msgstr "ไม่สามารถโหลดรูปภาพได้"
 
-#: ../libburner-utils/burner-metadata.c:1135 ../src/burner-audio-disc.c:643
+#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:645
 #, c-format
 msgid "\"%s\" could not be handled by GStreamer."
 msgstr "GStreamer ไม่สามารถจัดการกับ \"%s\" ได้"
@@ -2509,46 +2611,61 @@ msgstr "GStreamer ไม่สามารถจัดการกับ \"%s\" 
 #. Translators: %s is the name of the object (as in
 #. * GObject) from the Gstreamer library that could
 #. * not be created
-#: ../libburner-utils/burner-metadata.c:1207
-#: ../libburner-utils/burner-metadata.c:1220
-#: ../libburner-utils/burner-metadata.c:1233
-#: ../libburner-utils/burner-metadata.c:1375
-#: ../libburner-utils/burner-metadata.c:1746
-#: ../libburner-utils/burner-metadata.c:1761
-#: ../libburner-utils/burner-metadata.c:1770
+#: ../libburner-utils/burner-metadata.c:1198
+#: ../libburner-utils/burner-metadata.c:1211
+#: ../libburner-utils/burner-metadata.c:1224
+#: ../libburner-utils/burner-metadata.c:1366
+#: ../libburner-utils/burner-metadata.c:1738
+#: ../libburner-utils/burner-metadata.c:1753
+#: ../libburner-utils/burner-metadata.c:1762
 #: ../plugins/transcode/burn-normalize.c:172
 #: ../plugins/transcode/burn-normalize.c:187
 #: ../plugins/transcode/burn-normalize.c:209
 #: ../plugins/transcode/burn-normalize.c:221
 #: ../plugins/transcode/burn-normalize.c:238
 #: ../plugins/transcode/burn-normalize.c:335
-#: ../plugins/transcode/burn-transcode.c:294
-#: ../plugins/transcode/burn-transcode.c:306
-#: ../plugins/transcode/burn-transcode.c:456
-#: ../plugins/transcode/burn-transcode.c:509
-#: ../plugins/transcode/burn-transcode.c:543
-#: ../plugins/transcode/burn-transcode.c:590
+#: ../plugins/transcode/burn-transcode.c:292
+#: ../plugins/transcode/burn-transcode.c:304
+#: ../plugins/transcode/burn-transcode.c:426
+#: ../plugins/transcode/burn-transcode.c:479
+#: ../plugins/transcode/burn-transcode.c:513
+#: ../plugins/transcode/burn-transcode.c:556
+#: ../plugins/transcode/burn-transcode.c:577
+#: ../plugins/transcode/burn-transcode.c:589
 #: ../plugins/transcode/burn-transcode.c:611
-#: ../plugins/transcode/burn-transcode.c:623
-#: ../plugins/transcode/burn-transcode.c:648
-#: ../plugins/transcode/burn-vob.c:309 ../plugins/transcode/burn-vob.c:329
-#: ../plugins/transcode/burn-vob.c:344 ../plugins/transcode/burn-vob.c:356
-#: ../plugins/transcode/burn-vob.c:373 ../plugins/transcode/burn-vob.c:431
-#: ../plugins/transcode/burn-vob.c:448 ../plugins/transcode/burn-vob.c:460
-#: ../plugins/transcode/burn-vob.c:472 ../plugins/transcode/burn-vob.c:484
-#: ../plugins/transcode/burn-vob.c:501 ../plugins/transcode/burn-vob.c:592
-#: ../plugins/transcode/burn-vob.c:609 ../plugins/transcode/burn-vob.c:621
-#: ../plugins/transcode/burn-vob.c:633 ../plugins/transcode/burn-vob.c:655
-#: ../plugins/transcode/burn-vob.c:672 ../plugins/transcode/burn-vob.c:718
-#: ../plugins/transcode/burn-vob.c:795 ../plugins/transcode/burn-vob.c:812
-#: ../plugins/transcode/burn-vob.c:827 ../plugins/transcode/burn-vob.c:839
-#: ../plugins/transcode/burn-vob.c:850 ../plugins/transcode/burn-vob.c:861
-#: ../plugins/transcode/burn-vob.c:1036 ../plugins/transcode/burn-vob.c:1100
-#: ../plugins/transcode/burn-vob.c:1117 ../plugins/transcode/burn-vob.c:1138
-#: ../plugins/transcode/burn-vob.c:1165
+#: ../plugins/transcode/burn-vob.c:308 ../plugins/transcode/burn-vob.c:328
+#: ../plugins/transcode/burn-vob.c:343 ../plugins/transcode/burn-vob.c:355
+#: ../plugins/transcode/burn-vob.c:372 ../plugins/transcode/burn-vob.c:428
+#: ../plugins/transcode/burn-vob.c:445 ../plugins/transcode/burn-vob.c:457
+#: ../plugins/transcode/burn-vob.c:469 ../plugins/transcode/burn-vob.c:481
+#: ../plugins/transcode/burn-vob.c:498 ../plugins/transcode/burn-vob.c:582
+#: ../plugins/transcode/burn-vob.c:599 ../plugins/transcode/burn-vob.c:611
+#: ../plugins/transcode/burn-vob.c:623 ../plugins/transcode/burn-vob.c:642
+#: ../plugins/transcode/burn-vob.c:659 ../plugins/transcode/burn-vob.c:705
+#: ../plugins/transcode/burn-vob.c:782 ../plugins/transcode/burn-vob.c:799
+#: ../plugins/transcode/burn-vob.c:814 ../plugins/transcode/burn-vob.c:826
+#: ../plugins/transcode/burn-vob.c:837 ../plugins/transcode/burn-vob.c:848
+#: ../plugins/transcode/burn-vob.c:1023 ../plugins/transcode/burn-vob.c:1087
+#: ../plugins/transcode/burn-vob.c:1104 ../plugins/transcode/burn-vob.c:1125
+#: ../plugins/transcode/burn-vob.c:1152
 #, c-format
 msgid "%s element could not be created"
 msgstr "ไม่สามารถสร้างอิลิเมนต์ %s ได้"
+
+#: ../libburner-utils/burner-misc.c:75
+#, fuzzy
+msgid "Display debug statements on stdout for Burner utilities library"
+msgstr "แสดงข้อความดีบั๊กสำหรับไลบรารีเขียนสื่อของ Burner ออกทางเอาต์พุตมาตรฐาน"
+
+#: ../libburner-utils/burner-misc.c:92
+#, fuzzy
+msgid "Burner utilities library"
+msgstr "ไลบรารีสื่อจานแสงของ Burner"
+
+#: ../libburner-utils/burner-misc.c:93
+#, fuzzy
+msgid "Display options for Burner-utils library"
+msgstr "แสดงตัวเลือกต่างๆ ของไลบรารี Burner-burn"
 
 #: ../libburner-utils/burner-tool-color-picker.c:166
 msgid "Pick a Color"
@@ -2563,13 +2680,13 @@ msgstr "เครื่องมือสร้างซีดี/ดีวี�
 msgid "Create CDs and DVDs"
 msgstr "สร้างซีดีและดีวีดี"
 
-#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:154
+#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:156
 msgid "Medium Icon"
 msgstr "ไอคอนสื่อ"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
 #: ../nautilus/nautilus-burn-bar.c:242 ../src/burner-file-chooser.c:375
-#: ../src/burner-project.c:2246 ../src/burner-project-name.c:168
+#: ../src/burner-project.c:2310 ../src/burner-project-name.c:170
 msgctxt "picture"
 msgid "Image files"
 msgstr "แฟ้มรูปภาพ"
@@ -2648,7 +2765,7 @@ msgstr "ไม่สามารถอ่านข้อมูลได้ (%s)"
 #: ../plugins/checksum/burn-checksum-files.c:196
 #: ../plugins/checksum/burn-checksum-files.c:219
 #: ../plugins/checksum/burn-checksum-image.c:174
-#: ../plugins/dvdcss/burn-dvdcss.c:216 ../plugins/dvdcss/burn-dvdcss.c:495
+#: ../plugins/dvdcss/burn-dvdcss.c:213 ../plugins/dvdcss/burn-dvdcss.c:492
 #: ../plugins/libburnia/burn-libisofs.c:160
 #: ../plugins/libburnia/burn-libisofs.c:274
 #, c-format
@@ -2787,15 +2904,15 @@ msgstr "กำลังเขียน cue sheet"
 msgid "The disc needs to be reloaded before being recorded"
 msgstr "ต้องเอาแผ่นออกแล้วใส่ใหม่ก่อนที่จะเขียน"
 
-#: ../plugins/cdrkit/burn-wodim.c:1270
+#: ../plugins/cdrkit/burn-wodim.c:1269
 msgid "Burns, blanks and formats CDs and DVDs"
 msgstr "เขียนแผ่น ล้างข้อมูล และฟอร์แมตซีดี/ดีวีดี"
 
-#: ../plugins/cdrkit/burn-wodim.c:1414
+#: ../plugins/cdrkit/burn-wodim.c:1413
 msgid "Enable the \"-immed\" flag (see wodim manual)"
 msgstr "เปิดใช้แฟล็ก \"-immed\" (ดูคู่มือของ wodim)"
 
-#: ../plugins/cdrkit/burn-wodim.c:1417
+#: ../plugins/cdrkit/burn-wodim.c:1416
 msgid "Minimum drive buffer fill ratio (in %) (see wodim manual):"
 msgstr "อัตราการเติมบัฟเฟอร์ของไดรว์ต่ำสุด (เป็น %) (ดูคู่มือของ wodim):"
 
@@ -2813,16 +2930,16 @@ msgstr "กำลังเตรียมทำสำเนาแผ่นเพ
 msgid "Copy tracks from an audio CD with all associated information"
 msgstr "คัดลอกร่องเพลงต่างๆ จากซีดีเพลง พร้อมทั้งข้อมูลกำกับทั้งหมด"
 
-#: ../plugins/cdrtools/burn-cdrecord.c:1204
+#: ../plugins/cdrtools/burn-cdrecord.c:1203
 #: ../plugins/libburnia/burn-libburn.c:975
 msgid "Burns, blanks and formats CDs, DVDs and BDs"
 msgstr "เขียนแผ่น ล้างข้อมูล และฟอร์แมตซีดี ดีวีดี และบีดี"
 
-#: ../plugins/cdrtools/burn-cdrecord.c:1417
+#: ../plugins/cdrtools/burn-cdrecord.c:1416
 msgid "Enable the \"-immed\" flag (see cdrecord manual)"
 msgstr "เปิดใช้แฟล็ก \"-immed\" (ดูคู่มือของ cdrecord)"
 
-#: ../plugins/cdrtools/burn-cdrecord.c:1420
+#: ../plugins/cdrtools/burn-cdrecord.c:1419
 #, c-format
 msgid "Minimum drive buffer fill ratio (in %%) (see cdrecord manual):"
 msgstr "อัตราการเติมบัฟเฟอร์ของไดรว์ต่ำสุด (เป็น %%) (ดูคู่มือของ cdrecord):"
@@ -2936,7 +3053,7 @@ msgstr "สร้างอิมเมจของแผ่นที่เหม
 #. Translators: %s is the path to a drive. "regionset %s"
 #. * should be left as is just like "DVDCSS_METHOD=title
 #. * burner --no-existing-session"
-#: ../plugins/dvdcss/burn-dvdcss.c:294
+#: ../plugins/dvdcss/burn-dvdcss.c:291
 #, c-format
 msgid ""
 "Error while retrieving a key used for encryption. You may solve such a "
@@ -2950,26 +3067,26 @@ msgstr ""
 "ของคุณโดยใช้คำสั่ง \"regionset %s\" หรือสั่งคำสั่ง \"DVDCSS_METHOD=title burner --no-"
 "existing-session\""
 
-#: ../plugins/dvdcss/burn-dvdcss.c:339
+#: ../plugins/dvdcss/burn-dvdcss.c:336
 msgid "Retrieving DVD keys"
 msgstr "กำลังดึงข้อมูลกุญแจดีวีดี"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:374
+#: ../plugins/dvdcss/burn-dvdcss.c:371
 #, c-format
 msgid "Video DVD could not be opened"
 msgstr "ไม่สามารถเปิดดีวีดีภาพยนตร์ได้"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
-#: ../plugins/dvdcss/burn-dvdcss.c:483
+#: ../plugins/dvdcss/burn-dvdcss.c:392 ../plugins/dvdcss/burn-dvdcss.c:457
+#: ../plugins/dvdcss/burn-dvdcss.c:480
 #, c-format
 msgid "Error while reading video DVD (%s)"
 msgstr "เกิดข้อผิดพลาดขณะอ่านดีวีดีภาพยนตร์ (%s)"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:402
+#: ../plugins/dvdcss/burn-dvdcss.c:399
 msgid "Copying video DVD"
 msgstr "กำลังคัดลอกดีวีดีภาพยนตร์"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:695
+#: ../plugins/dvdcss/burn-dvdcss.c:692
 msgid "Copies CSS encrypted video DVDs to a disc image"
 msgstr "ทำสำเนาดีวีดีภาพยนตร์ที่เข้ารหัสลับแบบ CSS ในรูปอิมเมจของแผ่น"
 
@@ -3096,16 +3213,16 @@ msgstr "ช่วยเขียนแฟ้มต่างๆ ที่เพ�
 #. * too technical and should be removed?
 #: ../plugins/transcode/burn-normalize.c:199
 #: ../plugins/transcode/burn-normalize.c:260
-#: ../plugins/transcode/burn-transcode.c:318
-#: ../plugins/transcode/burn-transcode.c:356
-#: ../plugins/transcode/burn-transcode.c:553
-#: ../plugins/transcode/burn-transcode.c:663
-#: ../plugins/transcode/burn-transcode.c:694
-#: ../plugins/transcode/burn-transcode.c:715
-#: ../plugins/transcode/burn-vob.c:189 ../plugins/transcode/burn-vob.c:395
-#: ../plugins/transcode/burn-vob.c:555 ../plugins/transcode/burn-vob.c:688
-#: ../plugins/transcode/burn-vob.c:1052 ../plugins/transcode/burn-vob.c:1128
-#: ../plugins/transcode/burn-vob.c:1179
+#: ../plugins/transcode/burn-transcode.c:316
+#: ../plugins/transcode/burn-transcode.c:354
+#: ../plugins/transcode/burn-transcode.c:523
+#: ../plugins/transcode/burn-transcode.c:626
+#: ../plugins/transcode/burn-transcode.c:657
+#: ../plugins/transcode/burn-transcode.c:679
+#: ../plugins/transcode/burn-vob.c:189 ../plugins/transcode/burn-vob.c:392
+#: ../plugins/transcode/burn-vob.c:545 ../plugins/transcode/burn-vob.c:675
+#: ../plugins/transcode/burn-vob.c:1039 ../plugins/transcode/burn-vob.c:1115
+#: ../plugins/transcode/burn-vob.c:1166
 #, c-format
 msgid "Impossible to link plugin pads"
 msgstr "ไม่สามารถเชื่อมต่อช่องข้อมูลระหว่างปลั๊กอิน"
@@ -3114,44 +3231,44 @@ msgstr "ไม่สามารถเชื่อมต่อช่องข้
 msgid "Normalizing tracks"
 msgstr "เกลี่ยความดังเพลง"
 
-#: ../plugins/transcode/burn-normalize.c:644
+#: ../plugins/transcode/burn-normalize.c:643
 msgid "Normalization"
 msgstr "การเกลี่ยความดัง"
 
-#: ../plugins/transcode/burn-normalize.c:645
+#: ../plugins/transcode/burn-normalize.c:644
 msgid "Sets consistent sound levels between tracks"
 msgstr "ปรับความดังของเพลงต่างๆ ให้สม่ำเสมอกัน"
 
 #. Translators: %s is the string error from errno
-#: ../plugins/transcode/burn-transcode.c:1086
-#: ../plugins/transcode/burn-transcode.c:1274
+#: ../plugins/transcode/burn-transcode.c:1050
+#: ../plugins/transcode/burn-transcode.c:1238
 #, c-format
 msgid "Error while padding file (%s)"
 msgstr "เกิดข้อผิดพลาดขณะเติมข้อมูลอุดช่องว่างในแฟ้ม (%s)"
 
-#: ../plugins/transcode/burn-transcode.c:1350
+#: ../plugins/transcode/burn-transcode.c:1313
 msgid "Error while getting duration"
 msgstr "เกิดข้อผิดพลาดขณะอ่านความยาวเพลง"
 
-#: ../plugins/transcode/burn-transcode.c:1499
+#: ../plugins/transcode/burn-transcode.c:1462
 #, c-format
 msgid "Analysing \"%s\""
 msgstr "กำลังวิเคราะห์ \"%s\""
 
-#: ../plugins/transcode/burn-transcode.c:1536
+#: ../plugins/transcode/burn-transcode.c:1499
 #, c-format
 msgid "Transcoding \"%s\""
 msgstr "กำลังแปลงรหัส \"%s\""
 
-#: ../plugins/transcode/burn-transcode.c:1773
+#: ../plugins/transcode/burn-transcode.c:1736
 msgid "Converts any song file into a format suitable for audio CDs"
 msgstr "แปลงฟอร์แมตแฟ้มเพลงต่างๆ ให้เป็นฟอร์แมตที่เหมาะสมสำหรับซีดีเพลง"
 
-#: ../plugins/transcode/burn-vob.c:1264
+#: ../plugins/transcode/burn-vob.c:1251
 msgid "Converting video file to MPEG2"
 msgstr "กำลังแปลงแฟ้มวีดิทัศน์ไปเป็น MPEG2"
 
-#: ../plugins/transcode/burn-vob.c:1367
+#: ../plugins/transcode/burn-vob.c:1353
 msgid "Converts any video file into a format suitable for video DVDs"
 msgstr "แปลงฟอร์แมตแฟ้มวีดิทัศน์ต่างๆ ให้เป็นฟอร์แมตที่เหมาะสมสำหรับดีวีดีภาพยนตร์"
 
@@ -3159,92 +3276,136 @@ msgstr "แปลงฟอร์แมตแฟ้มวีดิทัศน์
 msgid "Creates disc images suitable for SVCDs"
 msgstr "สร้างอิมเมจของแผ่นที่เหมาะสำหรับ SVCD"
 
-#: ../src/burner-app.c:124
+#: ../src/burner-app.c:72
+#, fuzzy
+msgid "W_elcom project"
+msgstr "โครงการแผ่น_ภาพยนตร์"
+
+#: ../src/burner-app.c:73 ../src/burner-app.c:83
+msgid "Create a data CD/DVD"
+msgstr "สร้างซีดี/ดีวีดีข้อมูล"
+
+#: ../src/burner-app.c:74 ../src/burner-app.c:84
+#: ../src/burner-project-manager.c:106
+msgid ""
+"Create a CD/DVD containing any type of data that can only be read on a "
+"computer"
+msgstr "สร้างซีดี/ดีวีดีข้อมูล ซึ่งเปิดได้บนคอมพิวเตอร์เท่านั้น"
+
+#. {N_("Audi_o project"),
+#. N_("Create a traditional audio CD"),
+#. N_("Create a traditional audio CD that will be playable on computers and stereos"),
+#. "media-optical-audio-new",
+#. BURNER_PROJECT_TYPE_AUDIO},
+#: ../src/burner-app.c:82
+msgid "D_ata project"
+msgstr "โครงการแผ่น_ข้อมูล"
+
+#. {N_("_Video project"),
+#. N_("Create a video DVD or an SVCD"),
+#. N_("Create a video DVD or an SVCD that is readable on TV readers"),
+#. "media-optical-video-new",
+#. BURNER_PROJECT_TYPE_VIDEO},
+#. {N_("Disc _copy"),
+#. N_("Create 1:1 copy of a CD/DVD"),
+#. N_("Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on another CD/DVD"),
+#. "media-optical-copy",
+#. BURNER_PROJECT_TYPE_COPY},
+#: ../src/burner-app.c:97
+msgid "Burn _image"
+msgstr "เขียน_อิมเมจ"
+
+#: ../src/burner-app.c:98 ../src/burner-app.c:99
+#: ../src/burner-project-manager.c:112
+msgid "Burn an existing CD/DVD image to disc"
+msgstr "เขียนอิมเมจซีดี/ดีวีดีลงแผ่น"
+
+#: ../src/burner-app.c:162
 msgid "_Project"
 msgstr "โ_ครงการ"
 
-#: ../src/burner-app.c:125
+#: ../src/burner-app.c:163
 msgid "_View"
 msgstr "มุ_มมอง"
 
-#: ../src/burner-app.c:126
+#: ../src/burner-app.c:164
 msgid "_Edit"
 msgstr "แ_ก้ไข"
 
-#: ../src/burner-app.c:127
+#: ../src/burner-app.c:165
 msgid "_Tools"
 msgstr "เครื่อ_งมือ"
 
-#: ../src/burner-app.c:129
+#: ../src/burner-app.c:167
 msgid "_Help"
 msgstr "_วิธีใช้"
 
-#: ../src/burner-app.c:131
+#: ../src/burner-app.c:169
 msgid "P_lugins"
 msgstr "_ปลั๊กอิน"
 
-#: ../src/burner-app.c:132
+#: ../src/burner-app.c:170
 msgid "Choose plugins for Burner"
 msgstr "เลือกปลั๊กอินสำหรับ Burner"
 
-#: ../src/burner-app.c:134
+#: ../src/burner-app.c:172
 msgid "E_ject"
 msgstr "ดั_นแผ่นออก"
 
-#: ../src/burner-app.c:135
+#: ../src/burner-app.c:173
 msgid "Eject a disc"
 msgstr "ดันแผ่นออก"
 
-#: ../src/burner-app.c:137
+#: ../src/burner-app.c:175
 msgid "_Blank…"
 msgstr "_ล้างข้อมูล…"
 
-#: ../src/burner-app.c:138
+#: ../src/burner-app.c:176
 msgid "Blank a disc"
 msgstr "ล้างข้อมูลในแผ่น"
 
-#: ../src/burner-app.c:140
+#: ../src/burner-app.c:178
 msgid "_Check Integrity…"
 msgstr "_ตรวจสอบข้อมูลแผ่น…"
 
-#: ../src/burner-app.c:141
+#: ../src/burner-app.c:179
 msgid "Check data integrity of disc"
 msgstr "ตรวจสอบความถูกต้องของข้อมูลในแผ่น"
 
-#: ../src/burner-app.c:144
+#: ../src/burner-app.c:182
 msgid "Quit Burner"
 msgstr "ออกจาก Burner"
 
-#: ../src/burner-app.c:146
+#: ../src/burner-app.c:184
 msgid "_Contents"
 msgstr "เนื้อ_หา"
 
-#: ../src/burner-app.c:146
+#: ../src/burner-app.c:184
 msgid "Display help"
 msgstr "แสดงวิธีใช้โปรแกรม"
 
-#: ../src/burner-app.c:149
+#: ../src/burner-app.c:187
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: ../src/burner-app.c:421 ../src/burner-app.c:2065
+#: ../src/burner-app.c:460 ../src/burner-app.c:2368
 msgid "Disc Burner"
 msgstr "เครื่องมือเขียนแผ่น"
 
-#: ../src/burner-app.c:787 ../src/burner-app.c:820 ../src/burner-app.c:1449
+#: ../src/burner-app.c:833 ../src/burner-app.c:866 ../src/burner-app.c:1506
 msgid "Error while loading the project"
 msgstr "เกิดข้อผิดพลาดขณะอ่านข้อมูลโครงการ"
 
-#: ../src/burner-app.c:829 ../src/burner-app.c:858 ../src/burner-app.c:918
-#: ../src/burner-project.c:1274
+#: ../src/burner-app.c:875 ../src/burner-app.c:904 ../src/burner-app.c:964
+#: ../src/burner-project.c:1282
 msgid "Please add files to the project."
 msgstr "กรุณาเพิ่มแฟ้มเข้าในโครงการ"
 
-#: ../src/burner-app.c:830 ../src/burner-app.c:859 ../src/burner-app.c:919
+#: ../src/burner-app.c:876 ../src/burner-app.c:905 ../src/burner-app.c:965
 msgid "The project is empty"
 msgstr "ยังไม่มีแฟ้มในโครงการนี้"
 
-#: ../src/burner-app.c:1174
+#: ../src/burner-app.c:1228
 msgid ""
 "Burner is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -3255,7 +3416,7 @@ msgstr ""
 "GNU General Public License ที่เผยแพร่โดยมูลนิธิซอฟต์แวร์เสรี ไม่ว่าจะเป็นสัญญาอนุญาตรุ่นที่ 2 "
 "หรือรุ่นถัดมา (ตามแต่คุณจะเลือก)"
 
-#: ../src/burner-app.c:1179
+#: ../src/burner-app.c:1233
 msgid ""
 "Burner is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -3267,7 +3428,7 @@ msgstr ""
 "*ความเหมาะสมสำหรับวัตถุประสงค์เฉพาะกิจใดๆ* กรุณาอ่าน GNU General Public License "
 "เพื่อดูรายละเอียดเพิ่มเติม"
 
-#: ../src/burner-app.c:1184
+#: ../src/burner-app.c:1238
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -3277,11 +3438,11 @@ msgstr ""
 "กรุณาติดต่อไปที่ Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, "
 "Boston, MA 02110-1301 USA"
 
-#: ../src/burner-app.c:1196
+#: ../src/burner-app.c:1250
 msgid "A simple to use CD/DVD burning application for GNOME"
 msgstr "โปรแกรมเขียนซีดี/ดีวีดีสะดวกใช้สำหรับ GNOME"
 
-#: ../src/burner-app.c:1213
+#: ../src/burner-app.c:1267
 msgid "Burner Homepage"
 msgstr "เว็บไซต์ Burner"
 
@@ -3293,147 +3454,142 @@ msgstr "เว็บไซต์ Burner"
 #. * this translation; in that case, please write each of them on a separate
 #. * line seperated by newlines (\n).
 #.
-#: ../src/burner-app.c:1225
+#: ../src/burner-app.c:1279
 msgid "translator-credits"
 msgstr ""
 "Isriya Paireepairit <markpeak@gmail.com>\n"
 "Theppitak Karoonboonyanan <thep@linux.thai.net>"
 
-#: ../src/burner-app.c:1447
+#: ../src/burner-app.c:1504
 #, c-format
 msgid "The project \"%s\" does not exist"
 msgstr "ไม่มีโครงการ \"%s\" อยู่"
 
-#: ../src/burner-app.c:1731 ../src/burner-app.c:1737
+#: ../src/burner-app.c:1788 ../src/burner-app.c:1794
 msgid "_Recent Projects"
 msgstr "โ_ครงการล่าสุด"
 
-#: ../src/burner-app.c:1732
+#: ../src/burner-app.c:1789
 msgid "Display the projects recently opened"
 msgstr "แสดงโครงการล่าสุดที่เพิ่งเปิด"
 
-#: ../src/burner-audio-disc.c:155 ../src/burner-data-disc.c:122
-#: ../src/burner-video-disc.c:100
-msgid "Menu"
-msgstr "เมนู"
-
-#: ../src/burner-audio-disc.c:156 ../src/burner-data-disc.c:123
+#: ../src/burner-audio-disc.c:158 ../src/burner-data-disc.c:125
 msgid "Open the selected files"
 msgstr "เปิดแฟ้มที่เลือก"
 
-#: ../src/burner-audio-disc.c:158 ../src/burner-video-disc.c:103
+#: ../src/burner-audio-disc.c:160 ../src/burner-video-disc.c:105
 msgid "_Edit Information…"
 msgstr "แ_ก้ไขข้อมูล…"
 
-#: ../src/burner-audio-disc.c:158
+#: ../src/burner-audio-disc.c:160
 msgid "Edit the track information (start, end, author, etc.)"
 msgstr "แก้ไขข้อมูลเพลง (เริ่ม, หยุด, ศิลปิน ฯลฯ)"
 
-#: ../src/burner-audio-disc.c:160 ../src/burner-data-disc.c:127
-#: ../src/burner-project.c:200
+#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
+#: ../src/burner-project.c:204
 msgid "Remove the selected files from the project"
 msgstr "ลบแฟ้มที่เลือกจากโครงการ"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Paste files"
 msgstr "แปะแฟ้มต่างๆ"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Add the files stored in the clipboard"
 msgstr "เพิ่มแฟ้มต่างๆ จากในคลิปบอร์ด"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "I_nsert a Pause"
 msgstr "แ_ทรกช่วงพัก"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "Add a 2 second pause after the track"
 msgstr "เว้นช่วงพัก 2 วินาทีระหว่างเพลง"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "_Split Track…"
 msgstr "ตัดแ_บ่งร่อง…"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "Split the selected track"
 msgstr "ตัดแบ่งเพลงที่เลือก"
 
-#: ../src/burner-audio-disc.c:343 ../src/burner-video-tree-model.c:187
+#: ../src/burner-audio-disc.c:345 ../src/burner-video-tree-model.c:187
 msgid "Pause"
 msgstr "พัก"
 
-#: ../src/burner-audio-disc.c:349
+#: ../src/burner-audio-disc.c:351
 msgid "Split"
 msgstr "ตัดแบ่ง"
 
-#: ../src/burner-audio-disc.c:418
+#: ../src/burner-audio-disc.c:420
 msgid "Track"
 msgstr "ร่องเสียง"
 
-#: ../src/burner-audio-disc.c:458 ../src/burner-video-disc.c:1206
+#: ../src/burner-audio-disc.c:460 ../src/burner-video-disc.c:1214
 msgid "Title"
 msgstr "ชื่อเพลง"
 
-#: ../src/burner-audio-disc.c:480
+#: ../src/burner-audio-disc.c:482
 msgid "Artist"
 msgstr "ศิลปิน"
 
-#: ../src/burner-audio-disc.c:488 ../src/burner-playlist.c:772
-#: ../src/burner-split-dialog.c:1219
+#: ../src/burner-audio-disc.c:490 ../src/burner-playlist.c:775
+#: ../src/burner-split-dialog.c:1231
 msgid "Length"
 msgstr "ความยาว"
 
-#: ../src/burner-audio-disc.c:585
+#: ../src/burner-audio-disc.c:587
 msgid "The track will be padded at its end."
 msgstr "จะมีการเติมช่วงว่างที่ท้ายร่องเสียง"
 
-#: ../src/burner-audio-disc.c:586
+#: ../src/burner-audio-disc.c:588
 msgid "The track is shorter than 6 seconds"
 msgstr "ร่องเสียงนี้สั้นกว่า 6 วินาที"
 
-#: ../src/burner-audio-disc.c:646
+#: ../src/burner-audio-disc.c:648
 msgid "Make sure the appropriate codec is installed"
 msgstr "กรุณาตรวจสอบว่าได้ติดตั้ง codec ที่จำเป็น"
 
-#: ../src/burner-audio-disc.c:662
+#: ../src/burner-audio-disc.c:664
 #, c-format
 msgid "Do you want to add \"%s\", which is a video file?"
 msgstr "คุณต้องการเพิ่ม \"%s\" ซึ่งเป็นแฟ้มวีดิทัศน์หรือไม่?"
 
-#: ../src/burner-audio-disc.c:671
+#: ../src/burner-audio-disc.c:673
 msgid ""
 "This file is a video and therefore only the audio part can be written to the "
 "disc."
 msgstr "แฟ้มนี้เป็นแฟ้มวีดิทัศน์ และสามารถเขียนเฉพาะส่วนข้อมูลเสียงเท่านั้นลงแผ่นได้"
 
-#: ../src/burner-audio-disc.c:674
+#: ../src/burner-audio-disc.c:676
 msgid "_Discard File"
 msgstr "_ละทิ้งแฟ้ม"
 
-#: ../src/burner-audio-disc.c:677
+#: ../src/burner-audio-disc.c:679
 msgid "_Add File"
 msgstr "เ_พิ่มแฟ้ม"
 
-#: ../src/burner-audio-disc.c:748
+#: ../src/burner-audio-disc.c:751
 msgid "Do you want to search for audio files inside the directory?"
 msgstr "คุณต้องการค้นหาแฟ้มเพลงในไดเรกทอรีหรือไม่?"
 
-#: ../src/burner-audio-disc.c:758
+#: ../src/burner-audio-disc.c:761
 msgid "Search _Directory"
 msgstr "ค้นไ_ดเรกทอรี"
 
-#: ../src/burner-audio-disc.c:812 ../src/burner-video-disc.c:395
+#: ../src/burner-audio-disc.c:816 ../src/burner-video-disc.c:398
 #, c-format
 msgid "\"%s\" could not be opened."
 msgstr "ไม่สามารถเปิด \"%s\""
 
-#: ../src/burner-audio-disc.c:857
+#: ../src/burner-audio-disc.c:861
 msgid "Do you want to create an audio CD with DTS tracks?"
 msgstr "คุณต้องการสร้างซีดีเพลงโดยใช้ร่องเสียงแบบ DTS หรือไม่?"
 
-#: ../src/burner-audio-disc.c:858
+#: ../src/burner-audio-disc.c:862
 msgid ""
 "Some of the selected songs are suitable for creating DTS tracks.\n"
 "This type of audio CD track provides a higher quality of sound but can only "
@@ -3444,119 +3600,103 @@ msgstr ""
 "ร่องเสียงซีดีชนิดนี้จะให้คุณภาพเสียงสูงกว่า แต่จะสามารถเล่นได้ในเครื่องเล่นดิจิทัลบางชนิดเท่านั้น\n"
 "หมายเหตุ: ถ้าคุณเลือกสร้างร่องเสียงแบบ DTS ก็จะไม่มีการเกลี่ยความดังเสียงในร่องเสียงเหล่านี้"
 
-#: ../src/burner-audio-disc.c:867
+#: ../src/burner-audio-disc.c:871
 msgid "Create _Regular Tracks"
 msgstr "สร้างร่องเสียงแบบธรร_มดา"
 
-#: ../src/burner-audio-disc.c:869
+#: ../src/burner-audio-disc.c:873
 msgid "Click here to burn all songs as regular tracks"
 msgstr "คลิกที่นี่ถ้าต้องการเขียนเพลงทั้งหมดเป็นร่องเสียงธรรมดา"
 
-#: ../src/burner-audio-disc.c:872
+#: ../src/burner-audio-disc.c:876
 msgid "Create _DTS Tracks"
 msgstr "สร้างร่องเสียงแบบ _DTS"
 
-#: ../src/burner-audio-disc.c:874
+#: ../src/burner-audio-disc.c:878
 msgid "Click here to burn all suitable songs as DTS tracks"
 msgstr "คลิกที่นี่ถ้าต้องการเขียนเพลงทั้งหมดที่เขียนแบบ DTS ได้เป็นร่องเสียงแบบ DTS"
 
-#: ../src/burner-audio-disc.c:1290
+#: ../src/burner-audio-disc.c:1294
 msgid "Select one song only please."
 msgstr "กรุณาเลือกทีละเพลง"
 
-#: ../src/burner-audio-disc.c:1291
+#: ../src/burner-audio-disc.c:1295
 msgid "Impossible to split more than one song at a time"
 msgstr "ไม่สามารถตัดแบ่งเพลงมากกว่าครั้งละหนึ่งเพลงได้"
 
-#: ../src/burner-cli.c:70
+#: ../src/burner-cli.c:71
 msgid "Open the specified project"
 msgstr "เปิดโครงการที่ระบุ"
 
-#: ../src/burner-cli.c:71
+#: ../src/burner-cli.c:72
 msgid "PROJECT"
 msgstr "โครงการ"
 
-#: ../src/burner-cli.c:76
-msgid "Open the specified playlist as an audio project"
-msgstr "เปิดรายการการเล่นที่ระบุและใช้เป็นโครงการแผ่นเพลง"
-
-#: ../src/burner-cli.c:77
-msgid "PLAYLIST"
-msgstr "รายการการเล่น"
-
-#: ../src/burner-cli.c:82
+#: ../src/burner-cli.c:83
 msgid "Set the drive to be used for burning"
 msgstr "กำหนดไดรว์ที่จะใช้เขียนแผ่น"
 
-#: ../src/burner-cli.c:83
+#: ../src/burner-cli.c:84
 msgid "DEVICE PATH"
 msgstr "พาธของอุปกรณ์"
 
-#: ../src/burner-cli.c:86
+#: ../src/burner-cli.c:87
 msgid "Create an image file instead of burning"
 msgstr "สร้างแฟ้มอิมเมจแทนการเขียนแผ่น"
 
-#: ../src/burner-cli.c:90
-msgid "Open an audio project adding the URIs given on the command line"
-msgstr "เปิดโครงการแผ่นเพลง พร้อมเพิ่ม URI ต่างๆ ที่ระบุในบรรทัดคำสั่ง"
-
-#: ../src/burner-cli.c:94
+#: ../src/burner-cli.c:95
 msgid "Open a data project adding the URIs given on the command line"
 msgstr "เปิดโครงการแผ่นข้อมูล พร้อมเพิ่ม URI ต่างๆ ที่ระบุในบรรทัดคำสั่ง"
 
-#: ../src/burner-cli.c:98
+#: ../src/burner-cli.c:99
 msgid "Copy a disc"
 msgstr "ทำสำเนาแผ่น"
 
-#: ../src/burner-cli.c:99 ../src/burner-cli.c:119 ../src/burner-cli.c:123
+#: ../src/burner-cli.c:100 ../src/burner-cli.c:120 ../src/burner-cli.c:124
 msgid "PATH TO DEVICE"
 msgstr "พาธของอุปกรณ์"
 
-#: ../src/burner-cli.c:102
+#: ../src/burner-cli.c:103
 msgid "Cover to use"
 msgstr "ปกที่จะใช้"
 
-#: ../src/burner-cli.c:103
+#: ../src/burner-cli.c:104
 msgid "PATH TO COVER"
 msgstr "พาธของปก"
 
-#: ../src/burner-cli.c:106
-msgid "Open a video project adding the URIs given on the command line"
-msgstr "เปิดโครงการแผ่นภาพยนตร์ พร้อมเพิ่ม URI ต่างๆ ที่ระบุในบรรทัดคำสั่ง"
-
-#: ../src/burner-cli.c:110
+#: ../src/burner-cli.c:111
 msgid "URI of an image file to burn (autodetected)"
 msgstr "URI ของแฟ้มอิมเมจที่จะเขียน (ตรวจหาโดยอัตโนมัติ)"
 
-#: ../src/burner-cli.c:111
+#: ../src/burner-cli.c:112
 msgid "PATH TO IMAGE"
 msgstr "พาธของอิมเมจ"
 
-#: ../src/burner-cli.c:114
+#: ../src/burner-cli.c:115
 msgid "Force Burner to display the project selection page"
 msgstr "บังคับให้ Burner แสดงหน้าเลือกโครงการ"
 
-#: ../src/burner-cli.c:118
+#: ../src/burner-cli.c:119
 msgid "Open the blank disc dialog"
 msgstr "เปิดกล่องโต้ตอบล้างข้อมูลแผ่น"
 
-#: ../src/burner-cli.c:122
+#: ../src/burner-cli.c:123
 msgid "Open the check disc dialog"
 msgstr "เปิดกล่องโต้ตอบตรวจสอบแผ่น"
 
-#: ../src/burner-cli.c:126
+#: ../src/burner-cli.c:127
 msgid "Burn the contents of the burn:// URI"
 msgstr "เขียนเนื้อหาใน URI burn:// ลงแผ่น"
 
-#: ../src/burner-cli.c:130
+#: ../src/burner-cli.c:131
 msgid "Start burning immediately."
 msgstr "เริ่มเขียนแผ่นทันที"
 
-#: ../src/burner-cli.c:134
+#: ../src/burner-cli.c:135
 msgid "Don't connect to an already-running instance"
 msgstr "ไม่ต้องเชื่อมต่อไปยังโพรเซสที่ทำงานอยู่ก่อนแล้ว"
 
-#: ../src/burner-cli.c:138
+#: ../src/burner-cli.c:139
 msgid ""
 "Burn the specified project and remove it.\n"
 "This option is mainly useful for integration with other applications."
@@ -3564,7 +3704,7 @@ msgstr ""
 "เขียนโครงการที่ระบุลงแผ่นแล้วลบทิ้ง\n"
 "ตัวเลือกนี้ใช้สำหรับการทำงานร่วมกับโปรแกรมอื่นเป็นหลัก"
 
-#: ../src/burner-cli.c:139
+#: ../src/burner-cli.c:140
 msgid "PATH"
 msgstr "พาธ"
 
@@ -3573,66 +3713,72 @@ msgstr "พาธ"
 #. * burner will be set to be always on top of the window identified by
 #. * xid. In other words, the window with the given xid will become burner
 #. * parent as if burner was a dialog for the parent application
-#: ../src/burner-cli.c:147
+#: ../src/burner-cli.c:148
 msgid "The XID of the parent window"
 msgstr "XID ของหน้าต่างแม่"
 
 #. Translators: %s is the path of drive
-#: ../src/burner-cli.c:204
+#: ../src/burner-cli.c:205
 #, c-format
 msgid "\"%s\" cannot write."
 msgstr "\"%s\" ไม่สามารถเขียนได้"
 
-#: ../src/burner-cli.c:206 ../src/burner-cli.c:220
+#: ../src/burner-cli.c:207 ../src/burner-cli.c:221
 msgid "Wrong command line option."
 msgstr "ตัวเลือกในบรรทัดคำสั่งไม่ถูกต้อง"
 
-#: ../src/burner-cli.c:297
+#: ../src/burner-cli.c:298
 msgid "Incompatible command line options used."
 msgstr "ตัวเลือกในบรรทัดคำสั่งไม่เข้ากัน"
 
-#: ../src/burner-cli.c:298
+#: ../src/burner-cli.c:299
 msgid "Only one option can be given at a time"
 msgstr "สามารถใช้ตัวเลือกได้ทีละตัวเท่านั้น"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "R_ename…"
 msgstr "เ_ปลี่ยนชื่อ…"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "Rename the selected file"
 msgstr "เปลี่ยนชื่อแฟ้มที่เลือก"
 
-#: ../src/burner-data-disc.c:131 ../src/burner-data-disc.c:1758
+#. {"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+#: ../src/burner-data-disc.c:134 ../src/burner-data-disc.c:1783
 msgid "New _Folder"
 msgstr "โฟ_ลเดอร์ใหม่"
 
-#: ../src/burner-data-disc.c:131
+#: ../src/burner-data-disc.c:134
 msgid "Create a new empty folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: ../src/burner-data-disc.c:213
+#: ../src/burner-data-disc.c:216
 msgid "The session could not be imported."
 msgstr "ไม่สามารถนำเข้าวาระการเขียนได้"
 
-#: ../src/burner-data-disc.c:559
+#: ../src/burner-data-disc.c:562
 msgid "The contents of the project changed since it was saved."
 msgstr "เนื้อหาในโครงการนี้มีการเปลี่ยนแปลงหลังจากถูกบันทึกครั้งสุดท้าย"
 
-#: ../src/burner-data-disc.c:561 ../src/burner-data-disc.c:569
-msgid "Discard the current modified project"
+#: ../src/burner-data-disc.c:564
+#, fuzzy
+msgid "Discard the current modified project ?"
 msgstr "ละทิ้งโครงการปัจจุบันซึ่งมีการเปลี่ยนแปลง"
 
-#: ../src/burner-data-disc.c:567
+#: ../src/burner-data-disc.c:570
 msgid "_Discard"
 msgstr "_ละทิ้ง"
 
-#: ../src/burner-data-disc.c:574
+#: ../src/burner-data-disc.c:572
+msgid "Discard the current modified project"
+msgstr "ละทิ้งโครงการปัจจุบันซึ่งมีการเปลี่ยนแปลง"
+
+#: ../src/burner-data-disc.c:577
 msgid "Continue with the current modified project"
 msgstr "ดำเนินการโครงการปัจจุบันซึ่งมีการเปลี่ยนแปลงต่อ"
 
 #. Translators: %s is the name of the image
-#: ../src/burner-data-disc.c:619
+#: ../src/burner-data-disc.c:622
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
@@ -3640,35 +3786,35 @@ msgid ""
 msgstr ""
 "มีแฟ้มที่เลือกไว้เพียงแฟ้มเดียว (\"%s\") ซึ่งเป็นอิมเมจของแผ่นและตัวเนื้อหาสามารถเขียนลงแผ่นได้"
 
-#: ../src/burner-data-disc.c:625
+#: ../src/burner-data-disc.c:628
 msgid "Burn as _Data"
 msgstr "เขียนเป็น_ข้อมูล"
 
-#: ../src/burner-data-disc.c:627
+#: ../src/burner-data-disc.c:630
 msgid "Burn as _Image"
 msgstr "เขียนเป็น_อิมเมจ"
 
-#: ../src/burner-data-disc.c:673 ../src/burner-data-disc.c:691
-#: ../src/burner-data-disc.c:709
+#: ../src/burner-data-disc.c:677 ../src/burner-data-disc.c:695
+#: ../src/burner-data-disc.c:713
 #, c-format
 msgid "\"%s\" cannot be added to the selection."
 msgstr "ไม่สามารถเพิ่ม \"%s\" เข้าในรายการการเลือก"
 
-#: ../src/burner-data-disc.c:694
+#: ../src/burner-data-disc.c:698
 msgid "It is a recursive symlink"
 msgstr "รายการดังกล่าวเป็น symlink ที่วนเข้าหาตัวเอง"
 
-#: ../src/burner-data-disc.c:712
+#: ../src/burner-data-disc.c:716
 msgid "It does not exist at the specified location"
 msgstr "ไม่มีรายการดังกล่าวในตำแหน่งที่ระบุ"
 
 #. Translators: %s is the name of the file
-#: ../src/burner-data-disc.c:771
+#: ../src/burner-data-disc.c:776
 #, c-format
 msgid "Do you want to replace \"%s\"?"
 msgstr "คุณต้องการเขียนข้อมูลทับ \"%s\" หรือไม่?"
 
-#: ../src/burner-data-disc.c:779
+#: ../src/burner-data-disc.c:784
 msgid ""
 "A file with this name already exists in the folder.  Replacing it will "
 "overwrite its contents on the disc to be burnt."
@@ -3677,14 +3823,14 @@ msgstr "มีแฟ้มชื่อนี้อยู่ก่อนแล้
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:784
+#: ../src/burner-data-disc.c:789
 msgid "Always K_eep"
 msgstr "คงไ_ว้เสมอ"
 
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:788
+#: ../src/burner-data-disc.c:793
 msgid "_Keep"
 msgstr "_คงไว้"
 
@@ -3692,265 +3838,268 @@ msgstr "_คงไว้"
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
 #. Translators: this is a verb
-#: ../src/burner-data-disc.c:792 ../src/burner-rename.c:385
+#: ../src/burner-data-disc.c:797 ../src/burner-rename.c:385
 msgid "_Replace"
 msgstr "แ_ทนที่"
 
 #. Translators: Replace means we're replacing the file that already
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
-#: ../src/burner-data-disc.c:796
+#: ../src/burner-data-disc.c:801
 msgid "Al_ways Replace"
 msgstr "แท_นที่เสมอ"
 
 #. Translators: %s is a string describing the type of medium and the
 #. * drive it is in. It's a tooltip.
-#: ../src/burner-data-disc.c:979
+#: ../src/burner-data-disc.c:989
 #, c-format
 msgid "Import %s"
 msgstr "นำเข้า %s"
 
 #. Translators: %s is the name of the volume to import. It's a menu
 #. * entry and toolbar button (text added later).
-#: ../src/burner-data-disc.c:986
+#: ../src/burner-data-disc.c:996
 #, c-format
 msgid "I_mport %s"
 msgstr "_นำเข้า %s"
 
+#: ../src/burner-data-disc.c:1006
+#, fuzzy
+msgid "Import Disc"
+msgstr "นำเข้า %s"
+
 #. Translators: This is a verb. It's a toolbar button.
-#: ../src/burner-data-disc.c:1016
+#: ../src/burner-data-disc.c:1031
 msgid "I_mport"
 msgstr "_นำเข้า"
 
 #. Translators: %s is the name of the volume to import
-#: ../src/burner-data-disc.c:1098
+#: ../src/burner-data-disc.c:1121
 #, c-format
 msgid "Do you want to import the session from \"%s\"?"
 msgstr "คุณต้องการนำเข้าวาระการเขียนจาก \"%s\" หรือไม่?"
 
-#: ../src/burner-data-disc.c:1101
+#: ../src/burner-data-disc.c:1124
 msgid ""
 "That way, old files from previous sessions will be usable after burning."
 msgstr ""
 "การนำเข้าวาระการเขียน จะทำให้สามารถใช้งานแฟ้มเก่าในการเขียนวาระก่อนๆ ได้ "
 "หลังจากเขียนแผ่นเสร็จแล้ว"
 
-#: ../src/burner-data-disc.c:1109
+#: ../src/burner-data-disc.c:1132
 msgid "I_mport Session"
 msgstr "_นำเข้าวาระการเขียน"
 
-#: ../src/burner-data-disc.c:1111
+#: ../src/burner-data-disc.c:1134
 msgid "Click here to import its contents"
 msgstr "คลิกที่นี่เพื่อนำเข้าเนื้อหา"
 
-#: ../src/burner-data-disc.c:1490
+#: ../src/burner-data-disc.c:1513
 msgid "Please wait while the project is loading."
 msgstr "กรุณารอขณะอ่านข้อมูลโครงการ"
 
-#: ../src/burner-data-disc.c:1500
+#: ../src/burner-data-disc.c:1523
 msgid "_Cancel Loading"
 msgstr "เ_ลิกอ่าน"
 
-#: ../src/burner-data-disc.c:1502
+#: ../src/burner-data-disc.c:1525
 msgid "Cancel loading current project"
 msgstr "ยกเลิกการอ่านโครงการปัจจุบัน"
 
-#: ../src/burner-data-disc.c:1903
+#: ../src/burner-data-disc.c:1933
 msgid "File Renaming"
 msgstr "การเปลี่ยนชื่อแฟ้ม"
 
-#: ../src/burner-data-disc.c:1907
+#: ../src/burner-data-disc.c:1937
 msgid "_Rename"
 msgstr "เ_ปลี่ยนชื่อ"
 
-#: ../src/burner-data-disc.c:1913
+#: ../src/burner-data-disc.c:1943
 msgid "Renaming mode"
 msgstr "วิธีการเปลี่ยนชื่อ"
 
-#: ../src/burner-data-disc.c:2336 ../src/burner-file-filtered.c:256
+#: ../src/burner-data-disc.c:2367 ../src/burner-file-filtered.c:309
 msgid "Files"
 msgstr "แฟ้ม"
 
-#: ../src/burner-data-disc.c:2350 ../src/burner-video-disc.c:1224
+#: ../src/burner-data-disc.c:2381 ../src/burner-video-disc.c:1232
 msgid "Size"
 msgstr "ขนาด"
 
-#: ../src/burner-data-disc.c:2364
+#: ../src/burner-data-disc.c:2395
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: ../src/burner-data-disc.c:2380
+#: ../src/burner-data-disc.c:2411
 msgid "Space"
 msgstr "ที่ว่าง"
 
-#: ../src/burner-eject-dialog.c:95
+#: ../src/burner-eject-dialog.c:97
 #, c-format
 msgid "The disc in \"%s\" cannot be ejected"
 msgstr "ไม่สามารถดันแผ่นใน \"%s\" ออกได้"
 
-#: ../src/burner-eject-dialog.c:190
+#: ../src/burner-eject-dialog.c:193
 msgid "_Eject"
 msgstr "ดั_นแผ่นออก"
 
-#: ../src/burner-eject-dialog.c:205
+#: ../src/burner-eject-dialog.c:208
 msgid "Eject Disc"
 msgstr "ดันแผ่นออก"
 
-#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2226
+#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2290
 msgid "Audio files"
 msgstr "แฟ้มเสียง"
 
-#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2235
+#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2299
 msgid "Movies"
 msgstr "ภาพยนตร์"
 
-#: ../src/burner-file-filtered.c:75 ../src/burner-file-filtered.c:81
+#: ../src/burner-file-filtered.c:77 ../src/burner-file-filtered.c:83
 msgid "No file filtered"
 msgstr "ไม่มีแฟ้มที่ถูกกรองออก"
 
-#: ../src/burner-file-filtered.c:77
+#: ../src/burner-file-filtered.c:79
 #, c-format
 msgid "Hide the _filtered file list (%d file)"
 msgid_plural "Hide the _filtered file list (%d files)"
 msgstr[0] "ซ่อนรายชื่อแฟ้มที่ถูก_กรองออก (%d แฟ้ม)"
 
-#: ../src/burner-file-filtered.c:83
+#: ../src/burner-file-filtered.c:85
 #, c-format
 msgid "Show the _filtered file list (%d file)"
 msgid_plural "Show the _filtered file list (%d files)"
 msgstr[0] "แสดงรายชื่อแฟ้มที่ถูก_กรองออก (%d แฟ้ม)"
 
-#: ../src/burner-file-filtered.c:135
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../src/burner-file-filtered.c:150 ../src/burner-file-filtered.c:174
 msgid "Filter Options"
 msgstr "ตัวเลือกการกรอง"
 
-#: ../src/burner-file-filtered.c:218
+#: ../src/burner-file-filtered.c:271
 msgid ""
 "Select the files you want to restore and click on the \"Restore\" button"
 msgstr "เลือกแฟ้มที่ต้องการกู้คืนแล้วคลิกที่ปุ่ม \"กู้คืน\""
 
-#: ../src/burner-file-filtered.c:265
+#: ../src/burner-file-filtered.c:318
 msgid "Type"
 msgstr "ชนิด"
 
-#: ../src/burner-file-filtered.c:292
+#: ../src/burner-file-filtered.c:345
 msgid "_Restore"
 msgstr "กู้_คืน"
 
-#: ../src/burner-file-filtered.c:301
+#: ../src/burner-file-filtered.c:354
 msgid "Restore the selected files"
 msgstr "กู้แฟ้มที่เลือกคืน"
 
-#: ../src/burner-file-filtered.c:303
+#: ../src/burner-file-filtered.c:356
 msgid "_Options…"
 msgstr "_ตัวเลือก…"
 
-#: ../src/burner-file-filtered.c:311
+#: ../src/burner-file-filtered.c:364
 msgid "Set the options for file filtering"
 msgstr "กำหนดตัวเลือกสำหรับการกรองแฟ้ม"
 
 #. filter hidden files
-#: ../src/burner-filter-option.c:65
+#: ../src/burner-filter-option.c:66
 msgid "Filter _hidden files"
 msgstr "กรองแฟ้มซ่อ_น"
 
 #. replace symlink
-#: ../src/burner-filter-option.c:72
+#: ../src/burner-filter-option.c:74
 msgid "Re_place symbolic links"
 msgstr "แ_ทนลิงก์สัญลักษณ์ด้วยปลายทาง"
 
 #. filter broken symlink button
-#: ../src/burner-filter-option.c:79
+#: ../src/burner-filter-option.c:82
 msgid "Filter _broken symbolic links"
 msgstr "กรองลิงก์สัญลักษณ์ที่เ_สียออก"
 
-#: ../src/burner-filter-option.c:85
-msgid "Filtering options"
-msgstr "ตัวเลือกการกรอง"
-
-#: ../src/burner-layout.c:100
+#: ../src/burner-layout.c:105
 msgid "P_review"
 msgstr "_ตัวอย่าง"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
-#: ../src/burner-layout.c:102
+#: ../src/burner-layout.c:107
 msgid "Display video, audio and image preview"
 msgstr "แสดงตัวอย่างวีดิทัศน์ เสียง และภาพ"
 
-#: ../src/burner-layout.c:106
+#: ../src/burner-layout.c:111
 msgid "_Show Side Panel"
 msgstr "แ_สดงช่องด้านข้าง"
 
-#: ../src/burner-layout.c:107
+#: ../src/burner-layout.c:112
 msgid "Show a side pane along the project"
 msgstr "แสดงช่องด้านข้างคู่ไปกับโครงการ"
 
-#: ../src/burner-layout.c:121
+#: ../src/burner-layout.c:126
 msgid "_Horizontal Layout"
 msgstr "จัดวางแนว_นอน"
 
-#: ../src/burner-layout.c:122
+#: ../src/burner-layout.c:127
 msgid "Set a horizontal layout"
 msgstr "ใช้การจัดวางแนวนอน"
 
-#: ../src/burner-layout.c:124
+#: ../src/burner-layout.c:129
 msgid "_Vertical Layout"
 msgstr "จัดวางแนว_ตั้ง"
 
-#: ../src/burner-layout.c:125
+#: ../src/burner-layout.c:130
 msgid "Set a vertical layout"
 msgstr "ใช้การจัดวางแนวตั้ง"
 
-#: ../src/burner-layout.c:1183
+#: ../src/burner-layout.c:1194
 msgid "Click to close the side pane"
 msgstr "คลิกเพื่อปิดช่องด้านข้าง"
 
-#: ../src/burner-multi-song-props.c:89 ../src/burner-multi-song-props.c:97
-#: ../src/burner-multi-song-props.c:105 ../src/burner-multi-song-props.c:123
-#: ../src/burner-multi-song-props.c:139 ../src/burner-multi-song-props.c:160
-#: ../src/burner-multi-song-props.c:173 ../src/burner-multi-song-props.c:249
-#: ../src/burner-multi-song-props.c:270 ../src/burner-multi-song-props.c:291
+#: ../src/burner-multi-song-props.c:90 ../src/burner-multi-song-props.c:98
+#: ../src/burner-multi-song-props.c:106 ../src/burner-multi-song-props.c:124
+#: ../src/burner-multi-song-props.c:140 ../src/burner-multi-song-props.c:161
+#: ../src/burner-multi-song-props.c:174 ../src/burner-multi-song-props.c:250
+#: ../src/burner-multi-song-props.c:271 ../src/burner-multi-song-props.c:292
 #: ../src/burner-rename.c:90 ../src/burner-rename.c:321
 msgid "<Keep current values>"
 msgstr "<ใช้ค่าปัจจุบัน>"
 
-#: ../src/burner-multi-song-props.c:126 ../src/burner-multi-song-props.c:143
+#: ../src/burner-multi-song-props.c:127 ../src/burner-multi-song-props.c:144
 msgid "Remove silences"
 msgstr "ลบช่วงเงียบ"
 
-#: ../src/burner-multi-song-props.c:211 ../src/burner-multi-song-props.c:252
-#: ../src/burner-multi-song-props.c:273 ../src/burner-song-properties.c:187
-#: ../src/burner-song-properties.c:199 ../src/burner-song-properties.c:211
+#: ../src/burner-multi-song-props.c:212 ../src/burner-multi-song-props.c:253
+#: ../src/burner-multi-song-props.c:274 ../src/burner-song-properties.c:188
+#: ../src/burner-song-properties.c:200 ../src/burner-song-properties.c:212
 msgid ""
 "This information will be written to the disc using CD-Text technology. It "
 "can be read and displayed by some audio CD players."
 msgstr "ข้อมูลนี้จะถูกเขียนลงแผ่นด้วยเทคโนโลยี CD-Text ซึ่งเครื่องเล่นซีดีบางรุ่นสามารถอ่านได้"
 
-#: ../src/burner-multi-song-props.c:213
+#: ../src/burner-multi-song-props.c:214
 msgid "Song titles"
 msgstr "ชื่อเพลง"
 
-#: ../src/burner-multi-song-props.c:230
+#: ../src/burner-multi-song-props.c:231
 msgid "Additional song information"
 msgstr "ข้อมูลอื่นๆ ของเพลง"
 
-#: ../src/burner-multi-song-props.c:242 ../src/burner-song-properties.c:189
+#: ../src/burner-multi-song-props.c:243 ../src/burner-song-properties.c:190
 msgid "Artist:"
 msgstr "ศิลปิน:"
 
-#: ../src/burner-multi-song-props.c:263 ../src/burner-song-properties.c:201
+#: ../src/burner-multi-song-props.c:264 ../src/burner-song-properties.c:202
 msgid "Composer:"
 msgstr "ผู้ประพันธ์:"
 
-#: ../src/burner-multi-song-props.c:317 ../src/burner-song-properties.c:247
+#: ../src/burner-multi-song-props.c:319 ../src/burner-song-properties.c:248
 msgid "Pause length:"
 msgstr "ช่วงพัก:"
 
-#: ../src/burner-multi-song-props.c:328 ../src/burner-song-properties.c:256
+#: ../src/burner-multi-song-props.c:330 ../src/burner-song-properties.c:257
 msgid "Gives the length of the pause that should follow the track"
 msgstr "ป้อนระยะเวลาหยุดพักหลังจากเพลงจบ"
 
-#: ../src/burner-multi-song-props.c:345 ../src/burner-song-properties.c:287
+#: ../src/burner-multi-song-props.c:347 ../src/burner-song-properties.c:288
 msgid "Song Information"
 msgstr "ข้อมูลเพลง"
 
@@ -3964,66 +4113,64 @@ msgstr "%i × %i จุด"
 msgid "No preview"
 msgstr "ไม่มีตัวอย่าง"
 
-#: ../src/burner-playlist.c:390
+#: ../src/burner-playlist.c:392
 #, c-format
 msgid "Error parsing playlist \"%s\"."
 msgstr "เกิดข้อผิดพลาดขณะแจงรายการการเล่น \"%s\""
 
 #. Translators: %d is the number of songs
-#: ../src/burner-playlist.c:499
+#: ../src/burner-playlist.c:501
 #, c-format
 msgid "%d song"
 msgid_plural "%d songs"
 msgstr[0] "%d เพลง"
 
-#: ../src/burner-playlist.c:584
+#: ../src/burner-playlist.c:586
 msgid "Select Playlist"
 msgstr "เลือกรายการการเล่น"
 
-#: ../src/burner-playlist.c:751
+#: ../src/burner-playlist.c:754
 msgid "Playlists"
 msgstr "รายการการเล่น"
 
-#: ../src/burner-playlist.c:762
+#: ../src/burner-playlist.c:765
 msgid "Number of Songs"
 msgstr "จำนวนเพลง"
 
-#: ../src/burner-playlist.c:782
+#: ../src/burner-playlist.c:785
 msgid "Genre"
 msgstr "แนวเพลง"
 
-#: ../src/burner-plugin-manager-ui.c:62
+#: ../src/burner-plugin-manager-ui.c:66
 msgid "Plugin"
 msgstr "ปลั๊กอิน"
 
-#: ../src/burner-plugin-manager-ui.c:63
+#: ../src/burner-plugin-manager-ui.c:67
 msgid "Enabled"
 msgstr "เปิดใช้"
 
-#: ../src/burner-plugin-manager-ui.c:143
+#: ../src/burner-plugin-manager-ui.c:147
 #, c-format
 msgid "Copyright %s"
 msgstr "สงวนลิขสิทธิ์ %s"
 
-#: ../src/burner-plugin-manager-ui.c:579
-#: ../src/burner-plugin-manager-ui.c:967
+#: ../src/burner-plugin-manager-ui.c:581 ../src/burner-plugin-manager-ui.c:969
 msgid "_About"
 msgstr "เ_กี่ยวกับ"
 
-#: ../src/burner-plugin-manager-ui.c:587
-#: ../src/burner-plugin-manager-ui.c:973
+#: ../src/burner-plugin-manager-ui.c:589 ../src/burner-plugin-manager-ui.c:975
 msgid "C_onfigure"
 msgstr "_ตั้งค่า"
 
-#: ../src/burner-plugin-manager-ui.c:597
+#: ../src/burner-plugin-manager-ui.c:599
 msgid "A_ctivate"
 msgstr "เ_ปิดใช้"
 
-#: ../src/burner-plugin-manager-ui.c:609
+#: ../src/burner-plugin-manager-ui.c:611
 msgid "Ac_tivate All"
 msgstr "เปิดใช้_ทั้งหมด"
 
-#: ../src/burner-plugin-manager-ui.c:614
+#: ../src/burner-plugin-manager-ui.c:616
 msgid "_Deactivate All"
 msgstr "ปิดทั้ง_หมด"
 
@@ -4037,69 +4184,69 @@ msgstr "ตัวเลือกสำหรับปลั๊กอิน %s"
 msgid "Burner Plugins"
 msgstr "ปลั๊กอินสำหรับ Burner"
 
-#: ../src/burner-project.c:194
+#: ../src/burner-project.c:198
 msgid "Save current project"
 msgstr "บันทึกโครงการปัจจุบัน"
 
-#: ../src/burner-project.c:195
+#: ../src/burner-project.c:199
 msgid "Save _As…"
 msgstr "บันทึกเป็_น…"
 
-#: ../src/burner-project.c:196
+#: ../src/burner-project.c:200
 msgid "Save current project to a different location"
 msgstr "บันทึกโครงการในตำแหน่งอื่น"
 
-#: ../src/burner-project.c:197
+#: ../src/burner-project.c:201
 msgid "_Add Files"
 msgstr "เ_พิ่มแฟ้ม"
 
-#: ../src/burner-project.c:198
+#: ../src/burner-project.c:202
 msgid "Add files to the project"
 msgstr "เพิ่มแฟ้มลงในโครงการ"
 
-#: ../src/burner-project.c:199
+#: ../src/burner-project.c:203
 msgid "_Remove Files"
 msgstr "_ลบแฟ้ม"
 
 #. Translators: "empty" is a verb here
-#: ../src/burner-project.c:202 ../src/burner-project.c:2308
+#: ../src/burner-project.c:206 ../src/burner-project.c:2372
 msgid "E_mpty Project"
 msgstr "ลบทุ_กแฟ้ม"
 
-#: ../src/burner-project.c:203
+#: ../src/burner-project.c:207
 msgid "Remove all files from the project"
 msgstr "ลบแฟ้มทั้งหมดออกจากโครงการ"
 
-#: ../src/burner-project.c:204 ../src/burner-project.c:1084
+#: ../src/burner-project.c:208 ../src/burner-project.c:1088
 msgid "_Burn…"
 msgstr "เ_ขียนแผ่น…"
 
-#: ../src/burner-project.c:205
+#: ../src/burner-project.c:209
 msgid "Burn the disc"
 msgstr "เขียนแผ่น"
 
-#: ../src/burner-project.c:693
+#: ../src/burner-project.c:697
 msgid ""
 "To add files to this project click the \"Add\" button or drag files to this "
 "area"
 msgstr "เพิ่มแฟ้มเข้าในโครงการได้โดยคลิกปุ่ม \"เพิ่ม\" หรือลากแฟ้มมาวางในพื้นที่นี้"
 
-#: ../src/burner-project.c:695
+#: ../src/burner-project.c:699
 msgid ""
 "To remove files select them then click on the \"Remove\" button or press "
 "\"Delete\" key"
 msgstr "ลบแฟ้มได้โดยเลือกแฟ้มที่จะลบแล้วคลิกปุ่ม \"เอาออก\" หรือกดปุ่ม \"Delete\" ที่แป้นพิมพ์"
 
-#: ../src/burner-project.c:802
+#: ../src/burner-project.c:806
 #, c-format
 msgid "Estimated project size: %s"
 msgstr "ขนาดโครงการโดยประมาณ: %s"
 
-#: ../src/burner-project.c:948 ../src/burner-project.c:964
+#: ../src/burner-project.c:952 ../src/burner-project.c:968
 msgid "The project is too large for the disc even with the overburn option."
 msgstr "โครงการมีขนาดใหญ่เกินขนาดแผ่น ถึงแม้จะใช้ตัวเลือก overburn แล้ว"
 
-#: ../src/burner-project.c:975
+#: ../src/burner-project.c:979
 msgid ""
 "The project is too large for the disc and you must remove files from it.\n"
 "You may want to use this option if you're using 90 or 100 min CD-R(W) which "
@@ -4111,57 +4258,57 @@ msgstr ""
 "ซึ่งไม่สามารถตรวจจับได้ และจำเป็นต้องใช้ตัวเลือก overburn\n"
 "หมายเหตุ: ตัวเลือกนี้อาจทำให้เขียนแผ่นไม่สำเร็จได้"
 
-#: ../src/burner-project.c:1096
+#: ../src/burner-project.c:1100
 msgid "Start to burn the contents of the selection"
 msgstr "เริ่มเขียนข้อมูลที่เลือกไว้"
 
-#: ../src/burner-project.c:1265
+#: ../src/burner-project.c:1273
 msgid "Please add songs to the project."
 msgstr "กรุณาเพิ่มเพลงเข้าในโครงการ"
 
-#: ../src/burner-project.c:1902 ../src/burner-project.c:1937
+#: ../src/burner-project.c:1963 ../src/burner-project.c:1998
 msgid "Do you really want to create a new project and discard the current one?"
 msgstr "คุณต้องการสร้างโครงการใหม่ และทิ้งโครงการปัจจุบันหรือไม่?"
 
-#: ../src/burner-project.c:1907
+#: ../src/burner-project.c:1968
 msgid "If you choose to create a new empty project, all changes will be lost."
 msgstr "ถ้าคุณเลือกสร้างโครงการว่างอันใหม่ การเปลี่ยนแปลงที่ผ่านมาจะถูกละทิ้ง"
 
-#: ../src/burner-project.c:1910
+#: ../src/burner-project.c:1971
 msgid "_Discard Changes"
 msgstr "_ละทิ้งการเปลี่ยนแปลง"
 
-#: ../src/burner-project.c:1918
+#: ../src/burner-project.c:1979
 msgid "Do you want to discard the file selection or add it to the new project?"
 msgstr "คุณต้องการละทิ้งชุดแฟ้มที่เลือก หรือต้องการเพิ่มเข้าในโครงการใหม่?"
 
-#: ../src/burner-project.c:1923 ../src/burner-project.c:1942
+#: ../src/burner-project.c:1984 ../src/burner-project.c:2003
 msgid ""
 "If you choose to create a new empty project, the file selection will be "
 "discarded."
 msgstr "ถ้าคุณเลือกสร้างโครงการว่างอันใหม่ ก็จะละทิ้งชุดแฟ้มที่เลือก"
 
-#: ../src/burner-project.c:1925
+#: ../src/burner-project.c:1986
 msgid "_Discard File Selection"
 msgstr "_ละทิ้งชุดแฟ้มที่เลือก"
 
-#: ../src/burner-project.c:1929
+#: ../src/burner-project.c:1990
 msgid "_Keep File Selection"
 msgstr "เ_ก็บชุดแฟ้มที่เลือกไว้"
 
-#: ../src/burner-project.c:1944
+#: ../src/burner-project.c:2005
 msgid "_Discard Project"
 msgstr "_ละทิ้งโครงการ"
 
-#: ../src/burner-project.c:2184
+#: ../src/burner-project.c:2248
 msgid "Select Files"
 msgstr "เลือกแฟ้ม"
 
-#: ../src/burner-project.c:2297
+#: ../src/burner-project.c:2361
 msgid "Do you really want to empty the current project?"
 msgstr "ยืนยันที่จะล้างข้อมูลในโครงการนี้หรือไม่?"
 
-#: ../src/burner-project.c:2302
+#: ../src/burner-project.c:2366
 msgid ""
 "Emptying a project will remove all files already added. All the work will be "
 "lost. Note that files will not be deleted from their own location, just no "
@@ -4170,243 +4317,207 @@ msgstr ""
 "การล้างข้อมูลโครงการจะล้างแฟ้มทั้งหมดที่เคยใส่ไว้ ข้อมูลเหล่านี้จะยังไม่ถูกลบออกจากเครื่อง "
 "แต่จะไม่แสดงรายชื่อในโครงการเท่านั้น"
 
-#: ../src/burner-project.c:2364
+#: ../src/burner-project.c:2477
 msgid "_Save"
 msgstr "_บันทึก"
 
-#: ../src/burner-project.c:2375
+#: ../src/burner-project.c:2488
 msgid "_Add"
 msgstr "เ_พิ่ม"
 
-#: ../src/burner-project.c:2380 ../src/burner-split-dialog.c:1249
+#: ../src/burner-project.c:2493 ../src/burner-split-dialog.c:1261
 msgid "_Remove"
 msgstr "_ลบ"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2444
+#: ../src/burner-project.c:2557
 #, c-format
 msgid "Burner — %s (Data Disc)"
 msgstr "Burner — %s (แผ่นข้อมูล)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2447
+#: ../src/burner-project.c:2560
 #, c-format
 msgid "Burner — %s (Audio Disc)"
 msgstr "Burner — %s (แผ่นเพลง)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2450
+#: ../src/burner-project.c:2563
 #, c-format
 msgid "Burner — %s (Video Disc)"
 msgstr "Burner — %s (แผ่นภาพยนตร์)"
 
-#: ../src/burner-project.c:2620 ../src/burner-project.c:2923
+#: ../src/burner-project.c:2733 ../src/burner-project.c:3038
 msgid "Your project has not been saved."
 msgstr "โครงการของคุณยังไม่ได้บันทึก"
 
-#: ../src/burner-project.c:2634
+#: ../src/burner-project.c:2747
 msgid "Save the changes of current project before closing?"
 msgstr "คุณต้องการบันทึกการเปลี่ยนแปลงต่างๆ ในโครงการก่อนสั่งปิดหรือไม่?"
 
-#: ../src/burner-project.c:2639 ../src/burner-project.c:2928
+#: ../src/burner-project.c:2752 ../src/burner-project.c:3043
 msgid "If you don't save, changes will be permanently lost."
 msgstr "ถ้าคุณไม่บันทึก การเปลี่ยนแปลงทั้งหมดจะสูญหายอย่างถาวร"
 
-#: ../src/burner-project.c:2643 ../src/burner-project.c:2649
-#: ../src/burner-project.c:2931
+#: ../src/burner-project.c:2756 ../src/burner-project.c:2762
+#: ../src/burner-project.c:3046
 msgid "Cl_ose Without Saving"
 msgstr "_ปิดโดยไม่บันทึก"
 
-#: ../src/burner-project.c:2731
+#: ../src/burner-project.c:2845
 msgid "Save Current Project"
 msgstr "บันทึกโครงการปัจจุบัน"
 
-#: ../src/burner-project.c:2749
+#: ../src/burner-project.c:2863
 msgid "Save project as a Burner audio project"
 msgstr "บันทึกโครงการเป็นโครงการแผ่นเพลง Burner"
 
-#: ../src/burner-project.c:2750
+#: ../src/burner-project.c:2864
 msgid "Save project as a plain text list"
 msgstr "บันทึกโครงการเป็นรายชื่อแบบข้อความ"
 
-#: ../src/burner-project.c:2754
+#: ../src/burner-project.c:2868
 msgid "Save project as a PLS playlist"
 msgstr "บันทึกโครงการเป็นรายการการเล่นแบบ PLS"
 
-#: ../src/burner-project.c:2755
+#: ../src/burner-project.c:2869
 msgid "Save project as an M3U playlist"
 msgstr "บันทึกโครงการเป็นรายการการเล่นแบบ M3U"
 
-#: ../src/burner-project.c:2756
+#: ../src/burner-project.c:2870
 msgid "Save project as an XSPF playlist"
 msgstr "บันทึกโครงการเป็นรายการการเล่นแบบ XSPF"
 
-#: ../src/burner-project.c:2757
+#: ../src/burner-project.c:2871
 msgid "Save project as an iriver playlist"
 msgstr "บันทึกโครงการเป็นรายการการเล่นแบบ iriver"
 
-#: ../src/burner-project-manager.c:95
+#: ../src/burner-project-manager.c:97
 msgid "_Cover Editor"
 msgstr "เครื่องมือแ_ก้ไขปก"
 
-#: ../src/burner-project-manager.c:96
+#: ../src/burner-project-manager.c:98
 msgid "Design and print covers for CDs"
 msgstr "ออกแบบและพิมพ์ปกซีดี"
 
-#: ../src/burner-project-manager.c:97
+#: ../src/burner-project-manager.c:99
 msgid "_New Project"
 msgstr "โครงการใ_หม่"
 
-#: ../src/burner-project-manager.c:98
+#: ../src/burner-project-manager.c:100
 msgid "Create a new project"
 msgstr "เริ่มโครงการใหม่"
 
-#: ../src/burner-project-manager.c:99
+#: ../src/burner-project-manager.c:101
 msgid "_Empty Project"
 msgstr "โครงการ_ว่างอันใหม่"
 
-#: ../src/burner-project-manager.c:100
+#: ../src/burner-project-manager.c:102
 msgid "Let you choose your new project"
 msgstr "เลือกโครงการอันใหม่"
 
-#: ../src/burner-project-manager.c:101
+#: ../src/burner-project-manager.c:103
 msgid "New _Audio Project"
 msgstr "โครงการแผ่นเ_พลงใหม่"
 
-#: ../src/burner-project-manager.c:102
-#: ../src/burner-project-type-chooser.c:76
+#: ../src/burner-project-manager.c:104
 msgid ""
 "Create a traditional audio CD that will be playable on computers and stereos"
 msgstr "สร้างแผ่นซีดีเพลงแบบมาตรฐาน ซึ่งเล่นได้ทั้งในคอมพิวเตอร์และเครื่องเสียง"
 
-#: ../src/burner-project-manager.c:103
+#: ../src/burner-project-manager.c:105
 msgid "New _Data Project"
 msgstr "โครงการแผ่น_ข้อมูลใหม่"
 
-#: ../src/burner-project-manager.c:104
-#: ../src/burner-project-type-chooser.c:81
-msgid ""
-"Create a CD/DVD containing any type of data that can only be read on a "
-"computer"
-msgstr "สร้างซีดี/ดีวีดีข้อมูล ซึ่งเปิดได้บนคอมพิวเตอร์เท่านั้น"
-
-#: ../src/burner-project-manager.c:105
+#: ../src/burner-project-manager.c:107
 msgid "New _Video Project"
 msgstr "โครงการแผ่น_ภาพยนตร์ใหม่"
 
-#: ../src/burner-project-manager.c:106
-#: ../src/burner-project-type-chooser.c:86
+#: ../src/burner-project-manager.c:108
 msgid "Create a video DVD or an SVCD that is readable on TV readers"
 msgstr "สร้างดีวีดีภาพยนตร์หรือ SVCD ซึ่งเปิดได้ในเครื่องเล่นสำหรับทีวี"
 
-#: ../src/burner-project-manager.c:107
+#: ../src/burner-project-manager.c:109
 msgid "Copy _Disc…"
 msgstr "ทำสำเนาแ_ผ่น…"
 
-#: ../src/burner-project-manager.c:108
-#: ../src/burner-project-type-chooser.c:91
+#: ../src/burner-project-manager.c:110
 msgid ""
 "Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on "
 "another CD/DVD"
 msgstr "ทำสำเนาแผ่นซีดีเพลง หรือซีดี/ดีวีดีข้อมูลที่เหมือนต้นฉบับ ลงบนฮาร์ดดิสก์หรือซีดี/ดีวีดีแผ่นอื่น"
 
-#: ../src/burner-project-manager.c:109
+#: ../src/burner-project-manager.c:111
 msgid "_Burn Image…"
 msgstr "เ_ขียนอิมเมจ…"
 
-#: ../src/burner-project-manager.c:110
-#: ../src/burner-project-type-chooser.c:95
-#: ../src/burner-project-type-chooser.c:96
-msgid "Burn an existing CD/DVD image to disc"
-msgstr "เขียนอิมเมจซีดี/ดีวีดีลงแผ่น"
-
-#: ../src/burner-project-manager.c:112
+#: ../src/burner-project-manager.c:114
 msgid "_Open…"
 msgstr "_เปิด…"
 
-#: ../src/burner-project-manager.c:113
+#: ../src/burner-project-manager.c:115
 msgid "Open a project"
 msgstr "เปิดโครงการ"
 
 #. Translators: the %s is a string representing the total size
 #. * of the file selection
-#: ../src/burner-project-manager.c:259
+#: ../src/burner-project-manager.c:262
 #, c-format
 msgid "%d file selected (%s)"
 msgid_plural "%d files selected (%s)"
 msgstr[0] "เลือก %d แฟ้ม (%s)"
 
-#: ../src/burner-project-manager.c:270
+#: ../src/burner-project-manager.c:273
 #, c-format
 msgid "%d file is supported (%s)"
 msgid_plural "%d files are supported (%s)"
 msgstr[0] "มี %d แฟ้มที่รองรับ (%s)"
 
-#: ../src/burner-project-manager.c:276
+#: ../src/burner-project-manager.c:279
 #, c-format
 msgid "%d file can be added (%s)"
 msgid_plural "%d selected files can be added (%s)"
 msgstr[0] "มี %d แฟ้มที่สามารถเพิ่มได้ (%s)"
 
-#: ../src/burner-project-manager.c:287
+#: ../src/burner-project-manager.c:290
 #, c-format
 msgid "No file can be added (%i selected file)"
 msgid_plural "No file can be added (%i selected files)"
 msgstr[0] "ไม่มีแฟ้มที่สามารถเพิ่มได้ (เลือก %i แฟ้ม)"
 
-#: ../src/burner-project-manager.c:293
+#: ../src/burner-project-manager.c:296
 #, c-format
 msgid "No file is supported (%i selected file)"
 msgid_plural "No file is supported (%i selected files)"
 msgstr[0] "ไม่มีแฟ้มที่รองรับ (เลือก %i แฟ้ม)"
 
-#: ../src/burner-project-manager.c:299 ../src/burner-project-manager.c:453
+#: ../src/burner-project-manager.c:302 ../src/burner-project-manager.c:456
 msgid "No file selected"
 msgstr "ไม่ได้เลือกแฟ้ม"
 
-#: ../src/burner-project-manager.c:590
-msgid "Burner — New Audio Disc Project"
-msgstr "Burner — โครงการแผ่นเพลงโครงการใหม่"
-
-#: ../src/burner-project-manager.c:604
-msgid "Burner — New Data Disc Project"
-msgstr "Burner — โครงการแผ่นข้อมูลโครงการใหม่"
-
-#: ../src/burner-project-manager.c:618
-msgid "Burner — New Video Disc Project"
-msgstr "Burner — โครงการแผ่นภาพยนตร์โครงการใหม่"
-
-#: ../src/burner-project-manager.c:628
-msgid "Burner — New Image File"
-msgstr "Burner — สร้างอิมเมจใหม่"
-
-#: ../src/burner-project-manager.c:643
-msgid "Burner — Disc Copy"
-msgstr "Burner — ทำสำเนาแผ่น"
-
-#: ../src/burner-project-manager.c:727
+#: ../src/burner-project-manager.c:763
 msgid "Open Project"
 msgstr "เปิดโครงการ"
 
-#: ../src/burner-project-manager.c:830
+#: ../src/burner-project-manager.c:868
 msgid "_New"
 msgstr "ใ_หม่"
 
-#: ../src/burner-project-manager.c:834
+#: ../src/burner-project-manager.c:872
 msgid "_Open"
 msgstr "เ_ปิด"
 
-#: ../src/burner-project-manager.c:885
+#: ../src/burner-project-manager.c:923
 msgid "Browse the file system"
 msgstr "เลือกจากระบบแฟ้ม"
 
-#: ../src/burner-project-manager.c:907
+#: ../src/burner-project-manager.c:945
 msgid "Display playlists and their contents"
 msgstr "แสดงรายการการเล่นต่างๆ พร้อมเนื้อหา"
 
 #. Translators: this is a picture not
 #. * a disc image
-#: ../src/burner-project-name.c:83
+#: ../src/burner-project-name.c:85
 msgctxt "picture"
 msgid "Please select another image."
 msgstr "กรุณาเลือกรูปภาพอื่น"
@@ -4414,7 +4525,7 @@ msgstr "กรุณาเลือกรูปภาพอื่น"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_.
 #. * The %s is the date
-#: ../src/burner-project-name.c:269
+#: ../src/burner-project-name.c:272
 #, c-format
 msgid "Video disc (%s)"
 msgstr "แผ่นวีดิทัศน์ (%s)"
@@ -4423,71 +4534,31 @@ msgstr "แผ่นวีดิทัศน์ (%s)"
 msgid "Error while loading the project."
 msgstr "เกิดข้อผิดพลาดขณะอ่านข้อมูลโครงการ"
 
-#: ../src/burner-project-parse.c:454
+#: ../src/burner-project-parse.c:458
 msgid "The project could not be opened"
 msgstr "ไม่สามารถเปิดโครงการได้"
 
-#: ../src/burner-project-parse.c:463
+#: ../src/burner-project-parse.c:467
 msgid "The file is empty"
 msgstr "แฟ้มว่างเปล่า"
 
-#: ../src/burner-project-parse.c:542 ../src/burner-project-parse.c:607
+#: ../src/burner-project-parse.c:546 ../src/burner-project-parse.c:611
 msgid "It does not seem to be a valid Burner project"
 msgstr "ดูเหมือนแฟ้มจะไม่ใช่แฟ้มโครงการที่ถูกต้องของ Burner"
 
-#: ../src/burner-project-type-chooser.c:74
-msgid "Audi_o project"
-msgstr "โครงการแผ่นเ_พลง"
-
-#: ../src/burner-project-type-chooser.c:75
-msgid "Create a traditional audio CD"
-msgstr "สร้างแผ่นซีดีเพลงแบบมาตรฐาน"
-
-#: ../src/burner-project-type-chooser.c:79
-msgid "D_ata project"
-msgstr "โครงการแผ่น_ข้อมูล"
-
-#: ../src/burner-project-type-chooser.c:80
-msgid "Create a data CD/DVD"
-msgstr "สร้างซีดี/ดีวีดีข้อมูล"
-
-#: ../src/burner-project-type-chooser.c:84
-msgid "_Video project"
-msgstr "โครงการแผ่น_ภาพยนตร์"
-
-#: ../src/burner-project-type-chooser.c:85
-msgid "Create a video DVD or an SVCD"
-msgstr "สร้างแผ่นดีวีดีภาพยนตร์ หรือ SVCD"
-
-#: ../src/burner-project-type-chooser.c:89
-msgid "Disc _copy"
-msgstr "ทำสำเนาแ_ผ่น"
-
-#: ../src/burner-project-type-chooser.c:90
-msgid "Create 1:1 copy of a CD/DVD"
-msgstr "ทำสำเนาแผ่นซีดี/ดีวีดีที่เหมือนต้นฉบับ"
-
-#: ../src/burner-project-type-chooser.c:94
-msgid "Burn _image"
-msgstr "เขียน_อิมเมจ"
-
-#: ../src/burner-project-type-chooser.c:292
+#: ../src/burner-project-type-chooser.c:404
 msgid "Last _Unsaved Project"
 msgstr "โครงการล่าสุดที่ยังไ_ม่บันทึก"
 
-#: ../src/burner-project-type-chooser.c:308
+#: ../src/burner-project-type-chooser.c:420
 msgid "Load the last project that was not burned and not saved"
 msgstr "อ่านข้อมูลโครงการล่าสุดที่ยังไม่เขียนลงแผ่นและยังไม่บันทึก"
 
-#: ../src/burner-project-type-chooser.c:414
+#: ../src/burner-project-type-chooser.c:526
 msgid "No recently used project"
 msgstr "ไม่มีโครงการเก่า"
 
-#: ../src/burner-project-type-chooser.c:463
-msgid "Create a new project:"
-msgstr "สร้างโครงการใหม่:"
-
-#: ../src/burner-project-type-chooser.c:509
+#: ../src/burner-project-type-chooser.c:646
 msgid "Recent projects:"
 msgstr "โครงการล่าสุด:"
 
@@ -4558,170 +4629,170 @@ msgstr "{ตัวเลข}"
 msgid "%s / %s"
 msgstr "%s / %s"
 
-#: ../src/burner-song-control.c:528
+#: ../src/burner-song-control.c:527
 msgid "No file"
 msgstr "ไม่มีแฟ้ม"
 
-#: ../src/burner-song-control.c:563
+#: ../src/burner-song-control.c:562
 msgid "Start and stop playing"
 msgstr "เริ่มและหยุดเล่น"
 
-#: ../src/burner-song-properties.c:177
+#: ../src/burner-song-properties.c:178
 msgid "Title:"
 msgstr "ชื่อเพลง:"
 
-#: ../src/burner-song-properties.c:235
+#: ../src/burner-song-properties.c:236
 msgid "Song start:"
 msgstr "เพลงเริ่ม:"
 
-#: ../src/burner-song-properties.c:241
+#: ../src/burner-song-properties.c:242
 msgid "Song end:"
 msgstr "เพลงหยุด:"
 
-#: ../src/burner-song-properties.c:258
+#: ../src/burner-song-properties.c:259
 msgid "Track length:"
 msgstr "ความยาวเพลง:"
 
-#: ../src/burner-song-properties.c:372
+#: ../src/burner-song-properties.c:366
 #, c-format
 msgid "Song information for track %02i"
 msgstr "ข้อมูลเพลงสำหรับเพลงที่ %02i"
 
-#: ../src/burner-split-dialog.c:166
+#: ../src/burner-split-dialog.c:174
 msgid "Do you really want to split the track?"
 msgstr "คุณต้องการจะตัดแบ่งร่องหรือไม่?"
 
-#: ../src/burner-split-dialog.c:169
+#: ../src/burner-split-dialog.c:178
 msgid ""
 "If you split the track, the size of the new track will be shorter than 6 "
 "seconds and will be padded."
 msgstr "ถ้าคุณตัดแบ่งร่อง ขนาดของร่องใหม่จะสั้นกว่า 6 วินาที และจะต้องเติมช่วงเงียบ"
 
-#: ../src/burner-split-dialog.c:175 ../src/burner-split-dialog.c:746
+#: ../src/burner-split-dialog.c:184 ../src/burner-split-dialog.c:758
 msgid "_Split"
 msgstr "_ตัดแบ่ง"
 
-#: ../src/burner-split-dialog.c:603
+#: ../src/burner-split-dialog.c:613
 msgid "The track wasn't split."
 msgstr "ไม่ได้แบ่งร่อง"
 
-#: ../src/burner-split-dialog.c:604
+#: ../src/burner-split-dialog.c:614
 msgid "No silence could be detected"
 msgstr "ไม่พบช่วงเงียบ"
 
-#: ../src/burner-split-dialog.c:627
+#: ../src/burner-split-dialog.c:637
 msgid "An error occurred while detecting silences."
 msgstr "เกิดข้อผิดพลาดขณะตรวจหาช่วงเงียบ"
 
-#: ../src/burner-split-dialog.c:706
+#: ../src/burner-split-dialog.c:717
 msgid "This will remove all previous results."
 msgstr "การกระทำนี้จะลบผลลัพธ์ก่อนหน้านี้ทั้งหมด"
 
-#: ../src/burner-split-dialog.c:744
+#: ../src/burner-split-dialog.c:756
 msgid "Do you really want to carry on with automatic splitting?"
 msgstr "คุณต้องการตัดแบ่งร่องโดยอัตโนมัติต่อไปหรือไม่?"
 
-#: ../src/burner-split-dialog.c:745
+#: ../src/burner-split-dialog.c:757
 msgid "_Don't split"
 msgstr "ไ_ม่ต้องแบ่ง"
 
-#: ../src/burner-split-dialog.c:962
+#: ../src/burner-split-dialog.c:974
 msgid "Do you really want to empty the slices preview?"
 msgstr "ยืนยันที่จะล้างตัวอย่างชิ้นส่วนร่องหรือไม่?"
 
-#: ../src/burner-split-dialog.c:964 ../src/burner-split-dialog.c:1263
+#: ../src/burner-split-dialog.c:976 ../src/burner-split-dialog.c:1275
 msgid "Re_move All"
 msgstr "ลบ_ทั้งหมด"
 
-#: ../src/burner-split-dialog.c:1049
+#: ../src/burner-split-dialog.c:1061
 msgid "Split Track"
 msgstr "ตัดแบ่งร่อง"
 
-#: ../src/burner-split-dialog.c:1066
+#: ../src/burner-split-dialog.c:1078
 msgid "M_ethod:"
 msgstr "_วิธีแบ่ง:"
 
-#: ../src/burner-split-dialog.c:1072
+#: ../src/burner-split-dialog.c:1084
 msgid "Method to be used to split the track"
 msgstr "วิธีการตัดแบ่งร่อง"
 
-#: ../src/burner-split-dialog.c:1075
+#: ../src/burner-split-dialog.c:1087
 msgid "Split track manually"
 msgstr "กำหนดจุดแบ่งของร่องเอง"
 
-#: ../src/burner-split-dialog.c:1076
+#: ../src/burner-split-dialog.c:1088
 msgid "Split track in parts with a fixed length"
 msgstr "ตัดแบ่งร่องทุกๆ ช่วงเวลาที่กำหนด"
 
-#: ../src/burner-split-dialog.c:1077
+#: ../src/burner-split-dialog.c:1089
 msgid "Split track in a fixed number of parts"
 msgstr "ตัดแบ่งร่องเป็นจำนวนชิ้นที่กำหนด"
 
-#: ../src/burner-split-dialog.c:1078
+#: ../src/burner-split-dialog.c:1090
 msgid "Split track for each silence"
 msgstr "ตัดแบ่งร่องทุกช่วงที่เสียงเงียบ"
 
-#: ../src/burner-split-dialog.c:1084
+#: ../src/burner-split-dialog.c:1096
 msgid "_Slice"
 msgstr "แ_บ่ง"
 
-#: ../src/burner-split-dialog.c:1095
+#: ../src/burner-split-dialog.c:1107
 msgid "Add a splitting point"
 msgstr "เพิ่มจุดแบ่ง"
 
 #. Translators: this goes with the next (= "seconds")
-#: ../src/burner-split-dialog.c:1112
+#: ../src/burner-split-dialog.c:1124
 msgid "Split this track every"
 msgstr "ตัดแบ่งร่องทุกๆ"
 
 #. Translators: this goes with the previous (= "Split track every")
-#: ../src/burner-split-dialog.c:1121
+#: ../src/burner-split-dialog.c:1133
 msgid "seconds"
 msgstr "วินาที"
 
 #. Translators: this goes with the next (= "parts")
-#: ../src/burner-split-dialog.c:1130
+#: ../src/burner-split-dialog.c:1142
 msgid "Split this track in"
 msgstr "ตัดแบ่งร่องเป็น"
 
 #. Translators: this goes with the previous (= "Split this track in")
-#: ../src/burner-split-dialog.c:1139
+#: ../src/burner-split-dialog.c:1151
 msgid "parts"
 msgstr "ส่วน"
 
-#: ../src/burner-split-dialog.c:1147
+#: ../src/burner-split-dialog.c:1159
 msgid "Slicing Method"
 msgstr "วิธีการตัดแบ่ง"
 
-#: ../src/burner-split-dialog.c:1205
+#: ../src/burner-split-dialog.c:1217
 msgid "Start"
 msgstr "เริ่ม"
 
-#: ../src/burner-split-dialog.c:1212
+#: ../src/burner-split-dialog.c:1224
 msgid "End"
 msgstr "จบ"
 
-#: ../src/burner-split-dialog.c:1235
+#: ../src/burner-split-dialog.c:1247
 msgid "Mer_ge"
 msgstr "_รวม"
 
-#: ../src/burner-split-dialog.c:1246
+#: ../src/burner-split-dialog.c:1258
 msgid "Merge a selected slice with the next selected one"
 msgstr "รวมชิ้นส่วนที่เลือกเข้าเป็นชิ้นเดียวกัน"
 
-#: ../src/burner-split-dialog.c:1260
+#: ../src/burner-split-dialog.c:1272
 msgid "Remove the selected slices"
 msgstr "ลบชิ้นส่วนที่เลือก"
 
-#: ../src/burner-split-dialog.c:1274
+#: ../src/burner-split-dialog.c:1286
 msgid "Clear the slices preview"
 msgstr "ล้างตัวอย่างชิ้นส่วนร่อง"
 
-#: ../src/burner-split-dialog.c:1284
+#: ../src/burner-split-dialog.c:1296
 msgid "_List of slices that are to be created:"
 msgstr "_รายชื่อชิ้นส่วนของร่องที่จะสร้าง:"
 
-#: ../src/burner-split-dialog.c:1292
+#: ../src/burner-split-dialog.c:1304
 msgid "Slices Preview"
 msgstr "ตัวอย่างชิ้นส่วนร่อง"
 
@@ -4749,106 +4820,145 @@ msgstr "วินาที"
 msgid "Frames (1 second = 75 frames)"
 msgstr "เฟรม (1 วินาที = 75 เฟรม)"
 
-#: ../src/burner-video-disc.c:101
+#: ../src/burner-video-disc.c:103
 msgid "Open the selected video"
 msgstr "เปิดวีดิทัศน์ที่เลือก"
 
-#: ../src/burner-video-disc.c:103
+#: ../src/burner-video-disc.c:105
 msgid "Edit the video information (start, end, author, etc.)"
 msgstr "แก้ไขข้อมูลวีดิทัศน์ (เริ่ม, หยุด, ศิลปิน ฯลฯ)"
 
-#: ../src/burner-video-disc.c:105
+#: ../src/burner-video-disc.c:107
 msgid "Remove the selected videos from the project"
 msgstr "ลบวีดิทัศน์ที่เลือกจากโครงการ"
 
-#: ../src/burner-video-disc.c:359
+#: ../src/burner-video-disc.c:361
 msgid "Do you want to search for video files inside the directory?"
 msgstr "คุณต้องการค้นหาแฟ้มวีดิทัศน์ในไดเรกทอรีหรือไม่?"
 
-#: ../src/burner-video-disc.c:369
+#: ../src/burner-video-disc.c:371
 msgid "_Search Directory"
 msgstr "_ค้นไดเรกทอรี"
 
-#: ../src/burner-video-disc.c:412
+#: ../src/burner-video-disc.c:415
 #, c-format
 msgid "\"%s\" does not have a suitable type for video projects."
 msgstr "\"%s\" มีชนิดไม่เหมาะสมสำหรับโครงการแผ่นภาพยนตร์"
 
-#: ../src/burner-video-disc.c:415
+#: ../src/burner-video-disc.c:418
 msgid "Please only add files with video content"
 msgstr "กรุณาเพิ่มเฉพาะแฟ้มที่มีเนื้อหาเป็นวีดิทัศน์เท่านั้น"
 
-#: ../src/eggdesktopfile.c:165
-#, c-format
-msgid "File is not a valid .desktop file"
-msgstr "แฟ้มนี้ไม่ใช่แฟ้ม .desktop ที่ใช้ได้"
-
-#: ../src/eggdesktopfile.c:188
-#, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "ไม่รู้จักแฟ้มเดสก์ท็อปรุ่น '%s'"
-
-#: ../src/eggdesktopfile.c:968
-#, c-format
-msgid "Starting %s"
-msgstr "กำลังเริ่ม %s"
-
-#: ../src/eggdesktopfile.c:1110
-#, c-format
-msgid "Application does not accept documents on command line"
-msgstr "โปรแกรมไม่รับเอกสารในบรรทัดคำสั่ง"
-
-#: ../src/eggdesktopfile.c:1178
-#, c-format
-msgid "Unrecognized launch option: %d"
-msgstr "ไม่รู้จักตัวเลือกของการเรียกโปรแกรม: %d"
-
-#: ../src/eggdesktopfile.c:1383
-#, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "ไม่สามารถส่ง URI ของเอกสารไปยังรายการเดสก์ท็อปที่มี 'Type=Link'"
-
-#: ../src/eggdesktopfile.c:1404
-#, c-format
-msgid "Not a launchable item"
-msgstr "ไม่ใช่รายการที่เรียกทำงานได้"
-
-#: ../src/eggsmclient.c:226
-msgid "Disable connection to session manager"
-msgstr "ปิดใช้การเชื่อมต่อไปยังโปรแกรมจัดการวาระ"
-
-#: ../src/eggsmclient.c:229
-msgid "Specify file containing saved configuration"
-msgstr "ระบุแฟ้มที่บันทึกค่าตั้งไว้"
-
-#: ../src/eggsmclient.c:229
-msgid "FILE"
-msgstr "FILE"
-
-#: ../src/eggsmclient.c:232
-msgid "Specify session management ID"
-msgstr "ระบุหมายเลขการจัดการวาระ"
-
-#: ../src/eggsmclient.c:232
-msgid "ID"
-msgstr "ID"
-
-#: ../src/eggsmclient.c:253
-msgid "Session management options:"
-msgstr "ตัวเลือกเกี่ยวกับการจัดการวาระ:"
-
-#: ../src/eggsmclient.c:254
-msgid "Show session management options"
-msgstr "แสดงตัวเลือกเกี่ยวกับการจัดการวาระ"
-
-#: ../src/main.c:85
+#: ../src/main.c:91
 msgid "[URI] [URI] …"
 msgstr "[URI] [URI] …"
 
-#: ../src/main.c:97
+#: ../src/main.c:103
 #, c-format
 msgid "Please type \"%s --help\" to see all available options\n"
 msgstr "กรุณาพิมพ์ \"%s --help\" เพื่อดูตัวเลือกที่ใช้ได้ทั้งหมด\n"
+
+#~ msgid "Create an Audio Project"
+#~ msgstr "เริ่มโครงการซีดีเพลง"
+
+#~ msgid "Create a Video Project"
+#~ msgstr "เริ่มโครงการวีดิทัศน์"
+
+#~ msgid "Simulation of image to DVD burning"
+#~ msgstr "จำลองการเขียนอิมเมจลงแผ่นดีวีดี"
+
+#~ msgid "Make _More Copies"
+#~ msgstr "เขียนแผ่นสำเนาเ_พิ่ม"
+
+#~ msgid "Open the specified playlist as an audio project"
+#~ msgstr "เปิดรายการการเล่นที่ระบุและใช้เป็นโครงการแผ่นเพลง"
+
+#~ msgid "PLAYLIST"
+#~ msgstr "รายการการเล่น"
+
+#~ msgid "Open an audio project adding the URIs given on the command line"
+#~ msgstr "เปิดโครงการแผ่นเพลง พร้อมเพิ่ม URI ต่างๆ ที่ระบุในบรรทัดคำสั่ง"
+
+#~ msgid "Open a video project adding the URIs given on the command line"
+#~ msgstr "เปิดโครงการแผ่นภาพยนตร์ พร้อมเพิ่ม URI ต่างๆ ที่ระบุในบรรทัดคำสั่ง"
+
+#~ msgid "Filtering options"
+#~ msgstr "ตัวเลือกการกรอง"
+
+#~ msgid "Burner — New Audio Disc Project"
+#~ msgstr "Burner — โครงการแผ่นเพลงโครงการใหม่"
+
+#~ msgid "Burner — New Data Disc Project"
+#~ msgstr "Burner — โครงการแผ่นข้อมูลโครงการใหม่"
+
+#~ msgid "Burner — New Video Disc Project"
+#~ msgstr "Burner — โครงการแผ่นภาพยนตร์โครงการใหม่"
+
+#~ msgid "Burner — New Image File"
+#~ msgstr "Burner — สร้างอิมเมจใหม่"
+
+#~ msgid "Burner — Disc Copy"
+#~ msgstr "Burner — ทำสำเนาแผ่น"
+
+#~ msgid "Audi_o project"
+#~ msgstr "โครงการแผ่นเ_พลง"
+
+#~ msgid "Create a traditional audio CD"
+#~ msgstr "สร้างแผ่นซีดีเพลงแบบมาตรฐาน"
+
+#~ msgid "Create a video DVD or an SVCD"
+#~ msgstr "สร้างแผ่นดีวีดีภาพยนตร์ หรือ SVCD"
+
+#~ msgid "Disc _copy"
+#~ msgstr "ทำสำเนาแ_ผ่น"
+
+#~ msgid "Create 1:1 copy of a CD/DVD"
+#~ msgstr "ทำสำเนาแผ่นซีดี/ดีวีดีที่เหมือนต้นฉบับ"
+
+#~ msgid "Create a new project:"
+#~ msgstr "สร้างโครงการใหม่:"
+
+#~ msgid "File is not a valid .desktop file"
+#~ msgstr "แฟ้มนี้ไม่ใช่แฟ้ม .desktop ที่ใช้ได้"
+
+#~ msgid "Unrecognized desktop file Version '%s'"
+#~ msgstr "ไม่รู้จักแฟ้มเดสก์ท็อปรุ่น '%s'"
+
+#~ msgid "Starting %s"
+#~ msgstr "กำลังเริ่ม %s"
+
+#~ msgid "Application does not accept documents on command line"
+#~ msgstr "โปรแกรมไม่รับเอกสารในบรรทัดคำสั่ง"
+
+#~ msgid "Unrecognized launch option: %d"
+#~ msgstr "ไม่รู้จักตัวเลือกของการเรียกโปรแกรม: %d"
+
+#~ msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+#~ msgstr "ไม่สามารถส่ง URI ของเอกสารไปยังรายการเดสก์ท็อปที่มี 'Type=Link'"
+
+#~ msgid "Not a launchable item"
+#~ msgstr "ไม่ใช่รายการที่เรียกทำงานได้"
+
+#~ msgid "Disable connection to session manager"
+#~ msgstr "ปิดใช้การเชื่อมต่อไปยังโปรแกรมจัดการวาระ"
+
+#~ msgid "Specify file containing saved configuration"
+#~ msgstr "ระบุแฟ้มที่บันทึกค่าตั้งไว้"
+
+#~ msgid "FILE"
+#~ msgstr "FILE"
+
+#~ msgid "Specify session management ID"
+#~ msgstr "ระบุหมายเลขการจัดการวาระ"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Session management options:"
+#~ msgstr "ตัวเลือกเกี่ยวกับการจัดการวาระ:"
+
+#~ msgid "Show session management options"
+#~ msgstr "แสดงตัวเลือกเกี่ยวกับการจัดการวาระ"
 
 #~ msgid "Results %i–%i (out of %i)"
 #~ msgstr "ผลลัพธ์ที่ %i-%i (จากทั้งหมด %i)"
@@ -4870,21 +4980,6 @@ msgstr "กรุณาพิมพ์ \"%s --help\" เพื่อดูตั
 
 #~ msgid "by"
 #~ msgstr "โดย"
-
-#~ msgid "Cancel ongoing burning"
-#~ msgstr "ยกเลิกการเขียนแผ่นที่กำลังทำอยู่"
-
-#~ msgid "Show _Dialog"
-#~ msgstr "แสดง_กล่องโต้ตอบ"
-
-#~ msgid "Show dialog"
-#~ msgstr "แสดงกล่องโต้ตอบ"
-
-#~ msgid "%s, %d%% done, %s remaining"
-#~ msgstr "%s, เสร็จแล้ว %d%%, เหลืออีก %s"
-
-#~ msgid "%s, %d%% done"
-#~ msgstr "%s, เสร็จแล้ว %d%%"
 
 #~ msgid "Directories cannot be added to an audio disc."
 #~ msgstr "ไม่สามารถใส่ไดเรกทอรีในแผ่นเพลงได้"

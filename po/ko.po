@@ -9,9 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: burner\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=burner&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-05 14:58+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-14 10:36+0800\n"
 "PO-Revision-Date: 2014-09-06 05:56+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
@@ -23,10 +22,13 @@ msgstr ""
 
 #: ../data/burner.appdata.xml.in.h:1
 msgid ""
-"Burner is a application to burn CD/DVD for the GNOME Desktop. It is "
-"designed to be as simple as possible and has some unique features to enable "
-"users to create their discs easily and quickly."
-msgstr "브라세로는 그놈 데스크톱의 CD/DVD 굽기 프로그램입니다. 이 프로그램은 가능한 간단히 설계되었고, 쉽고 빠르고 CD/DVD를 만들 수 있는 독창적인 기능이 들어 있습니다."
+"Burner is a application to burn CD/DVD for the GNOME Desktop. It is designed "
+"to be as simple as possible and has some unique features to enable users to "
+"create their discs easily and quickly."
+msgstr ""
+"브라세로는 그놈 데스크톱의 CD/DVD 굽기 프로그램입니다. 이 프로그램은 가능한 "
+"간단히 설계되었고, 쉽고 빠르고 CD/DVD를 만들 수 있는 독창적인 기능이 들어 있"
+"습니다."
 
 #: ../data/burner.appdata.xml.in.h:2
 msgid ""
@@ -39,7 +41,12 @@ msgstr ""
 "TEXT, 멀티세션, 졸리엣 확장을 완전히 지원합니다. 로컬 프로그램이나 원격 공유 "
 "드라이브에서도 파일을 끌어서 디스크로 구울 수 있습니다."
 
-#: ../data/burner.desktop.in.in.h:1
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — New Audio Disc Project"));
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — Disc Copy"));
+#: ../data/burner.desktop.in.in.h:1 ../src/burner-app.c:2030
+#: ../src/burner-project-manager.c:587 ../src/burner-project-manager.c:602
+#: ../src/burner-project-manager.c:617 ../src/burner-project-manager.c:631
+#: ../src/burner-project-manager.c:642 ../src/burner-project-manager.c:675
 msgid "Burner"
 msgstr "브라세로"
 
@@ -68,14 +75,6 @@ msgstr "새 창 열기"
 #: ../data/burner.desktop.in.in.h:7
 msgid "Burn an Image File"
 msgstr "이미지 파일 굽기"
-
-#: ../data/burner.desktop.in.in.h:8
-msgid "Create an Audio Project"
-msgstr "오디오 프로젝트 만들기"
-
-#: ../data/burner.desktop.in.in.h:9
-msgid "Create a Video Project"
-msgstr "비디오 프로젝트 만들기"
 
 #: ../data/mime/burner.xml.in.h:1
 msgid "Burner project file"
@@ -232,8 +231,8 @@ msgstr "깨진 심볼릭 링크 필터링"
 
 #: ../data/org.gnome.burner.gschema.xml.h:29
 msgid ""
-"Should burner filter broken symbolic links. Set to true, burner will "
-"filter broken symbolic links."
+"Should burner filter broken symbolic links. Set to true, burner will filter "
+"broken symbolic links."
 msgstr "깨진 심볼릭 링크를 필터링할지 여부. 참이면 심볼릭 링크를 필터링합니다."
 
 #: ../data/org.gnome.burner.gschema.xml.h:30
@@ -272,42 +271,75 @@ msgid ""
 "time."
 msgstr "최근에 같은 상황에서 사용한 굽기 속도를 나타내는 값입니다."
 
-#: ../libburner-burn/burner-blank-dialog.c:222
+#: ../libburner-burn/burner-app-indicator.c:77 ../src/burner-audio-disc.c:157
+#: ../src/burner-data-disc.c:124 ../src/burner-video-disc.c:102
+msgid "Menu"
+msgstr "메뉴"
+
+#: ../libburner-burn/burner-app-indicator.c:79
+#, fuzzy
+msgid "Cancel ongoing burning"
+msgstr "굽기 취소(_C)"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show _Dialog"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show dialog"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:256
+#, c-format
+msgid "%s, %d%% done, %s remaining"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:263
+#, c-format
+msgid "%s, %d%% done"
+msgstr ""
+
+#: ../libburner-burn/burner-app-indicator.c:273
+#, fuzzy, c-format
+msgid "Burner Disc Burner: %s"
+msgstr "브라세로 디스크 굽기 프로그램"
+
+#: ../libburner-burn/burner-blank-dialog.c:224
 msgid "Error while blanking."
 msgstr "비우는 중 오류가 발생했습니다."
 
-#: ../libburner-burn/burner-blank-dialog.c:227
-#: ../libburner-burn/burner-blank-dialog.c:272
+#: ../libburner-burn/burner-blank-dialog.c:230
+#: ../libburner-burn/burner-blank-dialog.c:277
 msgid "Blank _Again"
 msgstr "다시 비우기(_A)"
 
-#: ../libburner-burn/burner-blank-dialog.c:244
+#: ../libburner-burn/burner-blank-dialog.c:247
 msgid "Unknown error."
 msgstr "알 수 없는 오류."
 
-#: ../libburner-burn/burner-blank-dialog.c:264
-#: ../libburner-burn/burner-blank-dialog.c:288
+#: ../libburner-burn/burner-blank-dialog.c:268
+#: ../libburner-burn/burner-blank-dialog.c:293
 msgid "The disc was successfully blanked."
 msgstr "디스크를 성공적으로 비웠습니다."
 
-#: ../libburner-burn/burner-blank-dialog.c:270
+#: ../libburner-burn/burner-blank-dialog.c:275
 msgid "The disc is ready for use."
 msgstr "디스크가 사용할 준비 되었습니다."
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-blank-dialog.c:371
+#: ../libburner-burn/burner-blank-dialog.c:377
 msgid "_Blank"
 msgstr "비우기(_B)"
 
-#: ../libburner-burn/burner-blank-dialog.c:402
+#: ../libburner-burn/burner-blank-dialog.c:408
 msgid "_Fast blanking"
 msgstr "빠르게 비우기(_F)"
 
-#: ../libburner-burn/burner-blank-dialog.c:403
+#: ../libburner-burn/burner-blank-dialog.c:409
 msgid "Activate fast blanking, as opposed to a longer, thorough blanking"
 msgstr "빠르게 비우기를 사용합니다(느린 전체 비우기를 하지 않음)"
 
-#: ../libburner-burn/burner-blank-dialog.c:433
+#: ../libburner-burn/burner-blank-dialog.c:439
 msgid "Disc Blanking"
 msgstr "디스크 비우기"
 
@@ -317,10 +349,10 @@ msgstr "CD/DVD 굽는 중"
 
 #: ../libburner-burn/burner-burn.c:331
 #: ../libburner-burn/burner-data-session.c:123
-#: ../libburner-burn/burner-tool-dialog.c:89
-#: ../libburner-media/scsi-error.c:47 ../plugins/cdrdao/burn-cdrdao.c:243
-#: ../plugins/cdrkit/burn-readom.c:110 ../plugins/cdrkit/burn-wodim.c:135
-#: ../plugins/cdrkit/burn-wodim.c:144 ../plugins/cdrtools/burn-cdrecord.c:135
+#: ../libburner-burn/burner-tool-dialog.c:91 ../libburner-media/scsi-error.c:47
+#: ../plugins/cdrdao/burn-cdrdao.c:243 ../plugins/cdrkit/burn-readom.c:110
+#: ../plugins/cdrkit/burn-wodim.c:135 ../plugins/cdrkit/burn-wodim.c:144
+#: ../plugins/cdrtools/burn-cdrecord.c:135
 #: ../plugins/cdrtools/burn-cdrecord.c:144
 #: ../plugins/cdrtools/burn-readcd.c:111
 #: ../plugins/growisofs/burn-dvd-rw-format.c:84
@@ -331,8 +363,8 @@ msgid "The drive is busy"
 msgstr "드라이브를 사용 중입니다"
 
 #: ../libburner-burn/burner-burn.c:332
-#: ../libburner-burn/burner-burn-dialog.c:651
-#: ../libburner-burn/burner-tool-dialog.c:90
+#: ../libburner-burn/burner-burn-dialog.c:719
+#: ../libburner-burn/burner-tool-dialog.c:92
 msgid "Make sure another application is not using it"
 msgstr "다른 프로그램이 사용하지 않도록 하십시오."
 
@@ -381,13 +413,12 @@ msgstr "진행 중인 굽기 작업"
 msgid "Ongoing checksumming operation"
 msgstr "진행 중인 체크섬 작업"
 
-#: ../libburner-burn/burner-burn.c:1623
-#: ../libburner-burn/burner-burn.c:1817
+#: ../libburner-burn/burner-burn.c:1623 ../libburner-burn/burner-burn.c:1817
 msgid "Merging data is impossible with this disc"
 msgstr "데이터 합치기는 이 디스크에서 불가능합니다"
 
 #: ../libburner-burn/burner-burn.c:1624
-#: ../libburner-burn/burner-burn-dialog.c:2186
+#: ../libburner-burn/burner-burn-dialog.c:2317
 #: ../plugins/cdrkit/burn-genisoimage.c:206 ../plugins/cdrkit/burn-wodim.c:114
 #: ../plugins/cdrtools/burn-cdrecord.c:114
 #: ../plugins/cdrtools/burn-mkisofs.c:206
@@ -398,24 +429,21 @@ msgstr "디스크에 남은 충분한 공간이 없습니다"
 
 #. Translators: %s is the name of a missing application
 #: ../libburner-burn/burner-burn.c:1708
-#: ../libburner-burn/burner-burn-options.c:1187
-#: ../src/burner-project.c:1385
+#: ../libburner-burn/burner-burn-options.c:1261 ../src/burner-project.c:1392
 #, c-format
 msgid "%s (application)"
 msgstr "%s (프로그램)"
 
 #. Translators: %s is the name of a missing library
 #: ../libburner-burn/burner-burn.c:1714
-#: ../libburner-burn/burner-burn-options.c:1193
-#: ../src/burner-project.c:1391
+#: ../libburner-burn/burner-burn-options.c:1267 ../src/burner-project.c:1398
 #, c-format
 msgid "%s (library)"
 msgstr "%s (라이브러리)"
 
 #. Translators: %s is the name of a missing GStreamer plugin
 #: ../libburner-burn/burner-burn.c:1719
-#: ../libburner-burn/burner-burn-options.c:1198
-#: ../src/burner-project.c:1396
+#: ../libburner-burn/burner-burn-options.c:1272 ../src/burner-project.c:1403
 #, c-format
 msgid "%s (GStreamer plugin)"
 msgstr "%s (GStreamer 플러그인)"
@@ -444,235 +472,283 @@ msgstr "임시 이미지에 사용할 형식이 없습니다"
 #. * is specified. A graft point is the path (on the
 #. * disc) where a file from any source will be added
 #. * ("grafted")
-#: ../libburner-burn/burner-burn.c:2846
-#: ../libburner-burn/burner-caps-burn.c:66
+#: ../libburner-burn/burner-burn.c:2846 ../libburner-burn/burner-caps-burn.c:66
 #: ../libburner-burn/burn-job.c:1219 ../libburner-burn/burn-job.c:1228
 #: ../libburner-burn/burn-mkisofs-base.c:302
 #: ../nautilus/nautilus-burn-extension.c:218
-#: ../plugins/cdrkit/burn-genisoimage.c:368
-#: ../plugins/cdrkit/burn-readom.c:129 ../plugins/cdrkit/burn-readom.c:370
-#: ../plugins/cdrkit/burn-wodim.c:725 ../plugins/cdrkit/burn-wodim.c:837
-#: ../plugins/cdrkit/burn-wodim.c:852 ../plugins/cdrtools/burn-cdrecord.c:835
+#: ../plugins/cdrkit/burn-genisoimage.c:368 ../plugins/cdrkit/burn-readom.c:129
+#: ../plugins/cdrkit/burn-readom.c:370 ../plugins/cdrkit/burn-wodim.c:725
+#: ../plugins/cdrkit/burn-wodim.c:837 ../plugins/cdrkit/burn-wodim.c:852
+#: ../plugins/cdrtools/burn-cdrecord.c:835
 #: ../plugins/cdrtools/burn-cdrecord.c:850
-#: ../plugins/cdrtools/burn-mkisofs.c:368
-#: ../plugins/cdrtools/burn-readcd.c:130 ../plugins/cdrtools/burn-readcd.c:380
-#: ../src/burner-app.c:786
+#: ../plugins/cdrtools/burn-mkisofs.c:368 ../plugins/cdrtools/burn-readcd.c:130
+#: ../plugins/cdrtools/burn-readcd.c:380 ../src/burner-app.c:830
 #, c-format
 msgid "An internal error occurred"
 msgstr "내부 오류가 발생했습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:155
+#: ../libburner-burn/burner-burn-dialog.c:183
 msgid "Burner notification"
 msgstr "브라세로 알림"
 
 #. Translators: This string is used in the title bar %s is the action currently performed
-#: ../libburner-burn/burner-burn-dialog.c:219
+#: ../libburner-burn/burner-burn-dialog.c:256
 #, c-format
 msgid "%s (%i%% Done)"
 msgstr "%s (%i%% 완료)"
 
-#: ../libburner-burn/burner-burn-dialog.c:241
-#: ../libburner-burn/burner-burn-dialog.c:1161
+#: ../libburner-burn/burner-burn-dialog.c:278
+#: ../libburner-burn/burner-burn-dialog.c:1234
 msgid "Creating Image"
 msgstr "이미지 만들기"
 
-#: ../libburner-burn/burner-burn-dialog.c:246
-#: ../libburner-burn/burner-burn-dialog.c:1170
+#: ../libburner-burn/burner-burn-dialog.c:283
+#: ../libburner-burn/burner-burn-dialog.c:1243
 msgid "Burning DVD"
 msgstr "DVD 굽는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:250
-#: ../libburner-burn/burner-burn-dialog.c:1166
+#: ../libburner-burn/burner-burn-dialog.c:287
+#: ../libburner-burn/burner-burn-dialog.c:1239
 msgid "Copying DVD"
 msgstr "DVD 복사하는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:256
-#: ../libburner-burn/burner-burn-dialog.c:1180
+#: ../libburner-burn/burner-burn-dialog.c:293
+#: ../libburner-burn/burner-burn-dialog.c:1253
 msgid "Burning CD"
 msgstr "CD 굽는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:260
-#: ../libburner-burn/burner-burn-dialog.c:381
-#: ../libburner-burn/burner-burn-dialog.c:1176
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying CD"));
+#: ../libburner-burn/burner-burn-dialog.c:297
+#: ../libburner-burn/burner-burn-dialog.c:435
+#: ../libburner-burn/burner-burn-dialog.c:1249
+#, c-format
 msgid "Copying CD"
 msgstr "CD 복사하는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:266
-#: ../libburner-burn/burner-burn-dialog.c:1190
+#: ../libburner-burn/burner-burn-dialog.c:303
+#: ../libburner-burn/burner-burn-dialog.c:1263
 msgid "Burning Disc"
 msgstr "디스크 굽는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:270
-#: ../libburner-burn/burner-burn-dialog.c:1186
+#: ../libburner-burn/burner-burn-dialog.c:307
+#: ../libburner-burn/burner-burn-dialog.c:1259
 msgid "Copying Disc"
 msgstr "디스크 복사하는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:300
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Creating image"));
+#: ../libburner-burn/burner-burn-dialog.c:339
 #: ../libburner-burn/burn-basics.c:78
+#, c-format
 msgid "Creating image"
 msgstr "이미지 만들기"
 
-#: ../libburner-burn/burner-burn-dialog.c:306
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:346
+#, c-format
 msgid "Simulation of video DVD burning"
 msgstr "비디오 DVD 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:308
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:349
+#, c-format
 msgid "Burning video DVD"
 msgstr "비디오 DVD 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:316
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:358
+#, c-format
 msgid "Simulation of data DVD burning"
 msgstr "데이터 DVD 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:318
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:361
+#, c-format
 msgid "Burning data DVD"
 msgstr "데이터 DVD 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:326
-msgid "Simulation of image to DVD burning"
-msgstr "이미지에서 DVD 굽기 가상"
-
-#: ../libburner-burn/burner-burn-dialog.c:328
-msgid "Burning image to DVD"
-msgstr "이미지에서 DVD 굽기"
-
-#: ../libburner-burn/burner-burn-dialog.c:336
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to DVD burning"));
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:370
+#: ../libburner-burn/burner-burn-dialog.c:381
+#, c-format
 msgid "Simulation of data DVD copying"
 msgstr "데이터 DVD 복사 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:338
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:373
+#, c-format
+msgid "Burning image to DVD"
+msgstr "이미지에서 DVD 굽기"
+
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:384
+#, c-format
 msgid "Copying data DVD"
 msgstr "데이터 DVD 복사하는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:349
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of (S)VCD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:396
+#, c-format
 msgid "Simulation of (S)VCD burning"
 msgstr "VCD/SVCD 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:351
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning (S)VCD"));
+#: ../libburner-burn/burner-burn-dialog.c:399
+#, c-format
 msgid "Burning (S)VCD"
 msgstr "VCD/SVCD 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:359
-#: ../libburner-burn/burner-burn-dialog.c:412
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of audio CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:408
+#: ../libburner-burn/burner-burn-dialog.c:471
+#, c-format
 msgid "Simulation of audio CD burning"
 msgstr "오디오 CD 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:361
-#: ../libburner-burn/burner-burn-dialog.c:414
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning audio CD"));
+#: ../libburner-burn/burner-burn-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:475
+#, c-format
 msgid "Burning audio CD"
 msgstr "오디오 CD 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:369
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:420
+#, c-format
 msgid "Simulation of data CD burning"
 msgstr "데이터 CD 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:371
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data CD"));
+#: ../libburner-burn/burner-burn-dialog.c:423
+#, c-format
 msgid "Burning data CD"
 msgstr "데이터 CD 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:379
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of CD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:432
+#, c-format
 msgid "Simulation of CD copying"
 msgstr "CD 복사 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:389
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:444
+#, c-format
 msgid "Simulation of image to CD burning"
 msgstr "이미지를 CD에 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:391
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to CD"));
+#: ../libburner-burn/burner-burn-dialog.c:447
+#, c-format
 msgid "Burning image to CD"
 msgstr "이미지를 CD에 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:402
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:458
+#, c-format
 msgid "Simulation of video disc burning"
 msgstr "비디오 디스크 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:404
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video disc"));
+#: ../libburner-burn/burner-burn-dialog.c:461
+#, c-format
 msgid "Burning video disc"
 msgstr "비디오 디스크 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:422
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:484
+#, c-format
 msgid "Simulation of data disc burning"
 msgstr "데이터 디스크 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:424
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data disc"));
+#: ../libburner-burn/burner-burn-dialog.c:487
+#, c-format
 msgid "Burning data disc"
 msgstr "데이터 디스크 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:432
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of disc copying"));
+#: ../libburner-burn/burner-burn-dialog.c:496
+#, c-format
 msgid "Simulation of disc copying"
 msgstr "디스크 복사 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:434
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying disc"));
+#: ../libburner-burn/burner-burn-dialog.c:499
 #: ../libburner-burn/burn-basics.c:82
+#, c-format
 msgid "Copying disc"
 msgstr "디스크 복사하는 중"
 
-#: ../libburner-burn/burner-burn-dialog.c:442
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:508
+#, c-format
 msgid "Simulation of image to disc burning"
 msgstr "이미지를 디스크로 굽기 가상"
 
-#: ../libburner-burn/burner-burn-dialog.c:444
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to disc"));
+#: ../libburner-burn/burner-burn-dialog.c:511
+#, c-format
 msgid "Burning image to disc"
 msgstr "이미지를 디스크로 굽기"
 
-#: ../libburner-burn/burner-burn-dialog.c:549
+#: ../libburner-burn/burner-burn-dialog.c:617
 msgid "Please replace the disc with a rewritable disc holding data."
 msgstr "디스크를 데이터가 들어 있는 다시 기록 가능한 디스크로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:551
+#: ../libburner-burn/burner-burn-dialog.c:619
 msgid "Please replace the disc with a disc holding data."
 msgstr "디스크를 데이터가 들어 있는 디스크로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:555
+#: ../libburner-burn/burner-burn-dialog.c:623
 msgid "Please insert a rewritable disc holding data."
 msgstr "다시 기록 가능한 디스크를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:557
-#: ../libburner-burn/burner-burn-options.c:501
+#: ../libburner-burn/burner-burn-dialog.c:625
+#: ../libburner-burn/burner-burn-options.c:503
 msgid "Please insert a disc holding data."
 msgstr "데이터가 들어 있는 디스크를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:572
+#: ../libburner-burn/burner-burn-dialog.c:640
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD with at least %i MiB of free "
 "space."
 msgstr "디스크를 최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 CD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:575
+#: ../libburner-burn/burner-burn-dialog.c:643
 msgid "Please replace the disc with a writable CD."
 msgstr "디스크를 쓰기 가능한 CD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:579
+#: ../libburner-burn/burner-burn-dialog.c:647
 #, c-format
 msgid "Please insert a writable CD with at least %i MiB of free space."
 msgstr "최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 CD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:582
+#: ../libburner-burn/burner-burn-dialog.c:650
 msgid "Please insert a writable CD."
 msgstr "쓰기 가능한 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:588
+#: ../libburner-burn/burner-burn-dialog.c:656
 #, c-format
 msgid ""
 "Please replace the disc with a writable DVD with at least %i MiB of free "
 "space."
 msgstr "디스크를 최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 DVD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:591
+#: ../libburner-burn/burner-burn-dialog.c:659
 msgid "Please replace the disc with a writable DVD."
 msgstr "디스크를 쓰기 가능한 DVD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:595
+#: ../libburner-burn/burner-burn-dialog.c:663
 #, c-format
 msgid "Please insert a writable DVD with at least %i MiB of free space."
 msgstr "최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:598
+#: ../libburner-burn/burner-burn-dialog.c:666
 msgid "Please insert a writable DVD."
 msgstr "쓰기 가능한 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:603
+#: ../libburner-burn/burner-burn-dialog.c:671
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD or DVD with at least %i MiB of "
@@ -680,23 +756,23 @@ msgid ""
 msgstr ""
 "디스크를 최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 CD나 DVD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:606
+#: ../libburner-burn/burner-burn-dialog.c:674
 msgid "Please replace the disc with a writable CD or DVD."
 msgstr "디스크를 쓰기 가능한 CD나 DVD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:610
+#: ../libburner-burn/burner-burn-dialog.c:678
 #, c-format
 msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
 msgstr "최소 %iMiB만큼 빈 공간이 남은 쓰기 가능한 CD나 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:613
-#: ../libburner-burn/burner-burn-dialog.c:2171
-#: ../libburner-burn/burner-burn-dialog.c:2185
-#: ../libburner-burn/burner-burn-options.c:457 ../src/burner-project.c:995
+#: ../libburner-burn/burner-burn-dialog.c:681
+#: ../libburner-burn/burner-burn-dialog.c:2302
+#: ../libburner-burn/burner-burn-dialog.c:2316
+#: ../libburner-burn/burner-burn-options.c:459 ../src/burner-project.c:997
 msgid "Please insert a writable CD or DVD."
 msgstr "쓰기 가능한 CD나 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:640
+#: ../libburner-burn/burner-burn-dialog.c:708
 msgid ""
 "An image of the disc has been created on your hard drive.\n"
 "Burning will begin as soon as a writable disc is inserted."
@@ -704,70 +780,70 @@ msgstr ""
 "디스크 이미지를 하드 디스크에 만들었습니다.\n"
 "쓰기 가능한 디스크를 넣으면 굽기를 시작합니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:645
+#: ../libburner-burn/burner-burn-dialog.c:713
 msgid "A data integrity test will begin as soon as the disc is inserted."
 msgstr "디스크를 넣으면 데이터가 올바른지 검사하기 시작합니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:646
+#: ../libburner-burn/burner-burn-dialog.c:714
 msgid "Please re-insert the disc in the CD/DVD burner."
 msgstr "CD/DVD를 구울 드라이브에 디스크를 다시 넣으십시오."
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:650
+#: ../libburner-burn/burner-burn-dialog.c:718
 #, c-format
 msgid "\"%s\" is busy."
 msgstr "\"%s\" 드라이브가 사용 중입니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:654
+#: ../libburner-burn/burner-burn-dialog.c:722
 #, c-format
 msgid "There is no disc in \"%s\"."
 msgstr "\"%s\" 드라이브에 디스크가 없습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:658
+#: ../libburner-burn/burner-burn-dialog.c:726
 #, c-format
 msgid "The disc in \"%s\" is not supported."
 msgstr "\"%s\" 드라이브의 디스크를 지원하지 않습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:662
+#: ../libburner-burn/burner-burn-dialog.c:730
 #, c-format
 msgid "The disc in \"%s\" is not rewritable."
 msgstr "\"%s\" 드라이브의 디스크는 다시 기록할 수 없습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:666
+#: ../libburner-burn/burner-burn-dialog.c:734
 #, c-format
 msgid "The disc in \"%s\" is empty."
 msgstr "\"%s\" 드라이브의 디스크는 비었습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:670
+#: ../libburner-burn/burner-burn-dialog.c:738
 #, c-format
 msgid "The disc in \"%s\" is not writable."
 msgstr "\"%s\" 드라이브의 디스크는 기록할 수 없습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:674
+#: ../libburner-burn/burner-burn-dialog.c:742
 #, c-format
 msgid "Not enough space available on the disc in \"%s\"."
 msgstr "\"%s\" 드라이브의 디스크에 남은 공간이 충분하지 않습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:682
+#: ../libburner-burn/burner-burn-dialog.c:750
 #, c-format
 msgid "The disc in \"%s\" needs to be reloaded."
 msgstr "\"%s\" 드라이브의 디스크를 다시 읽어들여야 합니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:683
+#: ../libburner-burn/burner-burn-dialog.c:751
 msgid "Please eject the disc and reload it."
 msgstr "디스크를 빼고 다시 읽어들이십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:728
-#: ../libburner-burn/burner-sum-dialog.c:333
+#: ../libburner-burn/burner-burn-dialog.c:796
+#: ../libburner-burn/burner-sum-dialog.c:339
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr "임시 파일을 사용하도록 지정한 위치에 파일을 만들 수 없습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:729
+#: ../libburner-burn/burner-burn-dialog.c:797
 msgid "The image could not be created at the specified location"
 msgstr "지정한 위치에 이미지를 만들 수 없습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:730
+#: ../libburner-burn/burner-burn-dialog.c:798
 msgid ""
 "Do you want to specify another location for this session or retry with the "
 "current location?"
@@ -775,53 +851,53 @@ msgstr ""
 "이 세션에 대해 다른 위치를 지정하시겠습니까? 아니면 현재 위치로 다시 시도하시"
 "겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:742
+#: ../libburner-burn/burner-burn-dialog.c:810
 msgid "You may want to free some space on the disc and retry"
 msgstr "디스크에 공간을 좀 더 확보한 다음 다시 시도할 수도 있습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:749
-#: ../libburner-burn/burner-drive-properties.c:244
-#: ../libburner-burn/burner-drive-properties.c:282
-#: ../libburner-burn/burner-drive-properties.c:334
+#: ../libburner-burn/burner-burn-dialog.c:817
+#: ../libburner-burn/burner-drive-properties.c:247
+#: ../libburner-burn/burner-drive-properties.c:287
+#: ../libburner-burn/burner-drive-properties.c:341
 msgid "_Keep Current Location"
 msgstr "현재 위치 유지(_K)"
 
-#: ../libburner-burn/burner-burn-dialog.c:751
-#: ../libburner-burn/burner-drive-properties.c:245
-#: ../libburner-burn/burner-drive-properties.c:283
-#: ../libburner-burn/burner-drive-properties.c:335
+#: ../libburner-burn/burner-burn-dialog.c:819
+#: ../libburner-burn/burner-drive-properties.c:248
+#: ../libburner-burn/burner-drive-properties.c:288
+#: ../libburner-burn/burner-drive-properties.c:342
 msgid "_Change Location"
 msgstr "위치 바꾸기(_C)"
 
-#: ../libburner-burn/burner-burn-dialog.c:773
+#: ../libburner-burn/burner-burn-dialog.c:842
 #: ../libburner-burn/burner-image-properties.c:459
 msgid "Location for Image File"
 msgstr "이미지 파일의 위치"
 
-#: ../libburner-burn/burner-burn-dialog.c:781
-#: ../libburner-burn/burner-drive-properties.c:366
+#: ../libburner-burn/burner-burn-dialog.c:850
+#: ../libburner-burn/burner-drive-properties.c:374
 msgid "Location for Temporary Files"
 msgstr "임시 파일의 위치"
 
-#: ../libburner-burn/burner-burn-dialog.c:889
-#: ../libburner-burn/burner-burn-dialog.c:1135
+#: ../libburner-burn/burner-burn-dialog.c:959
+#: ../libburner-burn/burner-burn-dialog.c:1208
 msgid "_Replace Disc"
 msgstr "디스크 바꾸기(_R)"
 
-#: ../libburner-burn/burner-burn-dialog.c:930
+#: ../libburner-burn/burner-burn-dialog.c:1001
 msgid "Do you really want to blank the current disc?"
 msgstr "정말로 현재 디스크를 비우시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:931
+#: ../libburner-burn/burner-burn-dialog.c:1002
 msgid "The disc in the drive holds data."
 msgstr "드라이브에 들어 있는 디스크에 데이터가 들어 있습니다."
 
 #. Translators: Blank is a verb here
-#: ../libburner-burn/burner-burn-dialog.c:933
+#: ../libburner-burn/burner-burn-dialog.c:1004
 msgid "_Blank Disc"
 msgstr "디스크 비우기(_B)"
 
-#: ../libburner-burn/burner-burn-dialog.c:947
+#: ../libburner-burn/burner-burn-dialog.c:1018
 msgid ""
 "If you import them you will be able to see and use them once the current "
 "selection of files is burned."
@@ -829,25 +905,25 @@ msgstr ""
 "가져오면 현재 파일 선택한 사항을 구운 다음에 가져온 파일을 사용할 수 있습니"
 "다."
 
-#: ../libburner-burn/burner-burn-dialog.c:948
+#: ../libburner-burn/burner-burn-dialog.c:1019
 msgid "If you don't, they will be invisible (though still readable)."
 msgstr "가져오지 않으면 보이지 않습니다. (하지만 읽을 수 있습니다.)"
 
-#: ../libburner-burn/burner-burn-dialog.c:951
+#: ../libburner-burn/burner-burn-dialog.c:1022
 msgid ""
 "There are files already burned on this disc. Would you like to import them?"
 msgstr ""
 "이 디스크에 이미 구운 파일이 들어 있습니다. 이 파일을 가져오시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:953
+#: ../libburner-burn/burner-burn-dialog.c:1024
 msgid "_Import"
 msgstr "가져오기(_I)"
 
-#: ../libburner-burn/burner-burn-dialog.c:954
+#: ../libburner-burn/burner-burn-dialog.c:1025
 msgid "Only _Append"
 msgstr "추가만 하기(_A)"
 
-#: ../libburner-burn/burner-burn-dialog.c:967
+#: ../libburner-burn/burner-burn-dialog.c:1038
 msgid ""
 "CD-RW audio discs may not play correctly in older CD players and CD-Text "
 "won't be written."
@@ -855,151 +931,150 @@ msgstr ""
 "CD-RW 오디오 디스크는 오래된 CD 플레이어나에서 들을 수 없을 수 있으므로 CD-"
 "Text를 기록하지 않습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:968
-#: ../libburner-burn/burner-burn-dialog.c:990
+#: ../libburner-burn/burner-burn-dialog.c:1039
+#: ../libburner-burn/burner-burn-dialog.c:1061
 msgid "Do you want to continue anyway?"
 msgstr "그래도 계속 하시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:971
+#: ../libburner-burn/burner-burn-dialog.c:1042
 msgid "Appending audio tracks to a CD is not advised."
 msgstr "CD에 오디오 트랙을 추가하는 일은 권하지 않습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:973
-#: ../libburner-burn/burner-burn-dialog.c:995
-#: ../libburner-burn/burner-tool-dialog.c:422 ../src/burner-data-disc.c:572
+#: ../libburner-burn/burner-burn-dialog.c:1044
+#: ../libburner-burn/burner-burn-dialog.c:1066
+#: ../libburner-burn/burner-tool-dialog.c:427 ../src/burner-data-disc.c:575
 msgid "_Continue"
 msgstr "계속(_C)"
 
-#: ../libburner-burn/burner-burn-dialog.c:989
+#: ../libburner-burn/burner-burn-dialog.c:1060
 msgid "CD-RW audio discs may not play correctly in older CD players."
 msgstr ""
 "오래된 CD 플레이어에서는 CD-RW 오디오 디스크가 동작하지 않을 수도 있습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:993
+#: ../libburner-burn/burner-burn-dialog.c:1064
 msgid "Recording audio tracks on a rewritable disc is not advised."
 msgstr "다시 기록 가능한 디스크에 오디오 트랙을 기록하는 일은 권하지 않습니다."
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:1037
+#: ../libburner-burn/burner-burn-dialog.c:1108
 #, c-format
 msgid "Please eject the disc from \"%s\" manually."
 msgstr "디스크를 \"%s\"에서 수동으로 꺼내십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:1046
+#: ../libburner-burn/burner-burn-dialog.c:1117
 msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
 msgstr ""
 "현재 작업을 계속하려면 디스크를 제거해야 하지만 디스크를 꺼낼 수 없습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1133
+#: ../libburner-burn/burner-burn-dialog.c:1206
 msgid "Do you want to replace the disc and continue?"
 msgstr "디스크를 교체하고 계속 하시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1134
+#: ../libburner-burn/burner-burn-dialog.c:1207
 msgid "The currently inserted disc could not be blanked."
 msgstr "현재 들어 있는 디스크는 비울 수 없습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1143
+#: ../libburner-burn/burner-burn-dialog.c:1216
 msgid "Do you want to continue with full Windows compatibility disabled?"
 msgstr "윈도우 호환성을 끄고 계속 하시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:1144
-#: ../libburner-burn/burner-status-dialog.c:340
-#: ../src/burner-data-disc.c:734
+#: ../libburner-burn/burner-burn-dialog.c:1217
+#: ../libburner-burn/burner-status-dialog.c:347 ../src/burner-data-disc.c:738
 msgid ""
 "Some files don't have a suitable name for a fully Windows-compatible CD."
 msgstr "일부 파일의 이름이 윈도우 호환 CD에 적합한 파일 이름이 아닙니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1145
+#: ../libburner-burn/burner-burn-dialog.c:1218
 msgid "C_ontinue"
 msgstr "계속(_O)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1365
-#: ../libburner-burn/burner-burn-dialog.c:1386
+#: ../libburner-burn/burner-burn-dialog.c:1456
+#: ../libburner-burn/burner-burn-dialog.c:1477
 msgid "The simulation was successful."
 msgstr "가상 실험이 성공했습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1368
+#: ../libburner-burn/burner-burn-dialog.c:1459
 msgid "Real disc burning will take place in 10 seconds."
 msgstr "실제 디스크 굽기가 10초 후에 시작합니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1371
+#: ../libburner-burn/burner-burn-dialog.c:1462
 msgid "Burn _Now"
 msgstr "지금 굽기(_N)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1660
+#: ../libburner-burn/burner-burn-dialog.c:1783
 msgid "Save Current Session"
 msgstr "현재 세션 저장"
 
-#: ../libburner-burn/burner-burn-dialog.c:1735
+#: ../libburner-burn/burner-burn-dialog.c:1860
 msgid "An unknown error occurred."
 msgstr "알 수 없는 오류가 발생했습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1743
-#: ../libburner-burn/burner-burn-dialog.c:1761 ../src/burner-app.c:620
+#: ../libburner-burn/burner-burn-dialog.c:1868
+#: ../libburner-burn/burner-burn-dialog.c:1886 ../src/burner-app.c:664
 msgid "Error while burning."
 msgstr "굽는 중 오류가 발생했습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1751
+#: ../libburner-burn/burner-burn-dialog.c:1876
 msgid "_Save Log"
 msgstr "기록 저장(_S)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1786
+#: ../libburner-burn/burner-burn-dialog.c:1912
 msgid "Video DVD successfully burned"
 msgstr "비디오 DVD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1788
+#: ../libburner-burn/burner-burn-dialog.c:1914
 msgid "(S)VCD successfully burned"
 msgstr "(S)VCD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1791
+#: ../libburner-burn/burner-burn-dialog.c:1917
 msgid "Audio CD successfully burned"
 msgstr "오디오 CD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1793
-#: ../libburner-burn/burner-burn-dialog.c:1824
+#: ../libburner-burn/burner-burn-dialog.c:1919
+#: ../libburner-burn/burner-burn-dialog.c:1950
 msgid "Image successfully created"
 msgstr "이미지를 성공적으로 만들었습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1798
+#: ../libburner-burn/burner-burn-dialog.c:1924
 msgid "DVD successfully copied"
 msgstr "DVD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1800
+#: ../libburner-burn/burner-burn-dialog.c:1926
 msgid "CD successfully copied"
 msgstr "CD를 성공적으로 복사했습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1804
+#: ../libburner-burn/burner-burn-dialog.c:1930
 msgid "Image of DVD successfully created"
 msgstr "DVD 이미지를 성공적으로 만들었습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1806
+#: ../libburner-burn/burner-burn-dialog.c:1932
 msgid "Image of CD successfully created"
 msgstr "CD 이미지를 성공적으로 만들었습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1812
+#: ../libburner-burn/burner-burn-dialog.c:1938
 msgid "Image successfully burned to DVD"
 msgstr "이미지를 성공적으로 DVD에 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1814
+#: ../libburner-burn/burner-burn-dialog.c:1940
 msgid "Image successfully burned to CD"
 msgstr "이미지를 성공적으로 CD에 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1820
+#: ../libburner-burn/burner-burn-dialog.c:1946
 msgid "Data DVD successfully burned"
 msgstr "데이터 DVD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1822
+#: ../libburner-burn/burner-burn-dialog.c:1948
 msgid "Data CD successfully burned"
 msgstr "데이터 CD를 성공적으로 구웠습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:1881
+#: ../libburner-burn/burner-burn-dialog.c:2007
 #, c-format
 msgid "Copy #%i has been burned successfully."
 msgstr "%i번 복사물을 성공적으로 구웠습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:1889
+#: ../libburner-burn/burner-burn-dialog.c:2015
 msgid ""
 "Another copy will start as soon as you insert a new writable disc. If you do "
 "not want to burn another copy, press \"Cancel\"."
@@ -1007,174 +1082,172 @@ msgstr ""
 "쓰기 가능한 새 디스크를 넣으면 바로 복사물 만들기를 시작합니다. 복사물을 그"
 "만 만드려면 \"취소\"를 누르십시오."
 
-#: ../libburner-burn/burner-burn-dialog.c:1963
-msgid "Make _More Copies"
-msgstr "복사물 더 만들기(_M)"
-
-#: ../libburner-burn/burner-burn-dialog.c:1972
+#: ../libburner-burn/burner-burn-dialog.c:2101
 msgid "Create Co_ver"
 msgstr "표지 만들기(_V)"
 
-#: ../libburner-burn/burner-burn-dialog.c:2134
+#: ../libburner-burn/burner-burn-dialog.c:2265
 msgid "There are some files left to burn"
 msgstr "구울 파일이 더 있습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:2141
+#: ../libburner-burn/burner-burn-dialog.c:2272
 msgid "There are some more videos left to burn"
 msgstr "구울 비디오가 더 있습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:2145
+#: ../libburner-burn/burner-burn-dialog.c:2276
 msgid "There are some more songs left to burn"
 msgstr "구울 노래가 더 있습니다"
 
-#: ../libburner-burn/burner-burn-dialog.c:2451
-#: ../libburner-burn/burner-tool-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:2583
+#: ../libburner-burn/burner-tool-dialog.c:414
 msgid "Do you really want to quit?"
 msgstr "정말로 끝내시겠습니까?"
 
-#: ../libburner-burn/burner-burn-dialog.c:2455
-#: ../libburner-burn/burner-tool-dialog.c:417
+#: ../libburner-burn/burner-burn-dialog.c:2587
+#: ../libburner-burn/burner-tool-dialog.c:422
 msgid "Interrupting the process may make disc unusable."
 msgstr "이 작업을 중단하면 디스크를 사용할 수 없게 될 수도 있습니다."
 
-#: ../libburner-burn/burner-burn-dialog.c:2458
+#: ../libburner-burn/burner-burn-dialog.c:2590
 msgid "C_ontinue Burning"
 msgstr "굽기 계속(_O)"
 
-#: ../libburner-burn/burner-burn-dialog.c:2465
+#: ../libburner-burn/burner-burn-dialog.c:2597
 msgid "_Cancel Burning"
 msgstr "굽기 취소(_C)"
 
-#: ../libburner-burn/burner-burn-options.c:228 ../src/burner-project.c:1020
+#: ../libburner-burn/burner-burn-options.c:230 ../src/burner-project.c:1022
 msgid ""
 "Please insert a writable CD or DVD if you don't want to write to an image "
 "file."
 msgstr "쓰기 가능한 CD나 DVD를(이미지 파일에 쓰는 경우가 아니라면) 넣으십시오."
 
-#: ../libburner-burn/burner-burn-options.c:302 ../src/burner-project.c:1595
+#: ../libburner-burn/burner-burn-options.c:304 ../src/burner-project.c:1652
 msgid "Create _Image"
 msgstr "이미지 만들기(_I)"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:307
+#: ../libburner-burn/burner-burn-options.c:309
 msgid "_Copy"
 msgstr "복사(_C)"
 
-#: ../libburner-burn/burner-burn-options.c:310
+#: ../libburner-burn/burner-burn-options.c:312
 msgid "Make _Several Copies"
 msgstr "여러 복사물 만들기(_S)"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:314 ../src/burner-project.c:1524
+#. gtk_dialog_add_button (GTK_DIALOG (dialog),
+#. _("Burn _Several Copies"),
+#. GTK_RESPONSE_ACCEPT);
+#: ../libburner-burn/burner-burn-options.c:316 ../src/burner-project.c:1580
 msgid "_Burn"
 msgstr "굽기(_B)"
 
-#: ../libburner-burn/burner-burn-options.c:317 ../src/burner-project.c:1521
+#: ../libburner-burn/burner-burn-options.c:319
 msgid "Burn _Several Copies"
 msgstr "여러 복사물 굽기(_S)"
 
-#: ../libburner-burn/burner-burn-options.c:433 ../src/burner-project.c:949
+#: ../libburner-burn/burner-burn-options.c:435 ../src/burner-project.c:951
 msgid "Would you like to burn the selection of files across several media?"
 msgstr "선택한 파일을 여러 미디어에 걸쳐서 구우시겠습니까?"
 
-#: ../libburner-burn/burner-burn-options.c:434
-#: ../libburner-burn/burner-burn-options.c:451
+#: ../libburner-burn/burner-burn-options.c:436
+#: ../libburner-burn/burner-burn-options.c:453
 msgid "The data size is too large for the disc even with the overburn option."
 msgstr "데이터 크기가 디스크 용량보다(오버버닝 옵션을 사용하더라도) 큽니다."
 
-#: ../libburner-burn/burner-burn-options.c:439 ../src/burner-project.c:954
+#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
 msgid "_Burn Several Discs"
 msgstr "여러 디스크 굽기(_B)"
 
-#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
+#: ../libburner-burn/burner-burn-options.c:443 ../src/burner-project.c:958
 msgid "Burn the selection of files across several media"
 msgstr "선택한 파일을 여러 미디어에 걸쳐서 굽습니다"
 
-#: ../libburner-burn/burner-burn-options.c:450 ../src/burner-project.c:965
+#: ../libburner-burn/burner-burn-options.c:452 ../src/burner-project.c:967
 msgid "Please choose another CD or DVD or insert a new one."
 msgstr "다른 CD나 DVD를 선택하거나 새 CD나 DVD를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-options.c:464 ../src/burner-project.c:1010
+#: ../libburner-burn/burner-burn-options.c:466 ../src/burner-project.c:1012
 msgid "No track information (artist, title, ...) will be written to the disc."
 msgstr "트랙 정보를(아티스트, 제목, ...) 디스크에 쓰지 않습니다."
 
-#: ../libburner-burn/burner-burn-options.c:465 ../src/burner-project.c:1011
+#: ../libburner-burn/burner-burn-options.c:467 ../src/burner-project.c:1013
 msgid "This is not supported by the current active burning backend."
 msgstr "현재 사용 중인 굽기 백엔드에서는 지원하지 않습니다."
 
-#: ../libburner-burn/burner-burn-options.c:477
+#: ../libburner-burn/burner-burn-options.c:479
 #: ../nautilus/nautilus-burn-extension.c:239
 msgid "Please add files."
 msgstr "파일을 추가하십시오."
 
-#: ../libburner-burn/burner-burn-options.c:478
+#: ../libburner-burn/burner-burn-options.c:480
 #: ../libburner-burn/burner-track-data.c:672
 #: ../libburner-burn/burner-track-data-cfg.c:2432
 #: ../libburner-burn/burner-track-stream.c:402
-#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1277
+#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1283
 #, c-format
 msgid "There are no files to write to disc"
 msgstr "디스크에 쓸 파일이 없습니다"
 
-#: ../libburner-burn/burner-burn-options.c:483
+#: ../libburner-burn/burner-burn-options.c:485
 msgid "Please add songs."
 msgstr "노래를 추가하십시오."
 
-#: ../libburner-burn/burner-burn-options.c:484 ../src/burner-project.c:1268
+#: ../libburner-burn/burner-burn-options.c:486 ../src/burner-project.c:1274
 msgid "There are no songs to write to disc"
 msgstr "디스크에 쓸 노래가 없습니다"
 
-#: ../libburner-burn/burner-burn-options.c:489
+#: ../libburner-burn/burner-burn-options.c:491
 msgid "Please add videos."
 msgstr "영상을 추가하십시오."
 
-#: ../libburner-burn/burner-burn-options.c:490
+#: ../libburner-burn/burner-burn-options.c:492
 msgid "There are no videos to write to disc"
 msgstr "디스크에 쓸 영상이 없습니다"
 
-#: ../libburner-burn/burner-burn-options.c:502
+#: ../libburner-burn/burner-burn-options.c:504
 msgid "There is no inserted disc to copy."
 msgstr "복사할 디스크를 넣지 않았습니다."
 
-#: ../libburner-burn/burner-burn-options.c:511
+#: ../libburner-burn/burner-burn-options.c:513
 msgid "Please select a disc image."
 msgstr "디스크 이미지를 선택하십시오."
 
-#: ../libburner-burn/burner-burn-options.c:512
+#: ../libburner-burn/burner-burn-options.c:514
 msgid "There is no selected disc image."
 msgstr "디스크 이미지를 선택하지 않았습니다."
 
 #. Translators: this is a disc image not a picture
 #. Translators: this is a disc image, not a picture
-#: ../libburner-burn/burner-burn-options.c:522
-#: ../libburner-burn/burner-src-image.c:167
+#: ../libburner-burn/burner-burn-options.c:524
+#: ../libburner-burn/burner-src-image.c:169
 msgctxt "disc"
 msgid "Please select another image."
 msgstr "다른 이미지를 선택하십시오."
 
-#: ../libburner-burn/burner-burn-options.c:523
+#: ../libburner-burn/burner-burn-options.c:525
 msgid "It doesn't appear to be a valid disc image or a valid cue file."
 msgstr "올바른 이미지나 올바른 CUE 파일이 아닌 것 같습니다."
 
-#: ../libburner-burn/burner-burn-options.c:532
+#: ../libburner-burn/burner-burn-options.c:534
 msgid "Please insert a disc that is not copy protected."
 msgstr "복사 방지를 하지 않은 디스크를 넣으십시오."
 
-#: ../libburner-burn/burner-burn-options.c:533
-#: ../libburner-burn/burner-burn-options.c:1235
-#: ../src/burner-project.c:1445
+#: ../libburner-burn/burner-burn-options.c:535
+#: ../libburner-burn/burner-burn-options.c:1309 ../src/burner-project.c:1452
 msgid "All required applications and libraries are not installed."
 msgstr "필요한 프로그램과 라이브러리 중 설치되지 않은 사항이 있습니다."
 
-#: ../libburner-burn/burner-burn-options.c:540 ../src/burner-project.c:1003
+#: ../libburner-burn/burner-burn-options.c:542 ../src/burner-project.c:1005
 msgid "Please replace the disc with a supported CD or DVD."
 msgstr "디스크를 지원하는 CD나 DVD로 바꾸십시오."
 
-#: ../libburner-burn/burner-burn-options.c:549 ../src/burner-project.c:976
+#: ../libburner-burn/burner-burn-options.c:551 ../src/burner-project.c:978
 msgid "Would you like to burn beyond the disc's reported capacity?"
 msgstr "디스크 정보에 들어 있는 용량보다 더 크게 구우시겠습니까?"
 
-#: ../libburner-burn/burner-burn-options.c:550
+#: ../libburner-burn/burner-burn-options.c:552
 msgid ""
 "The data size is too large for the disc and you must remove files from the "
 "selection otherwise.\n"
@@ -1189,20 +1262,20 @@ msgstr ""
 "다.\n"
 "주의: 이 옵션을 사용하면 실패할 수도 있습니다."
 
-#: ../libburner-burn/burner-burn-options.c:557 ../src/burner-project.c:983
+#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
 msgid "_Overburn"
 msgstr "오버버닝(_O)"
 
-#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
+#: ../libburner-burn/burner-burn-options.c:561 ../src/burner-project.c:987
 msgid "Burn beyond the disc's reported capacity"
 msgstr "디스크 정보에 들어 있는 용량보다 크게 굽습니다"
 
-#: ../libburner-burn/burner-burn-options.c:569
+#: ../libburner-burn/burner-burn-options.c:571
 msgid ""
 "The drive that holds the source disc will also be the one used to record."
 msgstr "원본 디스크가 들어 있는 드라이브가 곧 기록할 디스크입니다."
 
-#: ../libburner-burn/burner-burn-options.c:570
+#: ../libburner-burn/burner-burn-options.c:572
 msgid ""
 "A new writable disc will be required once the currently loaded one has been "
 "copied."
@@ -1210,22 +1283,32 @@ msgstr ""
 "현재 읽어들인 디스크를 일단 복사한 다음에는 쓰기 가능한 새 디스크가 필요합니"
 "다."
 
-#: ../libburner-burn/burner-burn-options.c:657
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:662
+#: ../libburner-burn/burner-burn-options.c:966
+msgid "Image Burning Setup"
+msgstr "이미지 굽기 준비"
+
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+#: ../libburner-burn/burner-burn-options.c:727
+#, c-format
 msgid "Select a disc to write to"
 msgstr "기록할 디스크를 선택하십시오"
 
-#: ../libburner-burn/burner-burn-options.c:737
-#: ../libburner-burn/burner-burn-options.c:755
-#: ../libburner-burn/burner-burn-options.c:875
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:808
+#: ../libburner-burn/burner-burn-options.c:826
+#: ../libburner-burn/burner-burn-options.c:948 ../src/burner-project.c:1553
 msgid "Disc Burning Setup"
 msgstr "디스크 굽기 준비"
 
-#: ../libburner-burn/burner-burn-options.c:764 ../src/burner-project.c:1544
+#: ../libburner-burn/burner-burn-options.c:835 ../src/burner-project.c:1600
 msgid "Video Options"
 msgstr "비디오 옵션"
 
-#: ../libburner-burn/burner-burn-options.c:795
-#: ../src/burner-data-disc.c:613
+#: ../libburner-burn/burner-burn-options.c:866 ../src/burner-data-disc.c:616
 msgid ""
 "Do you want to create a disc from the contents of the image or with the "
 "image file inside?"
@@ -1234,40 +1317,39 @@ msgstr ""
 "스크를 만드시겠습니까?"
 
 #. Translators: %s is the name of the image
-#: ../libburner-burn/burner-burn-options.c:804
+#: ../libburner-burn/burner-burn-options.c:876
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
 "contents can be burned."
-msgstr "선택한 파일이 한 개(\"%s\") 뿐입니다. 디스크 이미지 파일이므로 그 내용을 구울 수 있습니다."
+msgstr ""
+"선택한 파일이 한 개(\"%s\") 뿐입니다. 디스크 이미지 파일이므로 그 내용을 구"
+"울 수 있습니다."
 
-#: ../libburner-burn/burner-burn-options.c:809
+#: ../libburner-burn/burner-burn-options.c:881
 msgid "Burn as _File"
 msgstr "파일로 굽기(_F)"
 
-#: ../libburner-burn/burner-burn-options.c:811
+#: ../libburner-burn/burner-burn-options.c:883
 msgid "Burn _Contents…"
 msgstr "내용 굽기(_C)…"
 
-#: ../libburner-burn/burner-burn-options.c:893
-msgid "Image Burning Setup"
-msgstr "이미지 굽기 준비"
-
 #. pack everything
-#: ../libburner-burn/burner-burn-options.c:901
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+#: ../libburner-burn/burner-burn-options.c:975
+#, c-format
 msgid "Select a disc image to write"
 msgstr "쓸 디스크 이미지를 선택하십시오"
 
-#: ../libburner-burn/burner-burn-options.c:921
+#: ../libburner-burn/burner-burn-options.c:995
 msgid "Copy CD/DVD"
 msgstr "CD/DVD 복사"
 
-#: ../libburner-burn/burner-burn-options.c:927
+#: ../libburner-burn/burner-burn-options.c:1001
 msgid "Select disc to copy"
 msgstr "복사할 디스크를 선택하십시오"
 
-#: ../libburner-burn/burner-burn-options.c:1229
-#: ../src/burner-project.c:1439
+#: ../libburner-burn/burner-burn-options.c:1303 ../src/burner-project.c:1446
 msgid "Please install the following manually and try again:"
 msgstr "다음을 수동으로 설치하고 다시 시도하십시오:"
 
@@ -1290,6 +1372,14 @@ msgstr "알 수 없는 노래"
 #, c-format
 msgid "by %s"
 msgstr "%s"
+
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-customize-title.c:76
+#: ../libburner-utils/burner-misc.c:478
+#, fuzzy
+msgid "Prompt information"
+msgstr "노래 정보"
 
 #: ../libburner-burn/burner-data-vfs.c:218
 #, c-format
@@ -1344,20 +1434,20 @@ msgstr "%s: 빈 공간 %s"
 
 #. Translators: the first %s is the path of the directory where burner
 #. * will store its temporary files; the second one is the size available
-#: ../libburner-burn/burner-drive-properties.c:192
+#: ../libburner-burn/burner-drive-properties.c:194
 #, c-format
 msgid "%s: %s free"
 msgstr "%s: 빈 공간 %s"
 
-#: ../libburner-burn/burner-drive-properties.c:233
-#: ../libburner-burn/burner-drive-properties.c:272
-#: ../libburner-burn/burner-drive-properties.c:324
+#: ../libburner-burn/burner-drive-properties.c:235
+#: ../libburner-burn/burner-drive-properties.c:276
+#: ../libburner-burn/burner-drive-properties.c:330
 msgid "Do you really want to choose this location?"
 msgstr "정말로 이 위치를 선택하시겠습니까?"
 
-#: ../libburner-burn/burner-drive-properties.c:277
-#: ../libburner-burn/burner-session.c:1287
-#: ../libburner-burn/burner-session.c:1362 ../libburner-burn/burn-job.c:490
+#: ../libburner-burn/burner-drive-properties.c:282
+#: ../libburner-burn/burner-session.c:1288
+#: ../libburner-burn/burner-session.c:1363 ../libburner-burn/burn-job.c:490
 #: ../plugins/cdrkit/burn-genisoimage.c:199
 #: ../plugins/cdrtools/burn-mkisofs.c:199
 #: ../plugins/libburnia/burn-libisofs.c:246
@@ -1365,7 +1455,7 @@ msgstr "정말로 이 위치를 선택하시겠습니까?"
 msgid "You do not have the required permission to write at this location"
 msgstr "이 위치에 필요한 쓰기 권한이 없습니다"
 
-#: ../libburner-burn/burner-drive-properties.c:330
+#: ../libburner-burn/burner-drive-properties.c:337
 msgid ""
 "The filesystem on this volume does not support large files (size over 2 "
 "GiB).\n"
@@ -1375,85 +1465,96 @@ msgstr ""
 "미지 파일을 쓸 때 문제가 될 수 있습니다."
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:524
+#: ../libburner-burn/burner-drive-properties.c:533
 #, c-format
 msgid "%.1f× (DVD)"
 msgstr "%.1f× (DVD)"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:528
+#: ../libburner-burn/burner-drive-properties.c:537
 #, c-format
 msgid "%.1f× (CD)"
 msgstr "%.1f× (CD)"
 
 #. Translators %s.1f is the speed used to burn. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:532
+#: ../libburner-burn/burner-drive-properties.c:541
 #, c-format
 msgid "%.1f× (BD)"
 msgstr "%.1f× (BD)"
 
 #. Translators %s.1f is the speed used to burn for every medium
 #. * type. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:537
+#: ../libburner-burn/burner-drive-properties.c:546
 #, c-format
 msgid "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 msgstr "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 
-#: ../libburner-burn/burner-drive-properties.c:575
+#: ../libburner-burn/burner-drive-properties.c:584
 msgid "Impossible to retrieve speeds"
 msgstr "속도를 알아낼 수 없습니다"
 
-#: ../libburner-burn/burner-drive-properties.c:584
+#: ../libburner-burn/burner-drive-properties.c:593
 msgid "Maximum speed"
 msgstr "최대 속도"
 
-#: ../libburner-burn/burner-drive-properties.c:710
+#. string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
+#. gtk_box_pack_start (GTK_BOX (vbox),
+#. burner_utils_pack_properties (string,
+#. priv->speed, NULL),
+#. FALSE, FALSE, 0);
+#: ../libburner-burn/burner-drive-properties.c:725
+#, c-format
 msgid "Burning speed"
 msgstr "굽기 속도"
 
-#: ../libburner-burn/burner-drive-properties.c:723
+#: ../libburner-burn/burner-drive-properties.c:739
 msgid "_Simulate before burning"
 msgstr "굽기 전에 가상 실험(_S)"
 
-#: ../libburner-burn/burner-drive-properties.c:724
+#: ../libburner-burn/burner-drive-properties.c:740
 msgid ""
-"Burner will simulate the burning and, if it is successful, go on with "
-"actual burning after 10 seconds"
+"Burner will simulate the burning and, if it is successful, go on with actual "
+"burning after 10 seconds"
 msgstr ""
 "브라세로는 굽기를 가상으로 실행하고, 성공하면 10초 후에 실제로 굽기를 진행합"
 "니다."
 
-#: ../libburner-burn/burner-drive-properties.c:726
+#: ../libburner-burn/burner-drive-properties.c:742
 msgid "Use burn_proof (decrease the risk of failures)"
 msgstr "Burn-Proof 사용(실패 위험을 줄입니다)(_P)"
 
-#: ../libburner-burn/burner-drive-properties.c:728
+#: ../libburner-burn/burner-drive-properties.c:744
 msgid "Burn the image directly _without saving it to disc"
 msgstr "이미지를 디스크에 저장하지 않고 직접 굽기(_W)"
 
-#: ../libburner-burn/burner-drive-properties.c:730
+#: ../libburner-burn/burner-drive-properties.c:746
 msgid "Leave the disc _open to add other files later"
 msgstr "나중에 다른 파일을 추가할 수 있도록 열어 놓기(_O)"
 
-#: ../libburner-burn/burner-drive-properties.c:731
+#: ../libburner-burn/burner-drive-properties.c:747
 msgid "Allow one to add more data to the disc later"
 msgstr "나중에 데이터를 더 추가할 수 있도록 허용합니다"
 
-#: ../libburner-burn/burner-drive-properties.c:751
-#: ../libburner-burn/burner-tool-dialog.c:284
-#: ../src/burner-multi-song-props.c:308 ../src/burner-song-properties.c:226
+#. string = g_strdup_printf ("<b>%s</b>", _("Options"));
+#. title = g_strdup_printf ("<b>%s</b>", _("Options"));
+#: ../libburner-burn/burner-drive-properties.c:768
+#: ../libburner-burn/burner-tool-dialog.c:287
+#: ../src/burner-multi-song-props.c:310 ../src/burner-song-properties.c:227
+#, c-format
 msgid "Options"
 msgstr "옵션"
 
-#: ../libburner-burn/burner-drive-properties.c:763
+#: ../libburner-burn/burner-drive-properties.c:780
 msgid "Location for _Temporary Files"
 msgstr "임시 파일의 위치(_T)"
 
-#: ../libburner-burn/burner-drive-properties.c:783
+#: ../libburner-burn/burner-drive-properties.c:800
 msgid "Set the directory where to store temporary files"
 msgstr "임시 파일을 저장할 디렉터리를 설정하십시오"
 
-#: ../libburner-burn/burner-drive-properties.c:788
+#. string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+#: ../libburner-burn/burner-drive-properties.c:806
+#, c-format
 msgid "Temporary files"
 msgstr "임시 파일"
 
@@ -1499,33 +1600,32 @@ msgstr "CUE 이미지"
 msgid "Cdrdao image"
 msgstr "CDRDAO 이미지"
 
-#: ../libburner-burn/burner-medium-properties.c:93
-#: ../src/burner-project.c:1503
+#: ../libburner-burn/burner-medium-properties.c:96 ../src/burner-project.c:1522
 #, c-format
 msgid "Properties of %s"
 msgstr "%s의 속성"
 
-#: ../libburner-burn/burner-medium-properties.c:133
+#: ../libburner-burn/burner-medium-properties.c:138
 msgid ""
 "Do you really want to keep the current extension for the disc image name?"
 msgstr "정말로 디스크 이미지의 현재 확장자를 유지하시겠습니까?"
 
-#: ../libburner-burn/burner-medium-properties.c:139
+#: ../libburner-burn/burner-medium-properties.c:145
 msgid ""
 "If you choose to keep it, programs may not be able to recognize the file "
 "type properly."
 msgstr "확장자를 유지하면 다른 프로그램이 파일 형식을 못 알아낼 수도 있습니다."
 
-#: ../libburner-burn/burner-medium-properties.c:142
+#: ../libburner-burn/burner-medium-properties.c:148
 msgid "_Keep Current Extension"
 msgstr "현재 확장자 유지(_K)"
 
-#: ../libburner-burn/burner-medium-properties.c:145
+#: ../libburner-burn/burner-medium-properties.c:151
 msgid "Change _Extension"
 msgstr "확장자 바꾸기(_E)"
 
 # 주의: 툴팁. 문장으로 번역.
-#: ../libburner-burn/burner-medium-properties.c:234
+#: ../libburner-burn/burner-medium-properties.c:242
 msgid "Configure recording options"
 msgstr "녹화 옵션을 설정합니다"
 
@@ -1557,20 +1657,20 @@ msgid "Estimated drive speed:"
 msgstr "드라이브 속도 예상:"
 
 #. Translators: %s is a path
-#: ../libburner-burn/burner-src-image.c:229
+#: ../libburner-burn/burner-src-image.c:231
 #, c-format
 msgid "\"%s\": loading"
 msgstr "\"%s\": 읽어들이는 중"
 
 #. Translators: %s is a path and image refers to a disc image
-#: ../libburner-burn/burner-src-image.c:236
+#: ../libburner-burn/burner-src-image.c:238
 #, c-format
 msgid "\"%s\": unknown disc image type"
 msgstr "\"%s\": 알 수 없는 디스크 이미지 종류"
 
 #. NOTE to translators, the first %s is the path of the image
 #. * file and the second its size.
-#: ../libburner-burn/burner-src-image.c:258
+#: ../libburner-burn/burner-src-image.c:260
 #, c-format
 msgid "\"%s\": %s"
 msgstr "\"%s\": %s"
@@ -1578,48 +1678,46 @@ msgstr "\"%s\": %s"
 #. This is hackish and meant to avoid ellipsization to make the
 #. * label too small.
 #. Translators: this is a disc image
-#: ../libburner-burn/burner-src-image.c:271
-#: ../libburner-burn/burner-src-image.c:554
+#: ../libburner-burn/burner-src-image.c:273
+#: ../libburner-burn/burner-src-image.c:557
 msgid "Click here to select a disc _image"
 msgstr "여기를 눌러 디스크 이미지 선택(_I)"
 
-#: ../libburner-burn/burner-src-image.c:415
+#: ../libburner-burn/burner-src-image.c:417
 msgid "Select Disc Image"
 msgstr "디스크 이미지 선택"
 
-#: ../libburner-burn/burner-src-image.c:444
-#: ../nautilus/nautilus-burn-bar.c:236 ../src/burner-file-chooser.c:350
-#: ../src/burner-project.c:2225 ../src/burner-project-name.c:162
+#: ../libburner-burn/burner-src-image.c:446 ../nautilus/nautilus-burn-bar.c:236
+#: ../src/burner-file-chooser.c:350 ../src/burner-project.c:2285
+#: ../src/burner-project-name.c:164
 msgid "All files"
 msgstr "모든 파일"
 
 #. Translators: this a disc image here
-#: ../libburner-burn/burner-src-image.c:450
+#: ../libburner-burn/burner-src-image.c:452
 msgctxt "disc"
 msgid "Image files"
 msgstr "이미지 파일"
 
-#: ../libburner-burn/burner-src-image.c:467
+#: ../libburner-burn/burner-src-image.c:469
 msgid "Image type:"
 msgstr "이미지 종류:"
 
-#: ../libburner-burn/burner-status-dialog.c:147
+#: ../libburner-burn/burner-status-dialog.c:149
 #, c-format
 msgid "Estimated size: %s"
 msgstr "예상 크기: %s"
 
-#: ../libburner-burn/burner-status-dialog.c:209
-#: ../src/burner-data-disc.c:870
+#: ../libburner-burn/burner-status-dialog.c:211 ../src/burner-data-disc.c:877
 #, c-format
 msgid "Do you really want to add \"%s\" to the selection?"
 msgstr "정말로 \"%s\" 파일을 선택하시겠습니까?"
 
-#: ../libburner-burn/burner-status-dialog.c:228
-#: ../src/burner-data-disc.c:879
+#: ../libburner-burn/burner-status-dialog.c:231 ../src/burner-data-disc.c:886
 msgid ""
 "The children of this directory will have 7 parent directories.\n"
-"Burner can create an image of such a file hierarchy and burn it but the "
-"disc may not be readable on all operating systems.\n"
+"Burner can create an image of such a file hierarchy and burn it but the disc "
+"may not be readable on all operating systems.\n"
 "Note: Such a file hierarchy is known to work on Linux."
 msgstr ""
 "이 디렉터리 아래의 파일은 상위 디렉토리가 모두 7개가 있습니다.\n"
@@ -1627,20 +1725,19 @@ msgstr ""
 "만 그러한 디스크를 읽지 못하는 운영체제도 있습니다.\n"
 "참고로 이러한 파일 구조는 리눅스에서는 동작합니다."
 
-#: ../libburner-burn/burner-status-dialog.c:232
-#: ../libburner-burn/burner-status-dialog.c:294
-#: ../src/burner-data-disc.c:839 ../src/burner-data-disc.c:883
+#: ../libburner-burn/burner-status-dialog.c:235
+#: ../libburner-burn/burner-status-dialog.c:299 ../src/burner-data-disc.c:845
+#: ../src/burner-data-disc.c:890
 msgid "Ne_ver Add Such File"
 msgstr "파일 추가하지 않음(_V)"
 
-#: ../libburner-burn/burner-status-dialog.c:233
-#: ../libburner-burn/burner-status-dialog.c:295
-#: ../src/burner-data-disc.c:840 ../src/burner-data-disc.c:884
+#: ../libburner-burn/burner-status-dialog.c:236
+#: ../libburner-burn/burner-status-dialog.c:300 ../src/burner-data-disc.c:846
+#: ../src/burner-data-disc.c:891
 msgid "Al_ways Add Such File"
 msgstr "항상 파일 추가(_W)"
 
-#: ../libburner-burn/burner-status-dialog.c:271
-#: ../src/burner-data-disc.c:826
+#: ../libburner-burn/burner-status-dialog.c:275 ../src/burner-data-disc.c:832
 #, c-format
 msgid ""
 "Do you really want to add \"%s\" to the selection and use the third version "
@@ -1649,8 +1746,7 @@ msgstr ""
 "정말로 \"%s\" 파일을 선택하시겠습니까? 이 파일을 지원하려면 ISO9660 표준의 버"
 "전 3이 필요합니다."
 
-#: ../libburner-burn/burner-status-dialog.c:290
-#: ../src/burner-data-disc.c:835
+#: ../libburner-burn/burner-status-dialog.c:295 ../src/burner-data-disc.c:841
 msgid ""
 "The size of the file is over 2 GiB. Files larger than 2 GiB are not "
 "supported by the ISO9660 standard in its first and second versions (the most "
@@ -1668,112 +1764,107 @@ msgstr ""
 "서 지원합니다.\n"
 "하지만 맥 오에스 텐은 ISO9660 버전 3으로 만든 이미지를 읽지 못합니다."
 
-#: ../libburner-burn/burner-status-dialog.c:330
-#: ../src/burner-data-disc.c:729
+#: ../libburner-burn/burner-status-dialog.c:336 ../src/burner-data-disc.c:733
 msgid "Should files be renamed to be fully Windows-compatible?"
 msgstr "윈도우와 호환되도록 파일 이름을 바꾸시겠습니까?"
 
-#: ../libburner-burn/burner-status-dialog.c:341
-#: ../src/burner-data-disc.c:735
+#: ../libburner-burn/burner-status-dialog.c:348 ../src/burner-data-disc.c:739
 msgid "Those names should be changed and truncated to 64 characters."
 msgstr "다음 파일 이름을 바꿔야 하고 64글자로 잘려집니다."
 
-#: ../libburner-burn/burner-status-dialog.c:346
-#: ../src/burner-data-disc.c:738
+#: ../libburner-burn/burner-status-dialog.c:353 ../src/burner-data-disc.c:742
 msgid "_Disable Full Windows Compatibility"
 msgstr "윈도우 호환성 사용하지 않기(_D)"
 
-#: ../libburner-burn/burner-status-dialog.c:349
-#: ../src/burner-data-disc.c:737
+#: ../libburner-burn/burner-status-dialog.c:356 ../src/burner-data-disc.c:741
 msgid "_Rename for Full Windows Compatibility"
 msgstr "윈도우 호환성 파일 이름 바꾸기(_R)"
 
-#: ../libburner-burn/burner-status-dialog.c:566
+#: ../libburner-burn/burner-status-dialog.c:574
 msgid "Size Estimation"
 msgstr "크기 예상"
 
-#: ../libburner-burn/burner-status-dialog.c:568
+#: ../libburner-burn/burner-status-dialog.c:576
 msgid "Please wait until the estimation of the size is completed."
 msgstr "크기를 측정할 때까지 잠시 기다리십시오."
 
-#: ../libburner-burn/burner-status-dialog.c:569
+#: ../libburner-burn/burner-status-dialog.c:577
 msgid "All files need to be analysed to complete this operation."
 msgstr "이 작업을 끝마치려면 모든 파일을 분석해야 합니다."
 
-#: ../libburner-burn/burner-sum-dialog.c:134
-#: ../libburner-burn/burner-sum-dialog.c:215
+#: ../libburner-burn/burner-sum-dialog.c:137
+#: ../libburner-burn/burner-sum-dialog.c:220
 msgid "Check _Again"
 msgstr "다시 검사(_A)"
 
-#: ../libburner-burn/burner-sum-dialog.c:165
-#: ../libburner-burn/burner-sum-dialog.c:514
+#: ../libburner-burn/burner-sum-dialog.c:169
+#: ../libburner-burn/burner-sum-dialog.c:520
 msgid "The file integrity check could not be performed."
 msgstr "파일이 올바른지 검사할 수 없습니다."
 
-#: ../libburner-burn/burner-sum-dialog.c:166 ../src/burner-data-disc.c:214
-#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:393
-#: ../src/burner-project.c:2625
+#: ../libburner-burn/burner-sum-dialog.c:170 ../src/burner-data-disc.c:217
+#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:395
+#: ../src/burner-project.c:2734
 msgid "An unknown error occurred"
 msgstr "알 수 없는 오류가 발생했습니다"
 
-#: ../libburner-burn/burner-sum-dialog.c:178
+#: ../libburner-burn/burner-sum-dialog.c:182
 msgid "The file integrity check was performed successfully."
 msgstr "파일이 올바르다고 확인되었습니다."
 
-#: ../libburner-burn/burner-sum-dialog.c:179
+#: ../libburner-burn/burner-sum-dialog.c:183
 msgid "There seem to be no corrupted files on the disc"
 msgstr "디스크에 손상된 파일이 없어 보입니다"
 
-#: ../libburner-burn/burner-sum-dialog.c:207
+#: ../libburner-burn/burner-sum-dialog.c:211
 msgid "The following files appear to be corrupted:"
 msgstr "다음 파일이 손상된 파일로 보입니다:"
 
-#: ../libburner-burn/burner-sum-dialog.c:250
+#: ../libburner-burn/burner-sum-dialog.c:255
 msgid "Corrupted Files"
 msgstr "손상된 파일"
 
-#: ../libburner-burn/burner-sum-dialog.c:342
+#: ../libburner-burn/burner-sum-dialog.c:348
 msgid "Downloading MD5 file"
 msgstr "MD5 파일을 다운로드하는 중"
 
-#: ../libburner-burn/burner-sum-dialog.c:397
+#: ../libburner-burn/burner-sum-dialog.c:403
 #, c-format
 msgid "\"%s\" is not a valid URI"
 msgstr "\"%s\" URI가 올바르지 않습니다"
 
-#: ../libburner-burn/burner-sum-dialog.c:515
+#: ../libburner-burn/burner-sum-dialog.c:521
 msgid "No MD5 file was given."
 msgstr "MD5 파일이 없습니다."
 
-#: ../libburner-burn/burner-sum-dialog.c:692
+#: ../libburner-burn/burner-sum-dialog.c:698
 msgid "Use an _MD5 file to check the disc"
 msgstr "MD5 파일을 사용해 디스크 검사(_M)"
 
-#: ../libburner-burn/burner-sum-dialog.c:693
+#: ../libburner-burn/burner-sum-dialog.c:699
 msgid "Use an external .md5 file that stores the checksum of a disc"
 msgstr "디스크의 체크섬이 들어 있는 외부의 .md5 파일을 사용합니다"
 
-#: ../libburner-burn/burner-sum-dialog.c:706
+#: ../libburner-burn/burner-sum-dialog.c:712
 msgid "Open an MD5 file"
 msgstr "MD5 파일 열기"
 
-#: ../libburner-burn/burner-sum-dialog.c:721
+#: ../libburner-burn/burner-sum-dialog.c:727
 msgid "_Check"
 msgstr "검사(_C)"
 
-#: ../libburner-burn/burner-sum-dialog.c:752
+#: ../libburner-burn/burner-sum-dialog.c:758
 msgid "Disc Checking"
 msgstr "디스크 검사"
 
-#: ../libburner-burn/burner-tool-dialog.c:78
-#: ../libburner-burn/burner-tool-dialog.c:92
-#: ../libburner-burn/burner-tool-dialog.c:102
+#: ../libburner-burn/burner-tool-dialog.c:80
+#: ../libburner-burn/burner-tool-dialog.c:94
+#: ../libburner-burn/burner-tool-dialog.c:104
 msgid "The operation cannot be performed."
 msgstr "작업을 수행할 수 없습니다."
 
-#: ../libburner-burn/burner-tool-dialog.c:79
-#: ../plugins/cdrkit/burn-wodim.c:151 ../plugins/cdrkit/burn-wodim.c:421
-#: ../plugins/cdrtools/burn-cdrecord.c:151
+#: ../libburner-burn/burner-tool-dialog.c:81 ../plugins/cdrkit/burn-wodim.c:151
+#: ../plugins/cdrkit/burn-wodim.c:421 ../plugins/cdrtools/burn-cdrecord.c:151
 #: ../plugins/cdrtools/burn-cdrecord.c:407
 #: ../plugins/growisofs/burn-dvd-rw-format.c:77
 #: ../plugins/libburnia/burn-libburn.c:610
@@ -1781,16 +1872,19 @@ msgstr "작업을 수행할 수 없습니다."
 msgid "The disc is not supported"
 msgstr "디스크를 지원하지 않습니다"
 
-#: ../libburner-burn/burner-tool-dialog.c:103
+#: ../libburner-burn/burner-tool-dialog.c:105
 msgid "The drive is empty"
 msgstr "드라이브가 비어 있습니다"
 
-#: ../libburner-burn/burner-tool-dialog.c:556
-#: ../src/burner-eject-dialog.c:167
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+#: ../libburner-burn/burner-tool-dialog.c:563 ../src/burner-eject-dialog.c:167
+#, c-format
 msgid "Select a disc"
 msgstr "디스크 선택"
 
-#: ../libburner-burn/burner-tool-dialog.c:583
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+#: ../libburner-burn/burner-tool-dialog.c:591
+#, c-format
 msgid "Progress"
 msgstr "진행"
 
@@ -1798,14 +1892,13 @@ msgstr "진행"
 #: ../libburner-burn/burner-track-data-cfg.c:716
 #: ../libburner-burn/burner-track-data-cfg.c:727
 #: ../libburner-burn/burner-track-data-cfg.c:788
-#: ../libburner-burn/burner-track-data-cfg.c:793
-#: ../src/burner-playlist.c:536 ../src/burner-video-tree-model.c:342
+#: ../libburner-burn/burner-track-data-cfg.c:793 ../src/burner-playlist.c:538
+#: ../src/burner-video-tree-model.c:342
 msgid "(loading…)"
 msgstr "(읽어들이는 중…)"
 
 #: ../libburner-burn/burner-track-data-cfg.c:619
-#: ../libburner-burn/burner-track-data-cfg.c:799
-#: ../src/burner-playlist.c:497
+#: ../libburner-burn/burner-track-data-cfg.c:799 ../src/burner-playlist.c:499
 msgid "Empty"
 msgstr "비었음"
 
@@ -1840,7 +1933,7 @@ msgid "\"%s\" is a recursive symbolic link."
 msgstr "\"%s\" 파일은 자기 자신을 가리키는 심볼릭 링크입니다."
 
 #. Translators: %s is the path of a drive
-#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:218
+#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:219
 #, c-format
 msgid "\"%s\" cannot be found."
 msgstr "\"%s\" 파일을 찾을 수 없습니다."
@@ -1865,7 +1958,7 @@ msgid "\"%s\" was removed from the file system."
 msgstr "\"%s\" 파일을 프로젝트에서 지웁니다."
 
 #: ../libburner-burn/burner-track-stream-cfg.c:129
-#: ../src/burner-audio-disc.c:754 ../src/burner-video-disc.c:365
+#: ../src/burner-audio-disc.c:757 ../src/burner-video-disc.c:367
 #, c-format
 msgid "Directories cannot be added to video or audio discs"
 msgstr "비디오나 오디오 디스크에는 디렉터리를 추가할 수 없습니다"
@@ -2043,9 +2136,11 @@ msgstr ""
 msgid ""
 "The location you chose to store the temporary image on does not have enough "
 "free space for the disc image (%ld MiB needed)"
-msgstr "임시 이미지를 저장할 파일 시스템이 디스크 이미지를 저장할 만한 빈 공간이 남아 있지 않습니다(%ldMiB 필요)"
+msgstr ""
+"임시 이미지를 저장할 파일 시스템이 디스크 이미지를 저장할 만한 빈 공간이 남"
+"아 있지 않습니다(%ldMiB 필요)"
 
-#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:365
+#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:362
 #, c-format
 msgid "The size of the volume could not be retrieved"
 msgstr "볼륨의 크기를 알아낼 수 없습니다"
@@ -2114,8 +2209,7 @@ msgstr "\"%s\" 과정이 오류 코드를 리턴하며 끝났습니다(%i)"
 #. Translators: This is a fake drive, a file, and means that
 #. * when we're writing, we're writing to a file and create an
 #. * image on the hard drive.
-#: ../libburner-media/burner-drive.c:607
-#: ../libburner-media/burner-medium.c:206
+#: ../libburner-media/burner-drive.c:607 ../libburner-media/burner-medium.c:206
 #: ../libburner-media/burner-volume.c:382
 msgid "Image File"
 msgstr "이미지 파일"
@@ -2288,8 +2382,7 @@ msgid "%s:%s:%s"
 msgstr "%s:%s:%s"
 
 #. Translators: this is 'hour:minute' or 'minute:second'
-#: ../libburner-media/burner-units.c:92
-#: ../libburner-media/burner-units.c:107
+#: ../libburner-media/burner-units.c:92 ../libburner-media/burner-units.c:107
 #, c-format
 msgid "%s:%s"
 msgstr "%s:%s"
@@ -2329,7 +2422,7 @@ msgstr "오디오 및 데이터 디스크(%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ .
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:322
+#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:325
 #, c-format
 msgid "Audio disc (%s)"
 msgstr "오디오 디스크(%s)"
@@ -2338,23 +2431,20 @@ msgstr "오디오 디스크(%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ otherwise it gets truncated.
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:421
-#: ../nautilus/nautilus-burn-bar.c:115 ../src/burner-project-name.c:255
+#: ../libburner-media/burner-volume.c:421 ../nautilus/nautilus-burn-bar.c:115
+#: ../src/burner-project-name.c:258
 #, c-format
 msgid "Data disc (%s)"
 msgstr "데이터 디스크(%s)"
 
-#: ../libburner-media/burn-iso9660.c:158
-#: ../libburner-media/burn-iso9660.c:167
-#: ../libburner-media/burn-iso9660.c:402
-#: ../libburner-media/burn-iso9660.c:439
-#: ../libburner-media/burn-iso9660.c:488
-#: ../libburner-media/burn-volume.c:128
+#: ../libburner-media/burn-iso9660.c:158 ../libburner-media/burn-iso9660.c:167
+#: ../libburner-media/burn-iso9660.c:402 ../libburner-media/burn-iso9660.c:439
+#: ../libburner-media/burn-iso9660.c:488 ../libburner-media/burn-volume.c:128
 #, c-format
 msgid "It does not appear to be a valid ISO image"
 msgstr "올바른 ISO 이미지 파일이 아닙니다"
 
-#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:84
+#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:86
 msgid "Unknown error"
 msgstr "알 수 없는 오류"
 
@@ -2475,55 +2565,55 @@ msgstr "크기 조정"
 msgid "Background Properties"
 msgstr "배경 속성"
 
-#: ../libburner-utils/burner-jacket-edit.c:534
+#: ../libburner-utils/burner-jacket-edit.c:535
 msgid "Print"
 msgstr "인쇄"
 
-#: ../libburner-utils/burner-jacket-edit.c:546
+#: ../libburner-utils/burner-jacket-edit.c:547
 msgid "Bac_kground Properties"
 msgstr "배경 속성(_K)"
 
-#: ../libburner-utils/burner-jacket-edit.c:549
+#: ../libburner-utils/burner-jacket-edit.c:550
 msgid "Background properties"
 msgstr "배경 속성"
 
-#: ../libburner-utils/burner-jacket-edit.c:564
+#: ../libburner-utils/burner-jacket-edit.c:565
 msgid "Align right"
 msgstr "오른쪽 맞추기"
 
-#: ../libburner-utils/burner-jacket-edit.c:574
+#: ../libburner-utils/burner-jacket-edit.c:575
 msgid "Center"
 msgstr "가운데"
 
-#: ../libburner-utils/burner-jacket-edit.c:584
+#: ../libburner-utils/burner-jacket-edit.c:585
 msgid "Align left"
 msgstr "왼쪽 맞추기"
 
-#: ../libburner-utils/burner-jacket-edit.c:598
+#: ../libburner-utils/burner-jacket-edit.c:599
 msgid "Underline"
 msgstr "밑줄"
 
-#: ../libburner-utils/burner-jacket-edit.c:608
+#: ../libburner-utils/burner-jacket-edit.c:609
 msgid "Italic"
 msgstr "기울임"
 
-#: ../libburner-utils/burner-jacket-edit.c:618
+#: ../libburner-utils/burner-jacket-edit.c:619
 msgid "Bold"
 msgstr "굵게"
 
-#: ../libburner-utils/burner-jacket-edit.c:644
+#: ../libburner-utils/burner-jacket-edit.c:645
 msgid "Font family and size"
 msgstr "글꼴 종류 및 크기"
 
-#: ../libburner-utils/burner-jacket-edit.c:651
+#: ../libburner-utils/burner-jacket-edit.c:652
 msgid "_Text Color"
 msgstr "글자 색(_T)"
 
-#: ../libburner-utils/burner-jacket-edit.c:652
+#: ../libburner-utils/burner-jacket-edit.c:653
 msgid "Text color"
 msgstr "글자 색"
 
-#: ../libburner-utils/burner-jacket-edit.c:775
+#: ../libburner-utils/burner-jacket-edit.c:790
 msgid "Cover Editor"
 msgstr "표지 편집기"
 
@@ -2549,7 +2639,7 @@ msgstr "앞 표지"
 msgid "The image could not be loaded."
 msgstr "그림을 읽어들일 수 없습니다."
 
-#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:643
+#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:645
 #, c-format
 msgid "\"%s\" could not be handled by GStreamer."
 msgstr "\"%s\" 파일을 GStreamer에서 처리할 수 없습니다."
@@ -2598,15 +2688,15 @@ msgstr "\"%s\" 파일을 GStreamer에서 처리할 수 없습니다."
 msgid "%s element could not be created"
 msgstr "%s 요소를 만들 수 없습니다"
 
-#: ../libburner-utils/burner-misc.c:74
+#: ../libburner-utils/burner-misc.c:75
 msgid "Display debug statements on stdout for Burner utilities library"
 msgstr "브라세로 유틸리티 라이브러리의 디버깅 출력을 표준 출력에 표시합니다"
 
-#: ../libburner-utils/burner-misc.c:91
+#: ../libburner-utils/burner-misc.c:92
 msgid "Burner utilities library"
 msgstr "브라세로 유틸리티 라이브러리"
 
-#: ../libburner-utils/burner-misc.c:92
+#: ../libburner-utils/burner-misc.c:93
 msgid "Display options for Burner-utils library"
 msgstr "브라세로 유틸리티 라이브러리의 옵션을 표시합니다"
 
@@ -2623,13 +2713,13 @@ msgstr "CD/DVD 만들기"
 msgid "Create CDs and DVDs"
 msgstr "CD나 DVD를 만듭니다"
 
-#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:154
+#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:156
 msgid "Medium Icon"
 msgstr "미디어 아이콘"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
 #: ../nautilus/nautilus-burn-bar.c:242 ../src/burner-file-chooser.c:375
-#: ../src/burner-project.c:2250 ../src/burner-project-name.c:168
+#: ../src/burner-project.c:2310 ../src/burner-project-name.c:170
 msgctxt "picture"
 msgid "Image files"
 msgstr "그림 파일"
@@ -2708,7 +2798,7 @@ msgstr "데이터를 읽을 수 없습니다(%s)"
 #: ../plugins/checksum/burn-checksum-files.c:196
 #: ../plugins/checksum/burn-checksum-files.c:219
 #: ../plugins/checksum/burn-checksum-image.c:174
-#: ../plugins/dvdcss/burn-dvdcss.c:216 ../plugins/dvdcss/burn-dvdcss.c:495
+#: ../plugins/dvdcss/burn-dvdcss.c:213 ../plugins/dvdcss/burn-dvdcss.c:492
 #: ../plugins/libburnia/burn-libisofs.c:160
 #: ../plugins/libburnia/burn-libisofs.c:274
 #, c-format
@@ -2998,7 +3088,7 @@ msgstr "비디오 DVD에 적합한 디스크 이미지를 만듭니다"
 #. Translators: %s is the path to a drive. "regionset %s"
 #. * should be left as is just like "DVDCSS_METHOD=title
 #. * burner --no-existing-session"
-#: ../plugins/dvdcss/burn-dvdcss.c:294
+#: ../plugins/dvdcss/burn-dvdcss.c:291
 #, c-format
 msgid ""
 "Error while retrieving a key used for encryption. You may solve such a "
@@ -3012,26 +3102,26 @@ msgstr ""
 "플레이어의 DVD 지역 코드를 올바르게 설정하거나, 아니면 \"DVDCSS_METHOD=title "
 "burner --no-existing-session\" 명령을 실행합니다."
 
-#: ../plugins/dvdcss/burn-dvdcss.c:339
+#: ../plugins/dvdcss/burn-dvdcss.c:336
 msgid "Retrieving DVD keys"
 msgstr "DVD 키를 가져오는 중입니다"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:374
+#: ../plugins/dvdcss/burn-dvdcss.c:371
 #, c-format
 msgid "Video DVD could not be opened"
 msgstr "비디오 DVD를 열 수 없습니다"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
-#: ../plugins/dvdcss/burn-dvdcss.c:483
+#: ../plugins/dvdcss/burn-dvdcss.c:392 ../plugins/dvdcss/burn-dvdcss.c:457
+#: ../plugins/dvdcss/burn-dvdcss.c:480
 #, c-format
 msgid "Error while reading video DVD (%s)"
 msgstr "비디오 DVD를 읽는 중 오류가 발생했습니다(%s)"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:402
+#: ../plugins/dvdcss/burn-dvdcss.c:399
 msgid "Copying video DVD"
 msgstr "비디오 DVD를 복사하는 중"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:695
+#: ../plugins/dvdcss/burn-dvdcss.c:692
 msgid "Copies CSS encrypted video DVDs to a disc image"
 msgstr "CSS 암호화된 비디오 DVD를 디스크 이미지로 복사합니다"
 
@@ -3110,7 +3200,8 @@ msgstr "\"%s\" 디렉터리를 만드는 데 libisofs에서 오류를 보고했�
 #, c-format
 msgid ""
 "libisofs reported an error while adding contents to directory \"%s\" (%x)"
-msgstr "\"%s\" 디렉터리에 내용물을 추가하는 데 libisofs에서 오류를 보고했습니다(%x)"
+msgstr ""
+"\"%s\" 디렉터리에 내용물을 추가하는 데 libisofs에서 오류를 보고했습니다(%x)"
 
 #: ../plugins/libburnia/burn-libisofs.c:782
 #: ../plugins/libburnia/burn-libisofs.c:798
@@ -3221,92 +3312,136 @@ msgstr "비디오 파일을 비디오 DVD에 적합한 형식으로 변환합니
 msgid "Creates disc images suitable for SVCDs"
 msgstr "SVCD에 적합한 디스크 이미지를 만듭니다"
 
-#: ../src/burner-app.c:123
+#: ../src/burner-app.c:72
+#, fuzzy
+msgid "W_elcom project"
+msgstr "비디오 프로젝트(_V)"
+
+#: ../src/burner-app.c:73 ../src/burner-app.c:83
+msgid "Create a data CD/DVD"
+msgstr "데이터 CD/DVD를 만듭니다"
+
+#: ../src/burner-app.c:74 ../src/burner-app.c:84
+#: ../src/burner-project-manager.c:106
+msgid ""
+"Create a CD/DVD containing any type of data that can only be read on a "
+"computer"
+msgstr "컴퓨터에서 읽을 수 있는 데이터가 들어 있는 CD/DVD를 만듭니다."
+
+#. {N_("Audi_o project"),
+#. N_("Create a traditional audio CD"),
+#. N_("Create a traditional audio CD that will be playable on computers and stereos"),
+#. "media-optical-audio-new",
+#. BURNER_PROJECT_TYPE_AUDIO},
+#: ../src/burner-app.c:82
+msgid "D_ata project"
+msgstr "데이터 프로젝트(_A)"
+
+#. {N_("_Video project"),
+#. N_("Create a video DVD or an SVCD"),
+#. N_("Create a video DVD or an SVCD that is readable on TV readers"),
+#. "media-optical-video-new",
+#. BURNER_PROJECT_TYPE_VIDEO},
+#. {N_("Disc _copy"),
+#. N_("Create 1:1 copy of a CD/DVD"),
+#. N_("Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on another CD/DVD"),
+#. "media-optical-copy",
+#. BURNER_PROJECT_TYPE_COPY},
+#: ../src/burner-app.c:97
+msgid "Burn _image"
+msgstr "이미지 굽기(_I)"
+
+#: ../src/burner-app.c:98 ../src/burner-app.c:99
+#: ../src/burner-project-manager.c:112
+msgid "Burn an existing CD/DVD image to disc"
+msgstr "기존 CD/DVD 이미지를 디스크에 굽습니다"
+
+#: ../src/burner-app.c:162
 msgid "_Project"
 msgstr "프로젝트(_P)"
 
-#: ../src/burner-app.c:124
+#: ../src/burner-app.c:163
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../src/burner-app.c:125
+#: ../src/burner-app.c:164
 msgid "_Edit"
 msgstr "편집(_E)"
 
-#: ../src/burner-app.c:126
+#: ../src/burner-app.c:165
 msgid "_Tools"
 msgstr "도구(_T)"
 
-#: ../src/burner-app.c:128
+#: ../src/burner-app.c:167
 msgid "_Help"
 msgstr "도움말(_H)"
 
-#: ../src/burner-app.c:130
+#: ../src/burner-app.c:169
 msgid "P_lugins"
 msgstr "플러그인(_L)"
 
-#: ../src/burner-app.c:131
+#: ../src/burner-app.c:170
 msgid "Choose plugins for Burner"
 msgstr "브라세로 플러그인을 선택합니다"
 
-#: ../src/burner-app.c:133
+#: ../src/burner-app.c:172
 msgid "E_ject"
 msgstr "빼기(_J)"
 
-#: ../src/burner-app.c:134
+#: ../src/burner-app.c:173
 msgid "Eject a disc"
 msgstr "디스크를 뺍니다"
 
-#: ../src/burner-app.c:136
+#: ../src/burner-app.c:175
 msgid "_Blank…"
 msgstr "비우기(_B)…"
 
-#: ../src/burner-app.c:137
+#: ../src/burner-app.c:176
 msgid "Blank a disc"
 msgstr "디스크를 비웁니다"
 
-#: ../src/burner-app.c:139
+#: ../src/burner-app.c:178
 msgid "_Check Integrity…"
 msgstr "올바른지 검사(_C)…"
 
-#: ../src/burner-app.c:140
+#: ../src/burner-app.c:179
 msgid "Check data integrity of disc"
 msgstr "디스크의 데이터가 올바른지 검사합니다"
 
-#: ../src/burner-app.c:143
+#: ../src/burner-app.c:182
 msgid "Quit Burner"
 msgstr "브라세로를 끝냅니다"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "_Contents"
 msgstr "차례(_C)"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "Display help"
 msgstr "도움말을 표시합니다"
 
-#: ../src/burner-app.c:148
+#: ../src/burner-app.c:187
 msgid "About"
 msgstr "정보"
 
-#: ../src/burner-app.c:420 ../src/burner-app.c:2069
+#: ../src/burner-app.c:460 ../src/burner-app.c:2368
 msgid "Disc Burner"
 msgstr "디스크 굽기 프로그램"
 
-#: ../src/burner-app.c:789 ../src/burner-app.c:822 ../src/burner-app.c:1451
+#: ../src/burner-app.c:833 ../src/burner-app.c:866 ../src/burner-app.c:1506
 msgid "Error while loading the project"
 msgstr "프로젝트를 읽어들이는 중 오류가 발생했습니다"
 
-#: ../src/burner-app.c:831 ../src/burner-app.c:860 ../src/burner-app.c:920
-#: ../src/burner-project.c:1276
+#: ../src/burner-app.c:875 ../src/burner-app.c:904 ../src/burner-app.c:964
+#: ../src/burner-project.c:1282
 msgid "Please add files to the project."
 msgstr "파일을 프로젝트에 추가하십시오."
 
-#: ../src/burner-app.c:832 ../src/burner-app.c:861 ../src/burner-app.c:921
+#: ../src/burner-app.c:876 ../src/burner-app.c:905 ../src/burner-app.c:965
 msgid "The project is empty"
 msgstr "빈 프로젝트입니다"
 
-#: ../src/burner-app.c:1176
+#: ../src/burner-app.c:1228
 msgid ""
 "Burner is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -3318,7 +3453,7 @@ msgstr ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 
-#: ../src/burner-app.c:1181
+#: ../src/burner-app.c:1233
 msgid ""
 "Burner is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -3330,7 +3465,7 @@ msgstr ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 
-#: ../src/burner-app.c:1186
+#: ../src/burner-app.c:1238
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -3340,11 +3475,11 @@ msgstr ""
 "Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301, USA"
 
-#: ../src/burner-app.c:1198
+#: ../src/burner-app.c:1250
 msgid "A simple to use CD/DVD burning application for GNOME"
 msgstr "간단히 사용하는 그놈 데스크탑 CD/DVD 굽기 프로그램"
 
-#: ../src/burner-app.c:1215
+#: ../src/burner-app.c:1267
 msgid "Burner Homepage"
 msgstr "브라세로 홈페이지"
 
@@ -3356,145 +3491,140 @@ msgstr "브라세로 홈페이지"
 #. * this translation; in that case, please write each of them on a separate
 #. * line seperated by newlines (\n).
 #.
-#: ../src/burner-app.c:1227
+#: ../src/burner-app.c:1279
 msgid "translator-credits"
 msgstr "류창우 <cwryu@debian.org>"
 
-#: ../src/burner-app.c:1449
+#: ../src/burner-app.c:1504
 #, c-format
 msgid "The project \"%s\" does not exist"
 msgstr "\"%s\" 프로젝트가 없습니다"
 
-#: ../src/burner-app.c:1733 ../src/burner-app.c:1739
+#: ../src/burner-app.c:1788 ../src/burner-app.c:1794
 msgid "_Recent Projects"
 msgstr "최근 프로젝트(_R)"
 
-#: ../src/burner-app.c:1734
+#: ../src/burner-app.c:1789
 msgid "Display the projects recently opened"
 msgstr "최근에 연 프로젝트를 표시합니다"
 
-#: ../src/burner-audio-disc.c:155 ../src/burner-data-disc.c:122
-#: ../src/burner-video-disc.c:100
-msgid "Menu"
-msgstr "메뉴"
-
-#: ../src/burner-audio-disc.c:156 ../src/burner-data-disc.c:123
+#: ../src/burner-audio-disc.c:158 ../src/burner-data-disc.c:125
 msgid "Open the selected files"
 msgstr "선택한 파일을 엽니다"
 
-#: ../src/burner-audio-disc.c:158 ../src/burner-video-disc.c:103
+#: ../src/burner-audio-disc.c:160 ../src/burner-video-disc.c:105
 msgid "_Edit Information…"
 msgstr "정보 편집(_E)…"
 
-#: ../src/burner-audio-disc.c:158
+#: ../src/burner-audio-disc.c:160
 msgid "Edit the track information (start, end, author, etc.)"
 msgstr "트랙 정보를 편집합니다(시작, 끝, 만든 사람 등)"
 
-#: ../src/burner-audio-disc.c:160 ../src/burner-data-disc.c:127
-#: ../src/burner-project.c:202
+#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
+#: ../src/burner-project.c:204
 msgid "Remove the selected files from the project"
 msgstr "프로젝트에서 선택한 파일을 제거합니다"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Paste files"
 msgstr "파일 붙여넣기"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Add the files stored in the clipboard"
 msgstr "클립보드에 저장한 파일을 추가합니다"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "I_nsert a Pause"
 msgstr "일시 중지 넣기(_N)"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "Add a 2 second pause after the track"
 msgstr "트랙 뒤에 2초의 일시 중지를 추가합니다"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "_Split Track…"
 msgstr "트랙 쪼개기(_S)…"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "Split the selected track"
 msgstr "선택한 트랙을 쪼갭니다"
 
-#: ../src/burner-audio-disc.c:343 ../src/burner-video-tree-model.c:187
+#: ../src/burner-audio-disc.c:345 ../src/burner-video-tree-model.c:187
 msgid "Pause"
 msgstr "일시 중지"
 
-#: ../src/burner-audio-disc.c:349
+#: ../src/burner-audio-disc.c:351
 msgid "Split"
 msgstr "쪼개기"
 
-#: ../src/burner-audio-disc.c:418
+#: ../src/burner-audio-disc.c:420
 msgid "Track"
 msgstr "트랙"
 
-#: ../src/burner-audio-disc.c:458 ../src/burner-video-disc.c:1209
+#: ../src/burner-audio-disc.c:460 ../src/burner-video-disc.c:1214
 msgid "Title"
 msgstr "제목"
 
-#: ../src/burner-audio-disc.c:480
+#: ../src/burner-audio-disc.c:482
 msgid "Artist"
 msgstr "아티스트"
 
-#: ../src/burner-audio-disc.c:488 ../src/burner-playlist.c:772
-#: ../src/burner-split-dialog.c:1225
+#: ../src/burner-audio-disc.c:490 ../src/burner-playlist.c:775
+#: ../src/burner-split-dialog.c:1231
 msgid "Length"
 msgstr "길이"
 
-#: ../src/burner-audio-disc.c:585
+#: ../src/burner-audio-disc.c:587
 msgid "The track will be padded at its end."
 msgstr "트랙 끝을 채워 넣습니다."
 
-#: ../src/burner-audio-disc.c:586
+#: ../src/burner-audio-disc.c:588
 msgid "The track is shorter than 6 seconds"
 msgstr "트랙이 6초보다 짧습니다"
 
-#: ../src/burner-audio-disc.c:646
+#: ../src/burner-audio-disc.c:648
 msgid "Make sure the appropriate codec is installed"
 msgstr "해당 코덱을 설치했는지 확인하십시오"
 
-#: ../src/burner-audio-disc.c:662
+#: ../src/burner-audio-disc.c:664
 #, c-format
 msgid "Do you want to add \"%s\", which is a video file?"
 msgstr "비디오 파일인 \"%s\" 파일을 추가하시겠습니까?"
 
-#: ../src/burner-audio-disc.c:671
+#: ../src/burner-audio-disc.c:673
 msgid ""
 "This file is a video and therefore only the audio part can be written to the "
 "disc."
 msgstr "비디오 파일이고 오디오 부분만 디스크에 쓸 수 있습니다."
 
-#: ../src/burner-audio-disc.c:674
+#: ../src/burner-audio-disc.c:676
 msgid "_Discard File"
 msgstr "파일 버리기(_D)"
 
-#: ../src/burner-audio-disc.c:677
+#: ../src/burner-audio-disc.c:679
 msgid "_Add File"
 msgstr "파일 추가(_A)"
 
-#: ../src/burner-audio-disc.c:748
+#: ../src/burner-audio-disc.c:751
 msgid "Do you want to search for audio files inside the directory?"
 msgstr "디렉터리 안의 오디오 파일을 찾으시겠습니까?"
 
-#: ../src/burner-audio-disc.c:758
+#: ../src/burner-audio-disc.c:761
 msgid "Search _Directory"
 msgstr "디렉터리 검색(_D)"
 
-#: ../src/burner-audio-disc.c:812 ../src/burner-video-disc.c:395
+#: ../src/burner-audio-disc.c:816 ../src/burner-video-disc.c:398
 #, c-format
 msgid "\"%s\" could not be opened."
 msgstr "\"%s\" 파일을 열 수 없습니다."
 
-#: ../src/burner-audio-disc.c:857
+#: ../src/burner-audio-disc.c:861
 msgid "Do you want to create an audio CD with DTS tracks?"
 msgstr "DTS 트랙이 들어 있는 오디오 CD를 만드시겠습니까?"
 
-#: ../src/burner-audio-disc.c:858
+#: ../src/burner-audio-disc.c:862
 msgid ""
 "Some of the selected songs are suitable for creating DTS tracks.\n"
 "This type of audio CD track provides a higher quality of sound but can only "
@@ -3505,120 +3635,104 @@ msgstr ""
 "랙은 음질이 좋지만 몇몇 디지털 플레이어에서만 재생할 수 있습니다.\n"
 "여기에 동의하면, 이 트랙에 대해서는 정규화를 적용하지 않습니다."
 
-#: ../src/burner-audio-disc.c:867
+#: ../src/burner-audio-disc.c:871
 msgid "Create _Regular Tracks"
 msgstr "일반 트랙 만들기(_R)"
 
-#: ../src/burner-audio-disc.c:869
+#: ../src/burner-audio-disc.c:873
 msgid "Click here to burn all songs as regular tracks"
 msgstr "여기를 누르면 모든 음악을 일반 트랙으로 굽습니다"
 
-#: ../src/burner-audio-disc.c:872
+#: ../src/burner-audio-disc.c:876
 msgid "Create _DTS Tracks"
 msgstr "DTS 트랙 만들기(_D)"
 
-#: ../src/burner-audio-disc.c:874
+#: ../src/burner-audio-disc.c:878
 msgid "Click here to burn all suitable songs as DTS tracks"
 msgstr "여기를 누르면 모든 적합한 음악을 DTS 트랙으로 굽습니다"
 
-#: ../src/burner-audio-disc.c:1290
+#: ../src/burner-audio-disc.c:1294
 msgid "Select one song only please."
 msgstr "노래 1개만 선택하십시오."
 
-#: ../src/burner-audio-disc.c:1291
+#: ../src/burner-audio-disc.c:1295
 msgid "Impossible to split more than one song at a time"
 msgstr "동시에 여러 개의 노래를 쪼갤 수 없습니다"
 
-#: ../src/burner-cli.c:70
+#: ../src/burner-cli.c:71
 msgid "Open the specified project"
 msgstr "지정한 프로젝트를 엽니다"
 
-#: ../src/burner-cli.c:71
+#: ../src/burner-cli.c:72
 msgid "PROJECT"
 msgstr "<프로젝트>"
 
-#: ../src/burner-cli.c:76
-msgid "Open the specified playlist as an audio project"
-msgstr "지정한 재생 목록을 오디오 프로젝트로 엽니다"
-
-#: ../src/burner-cli.c:77
-msgid "PLAYLIST"
-msgstr "<재생목록>"
-
-#: ../src/burner-cli.c:82
+#: ../src/burner-cli.c:83
 msgid "Set the drive to be used for burning"
 msgstr "구울 때 사용할 드라이브를 지정합니다"
 
-#: ../src/burner-cli.c:83
+#: ../src/burner-cli.c:84
 msgid "DEVICE PATH"
 msgstr "<장치경로>"
 
-#: ../src/burner-cli.c:86
+#: ../src/burner-cli.c:87
 msgid "Create an image file instead of burning"
 msgstr "굽지 않고 이미지 파일을 만듭니다"
 
-#: ../src/burner-cli.c:90
-msgid "Open an audio project adding the URIs given on the command line"
-msgstr "명령행에서 지정한 URI를 추가해 오디오 프로젝트를 엽니다"
-
-#: ../src/burner-cli.c:94
+#: ../src/burner-cli.c:95
 msgid "Open a data project adding the URIs given on the command line"
 msgstr "명령행에서 지정한 URI를 추가해 데이터 프로젝트를 엽니다"
 
-#: ../src/burner-cli.c:98
+#: ../src/burner-cli.c:99
 msgid "Copy a disc"
 msgstr "디스크를 복사합니다"
 
-#: ../src/burner-cli.c:99 ../src/burner-cli.c:119 ../src/burner-cli.c:123
+#: ../src/burner-cli.c:100 ../src/burner-cli.c:120 ../src/burner-cli.c:124
 msgid "PATH TO DEVICE"
 msgstr "<장치의경로>"
 
-#: ../src/burner-cli.c:102
+#: ../src/burner-cli.c:103
 msgid "Cover to use"
 msgstr "사용할 표지"
 
-#: ../src/burner-cli.c:103
+#: ../src/burner-cli.c:104
 msgid "PATH TO COVER"
 msgstr "<표지의경로>"
 
-#: ../src/burner-cli.c:106
-msgid "Open a video project adding the URIs given on the command line"
-msgstr "명령행에서 지정한 URI를 추가해 비디오 프로젝트를 엽니다"
-
-#: ../src/burner-cli.c:110
+#: ../src/burner-cli.c:111
 msgid "URI of an image file to burn (autodetected)"
 msgstr "구울 이미지 파일의 URI (자동 검사)"
 
 # disc image
-#: ../src/burner-cli.c:111
+#: ../src/burner-cli.c:112
 msgid "PATH TO IMAGE"
 msgstr "<이미지경로>"
 
-#: ../src/burner-cli.c:114
+#: ../src/burner-cli.c:115
 msgid "Force Burner to display the project selection page"
 msgstr "시작할 때 프로젝트 선택 페이지를 표시합니다"
 
-#: ../src/burner-cli.c:118
+#: ../src/burner-cli.c:119
 msgid "Open the blank disc dialog"
 msgstr "디스크 비우기 대화 창을 엽니다"
 
-#: ../src/burner-cli.c:122
+#: ../src/burner-cli.c:123
 msgid "Open the check disc dialog"
 msgstr "디스크 검사 대화 창을 엽니다"
 
-#: ../src/burner-cli.c:126
+#: ../src/burner-cli.c:127
 msgid "Burn the contents of the burn:// URI"
 msgstr "burn:// URI의 내용을 굽습니다"
 
-#: ../src/burner-cli.c:130
+#: ../src/burner-cli.c:131
 msgid "Start burning immediately."
 msgstr "즉시 굽기를 시작합니다."
 
-#: ../src/burner-cli.c:134
+#: ../src/burner-cli.c:135
 msgid "Don't connect to an already-running instance"
 msgstr "이미 실행 중인 프로세스에 연결하지 않습니다"
 
-#: ../src/burner-cli.c:138
+#: ../src/burner-cli.c:139
 msgid ""
 "Burn the specified project and remove it.\n"
 "This option is mainly useful for integration with other applications."
@@ -3626,7 +3740,7 @@ msgstr ""
 "지정한 프로젝트를 굽고 지웁니다.\n"
 "이 옵션은 다른 프로그램과 연동하는 경우에만 쓸모가 있습니다."
 
-#: ../src/burner-cli.c:139
+#: ../src/burner-cli.c:140
 msgid "PATH"
 msgstr "<경로>"
 
@@ -3635,105 +3749,108 @@ msgstr "<경로>"
 #. * burner will be set to be always on top of the window identified by
 #. * xid. In other words, the window with the given xid will become burner
 #. * parent as if burner was a dialog for the parent application
-#: ../src/burner-cli.c:147
+#: ../src/burner-cli.c:148
 msgid "The XID of the parent window"
 msgstr "상위 창의 XID"
 
 #. Translators: %s is the path of drive
-#: ../src/burner-cli.c:204
+#: ../src/burner-cli.c:205
 #, c-format
 msgid "\"%s\" cannot write."
 msgstr "\"%s\" 쓸 수 없습니다."
 
-#: ../src/burner-cli.c:206 ../src/burner-cli.c:220
+#: ../src/burner-cli.c:207 ../src/burner-cli.c:221
 msgid "Wrong command line option."
 msgstr "명령행 옵션이 올바르지 않습니다."
 
-#: ../src/burner-cli.c:297
+#: ../src/burner-cli.c:298
 msgid "Incompatible command line options used."
 msgstr "서로 호환되지 않는 옵션을 사용했습니다."
 
-#: ../src/burner-cli.c:298
+#: ../src/burner-cli.c:299
 msgid "Only one option can be given at a time"
 msgstr "한 번에 한 옵션만 사용할 수 있습니다"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "R_ename…"
 msgstr "이름 바꾸기(_E)…"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "Rename the selected file"
 msgstr "선택한 파일의 이름을 바꿉니다"
 
-#: ../src/burner-data-disc.c:131 ../src/burner-data-disc.c:1758
+#. {"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+#: ../src/burner-data-disc.c:134 ../src/burner-data-disc.c:1783
 msgid "New _Folder"
 msgstr "새 폴더(_F)"
 
-#: ../src/burner-data-disc.c:131
+#: ../src/burner-data-disc.c:134
 msgid "Create a new empty folder"
 msgstr "비어 있는 새 폴더를 만듭니다"
 
-#: ../src/burner-data-disc.c:213
+#: ../src/burner-data-disc.c:216
 msgid "The session could not be imported."
 msgstr "세션을 가져올 수 없습니다."
 
-#: ../src/burner-data-disc.c:559
+#: ../src/burner-data-disc.c:562
 msgid "The contents of the project changed since it was saved."
 msgstr "저장한 뒤에 프로젝트 내용이 바뀌었습니다."
 
-#: ../src/burner-data-disc.c:561
+#: ../src/burner-data-disc.c:564
 msgid "Discard the current modified project ?"
 msgstr "현재 수정한 프로젝트를 버리시겠습니까?"
 
-#: ../src/burner-data-disc.c:567
+#: ../src/burner-data-disc.c:570
 msgid "_Discard"
 msgstr "버리기(_D)"
 
-#: ../src/burner-data-disc.c:569
+#: ../src/burner-data-disc.c:572
 msgid "Discard the current modified project"
 msgstr "현재 수정한 프로젝트를 버립니다"
 
-#: ../src/burner-data-disc.c:574
+#: ../src/burner-data-disc.c:577
 msgid "Continue with the current modified project"
 msgstr "현재 수정한 프로젝트를 계속 사용합니다"
 
 #. Translators: %s is the name of the image
-#: ../src/burner-data-disc.c:619
+#: ../src/burner-data-disc.c:622
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
 "contents can be burned"
-msgstr "선택한 파일이 한 개(\"%s\") 뿐입니다. 디스크 이미지 파일이므로 그 내용을 구울 수 있습니다."
+msgstr ""
+"선택한 파일이 한 개(\"%s\") 뿐입니다. 디스크 이미지 파일이므로 그 내용을 구"
+"울 수 있습니다."
 
-#: ../src/burner-data-disc.c:625
+#: ../src/burner-data-disc.c:628
 msgid "Burn as _Data"
 msgstr "데이터로 굽기(_D)"
 
-#: ../src/burner-data-disc.c:627
+#: ../src/burner-data-disc.c:630
 msgid "Burn as _Image"
 msgstr "이미지로 굽기(_I)"
 
-#: ../src/burner-data-disc.c:673 ../src/burner-data-disc.c:691
-#: ../src/burner-data-disc.c:709
+#: ../src/burner-data-disc.c:677 ../src/burner-data-disc.c:695
+#: ../src/burner-data-disc.c:713
 #, c-format
 msgid "\"%s\" cannot be added to the selection."
 msgstr "\"%s\" 파일을 선택할 수 없습니다."
 
-#: ../src/burner-data-disc.c:694
+#: ../src/burner-data-disc.c:698
 msgid "It is a recursive symlink"
 msgstr "자기 자신을 가리키는 심볼릭 링크입니다"
 
-#: ../src/burner-data-disc.c:712
+#: ../src/burner-data-disc.c:716
 msgid "It does not exist at the specified location"
 msgstr "지정한 위치에 없습니다"
 
 #. Translators: %s is the name of the file
-#: ../src/burner-data-disc.c:771
+#: ../src/burner-data-disc.c:776
 #, c-format
 msgid "Do you want to replace \"%s\"?"
 msgstr "정말로 \"%s\" 파일을 덮어 쓰시겠습니까?"
 
-#: ../src/burner-data-disc.c:779
+#: ../src/burner-data-disc.c:784
 msgid ""
 "A file with this name already exists in the folder.  Replacing it will "
 "overwrite its contents on the disc to be burnt."
@@ -3744,14 +3861,14 @@ msgstr ""
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:784
+#: ../src/burner-data-disc.c:789
 msgid "Always K_eep"
 msgstr "항상 유지(_E)"
 
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:788
+#: ../src/burner-data-disc.c:793
 msgid "_Keep"
 msgstr "유지(_K)"
 
@@ -3759,93 +3876,98 @@ msgstr "유지(_K)"
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
 #. Translators: this is a verb
-#: ../src/burner-data-disc.c:792 ../src/burner-rename.c:385
+#: ../src/burner-data-disc.c:797 ../src/burner-rename.c:385
 msgid "_Replace"
 msgstr "바꾸기(_R)"
 
 #. Translators: Replace means we're replacing the file that already
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
-#: ../src/burner-data-disc.c:796
+#: ../src/burner-data-disc.c:801
 msgid "Al_ways Replace"
 msgstr "항상 바꾸기(_W)"
 
 #. Translators: %s is a string describing the type of medium and the
 #. * drive it is in. It's a tooltip.
-#: ../src/burner-data-disc.c:979
+#: ../src/burner-data-disc.c:989
 #, c-format
 msgid "Import %s"
 msgstr "%s에서 가져옵니다"
 
 #. Translators: %s is the name of the volume to import. It's a menu
 #. * entry and toolbar button (text added later).
-#: ../src/burner-data-disc.c:986
+#: ../src/burner-data-disc.c:996
 #, c-format
 msgid "I_mport %s"
 msgstr "%s 가져오기(_M)"
 
+#: ../src/burner-data-disc.c:1006
+#, fuzzy
+msgid "Import Disc"
+msgstr "%s에서 가져옵니다"
+
 #. Translators: This is a verb. It's a toolbar button.
-#: ../src/burner-data-disc.c:1016
+#: ../src/burner-data-disc.c:1031
 msgid "I_mport"
 msgstr "가져오기(_M)"
 
 #. Translators: %s is the name of the volume to import
-#: ../src/burner-data-disc.c:1098
+#: ../src/burner-data-disc.c:1121
 #, c-format
 msgid "Do you want to import the session from \"%s\"?"
 msgstr "\"%s\"에서 세션을 가져오시겠습니까?"
 
-#: ../src/burner-data-disc.c:1101
+#: ../src/burner-data-disc.c:1124
 msgid ""
 "That way, old files from previous sessions will be usable after burning."
 msgstr ""
 "이러한 방법을 이용하면 구운 뒤에 이전 세션의 파일을 사용할 수 있습니다."
 
-#: ../src/burner-data-disc.c:1109
+#: ../src/burner-data-disc.c:1132
 msgid "I_mport Session"
 msgstr "세션 가져오기(_M)"
 
-#: ../src/burner-data-disc.c:1111
+#: ../src/burner-data-disc.c:1134
 msgid "Click here to import its contents"
 msgstr "내용을 가져오려면 누르십시오"
 
-#: ../src/burner-data-disc.c:1490
+#: ../src/burner-data-disc.c:1513
 msgid "Please wait while the project is loading."
 msgstr "프로젝트를 읽어들이는 동안 잠시 기다리십시오."
 
-#: ../src/burner-data-disc.c:1500
+#: ../src/burner-data-disc.c:1523
 msgid "_Cancel Loading"
 msgstr "읽어들이기 취소(_C)"
 
-#: ../src/burner-data-disc.c:1502
+#: ../src/burner-data-disc.c:1525
 msgid "Cancel loading current project"
 msgstr "현재 프로젝트 읽어들이기를 취소합니다"
 
-#: ../src/burner-data-disc.c:1903
+#: ../src/burner-data-disc.c:1933
 msgid "File Renaming"
 msgstr "파일 이름 바꾸기"
 
-#: ../src/burner-data-disc.c:1907
+#: ../src/burner-data-disc.c:1937
 msgid "_Rename"
 msgstr "이름 바꾸기(_R)"
 
-#: ../src/burner-data-disc.c:1913
+#: ../src/burner-data-disc.c:1943
 msgid "Renaming mode"
 msgstr "이름 바꾸기 모드"
 
-#: ../src/burner-data-disc.c:2336 ../src/burner-file-filtered.c:256
+#: ../src/burner-data-disc.c:2367 ../src/burner-file-filtered.c:309
 msgid "Files"
 msgstr "파일"
 
-#: ../src/burner-data-disc.c:2350 ../src/burner-video-disc.c:1227
+#: ../src/burner-data-disc.c:2381 ../src/burner-video-disc.c:1232
 msgid "Size"
 msgstr "크기"
 
-#: ../src/burner-data-disc.c:2364
+#: ../src/burner-data-disc.c:2395
 msgid "Description"
 msgstr "설명"
 
-#: ../src/burner-data-disc.c:2380
+#: ../src/burner-data-disc.c:2411
 msgid "Space"
 msgstr "공간"
 
@@ -3862,131 +3984,129 @@ msgstr "빼기(_E)"
 msgid "Eject Disc"
 msgstr "디스크를 뺍니다"
 
-#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2230
+#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2290
 msgid "Audio files"
 msgstr "오디오 파일"
 
-#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2239
+#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2299
 msgid "Movies"
 msgstr "동영상"
 
-#: ../src/burner-file-filtered.c:75 ../src/burner-file-filtered.c:81
+#: ../src/burner-file-filtered.c:77 ../src/burner-file-filtered.c:83
 msgid "No file filtered"
 msgstr "필터링한 파일이 없습니다"
 
-#: ../src/burner-file-filtered.c:77
+#: ../src/burner-file-filtered.c:79
 #, c-format
 msgid "Hide the _filtered file list (%d file)"
 msgid_plural "Hide the _filtered file list (%d files)"
 msgstr[0] "필터링한 파일 목록 숨기기(%d개 파일)(_F)"
 
-#: ../src/burner-file-filtered.c:83
+#: ../src/burner-file-filtered.c:85
 #, c-format
 msgid "Show the _filtered file list (%d file)"
 msgid_plural "Show the _filtered file list (%d files)"
 msgstr[0] "필터링한 파일 목록 보이기(%d개 파일)(_F)"
 
-#: ../src/burner-file-filtered.c:135
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../src/burner-file-filtered.c:150 ../src/burner-file-filtered.c:174
 msgid "Filter Options"
 msgstr "필터 옵션"
 
-#: ../src/burner-file-filtered.c:218
+#: ../src/burner-file-filtered.c:271
 msgid ""
 "Select the files you want to restore and click on the \"Restore\" button"
 msgstr "복구하려는 파일을 선택하고 \"복구\" 단추를 누르십시오"
 
-#: ../src/burner-file-filtered.c:265
+#: ../src/burner-file-filtered.c:318
 msgid "Type"
 msgstr "종류"
 
-#: ../src/burner-file-filtered.c:292
+#: ../src/burner-file-filtered.c:345
 msgid "_Restore"
 msgstr "복구(_R)"
 
-#: ../src/burner-file-filtered.c:301
+#: ../src/burner-file-filtered.c:354
 msgid "Restore the selected files"
 msgstr "선택한 파일을 복구합니다"
 
-#: ../src/burner-file-filtered.c:303
+#: ../src/burner-file-filtered.c:356
 msgid "_Options…"
 msgstr "옵션(_O)…"
 
-#: ../src/burner-file-filtered.c:311
+#: ../src/burner-file-filtered.c:364
 msgid "Set the options for file filtering"
 msgstr "파일 필터링 옵션을 설정합니다"
 
 #. filter hidden files
-#: ../src/burner-filter-option.c:65
+#: ../src/burner-filter-option.c:66
 msgid "Filter _hidden files"
 msgstr "숨김 파일 필터링(_H)"
 
 #. replace symlink
-#: ../src/burner-filter-option.c:72
+#: ../src/burner-filter-option.c:74
 msgid "Re_place symbolic links"
 msgstr "심볼릭 링크 바꾸기(_P)"
 
 #. filter broken symlink button
-#: ../src/burner-filter-option.c:79
+#: ../src/burner-filter-option.c:82
 msgid "Filter _broken symbolic links"
 msgstr "깨진 심볼릭 링크 필터링(_B)"
 
-#: ../src/burner-filter-option.c:85
-msgid "Filtering options"
-msgstr "필터링 옵션"
-
-#: ../src/burner-layout.c:104
+#: ../src/burner-layout.c:105
 msgid "P_review"
 msgstr "미리 보기(_R)"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
-#: ../src/burner-layout.c:106
+#: ../src/burner-layout.c:107
 msgid "Display video, audio and image preview"
 msgstr "비디오, 오디오, 그림 미리 보기를 표시합니다"
 
-#: ../src/burner-layout.c:110
+#: ../src/burner-layout.c:111
 msgid "_Show Side Panel"
 msgstr "가장자리 창 표시(_S)"
 
-#: ../src/burner-layout.c:111
+#: ../src/burner-layout.c:112
 msgid "Show a side pane along the project"
 msgstr "프로젝트의 가장자리 창을 표시합니다"
 
-#: ../src/burner-layout.c:125
+#: ../src/burner-layout.c:126
 msgid "_Horizontal Layout"
 msgstr "가로 레이아웃(_H)"
 
-#: ../src/burner-layout.c:126
+#: ../src/burner-layout.c:127
 msgid "Set a horizontal layout"
 msgstr "가로 레이아웃을 사용합니다"
 
-#: ../src/burner-layout.c:128
+#: ../src/burner-layout.c:129
 msgid "_Vertical Layout"
 msgstr "세로 레이아웃(_V)"
 
-#: ../src/burner-layout.c:129
+#: ../src/burner-layout.c:130
 msgid "Set a vertical layout"
 msgstr "세로 레이아웃을 사용합니다"
 
-#: ../src/burner-layout.c:1193
+#: ../src/burner-layout.c:1194
 msgid "Click to close the side pane"
 msgstr "가장자리 창을 닫으려면 누르십시오"
 
-#: ../src/burner-multi-song-props.c:89 ../src/burner-multi-song-props.c:97
-#: ../src/burner-multi-song-props.c:105 ../src/burner-multi-song-props.c:123
-#: ../src/burner-multi-song-props.c:139 ../src/burner-multi-song-props.c:160
-#: ../src/burner-multi-song-props.c:173 ../src/burner-multi-song-props.c:249
-#: ../src/burner-multi-song-props.c:270 ../src/burner-multi-song-props.c:291
+#: ../src/burner-multi-song-props.c:90 ../src/burner-multi-song-props.c:98
+#: ../src/burner-multi-song-props.c:106 ../src/burner-multi-song-props.c:124
+#: ../src/burner-multi-song-props.c:140 ../src/burner-multi-song-props.c:161
+#: ../src/burner-multi-song-props.c:174 ../src/burner-multi-song-props.c:250
+#: ../src/burner-multi-song-props.c:271 ../src/burner-multi-song-props.c:292
 #: ../src/burner-rename.c:90 ../src/burner-rename.c:321
 msgid "<Keep current values>"
 msgstr "<현재 값 유지>"
 
-#: ../src/burner-multi-song-props.c:126 ../src/burner-multi-song-props.c:143
+#: ../src/burner-multi-song-props.c:127 ../src/burner-multi-song-props.c:144
 msgid "Remove silences"
 msgstr "묵음 제거"
 
-#: ../src/burner-multi-song-props.c:211 ../src/burner-multi-song-props.c:252
-#: ../src/burner-multi-song-props.c:273 ../src/burner-song-properties.c:187
-#: ../src/burner-song-properties.c:199 ../src/burner-song-properties.c:211
+#: ../src/burner-multi-song-props.c:212 ../src/burner-multi-song-props.c:253
+#: ../src/burner-multi-song-props.c:274 ../src/burner-song-properties.c:188
+#: ../src/burner-song-properties.c:200 ../src/burner-song-properties.c:212
 msgid ""
 "This information will be written to the disc using CD-Text technology. It "
 "can be read and displayed by some audio CD players."
@@ -3994,31 +4114,31 @@ msgstr ""
 "CD-Text 기술을 이용해 디스크에 정보를 기록합니다. 일부 오디오 CD 플레이어가 "
 "이 정보를 읽어들여서 표시할 수 있습니다."
 
-#: ../src/burner-multi-song-props.c:213
+#: ../src/burner-multi-song-props.c:214
 msgid "Song titles"
 msgstr "노래 제목"
 
-#: ../src/burner-multi-song-props.c:230
+#: ../src/burner-multi-song-props.c:231
 msgid "Additional song information"
 msgstr "노래 추가 정보"
 
-#: ../src/burner-multi-song-props.c:242 ../src/burner-song-properties.c:189
+#: ../src/burner-multi-song-props.c:243 ../src/burner-song-properties.c:190
 msgid "Artist:"
 msgstr "아티스트:"
 
-#: ../src/burner-multi-song-props.c:263 ../src/burner-song-properties.c:201
+#: ../src/burner-multi-song-props.c:264 ../src/burner-song-properties.c:202
 msgid "Composer:"
 msgstr "작곡:"
 
-#: ../src/burner-multi-song-props.c:317 ../src/burner-song-properties.c:247
+#: ../src/burner-multi-song-props.c:319 ../src/burner-song-properties.c:248
 msgid "Pause length:"
 msgstr "일시 중지 길이:"
 
-#: ../src/burner-multi-song-props.c:328 ../src/burner-song-properties.c:256
+#: ../src/burner-multi-song-props.c:330 ../src/burner-song-properties.c:257
 msgid "Gives the length of the pause that should follow the track"
 msgstr "트랙 뒤에 붙는 일시 중지의 길이를 지정합니다"
 
-#: ../src/burner-multi-song-props.c:345 ../src/burner-song-properties.c:287
+#: ../src/burner-multi-song-props.c:347 ../src/burner-song-properties.c:288
 msgid "Song Information"
 msgstr "노래 정보"
 
@@ -4032,66 +4152,64 @@ msgstr "%i × %i 픽셀"
 msgid "No preview"
 msgstr "미리 보기 없음"
 
-#: ../src/burner-playlist.c:390
+#: ../src/burner-playlist.c:392
 #, c-format
 msgid "Error parsing playlist \"%s\"."
 msgstr "재생 목록 \"%s\" 파싱에 오류가 발생했습니다."
 
 #. Translators: %d is the number of songs
-#: ../src/burner-playlist.c:499
+#: ../src/burner-playlist.c:501
 #, c-format
 msgid "%d song"
 msgid_plural "%d songs"
 msgstr[0] "음악 %d개"
 
-#: ../src/burner-playlist.c:584
+#: ../src/burner-playlist.c:586
 msgid "Select Playlist"
 msgstr "재생 목록 선택"
 
-#: ../src/burner-playlist.c:751
+#: ../src/burner-playlist.c:754
 msgid "Playlists"
 msgstr "재생 목록"
 
-#: ../src/burner-playlist.c:762
+#: ../src/burner-playlist.c:765
 msgid "Number of Songs"
 msgstr "노래 수"
 
-#: ../src/burner-playlist.c:782
+#: ../src/burner-playlist.c:785
 msgid "Genre"
 msgstr "장르"
 
-#: ../src/burner-plugin-manager-ui.c:62
+#: ../src/burner-plugin-manager-ui.c:66
 msgid "Plugin"
 msgstr "플러그인"
 
-#: ../src/burner-plugin-manager-ui.c:63
+#: ../src/burner-plugin-manager-ui.c:67
 msgid "Enabled"
 msgstr "사용"
 
-#: ../src/burner-plugin-manager-ui.c:143
+#: ../src/burner-plugin-manager-ui.c:147
 #, c-format
 msgid "Copyright %s"
 msgstr "Copyright %s"
 
-#: ../src/burner-plugin-manager-ui.c:579
-#: ../src/burner-plugin-manager-ui.c:967
+#: ../src/burner-plugin-manager-ui.c:581 ../src/burner-plugin-manager-ui.c:969
 msgid "_About"
 msgstr "정보(_A)"
 
-#: ../src/burner-plugin-manager-ui.c:587
-#: ../src/burner-plugin-manager-ui.c:973
+#: ../src/burner-plugin-manager-ui.c:589 ../src/burner-plugin-manager-ui.c:975
 msgid "C_onfigure"
 msgstr "설정(_O)"
 
-#: ../src/burner-plugin-manager-ui.c:597
+#: ../src/burner-plugin-manager-ui.c:599
 msgid "A_ctivate"
 msgstr "활성화(_C)"
 
-#: ../src/burner-plugin-manager-ui.c:609
+#: ../src/burner-plugin-manager-ui.c:611
 msgid "Ac_tivate All"
 msgstr "모두 활성화(_T)"
 
-#: ../src/burner-plugin-manager-ui.c:614
+#: ../src/burner-plugin-manager-ui.c:616
 msgid "_Deactivate All"
 msgstr "모두 비활성화(_D)"
 
@@ -4105,48 +4223,48 @@ msgstr "%s 플러그인에 대한 옵션"
 msgid "Burner Plugins"
 msgstr "브라세로 플러그인"
 
-#: ../src/burner-project.c:196
+#: ../src/burner-project.c:198
 msgid "Save current project"
 msgstr "현재 프로젝트를 저장합니다"
 
-#: ../src/burner-project.c:197
+#: ../src/burner-project.c:199
 msgid "Save _As…"
 msgstr "다른 이름으로 저장(_A)…"
 
-#: ../src/burner-project.c:198
+#: ../src/burner-project.c:200
 msgid "Save current project to a different location"
 msgstr "현재 프로젝트를 다른 위치에 저장합니다"
 
-#: ../src/burner-project.c:199
+#: ../src/burner-project.c:201
 msgid "_Add Files"
 msgstr "파일 추가(_A)"
 
-#: ../src/burner-project.c:200
+#: ../src/burner-project.c:202
 msgid "Add files to the project"
 msgstr "파일을 프로젝트에 추가합니다"
 
-#: ../src/burner-project.c:201
+#: ../src/burner-project.c:203
 msgid "_Remove Files"
 msgstr "파일 제거(_R)"
 
 #. Translators: "empty" is a verb here
-#: ../src/burner-project.c:204 ../src/burner-project.c:2312
+#: ../src/burner-project.c:206 ../src/burner-project.c:2372
 msgid "E_mpty Project"
 msgstr "프로젝트 비우기(_M)"
 
-#: ../src/burner-project.c:205
+#: ../src/burner-project.c:207
 msgid "Remove all files from the project"
 msgstr "프로젝트의 모든 파일을 지웁니다"
 
-#: ../src/burner-project.c:206 ../src/burner-project.c:1086
+#: ../src/burner-project.c:208 ../src/burner-project.c:1088
 msgid "_Burn…"
 msgstr "굽기(_B)…"
 
-#: ../src/burner-project.c:207
+#: ../src/burner-project.c:209
 msgid "Burn the disc"
 msgstr "디스크를 굽습니다"
 
-#: ../src/burner-project.c:695
+#: ../src/burner-project.c:697
 msgid ""
 "To add files to this project click the \"Add\" button or drag files to this "
 "area"
@@ -4154,7 +4272,7 @@ msgstr ""
 "이 프로젝트에 파일을 추가하려면 \"추가\" 단추를 누르거나 파일을 여기에 끌어 "
 "놓으십시오"
 
-#: ../src/burner-project.c:697
+#: ../src/burner-project.c:699
 msgid ""
 "To remove files select them then click on the \"Remove\" button or press "
 "\"Delete\" key"
@@ -4162,16 +4280,16 @@ msgstr ""
 "파일을 제거하려면 해당 파일을 선택하고 \"제거\" 단추를 누르거나 \"Delete\" 키"
 "를 누르십시오"
 
-#: ../src/burner-project.c:804
+#: ../src/burner-project.c:806
 #, c-format
 msgid "Estimated project size: %s"
 msgstr "프로젝트 예상 크기: %s"
 
-#: ../src/burner-project.c:950 ../src/burner-project.c:966
+#: ../src/burner-project.c:952 ../src/burner-project.c:968
 msgid "The project is too large for the disc even with the overburn option."
 msgstr "프로젝트가 디스크 용량보다(오버버닝 옵션을 사용하더라도) 큽니다."
 
-#: ../src/burner-project.c:977
+#: ../src/burner-project.c:979
 msgid ""
 "The project is too large for the disc and you must remove files from it.\n"
 "You may want to use this option if you're using 90 or 100 min CD-R(W) which "
@@ -4185,57 +4303,57 @@ msgstr ""
 "다.\n"
 "주의: 이 옵션을 사용하면 실패할 수도 있습니다."
 
-#: ../src/burner-project.c:1098
+#: ../src/burner-project.c:1100
 msgid "Start to burn the contents of the selection"
 msgstr "선택한 내용을 굽기 시작합니다"
 
-#: ../src/burner-project.c:1267
+#: ../src/burner-project.c:1273
 msgid "Please add songs to the project."
 msgstr "프로젝트에 노래를 추가하십시오."
 
-#: ../src/burner-project.c:1904 ../src/burner-project.c:1939
+#: ../src/burner-project.c:1963 ../src/burner-project.c:1998
 msgid "Do you really want to create a new project and discard the current one?"
 msgstr "정말로 새 프로젝트를 만들고 현재 프로젝트를 버리시겠습니까?"
 
-#: ../src/burner-project.c:1909
+#: ../src/burner-project.c:1968
 msgid "If you choose to create a new empty project, all changes will be lost."
 msgstr "빈 프로젝트를 새로 만들면, 모든 바뀐 사항을 잃어버리게 됩니다."
 
-#: ../src/burner-project.c:1912
+#: ../src/burner-project.c:1971
 msgid "_Discard Changes"
 msgstr "바뀐 사항 버리기(_D)"
 
-#: ../src/burner-project.c:1920
+#: ../src/burner-project.c:1979
 msgid "Do you want to discard the file selection or add it to the new project?"
 msgstr "파일 선택을 취소하고 새 프로젝트에 추가하시겠습니까?"
 
-#: ../src/burner-project.c:1925 ../src/burner-project.c:1944
+#: ../src/burner-project.c:1984 ../src/burner-project.c:2003
 msgid ""
 "If you choose to create a new empty project, the file selection will be "
 "discarded."
 msgstr "새 프로젝트를 만들면, 파일 선택을 버립니다."
 
-#: ../src/burner-project.c:1927
+#: ../src/burner-project.c:1986
 msgid "_Discard File Selection"
 msgstr "파일 선택 버리기(_D)"
 
-#: ../src/burner-project.c:1931
+#: ../src/burner-project.c:1990
 msgid "_Keep File Selection"
 msgstr "파일 선택 유지(_K)"
 
-#: ../src/burner-project.c:1946
+#: ../src/burner-project.c:2005
 msgid "_Discard Project"
 msgstr "프로젝트 버리기(_D)"
 
-#: ../src/burner-project.c:2188
+#: ../src/burner-project.c:2248
 msgid "Select Files"
 msgstr "파일 선택"
 
-#: ../src/burner-project.c:2301
+#: ../src/burner-project.c:2361
 msgid "Do you really want to empty the current project?"
 msgstr "정말로 현재 프로젝트를 비우시겠습니까?"
 
-#: ../src/burner-project.c:2306
+#: ../src/burner-project.c:2366
 msgid ""
 "Emptying a project will remove all files already added. All the work will be "
 "lost. Note that files will not be deleted from their own location, just no "
@@ -4244,141 +4362,131 @@ msgstr ""
 "프로젝트를 비우면 프로젝트에 추가한 파일을 제거합니다. 작업한 내용을 모두 잃"
 "어버립니다. 파일을 직접 삭제하지는 않고, 목록만 사라집니다."
 
-#: ../src/burner-project.c:2368
+#: ../src/burner-project.c:2477
 msgid "_Save"
 msgstr "저장(_S)"
 
-#: ../src/burner-project.c:2379
+#: ../src/burner-project.c:2488
 msgid "_Add"
 msgstr "추가(_A)"
 
-#: ../src/burner-project.c:2384 ../src/burner-split-dialog.c:1255
+#: ../src/burner-project.c:2493 ../src/burner-split-dialog.c:1261
 msgid "_Remove"
 msgstr "제거(_R)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2448
+#: ../src/burner-project.c:2557
 #, c-format
 msgid "Burner — %s (Data Disc)"
 msgstr "브라세로 — %s (데이터 디스크)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2451
+#: ../src/burner-project.c:2560
 #, c-format
 msgid "Burner — %s (Audio Disc)"
 msgstr "브라세로 — %s (오디오 디스크)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2454
+#: ../src/burner-project.c:2563
 #, c-format
 msgid "Burner — %s (Video Disc)"
 msgstr "브라세로 — %s (비디오 디스크)"
 
-#: ../src/burner-project.c:2624 ../src/burner-project.c:2927
+#: ../src/burner-project.c:2733 ../src/burner-project.c:3038
 msgid "Your project has not been saved."
 msgstr "프로젝트를 저장하지 않았습니다."
 
-#: ../src/burner-project.c:2638
+#: ../src/burner-project.c:2747
 msgid "Save the changes of current project before closing?"
 msgstr "닫기 전에 현재 프로젝트의 바뀐 사항을 저장하시겠습니까?"
 
-#: ../src/burner-project.c:2643 ../src/burner-project.c:2932
+#: ../src/burner-project.c:2752 ../src/burner-project.c:3043
 msgid "If you don't save, changes will be permanently lost."
 msgstr "저장하지 않으면 바뀐 사항을 영영 잃어버립니다."
 
-#: ../src/burner-project.c:2647 ../src/burner-project.c:2653
-#: ../src/burner-project.c:2935
+#: ../src/burner-project.c:2756 ../src/burner-project.c:2762
+#: ../src/burner-project.c:3046
 msgid "Cl_ose Without Saving"
 msgstr "저장하지 않고 닫기(_O)"
 
-#: ../src/burner-project.c:2735
+#: ../src/burner-project.c:2845
 msgid "Save Current Project"
 msgstr "현재 프로젝트 저장"
 
-#: ../src/burner-project.c:2753
+#: ../src/burner-project.c:2863
 msgid "Save project as a Burner audio project"
 msgstr "프로젝트를 브라세로 오디오 프로젝트로 저장"
 
-#: ../src/burner-project.c:2754
+#: ../src/burner-project.c:2864
 msgid "Save project as a plain text list"
 msgstr "프로젝트를 일반 텍스트 목록으로 저장"
 
-#: ../src/burner-project.c:2758
+#: ../src/burner-project.c:2868
 msgid "Save project as a PLS playlist"
 msgstr "프로젝트를 PLS 재생 목록으로 저장"
 
-#: ../src/burner-project.c:2759
+#: ../src/burner-project.c:2869
 msgid "Save project as an M3U playlist"
 msgstr "프로젝트를 M3U 재생 목록으로 저장"
 
-#: ../src/burner-project.c:2760
+#: ../src/burner-project.c:2870
 msgid "Save project as an XSPF playlist"
 msgstr "프로젝트를 XSPF 재생 목록으로 저장"
 
-#: ../src/burner-project.c:2761
+#: ../src/burner-project.c:2871
 msgid "Save project as an iriver playlist"
 msgstr "프로젝트를 아이리버 재생 목록으로 저장"
 
-#: ../src/burner-project-manager.c:95
+#: ../src/burner-project-manager.c:97
 msgid "_Cover Editor"
 msgstr "표지 편집기(_C)"
 
-#: ../src/burner-project-manager.c:96
+#: ../src/burner-project-manager.c:98
 msgid "Design and print covers for CDs"
 msgstr "CD 표지를 디자인 및 인쇄합니다"
 
-#: ../src/burner-project-manager.c:97
+#: ../src/burner-project-manager.c:99
 msgid "_New Project"
 msgstr "새 프로젝트(_N)"
 
-#: ../src/burner-project-manager.c:98
+#: ../src/burner-project-manager.c:100
 msgid "Create a new project"
 msgstr "새 프로젝트를 만듭니다"
 
-#: ../src/burner-project-manager.c:99
+#: ../src/burner-project-manager.c:101
 msgid "_Empty Project"
 msgstr "빈 프로젝트(_E)"
 
-#: ../src/burner-project-manager.c:100
+#: ../src/burner-project-manager.c:102
 msgid "Let you choose your new project"
 msgstr "새 프로젝트를 직접 선택합니다"
 
-#: ../src/burner-project-manager.c:101
+#: ../src/burner-project-manager.c:103
 msgid "New _Audio Project"
 msgstr "새 오디오 프로젝트(_A)"
 
-#: ../src/burner-project-manager.c:102
-#: ../src/burner-project-type-chooser.c:76
+#: ../src/burner-project-manager.c:104
 msgid ""
 "Create a traditional audio CD that will be playable on computers and stereos"
 msgstr "컴퓨터와 CD 플레이어에서 재생할 수 있는 전통적인 오디오 CD를 만듭니다."
 
-#: ../src/burner-project-manager.c:103
+#: ../src/burner-project-manager.c:105
 msgid "New _Data Project"
 msgstr "새 데이터 프로젝트(_D)"
 
-#: ../src/burner-project-manager.c:104
-#: ../src/burner-project-type-chooser.c:81
-msgid ""
-"Create a CD/DVD containing any type of data that can only be read on a "
-"computer"
-msgstr "컴퓨터에서 읽을 수 있는 데이터가 들어 있는 CD/DVD를 만듭니다."
-
-#: ../src/burner-project-manager.c:105
+#: ../src/burner-project-manager.c:107
 msgid "New _Video Project"
 msgstr "새 비디오 프로젝트(_V)"
 
-#: ../src/burner-project-manager.c:106
-#: ../src/burner-project-type-chooser.c:86
+#: ../src/burner-project-manager.c:108
 msgid "Create a video DVD or an SVCD that is readable on TV readers"
 msgstr "TV 리더에서 읽을 수 있는 비디오 DVD나 SVCD를 만듭니다"
 
-#: ../src/burner-project-manager.c:107
+#: ../src/burner-project-manager.c:109
 msgid "Copy _Disc…"
 msgstr "디스크 복사(_D)…"
 
-#: ../src/burner-project-manager.c:108
-#: ../src/burner-project-type-chooser.c:91
+#: ../src/burner-project-manager.c:110
 msgid ""
 "Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on "
 "another CD/DVD"
@@ -4386,103 +4494,77 @@ msgstr ""
 "오디오 CD나 데이터 CD/DVD의 일대일 복사물을 하드 디스크나 다른 CD/DVD에 만듭"
 "니다."
 
-#: ../src/burner-project-manager.c:109
+#: ../src/burner-project-manager.c:111
 msgid "_Burn Image…"
 msgstr "이미지 굽기(_B)…"
 
-#: ../src/burner-project-manager.c:110
-#: ../src/burner-project-type-chooser.c:95
-#: ../src/burner-project-type-chooser.c:96
-msgid "Burn an existing CD/DVD image to disc"
-msgstr "기존 CD/DVD 이미지를 디스크에 굽습니다"
-
-#: ../src/burner-project-manager.c:112
+#: ../src/burner-project-manager.c:114
 msgid "_Open…"
 msgstr "열기(_O)…"
 
-#: ../src/burner-project-manager.c:113
+#: ../src/burner-project-manager.c:115
 msgid "Open a project"
 msgstr "프로젝트를 엽니다"
 
 #. Translators: the %s is a string representing the total size
 #. * of the file selection
-#: ../src/burner-project-manager.c:259
+#: ../src/burner-project-manager.c:262
 #, c-format
 msgid "%d file selected (%s)"
 msgid_plural "%d files selected (%s)"
 msgstr[0] "파일 %d개 선택(%s)"
 
-#: ../src/burner-project-manager.c:270
+#: ../src/burner-project-manager.c:273
 #, c-format
 msgid "%d file is supported (%s)"
 msgid_plural "%d files are supported (%s)"
 msgstr[0] "파일 %d개 지원(%s)"
 
-#: ../src/burner-project-manager.c:276
+#: ../src/burner-project-manager.c:279
 #, c-format
 msgid "%d file can be added (%s)"
 msgid_plural "%d selected files can be added (%s)"
 msgstr[0] "파일 %d개 추가할 수 있음(%s)"
 
-#: ../src/burner-project-manager.c:287
+#: ../src/burner-project-manager.c:290
 #, c-format
 msgid "No file can be added (%i selected file)"
 msgid_plural "No file can be added (%i selected files)"
 msgstr[0] "추가할 수 있는 파일 없음(파일 %i개 선택)"
 
-#: ../src/burner-project-manager.c:293
+#: ../src/burner-project-manager.c:296
 #, c-format
 msgid "No file is supported (%i selected file)"
 msgid_plural "No file is supported (%i selected files)"
 msgstr[0] "지원하는 파일 없음(파일 %i개 선택)"
 
-#: ../src/burner-project-manager.c:299 ../src/burner-project-manager.c:453
+#: ../src/burner-project-manager.c:302 ../src/burner-project-manager.c:456
 msgid "No file selected"
 msgstr "선택한 파일 없음"
 
-#: ../src/burner-project-manager.c:590
-msgid "Burner — New Audio Disc Project"
-msgstr "브라세로 — 새 오디오 디스크 프로젝트"
-
-#: ../src/burner-project-manager.c:604
-msgid "Burner — New Data Disc Project"
-msgstr "브라세로 — 새 데이터 디스크 프로젝트"
-
-#: ../src/burner-project-manager.c:618
-msgid "Burner — New Video Disc Project"
-msgstr "브라세로 — 새 비디오 디스크 프로젝트"
-
-#: ../src/burner-project-manager.c:628
-msgid "Burner — New Image File"
-msgstr "브라세로 — 새 이미지 파일"
-
-#: ../src/burner-project-manager.c:643
-msgid "Burner — Disc Copy"
-msgstr "브라세로 — 디스크 복사"
-
-#: ../src/burner-project-manager.c:727
+#: ../src/burner-project-manager.c:763
 msgid "Open Project"
 msgstr "프로젝트 열기"
 
-#: ../src/burner-project-manager.c:830
+#: ../src/burner-project-manager.c:868
 msgid "_New"
 msgstr "새로 만들기(_N)"
 
-#: ../src/burner-project-manager.c:834
+#: ../src/burner-project-manager.c:872
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: ../src/burner-project-manager.c:885
+#: ../src/burner-project-manager.c:923
 msgid "Browse the file system"
 msgstr "파일 시스템 찾아보기"
 
-#: ../src/burner-project-manager.c:907
+#: ../src/burner-project-manager.c:945
 msgid "Display playlists and their contents"
 msgstr "재생 목록과 그 내용을 표시합니다"
 
 #. Translators: this is a picture not
 #. * a disc image
-#: ../src/burner-project-name.c:83
+#: ../src/burner-project-name.c:85
 msgctxt "picture"
 msgid "Please select another image."
 msgstr "다른 그림을 선택하십시오."
@@ -4490,7 +4572,7 @@ msgstr "다른 그림을 선택하십시오."
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_.
 #. * The %s is the date
-#: ../src/burner-project-name.c:269
+#: ../src/burner-project-name.c:272
 #, c-format
 msgid "Video disc (%s)"
 msgstr "비디오 디스크(%s)"
@@ -4511,59 +4593,19 @@ msgstr "빈 파일입니다"
 msgid "It does not seem to be a valid Burner project"
 msgstr "올바른 브라세로 프로젝트가 아닌 것으로 보입니다"
 
-#: ../src/burner-project-type-chooser.c:74
-msgid "Audi_o project"
-msgstr "오디오 프로젝트(_O)"
-
-#: ../src/burner-project-type-chooser.c:75
-msgid "Create a traditional audio CD"
-msgstr "전통적인 오디오 CD를 만듭니다"
-
-#: ../src/burner-project-type-chooser.c:79
-msgid "D_ata project"
-msgstr "데이터 프로젝트(_A)"
-
-#: ../src/burner-project-type-chooser.c:80
-msgid "Create a data CD/DVD"
-msgstr "데이터 CD/DVD를 만듭니다"
-
-#: ../src/burner-project-type-chooser.c:84
-msgid "_Video project"
-msgstr "비디오 프로젝트(_V)"
-
-#: ../src/burner-project-type-chooser.c:85
-msgid "Create a video DVD or an SVCD"
-msgstr "비디오 DVD나 SVCD를 만듭니다"
-
-#: ../src/burner-project-type-chooser.c:89
-msgid "Disc _copy"
-msgstr "디스크 복사(_C)"
-
-#: ../src/burner-project-type-chooser.c:90
-msgid "Create 1:1 copy of a CD/DVD"
-msgstr "CD/DVD의 일대일 복사물을 만듭니다"
-
-#: ../src/burner-project-type-chooser.c:94
-msgid "Burn _image"
-msgstr "이미지 굽기(_I)"
-
-#: ../src/burner-project-type-chooser.c:292
+#: ../src/burner-project-type-chooser.c:404
 msgid "Last _Unsaved Project"
 msgstr "최근 저장하지 않은 프로젝트(_U)"
 
-#: ../src/burner-project-type-chooser.c:308
+#: ../src/burner-project-type-chooser.c:420
 msgid "Load the last project that was not burned and not saved"
 msgstr "굽거나 저장하지 않은 최근 프로젝트를 읽어들입니다"
 
-#: ../src/burner-project-type-chooser.c:414
+#: ../src/burner-project-type-chooser.c:526
 msgid "No recently used project"
 msgstr "최근에 사용한 프로젝트가 없습니다"
 
-#: ../src/burner-project-type-chooser.c:463
-msgid "Create a new project:"
-msgstr "새 프로젝트 만들기:"
-
-#: ../src/burner-project-type-chooser.c:510
+#: ../src/burner-project-type-chooser.c:646
 msgid "Recent projects:"
 msgstr "최근 프로젝트:"
 
@@ -4642,163 +4684,163 @@ msgstr "파일 없음"
 msgid "Start and stop playing"
 msgstr "재생을 시작하고 중지합니다"
 
-#: ../src/burner-song-properties.c:177
+#: ../src/burner-song-properties.c:178
 msgid "Title:"
 msgstr "제목:"
 
-#: ../src/burner-song-properties.c:235
+#: ../src/burner-song-properties.c:236
 msgid "Song start:"
 msgstr "노래 시작:"
 
-#: ../src/burner-song-properties.c:241
+#: ../src/burner-song-properties.c:242
 msgid "Song end:"
 msgstr "노래 끝:"
 
-#: ../src/burner-song-properties.c:258
+#: ../src/burner-song-properties.c:259
 msgid "Track length:"
 msgstr "트랙 길이:"
 
-#: ../src/burner-song-properties.c:365
+#: ../src/burner-song-properties.c:366
 #, c-format
 msgid "Song information for track %02i"
 msgstr "트랙 %02i번의 노래 정보"
 
-#: ../src/burner-split-dialog.c:172
+#: ../src/burner-split-dialog.c:174
 msgid "Do you really want to split the track?"
 msgstr "정말로 트랙을 쪼개시겠습니까?"
 
-#: ../src/burner-split-dialog.c:175
+#: ../src/burner-split-dialog.c:178
 msgid ""
 "If you split the track, the size of the new track will be shorter than 6 "
 "seconds and will be padded."
 msgstr ""
 "트랙을 쪼개면, 새 트랙의 크기가 6초보다 짧게 되어 빈 값으로 채워집니다."
 
-#: ../src/burner-split-dialog.c:181 ../src/burner-split-dialog.c:752
+#: ../src/burner-split-dialog.c:184 ../src/burner-split-dialog.c:758
 msgid "_Split"
 msgstr "쪼개기(_S)"
 
-#: ../src/burner-split-dialog.c:609
+#: ../src/burner-split-dialog.c:613
 msgid "The track wasn't split."
 msgstr "트랙을 쪼개지 않습니다."
 
-#: ../src/burner-split-dialog.c:610
+#: ../src/burner-split-dialog.c:614
 msgid "No silence could be detected"
 msgstr "묵음이 발견되지 않았습니다"
 
-#: ../src/burner-split-dialog.c:633
+#: ../src/burner-split-dialog.c:637
 msgid "An error occurred while detecting silences."
 msgstr "묵음을 검사하는 데 오류가 발생했습니다."
 
-#: ../src/burner-split-dialog.c:712
+#: ../src/burner-split-dialog.c:717
 msgid "This will remove all previous results."
 msgstr "이러면 예전의 결과를 모두 지웁니다."
 
-#: ../src/burner-split-dialog.c:750
+#: ../src/burner-split-dialog.c:756
 msgid "Do you really want to carry on with automatic splitting?"
 msgstr "정말로 자동으로 쪼개시겠습니까?"
 
-#: ../src/burner-split-dialog.c:751
+#: ../src/burner-split-dialog.c:757
 msgid "_Don't split"
 msgstr "쪼개지 않기(_D)"
 
-#: ../src/burner-split-dialog.c:968
+#: ../src/burner-split-dialog.c:974
 msgid "Do you really want to empty the slices preview?"
 msgstr "정말로 조각 미리 보기를 비우시겠습니까"
 
-#: ../src/burner-split-dialog.c:970 ../src/burner-split-dialog.c:1269
+#: ../src/burner-split-dialog.c:976 ../src/burner-split-dialog.c:1275
 msgid "Re_move All"
 msgstr "모두 제거(_M)"
 
-#: ../src/burner-split-dialog.c:1055
+#: ../src/burner-split-dialog.c:1061
 msgid "Split Track"
 msgstr "트랙 쪼개기"
 
-#: ../src/burner-split-dialog.c:1072
+#: ../src/burner-split-dialog.c:1078
 msgid "M_ethod:"
 msgstr "방법(_E):"
 
-#: ../src/burner-split-dialog.c:1078
+#: ../src/burner-split-dialog.c:1084
 msgid "Method to be used to split the track"
 msgstr "트랙을 쪼개는 데 사용할 방법"
 
-#: ../src/burner-split-dialog.c:1081
+#: ../src/burner-split-dialog.c:1087
 msgid "Split track manually"
 msgstr "트랙을 수동으로 쪼개기"
 
-#: ../src/burner-split-dialog.c:1082
+#: ../src/burner-split-dialog.c:1088
 msgid "Split track in parts with a fixed length"
 msgstr "트랙을 고정된 길이로 쪼개기"
 
-#: ../src/burner-split-dialog.c:1083
+#: ../src/burner-split-dialog.c:1089
 msgid "Split track in a fixed number of parts"
 msgstr "트랙을 고정된 수의 일부분으로 쪼개기"
 
-#: ../src/burner-split-dialog.c:1084
+#: ../src/burner-split-dialog.c:1090
 msgid "Split track for each silence"
 msgstr "트랙을 묵음 기준으로 쪼개기"
 
-#: ../src/burner-split-dialog.c:1090
+#: ../src/burner-split-dialog.c:1096
 msgid "_Slice"
 msgstr "자르기(_S)"
 
-#: ../src/burner-split-dialog.c:1101
+#: ../src/burner-split-dialog.c:1107
 msgid "Add a splitting point"
 msgstr "자를 위치를 추가합니다"
 
 #. Translators: this goes with the next (= "seconds")
-#: ../src/burner-split-dialog.c:1118
+#: ../src/burner-split-dialog.c:1124
 msgid "Split this track every"
 msgstr "트랙을 다음 초마다 쪼개기: "
 
 #. Translators: this goes with the previous (= "Split track every")
-#: ../src/burner-split-dialog.c:1127
+#: ../src/burner-split-dialog.c:1133
 msgid "seconds"
 msgstr "초"
 
 #. Translators: this goes with the next (= "parts")
-#: ../src/burner-split-dialog.c:1136
+#: ../src/burner-split-dialog.c:1142
 msgid "Split this track in"
 msgstr "트랙을 다음 부분으로 쪼개기: "
 
 #. Translators: this goes with the previous (= "Split this track in")
-#: ../src/burner-split-dialog.c:1145
+#: ../src/burner-split-dialog.c:1151
 msgid "parts"
 msgstr "부분"
 
-#: ../src/burner-split-dialog.c:1153
+#: ../src/burner-split-dialog.c:1159
 msgid "Slicing Method"
 msgstr "자르는 방법"
 
-#: ../src/burner-split-dialog.c:1211
+#: ../src/burner-split-dialog.c:1217
 msgid "Start"
 msgstr "시작"
 
-#: ../src/burner-split-dialog.c:1218
+#: ../src/burner-split-dialog.c:1224
 msgid "End"
 msgstr "끝"
 
-#: ../src/burner-split-dialog.c:1241
+#: ../src/burner-split-dialog.c:1247
 msgid "Mer_ge"
 msgstr "합치기(_G)"
 
-#: ../src/burner-split-dialog.c:1252
+#: ../src/burner-split-dialog.c:1258
 msgid "Merge a selected slice with the next selected one"
 msgstr "선택한 조각을 다음에 선택한 조각과 합칩니다"
 
-#: ../src/burner-split-dialog.c:1266
+#: ../src/burner-split-dialog.c:1272
 msgid "Remove the selected slices"
 msgstr "선택한 조각을 지웁니다"
 
-#: ../src/burner-split-dialog.c:1280
+#: ../src/burner-split-dialog.c:1286
 msgid "Clear the slices preview"
 msgstr "조각 미리 보기를 지웁니다"
 
-#: ../src/burner-split-dialog.c:1290
+#: ../src/burner-split-dialog.c:1296
 msgid "_List of slices that are to be created:"
 msgstr "만들 조각 목록(_L):"
 
-#: ../src/burner-split-dialog.c:1298
+#: ../src/burner-split-dialog.c:1304
 msgid "Slices Preview"
 msgstr "조각 미리 보기"
 
@@ -4826,43 +4868,103 @@ msgstr "초"
 msgid "Frames (1 second = 75 frames)"
 msgstr "프레임 수(1초 = 75프레임)"
 
-#: ../src/burner-video-disc.c:101
+#: ../src/burner-video-disc.c:103
 msgid "Open the selected video"
 msgstr "선택한 비디오를 엽니다"
 
-#: ../src/burner-video-disc.c:103
+#: ../src/burner-video-disc.c:105
 msgid "Edit the video information (start, end, author, etc.)"
 msgstr "비디오 정보를 편집합니다(시작, 끝, 만든 사람 등)"
 
-#: ../src/burner-video-disc.c:105
+#: ../src/burner-video-disc.c:107
 msgid "Remove the selected videos from the project"
 msgstr "프로젝트에서 선택한 비디오를 제거합니다"
 
-#: ../src/burner-video-disc.c:359
+#: ../src/burner-video-disc.c:361
 msgid "Do you want to search for video files inside the directory?"
 msgstr "디렉터리 안의 비디오 파일을 찾으시겠습니까?"
 
-#: ../src/burner-video-disc.c:369
+#: ../src/burner-video-disc.c:371
 msgid "_Search Directory"
 msgstr "디렉터리 검색(_S)"
 
-#: ../src/burner-video-disc.c:412
+#: ../src/burner-video-disc.c:415
 #, c-format
 msgid "\"%s\" does not have a suitable type for video projects."
 msgstr "\"%s\" 파일은 비디오 프로젝트에 쓸 수 있는 형식이 아닙니다."
 
-#: ../src/burner-video-disc.c:415
+#: ../src/burner-video-disc.c:418
 msgid "Please only add files with video content"
 msgstr "비디오가 들어 있는 파일을 추가하십시오"
 
-#: ../src/main.c:84
+#: ../src/main.c:91
 msgid "[URI] [URI] …"
 msgstr "[URI] [URI] …"
 
-#: ../src/main.c:96
+#: ../src/main.c:103
 #, c-format
 msgid "Please type \"%s --help\" to see all available options\n"
 msgstr "옵션을 모두 보려면 \"%s --help\" 명령어를 실행하십시오\n"
+
+#~ msgid "Create an Audio Project"
+#~ msgstr "오디오 프로젝트 만들기"
+
+#~ msgid "Create a Video Project"
+#~ msgstr "비디오 프로젝트 만들기"
+
+#~ msgid "Simulation of image to DVD burning"
+#~ msgstr "이미지에서 DVD 굽기 가상"
+
+#~ msgid "Make _More Copies"
+#~ msgstr "복사물 더 만들기(_M)"
+
+#~ msgid "Open the specified playlist as an audio project"
+#~ msgstr "지정한 재생 목록을 오디오 프로젝트로 엽니다"
+
+#~ msgid "PLAYLIST"
+#~ msgstr "<재생목록>"
+
+#~ msgid "Open an audio project adding the URIs given on the command line"
+#~ msgstr "명령행에서 지정한 URI를 추가해 오디오 프로젝트를 엽니다"
+
+#~ msgid "Open a video project adding the URIs given on the command line"
+#~ msgstr "명령행에서 지정한 URI를 추가해 비디오 프로젝트를 엽니다"
+
+#~ msgid "Filtering options"
+#~ msgstr "필터링 옵션"
+
+#~ msgid "Burner — New Audio Disc Project"
+#~ msgstr "브라세로 — 새 오디오 디스크 프로젝트"
+
+#~ msgid "Burner — New Data Disc Project"
+#~ msgstr "브라세로 — 새 데이터 디스크 프로젝트"
+
+#~ msgid "Burner — New Video Disc Project"
+#~ msgstr "브라세로 — 새 비디오 디스크 프로젝트"
+
+#~ msgid "Burner — New Image File"
+#~ msgstr "브라세로 — 새 이미지 파일"
+
+#~ msgid "Burner — Disc Copy"
+#~ msgstr "브라세로 — 디스크 복사"
+
+#~ msgid "Audi_o project"
+#~ msgstr "오디오 프로젝트(_O)"
+
+#~ msgid "Create a traditional audio CD"
+#~ msgstr "전통적인 오디오 CD를 만듭니다"
+
+#~ msgid "Create a video DVD or an SVCD"
+#~ msgstr "비디오 DVD나 SVCD를 만듭니다"
+
+#~ msgid "Disc _copy"
+#~ msgstr "디스크 복사(_C)"
+
+#~ msgid "Create 1:1 copy of a CD/DVD"
+#~ msgstr "CD/DVD의 일대일 복사물을 만듭니다"
+
+#~ msgid "Create a new project:"
+#~ msgstr "새 프로젝트 만들기:"
 
 #~ msgid "File is not a valid .desktop file"
 #~ msgstr "올바른 .desktop 파일이 아닙니다"

@@ -12,9 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: burner master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=burner&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-12-18 14:33+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-14 10:36+0800\n"
 "PO-Revision-Date: 2013-12-28 19:25+0800\n"
 "Last-Translator: Tong Hui <tonghuix@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -28,9 +27,9 @@ msgstr ""
 
 #: ../data/burner.appdata.xml.in.h:1
 msgid ""
-"Burner is a application to burn CD/DVD for the GNOME Desktop. It is "
-"designed to be as simple as possible and has some unique features to enable "
-"users to create their discs easily and quickly."
+"Burner is a application to burn CD/DVD for the GNOME Desktop. It is designed "
+"to be as simple as possible and has some unique features to enable users to "
+"create their discs easily and quickly."
 msgstr ""
 "Burner 是一款 GNOME 桌面下的 CD/DVD 刻录应用程序。其设计宗旨是尽可能简单，以"
 "独具特色的方式让用户以简单快捷的方式创建他们的光盘。"
@@ -42,11 +41,16 @@ msgid ""
 "files from other local applications or from remote shared drives to easily "
 "burn them to a disc."
 msgstr ""
-"Burner 可以创建、复制和刻录数据以及音频 CD/DVD。完全支持 CD-TEXT、多会话以"
-"及 Joliet 扩展。您只需将文件从其他应用程序或远程共享驱动器中拖拽进来，就"
-"可以轻松的将它们刻录成光盘。"
+"Burner 可以创建、复制和刻录数据以及音频 CD/DVD。完全支持 CD-TEXT、多会话以及 "
+"Joliet 扩展。您只需将文件从其他应用程序或远程共享驱动器中拖拽进来，就可以轻松"
+"的将它们刻录成光盘。"
 
-#: ../data/burner.desktop.in.in.h:1
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — New Audio Disc Project"));
+#. gtk_window_set_title (GTK_WINDOW (toplevel), _("Burner — Disc Copy"));
+#: ../data/burner.desktop.in.in.h:1 ../src/burner-app.c:2030
+#: ../src/burner-project-manager.c:587 ../src/burner-project-manager.c:602
+#: ../src/burner-project-manager.c:617 ../src/burner-project-manager.c:631
+#: ../src/burner-project-manager.c:642 ../src/burner-project-manager.c:675
 msgid "Burner"
 msgstr "光盘刻录器"
 
@@ -73,14 +77,6 @@ msgstr "打开新窗口"
 #: ../data/burner.desktop.in.in.h:7
 msgid "Burn an Image File"
 msgstr "刻录镜像文件"
-
-#: ../data/burner.desktop.in.in.h:8
-msgid "Create an Audio Project"
-msgstr "创建音频项目"
-
-#: ../data/burner.desktop.in.in.h:9
-msgid "Create a Video Project"
-msgstr "创建视频项目"
 
 #: ../data/mime/burner.xml.in.h:1
 msgid "Burner project file"
@@ -214,8 +210,7 @@ msgstr "Burner 是否过滤隐藏文件"
 msgid ""
 "Should burner filter hidden files. Set to true, burner will filter hidden "
 "files."
-msgstr ""
-"是否要 Burner 过滤隐藏文件？若设置为真(true)，Burner 将过滤隐藏文件。"
+msgstr "是否要 Burner 过滤隐藏文件？若设置为真(true)，Burner 将过滤隐藏文件。"
 
 #: ../data/org.gnome.burner.gschema.xml.h:26
 msgid "Replace symbolic links by their targets"
@@ -226,8 +221,8 @@ msgid ""
 "Should burner replace symbolic links by their target files in the project. "
 "Set to true, burner will replace symbolic links."
 msgstr ""
-"是否让 Burner 将项目中的符号链接替换为其目标文件。设置为真(true)，Burner 将"
-"替换符号链接。"
+"是否让 Burner 将项目中的符号链接替换为其目标文件。设置为真(true)，Burner 将替"
+"换符号链接。"
 
 #: ../data/org.gnome.burner.gschema.xml.h:28
 msgid "Should burner filter broken symbolic links"
@@ -235,11 +230,11 @@ msgstr "Burner 是否过滤损坏的符号链接"
 
 #: ../data/org.gnome.burner.gschema.xml.h:29
 msgid ""
-"Should burner filter broken symbolic links. Set to true, burner will "
-"filter broken symbolic links."
+"Should burner filter broken symbolic links. Set to true, burner will filter "
+"broken symbolic links."
 msgstr ""
-"Burner 应该过滤掉损坏的软连接吗？如果设置成真(true)，Burner 将过滤损坏的符"
-"号链接。"
+"Burner 应该过滤掉损坏的软连接吗？如果设置成真(true)，Burner 将过滤损坏的符号"
+"链接。"
 
 #: ../data/org.gnome.burner.gschema.xml.h:30
 msgid "The priority value for the plugin"
@@ -275,42 +270,74 @@ msgid ""
 "time."
 msgstr "这个值表示上次使用此内容时的速度"
 
-#: ../libburner-burn/burner-blank-dialog.c:222
+#: ../libburner-burn/burner-app-indicator.c:77 ../src/burner-audio-disc.c:157
+#: ../src/burner-data-disc.c:124 ../src/burner-video-disc.c:102
+msgid "Menu"
+msgstr "菜单"
+
+#: ../libburner-burn/burner-app-indicator.c:79
+msgid "Cancel ongoing burning"
+msgstr "取消进行中的刻录"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show _Dialog"
+msgstr "显示对话框(_D)"
+
+#: ../libburner-burn/burner-app-indicator.c:84
+msgid "Show dialog"
+msgstr "显示对话框"
+
+#: ../libburner-burn/burner-app-indicator.c:256
+#, c-format
+msgid "%s, %d%% done, %s remaining"
+msgstr "%s, %d%% 已完成，%s 剩余"
+
+#: ../libburner-burn/burner-app-indicator.c:263
+#, c-format
+msgid "%s, %d%% done"
+msgstr "%s, %d%% 已完成"
+
+#: ../libburner-burn/burner-app-indicator.c:273
+#, fuzzy, c-format
+msgid "Burner Disc Burner: %s"
+msgstr "光盘刻录器"
+
+#: ../libburner-burn/burner-blank-dialog.c:224
 msgid "Error while blanking."
 msgstr "擦除中发生错误。"
 
-#: ../libburner-burn/burner-blank-dialog.c:227
-#: ../libburner-burn/burner-blank-dialog.c:272
+#: ../libburner-burn/burner-blank-dialog.c:230
+#: ../libburner-burn/burner-blank-dialog.c:277
 msgid "Blank _Again"
 msgstr "再次擦除(_A)"
 
-#: ../libburner-burn/burner-blank-dialog.c:244
+#: ../libburner-burn/burner-blank-dialog.c:247
 msgid "Unknown error."
 msgstr "未知错误。"
 
-#: ../libburner-burn/burner-blank-dialog.c:264
-#: ../libburner-burn/burner-blank-dialog.c:288
+#: ../libburner-burn/burner-blank-dialog.c:268
+#: ../libburner-burn/burner-blank-dialog.c:293
 msgid "The disc was successfully blanked."
 msgstr "该光盘已成功擦除。"
 
-#: ../libburner-burn/burner-blank-dialog.c:270
+#: ../libburner-burn/burner-blank-dialog.c:275
 msgid "The disc is ready for use."
 msgstr "光盘已准备就绪。"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-blank-dialog.c:371
+#: ../libburner-burn/burner-blank-dialog.c:377
 msgid "_Blank"
 msgstr "擦除(_B)"
 
-#: ../libburner-burn/burner-blank-dialog.c:402
+#: ../libburner-burn/burner-blank-dialog.c:408
 msgid "_Fast blanking"
 msgstr "快速擦除(_F)"
 
-#: ../libburner-burn/burner-blank-dialog.c:403
+#: ../libburner-burn/burner-blank-dialog.c:409
 msgid "Activate fast blanking, as opposed to a longer, thorough blanking"
 msgstr "激活快速清除以避免花费更长的时间"
 
-#: ../libburner-burn/burner-blank-dialog.c:433
+#: ../libburner-burn/burner-blank-dialog.c:439
 msgid "Disc Blanking"
 msgstr "擦除中"
 
@@ -320,10 +347,10 @@ msgstr "正在刻录 CD/DVD"
 
 #: ../libburner-burn/burner-burn.c:331
 #: ../libburner-burn/burner-data-session.c:123
-#: ../libburner-burn/burner-tool-dialog.c:89
-#: ../libburner-media/scsi-error.c:47 ../plugins/cdrdao/burn-cdrdao.c:243
-#: ../plugins/cdrkit/burn-readom.c:110 ../plugins/cdrkit/burn-wodim.c:135
-#: ../plugins/cdrkit/burn-wodim.c:144 ../plugins/cdrtools/burn-cdrecord.c:135
+#: ../libburner-burn/burner-tool-dialog.c:91 ../libburner-media/scsi-error.c:47
+#: ../plugins/cdrdao/burn-cdrdao.c:243 ../plugins/cdrkit/burn-readom.c:110
+#: ../plugins/cdrkit/burn-wodim.c:135 ../plugins/cdrkit/burn-wodim.c:144
+#: ../plugins/cdrtools/burn-cdrecord.c:135
 #: ../plugins/cdrtools/burn-cdrecord.c:144
 #: ../plugins/cdrtools/burn-readcd.c:111
 #: ../plugins/growisofs/burn-dvd-rw-format.c:84
@@ -334,8 +361,8 @@ msgid "The drive is busy"
 msgstr "光驱正忙"
 
 #: ../libburner-burn/burner-burn.c:332
-#: ../libburner-burn/burner-burn-dialog.c:651
-#: ../libburner-burn/burner-tool-dialog.c:90
+#: ../libburner-burn/burner-burn-dialog.c:719
+#: ../libburner-burn/burner-tool-dialog.c:92
 msgid "Make sure another application is not using it"
 msgstr "请确认没有其他的程序正在使用它"
 
@@ -384,13 +411,12 @@ msgstr "进行中的刻录过程"
 msgid "Ongoing checksumming operation"
 msgstr "进行中的检查值操作"
 
-#: ../libburner-burn/burner-burn.c:1623
-#: ../libburner-burn/burner-burn.c:1817
+#: ../libburner-burn/burner-burn.c:1623 ../libburner-burn/burner-burn.c:1817
 msgid "Merging data is impossible with this disc"
 msgstr "不能使用该光盘合并数据"
 
 #: ../libburner-burn/burner-burn.c:1624
-#: ../libburner-burn/burner-burn-dialog.c:2186
+#: ../libburner-burn/burner-burn-dialog.c:2317
 #: ../plugins/cdrkit/burn-genisoimage.c:206 ../plugins/cdrkit/burn-wodim.c:114
 #: ../plugins/cdrtools/burn-cdrecord.c:114
 #: ../plugins/cdrtools/burn-mkisofs.c:206
@@ -401,24 +427,21 @@ msgstr "光盘上没有足够可用空间"
 
 #. Translators: %s is the name of a missing application
 #: ../libburner-burn/burner-burn.c:1708
-#: ../libburner-burn/burner-burn-options.c:1187
-#: ../src/burner-project.c:1385
+#: ../libburner-burn/burner-burn-options.c:1261 ../src/burner-project.c:1392
 #, c-format
 msgid "%s (application)"
 msgstr "%s (应用程序)"
 
 #. Translators: %s is the name of a missing library
 #: ../libburner-burn/burner-burn.c:1714
-#: ../libburner-burn/burner-burn-options.c:1193
-#: ../src/burner-project.c:1391
+#: ../libburner-burn/burner-burn-options.c:1267 ../src/burner-project.c:1398
 #, c-format
 msgid "%s (library)"
 msgstr "%s (库)"
 
 #. Translators: %s is the name of a missing GStreamer plugin
 #: ../libburner-burn/burner-burn.c:1719
-#: ../libburner-burn/burner-burn-options.c:1198
-#: ../src/burner-project.c:1396
+#: ../libburner-burn/burner-burn-options.c:1272 ../src/burner-project.c:1403
 #, c-format
 msgid "%s (GStreamer plugin)"
 msgstr "%s (Gstreamer 插件)"
@@ -447,258 +470,306 @@ msgstr "无法为临时镜像找到某个格式"
 #. * is specified. A graft point is the path (on the
 #. * disc) where a file from any source will be added
 #. * ("grafted")
-#: ../libburner-burn/burner-burn.c:2846
-#: ../libburner-burn/burner-caps-burn.c:66
+#: ../libburner-burn/burner-burn.c:2846 ../libburner-burn/burner-caps-burn.c:66
 #: ../libburner-burn/burn-job.c:1219 ../libburner-burn/burn-job.c:1228
 #: ../libburner-burn/burn-mkisofs-base.c:302
 #: ../nautilus/nautilus-burn-extension.c:218
-#: ../plugins/cdrkit/burn-genisoimage.c:368
-#: ../plugins/cdrkit/burn-readom.c:129 ../plugins/cdrkit/burn-readom.c:370
-#: ../plugins/cdrkit/burn-wodim.c:725 ../plugins/cdrkit/burn-wodim.c:837
-#: ../plugins/cdrkit/burn-wodim.c:852 ../plugins/cdrtools/burn-cdrecord.c:835
+#: ../plugins/cdrkit/burn-genisoimage.c:368 ../plugins/cdrkit/burn-readom.c:129
+#: ../plugins/cdrkit/burn-readom.c:370 ../plugins/cdrkit/burn-wodim.c:725
+#: ../plugins/cdrkit/burn-wodim.c:837 ../plugins/cdrkit/burn-wodim.c:852
+#: ../plugins/cdrtools/burn-cdrecord.c:835
 #: ../plugins/cdrtools/burn-cdrecord.c:850
-#: ../plugins/cdrtools/burn-mkisofs.c:368
-#: ../plugins/cdrtools/burn-readcd.c:130 ../plugins/cdrtools/burn-readcd.c:380
-#: ../src/burner-app.c:786
+#: ../plugins/cdrtools/burn-mkisofs.c:368 ../plugins/cdrtools/burn-readcd.c:130
+#: ../plugins/cdrtools/burn-readcd.c:380 ../src/burner-app.c:830
 #, c-format
 msgid "An internal error occurred"
 msgstr "发生了一个内部错误"
 
-#: ../libburner-burn/burner-burn-dialog.c:155
+#: ../libburner-burn/burner-burn-dialog.c:183
 msgid "Burner notification"
 msgstr "Burner 通知"
 
 #. Translators: This string is used in the title bar %s is the action currently performed
-#: ../libburner-burn/burner-burn-dialog.c:219
+#: ../libburner-burn/burner-burn-dialog.c:256
 #, c-format
 msgid "%s (%i%% Done)"
 msgstr "%s，已完成 %i%%"
 
-#: ../libburner-burn/burner-burn-dialog.c:241
-#: ../libburner-burn/burner-burn-dialog.c:1161
+#: ../libburner-burn/burner-burn-dialog.c:278
+#: ../libburner-burn/burner-burn-dialog.c:1234
 msgid "Creating Image"
 msgstr "正在创建镜像"
 
-#: ../libburner-burn/burner-burn-dialog.c:246
-#: ../libburner-burn/burner-burn-dialog.c:1170
+#: ../libburner-burn/burner-burn-dialog.c:283
+#: ../libburner-burn/burner-burn-dialog.c:1243
 msgid "Burning DVD"
 msgstr "正在刻录 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:250
-#: ../libburner-burn/burner-burn-dialog.c:1166
+#: ../libburner-burn/burner-burn-dialog.c:287
+#: ../libburner-burn/burner-burn-dialog.c:1239
 msgid "Copying DVD"
 msgstr "正在复制 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:256
-#: ../libburner-burn/burner-burn-dialog.c:1180
+#: ../libburner-burn/burner-burn-dialog.c:293
+#: ../libburner-burn/burner-burn-dialog.c:1253
 msgid "Burning CD"
 msgstr "正在刻录 CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:260
-#: ../libburner-burn/burner-burn-dialog.c:381
-#: ../libburner-burn/burner-burn-dialog.c:1176
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying CD"));
+#: ../libburner-burn/burner-burn-dialog.c:297
+#: ../libburner-burn/burner-burn-dialog.c:435
+#: ../libburner-burn/burner-burn-dialog.c:1249
+#, c-format
 msgid "Copying CD"
 msgstr "正在复制 CD"
 
-#: ../libburner-burn/burner-burn-dialog.c:266
-#: ../libburner-burn/burner-burn-dialog.c:1190
+#: ../libburner-burn/burner-burn-dialog.c:303
+#: ../libburner-burn/burner-burn-dialog.c:1263
 msgid "Burning Disc"
 msgstr "正在刻录光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:270
-#: ../libburner-burn/burner-burn-dialog.c:1186
+#: ../libburner-burn/burner-burn-dialog.c:307
+#: ../libburner-burn/burner-burn-dialog.c:1259
 msgid "Copying Disc"
 msgstr "正在复制光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:300
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Creating image"));
+#: ../libburner-burn/burner-burn-dialog.c:339
 #: ../libburner-burn/burn-basics.c:78
+#, c-format
 msgid "Creating image"
 msgstr "正在创建镜像"
 
-#: ../libburner-burn/burner-burn-dialog.c:306
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:346
+#, c-format
 msgid "Simulation of video DVD burning"
 msgstr "正在模拟刻录视频 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:308
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:349
+#, c-format
 msgid "Burning video DVD"
 msgstr "正在刻录视频 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:316
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:358
+#, c-format
 msgid "Simulation of data DVD burning"
 msgstr "正在模拟刻录数据 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:318
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:361
+#, c-format
 msgid "Burning data DVD"
 msgstr "正在刻录数据 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:326
-msgid "Simulation of image to DVD burning"
-msgstr "正在模拟刻录镜像到 DVD"
-
-#: ../libburner-burn/burner-burn-dialog.c:328
-msgid "Burning image to DVD"
-msgstr "正在刻录镜像到 DVD"
-
-#: ../libburner-burn/burner-burn-dialog.c:336
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to DVD burning"));
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data DVD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:370
+#: ../libburner-burn/burner-burn-dialog.c:381
+#, c-format
 msgid "Simulation of data DVD copying"
 msgstr "正在模拟刻录数据 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:338
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:373
+#, c-format
+msgid "Burning image to DVD"
+msgstr "正在刻录镜像到 DVD"
+
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying data DVD"));
+#: ../libburner-burn/burner-burn-dialog.c:384
+#, c-format
 msgid "Copying data DVD"
 msgstr "正在复制数据 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:349
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of (S)VCD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:396
+#, c-format
 msgid "Simulation of (S)VCD burning"
 msgstr "正在模拟 (S)VCD 刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:351
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning (S)VCD"));
+#: ../libburner-burn/burner-burn-dialog.c:399
+#, c-format
 msgid "Burning (S)VCD"
 msgstr "正在刻录 (S)VCD"
 
-#: ../libburner-burn/burner-burn-dialog.c:359
-#: ../libburner-burn/burner-burn-dialog.c:412
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of audio CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:408
+#: ../libburner-burn/burner-burn-dialog.c:471
+#, c-format
 msgid "Simulation of audio CD burning"
 msgstr "正在模拟刻录音乐光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:361
-#: ../libburner-burn/burner-burn-dialog.c:414
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning audio CD"));
+#: ../libburner-burn/burner-burn-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:475
+#, c-format
 msgid "Burning audio CD"
 msgstr "正在刻录音频光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:369
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:420
+#, c-format
 msgid "Simulation of data CD burning"
 msgstr "正在模拟数据光盘刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:371
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data CD"));
+#: ../libburner-burn/burner-burn-dialog.c:423
+#, c-format
 msgid "Burning data CD"
 msgstr "正在刻录数据光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:379
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of CD copying"));
+#: ../libburner-burn/burner-burn-dialog.c:432
+#, c-format
 msgid "Simulation of CD copying"
 msgstr "模拟复制光盘中"
 
-#: ../libburner-burn/burner-burn-dialog.c:389
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to CD burning"));
+#: ../libburner-burn/burner-burn-dialog.c:444
+#, c-format
 msgid "Simulation of image to CD burning"
 msgstr "正在模拟刻录镜像到光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:391
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to CD"));
+#: ../libburner-burn/burner-burn-dialog.c:447
+#, c-format
 msgid "Burning image to CD"
 msgstr "正在刻录镜像到光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:402
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of video disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:458
+#, c-format
 msgid "Simulation of video disc burning"
 msgstr "正在模拟视频光盘刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:404
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning video disc"));
+#: ../libburner-burn/burner-burn-dialog.c:461
+#, c-format
 msgid "Burning video disc"
 msgstr "正在刻录视频光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:422
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of data disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:484
+#, c-format
 msgid "Simulation of data disc burning"
 msgstr "正在模拟刻录数据光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:424
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning data disc"));
+#: ../libburner-burn/burner-burn-dialog.c:487
+#, c-format
 msgid "Burning data disc"
 msgstr "正在刻录数据光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:432
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of disc copying"));
+#: ../libburner-burn/burner-burn-dialog.c:496
+#, c-format
 msgid "Simulation of disc copying"
 msgstr "正在模拟光盘复制"
 
-#: ../libburner-burn/burner-burn-dialog.c:434
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Copying disc"));
+#: ../libburner-burn/burner-burn-dialog.c:499
 #: ../libburner-burn/burn-basics.c:82
+#, c-format
 msgid "Copying disc"
 msgstr "正在复制光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:442
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Simulation of image to disc burning"));
+#: ../libburner-burn/burner-burn-dialog.c:508
+#, c-format
 msgid "Simulation of image to disc burning"
 msgstr "正在模拟刻录镜像到光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:444
+#. header = g_strdup_printf ("<big><b>%s</b></big>", _("Burning image to disc"));
+#: ../libburner-burn/burner-burn-dialog.c:511
+#, c-format
 msgid "Burning image to disc"
 msgstr "刻录镜像文件到光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:549
+#: ../libburner-burn/burner-burn-dialog.c:617
 msgid "Please replace the disc with a rewritable disc holding data."
 msgstr "请用已有数据存储的可重写盘片替换本盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:551
+#: ../libburner-burn/burner-burn-dialog.c:619
 msgid "Please replace the disc with a disc holding data."
 msgstr "请用内含数据的盘片替换本盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:555
+#: ../libburner-burn/burner-burn-dialog.c:623
 msgid "Please insert a rewritable disc holding data."
 msgstr "请插入已有数据存储的可重写光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:557
-#: ../libburner-burn/burner-burn-options.c:501
+#: ../libburner-burn/burner-burn-dialog.c:625
+#: ../libburner-burn/burner-burn-options.c:503
 msgid "Please insert a disc holding data."
 msgstr "请插入已保存有数据的盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:572
+#: ../libburner-burn/burner-burn-dialog.c:640
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD with at least %i MiB of free "
 "space."
 msgstr "请用至少有 %i MiB 可用空间的可写光盘更换本光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:575
+#: ../libburner-burn/burner-burn-dialog.c:643
 msgid "Please replace the disc with a writable CD."
 msgstr "请将本光盘更换为可写的光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:579
+#: ../libburner-burn/burner-burn-dialog.c:647
 #, c-format
 msgid "Please insert a writable CD with at least %i MiB of free space."
 msgstr "请插入至少有 %i MiB 可用空间的可写光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:582
+#: ../libburner-burn/burner-burn-dialog.c:650
 msgid "Please insert a writable CD."
 msgstr "请插入一张可写光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:588
+#: ../libburner-burn/burner-burn-dialog.c:656
 #, c-format
 msgid ""
 "Please replace the disc with a writable DVD with at least %i MiB of free "
 "space."
 msgstr "请用至少有 %i MiB 可用空间的可写 DVD 更换本盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:591
+#: ../libburner-burn/burner-burn-dialog.c:659
 msgid "Please replace the disc with a writable DVD."
 msgstr "请用可写 DVD 更换本盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:595
+#: ../libburner-burn/burner-burn-dialog.c:663
 #, c-format
 msgid "Please insert a writable DVD with at least %i MiB of free space."
 msgstr "请插入至少有 %i MiB 可用空间的可写 DVD。"
 
-#: ../libburner-burn/burner-burn-dialog.c:598
+#: ../libburner-burn/burner-burn-dialog.c:666
 msgid "Please insert a writable DVD."
 msgstr "请插入可写 DVD。"
 
-#: ../libburner-burn/burner-burn-dialog.c:603
+#: ../libburner-burn/burner-burn-dialog.c:671
 #, c-format
 msgid ""
 "Please replace the disc with a writable CD or DVD with at least %i MiB of "
 "free space."
 msgstr "请用至少有 %i MiB 可用空间的可写光盘或 DVD 盘更换本盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:606
+#: ../libburner-burn/burner-burn-dialog.c:674
 msgid "Please replace the disc with a writable CD or DVD."
 msgstr "请更换本光盘为可写的 CD 或 DVD 盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:610
+#: ../libburner-burn/burner-burn-dialog.c:678
 #, c-format
 msgid "Please insert a writable CD or DVD with at least %i MiB of free space."
 msgstr "请插入至少有 %i MiB 可用空间的可写 CD 或 DVD 盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:613
-#: ../libburner-burn/burner-burn-dialog.c:2171
-#: ../libburner-burn/burner-burn-dialog.c:2185
-#: ../libburner-burn/burner-burn-options.c:457 ../src/burner-project.c:995
+#: ../libburner-burn/burner-burn-dialog.c:681
+#: ../libburner-burn/burner-burn-dialog.c:2302
+#: ../libburner-burn/burner-burn-dialog.c:2316
+#: ../libburner-burn/burner-burn-options.c:459 ../src/burner-project.c:997
 msgid "Please insert a writable CD or DVD."
 msgstr "请插入可写 CD 或 DVD 盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:640
+#: ../libburner-burn/burner-burn-dialog.c:708
 msgid ""
 "An image of the disc has been created on your hard drive.\n"
 "Burning will begin as soon as a writable disc is inserted."
@@ -706,295 +777,294 @@ msgstr ""
 "已在您的硬盘上创建此光盘的镜像。\n"
 "当可写的光盘被插入刻录机后刻录将立即开始。"
 
-#: ../libburner-burn/burner-burn-dialog.c:645
+#: ../libburner-burn/burner-burn-dialog.c:713
 msgid "A data integrity test will begin as soon as the disc is inserted."
 msgstr "当光盘插入时即开始进行数据完整性检查。"
 
-#: ../libburner-burn/burner-burn-dialog.c:646
+#: ../libburner-burn/burner-burn-dialog.c:714
 msgid "Please re-insert the disc in the CD/DVD burner."
 msgstr "请重新插入光盘到刻录机中。"
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:650
+#: ../libburner-burn/burner-burn-dialog.c:718
 #, c-format
 msgid "\"%s\" is busy."
 msgstr "“%s”正忙。"
 
-#: ../libburner-burn/burner-burn-dialog.c:654
+#: ../libburner-burn/burner-burn-dialog.c:722
 #, c-format
 msgid "There is no disc in \"%s\"."
 msgstr "“%s”中没有盘片。"
 
-#: ../libburner-burn/burner-burn-dialog.c:658
+#: ../libburner-burn/burner-burn-dialog.c:726
 #, c-format
 msgid "The disc in \"%s\" is not supported."
 msgstr "不支持“%s”中的光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:662
+#: ../libburner-burn/burner-burn-dialog.c:730
 #, c-format
 msgid "The disc in \"%s\" is not rewritable."
 msgstr "“%s”中的盘片不是可重写的。"
 
-#: ../libburner-burn/burner-burn-dialog.c:666
+#: ../libburner-burn/burner-burn-dialog.c:734
 #, c-format
 msgid "The disc in \"%s\" is empty."
 msgstr "“%s”中的盘片是空白的。"
 
-#: ../libburner-burn/burner-burn-dialog.c:670
+#: ../libburner-burn/burner-burn-dialog.c:738
 #, c-format
 msgid "The disc in \"%s\" is not writable."
 msgstr "“%s”中的盘片是不可写的。"
 
-#: ../libburner-burn/burner-burn-dialog.c:674
+#: ../libburner-burn/burner-burn-dialog.c:742
 #, c-format
 msgid "Not enough space available on the disc in \"%s\"."
 msgstr "在“%s”中的光盘上没有足够空间"
 
-#: ../libburner-burn/burner-burn-dialog.c:682
+#: ../libburner-burn/burner-burn-dialog.c:750
 #, c-format
 msgid "The disc in \"%s\" needs to be reloaded."
 msgstr "“%s”内的光盘需要重新载入。"
 
-#: ../libburner-burn/burner-burn-dialog.c:683
+#: ../libburner-burn/burner-burn-dialog.c:751
 msgid "Please eject the disc and reload it."
 msgstr "请弹出光盘并重新载入。"
 
-#: ../libburner-burn/burner-burn-dialog.c:728
-#: ../libburner-burn/burner-sum-dialog.c:333
+#: ../libburner-burn/burner-burn-dialog.c:796
+#: ../libburner-burn/burner-sum-dialog.c:339
 msgid ""
 "A file could not be created at the location specified for temporary files"
 msgstr "在指定为临时文件的位置中无法创建某个文件"
 
-#: ../libburner-burn/burner-burn-dialog.c:729
+#: ../libburner-burn/burner-burn-dialog.c:797
 msgid "The image could not be created at the specified location"
 msgstr "无法在指定位置创建镜像"
 
-#: ../libburner-burn/burner-burn-dialog.c:730
+#: ../libburner-burn/burner-burn-dialog.c:798
 msgid ""
 "Do you want to specify another location for this session or retry with the "
 "current location?"
 msgstr "您想为本次进程指定另外的位置还是使用当前位置重试？"
 
-#: ../libburner-burn/burner-burn-dialog.c:742
+#: ../libburner-burn/burner-burn-dialog.c:810
 msgid "You may want to free some space on the disc and retry"
 msgstr "您也许需要在光盘中腾一些空间然后重试"
 
-#: ../libburner-burn/burner-burn-dialog.c:749
-#: ../libburner-burn/burner-drive-properties.c:244
-#: ../libburner-burn/burner-drive-properties.c:282
-#: ../libburner-burn/burner-drive-properties.c:334
+#: ../libburner-burn/burner-burn-dialog.c:817
+#: ../libburner-burn/burner-drive-properties.c:247
+#: ../libburner-burn/burner-drive-properties.c:287
+#: ../libburner-burn/burner-drive-properties.c:341
 msgid "_Keep Current Location"
 msgstr "保持当前位置(_K)"
 
-#: ../libburner-burn/burner-burn-dialog.c:751
-#: ../libburner-burn/burner-drive-properties.c:245
-#: ../libburner-burn/burner-drive-properties.c:283
-#: ../libburner-burn/burner-drive-properties.c:335
+#: ../libburner-burn/burner-burn-dialog.c:819
+#: ../libburner-burn/burner-drive-properties.c:248
+#: ../libburner-burn/burner-drive-properties.c:288
+#: ../libburner-burn/burner-drive-properties.c:342
 msgid "_Change Location"
 msgstr "更改位置(_C)"
 
-#: ../libburner-burn/burner-burn-dialog.c:773
+#: ../libburner-burn/burner-burn-dialog.c:842
 #: ../libburner-burn/burner-image-properties.c:459
 msgid "Location for Image File"
 msgstr "镜像文件位置"
 
-#: ../libburner-burn/burner-burn-dialog.c:781
-#: ../libburner-burn/burner-drive-properties.c:366
+#: ../libburner-burn/burner-burn-dialog.c:850
+#: ../libburner-burn/burner-drive-properties.c:374
 msgid "Location for Temporary Files"
 msgstr "临时文件的位置"
 
-#: ../libburner-burn/burner-burn-dialog.c:889
-#: ../libburner-burn/burner-burn-dialog.c:1135
+#: ../libburner-burn/burner-burn-dialog.c:959
+#: ../libburner-burn/burner-burn-dialog.c:1208
 msgid "_Replace Disc"
 msgstr "更换盘片(_R)"
 
-#: ../libburner-burn/burner-burn-dialog.c:930
+#: ../libburner-burn/burner-burn-dialog.c:1001
 msgid "Do you really want to blank the current disc?"
 msgstr "您确定要擦除光盘上的数据吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:931
+#: ../libburner-burn/burner-burn-dialog.c:1002
 msgid "The disc in the drive holds data."
 msgstr "光驱内光盘含有数据。"
 
 #. Translators: Blank is a verb here
-#: ../libburner-burn/burner-burn-dialog.c:933
+#: ../libburner-burn/burner-burn-dialog.c:1004
 msgid "_Blank Disc"
 msgstr "擦除光盘(_B)"
 
-#: ../libburner-burn/burner-burn-dialog.c:947
+#: ../libburner-burn/burner-burn-dialog.c:1018
 msgid ""
 "If you import them you will be able to see and use them once the current "
 "selection of files is burned."
 msgstr ""
 "如果您导入这些文件，一旦当前选择的文件被刻录，您将能够看到并且使用这些文件。"
 
-#: ../libburner-burn/burner-burn-dialog.c:948
+#: ../libburner-burn/burner-burn-dialog.c:1019
 msgid "If you don't, they will be invisible (though still readable)."
 msgstr "如果您不这么做，这些文件将不可见(但仍可读取)。"
 
-#: ../libburner-burn/burner-burn-dialog.c:951
+#: ../libburner-burn/burner-burn-dialog.c:1022
 msgid ""
 "There are files already burned on this disc. Would you like to import them?"
 msgstr "光盘上有已经刻录的文件。您想要导入吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:953
+#: ../libburner-burn/burner-burn-dialog.c:1024
 msgid "_Import"
 msgstr "导入(_I)"
 
-#: ../libburner-burn/burner-burn-dialog.c:954
+#: ../libburner-burn/burner-burn-dialog.c:1025
 msgid "Only _Append"
 msgstr "只追加(_A)"
 
-#: ../libburner-burn/burner-burn-dialog.c:967
+#: ../libburner-burn/burner-burn-dialog.c:1038
 msgid ""
 "CD-RW audio discs may not play correctly in older CD players and CD-Text "
 "won't be written."
 msgstr ""
 "CD-RW 音频光盘可能无法在旧型号的 CD 机上正确播放，并且 CD-Text 不会被写入。"
 
-#: ../libburner-burn/burner-burn-dialog.c:968
-#: ../libburner-burn/burner-burn-dialog.c:990
+#: ../libburner-burn/burner-burn-dialog.c:1039
+#: ../libburner-burn/burner-burn-dialog.c:1061
 msgid "Do you want to continue anyway?"
 msgstr "无论如何您都想继续吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:971
+#: ../libburner-burn/burner-burn-dialog.c:1042
 msgid "Appending audio tracks to a CD is not advised."
 msgstr "不建议将音轨附加到一张 CD。"
 
-#: ../libburner-burn/burner-burn-dialog.c:973
-#: ../libburner-burn/burner-burn-dialog.c:995
-#: ../libburner-burn/burner-tool-dialog.c:422 ../src/burner-data-disc.c:572
+#: ../libburner-burn/burner-burn-dialog.c:1044
+#: ../libburner-burn/burner-burn-dialog.c:1066
+#: ../libburner-burn/burner-tool-dialog.c:427 ../src/burner-data-disc.c:575
 msgid "_Continue"
 msgstr "继续(_C)"
 
-#: ../libburner-burn/burner-burn-dialog.c:989
+#: ../libburner-burn/burner-burn-dialog.c:1060
 msgid "CD-RW audio discs may not play correctly in older CD players."
 msgstr "CD-RW 音频光盘可能无法在旧型号的 CD 机上正确播放。"
 
-#: ../libburner-burn/burner-burn-dialog.c:993
+#: ../libburner-burn/burner-burn-dialog.c:1064
 msgid "Recording audio tracks on a rewritable disc is not advised."
 msgstr "不建议将音轨刻录到可重写光盘上。"
 
 #. Translators: %s is the name of a drive
-#: ../libburner-burn/burner-burn-dialog.c:1037
+#: ../libburner-burn/burner-burn-dialog.c:1108
 #, c-format
 msgid "Please eject the disc from \"%s\" manually."
 msgstr "请从 %s 中手动弹出光盘。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1046
+#: ../libburner-burn/burner-burn-dialog.c:1117
 msgid ""
 "The disc could not be ejected though it needs to be removed for the current "
 "operation to continue."
 msgstr "虽然这个光盘需要移除再继续当前操作，但是它不能被弹出。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1133
+#: ../libburner-burn/burner-burn-dialog.c:1206
 msgid "Do you want to replace the disc and continue?"
 msgstr "您想替换光盘并继续吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:1134
+#: ../libburner-burn/burner-burn-dialog.c:1207
 msgid "The currently inserted disc could not be blanked."
 msgstr "当前插入的磁盘不能被清空。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1143
+#: ../libburner-burn/burner-burn-dialog.c:1216
 msgid "Do you want to continue with full Windows compatibility disabled?"
 msgstr "您想使用完全不考虑 Windows 兼容性的方式继续吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:1144
-#: ../libburner-burn/burner-status-dialog.c:340
-#: ../src/burner-data-disc.c:734
+#: ../libburner-burn/burner-burn-dialog.c:1217
+#: ../libburner-burn/burner-status-dialog.c:347 ../src/burner-data-disc.c:738
 msgid ""
 "Some files don't have a suitable name for a fully Windows-compatible CD."
 msgstr "一些文件的命名与 Windows 不完全兼容。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1145
+#: ../libburner-burn/burner-burn-dialog.c:1218
 msgid "C_ontinue"
 msgstr "继续(_O)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1365
-#: ../libburner-burn/burner-burn-dialog.c:1386
+#: ../libburner-burn/burner-burn-dialog.c:1456
+#: ../libburner-burn/burner-burn-dialog.c:1477
 msgid "The simulation was successful."
 msgstr "模拟成功。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1368
+#: ../libburner-burn/burner-burn-dialog.c:1459
 msgid "Real disc burning will take place in 10 seconds."
 msgstr "实际刻录将于10秒内开始。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1371
+#: ../libburner-burn/burner-burn-dialog.c:1462
 msgid "Burn _Now"
 msgstr "开始刻录(_N)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1660
+#: ../libburner-burn/burner-burn-dialog.c:1783
 msgid "Save Current Session"
 msgstr "保存当前区段"
 
-#: ../libburner-burn/burner-burn-dialog.c:1735
+#: ../libburner-burn/burner-burn-dialog.c:1860
 msgid "An unknown error occurred."
 msgstr "发生未知错误。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1743
-#: ../libburner-burn/burner-burn-dialog.c:1761 ../src/burner-app.c:620
+#: ../libburner-burn/burner-burn-dialog.c:1868
+#: ../libburner-burn/burner-burn-dialog.c:1886 ../src/burner-app.c:664
 msgid "Error while burning."
 msgstr "刻录中发生错误。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1751
+#: ../libburner-burn/burner-burn-dialog.c:1876
 msgid "_Save Log"
 msgstr "保存日志(_S)"
 
-#: ../libburner-burn/burner-burn-dialog.c:1786
+#: ../libburner-burn/burner-burn-dialog.c:1912
 msgid "Video DVD successfully burned"
 msgstr "视频光盘刻录成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1788
+#: ../libburner-burn/burner-burn-dialog.c:1914
 msgid "(S)VCD successfully burned"
 msgstr "(S)VCD 刻录成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1791
+#: ../libburner-burn/burner-burn-dialog.c:1917
 msgid "Audio CD successfully burned"
 msgstr "音频光盘刻录成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1793
-#: ../libburner-burn/burner-burn-dialog.c:1824
+#: ../libburner-burn/burner-burn-dialog.c:1919
+#: ../libburner-burn/burner-burn-dialog.c:1950
 msgid "Image successfully created"
 msgstr "镜像文件制作成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1798
+#: ../libburner-burn/burner-burn-dialog.c:1924
 msgid "DVD successfully copied"
 msgstr "DVD 复制成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1800
+#: ../libburner-burn/burner-burn-dialog.c:1926
 msgid "CD successfully copied"
 msgstr "CD 复制成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1804
+#: ../libburner-burn/burner-burn-dialog.c:1930
 msgid "Image of DVD successfully created"
 msgstr "DVD 的镜像创建成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1806
+#: ../libburner-burn/burner-burn-dialog.c:1932
 msgid "Image of CD successfully created"
 msgstr "CD 的镜像创建成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1812
+#: ../libburner-burn/burner-burn-dialog.c:1938
 msgid "Image successfully burned to DVD"
 msgstr "成功刻录镜像到 DVD"
 
-#: ../libburner-burn/burner-burn-dialog.c:1814
+#: ../libburner-burn/burner-burn-dialog.c:1940
 msgid "Image successfully burned to CD"
 msgstr "成功刻录镜像到光盘"
 
-#: ../libburner-burn/burner-burn-dialog.c:1820
+#: ../libburner-burn/burner-burn-dialog.c:1946
 msgid "Data DVD successfully burned"
 msgstr "数据 DVD 刻录成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1822
+#: ../libburner-burn/burner-burn-dialog.c:1948
 msgid "Data CD successfully burned"
 msgstr "数据 CD 刻录成功"
 
-#: ../libburner-burn/burner-burn-dialog.c:1881
+#: ../libburner-burn/burner-burn-dialog.c:2007
 #, c-format
 msgid "Copy #%i has been burned successfully."
 msgstr "副本 #%i 刻录成功。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1889
+#: ../libburner-burn/burner-burn-dialog.c:2015
 msgid ""
 "Another copy will start as soon as you insert a new writable disc. If you do "
 "not want to burn another copy, press \"Cancel\"."
@@ -1002,174 +1072,172 @@ msgstr ""
 "当您插入一张新的可写光盘的时候，新的复制进程将开始。如果您不想刻录另以张盘，"
 "请按下取消(Cancel)。"
 
-#: ../libburner-burn/burner-burn-dialog.c:1963
-msgid "Make _More Copies"
-msgstr "制作更多副本(_M)"
-
-#: ../libburner-burn/burner-burn-dialog.c:1972
+#: ../libburner-burn/burner-burn-dialog.c:2101
 msgid "Create Co_ver"
 msgstr "创建封面(_V)"
 
-#: ../libburner-burn/burner-burn-dialog.c:2134
+#: ../libburner-burn/burner-burn-dialog.c:2265
 msgid "There are some files left to burn"
 msgstr "仍有一些文件没有刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:2141
+#: ../libburner-burn/burner-burn-dialog.c:2272
 msgid "There are some more videos left to burn"
 msgstr "仍有一些视频没有刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:2145
+#: ../libburner-burn/burner-burn-dialog.c:2276
 msgid "There are some more songs left to burn"
 msgstr "仍有一些曲目没有刻录"
 
-#: ../libburner-burn/burner-burn-dialog.c:2451
-#: ../libburner-burn/burner-tool-dialog.c:411
+#: ../libburner-burn/burner-burn-dialog.c:2583
+#: ../libburner-burn/burner-tool-dialog.c:414
 msgid "Do you really want to quit?"
 msgstr "您确定要退出吗？"
 
-#: ../libburner-burn/burner-burn-dialog.c:2455
-#: ../libburner-burn/burner-tool-dialog.c:417
+#: ../libburner-burn/burner-burn-dialog.c:2587
+#: ../libburner-burn/burner-tool-dialog.c:422
 msgid "Interrupting the process may make disc unusable."
 msgstr "中断操作可能使盘片无法使用。"
 
-#: ../libburner-burn/burner-burn-dialog.c:2458
+#: ../libburner-burn/burner-burn-dialog.c:2590
 msgid "C_ontinue Burning"
 msgstr "继续刻录(_O)"
 
-#: ../libburner-burn/burner-burn-dialog.c:2465
+#: ../libburner-burn/burner-burn-dialog.c:2597
 msgid "_Cancel Burning"
 msgstr "取消进行中的刻录(_C)"
 
-#: ../libburner-burn/burner-burn-options.c:228 ../src/burner-project.c:1020
+#: ../libburner-burn/burner-burn-options.c:230 ../src/burner-project.c:1022
 msgid ""
 "Please insert a writable CD or DVD if you don't want to write to an image "
 "file."
 msgstr "如果您不想写入为镜像文件，请插入一张可写 CD 或 DVD 盘片。"
 
-#: ../libburner-burn/burner-burn-options.c:302 ../src/burner-project.c:1595
+#: ../libburner-burn/burner-burn-options.c:304 ../src/burner-project.c:1652
 msgid "Create _Image"
 msgstr "创建镜像(_I)"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:307
+#: ../libburner-burn/burner-burn-options.c:309
 msgid "_Copy"
 msgstr "复制(_C)"
 
-#: ../libburner-burn/burner-burn-options.c:310
+#: ../libburner-burn/burner-burn-options.c:312
 msgid "Make _Several Copies"
 msgstr "制作多份副本(_S)"
 
 #. Translators: This is a verb, an action
-#: ../libburner-burn/burner-burn-options.c:314 ../src/burner-project.c:1524
+#. gtk_dialog_add_button (GTK_DIALOG (dialog),
+#. _("Burn _Several Copies"),
+#. GTK_RESPONSE_ACCEPT);
+#: ../libburner-burn/burner-burn-options.c:316 ../src/burner-project.c:1580
 msgid "_Burn"
 msgstr "刻录(_B)"
 
-#: ../libburner-burn/burner-burn-options.c:317 ../src/burner-project.c:1521
+#: ../libburner-burn/burner-burn-options.c:319
 msgid "Burn _Several Copies"
 msgstr "刻录多份副本(_S)"
 
-#: ../libburner-burn/burner-burn-options.c:433 ../src/burner-project.c:949
+#: ../libburner-burn/burner-burn-options.c:435 ../src/burner-project.c:951
 msgid "Would you like to burn the selection of files across several media?"
 msgstr "您想要刻录从多个媒体中选择的这些文件吗？"
 
-#: ../libburner-burn/burner-burn-options.c:434
-#: ../libburner-burn/burner-burn-options.c:451
+#: ../libburner-burn/burner-burn-options.c:436
+#: ../libburner-burn/burner-burn-options.c:453
 msgid "The data size is too large for the disc even with the overburn option."
 msgstr "即使使用超刻(overburn)，对于此光盘而言数据量仍然太大。"
 
-#: ../libburner-burn/burner-burn-options.c:439 ../src/burner-project.c:954
+#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
 msgid "_Burn Several Discs"
 msgstr "刻录多张光盘(_B)"
 
-#: ../libburner-burn/burner-burn-options.c:441 ../src/burner-project.c:956
+#: ../libburner-burn/burner-burn-options.c:443 ../src/burner-project.c:958
 msgid "Burn the selection of files across several media"
 msgstr "刻录从多个媒体中选择的文件"
 
-#: ../libburner-burn/burner-burn-options.c:450 ../src/burner-project.c:965
+#: ../libburner-burn/burner-burn-options.c:452 ../src/burner-project.c:967
 msgid "Please choose another CD or DVD or insert a new one."
 msgstr "请选择另外的 CD 或 DVD 或插入一张新盘片。"
 
-#: ../libburner-burn/burner-burn-options.c:464 ../src/burner-project.c:1010
+#: ../libburner-burn/burner-burn-options.c:466 ../src/burner-project.c:1012
 msgid "No track information (artist, title, ...) will be written to the disc."
 msgstr "轨道信息(艺人、标题等)将不会被写入光盘。"
 
-#: ../libburner-burn/burner-burn-options.c:465 ../src/burner-project.c:1011
+#: ../libburner-burn/burner-burn-options.c:467 ../src/burner-project.c:1013
 msgid "This is not supported by the current active burning backend."
 msgstr "当前激活的刻录后端不支持该操作。"
 
-#: ../libburner-burn/burner-burn-options.c:477
+#: ../libburner-burn/burner-burn-options.c:479
 #: ../nautilus/nautilus-burn-extension.c:239
 msgid "Please add files."
 msgstr "请添加文件。"
 
-#: ../libburner-burn/burner-burn-options.c:478
+#: ../libburner-burn/burner-burn-options.c:480
 #: ../libburner-burn/burner-track-data.c:672
 #: ../libburner-burn/burner-track-data-cfg.c:2432
 #: ../libburner-burn/burner-track-stream.c:402
-#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1277
+#: ../nautilus/nautilus-burn-extension.c:240 ../src/burner-project.c:1283
 #, c-format
 msgid "There are no files to write to disc"
 msgstr "没有要写入光盘的文件"
 
-#: ../libburner-burn/burner-burn-options.c:483
+#: ../libburner-burn/burner-burn-options.c:485
 msgid "Please add songs."
 msgstr "请添加曲目。"
 
-#: ../libburner-burn/burner-burn-options.c:484 ../src/burner-project.c:1268
+#: ../libburner-burn/burner-burn-options.c:486 ../src/burner-project.c:1274
 msgid "There are no songs to write to disc"
 msgstr "无曲目写入光盘"
 
-#: ../libburner-burn/burner-burn-options.c:489
+#: ../libburner-burn/burner-burn-options.c:491
 msgid "Please add videos."
 msgstr "请添加视频。"
 
-#: ../libburner-burn/burner-burn-options.c:490
+#: ../libburner-burn/burner-burn-options.c:492
 msgid "There are no videos to write to disc"
 msgstr "无视频写入光盘"
 
-#: ../libburner-burn/burner-burn-options.c:502
+#: ../libburner-burn/burner-burn-options.c:504
 msgid "There is no inserted disc to copy."
 msgstr "没有插入的盘片供复制。"
 
-#: ../libburner-burn/burner-burn-options.c:511
+#: ../libburner-burn/burner-burn-options.c:513
 msgid "Please select a disc image."
 msgstr "请选择镜像。"
 
-#: ../libburner-burn/burner-burn-options.c:512
+#: ../libburner-burn/burner-burn-options.c:514
 msgid "There is no selected disc image."
 msgstr "未选择光盘镜像。"
 
 #. Translators: this is a disc image not a picture
 #. Translators: this is a disc image, not a picture
-#: ../libburner-burn/burner-burn-options.c:522
-#: ../libburner-burn/burner-src-image.c:167
+#: ../libburner-burn/burner-burn-options.c:524
+#: ../libburner-burn/burner-src-image.c:169
 msgctxt "disc"
 msgid "Please select another image."
 msgstr "请选择另一镜像。"
 
-#: ../libburner-burn/burner-burn-options.c:523
+#: ../libburner-burn/burner-burn-options.c:525
 msgid "It doesn't appear to be a valid disc image or a valid cue file."
 msgstr "好像它不是一个有效的镜像或一个有效的cue文件。"
 
-#: ../libburner-burn/burner-burn-options.c:532
+#: ../libburner-burn/burner-burn-options.c:534
 msgid "Please insert a disc that is not copy protected."
 msgstr "请插入没有复制保护的盘片。"
 
-#: ../libburner-burn/burner-burn-options.c:533
-#: ../libburner-burn/burner-burn-options.c:1235
-#: ../src/burner-project.c:1445
+#: ../libburner-burn/burner-burn-options.c:535
+#: ../libburner-burn/burner-burn-options.c:1309 ../src/burner-project.c:1452
 msgid "All required applications and libraries are not installed."
 msgstr "所有需要的程序和库没有被安装。"
 
-#: ../libburner-burn/burner-burn-options.c:540 ../src/burner-project.c:1003
+#: ../libburner-burn/burner-burn-options.c:542 ../src/burner-project.c:1005
 msgid "Please replace the disc with a supported CD or DVD."
 msgstr "请用支持的 CD 或 DVD 片更换该盘片。"
 
-#: ../libburner-burn/burner-burn-options.c:549 ../src/burner-project.c:976
+#: ../libburner-burn/burner-burn-options.c:551 ../src/burner-project.c:978
 msgid "Would you like to burn beyond the disc's reported capacity?"
 msgstr "您打算以超过光盘报告的容量来刻录吗？"
 
-#: ../libburner-burn/burner-burn-options.c:550
+#: ../libburner-burn/burner-burn-options.c:552
 msgid ""
 "The data size is too large for the disc and you must remove files from the "
 "selection otherwise.\n"
@@ -1182,81 +1250,88 @@ msgstr ""
 "盘无法被正确识别，需要使用超刻(Overburn)功能。\n"
 "注意：该选项可能导致刻盘失败。"
 
-#: ../libburner-burn/burner-burn-options.c:557 ../src/burner-project.c:983
+#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
 msgid "_Overburn"
 msgstr "超刻(_O)"
 
-#: ../libburner-burn/burner-burn-options.c:559 ../src/burner-project.c:985
+#: ../libburner-burn/burner-burn-options.c:561 ../src/burner-project.c:987
 msgid "Burn beyond the disc's reported capacity"
 msgstr "以超过光盘报告的容量刻录"
 
-#: ../libburner-burn/burner-burn-options.c:569
+#: ../libburner-burn/burner-burn-options.c:571
 msgid ""
 "The drive that holds the source disc will also be the one used to record."
 msgstr "目前内有源盘片的光驱将同样作为刻录的光驱。"
 
-#: ../libburner-burn/burner-burn-options.c:570
+#: ../libburner-burn/burner-burn-options.c:572
 msgid ""
 "A new writable disc will be required once the currently loaded one has been "
 "copied."
 msgstr "一旦当前载入的光盘已复制完毕，将需要一张新的可写盘片"
 
-#: ../libburner-burn/burner-burn-options.c:657
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:662
+#: ../libburner-burn/burner-burn-options.c:966
+msgid "Image Burning Setup"
+msgstr "镜像刻录设置"
+
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc to write to"));
+#: ../libburner-burn/burner-burn-options.c:727
+#, c-format
 msgid "Select a disc to write to"
 msgstr "请选择要写入的光盘"
 
-#: ../libburner-burn/burner-burn-options.c:737
-#: ../libburner-burn/burner-burn-options.c:755
-#: ../libburner-burn/burner-burn-options.c:875
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-burn-options.c:808
+#: ../libburner-burn/burner-burn-options.c:826
+#: ../libburner-burn/burner-burn-options.c:948 ../src/burner-project.c:1553
 msgid "Disc Burning Setup"
 msgstr "光盘刻录设置"
 
-#: ../libburner-burn/burner-burn-options.c:764 ../src/burner-project.c:1544
+#: ../libburner-burn/burner-burn-options.c:835 ../src/burner-project.c:1600
 msgid "Video Options"
 msgstr "视频选项"
 
-#: ../libburner-burn/burner-burn-options.c:795
-#: ../src/burner-data-disc.c:613
+#: ../libburner-burn/burner-burn-options.c:866 ../src/burner-data-disc.c:616
 msgid ""
 "Do you want to create a disc from the contents of the image or with the "
 "image file inside?"
 msgstr "您是想创建一张光盘来刻录这个镜像的内容还是把这个镜像文件刻录？"
 
 #. Translators: %s is the name of the image
-#: ../libburner-burn/burner-burn-options.c:804
+#: ../libburner-burn/burner-burn-options.c:876
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
 "contents can be burned."
 msgstr "只选择了一个文件(“%s”)。该文件为光盘镜像，其内容可以被刻录。"
 
-#: ../libburner-burn/burner-burn-options.c:809
+#: ../libburner-burn/burner-burn-options.c:881
 msgid "Burn as _File"
 msgstr "作为文件来刻录(_F)"
 
-#: ../libburner-burn/burner-burn-options.c:811
+#: ../libburner-burn/burner-burn-options.c:883
 msgid "Burn _Contents…"
 msgstr "刻录内容(_C)..."
 
-#: ../libburner-burn/burner-burn-options.c:893
-msgid "Image Burning Setup"
-msgstr "镜像刻录设置"
-
 #. pack everything
-#: ../libburner-burn/burner-burn-options.c:901
+#. string = g_strdup_printf ("<b>%s</b>", _("Select a disc image to write"));
+#: ../libburner-burn/burner-burn-options.c:975
+#, c-format
 msgid "Select a disc image to write"
 msgstr "选择一个光盘镜像以刻录"
 
-#: ../libburner-burn/burner-burn-options.c:921
+#: ../libburner-burn/burner-burn-options.c:995
 msgid "Copy CD/DVD"
 msgstr "复制 CD/DVD"
 
-#: ../libburner-burn/burner-burn-options.c:927
+#: ../libburner-burn/burner-burn-options.c:1001
 msgid "Select disc to copy"
 msgstr "选择要复制的光盘"
 
-#: ../libburner-burn/burner-burn-options.c:1229
-#: ../src/burner-project.c:1439
+#: ../libburner-burn/burner-burn-options.c:1303 ../src/burner-project.c:1446
 msgid "Please install the following manually and try again:"
 msgstr "请手动安装以下内容然后重新尝试："
 
@@ -1279,6 +1354,13 @@ msgstr "未知歌曲"
 #, c-format
 msgid "by %s"
 msgstr "创建者： %s"
+
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../libburner-burn/burner-customize-title.c:76
+#: ../libburner-utils/burner-misc.c:478
+msgid "Prompt information"
+msgstr "提示信息"
 
 #: ../libburner-burn/burner-data-vfs.c:218
 #, c-format
@@ -1333,20 +1415,20 @@ msgstr "%s：空余空间 %s"
 
 #. Translators: the first %s is the path of the directory where burner
 #. * will store its temporary files; the second one is the size available
-#: ../libburner-burn/burner-drive-properties.c:192
+#: ../libburner-burn/burner-drive-properties.c:194
 #, c-format
 msgid "%s: %s free"
 msgstr "%s: 剩余 %s"
 
-#: ../libburner-burn/burner-drive-properties.c:233
-#: ../libburner-burn/burner-drive-properties.c:272
-#: ../libburner-burn/burner-drive-properties.c:324
+#: ../libburner-burn/burner-drive-properties.c:235
+#: ../libburner-burn/burner-drive-properties.c:276
+#: ../libburner-burn/burner-drive-properties.c:330
 msgid "Do you really want to choose this location?"
 msgstr "您确定要选择该位置吗？"
 
-#: ../libburner-burn/burner-drive-properties.c:277
-#: ../libburner-burn/burner-session.c:1287
-#: ../libburner-burn/burner-session.c:1362 ../libburner-burn/burn-job.c:490
+#: ../libburner-burn/burner-drive-properties.c:282
+#: ../libburner-burn/burner-session.c:1288
+#: ../libburner-burn/burner-session.c:1363 ../libburner-burn/burn-job.c:490
 #: ../plugins/cdrkit/burn-genisoimage.c:199
 #: ../plugins/cdrtools/burn-mkisofs.c:199
 #: ../plugins/libburnia/burn-libisofs.c:246
@@ -1354,7 +1436,7 @@ msgstr "您确定要选择该位置吗？"
 msgid "You do not have the required permission to write at this location"
 msgstr "您似乎没有在该位置写入所要求的权限"
 
-#: ../libburner-burn/burner-drive-properties.c:330
+#: ../libburner-burn/burner-drive-properties.c:337
 msgid ""
 "The filesystem on this volume does not support large files (size over 2 "
 "GiB).\n"
@@ -1364,83 +1446,94 @@ msgstr ""
 "当您写入 DVD 或者是大的镜像时这将是个问题。"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:524
+#: ../libburner-burn/burner-drive-properties.c:533
 #, c-format
 msgid "%.1f× (DVD)"
 msgstr "%.1f 倍速(DVD)"
 
 #. Translators %s.1f is the speed used to burn
-#: ../libburner-burn/burner-drive-properties.c:528
+#: ../libburner-burn/burner-drive-properties.c:537
 #, c-format
 msgid "%.1f× (CD)"
 msgstr "%.1f 倍速(CD)"
 
 #. Translators %s.1f is the speed used to burn. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:532
+#: ../libburner-burn/burner-drive-properties.c:541
 #, c-format
 msgid "%.1f× (BD)"
 msgstr "%.1f 倍速(蓝光光盘)"
 
 #. Translators %s.1f is the speed used to burn for every medium
 #. * type. BD = Blu Ray
-#: ../libburner-burn/burner-drive-properties.c:537
+#: ../libburner-burn/burner-drive-properties.c:546
 #, c-format
 msgid "%.1f× (BD) %.1f× (DVD) %.1f× (CD)"
 msgstr "%.1f 倍速(蓝光光盘) %.1f x(DVD) %.1f 倍速(CD)"
 
-#: ../libburner-burn/burner-drive-properties.c:575
+#: ../libburner-burn/burner-drive-properties.c:584
 msgid "Impossible to retrieve speeds"
 msgstr "无法获知速度"
 
-#: ../libburner-burn/burner-drive-properties.c:584
+#: ../libburner-burn/burner-drive-properties.c:593
 msgid "Maximum speed"
 msgstr "最大速度"
 
-#: ../libburner-burn/burner-drive-properties.c:710
+#. string = g_strdup_printf ("<b>%s</b>", _("Burning speed"));
+#. gtk_box_pack_start (GTK_BOX (vbox),
+#. burner_utils_pack_properties (string,
+#. priv->speed, NULL),
+#. FALSE, FALSE, 0);
+#: ../libburner-burn/burner-drive-properties.c:725
+#, c-format
 msgid "Burning speed"
 msgstr "刻录速度"
 
-#: ../libburner-burn/burner-drive-properties.c:723
+#: ../libburner-burn/burner-drive-properties.c:739
 msgid "_Simulate before burning"
 msgstr "刻录前先模拟(_S)"
 
-#: ../libburner-burn/burner-drive-properties.c:724
+#: ../libburner-burn/burner-drive-properties.c:740
 msgid ""
-"Burner will simulate the burning and, if it is successful, go on with "
-"actual burning after 10 seconds"
+"Burner will simulate the burning and, if it is successful, go on with actual "
+"burning after 10 seconds"
 msgstr "将模拟刻录，如果成功，就在10秒后进行实际刻录"
 
-#: ../libburner-burn/burner-drive-properties.c:726
+#: ../libburner-burn/burner-drive-properties.c:742
 msgid "Use burn_proof (decrease the risk of failures)"
 msgstr "使用 Burn-_Proof (降低失败风险，建议勾选"
 
-#: ../libburner-burn/burner-drive-properties.c:728
+#: ../libburner-burn/burner-drive-properties.c:744
 msgid "Burn the image directly _without saving it to disc"
 msgstr "直接刻录镜像文件而不保存到光盘(建议勾选)"
 
-#: ../libburner-burn/burner-drive-properties.c:730
+#: ../libburner-burn/burner-drive-properties.c:746
 msgid "Leave the disc _open to add other files later"
 msgstr "不关闭盘片以下次能追加刻录另外的文件(建议勾选)"
 
-#: ../libburner-burn/burner-drive-properties.c:731
+#: ../libburner-burn/burner-drive-properties.c:747
 msgid "Allow one to add more data to the disc later"
 msgstr "允许稍后向光盘中添加更多数据"
 
-#: ../libburner-burn/burner-drive-properties.c:751
-#: ../libburner-burn/burner-tool-dialog.c:284
-#: ../src/burner-multi-song-props.c:308 ../src/burner-song-properties.c:226
+#. string = g_strdup_printf ("<b>%s</b>", _("Options"));
+#. title = g_strdup_printf ("<b>%s</b>", _("Options"));
+#: ../libburner-burn/burner-drive-properties.c:768
+#: ../libburner-burn/burner-tool-dialog.c:287
+#: ../src/burner-multi-song-props.c:310 ../src/burner-song-properties.c:227
+#, c-format
 msgid "Options"
 msgstr "选项"
 
-#: ../libburner-burn/burner-drive-properties.c:763
+#: ../libburner-burn/burner-drive-properties.c:780
 msgid "Location for _Temporary Files"
 msgstr "临时文件位置(_T)"
 
-#: ../libburner-burn/burner-drive-properties.c:783
+#: ../libburner-burn/burner-drive-properties.c:800
 msgid "Set the directory where to store temporary files"
 msgstr "设置临时文件的存放目录"
 
-#: ../libburner-burn/burner-drive-properties.c:788
+#. string = g_strdup_printf ("<b>%s</b>", _("Temporary files"));
+#: ../libburner-burn/burner-drive-properties.c:806
+#, c-format
 msgid "Temporary files"
 msgstr "临时文件"
 
@@ -1486,32 +1579,31 @@ msgstr "Cue 镜像"
 msgid "Cdrdao image"
 msgstr "Cdrdao 镜像"
 
-#: ../libburner-burn/burner-medium-properties.c:93
-#: ../src/burner-project.c:1503
+#: ../libburner-burn/burner-medium-properties.c:96 ../src/burner-project.c:1522
 #, c-format
 msgid "Properties of %s"
 msgstr "%s 的属性"
 
-#: ../libburner-burn/burner-medium-properties.c:133
+#: ../libburner-burn/burner-medium-properties.c:138
 msgid ""
 "Do you really want to keep the current extension for the disc image name?"
 msgstr "您真的要为该光盘镜像名保持当前的扩展名？"
 
-#: ../libburner-burn/burner-medium-properties.c:139
+#: ../libburner-burn/burner-medium-properties.c:145
 msgid ""
 "If you choose to keep it, programs may not be able to recognize the file "
 "type properly."
 msgstr "如果您选择保持，程序可能无法正确识别文件类型。"
 
-#: ../libburner-burn/burner-medium-properties.c:142
+#: ../libburner-burn/burner-medium-properties.c:148
 msgid "_Keep Current Extension"
 msgstr "保持当前扩展名(_K)"
 
-#: ../libburner-burn/burner-medium-properties.c:145
+#: ../libburner-burn/burner-medium-properties.c:151
 msgid "Change _Extension"
 msgstr "更改扩展名(_E)"
 
-#: ../libburner-burn/burner-medium-properties.c:234
+#: ../libburner-burn/burner-medium-properties.c:242
 msgid "Configure recording options"
 msgstr "配置刻录选项"
 
@@ -1543,20 +1635,20 @@ msgid "Estimated drive speed:"
 msgstr "速度："
 
 #. Translators: %s is a path
-#: ../libburner-burn/burner-src-image.c:229
+#: ../libburner-burn/burner-src-image.c:231
 #, c-format
 msgid "\"%s\": loading"
 msgstr "%s：正在载入"
 
 #. Translators: %s is a path and image refers to a disc image
-#: ../libburner-burn/burner-src-image.c:236
+#: ../libburner-burn/burner-src-image.c:238
 #, c-format
 msgid "\"%s\": unknown disc image type"
 msgstr "%s：未知镜像类型"
 
 #. NOTE to translators, the first %s is the path of the image
 #. * file and the second its size.
-#: ../libburner-burn/burner-src-image.c:258
+#: ../libburner-burn/burner-src-image.c:260
 #, c-format
 msgid "\"%s\": %s"
 msgstr "“%s“：%s"
@@ -1564,48 +1656,46 @@ msgstr "“%s“：%s"
 #. This is hackish and meant to avoid ellipsization to make the
 #. * label too small.
 #. Translators: this is a disc image
-#: ../libburner-burn/burner-src-image.c:271
-#: ../libburner-burn/burner-src-image.c:554
+#: ../libburner-burn/burner-src-image.c:273
+#: ../libburner-burn/burner-src-image.c:557
 msgid "Click here to select a disc _image"
 msgstr "点此选择光盘镜像(_I)"
 
-#: ../libburner-burn/burner-src-image.c:415
+#: ../libburner-burn/burner-src-image.c:417
 msgid "Select Disc Image"
 msgstr "选择光盘镜像"
 
-#: ../libburner-burn/burner-src-image.c:444
-#: ../nautilus/nautilus-burn-bar.c:236 ../src/burner-file-chooser.c:350
-#: ../src/burner-project.c:2225 ../src/burner-project-name.c:162
+#: ../libburner-burn/burner-src-image.c:446 ../nautilus/nautilus-burn-bar.c:236
+#: ../src/burner-file-chooser.c:350 ../src/burner-project.c:2285
+#: ../src/burner-project-name.c:164
 msgid "All files"
 msgstr "全部文件"
 
 #. Translators: this a disc image here
-#: ../libburner-burn/burner-src-image.c:450
+#: ../libburner-burn/burner-src-image.c:452
 msgctxt "disc"
 msgid "Image files"
 msgstr "镜像文件"
 
-#: ../libburner-burn/burner-src-image.c:467
+#: ../libburner-burn/burner-src-image.c:469
 msgid "Image type:"
 msgstr "镜像类型："
 
-#: ../libburner-burn/burner-status-dialog.c:147
+#: ../libburner-burn/burner-status-dialog.c:149
 #, c-format
 msgid "Estimated size: %s"
 msgstr "估算大小：%s"
 
-#: ../libburner-burn/burner-status-dialog.c:209
-#: ../src/burner-data-disc.c:870
+#: ../libburner-burn/burner-status-dialog.c:211 ../src/burner-data-disc.c:877
 #, c-format
 msgid "Do you really want to add \"%s\" to the selection?"
 msgstr "您确定要添加“%s”到选择吗？"
 
-#: ../libburner-burn/burner-status-dialog.c:228
-#: ../src/burner-data-disc.c:879
+#: ../libburner-burn/burner-status-dialog.c:231 ../src/burner-data-disc.c:886
 msgid ""
 "The children of this directory will have 7 parent directories.\n"
-"Burner can create an image of such a file hierarchy and burn it but the "
-"disc may not be readable on all operating systems.\n"
+"Burner can create an image of such a file hierarchy and burn it but the disc "
+"may not be readable on all operating systems.\n"
 "Note: Such a file hierarchy is known to work on Linux."
 msgstr ""
 "本目录的子目录有7个父目录。\n"
@@ -1613,28 +1703,26 @@ msgstr ""
 "盘。\n"
 "注意：Linux支持这样的文件层次。"
 
-#: ../libburner-burn/burner-status-dialog.c:232
-#: ../libburner-burn/burner-status-dialog.c:294
-#: ../src/burner-data-disc.c:839 ../src/burner-data-disc.c:883
+#: ../libburner-burn/burner-status-dialog.c:235
+#: ../libburner-burn/burner-status-dialog.c:299 ../src/burner-data-disc.c:845
+#: ../src/burner-data-disc.c:890
 msgid "Ne_ver Add Such File"
 msgstr "不添加此类文件(_V)"
 
-#: ../libburner-burn/burner-status-dialog.c:233
-#: ../libburner-burn/burner-status-dialog.c:295
-#: ../src/burner-data-disc.c:840 ../src/burner-data-disc.c:884
+#: ../libburner-burn/burner-status-dialog.c:236
+#: ../libburner-burn/burner-status-dialog.c:300 ../src/burner-data-disc.c:846
+#: ../src/burner-data-disc.c:891
 msgid "Al_ways Add Such File"
 msgstr "总是添加此类文件(_W)"
 
-#: ../libburner-burn/burner-status-dialog.c:271
-#: ../src/burner-data-disc.c:826
+#: ../libburner-burn/burner-status-dialog.c:275 ../src/burner-data-disc.c:832
 #, c-format
 msgid ""
 "Do you really want to add \"%s\" to the selection and use the third version "
 "of the ISO9660 standard to support it?"
 msgstr "您真的想添加“%s”到选择并使用 ISO9660 第三层标准来支持吗？"
 
-#: ../libburner-burn/burner-status-dialog.c:290
-#: ../src/burner-data-disc.c:835
+#: ../libburner-burn/burner-status-dialog.c:295 ../src/burner-data-disc.c:841
 msgid ""
 "The size of the file is over 2 GiB. Files larger than 2 GiB are not "
 "supported by the ISO9660 standard in its first and second versions (the most "
@@ -1651,112 +1739,107 @@ msgstr ""
 "软 Windows™ 的支持。\n"
 "但是 Mac OS X 不能读取按照 ISO9660 第三版标准创建的镜像。"
 
-#: ../libburner-burn/burner-status-dialog.c:330
-#: ../src/burner-data-disc.c:729
+#: ../libburner-burn/burner-status-dialog.c:336 ../src/burner-data-disc.c:733
 msgid "Should files be renamed to be fully Windows-compatible?"
 msgstr "这些文件应该重命名以使 Windows 完全兼容该光盘吗？"
 
-#: ../libburner-burn/burner-status-dialog.c:341
-#: ../src/burner-data-disc.c:735
+#: ../libburner-burn/burner-status-dialog.c:348 ../src/burner-data-disc.c:739
 msgid "Those names should be changed and truncated to 64 characters."
 msgstr "这些名字无法被更改并截断为64个字符。"
 
-#: ../libburner-burn/burner-status-dialog.c:346
-#: ../src/burner-data-disc.c:738
+#: ../libburner-burn/burner-status-dialog.c:353 ../src/burner-data-disc.c:742
 msgid "_Disable Full Windows Compatibility"
 msgstr "禁止 Windows 完全兼容(_D)"
 
-#: ../libburner-burn/burner-status-dialog.c:349
-#: ../src/burner-data-disc.c:737
+#: ../libburner-burn/burner-status-dialog.c:356 ../src/burner-data-disc.c:741
 msgid "_Rename for Full Windows Compatibility"
 msgstr "重命名以完全兼容 Windows(_R)"
 
-#: ../libburner-burn/burner-status-dialog.c:566
+#: ../libburner-burn/burner-status-dialog.c:574
 msgid "Size Estimation"
 msgstr "估算大小"
 
-#: ../libburner-burn/burner-status-dialog.c:568
+#: ../libburner-burn/burner-status-dialog.c:576
 msgid "Please wait until the estimation of the size is completed."
 msgstr "请等待大小估算完成。"
 
-#: ../libburner-burn/burner-status-dialog.c:569
+#: ../libburner-burn/burner-status-dialog.c:577
 msgid "All files need to be analysed to complete this operation."
 msgstr "若要完成此操作所有文件都需经过分析。"
 
-#: ../libburner-burn/burner-sum-dialog.c:134
-#: ../libburner-burn/burner-sum-dialog.c:215
+#: ../libburner-burn/burner-sum-dialog.c:137
+#: ../libburner-burn/burner-sum-dialog.c:220
 msgid "Check _Again"
 msgstr "重新检查(_A)"
 
-#: ../libburner-burn/burner-sum-dialog.c:165
-#: ../libburner-burn/burner-sum-dialog.c:514
+#: ../libburner-burn/burner-sum-dialog.c:169
+#: ../libburner-burn/burner-sum-dialog.c:520
 msgid "The file integrity check could not be performed."
 msgstr "文件完整性检查无法执行。"
 
-#: ../libburner-burn/burner-sum-dialog.c:166 ../src/burner-data-disc.c:214
-#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:393
-#: ../src/burner-project.c:2625
+#: ../libburner-burn/burner-sum-dialog.c:170 ../src/burner-data-disc.c:217
+#: ../src/burner-eject-dialog.c:102 ../src/burner-playlist.c:395
+#: ../src/burner-project.c:2734
 msgid "An unknown error occurred"
 msgstr "发生一个未知错误"
 
-#: ../libburner-burn/burner-sum-dialog.c:178
+#: ../libburner-burn/burner-sum-dialog.c:182
 msgid "The file integrity check was performed successfully."
 msgstr "文件完整性检查成功执行。"
 
-#: ../libburner-burn/burner-sum-dialog.c:179
+#: ../libburner-burn/burner-sum-dialog.c:183
 msgid "There seem to be no corrupted files on the disc"
 msgstr "光盘上似乎没有损坏的文件"
 
-#: ../libburner-burn/burner-sum-dialog.c:207
+#: ../libburner-burn/burner-sum-dialog.c:211
 msgid "The following files appear to be corrupted:"
 msgstr "下列文件似乎已损坏"
 
-#: ../libburner-burn/burner-sum-dialog.c:250
+#: ../libburner-burn/burner-sum-dialog.c:255
 msgid "Corrupted Files"
 msgstr "已损坏的文件"
 
-#: ../libburner-burn/burner-sum-dialog.c:342
+#: ../libburner-burn/burner-sum-dialog.c:348
 msgid "Downloading MD5 file"
 msgstr "正在下载 MD5 文件"
 
-#: ../libburner-burn/burner-sum-dialog.c:397
+#: ../libburner-burn/burner-sum-dialog.c:403
 #, c-format
 msgid "\"%s\" is not a valid URI"
 msgstr "“%s”不是有效的 URI 地址"
 
-#: ../libburner-burn/burner-sum-dialog.c:515
+#: ../libburner-burn/burner-sum-dialog.c:521
 msgid "No MD5 file was given."
 msgstr "没有指定 MD5 文件。"
 
-#: ../libburner-burn/burner-sum-dialog.c:692
+#: ../libburner-burn/burner-sum-dialog.c:698
 msgid "Use an _MD5 file to check the disc"
 msgstr "使用 _MD5 文件检查光盘"
 
-#: ../libburner-burn/burner-sum-dialog.c:693
+#: ../libburner-burn/burner-sum-dialog.c:699
 msgid "Use an external .md5 file that stores the checksum of a disc"
 msgstr "使用储存有光盘检查值的外部 .md5 校验和文件"
 
-#: ../libburner-burn/burner-sum-dialog.c:706
+#: ../libburner-burn/burner-sum-dialog.c:712
 msgid "Open an MD5 file"
 msgstr "打开一个 MD5 文件"
 
-#: ../libburner-burn/burner-sum-dialog.c:721
+#: ../libburner-burn/burner-sum-dialog.c:727
 msgid "_Check"
 msgstr "检查(_C)"
 
-#: ../libburner-burn/burner-sum-dialog.c:752
+#: ../libburner-burn/burner-sum-dialog.c:758
 msgid "Disc Checking"
 msgstr "检查中"
 
-#: ../libburner-burn/burner-tool-dialog.c:78
-#: ../libburner-burn/burner-tool-dialog.c:92
-#: ../libburner-burn/burner-tool-dialog.c:102
+#: ../libburner-burn/burner-tool-dialog.c:80
+#: ../libburner-burn/burner-tool-dialog.c:94
+#: ../libburner-burn/burner-tool-dialog.c:104
 msgid "The operation cannot be performed."
 msgstr "无法执行该操作。"
 
-#: ../libburner-burn/burner-tool-dialog.c:79
-#: ../plugins/cdrkit/burn-wodim.c:151 ../plugins/cdrkit/burn-wodim.c:421
-#: ../plugins/cdrtools/burn-cdrecord.c:151
+#: ../libburner-burn/burner-tool-dialog.c:81 ../plugins/cdrkit/burn-wodim.c:151
+#: ../plugins/cdrkit/burn-wodim.c:421 ../plugins/cdrtools/burn-cdrecord.c:151
 #: ../plugins/cdrtools/burn-cdrecord.c:407
 #: ../plugins/growisofs/burn-dvd-rw-format.c:77
 #: ../plugins/libburnia/burn-libburn.c:610
@@ -1764,16 +1847,19 @@ msgstr "无法执行该操作。"
 msgid "The disc is not supported"
 msgstr "不支持该光盘"
 
-#: ../libburner-burn/burner-tool-dialog.c:103
+#: ../libburner-burn/burner-tool-dialog.c:105
 msgid "The drive is empty"
 msgstr "驱动器为空"
 
-#: ../libburner-burn/burner-tool-dialog.c:554
-#: ../src/burner-eject-dialog.c:167
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Select a disc"));
+#: ../libburner-burn/burner-tool-dialog.c:563 ../src/burner-eject-dialog.c:167
+#, c-format
 msgid "Select a disc"
 msgstr "选择一张光盘"
 
-#: ../libburner-burn/burner-tool-dialog.c:581
+#. title_str = g_strdup_printf ("<b>%s</b>", _("Progress"));
+#: ../libburner-burn/burner-tool-dialog.c:591
+#, c-format
 msgid "Progress"
 msgstr "进度"
 
@@ -1781,14 +1867,13 @@ msgstr "进度"
 #: ../libburner-burn/burner-track-data-cfg.c:716
 #: ../libburner-burn/burner-track-data-cfg.c:727
 #: ../libburner-burn/burner-track-data-cfg.c:788
-#: ../libburner-burn/burner-track-data-cfg.c:793
-#: ../src/burner-playlist.c:536 ../src/burner-video-tree-model.c:342
+#: ../libburner-burn/burner-track-data-cfg.c:793 ../src/burner-playlist.c:538
+#: ../src/burner-video-tree-model.c:342
 msgid "(loading…)"
 msgstr "(正在载入...)"
 
 #: ../libburner-burn/burner-track-data-cfg.c:619
-#: ../libburner-burn/burner-track-data-cfg.c:799
-#: ../src/burner-playlist.c:497
+#: ../libburner-burn/burner-track-data-cfg.c:799 ../src/burner-playlist.c:499
 msgid "Empty"
 msgstr "空白"
 
@@ -1823,7 +1908,7 @@ msgid "\"%s\" is a recursive symbolic link."
 msgstr "“%s” 是一个递归的符号连接。"
 
 #. Translators: %s is the path of a drive
-#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:218
+#: ../libburner-burn/burner-track-data-cfg.c:2578 ../src/burner-cli.c:219
 #, c-format
 msgid "\"%s\" cannot be found."
 msgstr "无法找到 “%s”。"
@@ -1848,7 +1933,7 @@ msgid "\"%s\" was removed from the file system."
 msgstr "“%s” 已从文件系统中删除。"
 
 #: ../libburner-burn/burner-track-stream-cfg.c:129
-#: ../src/burner-audio-disc.c:754 ../src/burner-video-disc.c:365
+#: ../src/burner-audio-disc.c:757 ../src/burner-video-disc.c:367
 #, c-format
 msgid "Directories cannot be added to video or audio discs"
 msgstr "无法向音/视频光盘添加目录"
@@ -2025,7 +2110,7 @@ msgid ""
 "free space for the disc image (%ld MiB needed)"
 msgstr "您选择存放临时镜像的位置没有足够空余空间(需要 %ld MiB)"
 
-#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:365
+#: ../libburner-burn/burn-job.c:572 ../plugins/dvdcss/burn-dvdcss.c:362
 #, c-format
 msgid "The size of the volume could not be retrieved"
 msgstr "无法得到卷大小"
@@ -2094,8 +2179,7 @@ msgstr "进程“%s”终止于错误代码(%i)"
 #. Translators: This is a fake drive, a file, and means that
 #. * when we're writing, we're writing to a file and create an
 #. * image on the hard drive.
-#: ../libburner-media/burner-drive.c:607
-#: ../libburner-media/burner-medium.c:206
+#: ../libburner-media/burner-drive.c:607 ../libburner-media/burner-medium.c:206
 #: ../libburner-media/burner-volume.c:382
 msgid "Image File"
 msgstr "镜像文件"
@@ -2268,8 +2352,7 @@ msgid "%s:%s:%s"
 msgstr "%s:%s:%s"
 
 #. Translators: this is 'hour:minute' or 'minute:second'
-#: ../libburner-media/burner-units.c:92
-#: ../libburner-media/burner-units.c:107
+#: ../libburner-media/burner-units.c:92 ../libburner-media/burner-units.c:107
 #, c-format
 msgid "%s:%s"
 msgstr "%s:%s"
@@ -2309,7 +2392,7 @@ msgstr "音频和数据光盘(%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ .
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:322
+#: ../libburner-media/burner-volume.c:417 ../src/burner-project-name.c:325
 #, c-format
 msgid "Audio disc (%s)"
 msgstr "音频光盘(%s)"
@@ -2318,23 +2401,20 @@ msgstr "音频光盘(%s)"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_ otherwise it gets truncated.
 #. * The %s is the date
-#: ../libburner-media/burner-volume.c:421
-#: ../nautilus/nautilus-burn-bar.c:115 ../src/burner-project-name.c:255
+#: ../libburner-media/burner-volume.c:421 ../nautilus/nautilus-burn-bar.c:115
+#: ../src/burner-project-name.c:258
 #, c-format
 msgid "Data disc (%s)"
 msgstr "数据光盘(%s)"
 
-#: ../libburner-media/burn-iso9660.c:158
-#: ../libburner-media/burn-iso9660.c:167
-#: ../libburner-media/burn-iso9660.c:402
-#: ../libburner-media/burn-iso9660.c:439
-#: ../libburner-media/burn-iso9660.c:488
-#: ../libburner-media/burn-volume.c:128
+#: ../libburner-media/burn-iso9660.c:158 ../libburner-media/burn-iso9660.c:167
+#: ../libburner-media/burn-iso9660.c:402 ../libburner-media/burn-iso9660.c:439
+#: ../libburner-media/burn-iso9660.c:488 ../libburner-media/burn-volume.c:128
 #, c-format
 msgid "It does not appear to be a valid ISO image"
 msgstr "它似乎不是有效的 ISO 镜像"
 
-#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:84
+#: ../libburner-media/scsi-error.c:43 ../src/burner-project-name.c:86
 msgid "Unknown error"
 msgstr "未知错误"
 
@@ -2454,55 +2534,55 @@ msgstr "缩放"
 msgid "Background Properties"
 msgstr "背景属性"
 
-#: ../libburner-utils/burner-jacket-edit.c:534
+#: ../libburner-utils/burner-jacket-edit.c:535
 msgid "Print"
 msgstr "打印"
 
-#: ../libburner-utils/burner-jacket-edit.c:546
+#: ../libburner-utils/burner-jacket-edit.c:547
 msgid "Bac_kground Properties"
 msgstr "背景属性(_K)"
 
-#: ../libburner-utils/burner-jacket-edit.c:549
+#: ../libburner-utils/burner-jacket-edit.c:550
 msgid "Background properties"
 msgstr "背景属性"
 
-#: ../libburner-utils/burner-jacket-edit.c:564
+#: ../libburner-utils/burner-jacket-edit.c:565
 msgid "Align right"
 msgstr "右对齐"
 
-#: ../libburner-utils/burner-jacket-edit.c:574
+#: ../libburner-utils/burner-jacket-edit.c:575
 msgid "Center"
 msgstr "居中"
 
-#: ../libburner-utils/burner-jacket-edit.c:584
+#: ../libburner-utils/burner-jacket-edit.c:585
 msgid "Align left"
 msgstr "左对齐"
 
-#: ../libburner-utils/burner-jacket-edit.c:598
+#: ../libburner-utils/burner-jacket-edit.c:599
 msgid "Underline"
 msgstr "下划线"
 
-#: ../libburner-utils/burner-jacket-edit.c:608
+#: ../libburner-utils/burner-jacket-edit.c:609
 msgid "Italic"
 msgstr "斜体"
 
-#: ../libburner-utils/burner-jacket-edit.c:618
+#: ../libburner-utils/burner-jacket-edit.c:619
 msgid "Bold"
 msgstr "粗体"
 
-#: ../libburner-utils/burner-jacket-edit.c:644
+#: ../libburner-utils/burner-jacket-edit.c:645
 msgid "Font family and size"
 msgstr "字体和大小"
 
-#: ../libburner-utils/burner-jacket-edit.c:651
+#: ../libburner-utils/burner-jacket-edit.c:652
 msgid "_Text Color"
 msgstr "文本颜色(_T)"
 
-#: ../libburner-utils/burner-jacket-edit.c:652
+#: ../libburner-utils/burner-jacket-edit.c:653
 msgid "Text color"
 msgstr "文本颜色"
 
-#: ../libburner-utils/burner-jacket-edit.c:775
+#: ../libburner-utils/burner-jacket-edit.c:790
 msgid "Cover Editor"
 msgstr "封面编辑器"
 
@@ -2528,7 +2608,7 @@ msgstr "正面封面"
 msgid "The image could not be loaded."
 msgstr "该镜像无法载入。"
 
-#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:643
+#: ../libburner-utils/burner-metadata.c:1126 ../src/burner-audio-disc.c:645
 #, c-format
 msgid "\"%s\" could not be handled by GStreamer."
 msgstr "“%s” 不能被 Gstreamer 处理。"
@@ -2577,15 +2657,15 @@ msgstr "“%s” 不能被 Gstreamer 处理。"
 msgid "%s element could not be created"
 msgstr "无法创建 %s 元素"
 
-#: ../libburner-utils/burner-misc.c:74
+#: ../libburner-utils/burner-misc.c:75
 msgid "Display debug statements on stdout for Burner utilities library"
 msgstr "在标准输出中显示 Burner 工具库的调试消息"
 
-#: ../libburner-utils/burner-misc.c:91
+#: ../libburner-utils/burner-misc.c:92
 msgid "Burner utilities library"
 msgstr "Burner 工具库"
 
-#: ../libburner-utils/burner-misc.c:92
+#: ../libburner-utils/burner-misc.c:93
 msgid "Display options for Burner-utils library"
 msgstr "显示 Burner-utils 库选项"
 
@@ -2602,13 +2682,13 @@ msgstr "CD/DVD 创建器"
 msgid "Create CDs and DVDs"
 msgstr "创建 CD/DVD"
 
-#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:154
+#: ../nautilus/nautilus-burn-bar.c:228 ../src/burner-project-name.c:156
 msgid "Medium Icon"
 msgstr "中号图标"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
 #: ../nautilus/nautilus-burn-bar.c:242 ../src/burner-file-chooser.c:375
-#: ../src/burner-project.c:2250 ../src/burner-project-name.c:168
+#: ../src/burner-project.c:2310 ../src/burner-project-name.c:170
 msgctxt "picture"
 msgid "Image files"
 msgstr "图像文件"
@@ -2687,7 +2767,7 @@ msgstr "无法读取数据(%s)"
 #: ../plugins/checksum/burn-checksum-files.c:196
 #: ../plugins/checksum/burn-checksum-files.c:219
 #: ../plugins/checksum/burn-checksum-image.c:174
-#: ../plugins/dvdcss/burn-dvdcss.c:216 ../plugins/dvdcss/burn-dvdcss.c:495
+#: ../plugins/dvdcss/burn-dvdcss.c:213 ../plugins/dvdcss/burn-dvdcss.c:492
 #: ../plugins/libburnia/burn-libisofs.c:160
 #: ../plugins/libburnia/burn-libisofs.c:274
 #, c-format
@@ -2746,11 +2826,6 @@ msgstr "cdrkit 刻录套件"
 #, c-format
 msgid "Last session import failed"
 msgstr "光盘导入失败"
-
-#: Translators: This is a verb. It's a toolbar button.
-#: ../src/burner-data-disc.c:1016
-msgid "Import Disc"
-msgstr "导入光盘"
 
 #: ../plugins/cdrkit/burn-genisoimage.c:125
 #: ../plugins/cdrkit/burn-genisoimage.c:132
@@ -2980,7 +3055,7 @@ msgstr "创建一个适合视频 DVD 的光盘镜像"
 #. Translators: %s is the path to a drive. "regionset %s"
 #. * should be left as is just like "DVDCSS_METHOD=title
 #. * burner --no-existing-session"
-#: ../plugins/dvdcss/burn-dvdcss.c:294
+#: ../plugins/dvdcss/burn-dvdcss.c:291
 #, c-format
 msgid ""
 "Error while retrieving a key used for encryption. You may solve such a "
@@ -2993,26 +3068,26 @@ msgstr ""
 "%s 命令为您的 CD/DVD 播放器设置合适的 DVD 区域码；或以 DVDCSS_METHOD=title "
 "burner --no-existing-session 命令启动 burner。"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:339
+#: ../plugins/dvdcss/burn-dvdcss.c:336
 msgid "Retrieving DVD keys"
 msgstr "正在检索 DVD 密钥"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:374
+#: ../plugins/dvdcss/burn-dvdcss.c:371
 #, c-format
 msgid "Video DVD could not be opened"
 msgstr "无法打开视频 DVD"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:395 ../plugins/dvdcss/burn-dvdcss.c:460
-#: ../plugins/dvdcss/burn-dvdcss.c:483
+#: ../plugins/dvdcss/burn-dvdcss.c:392 ../plugins/dvdcss/burn-dvdcss.c:457
+#: ../plugins/dvdcss/burn-dvdcss.c:480
 #, c-format
 msgid "Error while reading video DVD (%s)"
 msgstr "读取视频 DVD 时出错(%s)"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:402
+#: ../plugins/dvdcss/burn-dvdcss.c:399
 msgid "Copying video DVD"
 msgstr "正在复制视频 DVD"
 
-#: ../plugins/dvdcss/burn-dvdcss.c:695
+#: ../plugins/dvdcss/burn-dvdcss.c:692
 msgid "Copies CSS encrypted video DVDs to a disc image"
 msgstr "复制 CSS 加密视频 DVD 到镜像文件"
 
@@ -3202,92 +3277,135 @@ msgstr "转换所有视频文件到适合视频 DVD 的格式"
 msgid "Creates disc images suitable for SVCDs"
 msgstr "创建一个适合 SVCD 的光盘镜像"
 
-#: ../src/burner-app.c:123
+#: ../src/burner-app.c:72
+msgid "W_elcom project"
+msgstr "欢迎界面(_E)"
+
+#: ../src/burner-app.c:73 ../src/burner-app.c:83
+msgid "Create a data CD/DVD"
+msgstr "创建一个数据 CD/DVD"
+
+#: ../src/burner-app.c:74 ../src/burner-app.c:84
+#: ../src/burner-project-manager.c:106
+msgid ""
+"Create a CD/DVD containing any type of data that can only be read on a "
+"computer"
+msgstr "创建一张 CD/DVD 包含只能在计算机上被读取的任何形式的数据。"
+
+#. {N_("Audi_o project"),
+#. N_("Create a traditional audio CD"),
+#. N_("Create a traditional audio CD that will be playable on computers and stereos"),
+#. "media-optical-audio-new",
+#. BURNER_PROJECT_TYPE_AUDIO},
+#: ../src/burner-app.c:82
+msgid "D_ata project"
+msgstr "数据刻录(_A)"
+
+#. {N_("_Video project"),
+#. N_("Create a video DVD or an SVCD"),
+#. N_("Create a video DVD or an SVCD that is readable on TV readers"),
+#. "media-optical-video-new",
+#. BURNER_PROJECT_TYPE_VIDEO},
+#. {N_("Disc _copy"),
+#. N_("Create 1:1 copy of a CD/DVD"),
+#. N_("Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on another CD/DVD"),
+#. "media-optical-copy",
+#. BURNER_PROJECT_TYPE_COPY},
+#: ../src/burner-app.c:97
+msgid "Burn _image"
+msgstr "镜像刻录(_I)"
+
+#: ../src/burner-app.c:98 ../src/burner-app.c:99
+#: ../src/burner-project-manager.c:112
+msgid "Burn an existing CD/DVD image to disc"
+msgstr "刻录现存的 CD/DVD 镜像文件到光盘"
+
+#: ../src/burner-app.c:162
 msgid "_Project"
 msgstr "项目(_P)"
 
-#: ../src/burner-app.c:124
+#: ../src/burner-app.c:163
 msgid "_View"
 msgstr "查看(_V)"
 
-#: ../src/burner-app.c:125
+#: ../src/burner-app.c:164
 msgid "_Edit"
 msgstr "编辑(_E)"
 
-#: ../src/burner-app.c:126
+#: ../src/burner-app.c:165
 msgid "_Tools"
 msgstr "工具(_T)"
 
-#: ../src/burner-app.c:128
+#: ../src/burner-app.c:167
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: ../src/burner-app.c:130
+#: ../src/burner-app.c:169
 msgid "P_lugins"
 msgstr "插件(_L)"
 
-#: ../src/burner-app.c:131
+#: ../src/burner-app.c:170
 msgid "Choose plugins for Burner"
 msgstr "为 Burner 选择插件"
 
-#: ../src/burner-app.c:133
+#: ../src/burner-app.c:172
 msgid "E_ject"
 msgstr "弹出(_J)"
 
-#: ../src/burner-app.c:134
+#: ../src/burner-app.c:173
 msgid "Eject a disc"
 msgstr "弹出光盘"
 
-#: ../src/burner-app.c:136
+#: ../src/burner-app.c:175
 msgid "_Blank…"
 msgstr "擦除(_B)..."
 
-#: ../src/burner-app.c:137
+#: ../src/burner-app.c:176
 msgid "Blank a disc"
 msgstr "擦出一张光盘"
 
-#: ../src/burner-app.c:139
+#: ../src/burner-app.c:178
 msgid "_Check Integrity…"
 msgstr "检查完整性(_C)..."
 
-#: ../src/burner-app.c:140
+#: ../src/burner-app.c:179
 msgid "Check data integrity of disc"
 msgstr "检查光盘数据的完整性"
 
-#: ../src/burner-app.c:143
+#: ../src/burner-app.c:182
 msgid "Quit Burner"
 msgstr "退出 Burner"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "_Contents"
 msgstr "目录(_C)"
 
-#: ../src/burner-app.c:145
+#: ../src/burner-app.c:184
 msgid "Display help"
 msgstr "显示帮助"
 
-#: ../src/burner-app.c:148
+#: ../src/burner-app.c:187
 msgid "About"
 msgstr "关于"
 
-#: ../src/burner-app.c:420 ../src/burner-app.c:2069
+#: ../src/burner-app.c:460 ../src/burner-app.c:2368
 msgid "Disc Burner"
 msgstr "光盘刻录器"
 
-#: ../src/burner-app.c:789 ../src/burner-app.c:822 ../src/burner-app.c:1451
+#: ../src/burner-app.c:833 ../src/burner-app.c:866 ../src/burner-app.c:1506
 msgid "Error while loading the project"
 msgstr "载入项目时发生错误"
 
-#: ../src/burner-app.c:831 ../src/burner-app.c:860 ../src/burner-app.c:920
-#: ../src/burner-project.c:1276
+#: ../src/burner-app.c:875 ../src/burner-app.c:904 ../src/burner-app.c:964
+#: ../src/burner-project.c:1282
 msgid "Please add files to the project."
 msgstr "请添加文件到项目中。"
 
-#: ../src/burner-app.c:832 ../src/burner-app.c:861 ../src/burner-app.c:921
+#: ../src/burner-app.c:876 ../src/burner-app.c:905 ../src/burner-app.c:965
 msgid "The project is empty"
 msgstr "项目为空"
 
-#: ../src/burner-app.c:1176
+#: ../src/burner-app.c:1228
 msgid ""
 "Burner is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -3297,17 +3415,17 @@ msgstr ""
 "Burner 是自由软件；您可以在由自由软件基金会(Free Software Foundation)发布的 "
 "GNU 通用公共许可证条款下进行分发或修改；适用于版本2或(由您选择)任何后续版本。"
 
-#: ../src/burner-app.c:1181
+#: ../src/burner-app.c:1233
 msgid ""
 "Burner is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Burner 分发是希望它有所用处，但是没有任何担保；没有即便是暗示的商品授权和适"
-"当其他特殊目的。更多细节请参见 GNU 通用公共许可证。"
+"Burner 分发是希望它有所用处，但是没有任何担保；没有即便是暗示的商品授权和适当"
+"其他特殊目的。更多细节请参见 GNU 通用公共许可证。"
 
-#: ../src/burner-app.c:1186
+#: ../src/burner-app.c:1238
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Burner; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -3317,11 +3435,11 @@ msgstr ""
 "到 Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, "
 "MA 02110-1301, USA"
 
-#: ../src/burner-app.c:1198
+#: ../src/burner-app.c:1250
 msgid "A simple to use CD/DVD burning application for GNOME"
 msgstr "一个使用简单的  CD/DVD GNOME 刻录程序"
 
-#: ../src/burner-app.c:1215
+#: ../src/burner-app.c:1267
 msgid "Burner Homepage"
 msgstr "Burner 主页"
 
@@ -3333,7 +3451,7 @@ msgstr "Burner 主页"
 #. * this translation; in that case, please write each of them on a separate
 #. * line seperated by newlines (\n).
 #.
-#: ../src/burner-app.c:1227
+#: ../src/burner-app.c:1279
 msgid "translator-credits"
 msgstr ""
 "甘露(Gan Lu) <rhythm.gan@gmail.com>\n"
@@ -3358,141 +3476,136 @@ msgstr ""
 "  muzuiget https://launchpad.net/~muzuiget\n"
 "  zhangmiao https://launchpad.net/~mymzhang"
 
-#: ../src/burner-app.c:1449
+#: ../src/burner-app.c:1504
 #, c-format
 msgid "The project \"%s\" does not exist"
 msgstr "项目“%s”不存在"
 
-#: ../src/burner-app.c:1733 ../src/burner-app.c:1739
+#: ../src/burner-app.c:1788 ../src/burner-app.c:1794
 msgid "_Recent Projects"
 msgstr "最近的项目(_R)"
 
-#: ../src/burner-app.c:1734
+#: ../src/burner-app.c:1789
 msgid "Display the projects recently opened"
 msgstr "显示最近打开过的项目"
 
-#: ../src/burner-audio-disc.c:155 ../src/burner-data-disc.c:122
-#: ../src/burner-video-disc.c:100
-msgid "Menu"
-msgstr "菜单"
-
-#: ../src/burner-audio-disc.c:156 ../src/burner-data-disc.c:123
+#: ../src/burner-audio-disc.c:158 ../src/burner-data-disc.c:125
 msgid "Open the selected files"
 msgstr "打开选定的文件"
 
-#: ../src/burner-audio-disc.c:158 ../src/burner-video-disc.c:103
+#: ../src/burner-audio-disc.c:160 ../src/burner-video-disc.c:105
 msgid "_Edit Information…"
 msgstr "编辑信息(_E)"
 
-#: ../src/burner-audio-disc.c:158
+#: ../src/burner-audio-disc.c:160
 msgid "Edit the track information (start, end, author, etc.)"
 msgstr "编辑轨道信息(开始，结束，作者等)"
 
-#: ../src/burner-audio-disc.c:160 ../src/burner-data-disc.c:127
-#: ../src/burner-project.c:202
+#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
+#: ../src/burner-project.c:204
 msgid "Remove the selected files from the project"
 msgstr "从项目中移除选定的文件"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Paste files"
 msgstr "粘贴文件"
 
-#: ../src/burner-audio-disc.c:162 ../src/burner-data-disc.c:129
-#: ../src/burner-video-disc.c:107
+#: ../src/burner-audio-disc.c:164 ../src/burner-data-disc.c:131
+#: ../src/burner-video-disc.c:109
 msgid "Add the files stored in the clipboard"
 msgstr "添加在剪贴板中保存的文件"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "I_nsert a Pause"
 msgstr "插入暂停(_N)"
 
-#: ../src/burner-audio-disc.c:164
+#: ../src/burner-audio-disc.c:166
 msgid "Add a 2 second pause after the track"
 msgstr "在此轨道后添加 2 秒钟的暂停"
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "_Split Track…"
 msgstr "分割轨道(_S)..."
 
-#: ../src/burner-audio-disc.c:166
+#: ../src/burner-audio-disc.c:168
 msgid "Split the selected track"
 msgstr "分割选中的轨道"
 
-#: ../src/burner-audio-disc.c:343 ../src/burner-video-tree-model.c:187
+#: ../src/burner-audio-disc.c:345 ../src/burner-video-tree-model.c:187
 msgid "Pause"
 msgstr "暂停"
 
-#: ../src/burner-audio-disc.c:349
+#: ../src/burner-audio-disc.c:351
 msgid "Split"
 msgstr "分割"
 
-#: ../src/burner-audio-disc.c:418
+#: ../src/burner-audio-disc.c:420
 msgid "Track"
 msgstr "轨道"
 
-#: ../src/burner-audio-disc.c:458 ../src/burner-video-disc.c:1209
+#: ../src/burner-audio-disc.c:460 ../src/burner-video-disc.c:1214
 msgid "Title"
 msgstr "标题"
 
-#: ../src/burner-audio-disc.c:480
+#: ../src/burner-audio-disc.c:482
 msgid "Artist"
 msgstr "演出者"
 
-#: ../src/burner-audio-disc.c:488 ../src/burner-playlist.c:772
-#: ../src/burner-split-dialog.c:1225
+#: ../src/burner-audio-disc.c:490 ../src/burner-playlist.c:775
+#: ../src/burner-split-dialog.c:1231
 msgid "Length"
 msgstr "长度"
 
-#: ../src/burner-audio-disc.c:585
+#: ../src/burner-audio-disc.c:587
 msgid "The track will be padded at its end."
 msgstr "轨道末端将被填充。"
 
-#: ../src/burner-audio-disc.c:586
+#: ../src/burner-audio-disc.c:588
 msgid "The track is shorter than 6 seconds"
 msgstr "轨道长度小于 6 秒"
 
-#: ../src/burner-audio-disc.c:646
+#: ../src/burner-audio-disc.c:648
 msgid "Make sure the appropriate codec is installed"
 msgstr "请确认已安装有适当的解码器"
 
-#: ../src/burner-audio-disc.c:662
+#: ../src/burner-audio-disc.c:664
 #, c-format
 msgid "Do you want to add \"%s\", which is a video file?"
 msgstr "您确定添加视频文件“%s”？"
 
-#: ../src/burner-audio-disc.c:671
+#: ../src/burner-audio-disc.c:673
 msgid ""
 "This file is a video and therefore only the audio part can be written to the "
 "disc."
 msgstr "本文件是一段视频，因此仅有音频部分能够写入光盘。"
 
-#: ../src/burner-audio-disc.c:674
+#: ../src/burner-audio-disc.c:676
 msgid "_Discard File"
 msgstr "放弃文件(_D)"
 
-#: ../src/burner-audio-disc.c:677
+#: ../src/burner-audio-disc.c:679
 msgid "_Add File"
 msgstr "添加文件(_A)"
 
-#: ../src/burner-audio-disc.c:748
+#: ../src/burner-audio-disc.c:751
 msgid "Do you want to search for audio files inside the directory?"
 msgstr "是否在目录中搜索音频文件？"
 
-#: ../src/burner-audio-disc.c:758
+#: ../src/burner-audio-disc.c:761
 msgid "Search _Directory"
 msgstr "搜索目录(_D)"
 
-#: ../src/burner-audio-disc.c:812 ../src/burner-video-disc.c:395
+#: ../src/burner-audio-disc.c:816 ../src/burner-video-disc.c:398
 #, c-format
 msgid "\"%s\" could not be opened."
 msgstr "无法打开“%s”。"
 
-#: ../src/burner-audio-disc.c:857
+#: ../src/burner-audio-disc.c:861
 msgid "Do you want to create an audio CD with DTS tracks?"
 msgstr "您是否想使用 DTS 轨道刻录一张音频光盘？"
 
-#: ../src/burner-audio-disc.c:858
+#: ../src/burner-audio-disc.c:862
 msgid ""
 "Some of the selected songs are suitable for creating DTS tracks.\n"
 "This type of audio CD track provides a higher quality of sound but can only "
@@ -3504,119 +3617,103 @@ msgstr ""
 "放。\n"
 "注意：如果您同意，标准化操作不会在这些轨道上被应用。"
 
-#: ../src/burner-audio-disc.c:867
+#: ../src/burner-audio-disc.c:871
 msgid "Create _Regular Tracks"
 msgstr "创建常规轨道(_R)"
 
-#: ../src/burner-audio-disc.c:869
+#: ../src/burner-audio-disc.c:873
 msgid "Click here to burn all songs as regular tracks"
 msgstr "点击此处将全部歌曲刻录为常规轨道"
 
-#: ../src/burner-audio-disc.c:872
+#: ../src/burner-audio-disc.c:876
 msgid "Create _DTS Tracks"
 msgstr "创建 _DTS 轨道"
 
-#: ../src/burner-audio-disc.c:874
+#: ../src/burner-audio-disc.c:878
 msgid "Click here to burn all suitable songs as DTS tracks"
 msgstr "点击这里将所有适合的歌曲刻录为 DTS 轨道"
 
-#: ../src/burner-audio-disc.c:1290
+#: ../src/burner-audio-disc.c:1294
 msgid "Select one song only please."
 msgstr "请仅选择一首歌。"
 
-#: ../src/burner-audio-disc.c:1291
+#: ../src/burner-audio-disc.c:1295
 msgid "Impossible to split more than one song at a time"
 msgstr "无法同时分割多首歌曲"
 
-#: ../src/burner-cli.c:70
+#: ../src/burner-cli.c:71
 msgid "Open the specified project"
 msgstr "打开指定的项目"
 
-#: ../src/burner-cli.c:71
+#: ../src/burner-cli.c:72
 msgid "PROJECT"
 msgstr "项目"
 
-#: ../src/burner-cli.c:76
-msgid "Open the specified playlist as an audio project"
-msgstr "打开指定的播放列表作为一个音频项目"
-
-#: ../src/burner-cli.c:77
-msgid "PLAYLIST"
-msgstr "播放列表"
-
-#: ../src/burner-cli.c:82
+#: ../src/burner-cli.c:83
 msgid "Set the drive to be used for burning"
 msgstr "设置用来刻录的驱动器"
 
-#: ../src/burner-cli.c:83
+#: ../src/burner-cli.c:84
 msgid "DEVICE PATH"
 msgstr "设备路径"
 
-#: ../src/burner-cli.c:86
+#: ../src/burner-cli.c:87
 msgid "Create an image file instead of burning"
 msgstr "创建一个镜像文件而不是刻录"
 
-#: ../src/burner-cli.c:90
-msgid "Open an audio project adding the URIs given on the command line"
-msgstr "打开一个音频项目并添加在命令行中指定的 URI 地址"
-
-#: ../src/burner-cli.c:94
+#: ../src/burner-cli.c:95
 msgid "Open a data project adding the URIs given on the command line"
 msgstr "打开一个数据项目并添加在命令行中指定的 URI 地址"
 
-#: ../src/burner-cli.c:98
+#: ../src/burner-cli.c:99
 msgid "Copy a disc"
 msgstr "复制一张光盘"
 
-#: ../src/burner-cli.c:99 ../src/burner-cli.c:119 ../src/burner-cli.c:123
+#: ../src/burner-cli.c:100 ../src/burner-cli.c:120 ../src/burner-cli.c:124
 msgid "PATH TO DEVICE"
 msgstr "设备路径"
 
-#: ../src/burner-cli.c:102
+#: ../src/burner-cli.c:103
 msgid "Cover to use"
 msgstr "要使用的封面"
 
-#: ../src/burner-cli.c:103
+#: ../src/burner-cli.c:104
 msgid "PATH TO COVER"
 msgstr "封面图片路径"
 
-#: ../src/burner-cli.c:106
-msgid "Open a video project adding the URIs given on the command line"
-msgstr "打开一个音频项目并添加在命令行中指定的 URI 地址"
-
-#: ../src/burner-cli.c:110
+#: ../src/burner-cli.c:111
 msgid "URI of an image file to burn (autodetected)"
 msgstr "将要刻录的镜像文件的 URI 地址(自动检测)"
 
-#: ../src/burner-cli.c:111
+#: ../src/burner-cli.c:112
 msgid "PATH TO IMAGE"
 msgstr "镜像目录"
 
-#: ../src/burner-cli.c:114
+#: ../src/burner-cli.c:115
 msgid "Force Burner to display the project selection page"
 msgstr "强制 burner 显示项目选择页面"
 
-#: ../src/burner-cli.c:118
+#: ../src/burner-cli.c:119
 msgid "Open the blank disc dialog"
 msgstr "打开空白光盘对话框"
 
-#: ../src/burner-cli.c:122
+#: ../src/burner-cli.c:123
 msgid "Open the check disc dialog"
 msgstr "打开检查盘片对话框"
 
-#: ../src/burner-cli.c:126
+#: ../src/burner-cli.c:127
 msgid "Burn the contents of the burn:// URI"
 msgstr "刻录 burn:// URI 的内容"
 
-#: ../src/burner-cli.c:130
+#: ../src/burner-cli.c:131
 msgid "Start burning immediately."
 msgstr "立即开始刻录。"
 
-#: ../src/burner-cli.c:134
+#: ../src/burner-cli.c:135
 msgid "Don't connect to an already-running instance"
 msgstr "不要连接到一个已经运行的实例"
 
-#: ../src/burner-cli.c:138
+#: ../src/burner-cli.c:139
 msgid ""
 "Burn the specified project and remove it.\n"
 "This option is mainly useful for integration with other applications."
@@ -3624,7 +3721,7 @@ msgstr ""
 "刻录指定项目并删除。\n"
 "本选项主要用于和其他程序整合使用时。"
 
-#: ../src/burner-cli.c:139
+#: ../src/burner-cli.c:140
 msgid "PATH"
 msgstr "路径"
 
@@ -3633,105 +3730,106 @@ msgstr "路径"
 #. * burner will be set to be always on top of the window identified by
 #. * xid. In other words, the window with the given xid will become burner
 #. * parent as if burner was a dialog for the parent application
-#: ../src/burner-cli.c:147
+#: ../src/burner-cli.c:148
 msgid "The XID of the parent window"
 msgstr "父窗口的 XID"
 
 #. Translators: %s is the path of drive
-#: ../src/burner-cli.c:204
+#: ../src/burner-cli.c:205
 #, c-format
 msgid "\"%s\" cannot write."
 msgstr "无法写入“%s”"
 
-#: ../src/burner-cli.c:206 ../src/burner-cli.c:220
+#: ../src/burner-cli.c:207 ../src/burner-cli.c:221
 msgid "Wrong command line option."
 msgstr "错误的命令行选项。"
 
-#: ../src/burner-cli.c:297
+#: ../src/burner-cli.c:298
 msgid "Incompatible command line options used."
 msgstr "使用了不兼容的命令行选项。"
 
-#: ../src/burner-cli.c:298
+#: ../src/burner-cli.c:299
 msgid "Only one option can be given at a time"
 msgstr "一次只能指定一个选项"
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "R_ename…"
 msgstr "重命名(_E)..."
 
-#: ../src/burner-data-disc.c:125
+#: ../src/burner-data-disc.c:127
 msgid "Rename the selected file"
 msgstr "重命名选定的文件"
 
-#: ../src/burner-data-disc.c:131 ../src/burner-data-disc.c:1758
+#. {"NewFolder", "folder-new", N_("New _Folder"), NULL, N_("Create a new empty folder"),
+#: ../src/burner-data-disc.c:134 ../src/burner-data-disc.c:1783
 msgid "New _Folder"
 msgstr "新文件夹(_F)"
 
-#: ../src/burner-data-disc.c:131
+#: ../src/burner-data-disc.c:134
 msgid "Create a new empty folder"
 msgstr "创建一个新的空文件夹"
 
-#: ../src/burner-data-disc.c:213
+#: ../src/burner-data-disc.c:216
 msgid "The session could not be imported."
 msgstr "该进程无法导入。"
 
-#: ../src/burner-data-disc.c:559
+#: ../src/burner-data-disc.c:562
 msgid "The contents of the project changed since it was saved."
 msgstr "自保存后的项目内容有变化。"
 
-#: ../src/burner-data-disc.c:561
+#: ../src/burner-data-disc.c:564
 msgid "Discard the current modified project ?"
 msgstr "放弃当前修改过的项目吗？"
 
-#: ../src/burner-data-disc.c:567
+#: ../src/burner-data-disc.c:570
 msgid "_Discard"
 msgstr "放弃(_D)"
 
-#: ../src/burner-data-disc.c:569
+#: ../src/burner-data-disc.c:572
 msgid "Discard the current modified project"
 msgstr "放弃当前修改过的项目"
 
-#: ../src/burner-data-disc.c:574
+#: ../src/burner-data-disc.c:577
 msgid "Continue with the current modified project"
 msgstr "继续当前修改过的项目"
 
 #. Translators: %s is the name of the image
-#: ../src/burner-data-disc.c:619
+#: ../src/burner-data-disc.c:622
 #, c-format
 msgid ""
 "There is only one selected file (\"%s\"). It is the image of a disc and its "
 "contents can be burned"
 msgstr "只选择了一个文件(“%s”)。该文件为光盘镜像，其内容可以被刻录。"
 
-#: ../src/burner-data-disc.c:625
+#: ../src/burner-data-disc.c:628
 msgid "Burn as _Data"
 msgstr "作为数据来刻录(_D)"
 
-#: ../src/burner-data-disc.c:627
+#: ../src/burner-data-disc.c:630
 msgid "Burn as _Image"
 msgstr "刻录镜像(_I)"
 
-#: ../src/burner-data-disc.c:673 ../src/burner-data-disc.c:691
-#: ../src/burner-data-disc.c:709
+#: ../src/burner-data-disc.c:677 ../src/burner-data-disc.c:695
+#: ../src/burner-data-disc.c:713
 #, c-format
 msgid "\"%s\" cannot be added to the selection."
 msgstr "无法添加“%s”到选则的文件。"
 
-#: ../src/burner-data-disc.c:694
+#: ../src/burner-data-disc.c:698
 msgid "It is a recursive symlink"
 msgstr "循环的符号链接"
 
-#: ../src/burner-data-disc.c:712
+#: ../src/burner-data-disc.c:716
 msgid "It does not exist at the specified location"
 msgstr "不在指定位置中"
 
 #. Translators: %s is the name of the file
-#: ../src/burner-data-disc.c:771
+#: ../src/burner-data-disc.c:776
 #, c-format
 msgid "Do you want to replace \"%s\"?"
 msgstr "您想要替换“%s”吗？"
 
-#: ../src/burner-data-disc.c:779
+#: ../src/burner-data-disc.c:784
 msgid ""
 "A file with this name already exists in the folder.  Replacing it will "
 "overwrite its contents on the disc to be burnt."
@@ -3740,14 +3838,14 @@ msgstr "此文件夹已经存在这个文件名。替换它会替换它的内容
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:784
+#: ../src/burner-data-disc.c:789
 msgid "Always K_eep"
 msgstr "始终保留(_E)"
 
 #. Translators: Keep means we're keeping the files that already existed
 #. * in the project.
 #. * Keep is a verb
-#: ../src/burner-data-disc.c:788
+#: ../src/burner-data-disc.c:793
 msgid "_Keep"
 msgstr "保留(_K)"
 
@@ -3755,92 +3853,96 @@ msgstr "保留(_K)"
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
 #. Translators: this is a verb
-#: ../src/burner-data-disc.c:792 ../src/burner-rename.c:385
+#: ../src/burner-data-disc.c:797 ../src/burner-rename.c:385
 msgid "_Replace"
 msgstr "替换(_R)"
 
 #. Translators: Replace means we're replacing the file that already
 #. * existed in the project with a new one with the same name.
 #. * Replace is a verb
-#: ../src/burner-data-disc.c:796
+#: ../src/burner-data-disc.c:801
 msgid "Al_ways Replace"
 msgstr "始终替换(_W)"
 
 #. Translators: %s is a string describing the type of medium and the
 #. * drive it is in. It's a tooltip.
-#: ../src/burner-data-disc.c:979
+#: ../src/burner-data-disc.c:989
 #, c-format
 msgid "Import %s"
 msgstr "导入 %s"
 
 #. Translators: %s is the name of the volume to import. It's a menu
 #. * entry and toolbar button (text added later).
-#: ../src/burner-data-disc.c:986
+#: ../src/burner-data-disc.c:996
 #, c-format
 msgid "I_mport %s"
 msgstr "导入 %s(_M)"
 
+#: ../src/burner-data-disc.c:1006
+msgid "Import Disc"
+msgstr "导入光盘"
+
 #. Translators: This is a verb. It's a toolbar button.
-#: ../src/burner-data-disc.c:1016
+#: ../src/burner-data-disc.c:1031
 msgid "I_mport"
 msgstr "导入(_M)"
 
 #. Translators: %s is the name of the volume to import
-#: ../src/burner-data-disc.c:1098
+#: ../src/burner-data-disc.c:1121
 #, c-format
 msgid "Do you want to import the session from \"%s\"?"
 msgstr "您想从“%s”导入该区段吗？"
 
-#: ../src/burner-data-disc.c:1101
+#: ../src/burner-data-disc.c:1124
 msgid ""
 "That way, old files from previous sessions will be usable after burning."
 msgstr "那样的话，刻录完毕后先前区段的老文件仍然可以使用。"
 
-#: ../src/burner-data-disc.c:1109
+#: ../src/burner-data-disc.c:1132
 msgid "I_mport Session"
 msgstr "导入会话(_M)"
 
-#: ../src/burner-data-disc.c:1111
+#: ../src/burner-data-disc.c:1134
 msgid "Click here to import its contents"
 msgstr "点击这里以导入内容"
 
-#: ../src/burner-data-disc.c:1490
+#: ../src/burner-data-disc.c:1513
 msgid "Please wait while the project is loading."
 msgstr "项目载入中请等待。"
 
-#: ../src/burner-data-disc.c:1500
+#: ../src/burner-data-disc.c:1523
 msgid "_Cancel Loading"
 msgstr "取消载入(_C)"
 
-#: ../src/burner-data-disc.c:1502
+#: ../src/burner-data-disc.c:1525
 msgid "Cancel loading current project"
 msgstr "取消载入当前的项目"
 
-#: ../src/burner-data-disc.c:1903
+#: ../src/burner-data-disc.c:1933
 msgid "File Renaming"
 msgstr "文件重命名"
 
-#: ../src/burner-data-disc.c:1907
+#: ../src/burner-data-disc.c:1937
 msgid "_Rename"
 msgstr "重命名(_R)"
 
-#: ../src/burner-data-disc.c:1913
+#: ../src/burner-data-disc.c:1943
 msgid "Renaming mode"
 msgstr "正在重命名模式"
 
-#: ../src/burner-data-disc.c:2336 ../src/burner-file-filtered.c:256
+#: ../src/burner-data-disc.c:2367 ../src/burner-file-filtered.c:309
 msgid "Files"
 msgstr "文件"
 
-#: ../src/burner-data-disc.c:2350 ../src/burner-video-disc.c:1227
+#: ../src/burner-data-disc.c:2381 ../src/burner-video-disc.c:1232
 msgid "Size"
 msgstr "大小"
 
-#: ../src/burner-data-disc.c:2364
+#: ../src/burner-data-disc.c:2395
 msgid "Description"
 msgstr "描述"
 
-#: ../src/burner-data-disc.c:2380
+#: ../src/burner-data-disc.c:2411
 msgid "Space"
 msgstr "空间"
 
@@ -3857,162 +3959,160 @@ msgstr "弹出(_E)"
 msgid "Eject Disc"
 msgstr "弹出光盘"
 
-#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2230
+#: ../src/burner-file-chooser.c:357 ../src/burner-project.c:2290
 msgid "Audio files"
 msgstr "音频文件"
 
-#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2239
+#: ../src/burner-file-chooser.c:365 ../src/burner-project.c:2299
 msgid "Movies"
 msgstr "电影"
 
-#: ../src/burner-file-filtered.c:75 ../src/burner-file-filtered.c:81
+#: ../src/burner-file-filtered.c:77 ../src/burner-file-filtered.c:83
 msgid "No file filtered"
 msgstr "没有文件过滤"
 
-#: ../src/burner-file-filtered.c:77
+#: ../src/burner-file-filtered.c:79
 #, c-format
 msgid "Hide the _filtered file list (%d file)"
 msgid_plural "Hide the _filtered file list (%d files)"
 msgstr[0] "隐藏过滤过的文件清单(%d 文件)(_F)"
 
-#: ../src/burner-file-filtered.c:83
+#: ../src/burner-file-filtered.c:85
 #, c-format
 msgid "Show the _filtered file list (%d file)"
 msgid_plural "Show the _filtered file list (%d files)"
 msgstr[0] "显示过滤过的文件清单(%d 文件)(_F)"
 
-#: ../src/burner-file-filtered.c:135
+#. gtk_widget_add_events(priv->mainwin, GDK_BUTTON_PRESS_MASK);
+#. g_signal_connect(G_OBJECT(priv->mainwin), "button-press-event", G_CALLBACK (drag_handle), NULL);
+#: ../src/burner-file-filtered.c:150 ../src/burner-file-filtered.c:174
 msgid "Filter Options"
 msgstr "过滤选项"
 
-#: ../src/burner-file-filtered.c:218
+#: ../src/burner-file-filtered.c:271
 msgid ""
 "Select the files you want to restore and click on the \"Restore\" button"
 msgstr "选择您想恢复的文件，然后单击“恢复”按钮"
 
-#: ../src/burner-file-filtered.c:265
+#: ../src/burner-file-filtered.c:318
 msgid "Type"
 msgstr "类型"
 
-#: ../src/burner-file-filtered.c:292
+#: ../src/burner-file-filtered.c:345
 msgid "_Restore"
 msgstr "恢复(_R)"
 
-#: ../src/burner-file-filtered.c:301
+#: ../src/burner-file-filtered.c:354
 msgid "Restore the selected files"
 msgstr "恢复选定的文件"
 
-#: ../src/burner-file-filtered.c:303
+#: ../src/burner-file-filtered.c:356
 msgid "_Options…"
 msgstr "选项(_O)..."
 
-#: ../src/burner-file-filtered.c:311
+#: ../src/burner-file-filtered.c:364
 msgid "Set the options for file filtering"
 msgstr "设定文件过滤的选项"
 
 #. filter hidden files
-#: ../src/burner-filter-option.c:65
+#: ../src/burner-filter-option.c:66
 msgid "Filter _hidden files"
 msgstr "过滤隐藏文件(_h)"
 
 #. replace symlink
-#: ../src/burner-filter-option.c:72
+#: ../src/burner-filter-option.c:74
 msgid "Re_place symbolic links"
 msgstr "替换符号链接(_P)"
 
 #. filter broken symlink button
-#: ../src/burner-filter-option.c:79
+#: ../src/burner-filter-option.c:82
 msgid "Filter _broken symbolic links"
 msgstr "过滤残缺的符号链接(_B)"
 
-#: ../src/burner-filter-option.c:85
-msgid "Filtering options"
-msgstr "过滤选项"
-
-#: ../src/burner-layout.c:104
+#: ../src/burner-layout.c:105
 msgid "P_review"
 msgstr "预览(_R)"
 
 #. Translators: this is an image, a picture, not a "Disc Image"
-#: ../src/burner-layout.c:106
+#: ../src/burner-layout.c:107
 msgid "Display video, audio and image preview"
 msgstr "显示视频，音频和图片预览"
 
-#: ../src/burner-layout.c:110
+#: ../src/burner-layout.c:111
 msgid "_Show Side Panel"
 msgstr "显示侧边栏(_S)"
 
-#: ../src/burner-layout.c:111
+#: ../src/burner-layout.c:112
 msgid "Show a side pane along the project"
 msgstr "在项目边显示侧边栏"
 
-#: ../src/burner-layout.c:125
+#: ../src/burner-layout.c:126
 msgid "_Horizontal Layout"
 msgstr "水平布局(_H)"
 
-#: ../src/burner-layout.c:126
+#: ../src/burner-layout.c:127
 msgid "Set a horizontal layout"
 msgstr "设置水平布局"
 
-#: ../src/burner-layout.c:128
+#: ../src/burner-layout.c:129
 msgid "_Vertical Layout"
 msgstr "垂直布局(_V)"
 
-#: ../src/burner-layout.c:129
+#: ../src/burner-layout.c:130
 msgid "Set a vertical layout"
 msgstr "设置垂直布局"
 
-#: ../src/burner-layout.c:1193
+#: ../src/burner-layout.c:1194
 msgid "Click to close the side pane"
 msgstr "单击以关闭侧边栏"
 
-#: ../src/burner-multi-song-props.c:89 ../src/burner-multi-song-props.c:97
-#: ../src/burner-multi-song-props.c:105 ../src/burner-multi-song-props.c:123
-#: ../src/burner-multi-song-props.c:139 ../src/burner-multi-song-props.c:160
-#: ../src/burner-multi-song-props.c:173 ../src/burner-multi-song-props.c:249
-#: ../src/burner-multi-song-props.c:270 ../src/burner-multi-song-props.c:291
+#: ../src/burner-multi-song-props.c:90 ../src/burner-multi-song-props.c:98
+#: ../src/burner-multi-song-props.c:106 ../src/burner-multi-song-props.c:124
+#: ../src/burner-multi-song-props.c:140 ../src/burner-multi-song-props.c:161
+#: ../src/burner-multi-song-props.c:174 ../src/burner-multi-song-props.c:250
+#: ../src/burner-multi-song-props.c:271 ../src/burner-multi-song-props.c:292
 #: ../src/burner-rename.c:90 ../src/burner-rename.c:321
 msgid "<Keep current values>"
 msgstr "<保持当前值>"
 
-#: ../src/burner-multi-song-props.c:126 ../src/burner-multi-song-props.c:143
+#: ../src/burner-multi-song-props.c:127 ../src/burner-multi-song-props.c:144
 msgid "Remove silences"
 msgstr "删除无声部分"
 
-#: ../src/burner-multi-song-props.c:211 ../src/burner-multi-song-props.c:252
-#: ../src/burner-multi-song-props.c:273 ../src/burner-song-properties.c:187
-#: ../src/burner-song-properties.c:199 ../src/burner-song-properties.c:211
+#: ../src/burner-multi-song-props.c:212 ../src/burner-multi-song-props.c:253
+#: ../src/burner-multi-song-props.c:274 ../src/burner-song-properties.c:188
+#: ../src/burner-song-properties.c:200 ../src/burner-song-properties.c:212
 msgid ""
 "This information will be written to the disc using CD-Text technology. It "
 "can be read and displayed by some audio CD players."
 msgstr ""
 "该信息将以 CD-TEXT 技术写入光盘 。有些音乐 CD 播放器能够进行读取并显示。"
 
-#: ../src/burner-multi-song-props.c:213
+#: ../src/burner-multi-song-props.c:214
 msgid "Song titles"
 msgstr "歌曲标题"
 
-#: ../src/burner-multi-song-props.c:230
+#: ../src/burner-multi-song-props.c:231
 msgid "Additional song information"
 msgstr "额外的歌曲信息"
 
-#: ../src/burner-multi-song-props.c:242 ../src/burner-song-properties.c:189
+#: ../src/burner-multi-song-props.c:243 ../src/burner-song-properties.c:190
 msgid "Artist:"
 msgstr "艺人："
 
-#: ../src/burner-multi-song-props.c:263 ../src/burner-song-properties.c:201
+#: ../src/burner-multi-song-props.c:264 ../src/burner-song-properties.c:202
 msgid "Composer:"
 msgstr "作曲："
 
-#: ../src/burner-multi-song-props.c:317 ../src/burner-song-properties.c:247
+#: ../src/burner-multi-song-props.c:319 ../src/burner-song-properties.c:248
 msgid "Pause length:"
 msgstr "曲目间的暂停时长："
 
-#: ../src/burner-multi-song-props.c:328 ../src/burner-song-properties.c:256
+#: ../src/burner-multi-song-props.c:330 ../src/burner-song-properties.c:257
 msgid "Gives the length of the pause that should follow the track"
 msgstr "设定在轨道之后的空白暂停时长"
 
-#: ../src/burner-multi-song-props.c:345 ../src/burner-song-properties.c:287
+#: ../src/burner-multi-song-props.c:347 ../src/burner-song-properties.c:288
 msgid "Song Information"
 msgstr "歌曲信息"
 
@@ -4026,66 +4126,64 @@ msgstr "%i × %i 像素"
 msgid "No preview"
 msgstr "没有预览"
 
-#: ../src/burner-playlist.c:390
+#: ../src/burner-playlist.c:392
 #, c-format
 msgid "Error parsing playlist \"%s\"."
 msgstr "处理播放列表“%s”出错。"
 
 #. Translators: %d is the number of songs
-#: ../src/burner-playlist.c:499
+#: ../src/burner-playlist.c:501
 #, c-format
 msgid "%d song"
 msgid_plural "%d songs"
 msgstr[0] "%d 首歌曲"
 
-#: ../src/burner-playlist.c:584
+#: ../src/burner-playlist.c:586
 msgid "Select Playlist"
 msgstr "选择播放列表"
 
-#: ../src/burner-playlist.c:751
+#: ../src/burner-playlist.c:754
 msgid "Playlists"
 msgstr "播放列表"
 
-#: ../src/burner-playlist.c:762
+#: ../src/burner-playlist.c:765
 msgid "Number of Songs"
 msgstr "歌曲数量"
 
-#: ../src/burner-playlist.c:782
+#: ../src/burner-playlist.c:785
 msgid "Genre"
 msgstr "流派"
 
-#: ../src/burner-plugin-manager-ui.c:62
+#: ../src/burner-plugin-manager-ui.c:66
 msgid "Plugin"
 msgstr "插件"
 
-#: ../src/burner-plugin-manager-ui.c:63
+#: ../src/burner-plugin-manager-ui.c:67
 msgid "Enabled"
 msgstr "已启用"
 
-#: ../src/burner-plugin-manager-ui.c:143
+#: ../src/burner-plugin-manager-ui.c:147
 #, c-format
 msgid "Copyright %s"
 msgstr "版权 %s"
 
-#: ../src/burner-plugin-manager-ui.c:579
-#: ../src/burner-plugin-manager-ui.c:967
+#: ../src/burner-plugin-manager-ui.c:581 ../src/burner-plugin-manager-ui.c:969
 msgid "_About"
 msgstr "关于(_A)"
 
-#: ../src/burner-plugin-manager-ui.c:587
-#: ../src/burner-plugin-manager-ui.c:973
+#: ../src/burner-plugin-manager-ui.c:589 ../src/burner-plugin-manager-ui.c:975
 msgid "C_onfigure"
 msgstr "配置(_O)"
 
-#: ../src/burner-plugin-manager-ui.c:597
+#: ../src/burner-plugin-manager-ui.c:599
 msgid "A_ctivate"
 msgstr "激活(_C)"
 
-#: ../src/burner-plugin-manager-ui.c:609
+#: ../src/burner-plugin-manager-ui.c:611
 msgid "Ac_tivate All"
 msgstr "全部激活(_T)"
 
-#: ../src/burner-plugin-manager-ui.c:614
+#: ../src/burner-plugin-manager-ui.c:616
 msgid "_Deactivate All"
 msgstr "全部禁用(_D)"
 
@@ -4099,69 +4197,69 @@ msgstr "插件 %s 的选项"
 msgid "Burner Plugins"
 msgstr "Burner 插件"
 
-#: ../src/burner-project.c:196
+#: ../src/burner-project.c:198
 msgid "Save current project"
 msgstr "保存当前项目"
 
-#: ../src/burner-project.c:197
+#: ../src/burner-project.c:199
 msgid "Save _As…"
 msgstr "另存为(_A)..."
 
-#: ../src/burner-project.c:198
+#: ../src/burner-project.c:200
 msgid "Save current project to a different location"
 msgstr "保存当前项目到不同位置"
 
-#: ../src/burner-project.c:199
+#: ../src/burner-project.c:201
 msgid "_Add Files"
 msgstr "添加文件(_A)"
 
-#: ../src/burner-project.c:200
+#: ../src/burner-project.c:202
 msgid "Add files to the project"
 msgstr "添加文件到项目"
 
-#: ../src/burner-project.c:201
+#: ../src/burner-project.c:203
 msgid "_Remove Files"
 msgstr "删除文件(_R)"
 
 #. Translators: "empty" is a verb here
-#: ../src/burner-project.c:204 ../src/burner-project.c:2312
+#: ../src/burner-project.c:206 ../src/burner-project.c:2372
 msgid "E_mpty Project"
 msgstr "清空项目(_E)"
 
-#: ../src/burner-project.c:205
+#: ../src/burner-project.c:207
 msgid "Remove all files from the project"
 msgstr "从项目中删除所有文件"
 
-#: ../src/burner-project.c:206 ../src/burner-project.c:1086
+#: ../src/burner-project.c:208 ../src/burner-project.c:1088
 msgid "_Burn…"
 msgstr "刻录(_B)..."
 
-#: ../src/burner-project.c:207
+#: ../src/burner-project.c:209
 msgid "Burn the disc"
 msgstr "刻录本光盘"
 
-#: ../src/burner-project.c:695
+#: ../src/burner-project.c:697
 msgid ""
 "To add files to this project click the \"Add\" button or drag files to this "
 "area"
 msgstr "点击添加按钮或者将文件拖放进此区域以添加文件"
 
-#: ../src/burner-project.c:697
+#: ../src/burner-project.c:699
 msgid ""
 "To remove files select them then click on the \"Remove\" button or press "
 "\"Delete\" key"
 msgstr "若要删除文件，请选择你要删除的文件并点击删除按钮或者按“Delete“键"
 
-#: ../src/burner-project.c:804
+#: ../src/burner-project.c:806
 #, c-format
 msgid "Estimated project size: %s"
 msgstr "估算项目大小：%s"
 
-#: ../src/burner-project.c:950 ../src/burner-project.c:966
+#: ../src/burner-project.c:952 ../src/burner-project.c:968
 msgid "The project is too large for the disc even with the overburn option."
 msgstr "项目过大，即使开启超刻选项也无法容纳。"
 
-#: ../src/burner-project.c:977
+#: ../src/burner-project.c:979
 msgid ""
 "The project is too large for the disc and you must remove files from it.\n"
 "You may want to use this option if you're using 90 or 100 min CD-R(W) which "
@@ -4173,57 +4271,57 @@ msgstr ""
 "确识别，因此需要超刻选项)。\n"
 "注意：该选项可能导致刻录失败。"
 
-#: ../src/burner-project.c:1098
+#: ../src/burner-project.c:1100
 msgid "Start to burn the contents of the selection"
 msgstr "开始刻录选定的内容"
 
-#: ../src/burner-project.c:1267
+#: ../src/burner-project.c:1273
 msgid "Please add songs to the project."
 msgstr "请添加歌曲到项目中。"
 
-#: ../src/burner-project.c:1904 ../src/burner-project.c:1939
+#: ../src/burner-project.c:1963 ../src/burner-project.c:1998
 msgid "Do you really want to create a new project and discard the current one?"
 msgstr "您确定要创建新项目并放弃当前项目吗?"
 
-#: ../src/burner-project.c:1909
+#: ../src/burner-project.c:1968
 msgid "If you choose to create a new empty project, all changes will be lost."
 msgstr "如果您选择创建一个新的空项目，所有的改变都将丢失。"
 
-#: ../src/burner-project.c:1912
+#: ../src/burner-project.c:1971
 msgid "_Discard Changes"
 msgstr "放弃修改(_D)"
 
-#: ../src/burner-project.c:1920
+#: ../src/burner-project.c:1979
 msgid "Do you want to discard the file selection or add it to the new project?"
 msgstr "你想要放弃这个文件或者将它添加到一个新的项目中吗？"
 
-#: ../src/burner-project.c:1925 ../src/burner-project.c:1944
+#: ../src/burner-project.c:1984 ../src/burner-project.c:2003
 msgid ""
 "If you choose to create a new empty project, the file selection will be "
 "discarded."
 msgstr "如果您选择创建一个新的空项目，所有的选择都将丢失。"
 
-#: ../src/burner-project.c:1927
+#: ../src/burner-project.c:1986
 msgid "_Discard File Selection"
 msgstr "放弃文件选择(_D)"
 
-#: ../src/burner-project.c:1931
+#: ../src/burner-project.c:1990
 msgid "_Keep File Selection"
 msgstr "保持文件选择(_K)"
 
-#: ../src/burner-project.c:1946
+#: ../src/burner-project.c:2005
 msgid "_Discard Project"
 msgstr "放弃项目(_D)"
 
-#: ../src/burner-project.c:2188
+#: ../src/burner-project.c:2248
 msgid "Select Files"
 msgstr "选择文件"
 
-#: ../src/burner-project.c:2301
+#: ../src/burner-project.c:2361
 msgid "Do you really want to empty the current project?"
 msgstr "您确定要清空当前项目吗?"
 
-#: ../src/burner-project.c:2306
+#: ../src/burner-project.c:2366
 msgid ""
 "Emptying a project will remove all files already added. All the work will be "
 "lost. Note that files will not be deleted from their own location, just no "
@@ -4232,243 +4330,207 @@ msgstr ""
 "清空一个项目将删除所有已添加的文件。所有的工作都将丢失。注意文件并没有从原来"
 "的位置删除，只是不再列在这里。"
 
-#: ../src/burner-project.c:2368
+#: ../src/burner-project.c:2477
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: ../src/burner-project.c:2379
+#: ../src/burner-project.c:2488
 msgid "_Add"
 msgstr "添加(_A)"
 
-#: ../src/burner-project.c:2384 ../src/burner-split-dialog.c:1255
+#: ../src/burner-project.c:2493 ../src/burner-split-dialog.c:1261
 msgid "_Remove"
 msgstr "删除(_R)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2448
+#: ../src/burner-project.c:2557
 #, c-format
 msgid "Burner — %s (Data Disc)"
 msgstr "Burner - %s (数据光盘)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2451
+#: ../src/burner-project.c:2560
 #, c-format
 msgid "Burner — %s (Audio Disc)"
 msgstr "Burner - %s (音乐光盘)"
 
 #. Translators: %s is the name of the project
-#: ../src/burner-project.c:2454
+#: ../src/burner-project.c:2563
 #, c-format
 msgid "Burner — %s (Video Disc)"
 msgstr "Burner - %s (视频光盘)"
 
-#: ../src/burner-project.c:2624 ../src/burner-project.c:2927
+#: ../src/burner-project.c:2733 ../src/burner-project.c:3038
 msgid "Your project has not been saved."
 msgstr "您的项目没有保存。"
 
-#: ../src/burner-project.c:2638
+#: ../src/burner-project.c:2747
 msgid "Save the changes of current project before closing?"
 msgstr "关闭前保存当前项目的改变？"
 
-#: ../src/burner-project.c:2643 ../src/burner-project.c:2932
+#: ../src/burner-project.c:2752 ../src/burner-project.c:3043
 msgid "If you don't save, changes will be permanently lost."
 msgstr "如果您不保存，改变将永久丢失。"
 
-#: ../src/burner-project.c:2647 ../src/burner-project.c:2653
-#: ../src/burner-project.c:2935
+#: ../src/burner-project.c:2756 ../src/burner-project.c:2762
+#: ../src/burner-project.c:3046
 msgid "Cl_ose Without Saving"
 msgstr "关闭而不保存(_O)"
 
-#: ../src/burner-project.c:2735
+#: ../src/burner-project.c:2845
 msgid "Save Current Project"
 msgstr "保存当前项目"
 
-#: ../src/burner-project.c:2753
+#: ../src/burner-project.c:2863
 msgid "Save project as a Burner audio project"
 msgstr "保存项目为 Burner 音频项目"
 
-#: ../src/burner-project.c:2754
+#: ../src/burner-project.c:2864
 msgid "Save project as a plain text list"
 msgstr "保存项目为纯文件清单"
 
-#: ../src/burner-project.c:2758
+#: ../src/burner-project.c:2868
 msgid "Save project as a PLS playlist"
 msgstr "保存项目为 PLS 播放列表"
 
-#: ../src/burner-project.c:2759
+#: ../src/burner-project.c:2869
 msgid "Save project as an M3U playlist"
 msgstr "保存项目为 M3U 播放列表"
 
-#: ../src/burner-project.c:2760
+#: ../src/burner-project.c:2870
 msgid "Save project as an XSPF playlist"
 msgstr "保存项目为 XSPF 播放列表"
 
-#: ../src/burner-project.c:2761
+#: ../src/burner-project.c:2871
 msgid "Save project as an iriver playlist"
 msgstr "保存项目为 iriver 播放列表"
 
-#: ../src/burner-project-manager.c:95
+#: ../src/burner-project-manager.c:97
 msgid "_Cover Editor"
 msgstr "封面编辑器(_C)"
 
-#: ../src/burner-project-manager.c:96
+#: ../src/burner-project-manager.c:98
 msgid "Design and print covers for CDs"
 msgstr "为 CD 设计和打印封面"
 
-#: ../src/burner-project-manager.c:97
+#: ../src/burner-project-manager.c:99
 msgid "_New Project"
 msgstr "新建项目(_N)"
 
-#: ../src/burner-project-manager.c:98
+#: ../src/burner-project-manager.c:100
 msgid "Create a new project"
 msgstr "创建一个新的项目"
 
-#: ../src/burner-project-manager.c:99
+#: ../src/burner-project-manager.c:101
 msgid "_Empty Project"
 msgstr "清空项目(_E)"
 
-#: ../src/burner-project-manager.c:100
+#: ../src/burner-project-manager.c:102
 msgid "Let you choose your new project"
 msgstr "让您选择您的新项目"
 
-#: ../src/burner-project-manager.c:101
+#: ../src/burner-project-manager.c:103
 msgid "New _Audio Project"
 msgstr "新建音频项目(_A)"
 
-#: ../src/burner-project-manager.c:102
-#: ../src/burner-project-type-chooser.c:76
+#: ../src/burner-project-manager.c:104
 msgid ""
 "Create a traditional audio CD that will be playable on computers and stereos"
 msgstr "创建一个能够在计算机和立体音响上播放的传统音频光盘"
 
-#: ../src/burner-project-manager.c:103
+#: ../src/burner-project-manager.c:105
 msgid "New _Data Project"
 msgstr "新建数据刻录(_D)"
 
-#: ../src/burner-project-manager.c:104
-#: ../src/burner-project-type-chooser.c:81
-msgid ""
-"Create a CD/DVD containing any type of data that can only be read on a "
-"computer"
-msgstr "创建一张 CD/DVD 包含只能在计算机上被读取的任何形式的数据。"
-
-#: ../src/burner-project-manager.c:105
+#: ../src/burner-project-manager.c:107
 msgid "New _Video Project"
 msgstr "新建视频项目(_V)"
 
-#: ../src/burner-project-manager.c:106
-#: ../src/burner-project-type-chooser.c:86
+#: ../src/burner-project-manager.c:108
 msgid "Create a video DVD or an SVCD that is readable on TV readers"
 msgstr "创建可在电视读取器上读取的视频 DVD 或者 SVCD"
 
-#: ../src/burner-project-manager.c:107
+#: ../src/burner-project-manager.c:109
 msgid "Copy _Disc…"
 msgstr "复制光盘(_D)..."
 
-#: ../src/burner-project-manager.c:108
-#: ../src/burner-project-type-chooser.c:91
+#: ../src/burner-project-manager.c:110
 msgid ""
 "Create a 1:1 copy of an audio CD or a data CD/DVD on your hard disk or on "
 "another CD/DVD"
 msgstr "创建一份 1:1 的音频 CD 或数据 CD/DVD 副本到您的硬盘或另外的 CD/DVD"
 
-#: ../src/burner-project-manager.c:109
+#: ../src/burner-project-manager.c:111
 msgid "_Burn Image…"
 msgstr "刻录镜像(_B)..."
 
-#: ../src/burner-project-manager.c:110
-#: ../src/burner-project-type-chooser.c:95
-#: ../src/burner-project-type-chooser.c:96
-msgid "Burn an existing CD/DVD image to disc"
-msgstr "刻录现存的 CD/DVD 镜像文件到光盘"
-
-#: ../src/burner-project-manager.c:112
+#: ../src/burner-project-manager.c:114
 msgid "_Open…"
 msgstr "打开(_O)..."
 
-#: ../src/burner-project-manager.c:113
+#: ../src/burner-project-manager.c:115
 msgid "Open a project"
 msgstr "打开一个项目"
 
 #. Translators: the %s is a string representing the total size
 #. * of the file selection
-#: ../src/burner-project-manager.c:259
+#: ../src/burner-project-manager.c:262
 #, c-format
 msgid "%d file selected (%s)"
 msgid_plural "%d files selected (%s)"
 msgstr[0] "%d 文件已选定 (%s)"
 
-#: ../src/burner-project-manager.c:270
+#: ../src/burner-project-manager.c:273
 #, c-format
 msgid "%d file is supported (%s)"
 msgid_plural "%d files are supported (%s)"
 msgstr[0] "支持 %d 个文件(%s)"
 
-#: ../src/burner-project-manager.c:276
+#: ../src/burner-project-manager.c:279
 #, c-format
 msgid "%d file can be added (%s)"
 msgid_plural "%d selected files can be added (%s)"
 msgstr[0] "%d 个文件可添加(%s)"
 
-#: ../src/burner-project-manager.c:287
+#: ../src/burner-project-manager.c:290
 #, c-format
 msgid "No file can be added (%i selected file)"
 msgid_plural "No file can be added (%i selected files)"
 msgstr[0] "没有文件被加入(%i 个已选择的文件)"
 
-#: ../src/burner-project-manager.c:293
+#: ../src/burner-project-manager.c:296
 #, c-format
 msgid "No file is supported (%i selected file)"
 msgid_plural "No file is supported (%i selected files)"
 msgstr[0] "没有支持的文件 (%i 已选择的文件)"
 
-#: ../src/burner-project-manager.c:299 ../src/burner-project-manager.c:453
+#: ../src/burner-project-manager.c:302 ../src/burner-project-manager.c:456
 msgid "No file selected"
 msgstr "没有选择文件"
 
-#: ../src/burner-project-manager.c:590
-msgid "Burner — New Audio Disc Project"
-msgstr "光盘刻录器 - 新建音乐光盘项目"
-
-#: ../src/burner-project-manager.c:604
-msgid "Burner — New Data Disc Project"
-msgstr "光盘刻录器 - 新建数据光盘项目"
-
-#: ../src/burner-project-manager.c:618
-msgid "Burner — New Video Disc Project"
-msgstr "光盘刻录器 - 新建视频光盘项目"
-
-#: ../src/burner-project-manager.c:628
-msgid "Burner — New Image File"
-msgstr "光盘刻录器 - 新建镜像文件"
-
-#: ../src/burner-project-manager.c:643
-msgid "Burner — Disc Copy"
-msgstr "光盘刻录器 - 复制光盘"
-
-#: ../src/burner-project-manager.c:727
+#: ../src/burner-project-manager.c:763
 msgid "Open Project"
 msgstr "打开项目"
 
-#: ../src/burner-project-manager.c:830
+#: ../src/burner-project-manager.c:868
 msgid "_New"
 msgstr "新建(_N)"
 
-#: ../src/burner-project-manager.c:834
+#: ../src/burner-project-manager.c:872
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: ../src/burner-project-manager.c:885
+#: ../src/burner-project-manager.c:923
 msgid "Browse the file system"
 msgstr "浏览文件系统"
 
-#: ../src/burner-project-manager.c:907
+#: ../src/burner-project-manager.c:945
 msgid "Display playlists and their contents"
 msgstr "显示播放列表及其内容"
 
 #. Translators: this is a picture not
 #. * a disc image
-#: ../src/burner-project-name.c:83
+#: ../src/burner-project-name.c:85
 msgctxt "picture"
 msgid "Please select another image."
 msgstr "请选择另一镜像。"
@@ -4476,7 +4538,7 @@ msgstr "请选择另一镜像。"
 #. NOTE to translators: the final string must not be over
 #. * 32 _bytes_.
 #. * The %s is the date
-#: ../src/burner-project-name.c:269
+#: ../src/burner-project-name.c:272
 #, c-format
 msgid "Video disc (%s)"
 msgstr "视频光盘(%s)"
@@ -4497,64 +4559,19 @@ msgstr "此文件为空"
 msgid "It does not seem to be a valid Burner project"
 msgstr "这似乎不是一个有效的 Burner 项目"
 
-#: ../src/burner-project-type-chooser.c:74
-msgid "Audi_o project"
-msgstr "音频项目(_O)"
-
-#: ../src/burner-project-type-chooser.c:75
-msgid "Create a traditional audio CD"
-msgstr "创建一个传统音频光盘"
-
-#: ../src/burner-project-type-chooser.c:79
-msgid "D_ata project"
-msgstr "数据刻录(_A)"
-
-#: ../src/burner-project-type-chooser.c:80
-msgid "Create a data CD/DVD"
-msgstr "创建一个数据 CD/DVD"
-
-#: ../src/burner-project-type-chooser.c:84
-msgid "_Video project"
-msgstr "视频刻录(_V)"
-
-#: ../src/burner-app.c:72
-msgid "W_elcom project"
-msgstr "欢迎界面(_E)"
-
-#: ../src/burner-project-type-chooser.c:85
-msgid "Create a video DVD or an SVCD"
-msgstr "创建一个视频 DVD 或 SVCD"
-
-#: ../src/burner-project-type-chooser.c:89
-msgid "Disc _copy"
-msgstr "复制光盘(_C)"
-
-#: ../src/burner-project-type-chooser.c:90
-msgid "Create 1:1 copy of a CD/DVD"
-msgstr "创建 CD/DVD 的 1:1 副本"
-
-#: ../src/burner-project-type-chooser.c:94
-#: ../src/burner-app.c:97
-msgid "Burn _image"
-msgstr "镜像刻录(_I)"
-
-#: ../src/burner-project-type-chooser.c:292
+#: ../src/burner-project-type-chooser.c:404
 msgid "Last _Unsaved Project"
 msgstr "最后未保存的项目(_U)"
 
-#: ../src/burner-project-type-chooser.c:308
+#: ../src/burner-project-type-chooser.c:420
 msgid "Load the last project that was not burned and not saved"
 msgstr "载入最后没有保存或刻录的项目"
 
-#: ../src/burner-project-type-chooser.c:414
+#: ../src/burner-project-type-chooser.c:526
 msgid "No recently used project"
 msgstr "没有最近使用过的项目"
 
-#: ../src/burner-project-type-chooser.c:463
-msgid "Create a new project:"
-msgstr "创建一个新项目："
-
-#: ../src/burner-project-type-chooser.c:510
+#: ../src/burner-project-type-chooser.c:646
 msgid "Recent projects:"
 msgstr "最近项目："
 
@@ -4633,162 +4650,162 @@ msgstr "没有文件"
 msgid "Start and stop playing"
 msgstr "开始/停止播放"
 
-#: ../src/burner-song-properties.c:177
+#: ../src/burner-song-properties.c:178
 msgid "Title:"
 msgstr "标题："
 
-#: ../src/burner-song-properties.c:235
+#: ../src/burner-song-properties.c:236
 msgid "Song start:"
 msgstr "歌曲开头："
 
-#: ../src/burner-song-properties.c:241
+#: ../src/burner-song-properties.c:242
 msgid "Song end:"
 msgstr "歌曲末端："
 
-#: ../src/burner-song-properties.c:258
+#: ../src/burner-song-properties.c:259
 msgid "Track length:"
 msgstr "轨道时长："
 
-#: ../src/burner-song-properties.c:365
+#: ../src/burner-song-properties.c:366
 #, c-format
 msgid "Song information for track %02i"
 msgstr "轨道 %02i 的歌曲信息"
 
-#: ../src/burner-split-dialog.c:172
+#: ../src/burner-split-dialog.c:174
 msgid "Do you really want to split the track?"
 msgstr "您真的想要分割此音轨吗？"
 
-#: ../src/burner-split-dialog.c:175
+#: ../src/burner-split-dialog.c:178
 msgid ""
 "If you split the track, the size of the new track will be shorter than 6 "
 "seconds and will be padded."
 msgstr "如果分割轨道，新轨道的长度将短于 6 秒且将被填补。"
 
-#: ../src/burner-split-dialog.c:181 ../src/burner-split-dialog.c:752
+#: ../src/burner-split-dialog.c:184 ../src/burner-split-dialog.c:758
 msgid "_Split"
 msgstr "分割(_S)"
 
-#: ../src/burner-split-dialog.c:609
+#: ../src/burner-split-dialog.c:613
 msgid "The track wasn't split."
 msgstr "轨道没有分割。"
 
-#: ../src/burner-split-dialog.c:610
+#: ../src/burner-split-dialog.c:614
 msgid "No silence could be detected"
 msgstr "没有探测到无声部分"
 
-#: ../src/burner-split-dialog.c:633
+#: ../src/burner-split-dialog.c:637
 msgid "An error occurred while detecting silences."
 msgstr "探测无声部分时发生错误"
 
-#: ../src/burner-split-dialog.c:712
+#: ../src/burner-split-dialog.c:717
 msgid "This will remove all previous results."
 msgstr "这将删除所有前面的结果"
 
-#: ../src/burner-split-dialog.c:750
+#: ../src/burner-split-dialog.c:756
 msgid "Do you really want to carry on with automatic splitting?"
 msgstr "您真的想要继续自动分割吗？"
 
-#: ../src/burner-split-dialog.c:751
+#: ../src/burner-split-dialog.c:757
 msgid "_Don't split"
 msgstr "不分割(_D)"
 
-#: ../src/burner-split-dialog.c:968
+#: ../src/burner-split-dialog.c:974
 msgid "Do you really want to empty the slices preview?"
 msgstr "您真的要清空当前短片预览吗?"
 
-#: ../src/burner-split-dialog.c:970 ../src/burner-split-dialog.c:1269
+#: ../src/burner-split-dialog.c:976 ../src/burner-split-dialog.c:1275
 msgid "Re_move All"
 msgstr "全部删除(_M)"
 
-#: ../src/burner-split-dialog.c:1055
+#: ../src/burner-split-dialog.c:1061
 msgid "Split Track"
 msgstr "分割轨道"
 
-#: ../src/burner-split-dialog.c:1072
+#: ../src/burner-split-dialog.c:1078
 msgid "M_ethod:"
 msgstr "方式(_E)："
 
-#: ../src/burner-split-dialog.c:1078
+#: ../src/burner-split-dialog.c:1084
 msgid "Method to be used to split the track"
 msgstr "用于分割轨道的方式"
 
-#: ../src/burner-split-dialog.c:1081
+#: ../src/burner-split-dialog.c:1087
 msgid "Split track manually"
 msgstr "手动分割轨道"
 
-#: ../src/burner-split-dialog.c:1082
+#: ../src/burner-split-dialog.c:1088
 msgid "Split track in parts with a fixed length"
 msgstr "按照固定长度分割轨道"
 
-#: ../src/burner-split-dialog.c:1083
+#: ../src/burner-split-dialog.c:1089
 msgid "Split track in a fixed number of parts"
 msgstr "按照固定的分割片数分割轨道"
 
-#: ../src/burner-split-dialog.c:1084
+#: ../src/burner-split-dialog.c:1090
 msgid "Split track for each silence"
 msgstr "根据每个无声部分分割轨道"
 
-#: ../src/burner-split-dialog.c:1090
+#: ../src/burner-split-dialog.c:1096
 msgid "_Slice"
 msgstr "分片(_S)"
 
-#: ../src/burner-split-dialog.c:1101
+#: ../src/burner-split-dialog.c:1107
 msgid "Add a splitting point"
 msgstr "添加一个分割点"
 
 #. Translators: this goes with the next (= "seconds")
-#: ../src/burner-split-dialog.c:1118
+#: ../src/burner-split-dialog.c:1124
 msgid "Split this track every"
 msgstr "分割该轨道，每隔"
 
 #. Translators: this goes with the previous (= "Split track every")
-#: ../src/burner-split-dialog.c:1127
+#: ../src/burner-split-dialog.c:1133
 msgid "seconds"
 msgstr "秒"
 
 #. Translators: this goes with the next (= "parts")
-#: ../src/burner-split-dialog.c:1136
+#: ../src/burner-split-dialog.c:1142
 msgid "Split this track in"
 msgstr "将该轨道分割为"
 
 #. Translators: this goes with the previous (= "Split this track in")
-#: ../src/burner-split-dialog.c:1145
+#: ../src/burner-split-dialog.c:1151
 msgid "parts"
 msgstr "部分"
 
-#: ../src/burner-split-dialog.c:1153
+#: ../src/burner-split-dialog.c:1159
 msgid "Slicing Method"
 msgstr "分片方式"
 
-#: ../src/burner-split-dialog.c:1211
+#: ../src/burner-split-dialog.c:1217
 msgid "Start"
 msgstr "开始"
 
-#: ../src/burner-split-dialog.c:1218
+#: ../src/burner-split-dialog.c:1224
 msgid "End"
 msgstr "结束"
 
-#: ../src/burner-split-dialog.c:1241
+#: ../src/burner-split-dialog.c:1247
 msgid "Mer_ge"
 msgstr "合并(_G)"
 
-#: ../src/burner-split-dialog.c:1252
+#: ../src/burner-split-dialog.c:1258
 msgid "Merge a selected slice with the next selected one"
 msgstr "使用下一个选定的片段合并目前选定的片段"
 
-#: ../src/burner-split-dialog.c:1266
+#: ../src/burner-split-dialog.c:1272
 msgid "Remove the selected slices"
 msgstr "删除选定的文件"
 
-#: ../src/burner-split-dialog.c:1280
+#: ../src/burner-split-dialog.c:1286
 msgid "Clear the slices preview"
 msgstr "清除片段预览"
 
-#: ../src/burner-split-dialog.c:1290
+#: ../src/burner-split-dialog.c:1296
 msgid "_List of slices that are to be created:"
 msgstr "片段清单将被建立"
 
-#: ../src/burner-split-dialog.c:1298
+#: ../src/burner-split-dialog.c:1304
 msgid "Slices Preview"
 msgstr "片段预览"
 
@@ -4816,46 +4833,106 @@ msgstr "秒"
 msgid "Frames (1 second = 75 frames)"
 msgstr "影像数 (1 秒 = 75 帧)"
 
-#: ../src/burner-video-disc.c:101
+#: ../src/burner-video-disc.c:103
 msgid "Open the selected video"
 msgstr "打开选定的视频"
 
-#: ../src/burner-video-disc.c:103
+#: ../src/burner-video-disc.c:105
 msgid "Edit the video information (start, end, author, etc.)"
 msgstr "编辑视频信息(开始，结束，作者等)"
 
-#: ../src/burner-video-disc.c:105
+#: ../src/burner-video-disc.c:107
 msgid "Remove the selected videos from the project"
 msgstr "从项目中删除选定的视频"
 
-#: ../src/burner-video-disc.c:359
+#: ../src/burner-video-disc.c:361
 msgid "Do you want to search for video files inside the directory?"
 msgstr "您想在目录内搜索视频文件吗？"
 
-#: ../src/burner-video-disc.c:369
+#: ../src/burner-video-disc.c:371
 msgid "_Search Directory"
 msgstr "搜索目录(_S)"
 
-#: ../src/burner-video-disc.c:412
+#: ../src/burner-video-disc.c:415
 #, c-format
 msgid "\"%s\" does not have a suitable type for video projects."
 msgstr "“%s”没有含有适合视频项目的类型"
 
-msgid "Prompt information"
-msgstr "提示信息"
-
-#: ../src/burner-video-disc.c:415
+#: ../src/burner-video-disc.c:418
 msgid "Please only add files with video content"
 msgstr "请仅添加视频内容的文件。"
 
-#: ../src/main.c:84
+#: ../src/main.c:91
 msgid "[URI] [URI] …"
 msgstr "[URI] [URI] ..."
 
-#: ../src/main.c:96
+#: ../src/main.c:103
 #, c-format
 msgid "Please type \"%s --help\" to see all available options\n"
 msgstr "请输入“%s --help“以查看所有可用选项\n"
+
+#~ msgid "Create an Audio Project"
+#~ msgstr "创建音频项目"
+
+#~ msgid "Create a Video Project"
+#~ msgstr "创建视频项目"
+
+#~ msgid "Simulation of image to DVD burning"
+#~ msgstr "正在模拟刻录镜像到 DVD"
+
+#~ msgid "Make _More Copies"
+#~ msgstr "制作更多副本(_M)"
+
+#~ msgid "Open the specified playlist as an audio project"
+#~ msgstr "打开指定的播放列表作为一个音频项目"
+
+#~ msgid "PLAYLIST"
+#~ msgstr "播放列表"
+
+#~ msgid "Open an audio project adding the URIs given on the command line"
+#~ msgstr "打开一个音频项目并添加在命令行中指定的 URI 地址"
+
+#~ msgid "Open a video project adding the URIs given on the command line"
+#~ msgstr "打开一个音频项目并添加在命令行中指定的 URI 地址"
+
+#~ msgid "Filtering options"
+#~ msgstr "过滤选项"
+
+#~ msgid "Burner — New Audio Disc Project"
+#~ msgstr "光盘刻录器 - 新建音乐光盘项目"
+
+#~ msgid "Burner — New Data Disc Project"
+#~ msgstr "光盘刻录器 - 新建数据光盘项目"
+
+#~ msgid "Burner — New Video Disc Project"
+#~ msgstr "光盘刻录器 - 新建视频光盘项目"
+
+#~ msgid "Burner — New Image File"
+#~ msgstr "光盘刻录器 - 新建镜像文件"
+
+#~ msgid "Burner — Disc Copy"
+#~ msgstr "光盘刻录器 - 复制光盘"
+
+#~ msgid "Audi_o project"
+#~ msgstr "音频项目(_O)"
+
+#~ msgid "Create a traditional audio CD"
+#~ msgstr "创建一个传统音频光盘"
+
+#~ msgid "_Video project"
+#~ msgstr "视频刻录(_V)"
+
+#~ msgid "Create a video DVD or an SVCD"
+#~ msgstr "创建一个视频 DVD 或 SVCD"
+
+#~ msgid "Disc _copy"
+#~ msgstr "复制光盘(_C)"
+
+#~ msgid "Create 1:1 copy of a CD/DVD"
+#~ msgstr "创建 CD/DVD 的 1:1 副本"
+
+#~ msgid "Create a new project:"
+#~ msgstr "创建一个新项目："
 
 #~ msgid "File is not a valid .desktop file"
 #~ msgstr "不是有效的 .desktop 文件"
@@ -4955,18 +5032,3 @@ msgstr "请输入“%s --help“以查看所有可用选项\n"
 
 #~ msgid "Copying `%s` locally"
 #~ msgstr "正在本地复制“%s”"
-
-#~ msgid "Cancel ongoing burning"
-#~ msgstr "取消进行中的刻录"
-
-#~ msgid "Show _Dialog"
-#~ msgstr "显示对话框(_D)"
-
-#~ msgid "Show dialog"
-#~ msgstr "显示对话框"
-
-#~ msgid "%s, %d%% done, %s remaining"
-#~ msgstr "%s, %d%% 已完成，%s 剩余"
-
-#~ msgid "%s, %d%% done"
-#~ msgstr "%s, %d%% 已完成"
