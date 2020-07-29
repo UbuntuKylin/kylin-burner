@@ -1,0 +1,58 @@
+<ui version="4.0" >
+ <author>Sebastian Trueg</author>
+ <class>base_K3bPluginOptionTab</class>
+ <widget class="QWidget" name="Form1" >
+  <layout class="QGridLayout" >
+   <property name="leftMargin" >
+    <number>0</number>
+   </property>
+   <property name="topMargin" >
+    <number>0</number>
+   </property>
+   <property name="rightMargin" >
+    <number>0</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>0</number>
+   </property>
+   <item row="2" column="1" >
+    <widget class="QPushButton" name="m_buttonConfigure" >
+     <property name="text" >
+      <string>Configure...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" >
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>1</width>
+       <height>1</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0" colspan="2" >
+    <widget class="QListView" native="1" name="m_viewPlugins" />
+   </item>
+   <item row="0" column="0" colspan="2" >
+    <widget class="QLabel" name="textLabel1" >
+     <property name="text" >
+      <string>&lt;p>Here all &lt;em>K3b Plugins&lt;/em> may be configured. Be aware that this does not include the &lt;em>KPart Plugins&lt;/em> which embed themselves in the K3b menu structure.&lt;/p></string>
+     </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

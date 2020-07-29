@@ -1,0 +1,4 @@
+usr/bin/k3b
+usr/lib/*/libexec/k3bhelper
+usr/share/applications/org.kde.k3b.desktop
+usr/share/metainfo/org.kde.k3b.appdata.xml

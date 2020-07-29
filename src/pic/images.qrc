@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>icon/icon-关闭-默认.png</file>
+        <file>icon/icon-关闭-悬停点击.png</file>
+        <file>icon/icon-光盘.png</file>
+        <file>icon/icon-光盘复制-默认.png</file>
+        <file>icon/icon-光盘复制-悬停点击.png</file>
+        <file>icon/icon-镜像.png</file>
+        <file>icon/icon-镜像刻录-默认.png</file>
+        <file>icon/icon-镜像刻录-悬停点击.png</file>
+        <file>icon/icon-刻录机.png</file>
+        <file>icon/icon-清空-默认.png</file>
+        <file>icon/icon-清空-悬停点击.png</file>
+        <file>icon/icon-删除-默认.png</file>
+        <file>icon/icon-删除-悬停点击.png</file>
+        <file>icon/icon-设置-默认.png</file>
+        <file>icon/icon-设置-悬停点击.png</file>
+        <file>icon/icon-数据刻录-默认.png</file>
+        <file>icon/icon-数据刻录-悬停点击.png</file>
+        <file>icon/icon-添加-默认.png</file>
+        <file>icon/icon-添加-悬停点击.png</file>
+        <file>icon/icon-新建文件-默认.png</file>
+        <file>icon/icon-新建文件-悬停点击.png</file>
+        <file>icon/icon-最大化-默认.png</file>
+        <file>icon/icon-最大化-悬停点击.png</file>
+        <file>icon/icon-最小化-默认.png</file>
+        <file>icon/icon-最小化-悬停点击.png</file>
+        <file>icon/logo-小.png</file>
+        <file>icon/logo.ico</file>
+        <file>icon/logo.png</file>
+        <file>icon/icon-侧边背景.png</file>
+        <file>icon/icon-right.png</file>
+        <file>icon/icon-error.png</file>
+    </qresource>
+</RCC>

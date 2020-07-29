@@ -1,386 +1,334 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: kylin-burner
-Upstream-Contact: wenbo <wenbo@kylinos.cn>
-Source: https://github.com/ukui/kylin-burner
+Upstream-Name: k3b
+Source: https://download.kde.org/stable/k3b
 
-Files: AUTHORS
-       ChangeLog
-       INSTALL
-       MAINTAINERS
-       Makefile.am
-       NEWS
-       README
-       autogen.sh
-       configure.ac
-       data/*
-       debian/*
-       docs/*
-       gtk-doc.make
-       libburner-burn/Makefile.am
-       libburner-burn/burner-burn-lib.h.in
-       libburner-burn/libburner-marshal.list
-       libburner-utils/Makefile.am
-       libburner-burn3.pc.in
-       libburner-media3.pc.in
-       nautilus/Makefile.am
-       nautilus/burner-nautilus.desktop.in.in
-       src/Makefile.am
-       src/burner-marshal.list
-       src/style.css
-       po/*
-Copyright: 2018, wenbo <wenbo@kylnos.cn>
-License: GPL-2+
-Comment:
- Using license from COPYING file.
-
-Files: libburner-burn/burner-session.c
-       libburner-burn/burner-status-dialog.c
-       libburner-burn/burner-burn-dialog.h
-       libburner-burn/burner-sum-dialog.c
-       libburner-burn/burner-customize-title.c
-       libburner-burn/burner-tool-dialog.c
-       libburner-burn/burner-burn-options.c
-       libburner-burn/burner-customize-title.h
-       libburner-burn/burner-drive-properties.c
-       libburner-burn/burner-medium-properties.c
-       libburner-burn/burner-src-image.c
-       libburner-burn/burner-blank-dialog.c
-       libburner-burn/burner-caps-session.c
-       src/burner-split-dialog.c
-       src/burner-file-filtered.c
-       src/burner-project-type-chooser.h
-       src/burner-project.h
-       src/burner-project-manager.h
-       src/burner-playlist.c
-       src/burner-app.h
-       src/burner-filter-option.c
-       src/burner-multi-song-props.c
-       src/burner-project-manager.c
-       src/burner-audio-disc.c
-       src/burner-app.c
-       src/burner-song-properties.c
-       src/burner-project-name.c
-       src/burner-project.c
-       src/burner-project-type-chooser.c
-       src/burner-video-disc.c
-       src/burner-layout.c
-       src/burner-plugin-manager-ui.c
-       src/main.c
-       src/burner-project-parse.h
-       src/burner-data-disc.c
-       libburner-utils/burner-misc.c
-       libburner-utils/burner-jacket-edit.c
-Copyright: 2017,Tianjin KYLIN Information Technology Co., Ltd.
-           2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: libburner-burn/burn-dbus.h
-       libburner-burn/burn-dbus.c
-       libburner-utils/burner-pk.c
-       libburner-utils/burner-pk.h
-       src/burner-eject-dialog.c
-       src/burner-eject-dialog.h
-Copyright: 2008 Luis Medinas <lmedinas@gmail.com>
-           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: src/burner-cli.c
-Copyright: 2017,Tianjin KYLIN Information Technology Co., Ltd.
-           2005-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: nautilus/nautilus-burn-bar.c
-Copyright: 2005 William Jon McCann <mccann@jhu.edu>
-           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: nautilus/nautilus-burn-bar.h
-Copyright: 2005 William Jon McCann <mccann@jhu.edu>
-License: GPL-2+
-
-Files: nautilus/nautilus-burn-extension.c
-Copyright: 2003 Novell, Inc.
-           2003-2004 Red Hat, Inc.
-           2005 William Jon McCann <mccann@jhu.edu>
-           2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: libburner-burn/burner-app-indicator.h
-       libburner-burn/burner-app-indicator.c
-Copyright: 2010 Canonical
-License: GPL-2+
-
-Files: libburner-burn/burner-burn-dialog.c
-Copyright: 2010 Canonical
-           2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
-           2017,Tianjin KYLIN Information Technology Co., Ltd.
-License: GPL-2+
-
-Files: src/eggtreemultidnd.c
-       src/eggtreemultidnd.h
-Copyright: 2001  Red Hat, Inc.
-License: LGPL-2+
-
-Files: src/burner-split-dialog.h
-       src/burner-plugin-option.h
-       src/burner-time-button.c
-       src/burner-preview.c
-       src/burner-time-button.h
-       src/burner-pref.c
-       src/burner-plugin-option.c
-       src/burner-preview.h
-       src/burner-data-disc.h
-       src/burner-pref.h
-Copyright: 2007-2008 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: src/burner-setting.c
-       src/burner-setting.h
-Copyright: 2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: LGPL-3+
-
-Files: src/burner-search-tracker.c
-       src/burner-search-tracker.h
-       src/burner-song-control.h
-       src/burner-song-control.c
-Copyright: 2009-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-3+
-
-Files: src/burner-drive-settings.c
-       src/burner-drive-settings.h
-Copyright: 2005-2010 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: GPL-2+
-
-Files: src/baobab-cell-renderer-progress.h
-       src/baobab-cell-renderer-progress.c
-Copyright: 2006 Philippe Rouquier <bonfire-app@wanadoo.fr>
-License: LGPL-2+
-
-Files: plugins/*
-       libburner-media/*
-       libburner-utils/burner-metadata.c
-       libburner-utils/burner-jacket-font.c
-       libburner-utils/burner-notify.h
-       libburner-utils/burner-notify.c
-       libburner-utils/burner-tool-color-picker.c
-       libburner-utils/burner-disc-message.h
-       libburner-utils/burner-jacket-view.c
-       libburner-utils/burner-io.h
-       libburner-utils/burner-tool-color-picker.h
-       libburner-utils/burner-jacket-view.h
-       libburner-utils/burner-jacket-background.c
-       libburner-utils/burner-jacket-font.h
-       libburner-utils/burner-jacket-buffer.c
-       libburner-utils/burner-disc-message.c
-       libburner-utils/burner-jacket-background.h
-       libburner-utils/burner-jacket-buffer.h
-       libburner-utils/burner-misc.h
-       libburner-utils/burner-async-task-manager.h
-       libburner-utils/burner-async-task-manager.c
-       libburner-utils/burner-metadata.h
-       libburner-utils/burner-io.c
-       libburner-utils/burner-jacket-edit.h
-       src/burner-cli.h
-       src/burner-search-engine.c
-       src/burner-rename.c
-       src/burner-utils.c
-       src/burner-filter-option.h
-       src/burner-multi-song-props.h
-       src/burner-video-disc.h
-       src/burner-rename.h
-       src/burner-layout-object.c
-       src/burner-project-name.h
-       src/burner-search-engine.h
-       src/burner-uri-container.c
-       src/burner-playlist.h
-       src/burner-utils.h
-       src/burner-layout-object.h
-       src/burner-song-properties.h
-       src/burner-file-chooser.h
-       src/burner-uri-container.h
-       src/burner-project-parse.c
-       src/burner-video-tree-model.h
-       src/burner-multi-dnd.h
-       src/burner-multi-dnd.c
-       src/burner-file-chooser.c
-       src/burner-player.h
-       src/burner-layout.h
-       src/burner-player-bacon.c
-       src/burner-plugin-manager-ui.h
-       src/burner-audio-disc.h
-       src/burner-player-bacon.h
-       src/burner-disc.h
-       src/burner-file-filtered.h
-       src/burner-disc.c
-       src/burner-player.c
-       src/burner-video-tree-model.c
-       libburner-burn/burn-debug.c
-       libburner-burn/burner-track-data-cfg.h
-       libburner-burn/burner-blank-dialog.h
-       libburner-burn/burner-image-type-chooser.h
-       libburner-burn/burner-filtered-uri.c
-       libburner-burn/burner-track-image-cfg.h
-       libburner-burn/burner-session-helper.h
-       libburner-burn/burn-task.h
-       libburner-burn/burn-caps.c
-       libburner-burn/burn-plugin-manager.c
-       libburner-burn/burner-track-disc.h
-       libburner-burn/burner-src-selection.c
-       libburner-burn/burner-progress.h
-       libburner-burn/burner-session-span.h
-       libburner-burn/burner-track-disc.c
-       libburner-burn/burn-debug.h
-       libburner-burn/burner-caps-burn.h
-       libburner-burn/burner-file-monitor.c
-       libburner-burn/burn-mkisofs-base.h
-       libburner-burn/burner-track-stream.c
-       libburner-burn/burner-image-properties.h
-       libburner-burn/burner-src-image.h
-       libburner-burn/burner-status.h
-       libburner-burn/burner-track.c
-       libburner-burn/burner-enums.h
-       libburner-burn/burner-tool-dialog.h
-       libburner-burn/burner-filtered-uri.h
-       libburner-burn/burn-image-format.h
-       libburner-burn/burner-data-project.h
-       libburner-burn/burner-image-type-chooser.c
-       libburner-burn/burn-task-ctx.h
-       libburner-burn/burn-task.c
-       libburner-burn/burner-data-vfs.c
-       libburner-burn/burner-progress.c
-       libburner-burn/burner-track-stream-cfg.h
-       libburner-burn/burner-medium-properties.h
-       libburner-burn/burn-image-format.c
-       libburner-burn/burner-status-dialog.h
-       libburner-burn/burner-dest-selection.h
-       libburner-burn/burner-data-tree-model.c
-       libburner-burn/burner-cover.c
-       libburner-burn/burner-track.h
-       libburner-burn/burner-session-cfg.c
-       libburner-burn/burner-track-data.c
-       libburner-burn/burner-track-image-cfg.c
-       libburner-burn/burner-drive-properties.h
-       libburner-burn/burner-burn-options.h
-       libburner-burn/burner-video-options.c
-       libburner-burn/burner-file-node.c
-       libburner-burn/burner-caps-plugin.c
-       libburner-burn/burner-track-data-cfg.c
-       libburner-burn/burner-tags.h
-       libburner-burn/burn-task-ctx.c
-       libburner-burn/burn-plugin.c
-       libburner-burn/burner-data-tree-model.h
-       libburner-burn/burn-process.c
-       libburner-burn/burner-data-session.h
-       libburner-burn/burn-basics.c
-       libburner-burn/burner-status.c
-       libburner-burn/burner-caps-burn.c
-       libburner-burn/burner-plugin-information.h
-       libburner-burn/burn-caps.h
-       libburner-burn/burner-burn.h
-       libburner-burn/burner-dest-selection.c
-       libburner-burn/burner-session-cfg.h
-       libburner-burn/burner-error.h
-       libburner-burn/burner-track-image.c
-       libburner-burn/burner-data-project.c
-       libburner-burn/burner-file-node.h
-       libburner-burn/burn-task-item.h
-       libburner-burn/burner-session.h
-       libburner-burn/burner-image-properties.c
-       libburner-burn/burner-plugin-registration.h
-       libburner-burn/burn-process.h
-       libburner-burn/burn-job.h
-       libburner-burn/burner-session-span.c
-       libburner-burn/burner-xfer.c
-       libburner-burn/burner-file-monitor.h
-       libburner-burn/burner-track-type-private.h
-       libburner-burn/burn-mkisofs-base.c
-       libburner-burn/burner-track-type.h
-       libburner-burn/burner-burn.c
-       libburner-burn/burn-task-item.c
-       libburner-burn/burner-track-stream-cfg.c
-       libburner-burn/burner-plugin-private.h
-       libburner-burn/burner-data-vfs.h
-       libburner-burn/burner-track-type.c
-       libburner-burn/burner-plugin.h
-       libburner-burn/burner-sum-dialog.h
-       libburner-burn/burner-cover.h
-       libburner-burn/burner-track-stream.h
-       libburner-burn/burner-xfer.h
-       libburner-burn/burn-job.c
-       libburner-burn/burn-plugin-manager.h
-       libburner-burn/burner-src-selection.h
-       libburner-burn/burn-basics.h
-       libburner-burn/burner-track-data.h
-       libburner-burn/burner-track-image.h
-       libburner-burn/burner-video-options.h
-       libburner-burn/burner-data-session.c
-       libburner-burn/burner-tool-dialog-private.h
-Copyright: 2005-2009 Philippe Rouquier <bonfire-app@wanadoo.fr>
+Files: *
+Copyright: 1998-2009, Sebastian Trueg <trueg@k3b.org>
+           2009-2011, Michal Malek <michalm@jabster.pl>
+           2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+           2005, Max Howell <max.howell@methylblue.com>
+           2005, Seb Ruiz <me@sebruiz.net>
+           2005, Kicker Authors
+           2010, Dario Freddi <drf@kde.org>
+           2009, Arthur Mello <arthur@mandriva.com>
+           2003-2004, Christian Kvasny <chris@k3b.org>
+           2005, Shaheed Haque (srhaque@iee.org)
+           2004-2005, Jakob Petsovits <jpetso@gmx.at>
+           2003, Klaus-Dieter Krannich <kd@k3b.org>
+           2011, Andriy Gapon <avg@FreeBSD.org>
+           2006, Mark Davies <mark@mcs.vuw.ac.nz>
+           2007, Jeremy C. Andrus <jeremy@jeremya.com>
+           2009, Ralf Habacker <ralf.habacker@freenet.de>
+           cdrdao project (C) J. Schilling, Andreas Mueller
+           * and many others.
+           2003-2004, John Steele Scott <toojays@toojays.net>
+           2004, Matthieu Bedouet <mbedouet@no-log.org>
+           2017, Safa Alfulaij <safa1996alfulaij@gmail.com>
+           2019, enolp <enolp@softastur.org>
+           2005-2009, Zlatko Popov <zlatkopopov@fsa-bg.org>
+           2010-2011, Yasen Pramatarov <yasen@lindeas.com>
+           2003, Bakir Helić <bh@linux.org.ba>
+           2004, Avdija Ahmedhodžić <avdija@narkomanija.ba>
+           2004, Vedran Ljubović <vljubovic@smartnet.ba>
+           2004, Vladimir Grubor <vlado@mobih.ba>
+           2006, Adnan Hodzic <admin@abshost.net>
+           2003-2018, Antoni Bella Pérez <antonibella5@yahoo.com>
+           2004-2005, Albert Astals Cid <aacid@kde.org>
+           2006-2008, Marc Coll Carrillo <marcoll@ya.com>
+           2007-2019, Josep Ma. Ferrer <txemaq@gmail.com>
+           2010, Manuel Tortosa Moreno <manutortosa@gmail.com>
+           2010-2011, Joan Maspons <joanmaspons@gmail.com>
+           2010-2011, Lukáš Tinkl <ltinkl@redhat.com>
+           2010-2019, Vít Pelčák <vit@pelcak.org>
+           2012-2013, Tomáš Chvátal <tomas.chvatal@gmail.com>
+           2004-2007, Erik Kjær Pedersen <erik@binghamton.edu>
+           2009-2018, Martin Schlander <mschlander@opensuse.org>
+           2019, scootergrisen
+           2003, Christoph Thielecke <crissi99@gmx.de>
+           2003-2004, Thomas Diehl <thd@kde.org>
+           2003, Sebastian Trüg <trueg@k3b.org>
+           2003, Thomas Fischer <th.fischer@gmx.net>
+           2004-2009, Thomas Reitelbach <tr@erdfunkstelle.de>
+           2005, Stephan Johach <hunsum@gmx.de>
+           2009-2016, Frederik Schwarzer <schwarzer@kde.org>
+           2009-2019, Burkhard Lück <lueck@hube-lueck.de>
+           2009, Jannick Kuhr <opensource@kuhr.org>
+           2009-2010, Markus Slopianka <markus.s@kdemail.net>
+           2009-2010, Panagiotis Papadopoulos <pano_90@gmx.net>
+           2010-2014, Johannes Obermayr <johannesobermayr@gmx.de>
+           2003, ironhell3 <ironhell3@hotmail.com>
+           2005, Kouzinopoulos Haris <haris@mpa.gr>
+           2005-2008, Spiros Georgaras <sng@hellug.gr>
+           2005, Bouklis Panos <panos@echidna-band.com>
+           2005-2009, Toussis Manolis <manolis@koppermind.homelinux.org>
+           2008, Spiros Georgaras <sngeorgaras@otenet.gr>
+           2011-2017, Stelios <sstavra@gmail.com>
+           2011-2013, Dimitrios Glentadakis <dglent@gmail.com>
+           2011, Antonis Geralis <capoiosct@gmail.com>
+           2018, Long Run <pvidalis@gmail.com>
+           2009-2011, Andrew Coles <andrew_coles@yahoo.co.uk>
+           2014-2019, Steve Allewell <steve.allewell@gmail.com>
+           2007, Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>
+           2007-2019, Eloy Cuadra <ecuadra@eloihr.net>
+           2007-2008, Carlos Davila <carluti@users.sourceforge.net>
+           2008, Santi <santi@kde-es.org>
+           2008, Danilo Vasquez Simonetti <danilo.vasquez@gmail.com>
+           2009-2014, Javier Vinal <fjvinal@gmail.com>
+           2015, Sergio Ahumada <sahumada@texla.cl>
+           2017-2018, Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+           2003-2005, Hasso Tepper <hasso@estpak.ee>
+           2003-2012, Marek Laane <bald@starman.ee>
+           2005, Peeter Russak <pezz@tkwcy.ee>
+           2005, Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>
+           2007, marcos <marcos@euskalgnu.org>
+           2009, Julen Landa Alustiza <julen@mundurat.net>
+           2009-2011, Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>
+           2012-2020, Iñigo Salvador Azurmendi <xalba@euskalnet.net>
+           2014, Mohi Mirdamadi <mohi@ubuntu.ir>
+           2003, Teemu Rytilahti <teemu.rytilahti@kde-fi.org>
+           2005-2007, Ilpo Kantonen <ilpo@iki.fi>
+           2006, Mikael Lammentausta <mikael.lammentausta@student.savonia-amk.fi>
+           2006, Kim Enkovaara <kim.enkovaara@iki.fi>
+           2009-2018, Tommi Nieminen <translator@legisign.org>
+           2010-2016, Lasse Liehu <lasse.liehu@gmail.com>
+           2012, Jiri Grönroos <jiri.gronroos+kde@iki.fi>
+           2012, Niklas Laxström <niklas.laxstrom+kdetrans@gmail.com>
+           2002-2003, Gérard Delafond <gerard@delafond.org>
+           2002, Charles de Miramon <cmiramon@kde-france.org>
+           2002, Éric Bischoff <e.bischoff@noos.fr>
+           2004, Matthieu Robin <kde@macolu.org>
+           2002-2004, Gilles Caulier <caulier.gilles@free.fr>
+           2004-2005, Matthieu Robin <matthieu@macolu.org>
+           2005-2007, Yannick Torrès <yannick.torres@keliglia.com>
+           2008, Paul Morin <m.paulmorin@gmail.com>
+           2008, Nicolas Ternisien <nicolas.ternisien@gmail.com>
+           2008, Sébastien Renard <Sebastien.Renard@digitalfox.org>
+           2010-2013, Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>
+           2012, xavier <xavier.besnard@neuf.fr>
+           2018-2019, Simon Depiets <sdepiets@gmail.com>
+           2019, Maxime Corteel <mcorteel@gmail.com>
+           2009, Kevin Scannell <kscanne@gmail.com>
+           2003-2004, Xabi García <xabigf@gmx.net>
+           2004-2005, Martina Ramilo Pereira <martina.ramilo@hispalinux.es>
+           2006-2007, Xabi G. Feal <xabigf@gmx.net>
+           2007-2009, mvillarino <mvillarino@users.sourceforge.net>
+           2011-2014, Marce Villarino <mvillarino@kde-espana.es>
+           2012, Xosé <xosecalvo@gmail.com>
+           2013, Miguel Branco <mgl.branco@gmail.com>
+           2013-2019, Adrián Chaves (Gallaecio) <adrian@chaves.io>
+           2008, David Shalmiev <vertigo.rus@gmail.com>
+           2009-2010, Tahmar1900 <tahmar1900@gmail.com>
+           2010-2013, Diego Iastrubni <elcuco@kde.org>
+           2017, Elkana Bardugo <ttv200@gmail.com>
+           2008, Ravishankar Shrivastava <raviratlami@yahoo.com>
+           2010, Andrej Dundovic <adundovi@gmail.com>
+           2011, Marko Dimjašević <marko@dimjasevic.net>
+           2002-2003, Marcel Hilzinger <hili@suselinux.hu>
+           2003, Tamas Szanto <tszanto@mol.hu>
+           2003-2010, Arpad Biro <biro.arpad gmail>
+           2010-2012, Kristóf Kiszel <ulysses@kubuntu.org>
+           2012-2014, Balázs Úr <urbalazs@gmail.com>
+           2018-2019, Wantoyo <wantoyek@gmail.com>
+           2005-2006, Arnar Leósson <leosson@frisurf.no
+           2008-2018, Sveinn í Felli <sveinki@nett.is>
+           2002-2010, Giovanni Venturi <giovanni@ksniffer.org>
+           2015, Vincenzo Reale <smart2128@baslug.org>
+           2015-2019, Luigi Toscano <luigi.toscano@tiscali.it>
+           2003-2006, UTUMI Hirosi <utuhiro78@yahoo.co.jp>
+           2006-2009, Yukiko Bando <ybando@k6.dion.ne.jp>
+           2012, Yasuhiko Kamata <belphegor@belbel.or.jp>
+           2011-2012, Fumiaki Okushi <okushi@kde.gr.jp>
+           2011-2013, Sairan Kikkarin <sairan@computer.org>
+           2009-2012, Khoem Sokhem <khoemsokhem@khmeros.info>
+           2009, Seng Sutha
+           2007, Sang-kyun Noh <freesky80@nate.com>
+           2008-2019, Shinjo Park <kde@peremen.name>
+           2005, Nerijus Kislauskas <nierka@splius.lt>
+           2005, Donatas Glodenis <dgvirtual@akl.lt>
+           2006, Dovydas Sankauskas <laisve@gmail.com>
+           2011, Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>
+           2011-2013, Liudas Alisauskas <liudas@akmc.lt>
+           2019, Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>
+           2011-2012, Einars Sprugis <einars8@gmail.com>
+           2011-2012, Maris Nartiss <maris.kde@gmail.com>
+           2008, Prasad.S.R <saysprasad@gmail.com>
+           2013, Chetan Khona <chetan@kompkin.com>
+           2004, Knut Yrvin <knut.yrvin@gmail.com>
+           2005, Nils Kristian Tomren <slx@nilsk.net>
+           2006, Jørgen Grønlund <jorgenhg@broadpark.no>
+           2006, Håvard Korsvoll <korsvoll@skulelinux.no>
+           2006-2007, Alexander Nicolaysen Sørnes <alex@thehandofagony.com>
+           2006, Lars Risan <lars.risan@tik.uio.no>
+           2006, Klaus Ade Johnstad <klaus@skolelinux.no>
+           2008, Axel Bojer <fri_programvare@bojer.no>
+           2008-2012, Bjørn Steensrud <bjornst@skogkatt.homelinux.org>
+           2006-2011, Manfred Wiese <m.j.wiese@web.de>
+           2006-2014, Sönke Dibbern <s_dibbern@web.de>
+           2003-2004, Rinse de Vries <rinse@kde.nl>
+           2003, Roel Koelewijn <rl.koelewijn@home.nl>
+           2004, Jo Vermeulen <jo@lumumba.luc.ac.be>
+           2004, R.F. Pels <ruurd@tiscali.nl>
+           2004-2010, Rinse de Vries <rinsedevries@kde.nl>
+           2004, Tom Albers <tomalbers@kde.nl>
+           2004-2006, Bram Schoenmakers <bramschoenmakers@kde.nl>
+           2008-2009, Kristof Bal <kristof.bal@gmail.com>
+           2009-2010, Antoon Tolboom <atolboo@gmail.com>
+           2009-2019, Freek de Kruijf <freekdekruijf@kde.nl>
+           2004-2008, Håvard Korsvoll <korsvoll@skulelinux.no>
+           2005-2019, Karl Ove Hufthammer <karl@huftis.org>
+           2008-2009, Eirik U. Birkeland <eirbir@gmail.com>
+           2008-2019, A S Alam <aalam@users.sf.net>
+           2008, Amanpreet Singh Alam <aalam@users.sf.net>
+           2002-2007, Krzysztof Lichota <lichota@mimuw.edu.pl>
+           2004, Emil Nowak <emil5@go2.pl>
+           2004-2005, Michal Rudolf <mrudolf@kdewebdev.org>
+           2005, Robert Gomulka <rgom@o2.pl>
+           2007, Krzysztof Lichota <krzysiek@lichota.net>
+           2008, Tomasz Zaba <frog4@poczta.onet.pl>
+           2008-2011, Marta Rybczyńska <kde-i18n@rybczynska.net>
+           2008-2009, Maciej Wikło <maciej.wiklo@wp.pl>
+           2011, Artur Chłond <eugenewolfe@o2.pl>
+           2011-2019, Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+           2019, Pedro Morais <morais@kde.org>
+           2003-2012, Marcus Gama <marcus.gama@gmail.com>
+           2003, Gustavo Mendes de Carvalho <gmcarvalho@yahoo.com>
+           2004, Antonio Sergio de Mello e Souza <asergioz@bol.com.br>
+           2004, Thiago Macieira <thiago.macieira@kdemail.net>
+           2004-2005, Lisiane Sztoltz Teixeira <lisiane@kdemail.net>
+           2007, Diniz Bortolotto <diniz.bortolotto@gmail.com>
+           2008-2019, Luiz Fernando Ranghetti <elchevive@opensuse.org>
+           2005-2009, Doutor Zero <doutor.zero@gmail.com>
+           2009-2016, André Marcelo Alvarenga <alvarenga@kde.org>
+           2008, Laurenţiu Buzdugan <lbuz@rolix.org>
+           2008-2014, Sergiu Bivol <sergiu.bivol@jurnaltv.md>
+           2002-2003, LOR Windowser <lorwindowser@mail.ru>
+           2003-2005, Vitaly Lipatov <lav@altlinux.ru>
+           2004, Gregory Mokhin <mok@kde.ru>
+           2004, Albert R. Valiev <darkstar@altlinux.ru>
+           2003-2010, Nick Shaforostoff <shaforostoff@kde.ru>
+           2008-2011, Артём Середа <overmind88@gmail.com>
+           2010-2015, Alexander Potashev <aspotashev@gmail.com>
+           2011-2012, Yuri Efremov <yur.arh@gmail.com>
+           2013, Alexander Lakhin <exclusion@gmail.com>
+           2019, Alexander Yavorsky <kekcuha@gmail.com>
+           2007-2010, Richard Fric <Richard.Fric@kdemail.net>
+           2010-2011, Michal Sulek <misurel@gmail.com>
+           2012-2017, Roman Paholík <wizzardsk@gmail.com>
+           2019, Matej Mrenica <matejm98mthw@gmail.com>
+           2009-2010, Jure Repinc <jlp@holodeck1.com>
+           2012-2018, Andrej Mernik <andrejm@ubuntu.si>
+           2007-2010, Slobodan Simic <slsimic@gmail.com>
+           2010-2017, Chusslove Illich <caslav.ilic@gmx.net>
+           2010, Dalibor Djuric <daliborddjuric@gmail.com>
+           2007-2019, tefan Asserhall <stefan.asserhall@bredband.net>
+           2004, Adem Alp Yıldız <ademalp@linux-sevenler.org>
+           2004, Aydın Demirel <aydndemirel@yahoo.com>
+           2005, Ayşe Genç <ayse@uludag.org.tr>
+           2006, Bekir SONAT <bekirsonat@kde.org.tr>
+           2004-2007, Engin Çağatay <engincagatay@yahoo.com>
+           2005, Gökçen Eraslan <gokcene@anadolu.edu.tr>
+           2002-2005, Görkem Çetin <gorkem@kde.org>
+           2006, Hasan <hasan@teknoseyir.com>
+           2011, H. İbrahim Güngör <ibrahim@pardus.org.tr>
+           2006, Koray Bostancı <koray@kde.org.tr>
+           2006, Koray Löker <loker@pardus.org.tr>
+           2003, Nilgün Belma Bugüner <nilgun@superonline.com>
+           2010, Ozan Çağlayan <ozan@pardus.org.tr>
+           2004-2005, S.Çağlar Onur <caglar@uludag.org.tr>
+           2007-2012, obsoleteman <tulliana@gmail.com>
+           2013-2017, Volkan Gezer <volkangezer@gmail.com>
+           2011, Sahran <sahran.ug@gmail.com>
+           2009, Jean Cayron <jean.cayron@gmail.com>
+           2002-2003, Zong Yaotang <zong@cosix.com.cn>
+           2002-2003, Xiong Jiang <jxiong@offtopic.org>
+           2004-2005, Funda Wang <fundawang@linux.net.cn>
+           2010, Feng Chao <rainofchaos@gmail.com>
+           2017, Guo Yunhe <guoyunhebrave@gmail.com>
+           2002, SiongUi Te <siongui@yahoo.com.tw>
+           2003, Bao-Chau Chen <b8802046@mail.ntust.edu.tw>
+           2006, You-Cheng Hsieh <yochenhsieh@xuite.net>
+           2007-2013, Franklin Weng <franklin@goodhorse.idv.tw>
+           2008, Yi-Shun Wang <dnextstep@gmail.com>
+           2016, Jeff Huang <s8321414@gmail.com>
+           2018-2019, pan93412 <pan93412@gmail.com>
+           2020, giovanni <g.sora@tiscali.it>
 License: GPL-2+
 
-Files: help/*
-Copyright: 2008-2012, Free Software Foundation Inc.
-           2012, Matīss Jānis Āboltiņš, Rūdolfs Mazurs
-           2011, Swecha Telugu Localisation Team <localization@swecha.net>
-           2009,  Krasimir Chonov <mk2616@abv.bg>
-License: GFDL-1.1+
+Files: doc/*
+      po/ca/docs/k3b/*
+      po/de/docs/k3b/*
+      po/nl/docs/k3b/*
+      po/sv/docs/k3b/*
+      po/uk/docs/k3b/*
+      po/es/docs/k3b/*
+      po/pt_BR/docs/k3b/*
+      po/pt/docs/k3b/*
+      po/it/docs/k3b/*
+      po/fr/docs/k3b/*
+Copyright: 2009-2012
+          https://userbase.kde.org/index.php?title=K3b&action=history
+License: GFDL-1.2+
+
+
+Files: po/uk/k3b.po
+Copyright: 2004-2008, Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>
+           2007-2019 Yuri Chornoivan <yurchor@ukr.net>
+License: LGPL-2.1+3+KDEeV
+
+Files: src/org.kde.k3b.appdata.xml
+Copyright: 1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: CC0-1.0
+
+Files: debian/*
+Copyright: 2019, Scarlett Moore <sgmoore@kde.org>
+           2003-2005, Jean-Michel Kelbert <kelbert@debian.org>
+           2008-2010 Fathi Boudra <fabo@debian.org>
+           2005-2008 Francois Marier <francois@debian.org>
+License: GPL-2+
 
 License: GPL-2+
- This package is free software; you can redistribute it and/or modify
+ This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation; either version 2 of the License, or
  (at your option) any later version.
  .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU Genaral Public License for more details.
- .
- You should have received a copy og the GNU General Public License
- along with this program. If not, see <http://www.gnu.org/licenses/>
- .
- On Debian systems, the complete text of the GNU General
- Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in '/usr/share/common-licenses/GPL-2'.
 
-License: LGPL-2+
+License: GFDL-1.2+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.2
+ or any later version published by the Free Software Foundation;
+ with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ A copy of the license is included in the section entitled "GNU
+ Free Documentation License".
+ .
+ On Debian systems, the complete text of the GNU Free Documentation
+ License version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".
+
+License: LGPL-2.1+3+KDEeV
+ LGPL-2.1
  This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation;
+ version 2.1.
  .
  This library is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
+ Lesser General Public License for more details.
  .
- You should have received a copy of the GNU Library General Public
- License along with this library. If not, see <http://www.gnu.org/licenses/>
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  .
- On Debian systems, the complete text of the GNU Library General
- Public License version 2 can be found in "/usr/share/common-licenses/LGPL-2".
-
-License: GPL-3+
- This package is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 3 of the License, or
- (at your option) any later version.
+ On Debian systems, the complete text of the GNU Library General Public
+ License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
  .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU Genaral Public License for more details.
- .
- You should have received a copy og the GNU General Public License
- along with this program. If not, see <http://www.gnu.org/licenses/>
- .
- On Debian systems, the complete text of the GNU General
- Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
-
-License: LGPL-3+
- This package is free software; you can redistribute it and/or
- modify it under the terms of the GNU Lesser General Public
- License as published by the Free Software Foundation; either
- version 3 of the License, or (at your option) any later version.
+ LGPL-3
+ This package is free software; you can redistribute it and/or modify it under
+ the terms of the GNU Lesser General Public License as published by the Free
+ Software Foundation; either version 3 of the License.
  .
  This package is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -393,13 +341,31 @@ License: LGPL-3+
  .
  On Debian systems, the complete text of the GNU Lesser General
  Public License can be found in `/usr/share/common-licenses/LGPL-3'.
-
-License: GFDL-1.1+
- Permission is granted to copy, distribute and/or modify this
- document under the terms of the GNU Free Documentation
- License (GFDL), Version 1.1 or any later version published
- by the Free Software Foundation with no Invariant Sections,
- no Front-Cover Texts, and no Back-Cover Texts.
  .
- On Debian systems, the complete text of the GNU Free Documentation License
- version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".
+ KDEeV
+ This file is distributed under the license LGPL version 2.1 or
+ version 3 or later versions approved by the membership of KDE e.V.
+
+License: CC0-1.0
+ Certain owners wish to permanently relinquish those rights to a Work for
+ the purpose of contributing to a commons of creative, cultural and
+ scientific works ("Commons") that the public can reliably and without
+ fear of later claims of infringement build upon, modify, incorporate in
+ other works, reuse and redistribute as freely as possible in any form
+ whatsoever and for any purposes, including without limitation commercial
+ purposes. These owners may contribute to the Commons to promote the
+ ideal of a free culture and the further production of creative, cultural
+ and scientific works, or to gain reputation or greater distribution for
+ their Work in part through the use and efforts of others.
+ .
+ For these and/or other purposes and motivations, and without any
+ expectation of additional consideration or compensation, the person
+ associating CC0 with a Work (the "Affirmer"), to the extent that he or
+ she is an owner of Copyright and Related Rights in the Work, voluntarily
+ elects to apply CC0 to the Work and publicly distribute the Work under
+ its terms, with knowledge of his or her Copyright and Related Rights in
+ the Work and the meaning and intended legal effect of CC0 on those
+ rights.
+ .
+ The complete text of the Creative Commons 0 1.0 Universal
+ can be found in `/usr/share/common-licenses/CC0-1.0'.

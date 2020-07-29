@@ -1,0 +1,43 @@
+Description: Add some quicklist actions.  Patch by Graham Castleton.
+Forwarded: not-needed
+Origin: Kubuntu
+Author: Michael Terry <mike@mterry.name>
+Last-Update: 2017-02-17
+==========================================================
+=== modified file 'a/src/org.kde.k3b.desktop'
+Index: k3b-2.0.3a+git20170215/src/org.kde.k3b.desktop
+===================================================================
+--- k3b-2.0.3a+git20170215.orig/src/org.kde.k3b.desktop
++++ k3b-2.0.3a+git20170215/src/org.kde.k3b.desktop
+@@ -180,3 +180,31 @@
+ X-DBUS-ServiceType=Unique
+ InitialPreference=5
+ X-DBUS-ServiceName=org.kde.k3b
++
++Actions=VideoDVD;DataCD;AudioCD;VideoCD;MixedCD;eMovix;
++
++[Desktop Action VideoDVD]
++Name=New Video DVD Project
++Exec=k3b --videodvd
++
++[Desktop Action DataCD]
++Name=New Data CD Project
++Exec=k3b --data
++
++[Desktop Action AudioCD]
++Name=New Audio CD Project
++Exec=k3b --audiocd
++
++[Desktop Action VideoCD]
++Name=New Video CD Project
++Exec=k3b --videocd
++
++[Desktop Action MixedCD]
++Name=New Mixed Mode CD Project
++Exec=k3b --mixedcd
++
++[Desktop Action eMovix]
++Name=New eMovix Project
++Exec=k3b --emovix
++
++

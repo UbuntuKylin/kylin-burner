@@ -1,167 +1,150 @@
-Source: kylin-burner
-Section: gnome
+Source: k3b
+Section: kde
 Priority: optional
-Maintainer: Kylin Team <team+kylin@tracker.debian.org>
-Uploaders: wenbo <wenbo@kylinos.cn>,
-           handsome_feng <jianfengli@ubuntukylin.com>
-Build-Depends: debhelper-compat (= 12),
-               gnome-common,
-               gnome-pkg-tools (>= 0.7),
-               yelp-tools,
-               gtk-doc-tools (>= 1.12),
-               pkg-config,
+Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
+Uploaders: Scarlett Moore <sgmoore@kde.org>,
+           Michael Meskes <meskes@debian.org>,
+           Mark Purcell <msp@debian.org>,
+Build-Depends: cmake,
+               debhelper-compat (= 12),
+               extra-cmake-modules (>= 5.56.0~),
+               libavformat-dev,
                libcam-dev [kfreebsd-any],
-               libglib2.0-dev (>= 2.29.14),
-               libgstreamer1.0-dev (>= 0.11.92),
-               libgstreamer-plugins-base1.0-dev (>= 0.11.92),
-               libxml2-dev (>= 2.6.0),
-               libsm-dev,
-               libice-dev,
-               libgtk-3-dev (>= 3.0.0),
-               libnotify-dev (>= 0.6.1),
-               libcanberra-dev (>= 0.1),
-               libcanberra-gtk3-dev (>= 0.1),
-               libnautilus-extension-dev (>= 3.21.92-3~),
-               libburn-dev (>= 0.4.0),
-               libisofs-dev (>= 0.6.4),
-               libtracker-sparql-2.0-dev (>= 1.0),
-               libtotem-plparser-dev (>= 2.32),
-               libappindicator3-dev (>= 0.0.7),
-               gobject-introspection (>= 0.6.3),
-               libgirepository1.0-dev (>= 0.6.3),
-               intltool (>= 0.50),
-               libglib2.0-doc,
-               libgtk-3-doc
-Standards-Version: 4.4.1
+               libdvdread-dev,
+               libflac++-dev,
+               libflac-dev,
+               libkf5archive-dev (>= 5.56.0~),
+               libkf5cddb-dev (>= 4:19.12.3~),
+               libkf5config-dev (>= 5.56.0~),
+               libkf5coreaddons-dev (>= 5.56.0~),
+               libkf5doctools-dev (>= 5.56.0~),
+               libkf5filemetadata-dev (>= 5.56.0~),
+               libkf5i18n-dev (>= 5.56.0~),
+               libkf5iconthemes-dev (>= 5.56.0~),
+               libkf5jobwidgets-dev (>= 5.56.0~),
+               libkf5kcmutils-dev (>= 5.56.0~),
+               libkf5kio-dev (>= 5.56.0~),
+               libkf5newstuff-dev (>= 5.56.0~),
+               libkf5notifications-dev (>= 5.56.0~),
+               libkf5notifyconfig-dev (>= 5.56.0~),
+               libkf5service-dev (>= 5.56.0~),
+               libkf5solid-dev (>= 5.56.0~),
+               libkf5widgetsaddons-dev (>= 5.56.0~),
+               libkf5xmlgui-dev (>= 5.56.0~),
+               libmad0-dev,
+               libmp3lame-dev,
+               libmpcdec-dev,
+               libmusicbrainz5-dev,
+               libqt5webkit5-dev (>= 5.10.0~),
+               libsamplerate0-dev,
+               libsndfile1-dev,
+               libtag1-dev,
+               libvorbis-dev,
+               pkg-kde-tools (>= 0.15.16),
+               qtbase5-dev (>= 5.10.0~),
+               shared-mime-info,
+Standards-Version: 4.5.0
+Homepage: https://userbase.kde.org/K3b
+Vcs-Browser: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+git/k3b
+Vcs-Git: https://git.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+git/k3b
 Rules-Requires-Root: no
-Homepage: https://www.ukui.org
-Vcs-Git: https://github.com/ukui/kylin-burner.git
-Vcs-Browser: https://github.com/ukui/kylin-burner
 
-Package: kylin-burner
+Package: k3b
 Architecture: any
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         gstreamer1.0-plugins-base (>= 0.11.92),
-         gvfs,
-         libburner-media3-1 (= ${binary:Version}),
-         burner-common (= ${source:Version})
-Recommends: yelp,
-            burner-cdrkit,
-            nautilus-extension-burner
-Suggests: vcdimager,
-          libdvdcss2,
-          tracker
-Description: CD/DVD burning application for UKUI
- Burner is a simple application to burn, copy and erase CD and DVD
- media: audio, video or data. It features among other things:
-  * On-the-fly burning
-  * Multisession support
-  * On-the-fly conversion of music playlists in all formats supported by
-    GStreamer
- .
- This package contains the standalone app.
- .
- The following packages, if installed, will provide Burner with added
- functionality:
-  * cdrdao to burn combined data/audio CDs and for byte-to-byte copy
-  * GStreamer backends to support more audio formats
-  * vcdimager to create VCDs or SVCDs
-  * libdvdcss2 to copy encrypted DVDs
-  * tracker to search for video, audio, image and document files
-
-Package: burner-common
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Description: Common files for the Burner CD burning application and library
- Burner is a simple application to burn, copy and erase CD and DVD media.
- .
- This package contains the common files and translations.
-
-Package: burner-cdrkit
-Architecture: any
-Multi-Arch: same
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         libburner-media3-1 (= ${binary:Version}),
+Depends: cdparanoia,
+         cdrdao [linux-any],
+         cdrskin,
          genisoimage,
-         growisofs,
-         wodim
-Recommends: dvdauthor
-Suggests: readom
-Description: cdrkit extensions for the Burner burning application
- Burner is a simple application to burn, copy and erase CD and DVD
- media.
- .
- This package contains extensions for Burner, based on the genisoimage,
- growisofs, wodim, readom and dvdauthor programs. They are only needed
- for the following operations in Burner:
-  * Audio CD burning with CD-Text information
-  * Video DVD creation
-
-Package: libburner-media3-1
-Architecture: any
-Multi-Arch: same
-Section: libs
-Depends: ${shlibs:Depends},
+         k3b-data (= ${source:Version}),
+         libk3b7 (= ${binary:Version}),
+         udisks2 [linux-any],
+         wodim,
          ${misc:Depends},
-         burner-common (= ${source:Version}),
-         dvd+rw-tools,
-Recommends: gstreamer1.0-plugins-good,
-            cdrdao (>= 1:1.2.3)
-Suggests: gstreamer1.0-plugins-bad,
-          gstreamer1.0-fluendo-mp3,
-          gstreamer1.0-plugins-ugly,
-Description: CD/DVD burning library for UKUI - runtime
- Libburner is a simple library to burn, copy and erase CD and DVD
- media.
- .
- This package contains the shared library.
+         ${shlibs:Depends},
+Recommends: dvd+rw-tools, growisofs, k3b-i18n, libk3b7-extracodecs, vcdimager
+Suggests: k3b-extrathemes,
+          kde-config-cddb,
+          normalize-audio,
+          sox,
+Description: Sophisticated CD/DVD burning application
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
 
-Package: libburner-media3-dev
-Architecture: any
-Multi-Arch: same
+Package: k3b-data
+Architecture: all
+Depends: ${misc:Depends}
+Breaks: k3b-extrathemes (<< 18.08.3~), libk3b7 (<< 18.08.3~)
+Replaces: k3b-extrathemes (<< 18.08.3~), libk3b7 (<< 18.08.3~)
+Description: Sophisticated CD/DVD burning application - data files
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
+ .
+ This package contains the required data files common to all architectures.
+
+Package: k3b-extrathemes
+Architecture: all
+Depends: k3b, ${misc:Depends}
+Description: Sophisticated CD/DVD burning application - extra themes
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
+ .
+ This package contains additional themes for K3b.
+
+Package: k3b-i18n
+Section: localization
+Architecture: all
+Depends: ${misc:Depends}
+Description: Sophisticated CD/DVD burning application - localizations files
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
+ .
+ This package contains translations files.
+
+Package: libk3b-dev
 Section: libdevel
-Depends: libburner-media3-1 (= ${binary:Version}),
-         gir1.2-burner-3.1 (= ${binary:Version}),
-         libglib2.0-dev,
-         libgtk-3-dev,
-         ${misc:Depends},
-         ${shlibs:Depends}
-Description: CD/DVD burning library for GNOME - development
- Libburner is a simple library to burn, copy and erase CD and DVD
- media.
- .
- This package contains the development headers and API documentation.
-
-Package: gir1.2-burner-3.1
 Architecture: any
-Multi-Arch: same
-Section: introspection
-Depends: ${gir:Depends},
+Depends: libk3b7 (= ${binary:Version}),
          ${misc:Depends},
-         ${shlibs:Depends}
-Description: CD/DVD burning library for UKUI - GObject introspection data
- This package contains introspection data for the GNOME CD/DVD burning library
+Description: KDE CD/DVD burning application library - development files
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
  .
- It can be used by packages using the GIRepository format to generate
- dynamic bindings.
+ This package contains development files.
 
-Package: nautilus-extension-burner
+Package: libk3b7
+Section: libs
 Architecture: any
-Multi-Arch: same
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         gvfs,
-         libburner-media3-1 (= ${binary:Version}),
-Enhances: nautilus
-Description: CD/DVD burning integration for Nautilus
- Burner is a simple application to burn, copy and erase CD and DVD
- media: audio, video or data. It features among other things:
-  * On-the-fly burning
-  * Multisession support
-  * On-the-fly conversion of music playlists in all formats supported by
-    GStreamer
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Breaks: libk3b7-extracodecs (<< 18.08.3~)
+Replaces: libk3b7-extracodecs (<< 18.08.3~)
+Description: KDE CD/DVD burning application library - runtime files
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
  .
- This package contains the extension for Nautilus, the GNOME Files app.
+ This package contains runtime libraries.
+
+Package: libk3b7-extracodecs
+Architecture: any
+Depends: libk3b7 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Breaks: k3b-data (<< 18.08.3~)
+Replaces: k3b-data (<< 18.08.3~)
+Description: KDE CD/DVD burning application library - extra decoders
+ K3b provides a comfortable user interface to perform most CD/DVD burning
+ tasks. While the experienced user can take influence in all steps
+ of the burning process the beginner may find comfort in the automatic settings
+ and the reasonable k3b defaults which allow a quick start.
+ .
+ This package contains runtime libraries for the MP3 and FFMPEG decoder plugin.

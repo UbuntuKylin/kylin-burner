@@ -1,0 +1,75 @@
+Q: Compiling K3b fails with errors like this:
+   base_k3badvanceddataimagesettings.cpp:185: invalid use of undefined type
+   `struct KComboBox'
+   base_k3badvanceddataimagesettings.h:17: forward declaration of `struct
+   KComboBox'
+A: The QTDesigner tool 'uic' is not able to find the kde widget plugins.
+   To solve this run 'qtconfig' and add '$KDEDIR/lib/kde3/plugins' to the plugin search path
+   (replace $KDEDIR with your kde base dir).
+
+
+Q: Where has all the fancy graphic gone?
+A: Most likely you installed K3b in the wrong directory. All KDE programs are installed in the
+   KDE dirtree (SuSE: /opt/kde3, RedHat: /usr). If you compile K3b from source it defaults
+   to either $KDEDIR or /usr/local. To install in the correct directory you need to specify the prefix
+   to configure like this:
+     ./configure --prefix=`kde-config --prefix`
+   That will install K3b relative to the correct path.
+
+
+Q: The linking always breaks with the missing -laudio.
+A: You need to install NAS.
+
+
+Q: Where can I find K3bSetup2?
+A: K3bSetup2 is a KControlCenter Module. You can find it in the System Administration section or start
+   it manually with "kdesu kcmshell4 k3bsetup2".
+   There also is a script since K3b 0.11 called k3bsetup.
+
+
+Q: My writer supports writing at speed X but K3b shows Y as a max.
+A: K3b determined the maximum writing speed the first time you start it. Since the speed reported by the
+   writer always depends on the mounted medium this may not be the real max.
+   To manually change it open the K3b settings in the device section and click on the value. You will
+   be presented with a spinbox which allows one to change the speed.
+
+
+Q: Writing fails with the following cdrecord message:
+     "Cannot allocate memory. Cannot get SCSI I/O buffer."
+A: Since kernel 2.6.9 suid root programs are not allowed to use the SCSI subsystem.
+   To solve this issue either configure cdrecord to run without root privileges: chmod 755 /usr/bin/cdrecord
+   or run K3b as root (which is not recommended but works also).
+
+
+Q: Writing fails with the following cdrecord message over and over again:
+     "Error trying to open /dev/hdc exclusively (Device or resource busy)..."
+A: You are using a patched cdrecord version which tries to open the device exclusively which fails because
+   your are probably also using automounting. The solutions are to disable automounting altogether (and this is
+   the recommended solution as automounting can cause other more serious problems with CD/DVD writing) or to
+   install a non-patched cdrecord version.
+
+Q: My DVD drive supports 16X but K3B keeps burning at 1X! What's happening?
+
+A: Your kernel most likely didn't apply optimal settings for your drive when it detected it. You can find out
+   what are the current settings of your drive with the command "hdparm -v /dev/dvd":
+
+   /dev/dvd:
+    IO_support   =  0 (default 16-bit)
+    unmaskirq    =  0 (off)
+    using_dma    =  0 (off)
+    keepsettings =  0 (off)
+    readonly     =  0 (off)
+    readahead    = 256 (on)
+
+   The following options are known to maximize burning and playback performance:
+
+     hdparm -d1 -c1 -a8 -u1 /dev/dvd
+
+   To make these options permanent, a quick and dirty solution is to include the command in /etc/rc.local.
+   Consult your distribution documentation for a tailored solution.
+
+   Some drives have buggy DMA support. If you experience instability, leave these options disabled.
+
+   Some useful references:
+   http://www.togaware.com/linux/survivor/CD_DVD_Drives.shtml
+   http://www.linuxjournal.com/article/6921

@@ -1,0 +1,23 @@
+Description: Disable a notification if no problems were found.
+Forwarded: not-needed
+Author: Unknown
+Last-Update: 2018-09-07
+
+---
+ src/k3bsystemproblemdialog.cpp |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/src/k3bsystemproblemdialog.cpp
++++ b/src/k3bsystemproblemdialog.cpp
+@@ -622,9 +622,11 @@ void K3b::SystemProblemDialog::checkSyst
+     if( problems.isEmpty() ) {
+         qDebug() << "          - none - ";
+         if( level == AlwaysNotify ) {
++/*
+             KNotification::event( "NoProblemsFound",
+                                   i18n("System configured properly"),
+                                   i18n("No problems found in system configuration.") );
++*/
+         }
+     }
+     else {

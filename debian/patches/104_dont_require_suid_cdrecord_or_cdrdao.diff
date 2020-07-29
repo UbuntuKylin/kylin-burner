@@ -1,0 +1,41 @@
+Description: Disable cdrecord and cdrdao suid root checks.
+Forwarded: not-needed
+Author: Unknown
+Last-Update: 2018-09-07
+
+---
+ src/k3bsystemproblemdialog.cpp |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+--- a/src/k3bsystemproblemdialog.cpp
++++ b/src/k3bsystemproblemdialog.cpp
+@@ -226,6 +226,7 @@ void K3b::SystemProblemDialog::checkSyst
+                                                    i18n("Install a more recent version of the cdrtools.") ) );
+             }
+
++/*
+ #ifdef Q_OS_LINUX
+
+             //
+@@ -261,6 +262,7 @@ void K3b::SystemProblemDialog::checkSyst
+             }
+ #endif // CDRECORD_SUID_ROOT_CHECK
+ #endif
++*/
+         }
+
+         if( !k3bcore->externalBinManager()->binNeedGroup( "cdrdao" ).isEmpty() ) {
+@@ -277,6 +279,7 @@ void K3b::SystemProblemDialog::checkSyst
+                                                i18n("K3b uses cdrdao to actually write CDs."),
+                                                i18n("Install the cdrdao package.") ) );
+         }
++/*
+         else {
+ #ifdef Q_OS_LINUX
+ #ifdef CDRECORD_SUID_ROOT_CHECK
+@@ -300,6 +303,7 @@ void K3b::SystemProblemDialog::checkSyst
+                      " CD, and for growisofs with DVD and BD."),
+                 i18n("Consider to install the libburn and cdrskin packages.")));
+         }
++*/
+     }
