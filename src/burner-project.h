@@ -52,7 +52,7 @@ G_BEGIN_DECLS
 #define BURNER_PROJECT_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), BURNER_TYPE_PROJECT, BurnerProjectClass))
 
 typedef struct BurnerProjectPrivate BurnerProjectPrivate;
-GtkWidget *burn_button;
+extern GtkWidget *burn_button;
 
 typedef struct {
 	GtkBox parent;

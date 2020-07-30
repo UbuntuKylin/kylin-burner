@@ -68,6 +68,12 @@
 #include "burner-drive-settings.h"
 #include "burner-customize-title.h"
 
+int nb_items;
+GtkWidget *widget[10];
+GtkWidget *statusbarbox;
+GtkWidget *maximize_bt;
+GtkWidget *unmaximize_bt;
+
 static ItemDescription items [] = {
 	{N_("W_elcom project"),
 	N_("Create a data CD/DVD"),

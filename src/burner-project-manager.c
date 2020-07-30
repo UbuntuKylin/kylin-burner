@@ -62,6 +62,9 @@
 #include "burner-preview.h"
 #endif
 
+BurnerProjectManager *manager_chooser;
+GtkWidget *type;
+
 static void burner_project_manager_class_init (BurnerProjectManagerClass *klass);
 static void burner_project_manager_init (BurnerProjectManager *sp);
 static void burner_project_manager_finalize (GObject *object);

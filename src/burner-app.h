@@ -41,11 +41,11 @@ G_BEGIN_DECLS
 
 typedef struct _BurnerAppClass BurnerAppClass;
 typedef struct _BurnerApp BurnerApp;
-int nb_items;
-GtkWidget *widget[10];
-GtkWidget *statusbarbox;
-GtkWidget *maximize_bt;
-GtkWidget *unmaximize_bt;
+extern int nb_items;
+extern GtkWidget *widget[10];
+extern GtkWidget *statusbarbox;
+extern GtkWidget *maximize_bt;
+extern GtkWidget *unmaximize_bt;
 
 struct _BurnerAppClass
 {

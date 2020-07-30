@@ -76,8 +76,8 @@ typedef struct {
 	GtkNotebookClass parent_class;	
 } BurnerProjectManagerClass;
 
-BurnerProjectManager *manager_chooser;
-GtkWidget *type;
+extern BurnerProjectManager *manager_chooser;
+extern GtkWidget *type;
 
 GType burner_project_manager_get_type (void);
 GtkWidget *burner_project_manager_new (void);

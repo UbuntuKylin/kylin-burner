@@ -95,6 +95,8 @@
 #include "burner-drive-settings.h"
 #include "burner-customize-title.h"
 
+GtkWidget *burn_button;
+
 static void burner_project_class_init (BurnerProjectClass *klass);
 static void burner_project_init (BurnerProject *sp);
 static void burner_project_iface_uri_container_init (BurnerURIContainerIFace *iface);
