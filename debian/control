@@ -32,7 +32,7 @@ Build-Depends: debhelper-compat (= 12),
                intltool (>= 0.50),
                libglib2.0-doc,
                libgtk-3-doc
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://www.ukui.org
 Vcs-Git: https://github.com/ukui/kylin-burner.git

@@ -1,3 +1,11 @@
+kylin-burner (3.0.8-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #957412)
+  * debian/rules: delete as-needed.
+  * debian/control: bump standards-version to 4.5.0.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 01 Aug 2020 02:53:17 +0000
+
 kylin-burner (3.0.7-1) unstable; urgency=medium
 
   * New upstream release.
