@@ -96,13 +96,13 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
 
-    QPushButton *button_start = new QPushButton(this);
+    button_start = new QPushButton(this);
     button_start->setText(i18n("Create image"));
     button_start->setFixedSize(140, 45);
-    button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
-        
+    button_start->setEnabled( false );
+    button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
+     
+    CD_index = 0;
     combo_CD->setEnabled( true );
     button_openfile->setEnabled( true );
 #if 1
@@ -138,7 +138,8 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     vlayout->addSpacing( 25 );
 #endif
     setMainWidget( widget_label );
-    
+   
+    connect( combo_CD, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboCD(int) ) );
     connect( button_openfile, SIGNAL(clicked()), this, SLOT(slotOpenfile()) );
     connect( button_start, SIGNAL(clicked()), this, SLOT(slotStartBurn()) );
 
@@ -211,12 +212,12 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
     combo_iso->clear();
     combo_CD->clear();
     device_index.clear();
-    //qDebug()<< "device count" << device_list.count() <<endl;
-    
+    CD_index = 0;
+    device_count = 0;
+
     foreach(K3b::Device::Device* device, device_list){
         combo_iso->setEnabled( true );
         combo_CD->setEnabled( true );
-        //lineedit_CD->setEnabled( true );
 
         //device_index.append( device );
 
@@ -225,14 +226,15 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 
         if ( device->diskInfo().diskState() == K3b::Device::STATE_EMPTY ){
             combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
+            CD_index++;
             continue;
         }
-        //qDebug()<< "device disk state" << device->diskInfo().diskState() <<endl;
         if ( !( device->diskInfo().diskState() & (K3b::Device::STATE_COMPLETE | K3b::Device::STATE_INCOMPLETE ) ) ){
             qDebug()<< "empty medium" << device <<endl;
 
             combo_iso->addItem( i18n("please insert a available medium") );
             combo_CD->addItem( i18n("please insert a available medium") );
+            CD_index++;
             continue;
         }
         if( !(device->diskInfo().mediaType() & K3b::Device::MEDIA_ALL) ){
@@ -240,9 +242,12 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 
             combo_iso->addItem( i18n("please insert a available medium") );
             combo_CD->addItem( i18n("please insert a available medium") );
+            CD_index++;
             continue;
         }
         //qDebug()<< "mount point" << device <<endl;
+        CD_index++;
+        device_count = CD_index;
         device_index.append( device );
         combo_iso->addItem( QIcon(":/icon/icon/icon-光盘.png"), medium.shortString() + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
         combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), medium.shortString() + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
@@ -251,14 +256,32 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 
 }
 
+void K3b::VcdView::slotComboCD(int ret)
+{
+    qDebug() << "index: " << ret << endl;
+    button_start->setEnabled( true );
+    button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+    if( ret >= device_count ){
+        flag = 1;
+    }else{
+        flag = 0;
+    }
+}
+
 void K3b::VcdView::slotOpenfile()
 {
+    if( device_index.isEmpty() )
+        return;
     filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
 
     if( filepath.isEmpty() )
         return;
    flag = 1;
-   combo_CD->setEditable( true );
+   //combo_CD->setEditable( true );
+   CD_index++;
+   combo_CD->addItem( filepath );
    combo_CD->setCurrentText( filepath );
 
 }
@@ -280,6 +303,10 @@ void K3b::VcdView::slotSetting()
 
 void K3b::VcdView::slotStartBurn()
 {
+#if 0
+    qDebug() << "flag: " << flag << endl;
+    return;
+#endif
     int iso_index = combo_iso->currentIndex();
     int CD_index = combo_CD->currentIndex();
     K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );

@@ -1,0 +1,4 @@
+usr/bin/burner
+usr/lib/*/libexec/k3bhelper
+usr/share/applications/org.kde.kylin-burner.desktop
+usr/share/metainfo/org.kde.k3b.appdata.xml

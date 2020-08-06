@@ -1,0 +1,6 @@
+# their SONAMEs are kept in sync
+libkylin-burner7: package-name-doesnt-match-sonames libk3bdevice7 libk3blib7
+# Runtime library
+libkylin-burner7: no-symbols-control-file usr/lib/*/libk3bdevice.so.7.*
+# Runtime library
+libkylin-burner7: no-symbols-control-file usr/lib/*/libk3blib.so.7.*

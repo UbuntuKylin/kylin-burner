@@ -55,7 +55,8 @@ namespace K3b {
         void slotItemActivated( const QModelIndex& index );
        
         void slotNewDir();
-        void slotOpenDir();
+        //void slotOpenDir();
+        int slotOpenDir();
         void slotClear();
         void slotRemove();
 

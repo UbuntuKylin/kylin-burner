@@ -100,9 +100,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //开始刻录按钮
     burn_button = new QPushButton(i18n("create iso"), this);
     burn_button->setFixedSize(140, 45);
-    burn_button->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                               "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                               "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+    burn_button->setEnabled( false );
+    burn_button->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
 
     QLabel *label_view = new QLabel(this);
     //QGridLayout *layout = new QGridLayout(label_view);
@@ -130,6 +129,12 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     combo_CD->setMinimumSize(310, 30);
     image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
     combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+
+    combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
+                            "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
+                             border-top-right-radius: 3px; \ 
+                             border-bottom-right-radius: 3px;}"
+                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
 
     QHBoxLayout *hlayout_burner = new QHBoxLayout();
     hlayout_burner->setContentsMargins(0, 0, 0, 0);
@@ -330,15 +335,24 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 
 void K3b::DataView::slotOpenClicked()
 {
-    m_dataViewImpl->slotOpenDir();
-    button_remove->setEnabled( true );
-    button_remove->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
-                                 "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
-                                 "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
-    button_clear->setEnabled( true );
-    button_clear->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
-                                "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
-                                "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+    int ret = m_dataViewImpl->slotOpenDir();
+    if( ret ){
+        button_remove->setEnabled( true );
+        button_remove->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
+                                     "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
+                                     "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+        
+        button_clear->setEnabled( true );
+        button_clear->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
+                                    "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
+                                    "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+        
+        burn_button->setEnabled( true );
+        burn_button->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+
+    }
 }
 
 void K3b::DataView::slotRemoveClicked()

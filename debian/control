@@ -1,4 +1,4 @@
-Source: k3b
+Source: kylin-burner
 Section: kde
 Priority: optional
 Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
@@ -50,20 +50,20 @@ Vcs-Browser: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+gi
 Vcs-Git: https://git.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+git/k3b
 Rules-Requires-Root: no
 
-Package: k3b
+Package: kylin-burner
 Architecture: any
 Depends: cdparanoia,
          cdrdao [linux-any],
          cdrskin,
          genisoimage,
-         k3b-data (= ${source:Version}),
-         libk3b7 (= ${binary:Version}),
+         kylin-burner-data (= ${source:Version}),
+         libkylin-burner7 (= ${binary:Version}),
          udisks2 [linux-any],
          wodim,
          ${misc:Depends},
          ${shlibs:Depends},
-Recommends: dvd+rw-tools, growisofs, k3b-i18n, libk3b7-extracodecs, vcdimager
-Suggests: k3b-extrathemes,
+Recommends: dvd+rw-tools, growisofs, kylin-burner-i18n, libkylin-burner7-extracodecs, vcdimager
+Suggests: kylin-burner-extrathemes,
           kde-config-cddb,
           normalize-audio,
           sox,
@@ -73,11 +73,10 @@ Description: Sophisticated CD/DVD burning application
  of the burning process the beginner may find comfort in the automatic settings
  and the reasonable k3b defaults which allow a quick start.
 
-Package: k3b-data
+Package: kylin-burner-data
 Architecture: all
 Depends: ${misc:Depends}
-Breaks: k3b-extrathemes (<< 18.08.3~), libk3b7 (<< 18.08.3~)
-Replaces: k3b-extrathemes (<< 18.08.3~), libk3b7 (<< 18.08.3~)
+Replaces: kylin-burner-extrathemes , libkylin-burner7 
 Description: Sophisticated CD/DVD burning application - data files
  K3b provides a comfortable user interface to perform most CD/DVD burning
  tasks. While the experienced user can take influence in all steps
@@ -86,9 +85,9 @@ Description: Sophisticated CD/DVD burning application - data files
  .
  This package contains the required data files common to all architectures.
 
-Package: k3b-extrathemes
+Package: kylin-burner-extrathemes
 Architecture: all
-Depends: k3b, ${misc:Depends}
+Depends: kylin-burner, ${misc:Depends}
 Description: Sophisticated CD/DVD burning application - extra themes
  K3b provides a comfortable user interface to perform most CD/DVD burning
  tasks. While the experienced user can take influence in all steps
@@ -97,7 +96,7 @@ Description: Sophisticated CD/DVD burning application - extra themes
  .
  This package contains additional themes for K3b.
 
-Package: k3b-i18n
+Package: kylin-burner-i18n
 Section: localization
 Architecture: all
 Depends: ${misc:Depends}
@@ -109,10 +108,10 @@ Description: Sophisticated CD/DVD burning application - localizations files
  .
  This package contains translations files.
 
-Package: libk3b-dev
+Package: libkylin-burner-dev
 Section: libdevel
 Architecture: any
-Depends: libk3b7 (= ${binary:Version}),
+Depends: libkylin-burner7 (= ${binary:Version}),
          ${misc:Depends},
 Description: KDE CD/DVD burning application library - development files
  K3b provides a comfortable user interface to perform most CD/DVD burning
@@ -122,12 +121,11 @@ Description: KDE CD/DVD burning application library - development files
  .
  This package contains development files.
 
-Package: libk3b7
+Package: libkylin-burner7
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Breaks: libk3b7-extracodecs (<< 18.08.3~)
-Replaces: libk3b7-extracodecs (<< 18.08.3~)
+Replaces: libkylin-burner7-extracodecs 
 Description: KDE CD/DVD burning application library - runtime files
  K3b provides a comfortable user interface to perform most CD/DVD burning
  tasks. While the experienced user can take influence in all steps
@@ -136,11 +134,10 @@ Description: KDE CD/DVD burning application library - runtime files
  .
  This package contains runtime libraries.
 
-Package: libk3b7-extracodecs
+Package: libkylin-burner7-extracodecs
 Architecture: any
-Depends: libk3b7 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
-Breaks: k3b-data (<< 18.08.3~)
-Replaces: k3b-data (<< 18.08.3~)
+Depends: libkylin-burner7 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Replaces: kylin-burner-data 
 Description: KDE CD/DVD burning application library - extra decoders
  K3b provides a comfortable user interface to perform most CD/DVD burning
  tasks. While the experienced user can take influence in all steps

@@ -1,0 +1,14 @@
+usr/share/doc/HTML/ca/k3b/
+usr/share/doc/HTML/de/k3b/
+usr/share/doc/HTML/es/k3b/
+usr/share/doc/HTML/fr/k3b/
+usr/share/doc/HTML/it/k3b/
+usr/share/doc/HTML/nl/k3b/
+usr/share/doc/HTML/pt/k3b/
+usr/share/doc/HTML/pt_BR/k3b/
+usr/share/doc/HTML/sv/k3b/
+usr/share/doc/HTML/uk/k3b/
+usr/share/locale/*/LC_MESSAGES/k3b.mo
+usr/share/locale/*/LC_MESSAGES/kio_videodvd.mo
+usr/share/locale/*/LC_MESSAGES/libk3b.mo
+usr/share/locale/*/LC_MESSAGES/libk3bdevice.mo

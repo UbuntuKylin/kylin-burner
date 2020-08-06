@@ -1,0 +1,11 @@
+usr/lib/*/qt5/plugins/k3bffmpegdecoder.so
+usr/lib/*/qt5/plugins/k3blameencoder.so
+usr/lib/*/qt5/plugins/k3bmaddecoder.so
+usr/lib/*/qt5/plugins/kcm_k3blameencoder.so
+usr/lib/*/qt5/plugins/kf5/kio/videodvd.so
+usr/share/konqsidebartng/virtual_folders/services/videodvd.desktop
+usr/share/kservices5/k3bffmpegdecoder.desktop
+usr/share/kservices5/k3blameencoder.desktop
+usr/share/kservices5/k3bmaddecoder.desktop
+usr/share/kservices5/kcm_k3blameencoder.desktop
+usr/share/kservices5/videodvd.protocol

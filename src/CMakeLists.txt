@@ -71,7 +71,7 @@ qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.AudioProj
 qt5_generate_dbus_interface( ${CMAKE_CURRENT_SOURCE_DIR}/k3bdataprojectinterface.h org.k3b.DataProject.xml )
 qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.DataProject.xml k3bdataprojectinterface.h K3b::DataProjectInterface k3bdataprojectinterfaceadaptor K3bDataProjectInterfaceAdaptor )
 
-add_executable(k3b
+add_executable(burner
     k3bwelcomewidget.cpp
     k3bapplication.cpp
     k3bdevicedelegate.cpp
@@ -226,14 +226,14 @@ add_executable(k3b
     ${IMAGES_RCC_SRCS}
 )
 
-target_include_directories(k3b PRIVATE
+target_include_directories(burner PRIVATE
     ${CMAKE_BINARY_DIR}
     helper
     projects
     projects/kostore
 )
 
-target_link_libraries(k3b
+target_link_libraries(burner
     k3bdevice
     k3blib
     KF5::Cddb
@@ -252,23 +252,23 @@ target_link_libraries(k3b
 )
 
 if(Qt5WebKitWidgets_FOUND)
-    target_link_libraries(k3b Qt5::WebKitWidgets)
+    target_link_libraries(burner Qt5::WebKitWidgets)
 endif()
 
 if(ICONV_FOUND)
-    target_include_directories(k3b PRIVATE ${ICONV_INCLUDE_DIR})
-    target_link_libraries(k3b ${ICONV_LIBRARIES})
+    target_include_directories(burner PRIVATE ${ICONV_INCLUDE_DIR})
+    target_link_libraries(burner ${ICONV_LIBRARIES})
 endif()
 
 if(ENABLE_AUDIO_PLAYER)
-    target_link_libraries(k3b Qt5::Multimedia)
+    target_link_libraries(burner Qt5::Multimedia)
 endif()
 
 if(ENABLE_MUSICBRAINZ)
-    target_link_libraries(k3b ${MUSICBRAINZ_LIBRARIES})
+    target_link_libraries(burner ${MUSICBRAINZ_LIBRARIES})
 endif()
 
-install(TARGETS k3b ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS burner ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/option/k3btheme.knsrc.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/option/k3btheme.knsrc
@@ -276,7 +276,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/option/k3btheme.knsrc.cmake
 
 
 ########### install files ###############
-install( PROGRAMS  org.kde.k3b.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS  org.kde.kylin-burner.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 #install( FILES  k3b-iso.desktop k3b-cue.desktop DESTINATION ${APPLNK_INSTALL_DIR}/.hidden/ )
 install( FILES  k3b.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
 install( FILES  k3bui.rc k3bdeviceui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/k3b )

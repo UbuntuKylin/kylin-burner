@@ -85,10 +85,14 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
 
     lineedit_iso = new QLineEdit(this);
     lineedit_iso->setFixedSize(360, 30);
-    
+    //lineedit_iso->setDragEnabled( false );
+    lineedit_iso->setEnabled( false );
+    lineedit_iso->setStyleSheet("background-color: transparent");
+
     lineEdit_icon = new QLabel( lineedit_iso );
     lineEdit_icon->setFixedSize( 15,15);
     lineEdit_text = new QLabel( lineedit_iso );
+    lineEdit_text->setStyleSheet("background-color: transparent;font:14px;color:#444444");
     
     QHBoxLayout* hlayout = new QHBoxLayout( lineedit_iso );
     hlayout->setContentsMargins(0, 0, 0, 0);
@@ -125,12 +129,12 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
 
-    QPushButton *button_start = new QPushButton(this);
+    button_start = new QPushButton(this);
     button_start->setText(i18n("start"));
     button_start->setFixedSize(140, 45);
-    button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+    button_start->setEnabled( false );
+    button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
+
 #if 1
     QLabel* CD_label = new QLabel( widget_label); 
     CD_label->setFixedHeight(30);
@@ -269,8 +273,14 @@ void K3b::AudioView::slotMediaChange( K3b::Device::Device* dev)
             continue;
         }
         qDebug()<< "mount point" << device <<endl;
-        combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium available space ") + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
         device_index.append( device );
+        combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium available space ") + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
+        if( !lineEdit_text->text().isEmpty() ){
+            button_start->setEnabled( true );
+            button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                        "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                        "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+        }
 
     }
        
@@ -314,7 +324,13 @@ void K3b::AudioView::slotOpenfile()
 
     lineEdit_icon->setStyleSheet("background-image:url(:/icon/icon/icon-镜像.png);\
                                  background-color:transparent;\
-                                background-repeat: no-repeat;});");
+                                 background-repeat: no-repeat;});");
+    if( !device_index.isEmpty() ){
+        button_start->setEnabled( true );
+        button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+    }
     
     lineEdit_text->setText( str );
 }

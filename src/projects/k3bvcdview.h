@@ -56,6 +56,7 @@ namespace K3b {
             void slotStartBurn();
            
             //*******************************************
+            void slotComboCD( int );
             void slotMediaChange( K3b::Device::Device* );
             void slotDeviceChange( K3b::Device::DeviceManager* );
 
@@ -74,8 +75,11 @@ namespace K3b {
             QComboBox* combo_CD;
             QComboBox* combo_iso;
             QPushButton* button_openfile;
+            QPushButton* button_start;
             QString filepath;
             int flag;
+            int CD_index;
+            int device_count;
 
             QList<Device::Device*> device_index;
 

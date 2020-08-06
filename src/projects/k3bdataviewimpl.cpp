@@ -266,27 +266,9 @@ void K3b::DataViewImpl::slotNewDir()
     m_doc->addEmptyDir( name, parentDir );
 }
 //*******************************************************************************************
-void K3b::DataViewImpl::slotOpenDir()
+int K3b::DataViewImpl::slotOpenDir()
+//void K3b::DataViewImpl::slotOpenDir()
 {
-/*
-    QList<QUrl> urls = QFileDialog::getOpenFileUrls( m_view,
-                                                     i18n("Open Files"),
-                                                     QUrl(),
-                                                     "All Files(*.*)");
-  */
-    //QString filepath = QFileDialog::getExistingDirectory( m_view, i18n("Open Directory"), "/home", QFileDialog::Directory | QFileDialog::DontResolveSymlinks);
-   /*  QFileDialog dialog( m_view );
-    dialog.setFileMode( QFileDialog::Directory );
-    dialog.setNameFilter( "All Files (*.*)" );
-    dialog.setOptions()
-
-    QStringList filepath;
-    if( dialog.exec() )
-        filepath = dialog.selectedFiles();
-
-    QList<QUrl> urls;*/
-    //QUrl url = QFileDialog::getExistingDirectoryUrl( m_view, i18n("Open Dir"), QUrl()/*, QFileDialog::DontUseNativeDialog*/);
-    //QUrl url = QUrl::fromLocalFile( filepath.at(0) );
     QStringList filepath;
     QUrl url;
     QList<QUrl> urls;
@@ -310,18 +292,15 @@ void K3b::DataViewImpl::slotOpenDir()
         urls = a->selectedUrls();
     }
     if( urls.count() == 0 )
-        return;
+        return 0;
     m_doc->addUrls( urls );
+    return 1;
 }
 
 void K3b::DataViewImpl::slotClear()
 {
     m_doc->clear();
 }
-
-
-
-
 
 void K3b::DataViewImpl::slotRemove()
 {

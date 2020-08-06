@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: k3b
+Upstream-Name: kylin-burner
 Source: https://download.kde.org/stable/k3b
 
 Files: *
