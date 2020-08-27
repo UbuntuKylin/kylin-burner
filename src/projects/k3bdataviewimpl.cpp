@@ -88,6 +88,9 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     m_sortModel->setSourceModel( m_model );
 
     //m_fileView->setItemDelegate( new DataProjectDelegate( this ) );
+    m_fileView->header()->setStyleSheet("QHeaderView::section{"
+                                        "border: 0px solid white;"
+                                        "background-color : rgba(242, 242, 242, 1);}");
     m_fileView->setModel( m_sortModel );
     m_fileView->setAcceptDrops( true );
     m_fileView->setDragEnabled( true );
@@ -105,6 +108,8 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     //*********************
     m_fileView->setIconSize( QSize(24,24) );
     m_fileView->setFixedHeight( 370 );
+    //m_fileView->setMaximumHeight( 370 );
+    //m_fileView->setMinimumHeight(28);
     m_fileView->setFrameStyle(QFrame::NoFrame);
 
     connect( m_fileView, SIGNAL(doubleClicked(QModelIndex)),
@@ -299,7 +304,8 @@ int K3b::DataViewImpl::slotOpenDir()
 
 void K3b::DataViewImpl::slotClear()
 {
-    m_doc->clear();
+    //m_doc->clear();
+    m_doc->clearDisk();
 }
 
 void K3b::DataViewImpl::slotRemove()
@@ -310,6 +316,7 @@ void K3b::DataViewImpl::slotRemove()
     for( int i = selection.size() - 1; i >= 0; --i ) {
         m_sortModel->removeRows( selection.at(i).top(), selection.at(i).height(), parentDirectory );
     }
+    emit dataChange(parentDirectory, m_sortModel);
 }
 
 
@@ -372,7 +379,7 @@ void K3b::DataViewImpl::slotSelectionChanged()
 {
     const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
 
-    bool open = true, rename = true, remove = true;
+    bool open = true, rename = true, remove = true, flag = true;
 
     // we can only rename one item at a time
     // also, we can only create a new dir over a single directory
@@ -397,6 +404,11 @@ void K3b::DataViewImpl::slotSelectionChanged()
     // check if all selected items can be removed
     foreach(const QModelIndex &index, indexes)
     {
+        QString name = index.model()->data(index, Qt::DisplayRole).toString();
+        DataItem *d = m_doc->root()->find(name);
+        qDebug() << d->isDeleteable();
+        if (!d->isDeleteable()) flag = false;
+        else flag = true;
         if (!(index.data(DataProjectModel::CustomFlagsRole).toInt() & DataProjectModel::ItemIsRemovable))
         {
             remove = false;
@@ -407,6 +419,7 @@ void K3b::DataViewImpl::slotSelectionChanged()
     m_actionRename->setEnabled( rename );
     m_actionRemove->setEnabled( remove );
     m_actionOpen->setEnabled( open );
+    emit dataDelete(flag);
 }
 
 
@@ -454,7 +467,9 @@ void K3b::DataViewImpl::slotEditBootImages()
 
 void K3b::DataViewImpl::slotImportedSessionChanged( int importedSession )
 {
-    m_actionClearSession->setEnabled( importedSession > -1 );
+    const QModelIndex parent = m_fileView->rootIndex();
+    //m_actionClearSession->setEnabled( importedSession > -1 );
+    emit dataChange(parent, m_sortModel);
 }
 
 

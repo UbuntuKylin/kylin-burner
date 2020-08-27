@@ -252,8 +252,9 @@ K3b::MainWindow::MainWindow()
                             height:600px;\
                             background:rgba(255,255,255,1);\
                             border:1px solid rgba(207, 207, 207, 1);\
-                            box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.2);\
-                            border-radius:12px;}");
+                            box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.16);\
+                            opacity:0.5\
+                            border-radius:6px;}");
     setWindowIcon(QIcon(":/icon/icon/logo.ico"));
     setWindowTitle( i18n("Kylin-Burner") );
 
@@ -576,6 +577,7 @@ void K3b::MainWindow::initView()
     d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
     d->btnImage = new QPushButton(i18n("Image Burner"), btnLabel);   // 镜像刻录
     d->btnCopy = new QPushButton(i18n("Copy Disk"), btnLabel);     // 复制光盘
+    isDataActived = true; isImageActived = false; isCopyActived = false;
 #if 1
     d->btnData->setFixedSize( 115, 50);
     d->btnData->setStyleSheet("QPushButton{"
@@ -807,22 +809,37 @@ bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
         }
         case QEvent::HoverLeave:
         {
-            if(obj == d->btnData)
+            if(obj == d->btnData && !isDataActived)
                 d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
-            if(obj == d->btnImage)
+            if(obj == d->btnImage && !isImageActived)
                 d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
-            if(obj == d->btnCopy)
+            if(obj == d->btnCopy && !isCopyActived)
                 d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
             break;
         }
         case QEvent::MouseButtonPress:
         {
             if(obj == d->btnData)
+            {
+                isDataActived = true; isImageActived = false; isCopyActived = false;
                 d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+            }
             if(obj == d->btnImage)
+            {
+                isDataActived = false; isImageActived = true; isCopyActived = false;
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
                 d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-悬停点击.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+            }
             if(obj == d->btnCopy)
+            {
+                isDataActived = false; isImageActived = false; isCopyActived = true;
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
                 d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-悬停点击.png"));
+            }
             break;
         }
         default:

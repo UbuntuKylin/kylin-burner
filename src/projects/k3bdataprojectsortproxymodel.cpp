@@ -24,7 +24,8 @@ DataProjectSortProxyModel::DataProjectSortProxyModel( QObject* parent )
     setDynamicSortFilter( true );
     setSortLocaleAware( true );
     setSortCaseSensitivity( Qt::CaseInsensitive );
-    setSortRole( DataProjectModel::SortRole );
+    //setSortRole( DataProjectModel::SortRole );
+    //setFilterKeyColumn(DataProjectModel::NumColumns);
 }
 
 
@@ -37,7 +38,11 @@ bool DataProjectSortProxyModel::lessThan( const QModelIndex& left, const QModelI
     else if( leftType == DataProjectModel::FileItemType && rightType == DataProjectModel::DirItemType )
         return sortOrder() == Qt::DescendingOrder;
     else
-        return QSortFilterProxyModel::lessThan( left, right );
+        //return QSortFilterProxyModel::lessThan( right, left );
+        return left.data( DataProjectModel::SortRole ).toString() <
+                right.data( DataProjectModel::SortRole ).toString();
+        //DisplayRole
+        //return QSortFilterProxyModel::lessThan( left, right );
 }
 
 } // namespace K3b

@@ -216,6 +216,11 @@ namespace K3b {
 
         class Private;
         Private* d;
+
+        /* add for busness button active */
+        bool isDataActived;
+        bool isImageActived;
+        bool isCopyActived;
         
 
         QLabel *pIconLabel;

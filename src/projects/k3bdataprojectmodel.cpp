@@ -29,6 +29,7 @@
 #include <QDataStream>
 #include <QMimeData>
 #include <QFont>
+#include <QBrush>
 
 
 class K3b::DataProjectModel::Private
@@ -184,6 +185,12 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
             else
                 return 0;
         }
+        else if (role == DeleteableRole) {
+            if (item->isDeleteable())
+                return ItemIsRemovable;
+            else
+                return 0;
+        }
         else if ( role == Qt::StatusTipRole ) {
             if (item->isSymLink())
                 return i18nc( "Symlink target shown in status bar", "Link to %1", static_cast<FileItem*>( item )->linkDest() );
@@ -194,12 +201,17 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
         switch( index.column() ) {
         case FilenameColumn:
             if( role == Qt::DisplayRole ||
-                role == Qt::EditRole ||
-                role == SortRole ) {
+                role == Qt::EditRole ) {
                 return item->k3bName();
+            }
+            else if (role == SortRole)
+            {
+                return item->inTime();
             }
             else if ( role == Qt::DecorationRole ) {
                 QString iconName;
+                QIcon iconPic;
+
                 if ( item->isDir() && item->parent() ) {
                     iconName = ( static_cast<K3b::DirItem*>( item )->depth() > 7 ? "folder-root" : "folder" );
                 }
@@ -211,9 +223,10 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
                 }
 
                 if( item->isSymLink() )
-                    return QIcon( new KIconEngine( iconName, nullptr, QStringList() << "emblem-symbolic-link" ) );
+                    iconPic = QIcon( new KIconEngine( iconName, nullptr, QStringList() << "emblem-symbolic-link" ) );
                 else
-                    return QIcon::fromTheme( iconName );
+                    iconPic = QIcon::fromTheme( iconName );
+                return iconPic;
             }
             else if( role == Qt::FontRole && item->isSymLink() ) {
                 QFont font;
@@ -221,6 +234,10 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
                 font.setItalic( true );
                 return font;
             }
+            /*
+            if (role == Qt::TextColorRole)
+                return QColor(179,179,179,1);
+*/
             if( role == Qt::SizeHintRole ){
                 return QSize(274, 35);
             }
@@ -262,6 +279,8 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
             break;
 
         }
+        if (!item->isDeleteable() && role == Qt::ForegroundRole)
+            return QBrush(QColor(179,179,179), Qt::SolidPattern);
     }
 
     return QVariant();

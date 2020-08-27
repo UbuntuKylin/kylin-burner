@@ -22,6 +22,7 @@
 #include "k3bdataviewimpl.h"
 #include "k3bdirproxymodel.h"
 #include "k3bmediaselectioncombobox.h"
+#include "k3bdiritem.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -55,6 +56,37 @@
 #include <QStyleFactory>
 */
 
+void K3b::DataView::onDataDelete(bool flag)
+{
+    button_remove->setEnabled(flag);
+    if (flag) enableButtonRemove();
+    else disableButtonRemove();
+}
+
+void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *model)
+{
+    qDebug() << "Data Changed : " << model->rowCount(parent);
+    if (0 == model->rowCount(parent))
+    {
+        disableButtonRemove();
+        disableButtonClear();
+        disableButtonBurn();
+        disableBurnSetting();
+        btnFileFilter->hide();
+        //m_dataViewImpl->view()->setFixedHeight(28);
+        //if (tips) tips->show();
+    }
+    else
+    {
+        enableButtonRemove();
+        enableButtonClear();
+        enableButtonBurn();
+        enableBurnSetting();
+        btnFileFilter->show();
+        //m_dataViewImpl->view()->setFixedHeight(375);
+        //if (tips) tips->hide();
+    }
+}
 K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 :
     View( doc, parent ),
@@ -63,7 +95,15 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     m_dirView( new QTreeView( this ) ),
     m_dirProxy( new DirProxyModel( this ) )
 {
+    //dlgFileFilter = new KylinBurnerFileFilter(this);
+    dlgFileFilter = new KylinBurnerFileFilter
+            (parent->parentWidget()->parentWidget()->parentWidget()
+             ->parentWidget()->parentWidget());
     m_dirProxy->setSourceModel( m_dataViewImpl->model() );
+
+    connect(m_dataViewImpl, SIGNAL(dataChange(QModelIndex , QSortFilterProxyModel *)),
+            this, SLOT(onDataChange(QModelIndex , QSortFilterProxyModel *)));
+    connect(m_dataViewImpl, SIGNAL(dataDelete(bool)), this, SLOT(onDataDelete(bool)));
 
     toolBox()->show();
 
@@ -114,6 +154,12 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     combo_burner = new QComboBox( label_view );
     combo_burner->setEnabled( false );
     combo_burner->setMinimumSize(310, 30);
+    combo_burner->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
+                            "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
+                             border-top-right-radius: 3px; \
+                             border-bottom-right-radius: 3px;}"
+                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+
     
     //QLabel *label_space = new QLabel(label);
 
@@ -168,7 +214,21 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     hlayout_bottom->addLayout( vlayout_combo );
     hlayout_bottom->addLayout( vlayout_button );
 
-    layout->addWidget( m_dataViewImpl->view() );
+    /*
+    tips = new QLabel(
+                i18n("Please click button [Add] or drag you file to current zone for new files."),
+                this);
+
+    tips->setMinimumHeight(342);
+    */
+    //tips->hide();
+    QVBoxLayout *vlayout_middle = new QVBoxLayout();
+    vlayout_middle->setContentsMargins(0, 0, 20, 0);
+    vlayout_middle->addWidget( m_dataViewImpl->view() );
+    //vlayout_middle->addWidget( tips );
+
+    //layout->addWidget( m_dataViewImpl->view() );
+    layout->addLayout( vlayout_middle );
     layout->addStretch( 26 );
     layout->addLayout( hlayout_bottom );
 #if 0
@@ -247,6 +307,16 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                  "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
                                  "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
 
+
+    QLabel *labelFileFilter = new QLabel( this );
+    labelFileFilter->setMinimumSize(132, 30);
+    btnFileFilter = new QPushButton(i18n("FileFilter"), labelFileFilter);
+    btnFileFilter->setFixedSize(112, 30);
+    btnFileFilter->setStyleSheet("QPushButton{ background-color:transparent; border-radius:4px; font: 14px; color:#415fc4;}"
+                                 "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"
+                                 "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+
+
     //安装事件过滤器
     button_add->installEventFilter(this); 
     button_remove->installEventFilter(this); 
@@ -263,14 +333,24 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     layout_action->addWidget( button_clear );
     layout_action->addStretch(8);
     layout_action->addWidget( button_newdir );
+
+
+    QHBoxLayout* layoutFileFilter = new QHBoxLayout( labelFileFilter );
+    layoutFileFilter->setContentsMargins(20,0,0,0);
+    //layoutFileFilter->addStretch(10);
+    layoutFileFilter->addWidget( btnFileFilter );
+
     
     connect( button_add, SIGNAL( clicked() ), this, SLOT( slotOpenClicked() ) );
     connect( button_remove, SIGNAL( clicked() ), this, SLOT( slotRemoveClicked() ) );
     connect( button_clear, SIGNAL( clicked() ), this, SLOT( slotClearClicked()  ) );
     connect( button_newdir, SIGNAL( clicked() ), this, SLOT( slotNewdirClicked() ) );
+    connect( btnFileFilter, SIGNAL( clicked() ), this, SLOT( slotFileFilterClicked() ) );
 
     toolBox()->addWidget( label_action );
+    toolBox()->addWidget( labelFileFilter );
     toolBox()->addAction( actionCollection()->action( "project_volume_name" ) );
+    btnFileFilter->hide();
 
     workerThread = new QThread;
     LoadWorker *worker = new LoadWorker;
@@ -286,10 +366,17 @@ K3b::DataView::~DataView()
 {
 }
 
+void K3b::DataView::slotFileFilterClicked()
+{
+    qDebug() << "kakaka...";
+    dlgFileFilter->show();
+}
+
 bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 {
     switch (event->type()) {
     case QEvent::HoverEnter:
+        /*
         if(obj == button_add)
             button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
         if(obj == button_remove){
@@ -302,8 +389,15 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         }
         if(obj == button_newdir)
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+        */
+        if (obj == button_add) hoverButtonAdd();
+        else if (obj == button_remove) hoverButtonRemove();
+        else if (obj == button_clear) hoverButtonClear();
+        else if (obj == button_newdir) hoverButtonNewDir();
+        else break;
         break;
     case QEvent::HoverLeave:
+        /*
         if(obj == button_add)
             button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
         if(obj == button_remove)
@@ -312,6 +406,12 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
             button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
         if(obj == button_newdir)
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+        */
+        if (obj == button_add) enableButtonAdd();
+        else if (obj == button_remove) enableButtonRemove();
+        else if (obj == button_clear) enableButtonClear();
+        else if (obj == button_newdir) enableButtonNewDir();
+        else break;
         break;
     case QEvent::MouseButtonPress:
         if(obj == button_add)
@@ -362,7 +462,15 @@ void K3b::DataView::slotRemoveClicked()
 
 void K3b::DataView::slotClearClicked()
 {
+    const QModelIndex parentDirectory = m_dataViewImpl->view()->rootIndex();
     m_dataViewImpl->slotClear();
+    if (0 == m_dataViewImpl->view()->model()->rowCount(parentDirectory))
+    {
+        button_clear->setEnabled(false);
+        button_remove->setEnabled(false);
+        burn_button->setEnabled(false);
+        burn_setting->setEnabled(false);
+    }
 }
 
 void K3b::DataView::slotNewdirClicked()
@@ -566,6 +674,184 @@ void K3b::DataView::slotSetCurrentRoot( const QModelIndex& index )
 void K3b::DataView::onLoadFinished() 
 {
     loadFlag = true;
+    K3b::DirItem* root = static_cast<K3b::DirItem*>(m_doc->root());
+    if (root->children().size()) btnFileFilter->show();
+}
+
+void K3b::DataView::enableBurnSetting()
+{
+    burn_setting->setEnabled(true);
+    burn_setting->setStyleSheet("background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;color : #444444");
+}
+
+void K3b::DataView::hoverBurnSetting()
+{
+    burn_setting->setStyleSheet("background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::pressBurnSetting()
+{
+    burn_setting->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::disableBurnSetting()
+{
+    //if (burn_setting->isEnabled()) burn_setting->setEnabled(false);
+    if (!burn_setting->isEnabled())
+    {
+        burn_setting->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::enableButtonBurn()
+{
+    if (!burn_button->isEnabled()) return;
+    burn_button->setStyleSheet("background-color:rgba(61, 107, 229, 1);font: 18px;border-radius: 4px;color:#ffffff");
+}
+
+void K3b::DataView::hoverButtonBurn()
+{
+    if (!burn_button->isEnabled()) return;
+    burn_button->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 18px;border-radius: 4px;color:#ffffff");
+}
+
+void K3b::DataView::pressButtonBurn()
+{
+    if (!burn_button->isEnabled()) return;
+    burn_button->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 18px;border-radius: 4px;color:#ffffff");
+}
+
+void K3b::DataView::disableButtonBurn()
+{
+    if (burn_button->isEnabled()) burn_button->setEnabled(false);
+    if (!burn_button->isEnabled())
+    {
+        burn_button->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 18px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::enableButtonAdd()
+{
+    if (!button_add->isEnabled()) return;
+    button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+    button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::hoverButtonAdd()
+{
+    if (!button_add->isEnabled()) return;
+    button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+    button_add->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::pressButtonAdd()
+{
+    if (!button_add->isEnabled()) return;
+    button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+    button_add->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::disableButtonAdd()
+{
+    if (button_add->isEnabled()) button_add->setEnabled(false);
+    if (!button_add->isEnabled())
+    {
+        button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+        button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::enableButtonRemove()
+{
+    if (!button_remove->isEnabled()) return;
+    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+    button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::hoverButtonRemove()
+{
+    if (!button_remove->isEnabled()) return;
+    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+    button_remove->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::pressButtonRemove()
+{
+    if (!button_remove->isEnabled()) return;
+    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+    button_remove->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::disableButtonRemove()
+{
+    if (button_remove->isEnabled()) button_remove->setEnabled(false);
+    if (!button_remove->isEnabled())
+    {
+        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+        button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::enableButtonClear()
+{
+    if (!button_clear->isEnabled()) return;
+    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+    button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::hoverButtonClear()
+{
+    if (!button_clear->isEnabled()) return;
+    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+    button_clear->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::pressButtonClear()
+{
+    if (!button_clear->isEnabled()) return;
+    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+    button_clear->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::disableButtonClear()
+{
+    if (button_clear->isEnabled()) button_clear->setEnabled(false);
+    if (!button_clear->isEnabled())
+    {
+        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+        button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::enableButtonNewDir()
+{
+    if (!button_newdir->isEnabled()) return;
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+    button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::hoverButtonNewDir()
+{
+    if (!button_newdir->isEnabled()) return;
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+    button_newdir->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::pressButtonNewDir()
+{
+    if (!button_newdir->isEnabled()) return;
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+    button_newdir->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
+}
+
+void K3b::DataView::disableButtonNewDir()
+{
+    if (button_newdir->isEnabled()) button_newdir->setEnabled(false);
+    if (!button_newdir->isEnabled())
+    {
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+        button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
 }
 
 void K3b::LoadWorker::load(QString path, DataDoc* m_doc)
@@ -580,7 +866,8 @@ void K3b::LoadWorker::load(QString path, DataDoc* m_doc)
     {
         if( strstr(fileinfo.at(i).filePath().toLatin1().data(), "/.") != NULL)
             continue;
-        m_doc->addUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
+        m_doc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
+        //m_doc->addUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
     }
     emit loadFinished(); //发送信号，修改标志位
 }

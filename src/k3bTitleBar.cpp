@@ -96,6 +96,9 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                 "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
                                   "border:none;background-color:rgb(248, 100, 87);"
                                   "border-radius: 4px;}"
+                                 "QPushButton:pressed{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
+                                    "border:none;background-color:rgba(228, 76, 80, 1);"
+                                    "border-radius: 4px;}"
                                 "QPushButton:checked{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
                                   "border:none;background-color:rgb(228, 236, 80);"
                                   "border-radius: 4px;}");
@@ -127,7 +130,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //mainWidgetLayout->addWidget(mainWidget);
     //mainWidget->setLayout(pLayout);
     //mainWidgetLayout->setMargin(0);
-    pLayout->setContentsMargins( 0, 0, 0, 0);
+    pLayout->setContentsMargins( 0, 4, 4, 0);
     pLayout->setSpacing(0);
     pLayout->addStretch(0);
     label_top->setStyleSheet("QWidget{background-color:rgb(255,255,255);}");
@@ -137,10 +140,10 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //pLayout->addWidget(m_pMaximizeButton);
     pLayout->addSpacing(4);
     pLayout->addWidget(m_pCloseButton);
-    pLayout->addSpacing(3);
+    //pLayout->addSpacing(3);
 
     QVBoxLayout* mainLayout = new QVBoxLayout( this );
-    mainLayout->setContentsMargins( 0, 5, 5, 0);
+    mainLayout->setContentsMargins( 0, 4, 4, 0);
     mainLayout->addWidget( label_top );
     mainLayout->addStretch( 0 );
 

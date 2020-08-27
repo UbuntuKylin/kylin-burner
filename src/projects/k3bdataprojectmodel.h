@@ -44,6 +44,7 @@ namespace K3b {
         {
             ItemTypeRole = Qt::UserRole,  ///< returns int which is a combination of ItemType
             CustomFlagsRole,              ///< returns int which is a combination of ItemFlags
+            DeleteableRole,
             SortRole                      ///< returns data most suitable for sorting
         };
 

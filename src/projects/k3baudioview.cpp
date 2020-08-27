@@ -120,7 +120,11 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     combo_CD->setFixedSize(360, 30);
     combo_CD->addItem( i18n("please insert CD") );
     combo_CD->setEnabled( false );
-    combo_CD->setStyleSheet("QComboBox");
+    combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
+                            "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
+                             border-top-right-radius: 3px; \
+                             border-bottom-right-radius: 3px;}"
+                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
 
     QPushButton *button_setting = new QPushButton(this);
     button_setting->setText(i18n("setting"));

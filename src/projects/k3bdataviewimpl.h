@@ -49,6 +49,8 @@ namespace K3b {
 
     signals:
         void setCurrentRoot( const QModelIndex& index );
+        void dataChange(QModelIndex parent, QSortFilterProxyModel *model);
+        void dataDelete(bool flag);
 
     public Q_SLOTS:
         void slotCurrentRootChanged( const QModelIndex& newRoot );
