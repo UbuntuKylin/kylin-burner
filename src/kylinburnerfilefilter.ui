@@ -314,7 +314,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="btnSetting">
         <property name="minimumSize">
          <size>
           <width>150</width>
@@ -333,7 +333,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="btnRecovery">
         <property name="minimumSize">
          <size>
           <width>80</width>
