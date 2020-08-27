@@ -82,6 +82,7 @@ namespace K3b {
 
         bool newDocument() override;
         void clear() override;
+        void clearDisk();
 
         KIO::filesize_t size() const override;
 
@@ -98,6 +99,7 @@ namespace K3b {
          * returns false.
          */
         void removeItem( DataItem* item );
+        void removeDiskItem( K3b::DataItem* item );
         void removeItems( DirItem* parent, int start, int count );
 
         /**
@@ -208,6 +210,7 @@ namespace K3b {
 
     public Q_SLOTS:
         void addUrls( const QList<QUrl>& urls ) override;
+        void addUnremovableUrls(const QList<QUrl>& urls);
 
         /**
          * Add urls synchronously
@@ -215,6 +218,7 @@ namespace K3b {
          * If a file already exists the new file's name will be appended a number.
          */
         virtual void addUrlsToDir( const QList<QUrl>& urls, K3b::DirItem* dir );
+        void addUnremovableUrlsToDir(const QList<QUrl>& urls, K3b::DirItem* dir);
 
         void clearImportedSession();
 

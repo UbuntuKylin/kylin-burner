@@ -165,11 +165,13 @@ namespace K3b {
         // these are all needed for special fileitems like
         // imported sessions or the movix filesystem
         virtual bool isRemoveable() const { return m_bRemoveable; }
+        virtual bool isDeleteable() const { return m_bDeleteable; }
         virtual bool isMoveable() const { return m_bMovable; }
         virtual bool isRenameable() const { return m_bRenameable; }
         virtual bool isHideable() const { return m_bHideable; }
         virtual bool writeToCd() const { return m_bWriteToCd; }
         virtual QString extraInfo() const { return m_extraInfo; }
+        virtual QString inTime() const { return m_inTime; }
 
         /**
          * Default implementation returns the default mimetype.
@@ -179,6 +181,7 @@ namespace K3b {
         void setRenameable( bool b ) { m_bRenameable = b; }
         void setMoveable( bool b ) { m_bMovable = b; }
         void setRemoveable( bool b ) { m_bRemoveable = b; }
+        void setDeleteable( bool b ) { m_bDeleteable = b; }
         void setHideable( bool b ) { m_bHideable = b; }
         void setWriteToCd( bool b ) { m_bWriteToCd = b; }
         void setExtraInfo( const QString& i ) { m_extraInfo = i; }
@@ -207,6 +210,7 @@ namespace K3b {
         QString m_writtenName;
         QString m_rawIsoName;
         QString m_extraInfo;
+        QString m_inTime;
 
         DirItem* m_parentDir;
         long m_sortWeight;
@@ -214,6 +218,7 @@ namespace K3b {
         bool m_bHideOnRockRidge;
         bool m_bHideOnJoliet;
         bool m_bRemoveable;
+        bool m_bDeleteable;
         bool m_bRenameable;
         bool m_bMovable;
         bool m_bHideable;
