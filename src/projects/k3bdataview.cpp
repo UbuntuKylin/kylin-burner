@@ -368,7 +368,19 @@ K3b::DataView::~DataView()
 
 void K3b::DataView::slotFileFilterClicked()
 {
-    qDebug() << "kakaka...";
+    K3b::DirItem *d = m_doc->root();
+    K3b::DataItem *c;
+    qDebug() << m_doc->URL();
+    for (int i = 0; i < d->children().size(); ++i)
+    {
+        c = d->children().at(i);
+        if (c)
+        {
+            if (c->isDir()) qDebug() << "DIR: " << c->localPath() << "---" << c->k3bPath() << "---" << c->k3bName();
+            else qDebug() << "Other: " << c->localPath() << "---" << c->k3bPath() << "---" << c->k3bName();
+        }
+    }
+    dlgFileFilter->slotDoFileFilter(m_doc);
     dlgFileFilter->show();
 }
 
@@ -601,6 +613,8 @@ void K3b::DataView::add_device_urls(QString filepath)
     {
         loadFlag = false;
         m_doc->clear();
+        //m_doc->root()->setLocalPath(filepath);
+        m_doc->setURL(QUrl::fromLocalFile(filepath));
         emit load(filepath, m_doc);
     }
 }
@@ -860,12 +874,16 @@ void K3b::LoadWorker::load(QString path, DataDoc* m_doc)
         return;
 
     QDir *dir = new QDir(path);
-    QStringList nameFilters;
-    QList<QFileInfo> fileinfo(dir->entryInfoList( nameFilters ) );
+    QList<QFileInfo> fileinfo(dir->entryInfoList( QDir::AllEntries | QDir::Hidden ) );
     for ( int i = 0; i < fileinfo.count(); i++ )
     {
+        qDebug() << fileinfo.at(i).fileName();
+        if (fileinfo.at(i).fileName() == "." ||
+                fileinfo.at(i).fileName() == "..") continue;
+        /*
         if( strstr(fileinfo.at(i).filePath().toLatin1().data(), "/.") != NULL)
             continue;
+        */
         m_doc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
         //m_doc->addUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
     }

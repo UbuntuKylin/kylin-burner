@@ -139,6 +139,7 @@ namespace K3b {
 
     signals:
         void load(QString, DataDoc*);
+        //void doFileFilter(K3b::DataDoc *doc);
 
     public slots:
         void onLoadFinished();

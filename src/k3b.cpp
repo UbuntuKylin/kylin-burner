@@ -109,7 +109,7 @@
 #include <QBitmap>
 #include <QPainter>
 #include <cstdlib>
-
+#include <QGraphicsDropShadowEffect>
 
 namespace {
 
@@ -255,17 +255,29 @@ K3b::MainWindow::MainWindow()
                             box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.16);\
                             opacity:0.5\
                             border-radius:6px;}");
+
     setWindowIcon(QIcon(":/icon/icon/logo.ico"));
     setWindowTitle( i18n("Kylin-Burner") );
 
     resize(900, 600);
     //add widget border-radius
+    /*
+    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
+
+    shadow_effect->setOffset(-5, 5);
+
+    shadow_effect->setColor(Qt::gray);
+
+    shadow_effect->setBlurRadius(8);
+    */
+
     QBitmap bmp(this->size());
     bmp.fill();
     QPainter p(&bmp);
     p.setPen(Qt::NoPen);
     p.setBrush(Qt::black);
     p.drawRoundedRect(bmp.rect(), 6, 6);
+
     setMask(bmp);
 
 #if 0
@@ -542,7 +554,7 @@ void K3b::MainWindow::initView()
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-    
+
     //左右分割
     d->mainSplitter = new QSplitter( Qt::Horizontal, this );
 

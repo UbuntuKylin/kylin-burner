@@ -406,7 +406,7 @@ void K3b::DataViewImpl::slotSelectionChanged()
     {
         QString name = index.model()->data(index, Qt::DisplayRole).toString();
         DataItem *d = m_doc->root()->find(name);
-        qDebug() << d->isDeleteable();
+        qDebug() << d->isDeleteable() << d->parent()->localPath();
         if (!d->isDeleteable()) flag = false;
         else flag = true;
         if (!(index.data(DataProjectModel::CustomFlagsRole).toInt() & DataProjectModel::ItemIsRemovable))

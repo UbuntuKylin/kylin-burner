@@ -328,6 +328,7 @@ void K3b::DataDoc::addUnremovableUrlsToDir( const QList<QUrl>& l, K3b::DirItem* 
             k3bname = '1';
 
         K3b::DirItem* newDirItem = 0;
+        K3b::DataItem *newFileItem = NULL;
 
         // rename the new item if an item with that name already exists
         int cnt = 0;
@@ -379,10 +380,12 @@ void K3b::DataDoc::addUnremovableUrlsToDir( const QList<QUrl>& l, K3b::DirItem* 
             QList<QUrl> newUrls;
             for( QStringList::ConstIterator it = dlist.constBegin(); it != dlist.constEnd(); ++it )
                 newUrls.append( QUrl::fromLocalFile( f.absoluteFilePath() + '/' + *it ) );
-            addUrlsToDir( newUrls, newDirItem );
+            addUnremovableUrlsToDir( newUrls, newDirItem );
         }
         else if( f.isSymLink() || f.isFile() ) {
-            dir->addDataItem( new FileItem( url.toLocalFile(), *this, false, k3bname ) );
+            newFileItem = new FileItem( url.toLocalFile(), *this, false, k3bname );
+            newFileItem->setDeleteable(false);
+            dir->addDataItem( newFileItem );
         }
     }
 
