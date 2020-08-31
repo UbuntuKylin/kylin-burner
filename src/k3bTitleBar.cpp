@@ -49,10 +49,10 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     m_pMaximizeButton->setObjectName("maximizeButton");
     m_pCloseButton->setObjectName("closeButton");
 
-    m_pMenubutton->setToolTip("Menu");
-    m_pMinimizeButton->setToolTip("Minimize");
-    m_pMaximizeButton->setToolTip("Maximize");
-    m_pCloseButton->setToolTip("Close");
+    m_pMenubutton->setToolTip(i18n("Menu__"));
+    m_pMinimizeButton->setToolTip(i18n("Minimize__"));
+    m_pMaximizeButton->setToolTip(i18n("Maximize__"));
+    m_pCloseButton->setToolTip(i18n("Close__"));
 
     m_pTitleLabel->setContentsMargins(8,0,0,0);
     m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);

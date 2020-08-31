@@ -164,10 +164,11 @@ void K3b::DataDoc::clear()
     emit importedSessionChanged( importedSession() );
 }
 
-void K3b::DataDoc::removeDiskItem( K3b::DataItem* item )
+bool K3b::DataDoc::removeDiskItem( K3b::DataItem* item )
 {
-    if (NULL == item) return;
-    if (item->isDeleteable()) delete item;
+    if (NULL == item) return false;
+    if (item->isDeleteable()) { delete item; return true; }
+    return false;
 }
 
 void K3b::DataDoc::clearDisk()
@@ -178,7 +179,7 @@ void K3b::DataDoc::clearDisk()
     d->bootCataloge = 0;
     if( d->root ) {
         for (int i = 0; i < d->root->children().size(); ++i) {
-         removeDiskItem(d->root->children().at(i));
+         if (removeDiskItem(d->root->children().at(i))) --i;
         }
     }
     d->sizeHandler->clear();
@@ -235,13 +236,14 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
         QFileInfo f( url.toLocalFile() );
         QString k3bname = f.absoluteFilePath().section( '/', -1 );
 
+        // backup dummy name
+        if( k3bname.isEmpty() )
+            k3bname = '1';
+
         // filenames cannot end in backslashes (mkisofs problem. See comments in k3bisoimager.cpp (escapeGraftPoint()))
         while( k3bname[k3bname.length()-1] == '\\' )
             k3bname.truncate( k3bname.length()-1 );
 
-        // backup dummy name
-        if( k3bname.isEmpty() )
-            k3bname = '1';
 
         K3b::DirItem* newDirItem = 0;
 

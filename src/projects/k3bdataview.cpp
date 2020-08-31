@@ -52,6 +52,8 @@
 #include <Solid/StorageAccess>
 #include <QThread>
 #include <KMountPoint>
+#include <QListView>
+#include <QLineEdit>
 /*
 #include <QStyleFactory>
 */
@@ -65,7 +67,6 @@ void K3b::DataView::onDataDelete(bool flag)
 
 void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *model)
 {
-    qDebug() << "Data Changed : " << model->rowCount(parent);
     if (0 == model->rowCount(parent))
     {
         disableButtonRemove();
@@ -96,9 +97,9 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     m_dirProxy( new DirProxyModel( this ) )
 {
     //dlgFileFilter = new KylinBurnerFileFilter(this);
-    dlgFileFilter = new KylinBurnerFileFilter
-            (parent->parentWidget()->parentWidget()->parentWidget()
-             ->parentWidget()->parentWidget());
+    mainWindow = parent->parentWidget()->parentWidget()->parentWidget()
+            ->parentWidget()->parentWidget();
+    dlgFileFilter = new KylinBurnerFileFilter(mainWindow);
     m_dirProxy->setSourceModel( m_dataViewImpl->model() );
 
     connect(m_dataViewImpl, SIGNAL(dataChange(QModelIndex , QSortFilterProxyModel *)),
@@ -106,6 +107,11 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     connect(m_dataViewImpl, SIGNAL(dataDelete(bool)), this, SLOT(onDataDelete(bool)));
 
     toolBox()->show();
+
+    /* init the docs */
+    docs.clear();
+    device_index.clear();
+    comboIndex = 0;/* to make the list is null, and the index 0 is local image */
 
     // Dir panel
     m_dirView->setFrameStyle(QFrame::NoFrame); //去掉边框
@@ -171,16 +177,27 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     combo_CD = new QComboBox( label_view );
     combo_CD->setFixedWidth( 310 );
-    combo_CD->setEditable( false );
+    //combo_CD->setEditable( false );
     combo_CD->setMinimumSize(310, 30);
     image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
-    combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    //combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    combo_burner->insertItem(comboIndex,
+                             QIcon(":/icon/icon/icon-刻录机.png"),
+                             i18n(" "));
+    combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    /* docs[0] is local image */
+    K3b::DataDoc *tmpDoc = new K3b::DataDoc(this);
+    tmpDoc->setURL(m_doc->URL());
+    tmpDoc->newDocument();
+    docs << tmpDoc;
+    qDebug() << "now docs length is : " << docs.size() << "docs[0] is" << docs[0];
 
     combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                              border-top-right-radius: 3px; \ 
                              border-bottom-right-radius: 3px;}"
                              "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+    combo_CD->setView(new QListView());
 
     QHBoxLayout *hlayout_burner = new QHBoxLayout();
     hlayout_burner->setContentsMargins(0, 0, 0, 0);
@@ -364,6 +381,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
 K3b::DataView::~DataView()
 {
+    delete dlgFileFilter;
 }
 
 void K3b::DataView::slotFileFilterClicked()
@@ -419,10 +437,10 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         if(obj == button_newdir)
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
         */
-        if (obj == button_add) enableButtonAdd();
-        else if (obj == button_remove) enableButtonRemove();
-        else if (obj == button_clear) enableButtonClear();
-        else if (obj == button_newdir) enableButtonNewDir();
+        if (obj == button_add) hoverButtonAdd(false);
+        else if (obj == button_remove) hoverButtonRemove(false);
+        else if (obj == button_clear) hoverButtonClear(false);
+        else if (obj == button_newdir) hoverButtonNewDir(false);
         else break;
         break;
     case QEvent::MouseButtonPress:
@@ -448,6 +466,8 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 void K3b::DataView::slotOpenClicked()
 {
     int ret = m_dataViewImpl->slotOpenDir();
+    if (ret) copyData(docs.at(combo_CD->currentIndex()), m_doc);
+    /*
     if( ret ){
         button_remove->setEnabled( true );
         button_remove->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
@@ -462,47 +482,117 @@ void K3b::DataView::slotOpenClicked()
         burn_button->setEnabled( true );
         burn_button->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
-                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
-
+                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");  
     }
+    */
 }
 
 void K3b::DataView::slotRemoveClicked()
 {
     m_dataViewImpl->slotRemove();
+    copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
 
 void K3b::DataView::slotClearClicked()
 {
     const QModelIndex parentDirectory = m_dataViewImpl->view()->rootIndex();
     m_dataViewImpl->slotClear();
-    if (0 == m_dataViewImpl->view()->model()->rowCount(parentDirectory))
-    {
-        button_clear->setEnabled(false);
-        button_remove->setEnabled(false);
-        burn_button->setEnabled(false);
-        burn_setting->setEnabled(false);
-    }
+    copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
 
 void K3b::DataView::slotNewdirClicked()
 {
     m_dataViewImpl->slotNewDir();
+    copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
 
 void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
 {
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     if ( device_list.count() == 0 ){
-        combo_burner->setEnabled(false);
-        combo_CD->setEditable(true);
+        //combo_burner->setEnabled(false);
+        //combo_CD->setEditable(true);
     }else 
         slotMediaChange( 0 );
+    */
+    qDebug() << "------------ Device changed ....";
 }
 
 void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
 {
     QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
+    QString cdSize;
+    QString cdInfo;
+    QString mountInfo;
+    K3b::DataDoc *tmpDoc = NULL;
+    int     idx = -1;
+
+    foreach(K3b::Device::Device* device, device_list)
+    {
+        K3b::Medium medium = k3bappcore->mediaCache()->medium( device );
+        KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
+        idx = device_index.indexOf(device);
+        qDebug() << "--------------->>>>>>>>>>>>>> now in list pos : " << idx << " total : " << device_index.size();
+        if (-1 == idx) idx = comboIndex;
+        else ++idx;
+        if (idx == comboIndex) device_index << device;
+        cdInfo.clear();
+        cdSize.clear();
+        mountInfo.clear();
+        cdSize =  KIO::convertSize(device->diskInfo().remainingSize().mode1Bytes());
+        if( !mountPoint)
+        {
+            if (device->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+            {
+                cdInfo = i18n("empty medium ") + cdSize;
+            }
+            else
+            {
+                cdInfo = i18n("please insert a medium or empty CD");
+            }
+        }
+        else
+        {
+            mountInfo = mountPoint->mountPoint();
+            cdInfo = medium.shortString() + i18n(", remaining available space") + cdSize;
+        }
+        if (idx == comboIndex)
+        {
+            combo_burner->insertItem(comboIndex,
+                                     QIcon(":/icon/icon/icon-刻录机.png"),
+                                     device->vendor() + " - " + device->description());
+            combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("drom file: ") + cdInfo);
+            tmpDoc = new K3b::DataDoc(this);
+            tmpDoc->setURL(m_doc->URL());
+            tmpDoc->newDocument();
+            if (tmpDoc) docs << tmpDoc;
+        }
+        else
+        {
+            combo_CD->setItemText(idx, i18n("drom file: ") + cdInfo);
+            tmpDoc = docs[idx];
+            tmpDoc->clear();
+        }
+
+        if (!mountInfo.isEmpty())
+        {
+            m_doc->clear();
+            QDir *dir = new QDir(mountInfo);
+            QList<QFileInfo> fileinfo(dir->entryInfoList( QDir::AllEntries | QDir::Hidden ) );
+            for ( int i = 0; i < fileinfo.count(); i++ )
+            {
+                qDebug() << fileinfo.at(i).fileName();
+                if (fileinfo.at(i).fileName() == "." ||
+                        fileinfo.at(i).fileName() == "..") continue;
+                tmpDoc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
+            }
+            copyData(m_doc, tmpDoc);
+            combo_CD->setCurrentIndex(idx);
+        }
+    }
+
+    /*
     burn_button->setVisible(true);
     mount_index.clear();
     device_index.clear();
@@ -555,29 +645,47 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         iso_index++;
 
         combo_burner->addItem(QIcon(":/icon/icon/icon-刻录机.png"), burnerInfo);
-        combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), CDInfo);
+        combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("drom file: ") + CDInfo);
     }
-    
-    image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
-    combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
-
+    */
+    //image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
+    //combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
 }
 
 void K3b::DataView::slotComboBurner(int index)
 {
-    qDebug()<< " combo burner index " << index << mount_index << endl;
     if ( index < 0 )
        index = 0;
-
     // 会调用slotComboCD 槽函数    
     combo_CD->setCurrentIndex( index );
 }
 
 void K3b::DataView::slotComboCD(int index)
 {
+    K3b::DataDoc *tmpDoc = NULL;
+
+    tmpDoc = docs[index];
+
+    copyData(m_doc, tmpDoc);
+    combo_burner->setCurrentIndex( index );
+    if (index)
+    {
+        combo_burner->setEnabled( true );
+        burn_setting->setText(i18n("setting"));
+        burn_button->setText(i18n("start burner"));
+    }
+    else
+    {
+        combo_burner->setEnabled( false );
+        burn_setting->setText(i18n("open"));
+        burn_button->setText(i18n("create iso"));
+    }
+    /*
     qDebug()<< " combo Cd index " << index << mount_index << iso_index <<endl;
     if ( index < 0 )
         index = 0;
+
+    combo_CD->setEditable(false);
 
     if ( index == iso_index ){
         m_doc->clear();
@@ -587,9 +695,10 @@ void K3b::DataView::slotComboCD(int index)
         burn_button->setText(i18n("create iso"));
     }else{
         combo_burner->setEnabled( true );
-        //combo_CD->setEditable( false );
+        combo_CD->setEditable( false );
         burn_setting->setText(i18n("setting"));
         burn_button->setText(i18n("start burner"));
+
 
         combo_burner->blockSignals( true ); //不发送信号，不会调用slotComboBurner 槽函数
         combo_burner->setCurrentIndex( index );
@@ -597,6 +706,7 @@ void K3b::DataView::slotComboCD(int index)
 
         add_device_urls( mount_index.at( index ) );
     }
+    */
 
 }
 
@@ -621,7 +731,7 @@ void K3b::DataView::add_device_urls(QString filepath)
 
 void K3b::DataView::slotStartBurn()
 {
-    DataBurnDialog *dlg = new DataBurnDialog( m_doc, this);
+    DataBurnDialog *dlg = new DataBurnDialog( m_doc, mainWindow);
     if( m_doc->burningSize() == 0 ) { 
          KMessageBox::information( this, i18n("Please add files to your project first."),
                                       i18n("No Data to Burn") );
@@ -653,13 +763,23 @@ void K3b::DataView::slotBurn()
         dlg->execBurnDialog(true);
         delete dlg;
     }else if ( burn_setting->text() == i18n("open" )){
+           connect(this, SIGNAL(disableCD(bool)), this, SLOT(slotDisableCD(bool)));
         QString filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
         if ( filepath.isEmpty() )
             return;
-        combo_CD->setEditable( true );
         image_path = filepath + "/kylin_burner.iso";
-        combo_CD->setCurrentText(  i18n("image file: ") + image_path );
+        //combo_CD->setCurrentText( image_path );
+        qDebug() << "image path : " << image_path;
+        combo_CD->setItemText(0, i18n("image file: ") + image_path);
+        //combo_CD->lineEdit()->setCursorPosition(0);
+        //emit disableCD(false);
     } 
+    //combo_CD->setEditable( false );
+}
+
+void K3b::DataView::slotDisableCD(bool enb)
+{
+    combo_CD->setEditable( enb );
 }
 
 void K3b::DataView::addUrls( const QList<QUrl>& urls )
@@ -698,9 +818,13 @@ void K3b::DataView::enableBurnSetting()
     burn_setting->setStyleSheet("background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;color : #444444");
 }
 
-void K3b::DataView::hoverBurnSetting()
+void K3b::DataView::hoverBurnSetting(bool in)
 {
-    burn_setting->setStyleSheet("background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#444444");
+    if (!burn_setting->isEnabled()) return;
+    if (in)
+        burn_setting->setStyleSheet("background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#444444");
+    else
+        burn_setting->setStyleSheet("background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;color : #444444");
 }
 
 void K3b::DataView::pressBurnSetting()
@@ -710,7 +834,7 @@ void K3b::DataView::pressBurnSetting()
 
 void K3b::DataView::disableBurnSetting()
 {
-    //if (burn_setting->isEnabled()) burn_setting->setEnabled(false);
+    if (burn_setting->isEnabled()) burn_setting->setEnabled(false);
     if (!burn_setting->isEnabled())
     {
         burn_setting->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
@@ -719,14 +843,17 @@ void K3b::DataView::disableBurnSetting()
 
 void K3b::DataView::enableButtonBurn()
 {
-    if (!burn_button->isEnabled()) return;
+    burn_button->setEnabled(true);
     burn_button->setStyleSheet("background-color:rgba(61, 107, 229, 1);font: 18px;border-radius: 4px;color:#ffffff");
 }
 
-void K3b::DataView::hoverButtonBurn()
+void K3b::DataView::hoverButtonBurn(bool in)
 {
     if (!burn_button->isEnabled()) return;
-    burn_button->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 18px;border-radius: 4px;color:#ffffff");
+    if (in)
+        burn_button->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 18px;border-radius: 4px;color:#ffffff");
+    else
+        burn_button->setStyleSheet("background-color:rgba(61, 107, 229, 1);font: 18px;border-radius: 4px;color:#ffffff");
 }
 
 void K3b::DataView::pressButtonBurn()
@@ -746,16 +873,24 @@ void K3b::DataView::disableButtonBurn()
 
 void K3b::DataView::enableButtonAdd()
 {
-    if (!button_add->isEnabled()) return;
+    button_add->setEnabled(true);
     button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
     button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
-void K3b::DataView::hoverButtonAdd()
+void K3b::DataView::hoverButtonAdd(bool in)
 {
     if (!button_add->isEnabled()) return;
-    button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
-    button_add->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    if (in)
+    {
+        button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+        button_add->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
+    else
+    {
+        button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+        button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
 }
 
 void K3b::DataView::pressButtonAdd()
@@ -777,16 +912,24 @@ void K3b::DataView::disableButtonAdd()
 
 void K3b::DataView::enableButtonRemove()
 {
-    if (!button_remove->isEnabled()) return;
+    button_remove->setEnabled(true);
     button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
     button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
-void K3b::DataView::hoverButtonRemove()
+void K3b::DataView::hoverButtonRemove(bool in)
 {
     if (!button_remove->isEnabled()) return;
-    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
-    button_remove->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    if (in)
+    {
+        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+        button_remove->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
+    else
+    {
+        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+        button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
 }
 
 void K3b::DataView::pressButtonRemove()
@@ -808,16 +951,24 @@ void K3b::DataView::disableButtonRemove()
 
 void K3b::DataView::enableButtonClear()
 {
-    if (!button_clear->isEnabled()) return;
+    button_clear->setEnabled(true);
     button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
     button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
-void K3b::DataView::hoverButtonClear()
+void K3b::DataView::hoverButtonClear(bool in)
 {
     if (!button_clear->isEnabled()) return;
-    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
-    button_clear->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    if (in)
+    {
+        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+        button_clear->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
+    else
+    {
+        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+        button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
 }
 
 void K3b::DataView::pressButtonClear()
@@ -839,16 +990,24 @@ void K3b::DataView::disableButtonClear()
 
 void K3b::DataView::enableButtonNewDir()
 {
-    if (!button_newdir->isEnabled()) return;
+    button_newdir->setEnabled(true);
     button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
     button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
-void K3b::DataView::hoverButtonNewDir()
+void K3b::DataView::hoverButtonNewDir(bool in)
 {
     if (!button_newdir->isEnabled()) return;
-    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
-    button_newdir->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    if (in)
+    {
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+        button_newdir->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
+    else
+    {
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+        button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
+    }
 }
 
 void K3b::DataView::pressButtonNewDir()
@@ -865,6 +1024,40 @@ void K3b::DataView::disableButtonNewDir()
     {
         button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
         button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+    }
+}
+
+void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
+{
+    K3b::DataItem *child = NULL;
+    target->clear();
+
+    for (int i = 0; i < source->root()->children().size(); ++i)
+    {
+        child = source->root()->children().at(i);
+        if (child->isDeleteable())
+            target->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+        else
+            target->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+    }
+
+    if (m_doc->root()->children().size() == 0)
+    {
+        disableButtonRemove();
+        disableButtonClear();
+        disableButtonBurn();
+        disableBurnSetting();
+        btnFileFilter->hide();
+    }
+    else
+    {
+        enableButtonRemove();
+        enableButtonClear();
+        enableButtonBurn();
+        enableBurnSetting();
+        btnFileFilter->show();
+        //m_dataViewImpl->view()->setFixedHeight(375);
+        //if (tips) tips->hide();
     }
 }
 

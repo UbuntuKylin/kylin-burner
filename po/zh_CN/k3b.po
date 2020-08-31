@@ -10411,6 +10411,9 @@ msgstr " 剩余空间 "
 msgid "image file: "
 msgstr "镜像文件: "
 
+msgid "cdrom file: "
+msgstr "光盘文件: "
+
 #: src/projects/k3bprojectburndialog.cpp
 msgid "burn setting"
 msgstr "刻录设置"
@@ -10502,6 +10505,18 @@ msgstr "过滤残缺的符号链接 (B)"
 
 msgid "Replace Symbolic links (P)"
 msgstr "替换符号链接 (P)"
+
+msgid "Menu__"
+msgstr "设置"
+
+msgid "Minimize__"
+msgstr "最小化"
+
+msgid "Maximize__"
+msgstr "最大化"
+
+msgid "Close__"
+msgstr "关闭"
 
 msgid ", remaining available space"
 msgstr ", 剩余空间"

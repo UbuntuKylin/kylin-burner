@@ -99,7 +99,7 @@ namespace K3b {
          * returns false.
          */
         void removeItem( DataItem* item );
-        void removeDiskItem( K3b::DataItem* item );
+        bool removeDiskItem( K3b::DataItem* item );
         void removeItems( DirItem* parent, int start, int count );
 
         /**

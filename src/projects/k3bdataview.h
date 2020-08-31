@@ -86,9 +86,12 @@ namespace K3b {
 
     private:
         DataDoc* m_doc;
+        QList<DataDoc *> docs;
+        int              comboIndex;
         DataViewImpl* m_dataViewImpl;
         QTreeView* m_dirView;
         DirProxyModel* m_dirProxy;
+        QWidget        *mainWindow;
         KylinBurnerFileFilter *dlgFileFilter;
 
         QComboBox* combo_burner;
@@ -110,41 +113,45 @@ namespace K3b {
 
     private:
         void enableBurnSetting();
-        void hoverBurnSetting();
+        void hoverBurnSetting(bool in = true);
         void pressBurnSetting();
         void disableBurnSetting();
         void enableButtonBurn();
-        void hoverButtonBurn();
+        void hoverButtonBurn(bool in = true);
         void pressButtonBurn();
         void disableButtonBurn();
         void enableButtonAdd();
-        void hoverButtonAdd();
+        void hoverButtonAdd(bool in = true);
         void pressButtonAdd();
         void disableButtonAdd();
         void enableButtonRemove();
-        void hoverButtonRemove();
+        void hoverButtonRemove(bool in = true);
         void pressButtonRemove();
         void disableButtonRemove();
         void enableButtonClear();
-        void hoverButtonClear();
+        void hoverButtonClear(bool in = true);
         void pressButtonClear();
         void disableButtonClear();
         void enableButtonNewDir();
-        void hoverButtonNewDir();
+        void hoverButtonNewDir(bool in = true);
         void pressButtonNewDir();
         void disableButtonNewDir();
+
+        void copyData(K3b::DataDoc *target, K3b::DataDoc *source);
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event) override;  //事件过滤
 
     signals:
         void load(QString, DataDoc*);
+        void disableCD(bool);
         //void doFileFilter(K3b::DataDoc *doc);
 
     public slots:
         void onLoadFinished();
         void onDataChange(QModelIndex parent, QSortFilterProxyModel *model);
         void onDataDelete(bool flag);
+        void slotDisableCD(bool);
 
     protected:
         QThread *workerThread;
