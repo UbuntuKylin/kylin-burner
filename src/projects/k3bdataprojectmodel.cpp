@@ -30,6 +30,7 @@
 #include <QMimeData>
 #include <QFont>
 #include <QBrush>
+#include <QBitmap>
 
 
 class K3b::DataProjectModel::Private
@@ -211,6 +212,8 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
             else if ( role == Qt::DecorationRole ) {
                 QString iconName;
                 QIcon iconPic;
+                QPixmap pixmap;
+                QBitmap bitmap;
 
                 if ( item->isDir() && item->parent() ) {
                     iconName = ( static_cast<K3b::DirItem*>( item )->depth() > 7 ? "folder-root" : "folder" );
@@ -226,6 +229,11 @@ QVariant K3b::DataProjectModel::data( const QModelIndex& index, int role ) const
                     iconPic = QIcon( new KIconEngine( iconName, nullptr, QStringList() << "emblem-symbolic-link" ) );
                 else
                     iconPic = QIcon::fromTheme( iconName );
+                if (!item->isDeleteable())
+                {
+                    pixmap = iconPic.pixmap(QSize(24, 24), QIcon::Disabled);
+                    return QIcon(pixmap);
+                }
                 return iconPic;
             }
             else if( role == Qt::FontRole && item->isSymLink() ) {
@@ -495,7 +503,16 @@ bool K3b::DataProjectModel::removeRows( int row, int count, const QModelIndex& p
     DirItem* dirItem = dynamic_cast<DirItem*>( itemForIndex( parent ) );
     if( dirItem && row >= 0 && count > 0 ) {
         // remove the indexes from the project
-        d->project->removeItems( dirItem, row, count );
+        int i  = row;
+        qDebug() << dirItem->k3bName() << dirItem->children().at(row)->k3bName();
+        while (count)
+        {
+            if (dirItem->children().at(i) && dirItem->children().at(i)->isDeleteable())
+                d->project->removeItems( dirItem, i, 1 );
+            --count;
+            ++i;
+        }
+        //d->project->removeItems( dirItem, row, count );
         return true;
     }
     else {

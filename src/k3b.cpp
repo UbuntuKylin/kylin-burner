@@ -614,7 +614,7 @@ void K3b::MainWindow::initView()
                                    "background-position:left;"
                                    "color: #444444;font: 14px;border-radius: 6px;}"
                                "QPushButton:hover{"
-                                   "background-color:rgba(87, 137, 217,0.15);"
+                                   "biackground-color:rgba(87, 137, 217,0.15);"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"

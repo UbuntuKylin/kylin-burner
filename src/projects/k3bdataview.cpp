@@ -60,13 +60,15 @@
 
 void K3b::DataView::onDataDelete(bool flag)
 {
-    button_remove->setEnabled(flag);
+    //button_remove->setEnabled(flag);
     if (flag) enableButtonRemove();
     else disableButtonRemove();
 }
 
 void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *model)
 {
+    disableButtonRemove();
+    disableButtonClear();
     if (0 == model->rowCount(parent))
     {
         disableButtonRemove();
@@ -79,8 +81,8 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
     }
     else
     {
-        enableButtonRemove();
-        enableButtonClear();
+        //enableButtonRemove();
+        //enableButtonClear();
         enableButtonBurn();
         enableBurnSetting();
         btnFileFilter->show();
@@ -452,7 +454,7 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         }
         if(obj == button_clear){
             if ( button_clear->isEnabled() )
-                button_clear->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+                button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
         }
         if(obj == button_newdir)
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
@@ -495,7 +497,7 @@ void K3b::DataView::slotRemoveClicked()
 
 void K3b::DataView::slotClearClicked()
 {
-    const QModelIndex parentDirectory = m_dataViewImpl->view()->rootIndex();
+    //const QModelIndex parentDirectory = m_dataViewImpl->view()->rootIndex();
     m_dataViewImpl->slotClear();
     copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
@@ -517,6 +519,9 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
         slotMediaChange( 0 );
     */
     qDebug() << "------------ Device changed ....";
+    QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
+    for (int i = 0; i < device_list.size(); ++i)
+        slotMediaChange(device_list[i]);
 }
 
 void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
@@ -533,7 +538,6 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         K3b::Medium medium = k3bappcore->mediaCache()->medium( device );
         KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
         idx = device_index.indexOf(device);
-        qDebug() << "--------------->>>>>>>>>>>>>> now in list pos : " << idx << " total : " << device_index.size();
         if (-1 == idx) idx = comboIndex;
         else ++idx;
         if (idx == comboIndex) device_index << device;
@@ -588,8 +592,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
                 tmpDoc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
             }
             copyData(m_doc, tmpDoc);
-            combo_CD->setCurrentIndex(idx);
         }
+        combo_CD->setCurrentIndex(idx);
     }
 
     /*
@@ -737,6 +741,7 @@ void K3b::DataView::slotStartBurn()
                                       i18n("No Data to Burn") );
     }else if ( burn_button->text() == i18n("start burner" )){ 
         int index = combo_burner->currentIndex();
+        --index;
         dlg->setComboMedium( device_index.at( index ) );
         qDebug()<< "index :" <<  index << " device block name: " << device_index.at( index )->blockDeviceName() <<endl;
         dlg->slotStartClicked();
@@ -1051,7 +1056,7 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
     }
     else
     {
-        enableButtonRemove();
+        //enableButtonRemove();
         enableButtonClear();
         enableButtonBurn();
         enableBurnSetting();

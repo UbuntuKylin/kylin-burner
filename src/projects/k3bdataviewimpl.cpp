@@ -310,6 +310,7 @@ void K3b::DataViewImpl::slotClear()
 
 void K3b::DataViewImpl::slotRemove()
 {
+    int start = 0, count = 0;
     // Remove items directly from sort model to avoid unnecessary mapping of indexes
     const QItemSelection selection = m_fileView->selectionModel()->selection();
     const QModelIndex parentDirectory = m_fileView->rootIndex();
