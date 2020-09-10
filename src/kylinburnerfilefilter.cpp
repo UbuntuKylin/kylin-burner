@@ -11,11 +11,16 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::KylinBurnerFileFilter)
 {
+    //setAttribute(Qt::WA_ShowModal);
     ui->setupUi(this);
     selection = new KylinBurnerFileFilterSelection(this);
+    setWindowFlags (Qt::Window);
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    //qDebug() << "-----------------------------" << pos().x() << pos().y();
+    //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
     this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
     this->hide();
+
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterFile"));
     ui->btnSetting->setText(i18n("FileFilterSetting"));
@@ -205,6 +210,7 @@ void KylinBurnerFileFilter::onChanged(K3b::DirItem *parent)
 
 void KylinBurnerFileFilter::on_btnSetting_clicked()
 {
+    //selection->setAttribute(Qt::WA_ShowModal);
     selection->setOption(isHidden, isBroken, isReplace);
     selection->show();
 }

@@ -51,6 +51,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     m_view( new QTreeView( ) )
 {
     flag = 0;
+    comboIndex = 0;
     
     QLabel *widget_label = new QLabel(this);
 
@@ -77,7 +78,9 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                              "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                               border-top-right-radius: 3px; \
                               border-bottom-right-radius: 3px;}"
-                              "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+                              "QComboBox::down-arrow{width: 8px; height: 16;"
+"image: url(:/icon/icon/draw-down.jpg);"
+"padding: 0px 0px 0px 0px;}");
     
     label_CD = new QLabel(this);
     label_CD->setText(i18n("Copy CD"));
@@ -90,7 +93,13 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                              border-top-right-radius: 3px; \
                              border-bottom-right-radius: 3px;}"
-                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+                             "QComboBox::down-arrow{width: 8px; height: 16;"
+    "image: url(:/icon/icon/draw-down.jpg);"
+    "padding: 0px 0px 0px 0px;}");
+    image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
+    lastIndex = comboIndex;
+    combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    isBurner = false;
 #if 0
     button_setting = new QPushButton();
     button_setting->setText(i18n("setting"));
@@ -100,17 +109,22 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;}");
 #endif
     button_openfile = new QPushButton(this);
-    button_openfile->setText(i18n("choice"));
+    if (isBurner) button_openfile->setText(i18n("setting"));
+    else button_openfile->setText(i18n("choice"));
     button_openfile->setFixedSize(80, 30);
     button_openfile->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
 
     button_start = new QPushButton(this);
-    button_start->setText(i18n("Create image"));
+    if (isBurner) button_start->setText(i18n("start burner"));
+    else button_start->setText(i18n("Create image"));
     button_start->setFixedSize(140, 45);
     button_start->setEnabled( false );
-    button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
+    button_start->setStyleSheet("QPushButton{"
+                                "background-color:rgba(61, 107, 229, 1);"
+                                "font: 18px;border-radius: 4px;color:#ffffff}"
+                                "QPushButton:hover{background-color:rgba(61, 107, 229, 1);}");
      
     CD_index = 0;
     combo_CD->setEnabled( true );
@@ -150,6 +164,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     setMainWidget( widget_label );
    
     connect( combo_CD, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboCD(int) ) );
+    connect( combo_iso, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboISO(int) ) );
     connect( button_openfile, SIGNAL(clicked()), this, SLOT(slotOpenfile()) );
     connect( button_start, SIGNAL(clicked()), this, SLOT(slotStartBurn()) );
 
@@ -205,6 +220,7 @@ K3b::VcdView::~VcdView()
 
 void K3b::VcdView::slotDeviceChange( K3b::Device::DeviceManager* manager)
 {
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     if ( device_list.count() == 0 ){
         combo_iso->setEnabled( false );
@@ -213,14 +229,122 @@ void K3b::VcdView::slotDeviceChange( K3b::Device::DeviceManager* manager)
         //lineedit_CD->setEnabled( false );
     }else
         slotMediaChange( 0 );
+    */
 
 }
 
 void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 {
+    int idx = -1, cdIdx = 0;;
+    idx = cdDevices.indexOf(dev);
+    K3b::Medium medium = k3bappcore->mediaCache()->medium( dev );
+    KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( dev->blockDeviceName() );
+
+    qDebug() << "----------Image Copying...----------------";
+
+    if (-1 == idx)
+    {
+        cdDevices << dev;
+        if (!mountPoint)
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 != idx)
+            {
+                combo_iso->removeItem(idx);
+                sourceDevices.removeAt(idx);
+            }
+            if ( dev->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+                combo_CD->insertItem(comboIndex++,
+                                     QIcon(":/icon/icon/icon-光盘.png"),
+                                     i18n("empty medium " ));
+            else
+                combo_CD->insertItem(comboIndex++,
+                                     QIcon(":/icon/icon/icon-光盘.png"),
+                                     i18n("please insert a available medium" ));
+        }
+        else
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 == idx)
+            {
+                sourceDevices << dev;
+                combo_iso->addItem( QIcon(":/icon/icon/icon-光盘.png"),
+                                    medium.shortString() + \
+                                    KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ) );
+            }
+            else
+            {
+                combo_iso->setItemText(idx, medium.shortString() + \
+                                       KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+            }
+            combo_CD->insertItem(comboIndex++,
+                                 QIcon(":/icon/icon/icon-光盘.png"),
+                                 medium.shortString() + \
+                                 KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+        }
+    }
+    else
+    {
+        cdIdx = idx + 1;
+        if (!mountPoint)
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 != idx)
+            {
+                combo_iso->removeItem(idx);
+                sourceDevices.removeAt(idx);
+            }
+            if ( dev->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+                combo_CD->setItemText(cdIdx, i18n("empty medium " ));
+            else
+                combo_CD->setItemText(cdIdx, i18n("please insert a available medium" ));
+        }
+        else
+        {
+            qDebug() << medium.shortString();
+            idx = sourceDevices.indexOf(dev);
+            if (-1 == idx)
+            {
+                sourceDevices << dev;
+                combo_iso->addItem( QIcon(":/icon/icon/icon-光盘.png"),
+                                    medium.shortString() + \
+                                    KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ) );
+            }
+            else
+            {
+                if ("无介质" == medium.shortString())
+                {
+                    combo_iso->removeItem(idx);
+                    sourceDevices.removeAt(idx);
+                }
+                else
+                {
+                    combo_iso->setItemText(idx, medium.shortString() + \
+                                       KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+                }
+            }
+            combo_CD->setItemText(cdIdx, medium.shortString() + \
+                                  KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+        }
+    }
+    lastSourceIndex = combo_iso->currentIndex();
+    lastIndex = combo_CD->currentIndex();
+    if (0 == combo_iso->count()) button_start->setEnabled(false);
+    else if (0 == lastIndex) button_start->setEnabled(true);
+    else button_start->setEnabled(false);
+    if (i18n("empty medium " ) == combo_CD->currentText() ||
+            i18n("please insert a available medium" ) == combo_CD->currentText())
+    {
+        button_start->setEnabled(false);
+    }
+    else
+    {
+        button_start->setEnabled(true);
+    }
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     combo_iso->clear();
-    combo_CD->clear();
+    //combo_CD->clear();
     device_index.clear();
     CD_index = 0;
     device_count = 0;
@@ -235,7 +359,8 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
         KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
 
         if ( device->diskInfo().diskState() == K3b::Device::STATE_EMPTY ){
-            combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
+            //combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
+            combo_CD->insertItem(comboIndex++,  QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
             CD_index++;
             continue;
         }
@@ -263,11 +388,58 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
         combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), medium.shortString() + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
 
     }
+    */
+}
 
+void K3b::VcdView::slotComboISO(int idx)
+{
+    if (-1 == idx) return;
+
+    if (combo_CD->currentIndex() &&
+            sourceDevices[idx] == cdDevices[combo_CD->currentIndex() - 1])
+        combo_CD->setCurrentIndex(0);
 }
 
 void K3b::VcdView::slotComboCD(int ret)
 {
+    qDebug() << "Last index is : " << lastIndex << "| Current index is : " << ret;
+    if (ret)
+    {
+        if (sourceDevices.size() && cdDevices[ret - 1] == sourceDevices[combo_iso->currentIndex()])
+        {
+            qDebug() << "Select the same CD";
+            combo_CD->setCurrentIndex(lastIndex);
+            return;
+        }
+        isBurner = true;
+    }
+    else
+    {
+        isBurner = false;
+        button_start->setEnabled(true);
+    }
+    lastIndex = ret;
+
+    if (isBurner)
+    {
+        button_openfile->setText(i18n("setting"));
+        button_start->setText(i18n("start burner"));
+        if (i18n("empty medium " ) == combo_CD->currentText() ||
+                i18n("please insert a available medium" ) == combo_CD->currentText())
+        {
+            button_start->setEnabled(false);
+        }
+        else
+        {
+            button_start->setEnabled(true);
+        }
+    }
+    else
+    {
+        button_openfile->setText(i18n("choice"));
+        button_start->setText(i18n("Create image"));
+    }
+    /*
     qDebug() << "index: " << ret << endl;
     button_start->setEnabled( true );
     button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
@@ -278,13 +450,15 @@ void K3b::VcdView::slotComboCD(int ret)
     }else{
         flag = 0;
     }
+    */
 }
 
 void K3b::VcdView::slotOpenfile()
 {
+    /*
     if( device_index.isEmpty() )
         return;
-    filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
+    filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if( filepath.isEmpty() )
         return;
@@ -293,6 +467,21 @@ void K3b::VcdView::slotOpenfile()
    CD_index++;
    combo_CD->addItem( filepath );
    combo_CD->setCurrentText( filepath );
+   */
+   if (isBurner)
+   {
+       qDebug() << "do setting";
+       ProjectBurnDialog* dlg = newBurnDialog( this );
+       dlg->execBurnDialog(true);
+       delete dlg;
+   }
+   else
+   {
+       filepath = QFileDialog::getExistingDirectory(this, "open file dialog", image_path, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+       if (filepath.isEmpty()) return;
+       image_path = filepath + "/kylin_burner.iso";
+       combo_CD->setItemText(0, image_path);
+   }
 
 }
 
@@ -317,6 +506,27 @@ void K3b::VcdView::slotStartBurn()
     qDebug() << "flag: " << flag << endl;
     return;
 #endif
+    K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );
+    dlg->setReadingDevice(sourceDevices[combo_iso->currentIndex()]);
+    if (isBurner)
+    {
+        qDebug() << "Burning...";
+        dlg->loadConfig();
+        dlg->setOnlyCreateImage(false);
+        dlg->setComboMedium( cdDevices[combo_CD->currentIndex() - 1] );
+        dlg->saveConfig();
+    }
+    else
+    {
+        qDebug() << "Copying...";
+        dlg->setOnlyCreateImage(true);
+        dlg->setTempDirPath( image_path );
+        dlg->saveConfig();
+    }
+    dlg->slotStartClicked();
+    if (sourceDevices[combo_iso->currentIndex()] ==
+            cdDevices[combo_CD->currentIndex() - 1]) combo_CD->setCurrentIndex(0);
+    /*
     int iso_index = combo_iso->currentIndex();
     int CD_index = combo_CD->currentIndex();
     K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );
@@ -344,6 +554,7 @@ void K3b::VcdView::slotStartBurn()
             dlg->slotStartClicked();
         }
     }
+    */
 }
 
 K3b::ProjectBurnDialog* K3b::VcdView::newBurnDialog( QWidget * parent)

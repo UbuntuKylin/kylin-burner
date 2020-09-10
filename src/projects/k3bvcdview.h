@@ -57,6 +57,7 @@ namespace K3b {
            
             //*******************************************
             void slotComboCD( int );
+            void slotComboISO( int );
             void slotMediaChange( K3b::Device::Device* );
             void slotDeviceChange( K3b::Device::DeviceManager* );
 
@@ -87,6 +88,13 @@ namespace K3b {
             VcdDoc* m_doc;
             VcdProjectModel* m_model;
             QTreeView* m_view;
+            QString image_path;
+            int     comboIndex;
+            int     lastIndex;
+            int     lastSourceIndex;
+            bool    isBurner;
+            QList<K3b::Device::Device*> cdDevices;
+            QList<K3b::Device::Device*> sourceDevices;
 
             QAction* m_actionProperties;
             QAction* m_actionRemove;

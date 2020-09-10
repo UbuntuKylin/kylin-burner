@@ -124,13 +124,13 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //QHBoxLayout *mainWidgetLayout = new QHBoxLayout(this);
     //QWidget *mainWidget = new QWidget;
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight( 30 );
+    label_top->setFixedHeight( 50 );
     QHBoxLayout *pLayout = new QHBoxLayout( label_top );
 
     //mainWidgetLayout->addWidget(mainWidget);
     //mainWidget->setLayout(pLayout);
     //mainWidgetLayout->setMargin(0);
-    pLayout->setContentsMargins( 0, 4, 4, 0);
+    pLayout->setContentsMargins( 0, 4, 4, 16);
     pLayout->setSpacing(0);
     pLayout->addStretch(0);
     label_top->setStyleSheet("QWidget{background-color:rgb(255,255,255);}");

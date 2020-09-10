@@ -1675,6 +1675,7 @@ bool K3b::Device::Device::eject() const
     if ( success )
         return success;
 #elif defined(Q_OS_LINUX)
+/*
     bool success = false;
     bool needToClose = !isOpen();
 
@@ -1688,6 +1689,7 @@ bool K3b::Device::Device::eject() const
     usageUnlock();
     if ( success )
         return success;
+*/
 #endif
 
     ScsiCommand cmd( this );

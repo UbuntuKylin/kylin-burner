@@ -10601,3 +10601,6 @@ msgstr "选择路径"
 
 msgid "create iso"
 msgstr "创建镜像"
+
+msgid "Please click button [Add] or drag you file to current zone for new files."
+msgstr " 点击\"添加\"按钮或将文件拖拽进此区域，来添加文件。"

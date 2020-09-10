@@ -76,8 +76,8 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
         disableButtonBurn();
         disableBurnSetting();
         btnFileFilter->hide();
-        //m_dataViewImpl->view()->setFixedHeight(28);
-        //if (tips) tips->show();
+        m_dataViewImpl->view()->setFixedHeight(28);
+        if (tips) tips->show();
     }
     else
     {
@@ -85,9 +85,9 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
         //enableButtonClear();
         enableButtonBurn();
         enableBurnSetting();
-        btnFileFilter->show();
-        //m_dataViewImpl->view()->setFixedHeight(375);
-        //if (tips) tips->hide();
+        btnFileFilter->show();        
+        if (tips) tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
     }
 }
 K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
@@ -194,13 +194,26 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     docs << tmpDoc;
     qDebug() << "now docs length is : " << docs.size() << "docs[0] is" << docs[0];
 
-    combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
-                            "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
-                             border-top-right-radius: 3px; \ 
-                             border-bottom-right-radius: 3px;}"
-                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
-    combo_CD->setView(new QListView());
+    combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"
+                            "border:1px solid rgba(220,221,222,1);border-radius:4px;}"
+                            "QComboBox::drop-down{subcontrol-origin: padding; "
+                            "subcontrol-position: top right; "
+                            "border-top-right-radius: 3px;"
+                            "border-bottom-right-radius: 3px;}"
+                            "QComboBox::down-arrow{width: 8px; height: 16;"
+                            "image: url(:/icon/icon/draw-down.jpg);"
+                            "padding: 0px 0px 0px 0px;}");
 
+    /*
+    combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);}"
+                            "QComboBox::drop-down{background:rgba(255,255,255,1); "
+                            "subcontrol-origin: padding;"
+                            "width : 10px; height : 20 px;subcontrol-position: top right;}"
+                            "::down-arrow{background:transparent;"
+                            "width : 10px; height : 20 px;}"
+                            "image: url(:/icon/icon/icon-right.png);");
+
+    */
     QHBoxLayout *hlayout_burner = new QHBoxLayout();
     hlayout_burner->setContentsMargins(0, 0, 0, 0);
     hlayout_burner->addWidget( label_burner );
@@ -233,18 +246,20 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     hlayout_bottom->addLayout( vlayout_combo );
     hlayout_bottom->addLayout( vlayout_button );
 
-    /*
+
     tips = new QLabel(
                 i18n("Please click button [Add] or drag you file to current zone for new files."),
                 this);
+    tips->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
     tips->setMinimumHeight(342);
-    */
+    m_dataViewImpl->view()->setFixedHeight(28);
+
     //tips->hide();
     QVBoxLayout *vlayout_middle = new QVBoxLayout();
     vlayout_middle->setContentsMargins(0, 0, 20, 0);
     vlayout_middle->addWidget( m_dataViewImpl->view() );
-    //vlayout_middle->addWidget( tips );
+    vlayout_middle->addWidget( tips );
 
     //layout->addWidget( m_dataViewImpl->view() );
     layout->addLayout( vlayout_middle );
@@ -400,7 +415,13 @@ void K3b::DataView::slotFileFilterClicked()
             else qDebug() << "Other: " << c->localPath() << "---" << c->k3bPath() << "---" << c->k3bName();
         }
     }
+    dlgFileFilter->setAttribute(Qt::WA_ShowModal);
     dlgFileFilter->slotDoFileFilter(m_doc);
+
+    QPoint p = mapToGlobal(pos());
+    dlgFileFilter->move(p.x() + width() / 2 - dlgFileFilter->width() / 2,
+                        p.y() + height() / 2 - dlgFileFilter->height() / 2);
+
     dlgFileFilter->show();
 }
 
@@ -581,7 +602,6 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
 
         if (!mountInfo.isEmpty())
         {
-            m_doc->clear();
             QDir *dir = new QDir(mountInfo);
             QList<QFileInfo> fileinfo(dir->entryInfoList( QDir::AllEntries | QDir::Hidden ) );
             for ( int i = 0; i < fileinfo.count(); i++ )
@@ -592,10 +612,20 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
                 tmpDoc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
             }
             copyData(m_doc, tmpDoc);
+            combo_CD->setCurrentIndex(idx);
         }
-        combo_CD->setCurrentIndex(idx);
     }
 
+    if (0 == m_dataViewImpl->view()->model()->rowCount())
+    {
+        m_dataViewImpl->view()->setFixedHeight(28);
+        tips->show();
+    }
+    else
+    {
+        tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
+    }
     /*
     burn_button->setVisible(true);
     mount_index.clear();
@@ -684,6 +714,18 @@ void K3b::DataView::slotComboCD(int index)
         burn_setting->setText(i18n("open"));
         burn_button->setText(i18n("create iso"));
     }
+    /*
+    if (0 == m_dataViewImpl->view()->model()->rowCount())
+    {
+        m_dataViewImpl->view()->setFixedHeight(28);
+        tips->show();
+    }
+    else
+    {
+        tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
+    }
+    */
     /*
     qDebug()<< " combo Cd index " << index << mount_index << iso_index <<endl;
     if ( index < 0 )
@@ -1035,7 +1077,7 @@ void K3b::DataView::disableButtonNewDir()
 void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
 {
     K3b::DataItem *child = NULL;
-    target->clear();
+    target->clearOld();
 
     for (int i = 0; i < source->root()->children().size(); ++i)
     {
@@ -1053,16 +1095,18 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         disableButtonBurn();
         disableBurnSetting();
         btnFileFilter->hide();
+        m_dataViewImpl->view()->setFixedHeight(28);
+        if (tips) tips->show();
     }
     else
     {
-        //enableButtonRemove();
+        enableButtonRemove();
         enableButtonClear();
         enableButtonBurn();
         enableBurnSetting();
         btnFileFilter->show();
-        //m_dataViewImpl->view()->setFixedHeight(375);
-        //if (tips) tips->hide();
+        if (tips) tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
     }
 }
 

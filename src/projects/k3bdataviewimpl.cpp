@@ -279,6 +279,7 @@ int K3b::DataViewImpl::slotOpenDir()
     QList<QUrl> urls;
     myFileSelect *a =new myFileSelect( m_view );
     a->setOption(QFileDialog::DontUseNativeDialog, true);
+    a->setViewMode(QFileDialog::List);
 
     QListView *listView = a->findChild<QListView*>("listView");
     if (listView)

@@ -171,6 +171,13 @@ bool K3b::DataDoc::removeDiskItem( K3b::DataItem* item )
     return false;
 }
 
+bool K3b::DataDoc::removeOldItem( K3b::DataItem* item )
+{
+    if (NULL == item) return false;
+    if (!item->isDeleteable()) { delete item; return true; }
+    return false;
+}
+
 void K3b::DataDoc::clearDisk()
 {
     clearImportedSession();
@@ -186,6 +193,20 @@ void K3b::DataDoc::clearDisk()
     emit importedSessionChanged( importedSession() );
 }
 
+void K3b::DataDoc::clearOld()
+{
+    clearImportedSession();
+    d->importedSession = -1;
+    d->oldSessionSize = 0;
+    d->bootCataloge = 0;
+    if( d->root ) {
+        for (int i = 0; i < d->root->children().size(); ++i) {
+         if (removeOldItem(d->root->children().at(i))) --i;
+        }
+    }
+    d->sizeHandler->clear();
+    emit importedSessionChanged( importedSession() );
+}
 
 QString K3b::DataDoc::name() const
 {

@@ -300,7 +300,7 @@ void K3b::JobProgressDialog::setupGUI()
     m_progressPercent->setFixedHeight(10);
     mainLayout->addWidget( m_progressPercent );
     //m_progressPercent->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
-    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:10px;color:#444444;text-align: center;");
+    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:10px;color:#FFFFFF;text-align: center;");
 
     //mainLayout->addWidget( d->viewInfo, 1 );
     layout4->addWidget( d->viewInfo );
@@ -545,7 +545,10 @@ void K3b::JobProgressDialog::setJob( K3b::Job* job )
 
     d->viewInfo->clear();
     m_progressPercent->setValue(0);
+    //m_progressPercent->setStyleSheet("QProgressBar{color: #05B8CC;}");
     m_progressSubPercent->setValue(0);
+    //m_progressSubPercent->setStyleSheet("QProgressBar{color: #05B8CC;}");
+    //m_progressSubPercent->setStyleSheet("QProgressBar::chunk{color: #05B8CC;}");
     m_labelTask->setText("");
     m_labelSubTask->setText("");
     m_labelProcessedSize->setText("");

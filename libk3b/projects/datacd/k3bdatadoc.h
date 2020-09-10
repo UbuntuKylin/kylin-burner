@@ -83,6 +83,7 @@ namespace K3b {
         bool newDocument() override;
         void clear() override;
         void clearDisk();
+        void clearOld();
 
         KIO::filesize_t size() const override;
 
@@ -100,6 +101,7 @@ namespace K3b {
          */
         void removeItem( DataItem* item );
         bool removeDiskItem( K3b::DataItem* item );
+        bool removeOldItem( K3b::DataItem* item );
         void removeItems( DirItem* parent, int start, int count );
 
         /**

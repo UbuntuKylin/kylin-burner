@@ -87,12 +87,13 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     lineedit_iso->setFixedSize(360, 30);
     //lineedit_iso->setDragEnabled( false );
     lineedit_iso->setEnabled( false );
-    lineedit_iso->setStyleSheet("background-color: transparent");
+    lineedit_iso->setStyleSheet("QLineEdit{background-color: transparent;border:1px solid rgba(220,221,222,1);border-radius:4px;}");
 
     lineEdit_icon = new QLabel( lineedit_iso );
     lineEdit_icon->setFixedSize( 15,15);
     lineEdit_text = new QLabel( lineedit_iso );
-    lineEdit_text->setStyleSheet("background-color: transparent;font:14px;color:#444444");
+    lineEdit_text->setStyleSheet("background-color: transparent;"
+                                 "font:14px;color:#444444;");
     
     QHBoxLayout* hlayout = new QHBoxLayout( lineedit_iso );
     hlayout->setContentsMargins(0, 0, 0, 0);
@@ -124,7 +125,9 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                              border-top-right-radius: 3px; \
                              border-bottom-right-radius: 3px;}"
-                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+                             "QComboBox::down-arrow{width: 8px; height: 16;"
+                             "image: url(:/icon/icon/draw-down.jpg);"
+                             "padding: 0px 0px 0px 0px;}");
 
     QPushButton *button_setting = new QPushButton(this);
     button_setting->setText(i18n("setting"));
