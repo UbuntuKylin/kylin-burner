@@ -26,6 +26,8 @@
 #include <QList>
 #include <QUrl>
 
+#include "kylinburnerlogger.h"
+
 namespace K3b {
     class Doc;
     class View;
@@ -225,6 +227,7 @@ namespace K3b {
 
         QLabel *pIconLabel;
         QLabel *pTitleLabel;
+        KylinBurnerLogger *logger;
     };
 }
 

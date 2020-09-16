@@ -65,8 +65,8 @@ K3b::ProjectBurnDialog::ProjectBurnDialog( K3b::Doc* doc, QWidget *parent )
                             START_BUTTON,
                             "default " + doc->typeString() + " settings" ),
       m_writerSelectionWidget(0),
-      m_tempDirSelectionWidget(0),
-      m_imageTipText(i18n("Use the 'Image' tab to optionally adjust the path of the image."))
+      m_tempDirSelectionWidget(0)
+      //m_imageTipText(i18n("Use the 'Image' tab to optionally adjust the path of the image."))
 {
     flag = 1;
 
@@ -282,15 +282,15 @@ void K3b::ProjectBurnDialog::prepareGui()
 
     QLabel *icon = new QLabel();
     icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo-小.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(50,13);
+    title->setFixedSize(80,16);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -300,7 +300,7 @@ void K3b::ProjectBurnDialog::prepareGui()
     connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(30);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
     titlebar->setContentsMargins(11, 0, 0, 0); 
     titlebar->addWidget(icon);
@@ -364,18 +364,21 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkCacheImage->setFixedHeight(16);
     label_font.setPixelSize(14);
     m_checkCacheImage->setFont( label_font );
-    m_checkCacheImage->setStyleSheet("color:#444444;");
+    m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
 
     m_checkSimulate = K3b::StdGuiItems::simulateCheckbox( m_optionGroup );
     m_checkSimulate->setFixedHeight(16);
     m_checkSimulate->setFont( label_font );
     m_checkSimulate->setStyleSheet("color:#444444;");
-    m_checkSimulate->setDisabled( true );
+    m_checkSimulate->hide();
+    //m_checkSimulate->setDisabled( true );
+
 
     m_checkRemoveBufferFiles = K3b::StdGuiItems::removeImagesCheckbox( m_optionGroup );
     m_checkRemoveBufferFiles->setFixedHeight(16);
     m_checkRemoveBufferFiles->setFont( label_font );
     m_checkRemoveBufferFiles->setStyleSheet("color:#444444;");
+    m_checkRemoveBufferFiles->hide();
 
     m_checkOnlyCreateImage = K3b::StdGuiItems::onlyCreateImagesCheckbox( m_optionGroup );
     m_checkOnlyCreateImage->setFixedHeight(16);
@@ -404,7 +407,7 @@ void K3b::ProjectBurnDialog::prepareGui()
     QString tmp_size = m_tempDirSelectionWidget->tempPath() + "     "  +  KIO::convertSize(tempFreeSpace);
     m_labeltmpPath->setText( tmp_path );
     //m_labeltmpPath->setFixedSize( 56, 12);
-    m_labeltmpPath->setFixedSize( 60, 18);
+    m_labeltmpPath->setFixedSize( 80, 30);
     m_labeltmpPath->setFont( label_font );
     m_labeltmpPath->setStyleSheet("color:#444444;");
     
@@ -475,6 +478,8 @@ void K3b::ProjectBurnDialog::prepareGui()
     setTabOrder( m_writerSelectionWidget, m_writingModeWidget );
     setTabOrder( m_writingModeWidget, groupCopies );
     setTabOrder( groupCopies, m_optionGroup );
+
+    m_tmpPath->setEnabled(false);
 
     // some default connections that should always be useful
     connect( m_writerSelectionWidget, SIGNAL(writerChanged()), this, SLOT(slotWriterChanged()) );

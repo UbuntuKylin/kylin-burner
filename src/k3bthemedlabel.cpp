@@ -19,13 +19,16 @@ K3b::ThemedLabel::ThemedLabel( QWidget* parent )
     : KSqueezedTextLabel( parent ),
       m_themePixmapCode( -1 )
 {
+    /*
     slotThemeChanged();
     setTextElideMode( Qt::ElideRight );
+
 
     if (k3bappcore) {
         connect( k3bappcore->themeManager(), SIGNAL(themeChanged()),
                  this, SLOT(slotThemeChanged()) );
     }
+    */
 }
 
 
@@ -33,6 +36,7 @@ K3b::ThemedLabel::ThemedLabel( const QString& text, QWidget* parent )
     : KSqueezedTextLabel( text, parent ),
       m_themePixmapCode( -1 )
 {
+    /*
     slotThemeChanged();
     setTextElideMode( Qt::ElideRight );
 
@@ -40,12 +44,14 @@ K3b::ThemedLabel::ThemedLabel( const QString& text, QWidget* parent )
         connect( k3bappcore->themeManager(), SIGNAL(themeChanged()),
                  this, SLOT(slotThemeChanged()) );
     }
+    */
 }
 
 
 K3b::ThemedLabel::ThemedLabel( K3b::Theme::PixmapType pix, QWidget* parent )
     : KSqueezedTextLabel( parent )
 {
+    /*
     setThemePixmap( pix );
     setTextElideMode( Qt::ElideRight );
 
@@ -53,6 +59,7 @@ K3b::ThemedLabel::ThemedLabel( K3b::Theme::PixmapType pix, QWidget* parent )
         connect( k3bappcore->themeManager(), SIGNAL(themeChanged()),
                  this, SLOT(slotThemeChanged()) );
     }
+    */
 }
 
 
@@ -74,6 +81,7 @@ void K3b::ThemedLabel::setThemePixmap( K3b::Theme::PixmapType pix )
 
 void K3b::ThemedLabel::slotThemeChanged()
 {
+    /*
     setAutoFillBackground( true );
     if (k3bappcore == Q_NULLPTR)
         return;
@@ -90,6 +98,7 @@ void K3b::ThemedLabel::slotThemeChanged()
             }
         }
     }
+    */
 }
 
 

@@ -76,6 +76,7 @@ qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.DataProje
 add_executable(burner
     kylinburnerfilefilter.cpp
     kylinburnerfilefilterselection.cpp
+    kylinburnerlogger.cpp
     k3bwelcomewidget.cpp
     k3bapplication.cpp
     k3bdevicedelegate.cpp
@@ -240,6 +241,7 @@ target_include_directories(burner PRIVATE
 target_link_libraries(burner
     k3bdevice
     k3blib
+    pthread
     KF5::Cddb
     KF5::Archive
     KF5::I18n

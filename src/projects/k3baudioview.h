@@ -25,6 +25,9 @@
 #include <QStringList>
 #include <QComboBox>
 #include <QLineEdit>
+
+#include "kylinburnerlogger.h"
+
 namespace K3b {
 
     class AudioDoc;
@@ -69,6 +72,7 @@ namespace K3b {
         QPushButton* button_start;
         QList<Device::Device*> device_index;
         QString filepath;
+        KylinBurnerLogger *logger;
     };
 }
 

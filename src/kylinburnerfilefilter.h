@@ -17,11 +17,13 @@ class KylinBurnerFileFilter : public QWidget
     Q_OBJECT
 
 public:
-    explicit KylinBurnerFileFilter(QWidget *parent = nullptr);
+    explicit KylinBurnerFileFilter(QWidget *parent);
     ~KylinBurnerFileFilter();
 
 public:
     bool eventFilter(QObject *obj, QEvent *event);
+signals:
+    void finished(K3b::DataDoc *);
 public slots:
     void slotDoubleClicked(QModelIndex idx);
     void slotDoFileFilter(K3b::DataDoc *doc);

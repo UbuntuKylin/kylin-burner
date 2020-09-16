@@ -48,6 +48,7 @@ K3b::ThemeOptionTab::ThemeOptionTab( QWidget* parent )
     m_leftPreviewLabel->setAutoFillBackground( true );
     m_rightPreviewLabel->setAutoFillBackground( true );
 
+    /*
     m_viewTheme->setModel( m_themeModel );
 
     connect( m_viewTheme->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
@@ -58,6 +59,7 @@ K3b::ThemeOptionTab::ThemeOptionTab( QWidget* parent )
              this, SLOT(slotRemoveTheme()) );
     connect( m_buttonGetNewThemes, SIGNAL(clicked()),
              this, SLOT(slotGetNewThemes()) );
+    */
 }
 
 
@@ -96,6 +98,7 @@ bool K3b::ThemeOptionTab::event( QEvent *event )
 
 void K3b::ThemeOptionTab::selectionChanged()
 {
+    /*
     QModelIndex index = m_viewTheme->currentIndex();
     if( Theme* theme = m_themeModel->themeForIndex( index ) ) {
         m_centerPreviewLabel->setText( i18n("K3b - The CD/DVD Kreator") );
@@ -112,6 +115,7 @@ void K3b::ThemeOptionTab::selectionChanged()
 
         m_buttonRemoveTheme->setEnabled( theme->local() );
     }
+    */
 }
 
 

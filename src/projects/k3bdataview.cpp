@@ -98,10 +98,15 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     m_dirView( new QTreeView( this ) ),
     m_dirProxy( new DirProxyModel( this ) )
 {
+    logger = LogRecorder::instance().registration(i18n("Data Burner").toStdString().c_str());
+    logger->debug("Draw data burner begin...");
     //dlgFileFilter = new KylinBurnerFileFilter(this);
     mainWindow = parent->parentWidget()->parentWidget()->parentWidget()
             ->parentWidget()->parentWidget();
     dlgFileFilter = new KylinBurnerFileFilter(mainWindow);
+
+    connect(dlgFileFilter, SIGNAL(finished(K3b::DataDoc *)), this, SLOT(slotFinish(K3b::DataDoc *)));
+
     m_dirProxy->setSourceModel( m_dataViewImpl->model() );
 
     connect(m_dataViewImpl, SIGNAL(dataChange(QModelIndex , QSortFilterProxyModel *)),
@@ -393,7 +398,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     connect(worker,SIGNAL(loadFinished()),this,SLOT(onLoadFinished()));
     connect(workerThread,SIGNAL(finished()),worker,SLOT(deleteLater()));
     workerThread->start();
-   
+    logger->debug("Draw data burner end");
 }
 
 K3b::DataView::~DataView()
@@ -403,26 +408,21 @@ K3b::DataView::~DataView()
 
 void K3b::DataView::slotFileFilterClicked()
 {
-    K3b::DirItem *d = m_doc->root();
-    K3b::DataItem *c;
-    qDebug() << m_doc->URL();
-    for (int i = 0; i < d->children().size(); ++i)
-    {
-        c = d->children().at(i);
-        if (c)
-        {
-            if (c->isDir()) qDebug() << "DIR: " << c->localPath() << "---" << c->k3bPath() << "---" << c->k3bName();
-            else qDebug() << "Other: " << c->localPath() << "---" << c->k3bPath() << "---" << c->k3bName();
-        }
-    }
+    //K3b::DirItem *d = m_doc->root();
+    //K3b::DataItem *c;
     dlgFileFilter->setAttribute(Qt::WA_ShowModal);
-    dlgFileFilter->slotDoFileFilter(m_doc);
+    dlgFileFilter->slotDoFileFilter(docs[combo_CD->currentIndex()]);
 
     QPoint p = mapToGlobal(pos());
     dlgFileFilter->move(p.x() + width() / 2 - dlgFileFilter->width() / 2,
                         p.y() + height() / 2 - dlgFileFilter->height() / 2);
 
     dlgFileFilter->show();
+}
+
+void K3b::DataView::slotFinish(K3b::DataDoc *doc)
+{
+    copyData(m_doc, doc);
 }
 
 bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
@@ -484,6 +484,12 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         break;
     }
     return QWidget::eventFilter(obj, event);
+}
+
+void K3b::DataView::slotAddFile(QList<QUrl> urls)
+{
+    for (int i = 0; i < docs.size(); ++i)
+        docs[i]->addUrls(urls);
 }
 
 void K3b::DataView::slotOpenClicked()
@@ -587,7 +593,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
             combo_burner->insertItem(comboIndex,
                                      QIcon(":/icon/icon/icon-刻录机.png"),
                                      device->vendor() + " - " + device->description());
-            combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("drom file: ") + cdInfo);
+            combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
             tmpDoc = new K3b::DataDoc(this);
             tmpDoc->setURL(m_doc->URL());
             tmpDoc->newDocument();
@@ -595,7 +601,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         }
         else
         {
-            combo_CD->setItemText(idx, i18n("drom file: ") + cdInfo);
+            combo_CD->setItemText(idx, i18n("cdrom file: ") + cdInfo);
             tmpDoc = docs[idx];
             tmpDoc->clear();
         }
@@ -615,7 +621,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
             combo_CD->setCurrentIndex(idx);
         }
     }
-
+    lastIndex = combo_CD->currentIndex();
     if (0 == m_dataViewImpl->view()->model()->rowCount())
     {
         m_dataViewImpl->view()->setFixedHeight(28);
@@ -679,7 +685,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         iso_index++;
 
         combo_burner->addItem(QIcon(":/icon/icon/icon-刻录机.png"), burnerInfo);
-        combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("drom file: ") + CDInfo);
+        combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + CDInfo);
     }
     */
     //image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
@@ -699,7 +705,7 @@ void K3b::DataView::slotComboCD(int index)
     K3b::DataDoc *tmpDoc = NULL;
 
     tmpDoc = docs[index];
-
+    m_doc->clear();
     copyData(m_doc, tmpDoc);
     combo_burner->setCurrentIndex( index );
     if (index)
@@ -778,16 +784,23 @@ void K3b::DataView::add_device_urls(QString filepath)
 void K3b::DataView::slotStartBurn()
 {
     DataBurnDialog *dlg = new DataBurnDialog( m_doc, mainWindow);
+
+
+    logger->debug("Start Burn button cliked. now project size is %llu", m_doc->burningSize());
+
+
     if( m_doc->burningSize() == 0 ) { 
          KMessageBox::information( this, i18n("Please add files to your project first."),
                                       i18n("No Data to Burn") );
     }else if ( burn_button->text() == i18n("start burner" )){ 
+        logger->debug("Button model is start burner");
         int index = combo_burner->currentIndex();
         --index;
         dlg->setComboMedium( device_index.at( index ) );
         qDebug()<< "index :" <<  index << " device block name: " << device_index.at( index )->blockDeviceName() <<endl;
         dlg->slotStartClicked();
     }else if( burn_button->text() == i18n("create iso" )){ 
+        logger->debug("Button model is create iso");
         dlg->setOnlyCreateImage( true );
         dlg->setTmpPath( image_path );
         QFileInfo fileinfo( image_path );
@@ -1077,7 +1090,7 @@ void K3b::DataView::disableButtonNewDir()
 void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
 {
     K3b::DataItem *child = NULL;
-    target->clearOld();
+    target->clear();
 
     for (int i = 0; i < source->root()->children().size(); ++i)
     {

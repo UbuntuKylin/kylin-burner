@@ -297,17 +297,20 @@ void K3b::WelcomeWidget::slotMoreActions()
 
 void K3b::WelcomeWidget::updateBgPix()
 {
+    /*
     if( K3b::Theme* theme = k3bappcore->themeManager()->currentTheme() ) {
         if( theme->backgroundMode() == K3b::Theme::BG_SCALE )
             m_bgPixmap = theme->pixmap( K3b::Theme::WELCOME_BG ).scaled( rect().width(), rect().height() );
         else
             m_bgPixmap = theme->pixmap( K3b::Theme::WELCOME_BG );
     }
+    */
 }
 
 
 void K3b::WelcomeWidget::paintEvent( QPaintEvent* )
 {
+    /*
     if( K3b::Theme* theme = k3bappcore->themeManager()->currentTheme() ) {
         QPainter p( this );
         p.setPen( theme->foregroundColor() );
@@ -335,10 +338,12 @@ void K3b::WelcomeWidget::paintEvent( QPaintEvent* )
         // draw the info box
         //    int boxWidth = MARGIN + m_infoText->widthUsed();
         int boxHeight = 10 + ( int )m_infoText->size().height();
-        QRect infoBoxRect( 10/*qMax( (width()-MARGIN-m_infoText->widthUsed())/2, 10 )*/,
-                           height()-10-boxHeight,
-                           width()-MARGIN/*boxWidth*/,
-                           boxHeight );
+        */
+        //QRect infoBoxRect( 10/*qMax( (width()-MARGIN-m_infoText->widthUsed())/2, 10 )*/,
+        //                   height()-10-boxHeight,
+        //                   width()-MARGIN/*boxWidth*/,
+        //                   boxHeight );
+    /*
         p.fillRect( infoBoxRect, theme->backgroundColor() );
         p.drawRect( infoBoxRect );
         p.save();
@@ -346,6 +351,7 @@ void K3b::WelcomeWidget::paintEvent( QPaintEvent* )
         m_infoText->drawContents( &p );
         p.restore();
     }
+    */
 }
 
 

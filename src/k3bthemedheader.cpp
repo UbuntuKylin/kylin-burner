@@ -129,6 +129,7 @@ bool K3b::ThemedHeader::event( QEvent *event )
 
 void K3b::ThemedHeader::slotThemeChanged()
 {
+    /*
     if( K3b::Theme* theme = k3bappcore->themeManager()->currentTheme() ) {
         m_leftLabel->setPalette( theme->palette() );
         m_leftLabel->setPixmap( theme->pixmap( m_leftPix ) );
@@ -138,6 +139,7 @@ void K3b::ThemedHeader::slotThemeChanged()
 
         m_titleLabel->setPalette( theme->palette() );
     }
+    */
 }
 
 

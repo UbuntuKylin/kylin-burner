@@ -24,6 +24,7 @@
 #include <QLabel>
 
 #include "kylinburnerfilefilter.h"
+#include "kylinburnerlogger.h"
 
 class QModelIndex;
 class QTreeView;
@@ -75,6 +76,8 @@ namespace K3b {
         void slotClearClicked();
         void slotNewdirClicked();
         void slotFileFilterClicked();
+        void slotAddFile(QList<QUrl>);
+        void slotFinish(K3b::DataDoc *);
 
     private Q_SLOTS:
         void slotParentDir();
@@ -87,6 +90,7 @@ namespace K3b {
     private:
         DataDoc* m_doc;
         QList<DataDoc *> docs;
+        int              lastIndex;
         int              comboIndex;
         DataViewImpl* m_dataViewImpl;
         QTreeView* m_dirView;
@@ -110,6 +114,7 @@ namespace K3b {
         QPushButton* button_newdir;
         QPushButton* btnFileFilter;
         QLabel      *tips;
+        KylinBurnerLogger *logger;
 
     private:
         void enableBurnSetting();

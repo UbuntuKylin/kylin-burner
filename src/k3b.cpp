@@ -246,6 +246,8 @@ K3b::MainWindow::MainWindow()
 {
     d->lastDoc = 0;
     
+    logger = LogRecorder::instance().registration("MAIN-WINDOW");
+
     /* modify UI */
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setStyleSheet("QWidget:{width:900px;\
@@ -555,6 +557,8 @@ void K3b::MainWindow::initView()
     setAutoFillBackground(true);
     setPalette(pal);
 
+    logger->info("Draw main frame begin...");
+
     //左右分割
     d->mainSplitter = new QSplitter( Qt::Horizontal, this );
 
@@ -614,7 +618,7 @@ void K3b::MainWindow::initView()
                                    "background-position:left;"
                                    "color: #444444;font: 14px;border-radius: 6px;}"
                                "QPushButton:hover{"
-                                   "biackground-color:rgba(87, 137, 217,0.15);"
+                                   "background-color:rgba(87, 137, 217,0.15);"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
@@ -765,13 +769,19 @@ void K3b::MainWindow::initView()
     // ---------------------------------------------------------------------------------------------
     
     d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject ); 
+    logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentTab );
+    logger->debug("Draw burn image view.");
     
     d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
+    logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentTab );
+    logger->debug("Draw burn data view.");
   
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
+    logger->debug("Create copy image project.");
     d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentTab );
+    logger->debug("Draw copy image view.");
 
     d->doc_image->setView( d->view_image );
     d->doc_data->setView( d->view_data );
@@ -783,6 +793,7 @@ void K3b::MainWindow::initView()
 
     d->documentTab->tabBar()->hide();
     d->documentTab->setCurrentTab( d->doc_data );
+    logger->info("Draw main frame end...");
 
 }
 

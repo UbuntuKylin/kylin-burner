@@ -77,10 +77,7 @@ void KylinBurnerFileFilter::slotDoubleClicked(QModelIndex idx)
     K3b::DataItem *d = NULL;
 
     d = model->itemForIndex(idx);
-    qDebug() << "DBCLC";
-    if (d && d->isDir()) qDebug() << "dd : " << static_cast<K3b::DirItem *>(d)->localPath();
     if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size()) ui->treeView->setRootIndex(idx);
-    else qDebug() << "Why click?";
 }
 
 void KylinBurnerFileFilter::slotDoFileFilter(K3b::DataDoc *doc)
@@ -158,6 +155,7 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
                         oldData->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
 
                 }
+                emit finished(oldData);
             }
         }
         break;

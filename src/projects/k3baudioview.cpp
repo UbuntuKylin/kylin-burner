@@ -63,6 +63,8 @@
 K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     : K3b::View( doc, parent )
 {
+    logger = LogRecorder::instance().registration(i18n("write image").toStdString().c_str());
+    logger->debug("Draw write image begin...");
     m_doc = doc;
     
     QLabel *widget_label = new QLabel(this);
@@ -235,6 +237,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
             " </Menu>"
             "</MenuBar>"
             "</gui>", true );
+    logger->debug("Draw write image end");
 }
 
 K3b::AudioView::~AudioView()

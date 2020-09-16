@@ -37,18 +37,23 @@ K3b::Theme::Theme()
 K3b::Theme::Theme( QString name)
     : m_bgMode(BG_TILE)
 {
+    /*
     QString path = QStandardPaths::locate( QStandardPaths::GenericDataLocation, "k3b/pics/" + name + "/k3b.theme" );
     if( !path.isEmpty() )
         m_path = path.left( path.length() - 9 );
+    */
 }
 
 
 QColor K3b::Theme::backgroundColor() const
 {
+    /*
     if( m_bgColor.isValid() )
         return m_bgColor;
     else
         return KColorScheme(QPalette::Active, KColorScheme::Window).background(KColorScheme::ActiveBackground).color();
+    */
+    return QColor();
 }
 
 
@@ -63,6 +68,7 @@ QColor K3b::Theme::foregroundColor() const
 
 QPixmap K3b::Theme::pixmap( const QString& name ) const
 {
+    /*
     QMap<QString, QPixmap>::const_iterator it = m_pixmapMap.constFind( name );
     if( it != m_pixmapMap.constEnd() )
         return *it;
@@ -77,6 +83,8 @@ QPixmap K3b::Theme::pixmap( const QString& name ) const
     qDebug() << "(K3b::Theme)" << m_name << ": could not load image" << name << "in" << m_path;
 
     return m_emptyPixmap;
+    */
+    return QPixmap();
 }
 
 
@@ -230,24 +238,29 @@ void K3b::ThemeManager::readConfig( const KConfigGroup& c )
 
 void K3b::ThemeManager::saveConfig( KConfigGroup c )
 {
+    /*
     qDebug() << d->currentThemeName;
     if( !d->currentThemeName.isEmpty() ) {
         c.writeEntry( "current theme", d->currentThemeName );
     }
+    */
 }
 
 
 void K3b::ThemeManager::setCurrentTheme( const QString& name )
 {
+    /*
     if( name != d->currentThemeName ) {
         if( K3b::Theme* theme = findTheme( name ) )
             setCurrentTheme( theme );
     }
+    */
 }
 
 
 void K3b::ThemeManager::setCurrentTheme( K3b::Theme* theme )
 {
+    /*
     if( !theme && !d->themes.isEmpty() )
         theme = d->themes.first();
 
@@ -260,6 +273,7 @@ void K3b::ThemeManager::setCurrentTheme( K3b::Theme* theme )
             emit themeChanged( theme );
         }
     }
+    */
 }
 
 
@@ -274,6 +288,7 @@ K3b::Theme* K3b::ThemeManager::findTheme( const QString& name ) const
 
 void K3b::ThemeManager::loadThemes()
 {
+    /*
     // first we cleanup the loaded themes
     for (QList<K3b::Theme*>::ConstIterator it = d->themes.constBegin(); it != d->themes.constEnd(); ++it)
         d->gcThemes << *it;
@@ -315,6 +330,7 @@ void K3b::ThemeManager::loadThemes()
 
     // load the current theme
     setCurrentTheme( findTheme(d->currentThemeName) );
+    */
 }
 
 

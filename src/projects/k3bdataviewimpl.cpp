@@ -196,6 +196,7 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     QShortcut* enterShortcut = new QShortcut( QKeySequence( Qt::Key_Return ), m_fileView );
     enterShortcut->setContext( Qt::WidgetShortcut );
     connect( enterShortcut, SIGNAL(activated()), this, SLOT(slotEnterPressed()) );
+    connect(this, SIGNAL(addFiles(QList<QUrl>)), m_view, SLOT(slotAddFile(QList<QUrl>)));
 
     // Create data context menu
     QAction* separator = new QAction( this );
@@ -280,6 +281,7 @@ int K3b::DataViewImpl::slotOpenDir()
     myFileSelect *a =new myFileSelect( m_view );
     a->setOption(QFileDialog::DontUseNativeDialog, true);
     a->setViewMode(QFileDialog::List);
+    a->setWindowTitle(i18n("Add"));
 
     QListView *listView = a->findChild<QListView*>("listView");
     if (listView)
@@ -300,6 +302,7 @@ int K3b::DataViewImpl::slotOpenDir()
     if( urls.count() == 0 )
         return 0;
     m_doc->addUrls( urls );
+    emit addFiles(urls);
     return 1;
 }
 
