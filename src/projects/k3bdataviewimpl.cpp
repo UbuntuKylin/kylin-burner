@@ -259,8 +259,7 @@ void K3b::DataViewImpl::slotNewDir()
     while( ok && DataDoc::nameAlreadyInDir( name, parentDir ) ) {
         name = QInputDialog::getText( m_view,
                                       i18n("New Folder"),
-                                      i18n("A file with that name already exists. "
-                                           "Please insert the name for the new folder:"),
+                                      i18n("A folder with that name already exists. Please enter a new name:"),
                                       QLineEdit::Normal,
                                       i18n("New Folder"),
                                       &ok );

@@ -7391,6 +7391,11 @@ msgstr "输入新文件名"
 msgid "A file with that name already exists. Please enter a new name:"
 msgstr "已经存在该名称的文件。请输入新名称："
 
+#: projects/k3bdataurladdingdialog.cpp:754
+#, kde-format
+msgid "A folder with that name already exists. Please enter a new name:"
+msgstr "已经存在该名称的文件夹。请输入新名称："
+
 #: projects/k3bdataurladdingdialog.cpp:771
 #, kde-format
 msgid "Do you also want to add hidden files?"
