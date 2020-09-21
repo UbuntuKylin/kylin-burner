@@ -182,11 +182,11 @@ namespace K3b {
 
     private Q_SLOTS:
         void slotShowImageTip( bool buttonActivated );
-
+public:
+        int flag;
     private:
         Doc* m_doc;
         BurnJob* m_job;
-        int flag;
     };
 }
 

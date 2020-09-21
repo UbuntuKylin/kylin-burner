@@ -10364,7 +10364,7 @@ msgstr "子画面"
 # ######################
 #: src/k3b.cpp
 msgid "Kylin-Burner"
-msgstr "刻录软件"
+msgstr "麒麟刻录"
 
 msgid "Data Burner"
 msgstr "数据刻录"
@@ -10384,10 +10384,16 @@ msgstr "选择一张要擦除的光盘"
 
 #: src/k3bMd5Dialog.cpp
 msgid "kylin-burner"
-msgstr "刻录软件"
+msgstr "麒麟刻录"
 
 msgid "md5 check"
 msgstr "检查完整性"
+
+msgid "md5 failed!"
+msgstr "检查完整性失败"
+
+msgid "md5 success!"
+msgstr "检查完整性成功"
 
 msgid "choice CD"
 msgstr "选择一张光盘"

@@ -54,6 +54,8 @@
 #include <KMountPoint>
 #include <QListView>
 #include <QLineEdit>
+#include <QDropEvent>
+#include <QMimeData>
 /*
 #include <QStyleFactory>
 */
@@ -256,9 +258,13 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                 i18n("Please click button [Add] or drag you file to current zone for new files."),
                 this);
     tips->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    tips->setAcceptDrops(true);
+    tips->installEventFilter(this);
 
     tips->setMinimumHeight(342);
     m_dataViewImpl->view()->setFixedHeight(28);
+    m_dataViewImpl->view()->setAcceptDrops(true);
+    m_dataViewImpl->view()->installEventFilter(this);
 
     //tips->hide();
     QVBoxLayout *vlayout_middle = new QVBoxLayout();
@@ -427,6 +433,7 @@ void K3b::DataView::slotFinish(K3b::DataDoc *doc)
 
 bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 {
+    QDropEvent *dropEvent;
     switch (event->type()) {
     case QEvent::HoverEnter:
         /*
@@ -479,6 +486,49 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         }
         if(obj == button_newdir)
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+        break;
+    case QEvent::DragEnter:
+        if (obj == tips)
+        {
+            logger->debug("Tips drag in...");
+            event->accept();
+        }
+        else if (obj == m_dataViewImpl->view())
+        {
+            logger->debug("Data view drag in ....");
+            event->accept();
+        }
+        else return QWidget::eventFilter(obj, event);
+   case QEvent::Drop:
+        if (obj == tips || obj == m_dataViewImpl->view())
+        {
+            logger->debug("Tips drag in...");
+            dropEvent = static_cast<QDropEvent *>(event);
+            if (dropEvent->mimeData()->urls().size() > 0)
+            {
+                if (tips) tips->hide();
+                m_dataViewImpl->view()->setFixedHeight(370);
+                m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), m_doc->root());
+            }
+            if (0 == m_dataViewImpl->model()->rowCount())
+            {
+                disableButtonRemove();
+                disableButtonClear();
+                disableButtonBurn();
+                disableBurnSetting();
+                btnFileFilter->hide();
+                m_dataViewImpl->view()->setFixedHeight(28);
+                if (tips) tips->show();
+            }
+            else {
+                enableButtonBurn();
+                enableBurnSetting();
+                btnFileFilter->show();
+                enableButtonRemove();
+                enableButtonClear();
+            }
+        }
+        else return QWidget::eventFilter(obj, event);
         break;
     default:
         break;
@@ -545,14 +595,147 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
     }else 
         slotMediaChange( 0 );
     */
-    qDebug() << "------------ Device changed ....";
+
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
+    logger->debug("Device changed, now have %d device(s)", device_list.size());
     for (int i = 0; i < device_list.size(); ++i)
-        slotMediaChange(device_list[i]);
+    {
+        if (-1 == device_index.indexOf(device_list[i]))
+        {
+            logger->debug("Device %s need to add.", (device_list[i]->blockDeviceName()).toStdString().c_str());
+            slotMediaChange(device_list[i]);
+        }
+    }
+    */
+
+
+    logger->debug("Device changed...");
+    QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
+
+    for (int j = 0; j < device_index.size(); ++j)
+    {
+        if (-1 == device_list.indexOf(device_index[j]))
+        {
+            device_index.removeAt(j);
+            docs.removeAt(j + 1);
+            combo_burner->removeItem(j + 1);
+            combo_CD->removeItem(j + 1);
+            logger->debug("remove device [%s] at index %d on selection item index %d",
+                          (device_index[j]->blockDeviceName()).toStdString().c_str(), j, j + 1);
+        }
+    }
+
+    for (int i = 0; i < device_list.size(); ++i)
+    {
+        if (-1 == device_index.indexOf(device_list[i]))
+        {
+            logger->debug("add device [%s] at index %d on selection item index",
+                          (device_list[i]->blockDeviceName()).toStdString().c_str(), i);
+            slotMediaChange(device_list[i]);
+        }
+    }
 }
 
 void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
 {
+    logger->debug("Media changed..., device : %s", dev->blockDeviceName().toStdString().c_str());
+
+    int     idx = -1;
+    QString cdSize;
+    QString cdInfo;
+    QString mountInfo;
+    K3b::DataDoc *tmpDoc = NULL;
+    K3b::Medium medium = k3bappcore->mediaCache()->medium( dev );
+    KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( dev->blockDeviceName() );
+
+    cdSize =  KIO::convertSize(dev->diskInfo().remainingSize().mode1Bytes());
+    if( !mountPoint)
+    {
+        if (dev->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+        {
+            cdInfo = i18n("empty medium ") + cdSize;
+        }
+        else
+        {
+            cdInfo = i18n("please insert a medium or empty CD");            
+            idx = device_index.indexOf(dev);
+            if (-1 != idx)
+            {
+                logger->debug("Device [%s] have no medium, do not show in selection item."
+                              "delete it at idx %d, data idx %d",
+                              dev->blockDeviceName().toStdString().c_str(), idx, idx + 1);
+                device_index.removeAt(idx++);
+                docs.removeAt(idx);
+                combo_burner->removeItem(idx);
+                combo_CD->removeItem(idx);
+            }
+            else
+            {
+                logger->debug("Device [%s] have no medium, do not show in selection item.",
+                              dev->blockDeviceName().toStdString().c_str());
+            }
+            return;
+        }
+    }
+    else
+    {
+        mountInfo = mountPoint->mountPoint();
+        cdInfo = medium.shortString() + i18n(", remaining available space") + cdSize;
+    }
+
+    idx = device_index.indexOf(dev);
+    if (-1 == idx)
+    {
+        device_index << dev;
+        idx = comboIndex;
+    }
+    else ++idx;
+    if (idx == comboIndex)
+    {
+        combo_burner->insertItem(comboIndex,
+                                 QIcon(":/icon/icon/icon-刻录机.png"),
+                                 dev->vendor() + " - " + dev->description());
+        combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
+        tmpDoc = new K3b::DataDoc(this);
+        tmpDoc->setURL(m_doc->URL());
+        tmpDoc->newDocument();
+        if (tmpDoc) docs << tmpDoc;
+    }
+    else
+    {
+        combo_CD->setItemText(idx, i18n("cdrom file: ") + cdInfo);
+        tmpDoc = docs[idx];
+        tmpDoc->clear();
+    }
+    if (!mountInfo.isEmpty())
+    {
+        QDir *dir = new QDir(mountInfo);
+        QList<QFileInfo> fileinfo(dir->entryInfoList( QDir::AllEntries | QDir::Hidden ) );
+        for ( int i = 0; i < fileinfo.count(); i++ )
+        {
+            qDebug() << fileinfo.at(i).fileName();
+            if (fileinfo.at(i).fileName() == "." ||
+                    fileinfo.at(i).fileName() == "..") continue;
+            tmpDoc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
+        }
+        copyData(m_doc, tmpDoc);
+        combo_CD->setCurrentIndex(idx);
+        lastIndex = combo_CD->currentIndex();
+    }
+    if (0 == m_dataViewImpl->view()->model()->rowCount())
+    {
+        m_dataViewImpl->view()->setFixedHeight(28);
+        tips->show();
+    }
+    else
+    {
+        tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
+    }
+
+
+    /*
     QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
     QString cdSize;
     QString cdInfo;
@@ -605,7 +788,9 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
             tmpDoc = docs[idx];
             tmpDoc->clear();
         }
-
+        if (cdInfo == i18n("please insert a medium or empty CD"))
+        {
+        }
         if (!mountInfo.isEmpty())
         {
             QDir *dir = new QDir(mountInfo);
@@ -632,6 +817,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         tips->hide();
         m_dataViewImpl->view()->setFixedHeight(370);
     }
+    */
+
     /*
     burn_button->setVisible(true);
     mount_index.clear();
@@ -723,6 +910,7 @@ void K3b::DataView::slotComboCD(int index)
     /*
     if (0 == m_dataViewImpl->view()->model()->rowCount())
     {
+        qDebug() << ".....................................";
         m_dataViewImpl->view()->setFixedHeight(28);
         tips->show();
     }
@@ -808,8 +996,10 @@ void K3b::DataView::slotStartBurn()
         if ( !dir.exists() )
             return;
         dlg->slotStartClicked();
+        qDebug() << dlg->flag;
+        if (0 == dlg->flag) m_doc->clear();
+        combo_CD->setCurrentIndex(0);
     }   
-    
     delete dlg;
 }
 

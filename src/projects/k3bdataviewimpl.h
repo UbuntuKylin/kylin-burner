@@ -46,6 +46,10 @@ namespace K3b {
 
         DataProjectModel* model() const { return m_model; }
         QTreeView* view() const { return m_fileView; }
+        void addDragFile( QList<QUrl> urls, K3b::DirItem* targetDir )
+        {
+            slotAddUrlsRequested(urls, targetDir);
+        }
 
     signals:
         void setCurrentRoot( const QModelIndex& index );

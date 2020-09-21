@@ -246,7 +246,7 @@ K3b::MainWindow::MainWindow()
 {
     d->lastDoc = 0;
     
-    logger = LogRecorder::instance().registration("MAIN-WINDOW");
+    logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
 
     /* modify UI */
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());

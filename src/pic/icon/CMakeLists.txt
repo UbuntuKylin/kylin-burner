@@ -30,5 +30,7 @@ install( FILES
     logo-小.png
     logo.ico
     logo.png
+	128.png
+	96.png
    DESTINATION ${K3B_DATA_INSTALL_DIR}/pic/icon )
 

@@ -300,7 +300,7 @@ void K3b::AudioView::slotOpenfile()
 {
     int i = 0;
     QString str;
-    filepath = QFileDialog::getOpenFileName(this, "open file dialog", "/home","iso file(*.iso *.udf)", 0/*, QFileDialog::DontUseNativeDialog*/);
+    filepath = QFileDialog::getOpenFileName(this, i18n("Browse"), "/home","iso file(*.iso *.udf)", 0/*, QFileDialog::DontUseNativeDialog*/);
 
     if(filepath == NULL)
         return;

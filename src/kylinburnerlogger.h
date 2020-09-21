@@ -54,6 +54,7 @@ typedef struct _logContent
     char     module[20];
     char    *format;
     char     level[16];
+    char     content[1024];
     time_t   _time;
     va_list  _list;
 } logContent;

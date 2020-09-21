@@ -103,6 +103,7 @@ void KylinBurnerLogger::__(int level, const char *fmt, va_list args)
     if (_moudleName.length() > 20) { strncpy(content->module, _moudleName.c_str(), 18); strcat(content->module, "]"); }
     else strcpy(content->module, _moudleName.c_str());
     va_copy(content->_list, args);
+    vsprintf(content->content, fmt, args);
     LogRecorder::instance().recorder(this, level, content);
 }
 
@@ -134,10 +135,14 @@ void *write_log_content(void *arg)
             *p++ = ' ';
             strcpy(p, w->level);
             p += strlen(p);
+            /*
             vsprintf(p, w->format, w->_list);
             p += strlen(p);
             *p++ = '\n';
             *p = '\0';
+            */
+            strcat(content, w->content);
+            if ('\n' != content[strlen(content)]) strcat(content, "\n");
             write(w->fd, content, strlen(content));
             va_end(w->_list);
             free(w->format);

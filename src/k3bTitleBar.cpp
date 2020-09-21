@@ -111,8 +111,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addAction(QIcon(""), i18n("MD5"), this,&TitleBar::md5);
     menu->addAction(QIcon(""), i18n("filter"), this, &TitleBar::filter);
     menu->addSeparator();
-    menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
-    menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
+    //menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
+    //menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
 
     //menu->setStyleSheet("QMenu::item:hover{background-color:#6b8eeb;}");
     //menu->setStyleSheet("QMenu:hover{background-color:#ffffff;}");

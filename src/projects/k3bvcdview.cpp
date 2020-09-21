@@ -523,9 +523,14 @@ void K3b::VcdView::slotStartBurn()
         dlg->setTempDirPath( image_path );
         dlg->saveConfig();
     }
+    button_start->setEnabled(false);
     dlg->slotStartClicked();
-    if (sourceDevices[combo_iso->currentIndex()] ==
+    button_start->setEnabled(true);
+    if (combo_CD->currentIndex())
+    {
+        if (sourceDevices[combo_iso->currentIndex()] ==
             cdDevices[combo_CD->currentIndex() - 1]) combo_CD->setCurrentIndex(0);
+    }
     /*
     int iso_index = combo_iso->currentIndex();
     int CD_index = combo_CD->currentIndex();
