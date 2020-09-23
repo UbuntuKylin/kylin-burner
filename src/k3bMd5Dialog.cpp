@@ -251,7 +251,9 @@ void K3b::Md5Check::md5_start()
 void K3b::Md5Check::openfile()
 {
     QString str;
-    str = QFileDialog::getOpenFileName(this, "open file dialog", "/home","All files(*.*)", 0/*, QFileDialog::DontUseNativeDialog*/);
+    str = QFileDialog::getOpenFileName(this, i18n("choice md5 file"),
+                                       "/home","All files(*.*)", 0/*,
+                                   QFileDialog::DontUseNativeDialog*/);
     
     if(str == NULL)
         return;

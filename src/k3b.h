@@ -115,9 +115,24 @@ namespace K3b {
 
         void addUrls( const QList<QUrl>& urls );
 
+    public slots:
+        void isHidden(bool);
+        void isBroken(bool);
+        void isReplace(bool);
+        void isMenuHidden(bool);
+        void isMenuBroken(bool);
+        void isMenuReplace(bool);
+
     Q_SIGNALS:
         void initializationInfo( const QString& );
         void configChanged( KSharedConfig::Ptr c );
+
+        void setIsHidden(bool);
+        void setIsBroken(bool);
+        void setIsReplace(bool);
+        void setIsMenuHidden(bool);
+        void setIsMenuBroken(bool);
+        void setIsMenuReplace(bool);
 
     protected:
         /** queryClose is called by KMainWindow on each closeEvent of a window. Against the

@@ -10,8 +10,9 @@
 #include <QCheckBox>
 #include <QTextEdit>
 
+#include <QDebug>
+
 #include "k3bTitleBar.h"
-#include "k3bFileFilterDialog.h"
 #include "k3bappdevicemanager.h"
 #include "k3bdevice.h"
 #include "k3bapplication.h"
@@ -147,6 +148,14 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     mainLayout->addWidget( label_top );
     mainLayout->addStretch( 0 );
 
+    dlg = new FileFilter( this );
+
+
+    connect(dlg, SIGNAL(setHidden(bool)), this, SLOT(callHidden(bool)));
+    connect(dlg, SIGNAL(setBroken(bool)), this, SLOT(callBroken(bool)));
+    connect(dlg, SIGNAL(setReplace(bool)), this, SLOT(callReplace(bool)));
+
+
     connect(m_pMenubutton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pMinimizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pMaximizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
@@ -161,10 +170,24 @@ K3b::TitleBar::~TitleBar()
    delete m_pMinimizeButton;
    delete m_pMaximizeButton;
    delete m_pCloseButton;
-
+   if (dlg) delete dlg;
 }
 
+void K3b::TitleBar::callHidden(bool flag)
+{
+    qDebug() << "call hidden" << flag;
+    emit setIsHidden(flag);
+}
 
+void K3b::TitleBar::callBroken(bool flag)
+{
+    emit setIsBroken(flag);
+}
+
+void K3b::TitleBar::callReplace(bool flag)
+{
+    emit setIsReplace(flag);
+}
 void K3b::TitleBar::mouseDoubleClickEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
@@ -281,7 +304,6 @@ void K3b::TitleBar::md5()
 
 void K3b::TitleBar::filter()
 {
-    FileFilter* dlg = new FileFilter( this );
     dlg->show();
 }
 void K3b::TitleBar::help()
@@ -291,4 +313,20 @@ void K3b::TitleBar::help()
 void K3b::TitleBar::about()
 {
 
+}
+
+void K3b::TitleBar::isHidden(bool flag)
+{
+    qDebug() << "Set title bar dialog hidden to " << flag;
+    dlg->setIsHidden(flag);
+}
+
+void K3b::TitleBar::isBroken(bool flag)
+{
+    dlg->setIsBroken(flag);
+}
+
+void K3b::TitleBar::isReplace(bool flag)
+{
+    dlg->setIsReplace(flag);
 }

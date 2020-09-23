@@ -329,18 +329,19 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
     }
     lastSourceIndex = combo_iso->currentIndex();
     lastIndex = combo_CD->currentIndex();
-    if (0 == combo_iso->count()) button_start->setEnabled(false);
-    else if (0 == lastIndex) button_start->setEnabled(true);
-    else button_start->setEnabled(false);
+
     if (i18n("empty medium " ) == combo_CD->currentText() ||
             i18n("please insert a available medium" ) == combo_CD->currentText())
     {
-        button_start->setEnabled(false);
+        disableBurnerStart();
     }
     else
     {
-        button_start->setEnabled(true);
+        enableBurnerStart();
     }
+    if (0 == combo_iso->count()) disableBurnerStart();
+    else if (0 == lastIndex) enableBurnerStart();
+    else disableBurnerStart();
     /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     combo_iso->clear();
@@ -393,6 +394,7 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 
 void K3b::VcdView::slotComboISO(int idx)
 {
+    if (0 == combo_iso->count()) disableBurnerStart();
     if (-1 == idx) return;
 
     if (combo_CD->currentIndex() &&
@@ -477,7 +479,7 @@ void K3b::VcdView::slotOpenfile()
    }
    else
    {
-       filepath = QFileDialog::getExistingDirectory(this, "open file dialog", image_path, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+       filepath = QFileDialog::getExistingDirectory(this, i18n("choice"), image_path, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
        if (filepath.isEmpty()) return;
        image_path = filepath + "/kylin_burner.iso";
        combo_CD->setItemText(0, image_path);

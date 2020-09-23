@@ -249,10 +249,10 @@ void K3b::JobProgressDialog::setupGUI()
     icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(48,11);
+    title->setFixedSize(80,16);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
     QPushButton *close = new QPushButton();
     close->setFixedSize(20,20);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -300,7 +300,7 @@ void K3b::JobProgressDialog::setupGUI()
     m_progressPercent->setFixedHeight(10);
     mainLayout->addWidget( m_progressPercent );
     //m_progressPercent->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
-    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:10px;color:#FFFFFF;text-align: center;");
+    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:12px;color:#FFFFFF;text-align: center;");
 
     //mainLayout->addWidget( d->viewInfo, 1 );
     layout4->addWidget( d->viewInfo );
@@ -344,6 +344,7 @@ void K3b::JobProgressDialog::setupGUI()
 
     mainLayout->addLayout( hlayout );
     
+    /*
     m_pixLabel->setThemePixmap( K3b::Theme::PROGRESS_WORKING );
 
     slotThemeChanged();
@@ -352,6 +353,7 @@ void K3b::JobProgressDialog::setupGUI()
         connect( k3bappcore->themeManager(), SIGNAL(themeChanged()),
                  this, SLOT(slotThemeChanged()) );
     }
+    */
 }
 
 

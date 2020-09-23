@@ -199,6 +199,7 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     connect(this, SIGNAL(addFiles(QList<QUrl>)), m_view, SLOT(slotAddFile(QList<QUrl>)));
 
     // Create data context menu
+    /*
     QAction* separator = new QAction( this );
     separator->setSeparator( true );
     m_fileView->addAction( m_actionParentDir );
@@ -212,6 +213,7 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     m_fileView->addAction( m_actionProperties );
     m_fileView->addAction( separator );
     m_fileView->addAction( actionCollection->action("project_burn") );
+    */
 }
 
 
@@ -480,6 +482,7 @@ void K3b::DataViewImpl::slotImportedSessionChanged( int importedSession )
 void K3b::DataViewImpl::slotAddUrlsRequested( QList<QUrl> urls, K3b::DirItem* targetDir )
 {
     DataUrlAddingDialog::addUrls( urls, targetDir, m_view );
+    emit addDragFiles(urls, targetDir);
 }
 
 

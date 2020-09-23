@@ -69,6 +69,7 @@ namespace K3b {
         QLabel* lineEdit_icon;
         QLabel* lineEdit_text;
         QComboBox *combo_CD;
+        QPushButton *button_setting;
         QPushButton* button_start;
         QList<Device::Device*> device_index;
         QString filepath;

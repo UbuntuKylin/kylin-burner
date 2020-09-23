@@ -79,10 +79,18 @@ namespace K3b {
         void slotAddFile(QList<QUrl>);
         void slotFinish(K3b::DataDoc *);
 
+        void isHidden(bool);
+        void isBroken(bool);
+        void isReplace(bool);
+
+        void addDragFiles(QList<QUrl> urls, K3b::DirItem* targetDir);
+
+
     private Q_SLOTS:
         void slotParentDir();
         void slotCurrentDirChanged();
         void slotSetCurrentRoot( const QModelIndex& index );
+        void slotOption(int, bool);
 
     protected:
         ProjectBurnDialog* newBurnDialog( QWidget* parent = 0 ) override;
@@ -151,6 +159,9 @@ namespace K3b {
         void load(QString, DataDoc*);
         void disableCD(bool);
         //void doFileFilter(K3b::DataDoc *doc);
+        void setIsHidden(bool);
+        void setIsBroken(bool);
+        void setIsReplace(bool);
 
     public slots:
         void onLoadFinished();

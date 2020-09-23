@@ -11,6 +11,8 @@
 #include <QPainter>
 #include <QBitmap>
 
+#include <QDebug>
+
 FileFilter::FileFilter(QWidget *parent) :
     QDialog(parent)
 {
@@ -73,7 +75,7 @@ FileFilter::FileFilter(QWidget *parent) :
                                         line-height:32px;}");
 
     discard_hidden_file = new QCheckBox( i18n("discard hidden file") );
-    discard_hidden_file->setChecked(true);
+    //discard_hidden_file->setChecked(true);
     discard_hidden_file->setFixedHeight(16);
     QFont label_font;
     label_font.setPixelSize(14);
@@ -82,7 +84,7 @@ FileFilter::FileFilter(QWidget *parent) :
 
     
     discard_broken_link = new QCheckBox( i18n("discard broken link") );
-    discard_broken_link->setChecked(true);
+    //discard_broken_link->setChecked(true);
     discard_broken_link->setFixedHeight(18);
     discard_broken_link->setFont( label_font );
     discard_broken_link->setStyleSheet("color:#444444;");
@@ -113,10 +115,53 @@ FileFilter::FileFilter(QWidget *parent) :
 
     this->setModal( true );
 
+    connect(discard_hidden_file, SIGNAL(stateChanged(int)), this, SLOT(hiddenChanged(int)));
+    connect(discard_broken_link, SIGNAL(stateChanged(int)), this, SLOT(brokenChanged(int)));
+    connect(follow_link, SIGNAL(stateChanged(int)), this, SLOT(replaceChanged(int)));
+
 }
 
 FileFilter::~FileFilter()
 {
+    if (discard_hidden_file) delete discard_hidden_file;
+}
+
+void FileFilter::hiddenChanged(int stat)
+{
+    qDebug() << "hidden changed : " << stat;
+    bool check = false;
+    if (Qt::Checked == stat) check = true;
+    else check = false;
+    emit setHidden(check);
+}
+
+void FileFilter::brokenChanged(int stat)
+{
+    qDebug() << "broken changed : " << stat;
+    if (Qt::Checked == stat) emit setBroken(true);
+    else emit setBroken(false);
+}
+
+void FileFilter::replaceChanged(int stat)
+{
+    qDebug() << "replace changed : " << stat;
+    if (Qt::Checked == stat) emit setReplace(true);
+    else emit setReplace(false);
+}
+
+void FileFilter::setIsHidden(bool flag)
+{
+    discard_hidden_file->setChecked(flag);
+}
+
+void FileFilter::setIsBroken(bool flag)
+{
+    discard_broken_link->setChecked(flag);
+}
+
+void FileFilter::setIsReplace(bool flag)
+{
+    follow_link->setChecked(flag);
 }
 
 void FileFilter::filter_exit()

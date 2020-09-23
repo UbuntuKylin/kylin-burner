@@ -131,12 +131,13 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                              "image: url(:/icon/icon/draw-down.jpg);"
                              "padding: 0px 0px 0px 0px;}");
 
-    QPushButton *button_setting = new QPushButton(this);
+    button_setting = new QPushButton(this);
     button_setting->setText(i18n("setting"));
     button_setting->setFixedSize(80, 30);
     button_setting->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
+    button_setting->setEnabled(false);
 
     button_start = new QPushButton(this);
     button_start->setText(i18n("start"));
@@ -274,16 +275,19 @@ void K3b::AudioView::slotMediaChange( K3b::Device::Device* dev)
             qDebug()<< "empty medium" << device <<endl;
             
             combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("medium is not empty") );
+            button_setting->setEnabled(false);
             continue;
         }
         if( !(device->diskInfo().mediaType() & K3b::Device::MEDIA_WRITABLE) ){
             qDebug()<< "media cannot write" << device->diskInfo().mediaType() <<endl;
 
             combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("medium is unavailable") );
+            button_setting->setEnabled(false);
             continue;
         }
         qDebug()<< "mount point" << device <<endl;
         device_index.append( device );
+        button_setting->setEnabled(true);
         combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium available space ") + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
         if( !lineEdit_text->text().isEmpty() ){
             button_start->setEnabled( true );

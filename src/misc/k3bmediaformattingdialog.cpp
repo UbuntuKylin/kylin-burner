@@ -51,13 +51,14 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                             START_BUTTON,
                             "Formatting and Erasing" ) // config group
 {
+
     QWidget* frame = mainWidget();
     
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-    
+
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     resize(430, 280);
 
@@ -75,11 +76,11 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
     //title->setFixedSize(48,11);
-    title->setFixedSize(48,13);
+    title->setFixedSize(80,16);
     //title->setFixedWidth(48);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
     QPushButton *close = new QPushButton();
     close->setFixedSize(20,20);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -199,6 +200,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     connect( m_writerSelectionWidget, SIGNAL(writerChanged()), this, SLOT(slotToggleAll()) );
 
     slotToggleAll();
+
 }
 
 

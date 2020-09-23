@@ -148,7 +148,7 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
     
-    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
     
     QPushButton *button_cancel = new QPushButton( buttonBox );
     button_cancel->setText( i18n("cancel") );

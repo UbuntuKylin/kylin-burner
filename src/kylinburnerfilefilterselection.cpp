@@ -34,7 +34,7 @@ bool KylinBurnerFileFilterSelection::eventFilter(QObject *obj, QEvent *event)
     {
     case QEvent::MouseButtonPress:
         mouseEvent = static_cast<QMouseEvent *>(event);
-        if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button())) this->close();
+        if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button())) this->hide();
         break;
     case QEvent::HoverEnter:
         if (ui->labelClose == obj) labelCloseStyle(true);

@@ -92,6 +92,13 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
         m_dataViewImpl->view()->setFixedHeight(370);
     }
 }
+
+void K3b::DataView::addDragFiles(QList<QUrl> urls, K3b::DirItem* targetDir)
+{
+    for (int i = 0; i < docs.size(); ++i)
+        docs[i]->addUrls(urls);
+}
+
 K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 :
     View( doc, parent ),
@@ -107,7 +114,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
             ->parentWidget()->parentWidget();
     dlgFileFilter = new KylinBurnerFileFilter(mainWindow);
 
-    connect(dlgFileFilter, SIGNAL(finished(K3b::DataDoc *)), this, SLOT(slotFinish(K3b::DataDoc *)));
+    //connect(dlgFileFilter, SIGNAL(finished(K3b::DataDoc *)), this, SLOT(slotFinish(K3b::DataDoc *)));
+    connect(dlgFileFilter, SIGNAL(setOption(int, bool)), this, SLOT(slotOption(int, bool)));
 
     m_dirProxy->setSourceModel( m_dataViewImpl->model() );
 
@@ -199,7 +207,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     tmpDoc->setURL(m_doc->URL());
     tmpDoc->newDocument();
     docs << tmpDoc;
-    qDebug() << "now docs length is : " << docs.size() << "docs[0] is" << docs[0];
+    logger->debug("Add new data at index : %d", docs.indexOf(tmpDoc));
+    dlgFileFilter->addData();
 
     combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"
                             "border:1px solid rgba(220,221,222,1);border-radius:4px;}"
@@ -306,11 +315,13 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     
     connect( burn_setting, SIGNAL(clicked()), this, SLOT(slotBurn()) );
     connect( burn_button, SIGNAL(clicked()), this, SLOT(slotStartBurn()) );
+    burn_button->installEventFilter(this);
     connect( combo_burner, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboBurner(int) ) );
     connect( combo_CD, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboCD(int) ) );
     connect( m_dataViewImpl, SIGNAL(setCurrentRoot(QModelIndex)), this, SLOT(slotSetCurrentRoot(QModelIndex)) );
     connect( m_dirView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
              this, SLOT(slotCurrentDirChanged()) );
+    connect( m_dataViewImpl, SIGNAL(addDragFiles(QList<QUrl>, K3b::DirItem*)), this, SLOT(addDragFiles(QList<QUrl>, K3b::DirItem*)) );
 
     if( m_dirProxy->rowCount() > 0 )
         m_dirView->setCurrentIndex( m_dirProxy->index( 0, 0 ) );
@@ -417,7 +428,8 @@ void K3b::DataView::slotFileFilterClicked()
     //K3b::DirItem *d = m_doc->root();
     //K3b::DataItem *c;
     dlgFileFilter->setAttribute(Qt::WA_ShowModal);
-    dlgFileFilter->slotDoFileFilter(docs[combo_CD->currentIndex()]);
+    dlgFileFilter->setDoFileFilter(combo_CD->currentIndex());
+    //dlgFileFilter->slotDoFileFilter(docs[combo_CD->currentIndex()]);
 
     QPoint p = mapToGlobal(pos());
     dlgFileFilter->move(p.x() + width() / 2 - dlgFileFilter->width() / 2,
@@ -454,6 +466,7 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         else if (obj == button_remove) hoverButtonRemove();
         else if (obj == button_clear) hoverButtonClear();
         else if (obj == button_newdir) hoverButtonNewDir();
+        else if (obj == burn_button) hoverButtonBurn();
         else break;
         break;
     case QEvent::HoverLeave:
@@ -471,21 +484,35 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         else if (obj == button_remove) hoverButtonRemove(false);
         else if (obj == button_clear) hoverButtonClear(false);
         else if (obj == button_newdir) hoverButtonNewDir(false);
+        else if (obj == burn_button) hoverButtonBurn(false);
         else break;
         break;
     case QEvent::MouseButtonPress:
         if(obj == button_add)
+        {
+            pressButtonAdd();
             button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+        }
         if(obj == button_remove){
             if ( button_remove->isEnabled() )
+            {
+                pressButtonRemove();
                 button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+            }
         }
         if(obj == button_clear){
             if ( button_clear->isEnabled() )
+            {
+                pressButtonClear();
                 button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+            }
         }
         if(obj == button_newdir)
+        {
+            pressButtonNewDir();
             button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+        }
+        else if (obj == burn_button) pressButtonBurn();
         break;
     case QEvent::DragEnter:
         if (obj == tips)
@@ -508,7 +535,18 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
             {
                 if (tips) tips->hide();
                 m_dataViewImpl->view()->setFixedHeight(370);
-                m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), m_doc->root());
+                for (int i = 0; i < docs.size(); ++i)
+                {
+                    /*
+                    if (m_doc == docs[i]) m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), m_doc->root());
+                    else m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), docs[i]->root());
+                    */
+                    docs[i]->addUrls(dropEvent->mimeData()->urls());
+
+                    slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
+                    slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
+                    slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);
+                }
             }
             if (0 == m_dataViewImpl->model()->rowCount())
             {
@@ -545,7 +583,16 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
 void K3b::DataView::slotOpenClicked()
 {
     int ret = m_dataViewImpl->slotOpenDir();
-    if (ret) copyData(docs.at(combo_CD->currentIndex()), m_doc);
+    if (ret)
+    {
+        copyData(docs.at(combo_CD->currentIndex()), m_doc);
+
+        qDebug() << dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden;
+
+        slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
+        slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
+        slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);
+    }
     /*
     if( ret ){
         button_remove->setEnabled( true );
@@ -666,9 +713,14 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
                               "delete it at idx %d, data idx %d",
                               dev->blockDeviceName().toStdString().c_str(), idx, idx + 1);
                 device_index.removeAt(idx++);
+                tmpDoc = docs[idx];
+                if (tmpDoc) delete tmpDoc;
                 docs.removeAt(idx);
+                logger->debug("Remove data at index : %d", docs.indexOf(tmpDoc));
+                dlgFileFilter->removeData(idx);
                 combo_burner->removeItem(idx);
                 combo_CD->removeItem(idx);
+                combo_CD->setCurrentIndex(idx - 1);
             }
             else
             {
@@ -682,6 +734,20 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     {
         mountInfo = mountPoint->mountPoint();
         cdInfo = medium.shortString() + i18n(", remaining available space") + cdSize;
+        if (i18n("No medium present") == medium.shortString())
+        {
+            idx = device_index.indexOf(dev);
+            device_index.removeAt(idx++);
+            tmpDoc = docs[idx];
+            if (tmpDoc) delete tmpDoc;
+            docs.removeAt(idx);
+            logger->debug("Remove data at index : %d", docs.indexOf(tmpDoc));
+            dlgFileFilter->removeData(idx);
+            combo_burner->removeItem(idx);
+            combo_CD->removeItem(idx);
+            combo_CD->setCurrentIndex(idx - 1);
+            return;
+        }
     }
 
     idx = device_index.indexOf(dev);
@@ -701,6 +767,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         tmpDoc->setURL(m_doc->URL());
         tmpDoc->newDocument();
         if (tmpDoc) docs << tmpDoc;
+        logger->debug("Add new data at index : %d", docs.indexOf(tmpDoc));
+        dlgFileFilter->addData();
     }
     else
     {
@@ -891,6 +959,8 @@ void K3b::DataView::slotComboCD(int index)
 {
     K3b::DataDoc *tmpDoc = NULL;
 
+    if (-1 == index) return;
+
     tmpDoc = docs[index];
     m_doc->clear();
     copyData(m_doc, tmpDoc);
@@ -907,6 +977,9 @@ void K3b::DataView::slotComboCD(int index)
         burn_setting->setText(i18n("open"));
         burn_button->setText(i18n("create iso"));
     }
+    slotOption(0, dlgFileFilter->getStatus(index).isHidden);
+    slotOption(1, dlgFileFilter->getStatus(index).isBroken);
+    slotOption(2, dlgFileFilter->getStatus(index).isReplace);
     /*
     if (0 == m_dataViewImpl->view()->model()->rowCount())
     {
@@ -1014,7 +1087,7 @@ void K3b::DataView::slotBurn()
         delete dlg;
     }else if ( burn_setting->text() == i18n("open" )){
            connect(this, SIGNAL(disableCD(bool)), this, SLOT(slotDisableCD(bool)));
-        QString filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
+        QString filepath = QFileDialog::getExistingDirectory(this, i18n("open" ), "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
         if ( filepath.isEmpty() )
             return;
         image_path = filepath + "/kylin_burner.iso";
@@ -1310,6 +1383,209 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         btnFileFilter->show();
         if (tips) tips->hide();
         m_dataViewImpl->view()->setFixedHeight(370);
+    }
+}
+
+void K3b::DataView::isHidden(bool flag)
+{
+    logger->debug("call to set file filter hidden is %s",
+                  flag ? "true" : "false");
+
+    K3b::DataDoc *tmp = dlgFileFilter->getData(combo_CD->currentIndex());
+    K3b::DataItem *child = NULL;
+    if (!tmp)
+    {
+        logger->error("Cannot get the file filter data at index : %d",
+                      combo_CD->currentIndex());
+        return;
+    }
+    if (flag)
+    {
+        for (int i = 0; i < m_doc->root()->children().size(); ++i)
+        {
+            child = m_doc->root()->children().at(i);
+            if (child->k3bName().size() > 1 && child->k3bName().at(0) == '.')
+            {
+                if (child->isDeleteable())
+                {
+                    tmp->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    tmp->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                logger->info("Filter hidden item <%s>", child->localPath().toStdString().c_str());
+                m_doc->removeItem(child);
+                --i;
+            }
+        }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
+    }
+    else
+    {
+        for (int i = 0; i < tmp->root()->children().size(); ++i)
+        {
+            child = tmp->root()->children().at(i);
+            if (child->k3bName().size() > 1 && child->k3bName().at(0) == '.')
+            {
+                if (child->isDeleteable())
+                {
+                    m_doc->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    m_doc->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                logger->info("Recovery hidden item <%s>", child->localPath().toStdString().c_str());
+                tmp->removeItem(child);
+                --i;
+            }
+        }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
+    }
+    dlgFileFilter->setHidden(combo_CD->currentIndex(), flag);
+    dlgFileFilter->reload(combo_CD->currentIndex());
+}
+
+void K3b::DataView::isBroken(bool flag)
+{
+    logger->debug("call to set file filter broken link is %s",
+                  flag ? "true" : "false");
+    K3b::DataDoc *tmp = dlgFileFilter->getData(combo_CD->currentIndex());
+    K3b::DataItem *child = NULL;
+    if (!tmp)
+    {
+        logger->error("Cannot get the file filter data at index : %d",
+                      combo_CD->currentIndex());
+        return;
+    }
+    if (flag)
+    {
+        for (int i = 0; i < m_doc->root()->children().size(); ++i)
+        {
+            child = m_doc->root()->children().at(i);
+            if (child->isSymLink())
+            {
+                if (child->isDeleteable())
+                {
+                    tmp->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    tmp->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                logger->info("Filter broken link item <%s>", child->localPath().toStdString().c_str());
+                m_doc->removeItem(child);
+                --i;
+            }
+        }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
+    }
+    else
+    {
+        for (int i = 0; i < tmp->root()->children().size(); ++i)
+        {
+            child = tmp->root()->children().at(i);
+            if (child->isSymLink())
+            {
+                if (child->isDeleteable())
+                {
+                    m_doc->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    m_doc->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                --i;
+                logger->info("Recovery broken link item <%s>", child->localPath().toStdString().c_str());
+                tmp->removeItem(child);
+            }
+        }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
+    }
+    dlgFileFilter->setBroken(combo_CD->currentIndex(), flag);
+    dlgFileFilter->reload(combo_CD->currentIndex());
+}
+
+
+void K3b::DataView::isReplace(bool flag)
+{
+    logger->debug("call to set file filter replace link is %s",
+                  flag ? "true" : "false");
+    K3b::DataDoc *tmp = dlgFileFilter->getData(combo_CD->currentIndex());
+    K3b::DataItem *child = NULL;
+    if (!tmp)
+    {
+        logger->error("Cannot get the file filter data at index : %d",
+                      combo_CD->currentIndex());
+        return;
+    }
+    if (flag)
+    {
+        for (int i = 0; i < m_doc->root()->children().size(); ++i)
+        {
+            child = m_doc->root()->children().at(i);
+            if (child->isSymLink())
+            {
+                if (child->isDeleteable())
+                {
+                    tmp->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    tmp->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                logger->info("Filter replace link item <%s>", child->localPath().toStdString().c_str());
+                m_doc->removeItem(child);
+                --i;
+            }
+            copyData(docs[combo_CD->currentIndex()], m_doc);
+        }
+    }
+    else
+    {
+        for (int i = 0; i < tmp->root()->children().size(); ++i)
+        {
+            child = tmp->root()->children().at(i);
+            if (child->isSymLink())
+            {
+                if (child->isDeleteable())
+                {
+                    m_doc->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                else
+                {
+                    m_doc->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+                }
+                logger->info("Recovery replace link item <%s>", child->localPath().toStdString().c_str());
+                tmp->removeItem(child);
+                --i;
+            }
+        }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
+    }
+    dlgFileFilter->setReplace(combo_CD->currentIndex(), flag);
+    dlgFileFilter->reload(combo_CD->currentIndex());
+}
+
+void K3b::DataView::slotOption(int option, bool flag)
+{
+    qDebug() << "Do set option" << option << flag;
+    logger->debug("Do option %d to %s.", option, flag ? "true" : "false");
+    switch (option)
+    {
+    case 0:/* hidden */
+        isHidden(flag);
+        emit setIsHidden(flag);
+        break;
+    case 1:/* broken */
+        isBroken(flag);
+        emit setIsBroken(flag);
+        break;
+    default:/* replace */
+        isReplace(flag);
+        emit setIsReplace(flag);
+        break;
     }
 }
 

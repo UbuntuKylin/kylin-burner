@@ -70,6 +70,21 @@ namespace K3b {
         protected:
             ProjectBurnDialog* newBurnDialog( QWidget* parent = 0 ) override;
 
+    private:
+            void enableBurnerStart()
+            {
+                button_start->setEnabled(true);
+                button_start->setStyleSheet("QPushButton{"
+                                            "background-color:rgba(61, 107, 229, 1);"
+                                            "font: 18px;border-radius: 4px;color:#ffffff}"
+                                            "QPushButton:hover{background-color:rgba(61, 107, 229, 1);}");
+            }
+            void disableBurnerStart()
+            {
+                button_start->setEnabled(false);
+                button_start->setStyleSheet("background-color:rgba(233, 233, 233, 1);"
+                                            "font: 18px;border-radius: 4px;color:#C1C1C1");
+            }
             void init();
         public:
             QLabel* label_CD;

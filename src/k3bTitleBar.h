@@ -3,6 +3,7 @@
 
 #include "option/k3boptiondialog.h"
 #include "misc/k3bmediaformattingdialog.h"
+#include "k3bFileFilterDialog.h"
 
 #include <QToolButton>
 #include <QLabel>
@@ -19,6 +20,10 @@ namespace K3b{
 class TitleBar : public QWidget
 {
     Q_OBJECT
+signals:
+    void setIsHidden(bool);
+    void setIsBroken(bool);
+    void setIsReplace(bool);
 
 public:
     explicit TitleBar(QWidget *parent = 0);
@@ -45,6 +50,13 @@ public Q_SLOT:
     void filter();
     void help();
     void about();
+public slots:
+    void isHidden(bool);
+    void isBroken(bool);
+    void isReplace(bool);
+    void callHidden(bool);
+    void callBroken(bool);
+    void callReplace(bool);
 
 private:
     QPoint mLastMousePosition;
@@ -59,6 +71,7 @@ private:
     QPushButton *m_pMinimizeButton;
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
+    FileFilter  *dlg;
 };
 }
 #endif // TITLE_BAR_H

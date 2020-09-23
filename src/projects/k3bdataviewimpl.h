@@ -56,6 +56,7 @@ namespace K3b {
         void dataChange(QModelIndex parent, QSortFilterProxyModel *model);
         void dataDelete(bool flag);
         void addFiles(QList<QUrl>);
+        void addDragFiles(QList<QUrl>, K3b::DirItem*);
 
     public Q_SLOTS:
         void slotCurrentRootChanged( const QModelIndex& newRoot );

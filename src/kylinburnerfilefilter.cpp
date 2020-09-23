@@ -95,9 +95,13 @@ void KylinBurnerFileFilter::slotDoFileFilter(K3b::DataDoc *doc)
     }
 }
 
+
+
 void KylinBurnerFileFilter::slotDoChangeSetting(int option, bool enable)
 {
+    emit setOption(option, enable);
     //currentData->clearDisk();
+#if 0
     currentData->clear();
     switch (option)
     {
@@ -129,6 +133,7 @@ void KylinBurnerFileFilter::slotDoChangeSetting(int option, bool enable)
      */
     if (!isHidden && !isBroken && !isReplace) isChange = false;
     onChanged(oldData->root());
+#endif
 }
 
 bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
@@ -142,7 +147,7 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
         mouseEvent = static_cast<QMouseEvent *>(event);
         if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button()))
         {
-            this->close();
+            this->hide();
             if (isChange)
             {
                 oldData->clear();
@@ -157,13 +162,17 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
                 }
                 emit finished(oldData);
             }
+            selection->hide();
         }
         break;
     case QEvent::HoverEnter:
         if (ui->labelClose == obj) labelCloseStyle(true);
         break;
     case QEvent::HoverLeave:
-        if (ui->labelClose == obj) labelCloseStyle(false);
+        if (ui->labelClose == obj)
+        {
+            labelCloseStyle(false);
+        }
         break;
     default:
         return QWidget::eventFilter(obj, event);
@@ -186,48 +195,71 @@ void KylinBurnerFileFilter::labelCloseStyle(bool in)
     }
 }
 
-void KylinBurnerFileFilter::onChanged(K3b::DirItem *parent)
+void KylinBurnerFileFilter::setHidden(int pos, bool flag)
 {
-    if (!parent) return;
-    K3b::DataItem *child;
-    for (int i = 0; i < parent->children().size(); ++i)
-    {
-        child = parent->children().at(i);
-        if (isHidden && child->k3bName().size() > 1 && child->k3bName().at(0) == '.') continue;
-        /*
-         * Todo : if hide all files under dir or not?
-         */
-        if (child->isDeleteable())
-            currentData->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
-        else
-            currentData->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
+    if (pos < stats.size()) stats[pos].isHidden = flag;
+    isHidden = flag;
+}
 
-        //if (child->isDir()) onChanged(static_cast<K3b::DirItem *>(child));
-    }
+void KylinBurnerFileFilter::setBroken(int pos, bool flag)
+{
+    if (pos < stats.size()) stats[pos].isBroken = flag;
+    isBroken = flag;
+}
+
+void KylinBurnerFileFilter::addData()
+{
+    fstatus stat = {false, false, false};
+    K3b::DataDoc *tmp = static_cast<K3b::DataDoc *>
+            (k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));
+    tmp->clear();
+    datas << tmp;
+    stats << stat;
+}
+
+void KylinBurnerFileFilter::removeData(int index)
+{
+    if (-1 == index || index > datas.size()) return;
+    datas.removeAt(index);
+    stats.removeAt(index);
+}
+
+void KylinBurnerFileFilter::setDoFileFilter(int idx)
+{
+    if (-1 == idx || idx > stats.size()) return;
+    isHidden = stats[idx].isHidden;
+    isBroken = stats[idx].isBroken;
+    isReplace = stats[idx].isReplace;
+    slotDoFileFilter(datas[idx]);
+}
+
+void KylinBurnerFileFilter::reload(int idx)
+{
+    slotDoFileFilter(datas[idx]);
+}
+
+void KylinBurnerFileFilter::setReplace(int pos, bool flag)
+{
+    if (pos < stats.size()) stats[pos].isReplace = flag;
+    isReplace = flag;
 }
 
 void KylinBurnerFileFilter::on_btnSetting_clicked()
 {
     //selection->setAttribute(Qt::WA_ShowModal);
-    selection->setOption(isHidden, isBroken, isReplace);
-    selection->show();
+    if (selection->isHidden())
+    {
+        selection->setOption(isHidden, isBroken, isReplace);
+        selection->show();
+    }
+    else selection->hide();
 }
 
 void KylinBurnerFileFilter::on_btnRecovery_clicked()
 {
-    if (!isChange) return;
-    K3b::DataItem *child;
-    isChange = false; isHidden = false; isBroken = false; isReplace = false;
-    selection->setOption(isHidden, isBroken, isReplace);
-    currentData->clear();
-    for (int i = 0; i < oldData->root()->children().size(); ++i)
-    {
-        child = oldData->root()->children().at(i);
-        if (child->isDeleteable())
-            currentData->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
-        else
-            currentData->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
-
-        //if (child->isDir()) onChanged(static_cast<K3b::DirItem *>(child));
-    }
+    if (!(selection->isHidden())) selection->hide();
+    emit setOption(0, false);
+    emit setOption(1, false);
+    emit setOption(2, false);
+    selection->setOption(false, false, false);
 }

@@ -7,6 +7,10 @@
 class FileFilter : public QDialog
 {
     Q_OBJECT
+signals:
+    void setHidden(bool);
+    void setBroken(bool);
+    void setReplace(bool);
 
 public:
     explicit FileFilter(QWidget *parent = nullptr);
@@ -17,6 +21,16 @@ public:
     QCheckBox *follow_link;
 
     Q_SLOT void filter_exit();
+
+private slots:
+    void hiddenChanged(int);
+    void brokenChanged(int);
+    void replaceChanged(int);
+
+public:
+    void setIsHidden(bool);
+    void setIsBroken(bool);
+    void setIsReplace(bool);
 
 private:
 

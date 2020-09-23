@@ -795,6 +795,65 @@ void K3b::MainWindow::initView()
     d->documentTab->setCurrentTab( d->doc_data );
     logger->info("Draw main frame end...");
 
+    /*
+     * file filter
+     */
+    connect(title_bar, SIGNAL(setIsHidden(bool)), this, SLOT(isMenuHidden(bool)));
+    connect(title_bar, SIGNAL(setIsBroken(bool)), this, SLOT(isMenuBroken(bool)));
+    connect(title_bar, SIGNAL(setIsReplace(bool)), this, SLOT(isMenuReplace(bool)));
+    connect(this, SIGNAL(setIsMenuHidden(bool)), title_bar, SLOT(isHidden(bool)));
+    connect(this, SIGNAL(setIsMenuBroken(bool)), title_bar, SLOT(isBroken(bool)));
+    connect(this, SIGNAL(setIsMenuReplace(bool)), title_bar, SLOT(isReplace(bool)));
+
+    connect(d->view_data, SIGNAL(setIsHidden(bool)), this, SLOT(isHidden(bool)));
+    connect(d->view_data, SIGNAL(setIsBroken(bool)), this, SLOT(isBroken(bool)));
+    connect(d->view_data, SIGNAL(setIsReplace(bool)), this, SLOT(isReplace(bool)));
+    connect(this, SIGNAL(setIsHidden(bool)), d->view_data, SLOT(isHidden(bool)));
+    connect(this, SIGNAL(setIsBroken(bool)), d->view_data, SLOT(isBroken(bool)));
+    connect(this, SIGNAL(setIsReplace(bool)), d->view_data, SLOT(isReplace(bool)));
+}
+
+void K3b::MainWindow::isHidden(bool flag)
+{
+    logger->debug("Set function file filter setting, hidden file turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuHidden(flag);
+}
+
+void K3b:: MainWindow::isBroken(bool flag)
+{
+    logger->debug("Set function file filter setting, broken link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuBroken(flag);
+}
+
+void K3b:: MainWindow::isReplace(bool flag)
+{
+    logger->debug("Set function file filter setting, replace link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuReplace(flag);
+}
+
+void K3b::MainWindow::isMenuHidden(bool flag)
+{
+    qDebug() << "Menu hidden..." << flag;
+    logger->debug("Set menu file filter setting, hidden file turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsHidden(flag);
+}
+
+void K3b::MainWindow::isMenuBroken(bool flag)
+{
+    logger->debug("Set menu file filter setting, broken link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsBroken(flag);
+}
+
+void K3b::MainWindow::isMenuReplace(bool flag)
+{
+    logger->debug("Set menu file filter setting, replace link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsReplace(flag);
 }
 
 bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
