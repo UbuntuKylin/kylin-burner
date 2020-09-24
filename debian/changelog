@@ -1,10 +1,17 @@
-kylin-burner (3.0.8-1) unstable; urgency=medium
+kylin-burner (3.1.0-1ubuntu1.1) unstable; urgency=medium
 
-  * New upstream release. (Closes: #957412)
-  * debian/rules: delete as-needed.
-  * debian/control: bump standards-version to 4.5.0.
+  * Non-maintainer upload.
+  * change core,turn to new which forked from k3b
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 01 Aug 2020 02:53:17 +0000
+ -- bobbi <bobbi@bobbi-vm>  Thu, 24 Sep 2020 17:03:25 +0800
+ -- Derek Wong <wangye@kylinos.cn>  Thu, 24 Sep 2020 17:03:25 +0800
+
+kylin-burner (3.0.7-1ubuntu1) focal; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - add libunity-dev dependency
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 06 Dec 2019 22:21:25 +0100
 
 kylin-burner (3.0.7-1) unstable; urgency=medium
 
@@ -21,6 +28,17 @@ kylin-burner (3.0.7-1) unstable; urgency=medium
     - Remove COPYING.
 
  -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 05 Dec 2019 16:55:27 +0800
+
+kylin-burner (3.0.6-1ubuntu1) eoan; urgency=medium
+
+  * Merge from Debian unstable. Remaining changes:
+    (this makes now the package shown in MoM page, because at least
+    one merge has been done)
+    - different orig tarball (unity code in Makefile.am is commented in Debian
+      tarball)
+    - add libunity-dev dependency
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 14 May 2019 10:13:27 +0200
 
 kylin-burner (3.0.6-1) unstable; urgency=medium
 
