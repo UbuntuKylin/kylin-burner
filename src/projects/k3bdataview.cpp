@@ -97,6 +97,7 @@ void K3b::DataView::addDragFiles(QList<QUrl> urls, K3b::DirItem* targetDir)
 {
     for (int i = 0; i < docs.size(); ++i)
         docs[i]->addUrls(urls);
+    copyData(m_doc, docs[combo_CD->currentIndex()]);
 }
 
 K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
@@ -528,7 +529,7 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         }
         else return QWidget::eventFilter(obj, event);
    case QEvent::Drop:
-        if (obj == tips/* || obj == m_dataViewImpl->view()*/)
+        if (obj == tips /*|| obj == m_dataViewImpl->view()*/)
         {
             dropEvent = static_cast<QDropEvent *>(event);
             if (lastDrop.isEmpty() || lastDrop != dropEvent->mimeData()->urls())
@@ -542,11 +543,17 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
             {
                 if (tips) tips->hide();
                 m_dataViewImpl->view()->setFixedHeight(370);
+                enableButtonBurn();
+                enableBurnSetting();
+                btnFileFilter->show();
+                enableButtonRemove();
+                enableButtonClear();
                 m_doc->addUrls(lastDrop);
                 //slotAddFile(lastDrop);
                 qDebug() << combo_CD->currentIndex();
                 //copyData(m_doc, docs[combo_CD->currentIndex()]);
             }
+            /*
             if (0 == m_dataViewImpl->model()->rowCount() ||
                     m_doc->root()->children().size() == 0)
             {
@@ -567,6 +574,7 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
                 if (tips) tips->hide();
                 m_dataViewImpl->view()->setFixedHeight(370);
             }
+            */
         }
         else return QWidget::eventFilter(obj, event);
         return true;
@@ -803,8 +811,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         combo_CD->setCurrentIndex(idx);
         lastIndex = combo_CD->currentIndex();
     }
-    if (0 == m_dataViewImpl->view()->model()->rowCount() //||
-            /*0 == docs[combo_CD->currentIndex()]->root()->children().size()*/)
+    if (0 == m_dataViewImpl->view()->model()->rowCount() ||
+            0 == m_doc->root()->children().size())
     {
         m_dataViewImpl->view()->setFixedHeight(28);
         tips->show();
