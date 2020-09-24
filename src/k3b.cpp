@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 1998-2009 Sebastian Trueg <trueg@k3b.org>
  *           (C) 2009-2011 Michal Malek <michalm@jabster.pl>
  *

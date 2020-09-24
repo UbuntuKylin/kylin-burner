@@ -1,5 +1,5 @@
 /*
- *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2007-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.

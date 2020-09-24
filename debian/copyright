@@ -1,371 +1,667 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: kylin-burner
-Source: https://download.kde.org/stable/k3b
 
 Files: *
-Copyright: 1998-2009, Sebastian Trueg <trueg@k3b.org>
-           2009-2011, Michal Malek <michalm@jabster.pl>
-           2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
-           2005, Max Howell <max.howell@methylblue.com>
-           2005, Seb Ruiz <me@sebruiz.net>
-           2005, Kicker Authors
-           2010, Dario Freddi <drf@kde.org>
-           2009, Arthur Mello <arthur@mandriva.com>
-           2003-2004, Christian Kvasny <chris@k3b.org>
-           2005, Shaheed Haque (srhaque@iee.org)
-           2004-2005, Jakob Petsovits <jpetso@gmx.at>
-           2003, Klaus-Dieter Krannich <kd@k3b.org>
-           2011, Andriy Gapon <avg@FreeBSD.org>
-           2006, Mark Davies <mark@mcs.vuw.ac.nz>
-           2007, Jeremy C. Andrus <jeremy@jeremya.com>
-           2009, Ralf Habacker <ralf.habacker@freenet.de>
-           cdrdao project (C) J. Schilling, Andreas Mueller
-           * and many others.
-           2003-2004, John Steele Scott <toojays@toojays.net>
-           2004, Matthieu Bedouet <mbedouet@no-log.org>
-           2017, Safa Alfulaij <safa1996alfulaij@gmail.com>
-           2019, enolp <enolp@softastur.org>
-           2005-2009, Zlatko Popov <zlatkopopov@fsa-bg.org>
-           2010-2011, Yasen Pramatarov <yasen@lindeas.com>
-           2003, Bakir Helić <bh@linux.org.ba>
-           2004, Avdija Ahmedhodžić <avdija@narkomanija.ba>
-           2004, Vedran Ljubović <vljubovic@smartnet.ba>
-           2004, Vladimir Grubor <vlado@mobih.ba>
-           2006, Adnan Hodzic <admin@abshost.net>
-           2003-2018, Antoni Bella Pérez <antonibella5@yahoo.com>
-           2004-2005, Albert Astals Cid <aacid@kde.org>
-           2006-2008, Marc Coll Carrillo <marcoll@ya.com>
-           2007-2019, Josep Ma. Ferrer <txemaq@gmail.com>
-           2010, Manuel Tortosa Moreno <manutortosa@gmail.com>
-           2010-2011, Joan Maspons <joanmaspons@gmail.com>
-           2010-2011, Lukáš Tinkl <ltinkl@redhat.com>
-           2010-2019, Vít Pelčák <vit@pelcak.org>
-           2012-2013, Tomáš Chvátal <tomas.chvatal@gmail.com>
-           2004-2007, Erik Kjær Pedersen <erik@binghamton.edu>
-           2009-2018, Martin Schlander <mschlander@opensuse.org>
-           2019, scootergrisen
-           2003, Christoph Thielecke <crissi99@gmx.de>
-           2003-2004, Thomas Diehl <thd@kde.org>
-           2003, Sebastian Trüg <trueg@k3b.org>
-           2003, Thomas Fischer <th.fischer@gmx.net>
-           2004-2009, Thomas Reitelbach <tr@erdfunkstelle.de>
-           2005, Stephan Johach <hunsum@gmx.de>
-           2009-2016, Frederik Schwarzer <schwarzer@kde.org>
-           2009-2019, Burkhard Lück <lueck@hube-lueck.de>
-           2009, Jannick Kuhr <opensource@kuhr.org>
-           2009-2010, Markus Slopianka <markus.s@kdemail.net>
-           2009-2010, Panagiotis Papadopoulos <pano_90@gmx.net>
-           2010-2014, Johannes Obermayr <johannesobermayr@gmx.de>
-           2003, ironhell3 <ironhell3@hotmail.com>
-           2005, Kouzinopoulos Haris <haris@mpa.gr>
-           2005-2008, Spiros Georgaras <sng@hellug.gr>
-           2005, Bouklis Panos <panos@echidna-band.com>
-           2005-2009, Toussis Manolis <manolis@koppermind.homelinux.org>
-           2008, Spiros Georgaras <sngeorgaras@otenet.gr>
-           2011-2017, Stelios <sstavra@gmail.com>
-           2011-2013, Dimitrios Glentadakis <dglent@gmail.com>
-           2011, Antonis Geralis <capoiosct@gmail.com>
-           2018, Long Run <pvidalis@gmail.com>
-           2009-2011, Andrew Coles <andrew_coles@yahoo.co.uk>
-           2014-2019, Steve Allewell <steve.allewell@gmail.com>
-           2007, Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>
-           2007-2019, Eloy Cuadra <ecuadra@eloihr.net>
-           2007-2008, Carlos Davila <carluti@users.sourceforge.net>
-           2008, Santi <santi@kde-es.org>
-           2008, Danilo Vasquez Simonetti <danilo.vasquez@gmail.com>
-           2009-2014, Javier Vinal <fjvinal@gmail.com>
-           2015, Sergio Ahumada <sahumada@texla.cl>
-           2017-2018, Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
-           2003-2005, Hasso Tepper <hasso@estpak.ee>
-           2003-2012, Marek Laane <bald@starman.ee>
-           2005, Peeter Russak <pezz@tkwcy.ee>
-           2005, Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>
-           2007, marcos <marcos@euskalgnu.org>
-           2009, Julen Landa Alustiza <julen@mundurat.net>
-           2009-2011, Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>
-           2012-2020, Iñigo Salvador Azurmendi <xalba@euskalnet.net>
-           2014, Mohi Mirdamadi <mohi@ubuntu.ir>
-           2003, Teemu Rytilahti <teemu.rytilahti@kde-fi.org>
-           2005-2007, Ilpo Kantonen <ilpo@iki.fi>
-           2006, Mikael Lammentausta <mikael.lammentausta@student.savonia-amk.fi>
-           2006, Kim Enkovaara <kim.enkovaara@iki.fi>
-           2009-2018, Tommi Nieminen <translator@legisign.org>
-           2010-2016, Lasse Liehu <lasse.liehu@gmail.com>
-           2012, Jiri Grönroos <jiri.gronroos+kde@iki.fi>
-           2012, Niklas Laxström <niklas.laxstrom+kdetrans@gmail.com>
-           2002-2003, Gérard Delafond <gerard@delafond.org>
-           2002, Charles de Miramon <cmiramon@kde-france.org>
-           2002, Éric Bischoff <e.bischoff@noos.fr>
-           2004, Matthieu Robin <kde@macolu.org>
-           2002-2004, Gilles Caulier <caulier.gilles@free.fr>
-           2004-2005, Matthieu Robin <matthieu@macolu.org>
-           2005-2007, Yannick Torrès <yannick.torres@keliglia.com>
-           2008, Paul Morin <m.paulmorin@gmail.com>
-           2008, Nicolas Ternisien <nicolas.ternisien@gmail.com>
-           2008, Sébastien Renard <Sebastien.Renard@digitalfox.org>
-           2010-2013, Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>
-           2012, xavier <xavier.besnard@neuf.fr>
-           2018-2019, Simon Depiets <sdepiets@gmail.com>
-           2019, Maxime Corteel <mcorteel@gmail.com>
-           2009, Kevin Scannell <kscanne@gmail.com>
-           2003-2004, Xabi García <xabigf@gmx.net>
-           2004-2005, Martina Ramilo Pereira <martina.ramilo@hispalinux.es>
-           2006-2007, Xabi G. Feal <xabigf@gmx.net>
-           2007-2009, mvillarino <mvillarino@users.sourceforge.net>
-           2011-2014, Marce Villarino <mvillarino@kde-espana.es>
-           2012, Xosé <xosecalvo@gmail.com>
-           2013, Miguel Branco <mgl.branco@gmail.com>
-           2013-2019, Adrián Chaves (Gallaecio) <adrian@chaves.io>
-           2008, David Shalmiev <vertigo.rus@gmail.com>
-           2009-2010, Tahmar1900 <tahmar1900@gmail.com>
-           2010-2013, Diego Iastrubni <elcuco@kde.org>
-           2017, Elkana Bardugo <ttv200@gmail.com>
-           2008, Ravishankar Shrivastava <raviratlami@yahoo.com>
-           2010, Andrej Dundovic <adundovi@gmail.com>
-           2011, Marko Dimjašević <marko@dimjasevic.net>
-           2002-2003, Marcel Hilzinger <hili@suselinux.hu>
-           2003, Tamas Szanto <tszanto@mol.hu>
-           2003-2010, Arpad Biro <biro.arpad gmail>
-           2010-2012, Kristóf Kiszel <ulysses@kubuntu.org>
-           2012-2014, Balázs Úr <urbalazs@gmail.com>
-           2018-2019, Wantoyo <wantoyek@gmail.com>
-           2005-2006, Arnar Leósson <leosson@frisurf.no
-           2008-2018, Sveinn í Felli <sveinki@nett.is>
-           2002-2010, Giovanni Venturi <giovanni@ksniffer.org>
-           2015, Vincenzo Reale <smart2128@baslug.org>
-           2015-2019, Luigi Toscano <luigi.toscano@tiscali.it>
-           2003-2006, UTUMI Hirosi <utuhiro78@yahoo.co.jp>
-           2006-2009, Yukiko Bando <ybando@k6.dion.ne.jp>
-           2012, Yasuhiko Kamata <belphegor@belbel.or.jp>
-           2011-2012, Fumiaki Okushi <okushi@kde.gr.jp>
-           2011-2013, Sairan Kikkarin <sairan@computer.org>
-           2009-2012, Khoem Sokhem <khoemsokhem@khmeros.info>
-           2009, Seng Sutha
-           2007, Sang-kyun Noh <freesky80@nate.com>
-           2008-2019, Shinjo Park <kde@peremen.name>
-           2005, Nerijus Kislauskas <nierka@splius.lt>
-           2005, Donatas Glodenis <dgvirtual@akl.lt>
-           2006, Dovydas Sankauskas <laisve@gmail.com>
-           2011, Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>
-           2011-2013, Liudas Alisauskas <liudas@akmc.lt>
-           2019, Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>
-           2011-2012, Einars Sprugis <einars8@gmail.com>
-           2011-2012, Maris Nartiss <maris.kde@gmail.com>
-           2008, Prasad.S.R <saysprasad@gmail.com>
-           2013, Chetan Khona <chetan@kompkin.com>
-           2004, Knut Yrvin <knut.yrvin@gmail.com>
-           2005, Nils Kristian Tomren <slx@nilsk.net>
-           2006, Jørgen Grønlund <jorgenhg@broadpark.no>
-           2006, Håvard Korsvoll <korsvoll@skulelinux.no>
-           2006-2007, Alexander Nicolaysen Sørnes <alex@thehandofagony.com>
-           2006, Lars Risan <lars.risan@tik.uio.no>
-           2006, Klaus Ade Johnstad <klaus@skolelinux.no>
-           2008, Axel Bojer <fri_programvare@bojer.no>
-           2008-2012, Bjørn Steensrud <bjornst@skogkatt.homelinux.org>
-           2006-2011, Manfred Wiese <m.j.wiese@web.de>
-           2006-2014, Sönke Dibbern <s_dibbern@web.de>
-           2003-2004, Rinse de Vries <rinse@kde.nl>
-           2003, Roel Koelewijn <rl.koelewijn@home.nl>
-           2004, Jo Vermeulen <jo@lumumba.luc.ac.be>
-           2004, R.F. Pels <ruurd@tiscali.nl>
-           2004-2010, Rinse de Vries <rinsedevries@kde.nl>
-           2004, Tom Albers <tomalbers@kde.nl>
-           2004-2006, Bram Schoenmakers <bramschoenmakers@kde.nl>
-           2008-2009, Kristof Bal <kristof.bal@gmail.com>
-           2009-2010, Antoon Tolboom <atolboo@gmail.com>
-           2009-2019, Freek de Kruijf <freekdekruijf@kde.nl>
-           2004-2008, Håvard Korsvoll <korsvoll@skulelinux.no>
-           2005-2019, Karl Ove Hufthammer <karl@huftis.org>
-           2008-2009, Eirik U. Birkeland <eirbir@gmail.com>
-           2008-2019, A S Alam <aalam@users.sf.net>
-           2008, Amanpreet Singh Alam <aalam@users.sf.net>
-           2002-2007, Krzysztof Lichota <lichota@mimuw.edu.pl>
-           2004, Emil Nowak <emil5@go2.pl>
-           2004-2005, Michal Rudolf <mrudolf@kdewebdev.org>
-           2005, Robert Gomulka <rgom@o2.pl>
-           2007, Krzysztof Lichota <krzysiek@lichota.net>
-           2008, Tomasz Zaba <frog4@poczta.onet.pl>
-           2008-2011, Marta Rybczyńska <kde-i18n@rybczynska.net>
-           2008-2009, Maciej Wikło <maciej.wiklo@wp.pl>
-           2011, Artur Chłond <eugenewolfe@o2.pl>
-           2011-2019, Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
-           2019, Pedro Morais <morais@kde.org>
-           2003-2012, Marcus Gama <marcus.gama@gmail.com>
-           2003, Gustavo Mendes de Carvalho <gmcarvalho@yahoo.com>
-           2004, Antonio Sergio de Mello e Souza <asergioz@bol.com.br>
-           2004, Thiago Macieira <thiago.macieira@kdemail.net>
-           2004-2005, Lisiane Sztoltz Teixeira <lisiane@kdemail.net>
-           2007, Diniz Bortolotto <diniz.bortolotto@gmail.com>
-           2008-2019, Luiz Fernando Ranghetti <elchevive@opensuse.org>
-           2005-2009, Doutor Zero <doutor.zero@gmail.com>
-           2009-2016, André Marcelo Alvarenga <alvarenga@kde.org>
-           2008, Laurenţiu Buzdugan <lbuz@rolix.org>
-           2008-2014, Sergiu Bivol <sergiu.bivol@jurnaltv.md>
-           2002-2003, LOR Windowser <lorwindowser@mail.ru>
-           2003-2005, Vitaly Lipatov <lav@altlinux.ru>
-           2004, Gregory Mokhin <mok@kde.ru>
-           2004, Albert R. Valiev <darkstar@altlinux.ru>
-           2003-2010, Nick Shaforostoff <shaforostoff@kde.ru>
-           2008-2011, Артём Середа <overmind88@gmail.com>
-           2010-2015, Alexander Potashev <aspotashev@gmail.com>
-           2011-2012, Yuri Efremov <yur.arh@gmail.com>
-           2013, Alexander Lakhin <exclusion@gmail.com>
-           2019, Alexander Yavorsky <kekcuha@gmail.com>
-           2007-2010, Richard Fric <Richard.Fric@kdemail.net>
-           2010-2011, Michal Sulek <misurel@gmail.com>
-           2012-2017, Roman Paholík <wizzardsk@gmail.com>
-           2019, Matej Mrenica <matejm98mthw@gmail.com>
-           2009-2010, Jure Repinc <jlp@holodeck1.com>
-           2012-2018, Andrej Mernik <andrejm@ubuntu.si>
-           2007-2010, Slobodan Simic <slsimic@gmail.com>
-           2010-2017, Chusslove Illich <caslav.ilic@gmx.net>
-           2010, Dalibor Djuric <daliborddjuric@gmail.com>
-           2007-2019, tefan Asserhall <stefan.asserhall@bredband.net>
-           2004, Adem Alp Yıldız <ademalp@linux-sevenler.org>
-           2004, Aydın Demirel <aydndemirel@yahoo.com>
-           2005, Ayşe Genç <ayse@uludag.org.tr>
-           2006, Bekir SONAT <bekirsonat@kde.org.tr>
-           2004-2007, Engin Çağatay <engincagatay@yahoo.com>
-           2005, Gökçen Eraslan <gokcene@anadolu.edu.tr>
-           2002-2005, Görkem Çetin <gorkem@kde.org>
-           2006, Hasan <hasan@teknoseyir.com>
-           2011, H. İbrahim Güngör <ibrahim@pardus.org.tr>
-           2006, Koray Bostancı <koray@kde.org.tr>
-           2006, Koray Löker <loker@pardus.org.tr>
-           2003, Nilgün Belma Bugüner <nilgun@superonline.com>
-           2010, Ozan Çağlayan <ozan@pardus.org.tr>
-           2004-2005, S.Çağlar Onur <caglar@uludag.org.tr>
-           2007-2012, obsoleteman <tulliana@gmail.com>
-           2013-2017, Volkan Gezer <volkangezer@gmail.com>
-           2011, Sahran <sahran.ug@gmail.com>
-           2009, Jean Cayron <jean.cayron@gmail.com>
-           2002-2003, Zong Yaotang <zong@cosix.com.cn>
-           2002-2003, Xiong Jiang <jxiong@offtopic.org>
-           2004-2005, Funda Wang <fundawang@linux.net.cn>
-           2010, Feng Chao <rainofchaos@gmail.com>
-           2017, Guo Yunhe <guoyunhebrave@gmail.com>
-           2002, SiongUi Te <siongui@yahoo.com.tw>
-           2003, Bao-Chau Chen <b8802046@mail.ntust.edu.tw>
-           2006, You-Cheng Hsieh <yochenhsieh@xuite.net>
-           2007-2013, Franklin Weng <franklin@goodhorse.idv.tw>
-           2008, Yi-Shun Wang <dnextstep@gmail.com>
-           2016, Jeff Huang <s8321414@gmail.com>
-           2018-2019, pan93412 <pan93412@gmail.com>
-           2020, giovanni <g.sora@tiscali.it>
+Copyright: 2002, 2020, KylinSoft Co., Ltd.
 License: GPL-2+
 
-Files: doc/*
-      po/ca/docs/k3b/*
-      po/de/docs/k3b/*
-      po/nl/docs/k3b/*
-      po/sv/docs/k3b/*
-      po/uk/docs/k3b/*
-      po/es/docs/k3b/*
-      po/pt_BR/docs/k3b/*
-      po/pt/docs/k3b/*
-      po/it/docs/k3b/*
-      po/fr/docs/k3b/*
-Copyright: 2009-2012
-          https://userbase.kde.org/index.php?title=K3b&action=history
-License: GFDL-1.2+
+Files: kioslaves/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
 
+Files: kioslaves/videodvd/videodvd.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
 
-Files: po/uk/k3b.po
-Copyright: 2004-2008, Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>
-           2007-2019 Yuri Chornoivan <yurchor@ukr.net>
-License: LGPL-2.1+3+KDEeV
+Files: libk3b/*
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
 
-Files: src/org.kde.k3b.appdata.xml
-Copyright: 1998-2009, Sebastian Trueg <trueg@k3b.org>
-License: CC0-1.0
+Files: libk3b/core/k3bdefaultexternalprograms.cpp
+  libk3b/core/k3bdefaultexternalprograms.h
+  libk3b/core/k3bexternalbinmanager.cpp
+  libk3b/core/k3bexternalbinmanager.h
+  libk3b/core/k3bjob.h
+  libk3b/core/k3bkjobbridge.cpp
+  libk3b/core/k3bkjobbridge.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
 
-Files: debian/*
-Copyright: 2019, Scarlett Moore <sgmoore@kde.org>
-           2003-2005, Jean-Michel Kelbert <kelbert@debian.org>
-           2008-2010 Fathi Boudra <fabo@debian.org>
-           2005-2008 Francois Marier <francois@debian.org>
+Files: libk3b/jobs/k3baudiocuefilewritingjob.cpp
+  libk3b/jobs/k3baudiocuefilewritingjob.h
+  libk3b/jobs/k3bcdcopyjob.cpp
+  libk3b/jobs/k3bcdcopyjob.h
+  libk3b/jobs/k3bclonejob.cpp
+  libk3b/jobs/k3bclonejob.h
+  libk3b/jobs/k3bdvdcopyjob.cpp
+  libk3b/jobs/k3bdvdcopyjob.h
+  libk3b/jobs/k3bdvdformattingjob.cpp
+  libk3b/jobs/k3biso9660imagewritingjob.cpp
+  libk3b/jobs/k3biso9660imagewritingjob.h
+  libk3b/jobs/k3bverificationjob.cpp
+  libk3b/jobs/k3bvideodvdtitletranscodingjob.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/jobs/k3bbinimagewritingjob.cpp
+  libk3b/jobs/k3bbinimagewritingjob.h
+Copyright: 2011, Michal Malek <michalm@jabster.pl>
+  2003, Klaus-Dieter Krannich <kd@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/plugin/k3baudioencoder.cpp
+  libk3b/plugin/k3baudioencoder.h
+  libk3b/plugin/k3bpluginmanager.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/audiocd/k3baudiocdtrackreader.cpp
+  libk3b/projects/audiocd/k3baudiocdtrackreader.h
+  libk3b/projects/audiocd/k3baudiocdtracksource.cpp
+  libk3b/projects/audiocd/k3baudiocdtracksource.h
+  libk3b/projects/audiocd/k3baudiodocreader.cpp
+  libk3b/projects/audiocd/k3baudiodocreader.h
+  libk3b/projects/audiocd/k3baudiofilereader.cpp
+  libk3b/projects/audiocd/k3baudiofilereader.h
+  libk3b/projects/audiocd/k3baudioimager.cpp
+  libk3b/projects/audiocd/k3baudiotrack.h
+  libk3b/projects/audiocd/k3baudiotrackreader.cpp
+  libk3b/projects/audiocd/k3baudiotrackreader.h
+  libk3b/projects/audiocd/k3baudiozerodatareader.cpp
+  libk3b/projects/audiocd/k3baudiozerodatareader.h
+  libk3b/projects/audiocd/k3brawaudiodatareader.cpp
+  libk3b/projects/audiocd/k3brawaudiodatareader.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/audiocd/k3baudiodoc.cpp
+  libk3b/projects/audiocd/k3baudiodoc.h
+  libk3b/projects/audiocd/k3baudiotrack.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/datacd/k3bbootitem.cpp
+  libk3b/projects/datacd/k3bdiritem.cpp
+  libk3b/projects/datacd/k3bdiritem.h
+  libk3b/projects/datacd/k3bfileitem.cpp
+  libk3b/projects/datacd/k3bsessionimportitem.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/datacd/k3bdatadoc.cpp
+  libk3b/projects/datacd/k3bdatadoc.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/datacd/k3bdataitem.cpp
+  libk3b/projects/datacd/k3bdataitem.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/k3bcdrdaowriter.cpp
+  libk3b/projects/k3bcdrdaowriter.h
+Copyright: 2003, Klaus-Dieter Krannich <kd@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/k3bcdrskinwriter.cpp
+  libk3b/projects/k3bcdrskinwriter.h
+Copyright: 2016, 2017, Leslie Zhai <lesliezhai@llvm.org.cn>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/movixcd/k3bmovixdoc.cpp
+  libk3b/projects/movixcd/k3bmovixdoc.h
+  libk3b/projects/movixcd/k3bmovixfileitem.h
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/movixcd/k3bmovixfileitem.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/videocd/*
+Copyright: 2003, 2004, Christian Kvasny <chris@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/projects/videocd/k3bvcddoc.cpp
+  libk3b/projects/videocd/k3bvcddoc.h
+  libk3b/projects/videocd/k3bvcdtrack.cpp
+  libk3b/projects/videocd/k3bvcdtrack.h
+Copyright: 2010, 2011, Michal Malek <michalm@jabster.pl>
+  2003-2005, Christian Kvasny <chris@k3b.org>
+  1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/tools/k3bcdparanoialib.cpp
+  libk3b/tools/k3bmsfedit.cpp
+  libk3b/tools/k3bmsfedit.h
+  libk3b/tools/k3btitlelabel.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3b/tools/libisofs/*
+Copyright: 1989, 1991, Free Software Foundation, Inc.
+License: LGPL
+ Please fill license LGPL from header of libk3b/tools/libisofs/*
+
+Files: libk3b/tools/libisofs/bswap.h
+Copyright: 1997, 1998, Free Software Foundation, Inc.
+License: UNKNOWN
+ Please fill license UNKNOWN from header of libk3b/tools/libisofs/bswap.h
+
+Files: libk3b/tools/libisofs/isofs.cpp
+  libk3b/tools/libisofs/isofs.h
+Copyright: 2002, Szombathelyi György
+License: GPL-2+
+
+Files: libk3b/tools/qprocess/*
+Copyright: 2009, Nokia Corporation and/or its subsidiary(-ies).
+License: GPL-2.1 and/or LGPL-2.1
+ Please fill license GPL-2.1 and/or LGPL-2.1 from header of libk3b/tools/qprocess/*
+
+Files: libk3b/tools/qprocess/k3bkprocess.cpp
+  libk3b/tools/qprocess/k3bkprocess.h
+  libk3b/tools/qprocess/k3bkprocess_p.h
+Copyright: 2007, 2008, Oswald Buddenhagen <ossi@kde.org>
+License: LGPL-2+
+
+Files: libk3b/tools/qprocess/private/kshell_p.h
+Copyright: 2007, 2008, Oswald Buddenhagen <ossi@kde.org>
+License: LGPL-2+
+
+Files: libk3b/videodvd/k3bvideodvd.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/*
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/k3bdevicemanager.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/k3bscsicommand_bsd.cpp
+Copyright: 2011, Andriy Gapon <avg@FreeBSD.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/k3bscsicommand_linux.cpp
+Copyright: Andy Polyakov <appro@fy.chalmers.se> / 2003-2009, Sebastian Trueg <trueg@k3b.org> / 1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/k3bscsicommand_netbsd.cpp
+Copyright: 2006, Mark Davies <mark@mcs.vuw.ac.nz>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/k3bscsicommand_win.cpp
+Copyright: J. Schilling, Andreas Mueller / 2009, Ralf Habacker <ralf.habacker@freenet.de> / 2007, Jeremy C. Andrus <jeremy@jeremya.com> / 1998-2007, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: libk3bdevice/winspti.h
+Copyright: J. Schilling, Andreas Mueller / 2007, Jeremy C. Andrus <jeremy@jeremya.com> / 1998-2007, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/*
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/decoder/flac/*
+Copyright: 2003, 2004, John Steele Scott <toojays@toojays.net>
+  1998-2008, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/decoder/libsndfile/*
+Copyright: 2004, Matthieu Bedouet <mbedouet@no-log.org>
+  1998-2008, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/encoder/external/k3bexternalencoder.cpp
+  plugins/encoder/external/k3bexternalencoder.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/encoder/lame/k3blameencoder.cpp
+  plugins/encoder/lame/k3blameencoder.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/encoder/ogg/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/encoder/ogg/k3boggvorbisencoderconfigwidget.cpp
+  plugins/encoder/ogg/k3boggvorbisencoderconfigwidget.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/encoder/sox/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/project/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/project/audiometainforenamer/k3baudiometainforenamerplugin.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: plugins/project/audioprojectcddb/k3baudioprojectcddbplugin.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/*
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/helper/*
+Copyright: 2010, Dario Freddi <drf@kde.org>
+  2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3b.cpp
+  src/k3bapplication.cpp
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3b.h
+  src/k3binteractiondialog.cpp
+  src/k3binteractiondialog.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3bFileFilterDialog.cpp
+  src/k3bFileFilterDialog.h
+  src/k3bMd5Dialog.cpp
+  src/k3bMd5Dialog.h
+  src/k3bResultDialog.cpp
+  src/k3bResultDialog.h
+  src/k3bTitleBar.cpp
+  src/k3bTitleBar.h
+  src/kylinburnerfilefilter.cpp
+  src/kylinburnerfilefilter.h
+  src/kylinburnerfilefilterselection.cpp
+  src/kylinburnerfilefilterselection.h
+  src/kylinburnerlogger.cpp
+  src/kylinburnerlogger.h
+Copyright: 2002, 2020, KylinSoft Co., Ltd.
+License: GPL-2+
+
+Files: src/k3bappdevicemanager.cpp
+  src/k3bapplication.h
+  src/k3baudioprojectinterface.cpp
+  src/k3baudioprojectinterface.h
+  src/k3bdataprojectinterface.cpp
+  src/k3bdataprojectinterface.h
+  src/k3bdevicedelegate.cpp
+  src/k3bdirview.cpp
+  src/k3bflatbutton.cpp
+  src/k3binterface.cpp
+  src/k3binterface.h
+  src/k3bjobinterface.cpp
+  src/k3bjobinterface.h
+  src/k3bjobprogressdialog.cpp
+  src/k3bmediumdelegate.cpp
+  src/k3bmixedprojectinterface.cpp
+  src/k3bmixedprojectinterface.h
+  src/k3bmodelutils.cpp
+  src/k3bmodelutils.h
+  src/k3bprojectinterface.cpp
+  src/k3bprojectinterface.h
+  src/k3bprojecttabwidget.cpp
+  src/k3bprojecttabwidget.h
+  src/k3bstatusbarmanager.cpp
+  src/k3bstatusbarmanager.h
+  src/k3bsystemproblemdialog.cpp
+  src/k3btempdirselectionwidget.cpp
+  src/k3bthemedheader.cpp
+  src/k3bviewcolumnadjuster.cpp
+  src/k3bviewcolumnadjuster.h
+  src/k3bwelcomewidget.cpp
+  src/k3bwelcomewidget.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3bburnprogressdialog.cpp
+Copyright: 2003-2009, Sebastian Trueg <trueg@k3b.org> / 1998-200 Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3bfiletreeview.cpp
+  src/k3bfiletreeview.h
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3bmetaitemmodel.cpp
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/k3bwidgetshoweffect.cpp
+  src/k3bwidgetshoweffect.h
+Copyright: Kicker Authors kickertip.cpp, 2005/08/17 / 2005-2008, Sebastian Trueg <trueg@k3b.org> / 2005, Max Howell <max.howell@methylblue.com> / 1998-2007, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/misc/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/misc/k3bmediacopydialog.cpp
+  src/misc/k3bmediacopydialog.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/misc/k3bmediaformattingdialog.cpp
+  src/misc/k3bmediaformattingdialog.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/option/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/option/k3badvancedoptiontab.cpp
+  src/option/k3badvancedoptiontab.h
+  src/option/k3bcddboptiontab.cpp
+  src/option/k3bcddboptiontab.h
+  src/option/k3bexternalbinoptiontab.cpp
+  src/option/k3bexternalbinoptiontab.h
+  src/option/k3bmiscoptiontab.cpp
+  src/option/k3bmiscoptiontab.h
+  src/option/k3bnotifyoptiontab.cpp
+  src/option/k3bnotifyoptiontab.h
+  src/option/k3boptiondialog.cpp
+  src/option/k3boptiondialog.h
+  src/option/k3bpluginoptiontab.cpp
+  src/option/k3bpluginoptiontab.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3baudioeditorwidget.cpp
+  src/projects/k3baudioeditorwidget.h
+  src/projects/k3baudioprojectdelegate.cpp
+  src/projects/k3baudioprojectdelegate.h
+  src/projects/k3baudiotrackaddingdialog.cpp
+  src/projects/k3baudiotrackplayer.cpp
+  src/projects/k3baudiotrackplayer.h
+  src/projects/k3baudiotracktrmlookupdialog.cpp
+  src/projects/k3baudioviewimpl.h
+  src/projects/k3bbootimagedialog.cpp
+  src/projects/k3bbootimagedialog.h
+  src/projects/k3bbootimagemodel.cpp
+  src/projects/k3bbootimagemodel.h
+  src/projects/k3bdataadvancedimagesettingsdialog.cpp
+  src/projects/k3bdataadvancedimagesettingsdialog.h
+  src/projects/k3bdataprojectdelegate.cpp
+  src/projects/k3bdataprojectdelegate.h
+  src/projects/k3bdataprojectmodel.h
+  src/projects/k3bdataprojectsortproxymodel.cpp
+  src/projects/k3bdataprojectsortproxymodel.h
+  src/projects/k3bdatapropertiesdialog.cpp
+  src/projects/k3bdatapropertiesdialog.h
+  src/projects/k3bdataurladdingdialog.cpp
+  src/projects/k3bdataviewimpl.h
+  src/projects/k3bfillstatusdisplay.cpp
+  src/projects/k3bmusicbrainztrackloopupjob.cpp
+  src/projects/k3bvcdtrackkeysdelegate.cpp
+  src/projects/k3bvcdtrackkeysdelegate.h
+  src/projects/k3bvcdtrackkeysmodel.cpp
+  src/projects/k3bvcdtrackkeysmodel.h
+  src/projects/k3bvolumenamewidget.cpp
+  src/projects/k3bvolumenamewidget.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3baudioprojectmodel.cpp
+  src/projects/k3baudioprojectmodel.h
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3baudioview.cpp
+  src/projects/k3baudioview.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, Arthur Mello <arthur@mandriva.com>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3baudioviewimpl.cpp
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, Arthur Mello <arthur@mandriva.com>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bdataburndialog.cpp
+  src/projects/k3bdataburndialog.h
+  src/projects/k3bprojectburndialog.cpp
+  src/projects/k3bprojectburndialog.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bdataprojectmodel.cpp
+  src/projects/k3bdataviewimpl.cpp
+  src/projects/k3bdirproxymodel.cpp
+  src/projects/k3bdirproxymodel.h
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bdataview.cpp
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bdataview.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bmixedview.cpp
+  src/projects/k3bmixedview.h
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bmovixprojectmodel.cpp
+  src/projects/k3bmovixprojectmodel.h
+Copyright: 2010, Michal Malek <michalm@jabster.pl>
+  2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, Arthur Renato Mello <arthur@mandriva.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bmovixview.cpp
+  src/projects/k3bmovixview.h
+Copyright: 2009, Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
+  2009, Arthur Renato Mello <arthur@mandriva.com>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bvcdburndialog.cpp
+  src/projects/k3bvcdburndialog.h
+Copyright: 2003, 2004, Christian Kvasny <chris@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bvcdprojectmodel.cpp
+  src/projects/k3bvcdprojectmodel.h
+Copyright: 2010, Michal Malek <michalm@jabster.pl>
+  2009, Arthur Mello <arthur@mandriva.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bvcdtrackdialog.cpp
+  src/projects/k3bvcdtrackdialog.h
+Copyright: 2010, 2011, Michal Malek <michalm@jabster.pl>
+  2003-2005, Christian Kvasny <chris@k3b.org>
+  1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bvcdview.cpp
+  src/projects/k3bvcdview.h
+Copyright: 2020, KylinSoft Co., Ltd. <Derek_Wang39@163.com>
+  2009, Arthur Renato Mello <arthur@mandriva.com>
+  2009, 2010, Michal Malek <michalm@jabster.pl>
+  2003, 2004, Christian Kvasny <chris@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/k3bvideodvdview.cpp
+  src/projects/k3bvideodvdview.h
+Copyright: 2009, Michal Malek <michalm@jabster.pl>
+  2009, Arthur Renato Mello <arthur@mandriva.com>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/projects/kostore/*
+Copyright: 1998-2002, David Faure <faure@kde.org>
+License: LGPL-2+
+
+Files: src/projects/kostore/KoStore.cpp
+Copyright: 2000-2002, David Faure <faure@kde.org>, Werner Trobin <trobin@kde.org>
+  1998, 1999, Torben Weis <weis@kde.org>
+License: LGPL-2+
+
+Files: src/projects/kostore/KoStoreBase.cpp
+  src/projects/kostore/KoStoreBase.h
+Copyright: 2004, Nicolas GOUTTE <goutte@kde.org>
+License: LGPL-2+
+
+Files: src/rip/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/rip/categories.cpp
+  src/rip/categories.h
+Copyright: 2005, Shaheed Haque (srhaque@iee.org).
+License: GPL-2+
+
+Files: src/rip/k3baudioconvertingoptionwidget.h
+  src/rip/k3baudioprojectconvertingdialog.h
+  src/rip/k3baudiorippingdialog.h
+  src/rip/k3bcddbpatternwidget.cpp
+  src/rip/k3bcddbpatternwidget.h
+  src/rip/k3bcuefilewriter.cpp
+  src/rip/k3bcuefilewriter.h
+  src/rip/k3bpatternparser.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/rip/k3bpatternparser.cpp
+Copyright: 2004, 2005, Jakob Petsovits <jpetso@gmx.at>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/rip/k3bvideocdinfo.cpp
+  src/rip/k3bvideocdinfo.h
+  src/rip/k3bvideocdview.cpp
+  src/rip/k3bvideocdview.h
+Copyright: 2010, 2011, Michal Malek <michalm@jabster.pl>
+  2003-2005, Christian Kvasny <chris@k3b.org>
+  1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/rip/k3bvideocdrip.cpp
+  src/rip/k3bvideocdrip.h
+  src/rip/k3bvideocdrippingdialog.cpp
+  src/rip/k3bvideocdrippingdialog.h
+  src/rip/k3bvideocdrippingoptions.h
+Copyright: 2003, 2004, Christian Kvasny <chris@k3b.org>
+  1998-2009, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: src/rip/videodvd/k3bvideodvdrippingdialog.cpp
+  src/rip/videodvd/k3bvideodvdrippingdialog.h
+  src/rip/videodvd/k3bvideodvdrippingjob.cpp
+  src/rip/videodvd/k3bvideodvdrippingjob.h
+  src/rip/videodvd/k3bvideodvdrippingpreview.h
+  src/rip/videodvd/k3bvideodvdrippingwidget.cpp
+  src/rip/videodvd/k3bvideodvdrippingwidget.h
+Copyright: 1998-2010, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: tests/*
+Copyright: 2009-2011, Michal Malek <michalm@jabster.pl>
+  1998-2011, Sebastian Trueg <trueg@k3b.org>
+License: GPL-2+
+
+Files: tests/k3bdeviceglobalstest.cpp
+  tests/k3bdeviceglobalstest.h
+  tests/k3bexternalbinmanagertest.cpp
+  tests/k3bexternalbinmanagertest.h
+  tests/k3bfuzzertest.cpp
+Copyright: 2016, 2017, Leslie Zhai <lesliezhai@llvm.org.cn>
+License: GPL-2+
+
+Files: tests/stub-k3bapplication.cpp
+Copyright: 2017, Pino Toscano <pino@kde.org>
 License: GPL-2+
 
 License: GPL-2+
+ This software is Copyright (c) 2020 by foo.
+ This is free software, licensed under:
+ The GNU General Public License, Version 2, June 1991
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- .
+ the Free Software Foundation; version 2 dated June, 1991, or (at
+ your option) any later version.
  On Debian systems, the complete text of version 2 of the GNU General
  Public License can be found in '/usr/share/common-licenses/GPL-2'.
 
-License: GFDL-1.2+
- Permission is granted to copy, distribute and/or modify this document
- under the terms of the GNU Free Documentation License, Version 1.2
- or any later version published by the Free Software Foundation;
- with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
- A copy of the license is included in the section entitled "GNU
- Free Documentation License".
- .
- On Debian systems, the complete text of the GNU Free Documentation
- License version 1.2 can be found in "/usr/share/common-licenses/GFDL-1.2".
-
-License: LGPL-2.1+3+KDEeV
- LGPL-2.1
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Lesser General Public
- License as published by the Free Software Foundation;
- version 2.1.
- .
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Lesser General Public License for more details.
- .
- You should have received a copy of the GNU Lesser General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- .
- On Debian systems, the complete text of the GNU Library General Public
- License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
- .
- LGPL-3
- This package is free software; you can redistribute it and/or modify it under
- the terms of the GNU Lesser General Public License as published by the Free
- Software Foundation; either version 3 of the License.
- .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Lesser General Public License for more details.
- .
- You should have received a copy of the GNU Lesser General Public
- License along with this package; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
- .
- On Debian systems, the complete text of the GNU Lesser General
- Public License can be found in `/usr/share/common-licenses/LGPL-3'.
- .
- KDEeV
- This file is distributed under the license LGPL version 2.1 or
- version 3 or later versions approved by the membership of KDE e.V.
-
-License: CC0-1.0
- Certain owners wish to permanently relinquish those rights to a Work for
- the purpose of contributing to a commons of creative, cultural and
- scientific works ("Commons") that the public can reliably and without
- fear of later claims of infringement build upon, modify, incorporate in
- other works, reuse and redistribute as freely as possible in any form
- whatsoever and for any purposes, including without limitation commercial
- purposes. These owners may contribute to the Commons to promote the
- ideal of a free culture and the further production of creative, cultural
- and scientific works, or to gain reputation or greater distribution for
- their Work in part through the use and efforts of others.
- .
- For these and/or other purposes and motivations, and without any
- expectation of additional consideration or compensation, the person
- associating CC0 with a Work (the "Affirmer"), to the extent that he or
- she is an owner of Copyright and Related Rights in the Work, voluntarily
- elects to apply CC0 to the Work and publicly distribute the Work under
- its terms, with knowledge of his or her Copyright and Related Rights in
- the Work and the meaning and intended legal effect of CC0 on those
- rights.
- .
- The complete text of the Creative Commons 0 1.0 Universal
- can be found in `/usr/share/common-licenses/CC0-1.0'.
+License: LGPL-2+
+ This software is Copyright (c) 2020 by foo.
+ This is free software, licensed under:
+ The GNU Library General Public License, Version 2, June 1991
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU Library General Public License as published by the
+ Free Software Foundation; version 2 of the License, or (at
+ your option) any later version.
+ On Debian systems, the complete text of version 2 of the GNU Library
+ General Public License can be found in '/usr/share/common-licenses/LGPL-2'.

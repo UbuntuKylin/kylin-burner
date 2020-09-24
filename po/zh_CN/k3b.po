@@ -1,6 +1,7 @@
 # translation of k3b.po to Simplified Chinese
 # translation of k3b.po to zh_CN
 # Copyright (C) 2002,2003 Free Software Foundation, Inc.
+# Copyright (C) 2020 KylinSoft Co., Ltd.
 # Zong Yaotang <zong@cosix.com.cn>
 #
 # Xiong Jiang <jxiong@offtopic.org>, 2002,2003.
