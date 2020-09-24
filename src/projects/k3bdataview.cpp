@@ -107,6 +107,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     m_dirView( new QTreeView( this ) ),
     m_dirProxy( new DirProxyModel( this ) )
 {
+    lastDrop.clear();
     logger = LogRecorder::instance().registration(i18n("Data Burner").toStdString().c_str());
     logger->debug("Draw data burner begin...");
     //dlgFileFilter = new KylinBurnerFileFilter(this);
@@ -527,28 +528,27 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         }
         else return QWidget::eventFilter(obj, event);
    case QEvent::Drop:
-        if (obj == tips || obj == m_dataViewImpl->view())
+        if (obj == tips/* || obj == m_dataViewImpl->view()*/)
         {
-            logger->debug("Tips drag in...");
             dropEvent = static_cast<QDropEvent *>(event);
-            if (dropEvent->mimeData()->urls().size() > 0)
+            if (lastDrop.isEmpty() || lastDrop != dropEvent->mimeData()->urls())
+            {
+                lastDrop = dropEvent->mimeData()->urls();
+            }
+            else return QWidget::eventFilter(obj, event);
+            logger->debug("Tips drag in...");
+            qDebug() << "Tips drop..." << dropEvent->mimeData()->urls();
+            if (lastDrop.size() > 0)
             {
                 if (tips) tips->hide();
                 m_dataViewImpl->view()->setFixedHeight(370);
-                for (int i = 0; i < docs.size(); ++i)
-                {
-                    /*
-                    if (m_doc == docs[i]) m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), m_doc->root());
-                    else m_dataViewImpl->addDragFile(dropEvent->mimeData()->urls(), docs[i]->root());
-                    */
-                    docs[i]->addUrls(dropEvent->mimeData()->urls());
-
-                    slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
-                    slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
-                    slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);
-                }
+                m_doc->addUrls(lastDrop);
+                //slotAddFile(lastDrop);
+                qDebug() << combo_CD->currentIndex();
+                //copyData(m_doc, docs[combo_CD->currentIndex()]);
             }
-            if (0 == m_dataViewImpl->model()->rowCount())
+            if (0 == m_dataViewImpl->model()->rowCount() ||
+                    m_doc->root()->children().size() == 0)
             {
                 disableButtonRemove();
                 disableButtonClear();
@@ -564,10 +564,12 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
                 btnFileFilter->show();
                 enableButtonRemove();
                 enableButtonClear();
+                if (tips) tips->hide();
+                m_dataViewImpl->view()->setFixedHeight(370);
             }
         }
         else return QWidget::eventFilter(obj, event);
-        break;
+        return true;
     default:
         break;
     }
@@ -587,11 +589,11 @@ void K3b::DataView::slotOpenClicked()
     {
         copyData(docs.at(combo_CD->currentIndex()), m_doc);
 
-        qDebug() << dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden;
 
         slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
         slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
         slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);
+
     }
     /*
     if( ret ){
@@ -668,6 +670,8 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
             docs.removeAt(j + 1);
             combo_burner->removeItem(j + 1);
             combo_CD->removeItem(j + 1);
+            dlgFileFilter->removeData(j + 1);
+            docs.removeAt(j + 1);
             logger->debug("remove device [%s] at index %d on selection item index %d",
                           (device_index[j]->blockDeviceName()).toStdString().c_str(), j, j + 1);
         }
@@ -720,7 +724,9 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
                 dlgFileFilter->removeData(idx);
                 combo_burner->removeItem(idx);
                 combo_CD->removeItem(idx);
-                combo_CD->setCurrentIndex(idx - 1);
+                --comboIndex;
+                if (idx - 1 < 0 ) combo_CD->setCurrentIndex(0);
+                else combo_CD->setCurrentIndex(idx - 1);
             }
             else
             {
@@ -745,7 +751,9 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
             dlgFileFilter->removeData(idx);
             combo_burner->removeItem(idx);
             combo_CD->removeItem(idx);
-            combo_CD->setCurrentIndex(idx - 1);
+            --comboIndex;
+            if (idx - 1 < 0 ) combo_CD->setCurrentIndex(0);
+            else combo_CD->setCurrentIndex(idx - 1);
             return;
         }
     }
@@ -769,12 +777,16 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         if (tmpDoc) docs << tmpDoc;
         logger->debug("Add new data at index : %d", docs.indexOf(tmpDoc));
         dlgFileFilter->addData();
+        combo_CD->setCurrentIndex(idx);
+        lastIndex = combo_CD->currentIndex();
     }
     else
     {
         combo_CD->setItemText(idx, i18n("cdrom file: ") + cdInfo);
         tmpDoc = docs[idx];
         tmpDoc->clear();
+        combo_CD->setCurrentIndex(idx);
+        lastIndex = combo_CD->currentIndex();
     }
     if (!mountInfo.isEmpty())
     {
@@ -791,7 +803,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         combo_CD->setCurrentIndex(idx);
         lastIndex = combo_CD->currentIndex();
     }
-    if (0 == m_dataViewImpl->view()->model()->rowCount())
+    if (0 == m_dataViewImpl->view()->model()->rowCount() //||
+            /*0 == docs[combo_CD->currentIndex()]->root()->children().size()*/)
     {
         m_dataViewImpl->view()->setFixedHeight(28);
         tips->show();
@@ -977,9 +990,11 @@ void K3b::DataView::slotComboCD(int index)
         burn_setting->setText(i18n("open"));
         burn_button->setText(i18n("create iso"));
     }
+
     slotOption(0, dlgFileFilter->getStatus(index).isHidden);
     slotOption(1, dlgFileFilter->getStatus(index).isBroken);
     slotOption(2, dlgFileFilter->getStatus(index).isReplace);
+
     /*
     if (0 == m_dataViewImpl->view()->model()->rowCount())
     {

@@ -141,12 +141,14 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
         m_buttonCancel = 0;
     }
 #endif
-    QPushButton *button_ok = new QPushButton( buttonBox );
+    button_ok = new QPushButton( buttonBox );
     button_ok->setText( i18n("ok") );
     button_ok->setFixedSize(80,30);
+    /*
     button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+    */
     
     connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
     

@@ -71,6 +71,7 @@ namespace K3b {
         //void slotClose();
         void slotCancelClicked() override;
         void slotStartClicked() override;
+        void slotHide() {hide();}
         void saveSettingsToProject() override;
         void readSettingsFromProject() override;
 

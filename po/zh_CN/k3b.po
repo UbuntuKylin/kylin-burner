@@ -10615,3 +10615,9 @@ msgstr "创建镜像"
 
 msgid "Please click button [Add] or drag you file to current zone for new files."
 msgstr " 点击\"添加\"按钮或将文件拖拽进此区域，来添加文件。"
+
+msgid "no media to clean"
+msgstr "无可擦除介质"
+
+msgid "the media in device is not cleanable"
+msgstr "设备中介质为不可擦写介质"

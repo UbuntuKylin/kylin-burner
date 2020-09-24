@@ -77,7 +77,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                 "QPushButton:hover{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
                                      "border:none;background-color:rgb(61, 107, 229);"
                                      "border-radius: 4px;}"
-                                "QPushButton:checked{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
+                                "QPushButton:pressed{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
                                      "border:none;background-color:rgb(50, 87, 202);"
                                      "border-radius: 4px;}");
 
@@ -268,7 +268,7 @@ void K3b::TitleBar::updateMaximize()
 
 void K3b::TitleBar::clean()
 {
-    formatMedium( 0 );
+    formatMedium( testDev );
 }
 
 void K3b::TitleBar::formatMedium( K3b::Device::Device* dev )

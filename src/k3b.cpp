@@ -777,6 +777,11 @@ void K3b::MainWindow::initView()
     logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentTab );
     logger->debug("Draw burn data view.");
+
+    /*
+    K3b::DataView *t = static_cast<K3b::DataView *>(d->view_data);
+    title_bar->testDev = t->testGetDev();
+    */
   
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
     logger->debug("Create copy image project.");

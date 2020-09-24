@@ -182,7 +182,7 @@ msgstr "检查源介质"
 #: jobs/k3bcdcopyjob.cpp:203
 #, kde-format
 msgid "K3b does not copy CDs containing multiple data tracks."
-msgstr "K3b 不支持复制含有多条数据轨的 CD。"
+msgstr "不支持复制含有多条数据轨的 CD。"
 
 #: jobs/k3bcdcopyjob.cpp:207
 #, kde-format
@@ -197,7 +197,7 @@ msgstr "正复制数据 CD。"
 #: jobs/k3bcdcopyjob.cpp:215
 #, kde-format
 msgid "K3b can only copy CD-Extra mixed mode CDs."
-msgstr "K3b 只能复制 CD-Extra 混合模式 CD。"
+msgstr "只能复制 CD-Extra 混合模式 CD。"
 
 #: jobs/k3bcdcopyjob.cpp:219
 #, kde-format
@@ -217,7 +217,7 @@ msgstr "源盘为空盘。"
 #: jobs/k3bcdcopyjob.cpp:271
 #, kde-format
 msgid "K3b needs cdrecord 2.01a12 or newer to copy Mode2 data tracks."
-msgstr "要复制模式2的数据轨，K3b 需要 2.01a12 或更新版本的 cdrecord。"
+msgstr "要复制模式2的数据轨，需要 2.01a12 或更新版本的 cdrecord。"
 
 #: jobs/k3bcdcopyjob.cpp:283
 #, kde-format
@@ -433,7 +433,7 @@ msgstr "成功读取了源盘。"
 #: jobs/k3bcdcopyjob.cpp:998
 #, kde-format
 msgid "K3b was unable to eject the source disk. Please do so manually."
-msgstr "K3b 无法弹出源光盘，请手动进行此操作。"
+msgstr "无法弹出源光盘，请手动进行此操作。"
 
 #: jobs/k3bcdcopyjob.cpp:1015
 #, kde-format
@@ -456,7 +456,7 @@ msgstr "正重新装入介质"
 #: projects/videocd/k3bvcdjob.cpp:503
 #, kde-format
 msgid "K3b was unable to eject the written disk. Please do so manually."
-msgstr "K3b 无法弹出已写入的光盘，请手动进行此操作。"
+msgstr "无法弹出已写入的光盘，请手动进行此操作。"
 
 #: jobs/k3bcdcopyjob.cpp:1100 jobs/k3bverificationjob.cpp:268
 #: projects/k3bcdrecordwriter.cpp:736 projects/k3bcdrskinwriter.cpp:748
@@ -767,7 +767,7 @@ msgstr "正在更改 Booktype"
 #: jobs/k3bdvdcopyjob.cpp:127
 #, kde-format
 msgid "K3b does not support writing on-the-fly with growisofs %1."
-msgstr "K3b 不支持实时写入 growisofs %1。"
+msgstr "不支持实时写入 growisofs %1。"
 
 #: jobs/k3bdvdcopyjob.cpp:129
 #, kde-format
@@ -802,12 +802,12 @@ msgstr "此版本的 growisofs 不支持写入双层 DVD。"
 #: jobs/k3bdvdcopyjob.cpp:266
 #, kde-format
 msgid "K3b does not support copying multi-session DVD or Blu-ray disks."
-msgstr "K3b 不支持复制多片断 DVD 或蓝光光盘。"
+msgstr "不支持复制多片断 DVD 或蓝光光盘。"
 
 #: jobs/k3bdvdcopyjob.cpp:289
 #, kde-format
 msgid "K3b relies on the size saved in the ISO 9660 header."
-msgstr "K3b 依赖于 ISO 9660 头中保存的大小。"
+msgstr "依赖于 ISO 9660 头中保存的大小。"
 
 #: jobs/k3bdvdcopyjob.cpp:290
 #, kde-format
@@ -825,7 +825,7 @@ msgstr "无法确定 ISO 9660 文件系统大小。"
 #: jobs/k3bdvdcopyjob.cpp:306
 #, kde-format
 msgid "K3b does not support copying DVD-RAM."
-msgstr "K3b 不支持复制 DVD-RAM。"
+msgstr "不支持复制 DVD-RAM。"
 
 #: jobs/k3bdvdcopyjob.cpp:312
 #, kde-format
@@ -886,7 +886,7 @@ msgstr "正在校验副本"
 #: jobs/k3bdvdcopyjob.cpp:688 jobs/k3biso9660imagewritingjob.cpp:154
 #, kde-format
 msgid "K3b was unable to eject the written medium. Please do so manually."
-msgstr "K3b 无法弹出已写入的介质，请手动进行此操作。"
+msgstr "无法弹出已写入的介质，请手动进行此操作。"
 
 #: jobs/k3bdvdcopyjob.cpp:797
 #, kde-format

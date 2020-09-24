@@ -41,6 +41,7 @@ private:
     QLineEdit* lineedit;
     QStringList mount_index;
     QPushButton* button_open;
+    QPushButton* button_ok;
 };
 }
 #endif // MD5DIALOG_H

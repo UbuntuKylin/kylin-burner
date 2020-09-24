@@ -42,6 +42,7 @@ namespace K3b {
     protected Q_SLOTS:
         void slotStartClicked() override;
         void slotCancelClicked() override;
+        void slotFinished(bool);
 
     protected:
         void toggleAll() override;
@@ -54,6 +55,7 @@ namespace K3b {
         WritingModeWidget* m_writingModeWidget;
         QCheckBox* m_checkForce;
         QCheckBox* m_checkQuickFormat;
+        bool       flag;
     };
 }
 

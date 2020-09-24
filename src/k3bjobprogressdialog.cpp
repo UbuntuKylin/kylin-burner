@@ -444,7 +444,8 @@ void K3b::JobProgressDialog::slotProcessedSubSize( int processedTrackSize, int t
 
 void K3b::JobProgressDialog::slotInfoMessage( const QString& infoString, int type )
 {
-    qDebug() << "xingwei.liu::" << __func__ << __LINE__ << __FILE__ << infoString <<endl;
+    qDebug() << "xingwei.liu::" << __func__ << __LINE__ << __FILE__ << infoString << type <<endl;
+
     d->viewInfo->clear();
     QTreeWidgetItem* currentInfoItem = new QTreeWidgetItem( d->viewInfo );
     currentInfoItem->setText( 0, infoString );
@@ -453,6 +454,8 @@ void K3b::JobProgressDialog::slotInfoMessage( const QString& infoString, int typ
     // set the icon
     switch( type ) {
     case K3b::Job::MessageError:
+        KMessageBox::information( this, infoString,
+                                     i18n("Error") );
         currentInfoItem->setIcon( 0, QIcon::fromTheme( "dialog-error" ) );
         break;
     case K3b::Job::MessageWarning:

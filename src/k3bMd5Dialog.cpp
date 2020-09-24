@@ -100,12 +100,14 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     button_open = new QPushButton( this );
     button_open->setText( i18n("Browse") );
     button_open->setFixedSize( 80, 30);
+
     button_open->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
                           "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                           "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+
     button_open->setEnabled(true);    
 
-    QPushButton* button_ok = new QPushButton( this );
+    button_ok = new QPushButton( this );
     button_ok->setText( i18n("ok") );
     button_ok->setFixedSize( 80, 31);
     button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color:rgb(255,255,255);}"
@@ -205,6 +207,7 @@ bool K3b::Md5Check::checkMd5(const char* cmd)
 void K3b::Md5Check::md5_start()
 {
      int index = combo->currentIndex();
+     if (mount_index.size() == 0) return;
      QString mountPoint = mount_index.at( index );
 
     qDebug() << __FUNCTION__ << __LINE__ << "mountPoint :" << mountPoint;
@@ -280,6 +283,8 @@ void K3b::Md5Check::slotMediaChange( K3b::Device::Device* dev )
 {
     QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
     combo->setEnabled( true );
+
+    combo->clear();
     mount_index.clear();
     //device_index.clear();
 
@@ -319,9 +324,19 @@ void K3b::Md5Check::checkChange(int state)
 {
     if(state){
         lineedit->setEnabled(true);  
-        button_open->setEnabled(true);    
+        button_open->setEnabled(true);
+        button_ok->setEnabled(true);
+        button_open->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
+                              "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
+                              "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+        button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color:rgb(255,255,255);}"
+                              "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
+                              "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
     }else{
-        lineedit->setDisabled(true);  
-        button_open->setDisabled(true);    
+        lineedit->setEnabled(false);
+        button_open->setEnabled(false);
+        button_ok->setEnabled(false);
+        button_open->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
+        button_ok->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
     }
 }

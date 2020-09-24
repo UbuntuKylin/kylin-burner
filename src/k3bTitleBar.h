@@ -30,6 +30,7 @@ public:
     ~TitleBar();
     
     void formatMedium( K3b::Device::Device* );
+    K3b::Device::Device* testDev;
 
 protected:
 

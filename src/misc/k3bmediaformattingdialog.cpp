@@ -18,6 +18,8 @@
 #include "k3bmediacache.h"
 #include "k3bmedium.h"
 
+#include "k3bResultDialog.h"
+
 #include "k3bdvdformattingjob.h"
 #include "k3bblankingjob.h"
 
@@ -219,8 +221,32 @@ void K3b::MediaFormattingDialog::slotCancelClicked()
     close();
 }
 
+void K3b::MediaFormattingDialog::slotFinished(bool f)
+{
+    flag = f;
+}
+
 void K3b::MediaFormattingDialog::slotStartClicked()
 {
+    Device::Device* dev = m_writerSelectionWidget->writerDevice();
+    if (NULL == dev) {
+        KMessageBox::information( this, i18n("the media in device is not cleanable"),
+                                     i18n("no media to clean") );
+        /*
+        KMessageBox::information( this, i18n("no media to clean"),
+                                     i18n("no media to clean") );
+        */
+        button_ok->setEnabled(false); return;
+    }
+    if (!((m_writerSelectionWidget->wantedMediumType() & dev->readCapabilities()) ||
+          (m_writerSelectionWidget->wantedMediumType() & dev->writeCapabilities())))
+    {
+        KMessageBox::information( this, i18n("the media in device is not cleanable"),
+                                     i18n("no media to clean") );
+        button_ok->setEnabled(false);
+        return;
+    }
+
     K3b::Medium medium = k3bappcore->mediaCache()->medium( m_writerSelectionWidget->writerDevice() );
 
     K3b::JobProgressDialog dlg( parentWidget(), false );
@@ -250,7 +276,8 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         theJob = job;
     }
 
-    hide();
+    //hide();
+    connect( theJob, SIGNAL(finished(bool)), this, SLOT(slotFinished(bool)) );
 
     dlg.startJob( theJob );
 
@@ -260,6 +287,8 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         show();
     else
         close();
+    BurnResult* dialog = new BurnResult( flag, "clean");
+    dialog->show();
 }
 
 
@@ -267,6 +296,8 @@ void K3b::MediaFormattingDialog::toggleAll()
 {
     K3b::Medium medium = k3bappcore->mediaCache()->medium( m_writerSelectionWidget->writerDevice() );
     K3b::WritingModes modes = 0;
+
+
     if ( medium.diskInfo().mediaType() & (K3b::Device::MEDIA_DVD_RW|K3b::Device::MEDIA_DVD_RW_SEQ|K3b::Device::MEDIA_DVD_RW_OVWR) ) {
         modes |=  K3b::WritingModeIncrementalSequential|K3b::WritingModeRestrictedOverwrite;
     }

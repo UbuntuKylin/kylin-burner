@@ -390,6 +390,9 @@ K3b::ImageWritingDialog::ImageWritingDialog( QWidget* parent )
 
     setupGui();
 
+    disconnect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( accept() ) );
+
     d->md5Job = new K3b::Md5Job( 0, this );
     connect( d->md5Job, SIGNAL(finished(bool)),
              this, SLOT(slotMd5JobFinished(bool)) );

@@ -62,6 +62,12 @@ namespace K3b {
         explicit DataView( DataDoc* doc, QWidget* parent = 0 );
         ~DataView() override;
 
+        Device::Device * testGetDev()
+        {
+            if (device_index.size()) return device_index[0];
+            return NULL;
+        }
+
     public Q_SLOTS:
         void slotBurn() override;
         void slotStartBurn();
@@ -123,6 +129,7 @@ namespace K3b {
         QPushButton* btnFileFilter;
         QLabel      *tips;
         KylinBurnerLogger *logger;
+        QList<QUrl>  lastDrop;
 
     private:
         void enableBurnSetting();

@@ -508,8 +508,9 @@ void K3b::VcdView::slotStartBurn()
     qDebug() << "flag: " << flag << endl;
     return;
 #endif
+    K3b::Device::Device* dev = sourceDevices[combo_iso->currentIndex()];
     K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );
-    dlg->setReadingDevice(sourceDevices[combo_iso->currentIndex()]);
+    dlg->setReadingDevice(dev);
     if (isBurner)
     {
         qDebug() << "Burning...";
@@ -533,6 +534,7 @@ void K3b::VcdView::slotStartBurn()
         if (sourceDevices[combo_iso->currentIndex()] ==
             cdDevices[combo_CD->currentIndex() - 1]) combo_CD->setCurrentIndex(0);
     }
+    dev->eject();
     /*
     int iso_index = combo_iso->currentIndex();
     int CD_index = combo_CD->currentIndex();
