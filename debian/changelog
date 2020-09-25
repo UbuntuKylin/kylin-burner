@@ -1,8 +1,46 @@
-kylin-burner (3.10-0ubuntu1) focal; urgency=medium
+kylin-burner (3.1.0-1ubuntu1.1) unstable; urgency=medium
 
-  * New upstream release (3.10)
-  * Initial Release.
+  * Non-maintainer upload.
+  * change core,turn to new which forked from k3b
 
- -- kylinos <kylinos@kyilnos.cn>  Thu, 30 Jul 2020 16:05:24 +0000
- -- Derek.Wong from kylinos <Derek_Wang39@163.com>  Thu, 24 Sep 2020 16:08:24 +0000
+ -- Derek Wong <wangye@kylinos.cn>  Thu, 24 Sep 2020 17:03:25 +0800
 
+kylin-burner (3.0.7-1ubuntu1) focal; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - add libunity-dev dependency
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 06 Dec 2019 22:21:25 +0100
+
+kylin-burner (3.0.7-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fix build error with gtk-doc 1.32. (Closes: #939953)
+  * debian/{control,compat}
+    - Use debhelper-compat, bump to compat level version 12.
+  * debian/control:
+    - Bump standards-version to 4.4.1. No changes needed.
+    - Add Rules-Requires-Root: no.
+  * debian/rules:
+    - Remove enable-unity from dh_auto_configure.
+  * debian/copyright:
+    - Remove COPYING.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 05 Dec 2019 16:55:27 +0800
+
+kylin-burner (3.0.6-1ubuntu1) eoan; urgency=medium
+
+  * Merge from Debian unstable. Remaining changes:
+    (this makes now the package shown in MoM page, because at least
+    one merge has been done)
+    - different orig tarball (unity code in Makefile.am is commented in Debian
+      tarball)
+    - add libunity-dev dependency
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 14 May 2019 10:13:27 +0200
+
+kylin-burner (3.0.6-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #904003)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 18 Jul 2018 12:32:45 +0800
