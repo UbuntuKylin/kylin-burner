@@ -64,6 +64,7 @@
 #include "misc/k3bmediaformattingdialog.h"
 #include "option/k3boptiondialog.h"
 #include "projects/k3bdatamultisessionimportdialog.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KSharedConfig>
@@ -259,7 +260,7 @@ K3b::MainWindow::MainWindow()
                             opacity:0.5\
                             border-radius:6px;}");
 
-    setWindowIcon(QIcon(":/icon/icon/logo.ico"));
+    setWindowIcon(QIcon(":/icon/icon/128.png"));
     setWindowTitle( i18n("Kylin-Burner") );
 
     resize(900, 600);
@@ -553,10 +554,15 @@ void K3b::MainWindow::initStatusBar()
 
 void K3b::MainWindow::initView()
 {
+    /*
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
+    */
+    this->setObjectName("KylinBurner");
+    ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #FFFFFF;}");
+    ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #000000;}");
 
     logger->info("Draw main frame begin...");
 
@@ -580,6 +586,11 @@ void K3b::MainWindow::initView()
     //pTitleLabel->setFixedHeight(15);
     pTitleLabel->setText( i18n("Kylin-Burner" ));
     pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
+
+    ThManager()->regTheme(pTitleLabel, "ukui-white",
+                             "font: 14px;color:#333333");
+    ThManager()->regTheme(pTitleLabel, "ukui-black",
+                             "font: 14px;color:#FFFFFF");
     
     //左侧 上方tille :水平布局
     QHBoxLayout *hLayout = new QHBoxLayout( label_title );
@@ -612,12 +623,12 @@ void K3b::MainWindow::initView()
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+
     d->btnImage->setFixedSize( 115, 50);
-    d->btnImage->setStyleSheet("QPushButton{"
-                                   "background-color:transparent;"
+    d->btnImage->setStyleSheet("background-color:transparent;"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
-                                   "color: #444444;font: 14px;border-radius: 6px;}"
+                                   "color: #444444;font: 14px;border-radius: 6px;"
                                "QPushButton:hover{"
                                    "background-color:rgba(87, 137, 217,0.15);"
                                    "background-repeat: no-repeat;"
@@ -628,6 +639,10 @@ void K3b::MainWindow::initView()
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+    d->btnImage->setStyleSheet("background-color:transparent;"
+                               "background-repeat: no-repeat;"
+                               "background-position:left;"
+                               "color: #444444;font: 14px;border-radius: 6px;");
     d->btnCopy->setFixedSize( 115, 50);
     d->btnCopy->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
@@ -690,11 +705,24 @@ void K3b::MainWindow::initView()
     ButtonLayout->addLayout( layoutCopy );
     ButtonLayout->addStretch();
 
+#if 0
     btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
                          "background-position: top;"
                          "border:none;"
                          "background-repeat:repeat-xy;}");
-    
+    btnLabel->setStyleSheet("#leftBack{background-color: rgba(0, 0, 0, 0.15);"
+                            "background-position: top;"
+                            "border:none;}");
+#endif
+    btnLabel->setObjectName("leftBack");
+
+    ThManager()->regTheme(btnLabel, "ukui-white","QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
+                                                        "background-position: top;"
+                                                        "border:none;"
+                                                        "background-repeat:repeat-xy;}");
+    ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: rgba(0, 0, 0, 0.15);"
+                            "background-position: top;"
+                            "border:none;}");
     connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
     connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
     connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
@@ -703,8 +731,12 @@ void K3b::MainWindow::initView()
     QLabel *label_view = new QLabel( d->mainSplitter );
     label_view->setFixedWidth(775);
 
+    ThManager()->regTheme(label_view, "ukui-white", "background-color: #FFFFFF");
+    ThManager()->regTheme(label_view, "ukui-black", "background-color: #000000");
+
     // 右侧：label :上方 title bar
     title_bar = new TitleBar( this );
+    title_bar->setStyleSheet("background-color: #000000");
     
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
@@ -768,7 +800,8 @@ void K3b::MainWindow::initView()
     urlNavigatorAction->setDefaultWidget(d->urlNavigator);
     urlNavigatorAction->setText(i18n("&Location Bar"));
     // ---------------------------------------------------------------------------------------------
-    
+
+
     d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject ); 
     logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentTab );

@@ -136,6 +136,7 @@ add_executable(burner
     k3bdevicemenu.cpp
     k3bviewcolumnadjuster.cpp
     k3bmodelutils.cpp
+    ThemeManager.cpp
     helper/k3bhelperprogramitem.cpp
     misc/k3bimagewritingdialog.cpp
     misc/k3bmediacopydialog.cpp
@@ -242,6 +243,7 @@ target_link_libraries(burner
     k3bdevice
     k3blib
     pthread
+    gsettings-qt
     KF5::Cddb
     KF5::Archive
     KF5::I18n

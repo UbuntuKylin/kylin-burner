@@ -259,6 +259,7 @@ void K3b::TitleBar::onClicked()
         else if (pButton == m_pCloseButton)
         {
             pWindow->close();
+            exit(0);
         }
     }
 }

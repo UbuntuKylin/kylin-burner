@@ -153,12 +153,6 @@ void *write_log_content(void *arg)
             *p++ = ' ';
             strcpy(p, w->level);
             p += strlen(p);
-            /*
-            vsprintf(p, w->format, w->_list);
-            p += strlen(p);
-            *p++ = '\n';
-            *p = '\0';
-            */
             strcat(content, w->content);
             if ('\n' != content[strlen(content)]) strcat(content, "\n");
             write(w->fd, content, strlen(content));
@@ -195,12 +189,14 @@ KylinBurnerLogger *LogRecorder::registration(const char *filePath,
                       *q,
                        tmp[128];
 
+    /*
     if (!isReady)
     {
         isReady = true;
         if (pthread_create(&writerProcess, NULL, write_log_content, &contents))
         { isReady = false; return NULL;}
     }
+    */
 
     path.clear();
     if (filePath) path.append(filePath);
@@ -280,31 +276,54 @@ KylinBurnerLogger *LogRecorder::registration(const char *moudle)
     return registration(DEFAULT_PATH, DEFAULT_NAME, moudle);
 }
 
-void LogRecorder::recorder(KylinBurnerLogger * logger, int level, logContent *content)
+void LogRecorder::recorder(KylinBurnerLogger * logger, int level, logContent *contentd)
 {
+
+    char       *p,
+                content[2048];
     _LoggerHandle::iterator it;
 
-    if (!logger || !content) return;
+    if (!logger || !contentd) return;
     if (level > this->level)
     {
         qDebug() << "out of current level : " << this->level << " recorder level : " << level;
-        if (content->format) free(content->format);
-        free(content);
+        if (contentd->format) free(contentd->format);
+        free(contentd);
         return;
     }
 
-    strcpy(content->level, _level[level]);
+    strcpy(contentd->level, _level[level]);
 
     it = logHandle.find(logger);
     if (it == logHandle.end())
     {
         qDebug() << "cannot find logger recorder, not registration logger.";
-        if (content->format) free(content->format);
-        free(content);
+        if (contentd->format) free(contentd->format);
+        free(contentd);
         return;
     }
-    content->fd = *(it->second);
+    contentd->fd = *(it->second);
+
+    memset(content, 0, 1024);
+    p = content;
+    strcpy(p, ctime(&(contentd->_time)));
+    p += strlen(p);
+    --p;
+    *p++ = ' ';
+    strcpy(p, contentd->module);
+    p += strlen(p);
+    *p++ = ' ';
+    strcpy(p, contentd->level);
+    p += strlen(p);
+    strcat(content, contentd->content);
+    if ('\n' != content[strlen(content)]) strcat(content, "\n");
+    write(contentd->fd, content, strlen(content));
+    free(contentd->format);
+    free(contentd);
+
+    /*
     lock();
     contents.push(content);
     unlock();
+    */
 }

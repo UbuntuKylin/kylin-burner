@@ -104,8 +104,8 @@ void K3b::Application::init( QCommandLineParser* commandLineParser )
     // Load device, external programs, and stuff.
     //
     QMetaObject::invokeMethod( m_core, "init", Qt::QueuedConnection );
-    QMetaObject::invokeMethod( m_core, "readSettings", Qt::QueuedConnection, Q_ARG( KSharedConfig::Ptr, KSharedConfig::openConfig() ) );
-    QMetaObject::invokeMethod( m_core->deviceManager(), "printDevices", Qt::QueuedConnection );
+    //QMetaObject::invokeMethod( m_core, "readSettings", Qt::QueuedConnection, Q_ARG( KSharedConfig::Ptr, KSharedConfig::openConfig() ) );
+    //QMetaObject::invokeMethod( m_core->deviceManager(), "printDevices", Qt::QueuedConnection );
     //QMetaObject::invokeMethod( this, "checkSystemConfig", Qt::QueuedConnection );
 
     connect( this, SIGNAL(aboutToQuit()), SLOT(slotShutDown()) );

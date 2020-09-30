@@ -411,6 +411,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     toolBox()->addAction( actionCollection()->action( "project_volume_name" ) );
     btnFileFilter->hide();
 
+    /*
     workerThread = new QThread;
     LoadWorker *worker = new LoadWorker;
     worker->moveToThread(workerThread);
@@ -418,6 +419,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     connect(worker,SIGNAL(loadFinished()),this,SLOT(onLoadFinished()));
     connect(workerThread,SIGNAL(finished()),worker,SLOT(deleteLater()));
     workerThread->start();
+    */
+
     logger->debug("Draw data burner end");
 }
 
