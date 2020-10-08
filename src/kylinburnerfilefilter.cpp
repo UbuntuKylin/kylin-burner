@@ -41,8 +41,8 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
 
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterFile"));
-    ui->btnSetting->setText(i18n("FileFilterSetting"));
-    ui->btnRecovery->setText(i18n("Recovery"));
+    ui->btnSetting->setText(i18n("FilterSetting"));
+    ui->btnRecovery->setText(i18n("Reset"));
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);
     currentData = static_cast<K3b::DataDoc *>(k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));

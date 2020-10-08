@@ -10506,7 +10506,7 @@ msgstr "文件过滤"
 msgid "FileFilterSetting"
 msgstr "过滤选项设置"
 
-msgid "Recovery"
+msgid "Reset"
 msgstr "恢复"
 
 msgid "FilterSetting"

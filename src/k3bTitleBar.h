@@ -51,6 +51,7 @@ public:
 
 protected:
 
+    /*
     // 双击标题栏进行界面的最大化/还原
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
 
@@ -58,7 +59,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
-
+*/
     // 进行最小化、最大化/还原、关闭操作
 public Q_SLOT:    
     void onClicked();
@@ -90,6 +91,7 @@ private:
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
     FileFilter  *dlg;
+    K3b::MediaFormattingDialog *mfDlg;
 };
 }
 #endif // TITLE_BAR_H

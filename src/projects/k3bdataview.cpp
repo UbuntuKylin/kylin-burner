@@ -24,6 +24,7 @@
 #include "k3bdirproxymodel.h"
 #include "k3bmediaselectioncombobox.h"
 #include "k3bdiritem.h"
+#include "ThemeManager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -160,12 +161,78 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //刻录设置按钮
     burn_setting = new QPushButton(i18n("open"), this);
     burn_setting->setFixedSize(80, 30);
-    burn_setting->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
-                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
-                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
+    burn_setting->setObjectName("BurnDataSetting");
+    ThManager()->regTheme(burn_setting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(burn_setting, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
     //开始刻录按钮
     burn_button = new QPushButton(i18n("create iso"), this);
     burn_button->setFixedSize(140, 45);
+    burn_button->setObjectName("BurnDataStart");
+    ThManager()->regTheme(burn_button, "ukui-white",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(burn_button, "ukui-black",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
     burn_button->setEnabled( false );
     burn_button->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
 
@@ -180,11 +247,87 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     combo_burner = new QComboBox( label_view );
     combo_burner->setEnabled( false );
     combo_burner->setMinimumSize(310, 30);
+    combo_burner->setObjectName("ComboBurner");
+    ThManager()->regTheme(combo_burner, "ukui-white","#ComboBurner{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboBurner::hover{border:1px solid #6B8EEB;}"
+                                                 "#ComboBurner::selected{border:1px solid #6B8EEB;}"
+                                                 "#ComboBurner QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#ComboBurner QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#ComboBurner QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboBurner QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#ComboBurner QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#ComboBurner QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#ComboBurner QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#ComboBurner QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#ComboBurner{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo_burner, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    /*
     combo_burner->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                              border-top-right-radius: 3px; \
                              border-bottom-right-radius: 3px;}"
                              "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
+    */
 
     
     //QLabel *label_space = new QLabel(label);
@@ -213,6 +356,81 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     logger->debug("Add new data at index : %d", docs.indexOf(tmpDoc));
     dlgFileFilter->addData();
 
+    combo_CD->setObjectName("ComboCD");
+    ThManager()->regTheme(combo_CD, "ukui-white","#ComboCD{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboCD::hover{border:1px solid #6B8EEB;}"
+                                                 "#ComboCD::selected{border:1px solid #6B8EEB;}"
+                                                 "#ComboCD QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#ComboCD QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#ComboCD QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboCD QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#ComboCD QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#ComboCD QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#ComboCD QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#ComboCD QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#ComboCD{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo_CD, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    /*
     combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"
                             "border:1px solid rgba(220,221,222,1);border-radius:4px;}"
                             "QComboBox::drop-down{subcontrol-origin: padding; "
@@ -222,6 +440,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                             "QComboBox::down-arrow{width: 8px; height: 16;"
                             "image: url(:/icon/icon/draw-down.jpg);"
                             "padding: 0px 0px 0px 0px;}");
+    */
 
     /*
     combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);}"
@@ -265,15 +484,39 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     hlayout_bottom->addLayout( vlayout_combo );
     hlayout_bottom->addLayout( vlayout_button );
 
-
     tips = new QLabel(
                 i18n("Please click button [Add] or drag you file to current zone for new files."),
                 this);
     tips->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     tips->setAcceptDrops(true);
     tips->installEventFilter(this);
+    tips->setObjectName("tip");
+    ThManager()->regTheme(tips, "ukui-white", "background-color:rgba(255, 255, 255, 1);"
+                                              "font: 14px; color: #444444;");
+    ThManager()->regTheme(tips, "ukui-black", "background-color:rgba(36, 36, 36, 1);"
+                                              "font: 14px; color: #FFFFFF;");
 
     tips->setMinimumHeight(342);
+    m_dataViewImpl->view()->setObjectName("DataView");
+    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-white", "background-color:rgba(255, 255, 255, 1);"
+                                              "font: 14px; color: #444444;");
+    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-black", "background-color:rgba(36, 36, 36, 1);"
+                                              "font: 14px; color: #FFFFFF;");
+    m_dataViewImpl->view()->header()->setObjectName("DataViewHeader");
+    ThManager()->regTheme(m_dataViewImpl->view()->header(), "ukui-white", "#DataViewHeader:section{"
+                                                                          "background-color:rgba(242, 242, 242, 1);"
+                                                                          "border: 0px;"
+                                                                          //"border-color: rgba(242, 242, 242, 1);"
+                                              "font: 12px; color: rgba(68, 68, 68, 1);}");
+    ThManager()->regTheme(m_dataViewImpl->view()->header(), "ukui-black", "#DataViewHeader:section{"
+                                                                          "background-color:rgba(36, 36, 36, 1);"
+                                                                          "border: 0px;"
+                                                                          //"border-color: rgba(242, 242, 242, 1);"
+                                              "font: 12px; color: rgba(255, 255, 255, 1);}");
+    /*
+    m_dataViewImpl->view()->setStyleSheet("background-color: rgba(36, 36, 36, 1);font: 14px; color: #FFFFFF;");
+    m_dataViewImpl->view()->header()->setStyleSheet("background-color: rgba(36, 36, 36, 1);font: 14px; color: #FFFFFF;");
+    */
     m_dataViewImpl->view()->setFixedHeight(28);
     m_dataViewImpl->view()->setAcceptDrops(true);
     m_dataViewImpl->view()->installEventFilter(this);
@@ -341,30 +584,231 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     button_add = new QPushButton(i18n("Add"), label_action);
     button_add->setFixedSize(80, 30);
     button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+    button_add->setObjectName("btnAdd");
+    ThManager()->regTheme(button_add, "ukui-white",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(67, 67, 67, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+       ThManager()->regTheme(button_add, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+    /*
     button_add->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
                               "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
                               "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
-
+    */
     //删除按钮
     button_remove = new QPushButton(i18n("Remove"), label_action );
     button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
     button_remove->setFixedSize(80, 30);
     button_remove->setEnabled( false );
-    button_remove->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#d1d1d1;}");
+    button_remove->setObjectName("btnRemove");
+    ThManager()->regTheme(button_remove, "ukui-white",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(67, 67, 67, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+       ThManager()->regTheme(button_remove, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
     //清空按钮
     button_clear = new QPushButton(i18n("Clear"), label_action );
     button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png")); 
     button_clear->setFixedSize(80, 30);
     button_clear->setEnabled( false );
-    button_clear->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#d1d1d1;}");
+    button_clear->setObjectName("btnClear");
+    ThManager()->regTheme(button_clear, "ukui-white",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(67, 67, 67, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+       ThManager()->regTheme(button_clear, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+
     //新建文件夹按钮
     button_newdir = new QPushButton(i18n("New Dir"), label_action );
     button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png")); 
     button_newdir->setFixedSize(112, 30);
-    button_newdir->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
-                                 "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
-                                 "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+    button_newdir->setObjectName("btnNewDir");
+    ThManager()->regTheme(button_newdir, "ukui-white",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(67, 67, 67, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+       ThManager()->regTheme(button_newdir, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-action.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       //"qproperty-icon: url(:/func/add-default.png);"
+                                       "qproperty-iconSize: 15px 15px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
 
     QLabel *labelFileFilter = new QLabel( this );

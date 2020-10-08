@@ -20,6 +20,7 @@
 #include "k3bthemedheader.h"
 #include "k3bthememanager.h"
 #include "k3bapplication.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KSharedConfig>
@@ -145,6 +146,7 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
     button_ok = new QPushButton( buttonBox );
     button_ok->setText( i18n("ok") );
     button_ok->setFixedSize(80,30);
+    button_ok->setObjectName("btnIDOK");
     /*
     button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
@@ -153,13 +155,11 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
     
     connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
     
-    QPushButton *button_cancel = new QPushButton( buttonBox );
+    button_cancel = new QPushButton( buttonBox );
     button_cancel->setText( i18n("cancel") );
     button_cancel->setFixedSize(80,30);
-    button_cancel->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
-                               "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
-                               "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
-    
+    button_cancel->setObjectName("btnIDCancel");
+
     connect( button_cancel, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
 
     QHBoxLayout* hlayout = new QHBoxLayout();

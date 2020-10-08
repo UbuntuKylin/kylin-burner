@@ -28,6 +28,8 @@
 #include "k3bfillstatusdisplay.h"
 #include "k3bpluginmanager.h"
 
+#include "ThemeManager.h"
+
 #include "config-k3b.h"
 #ifdef ENABLE_AUDIO_PLAYER
 #include "k3baudiotrackplayer.h"
@@ -79,6 +81,10 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     label_title->setFont( title_font );
     label_title->setStyleSheet("color:#444444;");
 
+    label_title->setObjectName("WriteImage");
+    ThManager()->regTheme(label_title, "ukui-white", "#WriteImage{font: 24px; color: #444444;}");
+    ThManager()->regTheme(label_title, "ukui-black", "#WriteImage{font: 24px; color: #FFFFFF;}");
+
     QLabel *label_iso = new QLabel(this);
     label_iso->setText(i18n("select iso"));
     QFont label_font;
@@ -86,17 +92,36 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     label_iso->setFont( label_font );
     label_iso->setStyleSheet("color:#444444;");
 
+    label_iso->setObjectName("LabelISO");
+    ThManager()->regTheme(label_iso, "ukui-white", "#LabelISO{font: 14px; color: #444444;}");
+    ThManager()->regTheme(label_iso, "ukui-black", "#LabelISO{font: 14px; color: #FFFFFF;}");
+
     lineedit_iso = new QLineEdit(this);
     lineedit_iso->setFixedSize(360, 30);
     //lineedit_iso->setDragEnabled( false );
     lineedit_iso->setEnabled( false );
-    lineedit_iso->setStyleSheet("QLineEdit{background-color: transparent;border:1px solid rgba(220,221,222,1);border-radius:4px;}");
+    //lineedit_iso->setStyleSheet("QLineEdit{background-color: transparent;border:1px solid rgba(220,221,222,1);border-radius:4px;}");
+
+    lineedit_iso->setObjectName("LineEditISO");
+    ThManager()->regTheme(lineedit_iso, "ukui-white", "#LineEditISO{background-color: transparent;"
+                                                      "border:1px solid rgba(220,221,222,1);"
+                                                      "border-radius:4px;}");
+    ThManager()->regTheme(lineedit_iso, "ukui-black", "#LineEditISO{background-color: transparent;"
+                                                      "border:1px solid rgba(255, 255, 255);"
+                                                      "border-radius:4px;}");
 
     lineEdit_icon = new QLabel( lineedit_iso );
     lineEdit_icon->setFixedSize( 15,15);
     lineEdit_text = new QLabel( lineedit_iso );
-    lineEdit_text->setStyleSheet("background-color: transparent;"
-                                 "font:14px;color:#444444;");
+    lineEdit_text->setObjectName("LineEditText");
+    ThManager()->regTheme(lineEdit_text, "ukui-white", "#LineEditText{background-color: transparent;"
+                                                      "font:14px; color: #444444;}",
+                          QString(), QString(),"#LineEditText{background-color: transparent;"
+                                               "font:14px; color: #444444;}");
+    ThManager()->regTheme(lineEdit_text, "ukui-black", "#LineEditText{background-color: transparent;"
+                                                      "font:14px; color: #FFFFFF;}",
+                          QString(), QString(),"#LineEditText{background-color: transparent;"
+                                               "font:14px; color: #FFFFFF;}");
     
     QHBoxLayout* hlayout = new QHBoxLayout( lineedit_iso );
     hlayout->setContentsMargins(0, 0, 0, 0);
@@ -112,6 +137,40 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     button_openfile->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
+    button_openfile->setObjectName("WriteImageBrowse");
+    ThManager()->regTheme(button_openfile, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_openfile, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
     QLabel *label_space = new QLabel(this);
     
@@ -119,6 +178,10 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     label_CD->setText(i18n("select disk"));
     label_CD->setFont( label_font );
     label_CD->setStyleSheet("color:#444444;");
+
+    label_CD->setObjectName("SelectDisk");
+    ThManager()->regTheme(label_CD, "ukui-white", "#SelectDisk{font: 14px; color: #444444;}");
+    ThManager()->regTheme(label_CD, "ukui-black", "#SelectDisk{font: 14px; color: #FFFFFF;}");
     
     combo_CD = new QComboBox(this);
     combo_CD->setFixedSize(360, 30);
@@ -131,6 +194,81 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                              "QComboBox::down-arrow{width: 8px; height: 16;"
                              "image: url(:/icon/icon/draw-down.jpg);"
                              "padding: 0px 0px 0px 0px;}");
+    combo_CD->setObjectName("comboEquipment1");
+    ThManager()->regTheme(combo_CD, "ukui-white","#comboEquipment1{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#comboEquipment1::hover{border:1px solid #6B8EEB;}"
+                                                 "#comboEquipment1::selected{border:1px solid #6B8EEB;}"
+                                                 "#comboEquipment1 QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#comboEquipment1 QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboEquipment1 QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#comboEquipment1 QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboEquipment1::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboEquipment1::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboEquipment1 QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboEquipment1 QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboEquipment1 QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboEquipment1 QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboEquipment1{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboEquipment1::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo_CD, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    combo_CD->setEnabled(false);
 
     button_setting = new QPushButton(this);
     button_setting->setText(i18n("setting"));
@@ -138,13 +276,82 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     button_setting->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
+    button_setting->setObjectName("WriteImageSetting");
+    ThManager()->regTheme(button_setting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_setting, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
     button_setting->setEnabled(false);
 
     button_start = new QPushButton(this);
     button_start->setText(i18n("start"));
     button_start->setFixedSize(140, 45);
+    button_start->setObjectName("WriteImageStart");
+    ThManager()->regTheme(button_start, "ukui-white",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_start, "ukui-black",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
     button_start->setEnabled( false );
-    button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
+    //button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
 
 #if 1
     QLabel* CD_label = new QLabel( widget_label); 

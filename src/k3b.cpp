@@ -112,6 +112,9 @@
 #include <QPainter>
 #include <cstdlib>
 #include <QGraphicsDropShadowEffect>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QErrorMessage>
 
 namespace {
 
@@ -242,6 +245,32 @@ public:
     QMimeDatabase mimeDatabase;
 };
 
+void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    qDebug() << event->key();
+    if (Qt::Key_F1 == event->key())
+    {
+        qDebug() << "KEY F1 pressed.";
+#if 1
+        QDBusInterface *ifc = new QDBusInterface("com.kylinUserGuide.hotel_1000",
+                                                 "/run/user/1000/bus",
+                                                 "com.guide.hotel",
+                                                 QDBusConnection::sessionBus(),
+                                                 this);
+        QDBusMessage msg = ifc->call(QString("showGuide"), "burner");
+        if (QDBusMessage::ErrorMessage == msg.type())
+        {
+            QErrorMessage *err = new QErrorMessage(this);
+            err->setWindowTitle(msg.errorName());
+            err->showMessage(msg.errorMessage());
+            qDebug() << msg.errorMessage();
+            //delete err;
+        }
+        delete ifc;
+#endif
+    }
+}
+
 K3b::MainWindow::MainWindow()
     : KXmlGuiWindow(0),
       d( new Private )
@@ -250,6 +279,27 @@ K3b::MainWindow::MainWindow()
     
     logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
 
+#if 0
+    QString name = QString("com.kylinUserGuideGUI.hotel_%1").arg(QString::number(getuid()));
+
+    QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+                                                    "/run/user/1000/bus",
+                                                    "com.guide.hotel",
+                                                    "ShowGuide");
+    msg << "burner";
+    qDebug() << msg;
+    QDBusMessage response = QDBusConnection::sessionBus().call(msg);
+
+    qDebug() << response;
+    qDebug() << response.type();
+    if (response.type() == QDBusMessage::ErrorMessage)
+        qDebug() << "ERROR";
+
+    if (response.type() == QDBusMessage::ReplyMessage)
+        {
+            qDebug() << response.arguments().takeFirst().toString();
+        }
+#endif
     /* modify UI */
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setStyleSheet("QWidget:{width:900px;\
@@ -562,7 +612,7 @@ void K3b::MainWindow::initView()
     */
     this->setObjectName("KylinBurner");
     ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #000000;}");
+    ThManager()->regTheme(this, "ukui-black", "#KylinBurner{background-color: #000000;}");
 
     logger->info("Draw main frame begin...");
 
@@ -586,6 +636,8 @@ void K3b::MainWindow::initView()
     //pTitleLabel->setFixedHeight(15);
     pTitleLabel->setText( i18n("Kylin-Burner" ));
     pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
+
+    pTitleLabel->setObjectName("titleLabel");
 
     ThManager()->regTheme(pTitleLabel, "ukui-white",
                              "font: 14px;color:#333333");
@@ -714,6 +766,7 @@ void K3b::MainWindow::initView()
                             "background-position: top;"
                             "border:none;}");
 #endif
+
     btnLabel->setObjectName("leftBack");
 
     ThManager()->regTheme(btnLabel, "ukui-white","QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
@@ -723,6 +776,7 @@ void K3b::MainWindow::initView()
     ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: rgba(0, 0, 0, 0.15);"
                             "background-position: top;"
                             "border:none;}");
+
     connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
     connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
     connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
@@ -731,13 +785,11 @@ void K3b::MainWindow::initView()
     QLabel *label_view = new QLabel( d->mainSplitter );
     label_view->setFixedWidth(775);
 
-    ThManager()->regTheme(label_view, "ukui-white", "background-color: #FFFFFF");
-    ThManager()->regTheme(label_view, "ukui-black", "background-color: #000000");
-
     // 右侧：label :上方 title bar
     title_bar = new TitleBar( this );
-    title_bar->setStyleSheet("background-color: #000000");
-    
+
+    title_bar->setFixedWidth(750);
+
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
     d->documentStack->showFullScreen();
@@ -787,18 +839,18 @@ void K3b::MainWindow::initView()
 //    documentHullLayout->addWidget( d->documentHeader, 0, 0 );
     documentHullLayout->addWidget( d->documentTab, 0, 0 );
 
-    connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
-    connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
+    //connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
+    //connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
 
     d->documentStack->addWidget( d->documentHull );
 
     // --- filetreecombobox-toolbar ----------------------------------------------------------------
-	d->filePlacesModel = new KFilePlacesModel;
-    d->urlNavigator = new K3b::UrlNavigator(d->filePlacesModel, this);
+    //d->filePlacesModel = new KFilePlacesModel;
+    //d->urlNavigator = new K3b::UrlNavigator(d->filePlacesModel, this);
 
-    QWidgetAction * urlNavigatorAction = new QWidgetAction(this);
-    urlNavigatorAction->setDefaultWidget(d->urlNavigator);
-    urlNavigatorAction->setText(i18n("&Location Bar"));
+    //QWidgetAction * urlNavigatorAction = new QWidgetAction(this);
+    //urlNavigatorAction->setDefaultWidget(d->urlNavigator);
+    //urlNavigatorAction->setText(i18n("&Location Bar"));
     // ---------------------------------------------------------------------------------------------
 
 
@@ -1117,7 +1169,7 @@ void K3b::MainWindow::readOptions()
     
     KConfigGroup grp( config(), "General Options" );
     d->actionViewDocumentHeader->setChecked( grp.readEntry("Show Document Header", false) );
-    d->urlNavigator->setUrlEditable( !grp.readEntry( "Navigator breadcrumb mode", true ) );
+    //d->urlNavigator->setUrlEditable( !grp.readEntry( "Navigator breadcrumb mode", true ) );
 
     // initialize the recent file list
     KConfigGroup recentGrp(config(), "Recent Files");

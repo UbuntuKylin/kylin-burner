@@ -229,6 +229,7 @@ namespace K3b {
         void slotInternalInit();
 public:
         QPushButton *button_ok;
+        QPushButton *button_cancel;
     private:
         void initConnections();
         void initToolTipsAndWhatsThis();

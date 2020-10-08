@@ -56,6 +56,7 @@ namespace K3b {
         QCheckBox* m_checkForce;
         QCheckBox* m_checkQuickFormat;
         bool       flag;
+        QLabel *icon;
     };
 }
 

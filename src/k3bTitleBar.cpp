@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "ThemeManager.h"
+
 #include <QLabel>
 #include <QMenu>
 #include <QPushButton>
@@ -48,38 +50,40 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     m_pTitleLabel = new QLabel(this);
     m_pMenubutton = new QToolButton(this);
     m_pMinimizeButton = new QPushButton(this);
-    m_pMaximizeButton = new QPushButton(this);
+    //m_pMaximizeButton = new QPushButton(this);
     m_pCloseButton = new QPushButton(this);
 
+    /*
     m_pIconLabel->setFixedSize(30,30);
     m_pIconLabel->setStyleSheet("QLabel{background-image: url(:/new/prefix1/pic/logo.png);"
                                 "background-color:rgb(255,255,255);"
                                 "background-repeat: no-repeat;}");
+    */
 
     m_pTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     m_pMenubutton->setFixedSize(30, 30);
     m_pMinimizeButton->setFixedSize(30, 30);
-    m_pMaximizeButton->setFixedSize(30, 30);
+    //m_pMaximizeButton->setFixedSize(30, 30);
     m_pCloseButton->setFixedSize(30, 30);
 
     m_pMenubutton->setObjectName("menuButton");
     m_pMinimizeButton->setObjectName("minimizeButton");
-    m_pMaximizeButton->setObjectName("maximizeButton");
+    //m_pMaximizeButton->setObjectName("maximizeButton");
     m_pCloseButton->setObjectName("closeButton");
 
     m_pMenubutton->setToolTip(i18n("Menu__"));
     m_pMinimizeButton->setToolTip(i18n("Minimize__"));
-    m_pMaximizeButton->setToolTip(i18n("Maximize__"));
+    //m_pMaximizeButton->setToolTip(i18n("Maximize__"));
     m_pCloseButton->setToolTip(i18n("Close__"));
 
-    m_pTitleLabel->setContentsMargins(8,0,0,0);
-    m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    //m_pTitleLabel->setContentsMargins(8,0,0,0);
+    //m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
 
     //m_pMenubutton->setIcon( QIcon::fromTheme( "setting-default" ) );
     m_pMenubutton->setStyleSheet("QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
-                                 "border:none;background-color:rgb(255, 255, 255);"
+                                 "border:none;background-color:transparent;"
                                  "border-radius: 4px;}"
                                 "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
                                  "border:none;background-color:rgb(61, 107, 229);"
@@ -90,7 +94,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                  "QToolButton::menu-indicator{image:none;}");
 
     m_pMinimizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最小化-默认.png);"
-                                     "border:none;background-color:rgb(255, 255, 255);"
+                                     "border:none;background-color:transparent;"
                                      "border-radius: 4px;}"
                                 "QPushButton:hover{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
                                      "border:none;background-color:rgb(61, 107, 229);"
@@ -99,8 +103,9 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                      "border:none;background-color:rgb(50, 87, 202);"
                                      "border-radius: 4px;}");
 
+    /*
     m_pMaximizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最大化-默认.png);"
-                                     "border:none;background-color:rgb(255, 255, 255);"
+                                     "border:none;background-color:transparent;"
                                      "border-radius: 4px;}"
                                 "QPushButton:hover{border-image: url(:/icon/icon/icon-最大化-悬停点击.png);"
                                      "border:none;background-color:rgb(61, 107, 229);"
@@ -108,9 +113,9 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                 "QPushButton:checked{border-image: url(:/icon/icon/icon-最大化-悬停点击.png);"
                                      "border:none;background-color:rgb(50, 87, 202);"
                                      "border-radius: 4px;}");
-
+    */
     m_pCloseButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                                  "border:none;background-color:rgb(255, 255, 255);"
+                                  "border:none;background-color:transparent;"
                                   "border-radius: 4px;}"
                                 "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
                                   "border:none;background-color:rgb(248, 100, 87);"
@@ -133,8 +138,41 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
     //menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
 
+    menu->setObjectName("menu");
+    ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(233, 233, 233, 1);"
+                                             "border: none; border-radius: 4px;}"
+                                             "#menu::item{background-color: transparent;"
+                                             "padding: 8px 5px; margin: 0px 4px;"
+                                             "border: none; border-radius: 4px;"
+                                             "font: 14px; color: #444444;height: 14px;}"
+                                             "#menu::item:selected{background-color: rgba(107, 141, 235, 1);"
+                                             "border-bottom: 1px solid gray; color:rgba(61, 107, 229, 1);}"
+                                             "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
+                                             "color: rgba(61, 107, 229, 1);}");
+    ThManager()->regTheme(menu, "ukui-black","#menu{background-color: rgba(57, 58, 62, 1);"
+                                             "border: none; border-radius: 4px;}"
+                                             "#menu::item{background-color: transparent;"
+                                             "padding: 8px 5px; margin: 0px 4px;"
+                                             "border: none; border-radius: 4px;"
+                                             "font: 14px; color: #FFFFFF;height: 14px;}"
+                                             "#menu::item:selected{background-color: rgba(107, 141, 235, 1);"
+                                             "border-bottom: 1px solid gray; color:rgba(61, 107, 229, 1);}"
+                                             "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
+                                             "color: rgba(61, 107, 229, 1);}");
+/*
+    menu->setStyleSheet("#menu{background-color: #FFFFFF; "
+                        "border: none; border-radius: 4px;"
+                        "font: 14px; color: #444444;}");
+
+    menu->setStyleSheet("#menu::item{background-color: transparent;"
+                        "border: none; border-radius: 4px;"
+                        "font: 14px; color: #444444;height: 14px;"
+                        "padding: 8px 32px; margin: 0px 8px;}"
+                        "#menu::item:selected{background-color: red;}"
+                        "#menu::item:pressed{background-color: blue;}");
+*/
     //menu->setStyleSheet("QMenu::item:hover{background-color:#6b8eeb;}");
-    //menu->setStyleSheet("QMenu:hover{background-color:#ffffff;}");
+    //menu->setStyleSheet("QMenu:hover{background-color:#000000;}");
 
     m_pMenubutton->setPopupMode(QToolButton::InstantPopup); //点击模式
     m_pMenubutton->setMenu(menu);  //下拉菜单
@@ -143,16 +181,18 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //QHBoxLayout *mainWidgetLayout = new QHBoxLayout(this);
     //QWidget *mainWidget = new QWidget;
     QLabel* label_top = new QLabel( this );
+    ThManager()->regTheme(this, "ukui-white", "QWidget{background-color: rgb(255, 255, 255);}");
+    ThManager()->regTheme(this, "ukui-black", "QWidget{background-color: rgb(0, 0, 0);}");
+    label_top->setStyleSheet("QWidget{background-color: transparent;}");
     label_top->setFixedHeight( 50 );
     QHBoxLayout *pLayout = new QHBoxLayout( label_top );
 
     //mainWidgetLayout->addWidget(mainWidget);
     //mainWidget->setLayout(pLayout);
     //mainWidgetLayout->setMargin(0);
-    pLayout->setContentsMargins( 0, 4, 4, 16);
+    pLayout->setContentsMargins( 0, 0, 4, 16);
     pLayout->setSpacing(0);
     pLayout->addStretch(0);
-    label_top->setStyleSheet("QWidget{background-color:rgb(255,255,255);}");
     pLayout->addWidget(m_pMenubutton);
     pLayout->addSpacing(4);
     pLayout->addWidget(m_pMinimizeButton);
@@ -167,6 +207,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     mainLayout->addStretch( 0 );
 
     dlg = new FileFilter( this );
+    mfDlg = new K3b::MediaFormattingDialog( this );
 
 
     connect(dlg, SIGNAL(setHidden(bool)), this, SLOT(callHidden(bool)));
@@ -174,9 +215,10 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     connect(dlg, SIGNAL(setReplace(bool)), this, SLOT(callReplace(bool)));
 
 
+    //m_pMaximizeButton->hide();
     connect(m_pMenubutton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pMinimizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
-    connect(m_pMaximizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
+    //connect(m_pMaximizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pCloseButton, &QPushButton::clicked, this, &TitleBar::onClicked);
 }
 
@@ -186,9 +228,10 @@ K3b::TitleBar::~TitleBar()
    delete m_pTitleLabel;
    delete m_pMenubutton;
    delete m_pMinimizeButton;
-   delete m_pMaximizeButton;
+   //delete m_pMaximizeButton;
    delete m_pCloseButton;
    if (dlg) delete dlg;
+   if (mfDlg) delete mfDlg;
 }
 
 void K3b::TitleBar::callHidden(bool flag)
@@ -206,6 +249,7 @@ void K3b::TitleBar::callReplace(bool flag)
 {
     emit setIsReplace(flag);
 }
+/*
 void K3b::TitleBar::mouseDoubleClickEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
@@ -239,7 +283,7 @@ void K3b::TitleBar::mouseReleaseEvent(QMouseEvent *event)
         mMoving = false;
     }
 }
-
+*/
 void K3b::TitleBar::onClicked()
 {
     QPushButton *pButton = qobject_cast<QPushButton *>(sender());
@@ -251,15 +295,17 @@ void K3b::TitleBar::onClicked()
             pWindow->showMinimized();
             updateMaximize();
         }
+        /*
         else if (pButton == m_pMaximizeButton)
         {
             pWindow->isMaximized() ? pWindow->showNormal() : pWindow->showMaximized();
             updateMaximize();
         }
+        */
         else if (pButton == m_pCloseButton)
         {
-            pWindow->close();
             exit(0);
+            pWindow->close();
         }
     }
 }
@@ -272,16 +318,16 @@ void K3b::TitleBar::updateMaximize()
         bool bMaximize = pWindow->isMaximized();
         if (bMaximize)
         {
-            m_pMaximizeButton->setToolTip(tr("Restore"));
-            m_pMaximizeButton->setProperty("maximizeProperty", "restore");
+            //m_pMaximizeButton->setToolTip(tr("Restore"));
+            //m_pMaximizeButton->setProperty("maximizeProperty", "restore");
         }
         else
         {
-            m_pMaximizeButton->setProperty("maximizeProperty", "maximize");
-            m_pMaximizeButton->setToolTip(tr("Maximize"));
+            //m_pMaximizeButton->setProperty("maximizeProperty", "maximize");
+            //m_pMaximizeButton->setToolTip(tr("Maximize"));
         }
 
-        m_pMaximizeButton->setStyle(QApplication::style());
+        //m_pMaximizeButton->setStyle(QApplication::style());
     }
 }
 
@@ -292,9 +338,8 @@ void K3b::TitleBar::clean()
 
 void K3b::TitleBar::formatMedium( K3b::Device::Device* dev )
 {
-    K3b::MediaFormattingDialog dlg( this );
-    dlg.setDevice( dev );
-    dlg.exec();
+    mfDlg->setDevice( dev );
+    mfDlg->exec();
 }
 
 void K3b::TitleBar::popup()

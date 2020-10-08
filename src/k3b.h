@@ -20,14 +20,16 @@
 
 #include "option/k3boptiondialog.h"
 #include "k3bTitleBar.h"
+#include "kylinburnerlogger.h"
 
 #include <KSharedConfig>
 #include <KXmlGuiWindow>
 
 #include <QList>
 #include <QUrl>
+#include <QKeyEvent>
+#include <QDBusMessage>
 
-#include "kylinburnerlogger.h"
 
 namespace K3b {
     class Doc;
@@ -89,6 +91,8 @@ namespace K3b {
         K3b::Doc* slotNewMovixDoc();
         K3b::Doc* slotNewVideoDvdDoc();
         K3b::Doc* slotContinueMultisession();
+
+        void keyPressEvent(QKeyEvent *event);
 
         void slotClearProject();
 

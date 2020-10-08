@@ -105,13 +105,13 @@
          <widget class="QLabel" name="labelTitle">
           <property name="minimumSize">
            <size>
-            <width>80</width>
+            <width>100</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>80</width>
+            <width>100</width>
             <height>20</height>
            </size>
           </property>
@@ -197,13 +197,13 @@
        <widget class="QLabel" name="labelName">
         <property name="minimumSize">
          <size>
-          <width>150</width>
+          <width>300</width>
           <height>40</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>150</width>
+          <width>300</width>
           <height>40</height>
          </size>
         </property>
@@ -335,7 +335,7 @@
          <string notr="true">font: 14px &quot;Noto Sans CJK SC&quot;;</string>
         </property>
         <property name="text">
-         <string>Recovery</string>
+         <string>Recove</string>
         </property>
        </widget>
       </item>

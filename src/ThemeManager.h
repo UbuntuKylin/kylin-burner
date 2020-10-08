@@ -42,7 +42,11 @@ public:
     void normal() {if (obj && obj->isEnabled()) obj->setStyleSheet(style);}
     void hover() {if (obj && obj->isEnabled()) obj->setStyleSheet(styleHover);}
     void active() {if (obj && obj->isEnabled()) obj->setStyleSheet(styleActive);}
-    void disable() {if (obj && !obj->isEnabled()) obj->setStyleSheet(styleDisable);}
+    void disable() {
+        if (!obj) return;
+        if (!obj->isEnabled()) obj->setStyleSheet(styleDisable);
+        else normal();
+    }
     QWidget *getObj() {return obj;}
 private:
     QWidget *obj; /* the widget */
