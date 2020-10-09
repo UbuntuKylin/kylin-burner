@@ -21,6 +21,7 @@
 #include "k3bdevice.h"
 #include "k3bapplication.h"
 #include "k3bmediacache.h"
+#include "ThemeManager.h"
 #include <KMountPoint>
 #include <KLocalizedString>
 
@@ -54,16 +55,19 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(48,13);
+    title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
+    title->setObjectName("MD5Titile");
+    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -73,15 +77,15 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     connect(close, &QPushButton::clicked, this, &Md5Check::exit);
 
     QLabel* label_top = new QLabel( this );
-//    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     titlebar->addWidget(title);
-    titlebar->addStretch();
+    titlebar->addStretch(290);
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
 
     QLabel* label_title = new QLabel( i18n("md5 check"),this );
 //    label_title->setFixedHeight(24);
@@ -89,30 +93,121 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     label_font.setPixelSize(24);
     label_title->setFont( label_font );
     label_title->setStyleSheet("color:#444444");
+    label_title->setObjectName("MD5LabelTitile");
+    ThManager()->regTheme(label_title, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(label_title, "ukui-black", "font: 24px; color: #FFFFFF;");
     
     QLabel* label_CD = new QLabel( i18n("choice CD"),this );
 //    label_CD->setFixedHeight(12);
     label_font.setPixelSize(14);
     label_CD->setFont( label_font );
     label_CD->setStyleSheet("color:#444444");
+    label_CD->setObjectName("MD5LabelCD");
+    ThManager()->regTheme(label_CD, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(label_CD, "ukui-black", "font: 14px; color: #FFFFFF;");
 
     combo = new QComboBox( this );
     combo->setEnabled( false );
     combo->setFixedSize( 368, 30);
     combo->setFont( label_font );
     combo->setStyleSheet("color:#444444;");
+    combo->setObjectName("MD5Combo");
+    ThManager()->regTheme(combo, "ukui-white","#MD5Combo{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#MD5Combo::hover{border:1px solid #6B8EEB;}"
+                                                 "#MD5Combo::selected{border:1px solid #6B8EEB;}"
+                                                 "#MD5Combo QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#MD5Combo QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#MD5Combo QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#MD5Combo QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#MD5Combo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#MD5Combo::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#MD5Combo QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#MD5Combo QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#MD5Combo QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#MD5Combo QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#MD5Combo{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#MD5Combo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
 
     check = new QCheckBox( i18n("choice md5 file"), this );
     //check->setFixedSize( 125, 11);
     check->setChecked( true );
     check->setFont( label_font );
     check->setStyleSheet("color:#444444;");
+    check->setObjectName("MD5Check");
+    ThManager()->regTheme(check, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(check, "ukui-black", "font: 14px; color: #FFFFFF;");
+
 
     lineedit = new QLineEdit( this );
     lineedit->setFixedSize( 278, 30);
     lineedit->setFont( label_font );
     lineedit->setStyleSheet("color:#444444;");
     lineedit->setEnabled(true);  
+    lineedit->setObjectName("MD5LineEdit");
+    ThManager()->regTheme(lineedit, "ukui-white", "#MD5LineEdit{background-color: transparent;"
+                                                      "border:1px solid rgba(220,221,222,1);"
+                                                      "border-radius:4px;}");
+    ThManager()->regTheme(lineedit, "ukui-black", "#MD5LineEdit{background-color: transparent;"
+                                                      "border:1px solid rgba(255, 255, 255);"
+                                                      "border-radius:4px;}");
  
     button_open = new QPushButton( this );
     button_open->setText( i18n("Browse") );
@@ -121,6 +216,40 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     button_open->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
                           "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                           "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+    button_open->setObjectName("MD5Browse");
+    ThManager()->regTheme(button_open, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_open, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
     button_open->setEnabled(true);    
 
@@ -130,12 +259,80 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color:rgb(255,255,255);}"
                           "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                           "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+    button_ok->setObjectName("MD5IDOK");
+    ThManager()->regTheme(button_ok, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_ok, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
     QPushButton* button_cancel = new QPushButton( this );
     button_cancel->setText( i18n("cancel") );
     button_cancel->setFixedSize( 80, 31);
     button_cancel->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
                           "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                           "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+    button_cancel->setObjectName("MD5IDCancel");
+    ThManager()->regTheme(button_cancel, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_cancel, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
      
     QHBoxLayout* hlayout_lineedit = new QHBoxLayout();
     hlayout_lineedit->setContentsMargins(0, 0, 0, 0);

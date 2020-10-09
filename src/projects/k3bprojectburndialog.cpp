@@ -25,6 +25,7 @@
 #include "k3bapplication.h"
 #include "k3bmediacache.h"
 #include "k3bmedium.h"
+#include "ThemeManager.h"
 
 #include "k3bdevice.h"
 #include "k3bdevicemanager.h"
@@ -282,14 +283,17 @@ void K3b::ProjectBurnDialog::prepareGui()
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(80,16);
+    title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
                          "font: 14px;}");
+    title->setObjectName("BurnDialogTitle");
+    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #000000;");
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -301,15 +305,15 @@ void K3b::ProjectBurnDialog::prepareGui()
     connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(30);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0); 
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
-    titlebar->addStretch();
+    titlebar->addStretch(285);
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     
     mainLay->addWidget( label_top );
     mainLay->addSpacing( 20 );
@@ -329,6 +333,10 @@ void K3b::ProjectBurnDialog::prepareGui()
                                 font-weight:400; \
                                 color:rgba(68,68,68,1); \
                                 line-height:32px;}");
+
+    title->setObjectName("BurnDialogTitle");
+    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #000000;");
 
     m_writerSelectionWidget = new K3b::WriterSelectionWidget();
     m_writerSelectionWidget->hideComboMedium();

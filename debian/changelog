@@ -1,3 +1,24 @@
+kylin-burner (3.1.0-1kylin1k2) v101; urgency=medium
+
+  * 修正部分bug，比如调整关闭按钮尺寸等；
+  * 新增部分深色主题界面；
+  * 新增按下F1时调用系统帮助手册（目前DBus调用失败，会提示失败信息。
+
+ -- Derek-Wong <wangye@kylinos.cn>  Fri, 09 Oct 2020 15:00:55 +0800
+
+kylin-burner (3.1.0-1kylin1k1) v101; urgency=medium
+
+  * fix: bug20499. 任务栏图标为中尺寸和大尺寸时，最小化到任务栏图标过小。
+  * fix: bug20475. 占用cpu为100%，而且点击关闭时很卡。
+
+ -- Bi Wenjie <biwenjie@kylinos.cn>  Wed, 30 Sep 2020 16:31:08 +0800
+
+kylin-burner (3.1.0-1kylin1) v101; urgency=medium
+
+  * Rebuild for v10.1
+
+ -- Bi Wenjie <biwenjie@kylinos.cn>  Thu, 24 Sep 2020 18:02:43 +0800
+
 kylin-burner (3.1.0-1ubuntu1.1) unstable; urgency=medium
 
   * Non-maintainer upload.

@@ -33,6 +33,7 @@
 #include "k3bwritingmodewidget.h"
 #include "k3bmediacache.h"
 #include "k3bfilecompilationsizehandler.h"
+#include "ThemeManager.h"
 
 #include <QFile>
 #include <QFileInfo>

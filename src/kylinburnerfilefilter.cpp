@@ -21,6 +21,7 @@
 #include "k3bapplication.h"
 #include "k3bprojectmanager.h"
 #include "k3bdiritem.h"
+#include "ThemeManager.h"
 
 #include <QDebug>
 #include <QMouseEvent>
@@ -39,10 +40,83 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
     this->hide();
 
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
+
     ui->labelTitle->setText(i18n("Kylin-Burner"));
+    ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
+    ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
     ui->labelName->setText(i18n("FilterFile"));
+    ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
+    ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
     ui->btnSetting->setText(i18n("FilterSetting"));
     ui->btnRecovery->setText(i18n("Reset"));
+    ThManager()->regTheme(ui->btnRecovery, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(ui->btnRecovery, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(ui->btnSetting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(ui->btnSetting, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);
     currentData = static_cast<K3b::DataDoc *>(k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));
@@ -54,9 +128,11 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     currentData->addUrls(urls);
     */
     ui->treeView->setModel(model);
+    /*
     ui->treeView->header()->setStyleSheet("QHeaderView::section{"
                                         "border: 0px solid white;"
                                         "background-color : rgba(242, 242, 242, 1);}");
+    */
     ui->treeView->header()->setSectionResizeMode(QHeaderView::Stretch);
     ui->treeView->setColumnWidth(0, ui->treeView->width() / 5 * 4);
     ui->treeView->setColumnWidth(1, ui->treeView->width());
@@ -74,6 +150,21 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui->treeView->setMouseTracking( false );
     ui->treeView->setAllColumnsShowFocus( true );
     ui->treeView->setRootIndex(model->indexForItem(currentData->root()));
+    ThManager()->regTheme(ui->treeView, "ukui-white", "background-color:rgba(255, 255, 255, 1);"
+                                              "font: 14px; color: #444444;");
+    ThManager()->regTheme(ui->treeView, "ukui-black", "background-color:rgba(36, 36, 36, 1);"
+                                              "font: 14px; color: #FFFFFF;");
+    ui->treeView->header()->setObjectName("FilterViewHeader");
+    ThManager()->regTheme(ui->treeView->header(), "ukui-white", "#FilterViewHeader:section{"
+                                                                          "background-color:rgba(242, 242, 242, 1);"
+                                                                          "border: 0px solid white;;"
+                                                                          //"border-color: rgba(242, 242, 242, 1);"
+                                              "font: 12px; color: rgba(68, 68, 68, 1);}");
+    ThManager()->regTheme(ui->treeView->header(), "ukui-black", "#FilterViewHeader:section{"
+                                                                          "background-color:rgba(36, 36, 36, 1);"
+                                                                          "border: 0px solid white;"
+                                                                          //"border-color: rgba(242, 242, 242, 1);"
+                                              "font: 12px; color: rgba(255, 255, 255, 1);}");
     /*
     K3b::DirItem *root = static_cast<K3b::DirItem *>(currentData->root());
     while (root->children().size() == 1) root = static_cast<K3b::DirItem *>(root->children().at(0));
@@ -204,12 +295,14 @@ void KylinBurnerFileFilter::labelCloseStyle(bool in)
     if (in)
     {
         ui->labelClose->setStyleSheet("background-color:rgba(247,99,87,1);"
-                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png); ");
+                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png);"
+                                      "border-radius: 4px;");
     }
     else
     {
         ui->labelClose->setStyleSheet("background-color:transparent;"
-                                      "image: url(:/icon/icon/icon-关闭-默认.png); ");
+                                      "image: url(:/icon/icon/icon-关闭-默认.png); "
+                                      "border-radius: 4px;");
     }
 }
 

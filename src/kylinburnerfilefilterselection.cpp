@@ -18,6 +18,7 @@
 
 #include "kylinburnerfilefilterselection.h"
 #include "ui_kylinburnerfilefilterselection.h"
+#include "ThemeManager.h"
 
 #include <QMouseEvent>
 
@@ -31,6 +32,8 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     this->hide();
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterSetting"));
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
 
 
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
@@ -72,12 +75,14 @@ void KylinBurnerFileFilterSelection::labelCloseStyle(bool in)
     if (in)
     {
         ui->labelClose->setStyleSheet("background-color:rgba(247,99,87,1);"
-                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png); ");
+                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png); "
+                                      "border-radius: 4px;");
     }
     else
     {
         ui->labelClose->setStyleSheet("background-color:transparent;"
-                                      "image: url(:/icon/icon/icon-关闭-默认.png); ");
+                                      "image: url(:/icon/icon/icon-关闭-默认.png); "
+                                      "border-radius: 4px;");
     }
 }
 

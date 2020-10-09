@@ -112,6 +112,7 @@ namespace K3b {
         DirProxyModel* m_dirProxy;
         QWidget        *mainWindow;
         KylinBurnerFileFilter *dlgFileFilter;
+        ProjectBurnDialog* dlg;
 
         QComboBox* combo_burner;
         QComboBox* combo_CD;

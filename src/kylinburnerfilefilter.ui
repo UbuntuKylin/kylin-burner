@@ -49,13 +49,13 @@
      <property name="minimumSize">
       <size>
        <width>450</width>
-       <height>30</height>
+       <height>34</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>450</width>
-       <height>30</height>
+       <height>34</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -63,7 +63,7 @@
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>4</number>
+       <number>5</number>
       </property>
       <property name="topMargin">
        <number>4</number>
@@ -83,14 +83,14 @@
          <widget class="QLabel" name="label">
           <property name="minimumSize">
            <size>
-            <width>20</width>
-            <height>20</height>
+            <width>30</width>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
-            <height>20</height>
+            <width>30</width>
+            <height>30</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -106,13 +106,13 @@
           <property name="minimumSize">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>100</width>
-            <height>20</height>
+            <height>30</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -142,14 +142,14 @@
        <widget class="QLabel" name="labelClose">
         <property name="minimumSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -178,9 +178,6 @@
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <property name="spacing">
-       <number>0</number>
-      </property>
       <property name="leftMargin">
        <number>25</number>
       </property>
@@ -197,13 +194,13 @@
        <widget class="QLabel" name="labelName">
         <property name="minimumSize">
          <size>
-          <width>300</width>
+          <width>425</width>
           <height>40</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>300</width>
+          <width>425</width>
           <height>40</height>
          </size>
         </property>
@@ -215,41 +212,40 @@
         </property>
        </widget>
       </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>272</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </item>
    <item>
     <widget class="QWidget" name="widget_3" native="true">
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <property name="spacing">
-       <number>0</number>
-      </property>
+     <property name="minimumSize">
+      <size>
+       <width>450</width>
+       <height>371</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>450</width>
+       <height>371</height>
+      </size>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
       <property name="leftMargin">
        <number>25</number>
       </property>
       <property name="topMargin">
-       <number>20</number>
+       <number>5</number>
       </property>
       <property name="rightMargin">
-       <number>4</number>
+       <number>5</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>0</number>
       </property>
-      <item>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
        <widget class="QTreeView" name="treeView">
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -280,9 +276,6 @@
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <property name="spacing">
-       <number>5</number>
-      </property>
       <property name="leftMargin">
        <number>25</number>
       </property>

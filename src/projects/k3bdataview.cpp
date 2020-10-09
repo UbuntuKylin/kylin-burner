@@ -865,12 +865,15 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     workerThread->start();
     */
 
+    dlg = newBurnDialog( this );
+
     logger->debug("Draw data burner end");
 }
 
 K3b::DataView::~DataView()
 {
     delete dlgFileFilter;
+    if (dlg) delete dlg;
 }
 
 void K3b::DataView::slotFileFilterClicked()
@@ -1553,9 +1556,7 @@ void K3b::DataView::slotBurn()
          KMessageBox::information( this, i18n("Please add files to your project first."),
                                       i18n("No Data to Burn") );
     }else if ( burn_setting->text() == i18n("setting") ){
-        ProjectBurnDialog* dlg = newBurnDialog( this );
         dlg->execBurnDialog(true);
-        delete dlg;
     }else if ( burn_setting->text() == i18n("open" )){
            connect(this, SIGNAL(disableCD(bool)), this, SLOT(slotDisableCD(bool)));
         QString filepath = QFileDialog::getExistingDirectory(this, i18n("open" ), "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);

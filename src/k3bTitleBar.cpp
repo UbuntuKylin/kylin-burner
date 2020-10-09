@@ -37,7 +37,6 @@
 #include "k3bdevice.h"
 #include "k3bapplication.h"
 #include <KMountPoint>
-#include "k3bMd5Dialog.h"
 #include <klocalizedstring.h>
 
 K3b::TitleBar::TitleBar(QWidget *parent)
@@ -208,6 +207,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 
     dlg = new FileFilter( this );
     mfDlg = new K3b::MediaFormattingDialog( this );
+    dialog = new K3b::Md5Check( this );
 
 
     connect(dlg, SIGNAL(setHidden(bool)), this, SLOT(callHidden(bool)));
@@ -232,6 +232,7 @@ K3b::TitleBar::~TitleBar()
    delete m_pCloseButton;
    if (dlg) delete dlg;
    if (mfDlg) delete mfDlg;
+   if (dialog) delete dialog;
 }
 
 void K3b::TitleBar::callHidden(bool flag)
@@ -362,7 +363,6 @@ void K3b::TitleBar::popup()
 
 void K3b::TitleBar::md5()
 {
-    K3b::Md5Check* dialog = new K3b::Md5Check( this );
     dialog->show();
 }
 

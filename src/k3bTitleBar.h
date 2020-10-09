@@ -21,6 +21,7 @@
 #include "option/k3boptiondialog.h"
 #include "misc/k3bmediaformattingdialog.h"
 #include "k3bFileFilterDialog.h"
+#include "k3bMd5Dialog.h"
 
 #include <QToolButton>
 #include <QLabel>
@@ -92,6 +93,7 @@ private:
     QPushButton *m_pCloseButton;
     FileFilter  *dlg;
     K3b::MediaFormattingDialog *mfDlg;
+    K3b::Md5Check *dialog;
 };
 }
 #endif // TITLE_BAR_H
