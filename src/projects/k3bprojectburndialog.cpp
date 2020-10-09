@@ -265,6 +265,9 @@ void K3b::ProjectBurnDialog::prepareGui()
 {
     QVBoxLayout* mainLay = new QVBoxLayout( mainWidget() );
     mainLay->setContentsMargins( 0, 0, 0, 0 );
+    setObjectName("SettingS");
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
 
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     setFixedSize(430, 485);
@@ -293,7 +296,7 @@ void K3b::ProjectBurnDialog::prepareGui()
                          "font: 14px;}");
     title->setObjectName("BurnDialogTitle");
     ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #000000;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -334,9 +337,9 @@ void K3b::ProjectBurnDialog::prepareGui()
                                 color:rgba(68,68,68,1); \
                                 line-height:32px;}");
 
-    title->setObjectName("BurnDialogTitle");
-    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #000000;");
+    label_title->setObjectName("BurnDialogLabelTitle");
+    ThManager()->regTheme(label_title, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(label_title, "ukui-black", "font: 24px; color: #FFFFFF;");
 
     m_writerSelectionWidget = new K3b::WriterSelectionWidget();
     m_writerSelectionWidget->hideComboMedium();
@@ -374,6 +377,9 @@ void K3b::ProjectBurnDialog::prepareGui()
     label_font.setPixelSize(14);
     m_checkCacheImage->setFont( label_font );
     m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
+    m_checkCacheImage->setObjectName("CheckImage");
+    ThManager()->regTheme(m_checkCacheImage, "ukui-white", "color:#444444;font-size:16px;");
+    ThManager()->regTheme(m_checkCacheImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
 
     m_checkSimulate = K3b::StdGuiItems::simulateCheckbox( m_optionGroup );
     m_checkSimulate->setFixedHeight(16);
@@ -393,6 +399,9 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkOnlyCreateImage->setFixedHeight(16);
     m_checkOnlyCreateImage->setFont( label_font );
     m_checkOnlyCreateImage->setStyleSheet("color:#444444;");
+    m_checkOnlyCreateImage->setObjectName("CheckOnlyImage");
+    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-white", "color:#444444;font-size:16px;");
+    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
    
     QLabel *lcheck = new QLabel(this);
     QVBoxLayout  *laycheck = new QVBoxLayout(lcheck);
@@ -419,11 +428,19 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_labeltmpPath->setFixedSize( 80, 30);
     m_labeltmpPath->setFont( label_font );
     m_labeltmpPath->setStyleSheet("color:#444444;");
+    m_labeltmpPath->setObjectName("LabelPath");
+    ThManager()->regTheme(m_labeltmpPath, "ukui-white", "color:#444444;font-size:14px;");
+    ThManager()->regTheme(m_labeltmpPath, "ukui-black", "color:#FFFFFF;font-size:14px;");
     
     m_tmpPath->setText( tmp_size);
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
-    m_tmpPath->setStyleSheet("color:#444444;");
+    //m_tmpPath->setStyleSheet("color:#444444;");
+    m_tmpPath->setObjectName("TmpPath");
+    ThManager()->regTheme(m_tmpPath, "ukui-white", "font-color:#444444;font:14px;", QString(),
+                          QString(),"color:#444444;font:14px;border: 1px solid gray;");
+    ThManager()->regTheme(m_tmpPath, "ukui-black", "color:#FFFFFF;font:14px;", QString(),
+                          QString(),"color:#FFFFFF;font:14px;border: 1px solid white;");
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(31, 0, 0, 0);

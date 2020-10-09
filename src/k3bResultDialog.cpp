@@ -56,9 +56,10 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
-    title->setObjectName("ResultTitle");
-    ThManager()->regTheme(title, "ukui-white", "background-color: transparent; font: 14px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "background-color: transparent; font: 14px; color: #FFFFFF;");
+    title->setStyleSheet("font: 14px;");
+    title->setObjectName("ResultTitleAA");
+    ThManager()->regTheme(title, "ukui-white", "background-color: transparent; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "background-color: transparent; color: #FFFFFF;");
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -87,8 +88,8 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     QString string = str + " success!";
     QLabel* label_info = new QLabel( i18n( string.toLatin1().data() ), this );
     label_info->setObjectName("ResultInfo");
-    ThManager()->regTheme(title, "ukui-white", "background-color: transparent; font: 30px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "background-color: transparent; font: 30px; color: #FFFFFF;");
+    ThManager()->regTheme(label_info, "ukui-white", "background-color: transparent; font: 30px; color: #444444;");
+    ThManager()->regTheme(label_info, "ukui-black", "background-color: transparent; font: 30px; color: #FFFFFF;");
     label_info->setStyleSheet("font: 30px");
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->addSpacing( 100 );

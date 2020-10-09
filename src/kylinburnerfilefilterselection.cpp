@@ -21,20 +21,27 @@
 #include "ThemeManager.h"
 
 #include <QMouseEvent>
+#include <QScreen>
 
 KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::KylinBurnerFileFilterSelection)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
-    this->move(25, parent->height() - 55 - this->height());
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | windowFlags());
+    setWindowModality(Qt::WindowModal);
+
+    QScreen *screen = QGuiApplication::primaryScreen ();
+    QRect screenRect =  screen->availableVirtualGeometry();
+    this->move(screenRect.width() / 2, screenRect.height() / 2);
+    //delete screen;
+    this->hide();
+    //this->move(25, parent->height() - 55 - this->height());
     this->hide();
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterSetting"));
     ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
     ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
-
 
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);

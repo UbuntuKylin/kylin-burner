@@ -25,6 +25,7 @@
 
 #include <QDebug>
 #include <QMouseEvent>
+#include <QScreen>
 
 KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     QWidget(parent),
@@ -34,10 +35,15 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui->setupUi(this);
     selection = new KylinBurnerFileFilterSelection(this);
     setWindowFlags (Qt::Window);
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    setWindowFlags(Qt::FramelessWindowHint  | Qt::Dialog | windowFlags());
     //qDebug() << "-----------------------------" << pos().x() << pos().y();
     //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
-    this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
+    setWindowModality(Qt::WindowModal);
+
+    QScreen *screen = QGuiApplication::primaryScreen ();
+    QRect screenRect =  screen->availableVirtualGeometry();
+    this->move(screenRect.width() / 2, screenRect.height() / 2);
+    //this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
     this->hide();
 
     ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");

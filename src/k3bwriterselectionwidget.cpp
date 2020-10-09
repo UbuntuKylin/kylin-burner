@@ -1,5 +1,5 @@
 /*
- *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -23,6 +23,7 @@
 #include "k3bglobals.h"
 #include "k3bcore.h"
 #include "k3bintmapcombobox.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -144,13 +145,14 @@ K3b::WriterSelectionWidget::WriterSelectionWidget( QWidget *parent )
     labelSpeed->setFixedHeight(14);
     labelSpeed->setStyleSheet("color:#444444;");
 #endif
-    labelSpeed->setStyleSheet("QLabel{width:56px; \
-height:12px; \
-font-size:14px; \
-font-family:Microsoft YaHei; \
-font-weight:400; \
-color:rgba(68,68,68,1); \
-line-height:18px;}");
+    labelSpeed->setStyleSheet("QLabel{width:56px; height:12px; "
+                              "font-size:14px; font-family:Microsoft YaHei;"
+                              " font-weight:400; color:rgba(68,68,68,1); "
+                              "line-height:18px;}");
+
+    labelSpeed->setObjectName("SpeeComboName");
+    ThManager()->regTheme(labelSpeed, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(labelSpeed, "ukui-black", "font: 14px; color: #FFFFFF;");
 
     m_comboSpeed = new K3b::IntMapComboBox();
     m_comboSpeed->setFixedSize( 368, 32);

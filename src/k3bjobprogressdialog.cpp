@@ -107,6 +107,8 @@ void K3b::JobProgressDialog::setupGUI()
     
     QVBoxLayout* mainLayout = new QVBoxLayout();
     mainLayout->setContentsMargins(31, 0, 30, 30);
+
+
 #if 1
     // header
     // ------------------------------------------------------------------------------------------
@@ -245,16 +247,16 @@ void K3b::JobProgressDialog::setupGUI()
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(80,16);
+    title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
                          "font: 14px;}");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -264,15 +266,15 @@ void K3b::JobProgressDialog::setupGUI()
     connect(close, SIGNAL(clicked()), this, SLOT( accept() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout(label_top);
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
     titlebar->addStretch();
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     
     mainView->addWidget( label_top );
     mainView->addSpacing(40);
@@ -661,7 +663,7 @@ void K3b::JobProgressDialog::slotProgress( int percent )
     if (percent > d->lastProgress) {
         d->lastProgress = percent;
         m_plainCaption.remove(QRegularExpression("\\(.+?\\) "));
-        k3bappcore->k3bMainWindow()->setPlainCaption(QString("(%1%) %2").arg(percent).arg(m_plainCaption));
+        //k3bappcore->k3bMainWindow()->setPlainCaption(QString("(%1%) %2").arg(percent).arg(m_plainCaption));
 
         //setWindowTitle(QString("(%1%) %2").arg(percent).arg(m_job->jobDescription()));
     }
