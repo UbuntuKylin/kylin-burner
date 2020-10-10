@@ -69,7 +69,7 @@ K3b::DataBurnDialog::DataBurnDialog(K3b::DataDoc* _doc, QWidget *parent )
     setTitle( i18n("Data Project"), i18n("Size: %1", KIO::convertSize(_doc->size()) ) );
 
     disconnect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
-    connect( button_ok, SIGNAL( clicked() ), this, SLOT( accept() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotSaveToClicked() ) );
 
     // for now we just put the verify checkbox on the main page...
     m_checkVerify = K3b::StdGuiItems::verifyCheckBox( m_optionGroup );

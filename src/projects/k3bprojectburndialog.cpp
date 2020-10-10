@@ -174,9 +174,16 @@ int K3b::ProjectBurnDialog::execBurnDialog( bool burn )
         setDefaultButton( SAVE_BUTTON );
     }
 
+    readSettingsFromProject();
+
     return K3b::InteractionDialog::exec();
 }
 
+void K3b::ProjectBurnDialog::slotSaveToClicked()
+{
+    saveSettingsToProject();
+    accept();
+}
 
 void K3b::ProjectBurnDialog::slotSaveClicked()
 {

@@ -65,6 +65,7 @@ namespace K3b {
     public Q_SLOTS:
         void slotFinished( bool );
         void close();
+        void slotSaveToClicked();
 
     protected Q_SLOTS:
         /** burn */
