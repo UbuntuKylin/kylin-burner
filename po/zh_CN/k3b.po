@@ -1,6 +1,7 @@
 # translation of k3b.po to Simplified Chinese
 # translation of k3b.po to zh_CN
 # Copyright (C) 2002,2003 Free Software Foundation, Inc.
+# Copyright (C) 2020 KylinSoft Co., Ltd.
 # Zong Yaotang <zong@cosix.com.cn>
 #
 # Xiong Jiang <jxiong@offtopic.org>, 2002,2003.
@@ -279,9 +280,9 @@ msgid ""
 "<p>K3b comes with a selection of predefined external applications that "
 "depends on the installed applications."
 msgstr ""
-"<p>该对话框可用于将外部命令行设置为音频编码器。然后，K3b调用这些命令将音频数"
-"据（音频CD的轨道或音频项目的标题）编码为不支持的格式（即，不存在对应的编码器"
-"插件）。\n"
+""
+"<p>该对话框可用于将外部命令行设置为音频编码器。然后，K3b调用这些命令将音频数据（音频CD的轨道或音频项目的标题）编码为不支持的格式（即，不存在对应的编码器插件）。"
+"\n"
 "<p>K3b提供了一些已安装应用程序的预定义外部应用程序。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
@@ -369,11 +370,16 @@ msgid ""
 "<b>%x</b> - Album comment<br>\n"
 "<b>%y</b> - Release Year"
 msgstr ""
-"请在此插入用于编码音频数据的命令。这个命令必须可以读取来自 stdin 的原始小端 "
-"(参见 <em>字节替换顺序</em>)，16 位的立体声音频框架。\n"
+""
+"请在此插入用于编码音频数据的命令。这个命令必须可以读取来自 "
+"stdin 的原始小端 (参见 <em>字节替换顺序</em>)，16 "
+"位的立体声音频框架。\n"
 "<p>如下字符串将会被 K3b 替换: <br>\n"
-"<b>%f</b> - 结果文件的文件名。这是命令将要写入输出的目的地。<br>\n"
-"<em>如下信息指代将被存储的 ID3 标签信息 (请注意，如下值可能为空)。</em><br>\n"
+"<b>%f</b> - "
+"结果文件的文件名。这是命令将要写入输出的目的地。<br>"
+"\n"
+"<em>如下信息指代将被存储的 ID3 标签信息 "
+"(请注意，如下值可能为空)。</em><br>\n"
 "<b>%t</b> - 标题<br>\n"
 "<b>%a</b> - 艺术家<br>\n"
 "<b>%c</b> - 备注<br>\n"
@@ -408,10 +414,11 @@ msgid ""
 "<p>If the resulting audio file sounds bad it is highly likely that the byte "
 "order is wrong and this option has to be checked."
 msgstr ""
-"<p>如果这个选项被选中，K3b 将会替换输入数据的字节顺序。因此，此命令必须读取大"
-"端音频帧。\n"
-"<p>如果结果输出的音频文件听起来不对劲，那么这大概是因为字节顺序不正确因此此选"
-"项必须被选中。"
+"<p>如果这个选项被选中，K3b "
+"将会替换输入数据的字节顺序。因此，此命令必须读取大端音频帧。"
+"\n"
+""
+"<p>如果结果输出的音频文件听起来不对劲，那么这大概是因为字节顺序不正确因此此选项必须被选中。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkSwapByteOrder)
 #: ../plugins/encoder/external/base_k3bexternalencodereditdialog.ui:116
@@ -432,8 +439,8 @@ msgid ""
 "<p>If this option is checked K3b will write a wave header. This is useful in "
 "case the encoder application cannot read plain raw audio data."
 msgstr ""
-"<p>如果这个选项被开启，K3b将写入一个波形文件头。这在编码应用程序不支持读取纯"
-"音频数据的情况下很有用。"
+""
+"<p>如果这个选项被开启，K3b将写入一个波形文件头。这在编码应用程序不支持读取纯音频数据的情况下很有用。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkWriteWaveHeader)
 #: ../plugins/encoder/external/base_k3bexternalencodereditdialog.ui:129
@@ -595,11 +602,13 @@ msgid ""
 "quality.\n"
 "<p><b>This setting has no influence on the size of the resulting file.</b>"
 msgstr ""
-"<p>比特率当然是对质量的主要影响因素。比特率越高，质量越高。但对于一个给定的比"
-"特率，我们有可选择的算法来确定最佳的比例因子和哈夫曼编码 （噪声整形）。\n"
+""
+"<p>比特率当然是对质量的主要影响因素。比特率越高，质量越高。但对于一个给定的比特率，我们有可选择的算法来确定最佳的比例因子和哈夫曼编码 "
+"（噪声整形）。\n"
 "<p>质量增加从 0 到 9 时，编码速度会随之下降。\n"
 "<p>9 使用所有算法中最慢且尽可能最佳的版本。\n"
-"<p><b>7 是推荐的设置</b> 而 4 以较好的速度仍然产生不错的质量。\n"
+"<p><b>7 是推荐的设置</b> 而 4 "
+"以较好的速度仍然产生不错的质量。\n"
 "<p>0 禁用几乎所有算法包括 psy 模型导致质量差。\n"
 "<p><b>此设置并不影响所生成文件的大小。</b>"
 
@@ -649,9 +658,10 @@ msgid ""
 "strict ISO compatibility. This compatibility might be important for hardware "
 "players."
 msgstr ""
-"<p>如果这个选项被选中， LAME 将强制执行总帧大小 7680 位的限制。<br>\n"
-"这导致高比特率的编码有许多浪费位，但将确保严格的 ISO 兼容性。这种兼容性可能是"
-"对于硬件玩家非常重要的。"
+"<p>如果这个选项被选中， LAME 将强制执行总帧大小 7680 "
+"位的限制。<br>\n"
+"这导致高比特率的编码有许多浪费位，但将确保严格的 ISO "
+"兼容性。这种兼容性可能是对于硬件玩家非常重要的。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkISO)
 #: ../plugins/encoder/lame/base_k3blameencodersettingswidget.ui:399
@@ -674,9 +684,10 @@ msgid ""
 "MP3 stream to be detected; however, it takes 16 bits per frame that would "
 "otherwise be used for encoding, thus slightly reducing the sound quality."
 msgstr ""
-"<p>如果该选项被选中，一个循环冗余校验 (CRC) 码将被添加到每个帧，从而允许发生"
-"在 MP3 流中的传输错误被检测，但是，它需要每帧，否则将被用于编码的 16 比特，所"
-"以稍微降低了音质。"
+"<p>如果该选项被选中，一个循环冗余校验 (CRC) "
+"码将被添加到每个帧，从而允许发生在 MP3 "
+"流中的传输错误被检测，但是，它需要每帧，否则将被用于编码的 "
+"16 比特，所以稍微降低了音质。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkError)
 #: ../plugins/encoder/lame/base_k3blameencodersettingswidget.ui:412
@@ -766,14 +777,17 @@ msgid ""
 msgstr ""
 "<p>选择输出 MP3 文件的声道模式:\n"
 "<p><b>立体声</b><br>\n"
-"在这个模式下，编码器不使用两个输入频道之间的潜在相互关系; 不过它可以“协商”两"
-"个声道之间的比特量需求，例如，在一个声道带有完全安静或比较简单的部分时给另一"
-"个声道更多的比特量。\n"
+""
+"在这个模式下，编码器不使用两个输入频道之间的潜在相互关系; "
+"不过它可以“协商”两个声道之间的比特量需求，例如，在一个声道带有完全安静或比较简单的部分时给另一个声道更多的比特量。"
+"\n"
 "<p><b>联合立体声</b><br>\n"
-"在这个模式下，编码器将充分应用两个输入频道之间的相互关系。这个信号将被合成为"
-"一个中声道，使用左右声道和“差分 (侧)\"声道来计算得出。这将在减少左右声道的音"
-"频差分的前提下更充分地扩展音频流带宽，因此音频质量会大幅度提高。\n"
+""
+"在这个模式下，编码器将充分应用两个输入频道之间的相互关系。这个信号将被合成为一个中声道，使用左右声道和“差分 "
+"(侧)\"声道来计算得出。这将在减少左右声道的音频差分的前提下更充分地扩展音频流带宽，因此音频质量会大幅度提高。"
+"\n"
 "<p><b>单声道</b><br>\n"
+""
 "输入的音频将被编码为单声道。如果源音频是立体声，这将被降低采样率为单声道。"
 
 #: ../plugins/encoder/lame/k3blameencoderconfigwidget.cpp:60
@@ -880,12 +894,17 @@ msgid ""
 "better fidelity than .mp3 compression at 128kbps. <p><em>This explanation "
 "was copied from the www.vorbis.com FAQ.</em>"
 msgstr ""
-"<p>Vorbis 的音质不是用每秒千比特数量来衡量的，它使用一个从 -1 - 10 的尺度计"
-"算 \"音质\"。<p>现在来说，-1 级别的质量可以等同于 45kbps 的平均音质，5 可以等"
-"同于 160kbps，而 10 则可以提供大约 400kbps 级别的音质。一般人认为 5 可以基本"
-"等同于 CD 音质，而需要无损音质则一般为 6. 默认音质设置为 3，大约等同于 "
-"110kbps 的音质，而文件更小，并且音频混成比 MP3 压缩音频质量更高。<p><em>此解"
-"释直接复制于 www.vorbis.com 的常见问答栏目。</em>"
+"<p>Vorbis "
+"的音质不是用每秒千比特数量来衡量的，它使用一个从 -1 "
+"- 10 的尺度计算 \"音质\"。<p>现在来说，-1 "
+"级别的质量可以等同于 45kbps 的平均音质，5 可以等同于 "
+"160kbps，而 10 则可以提供大约 400kbps "
+"级别的音质。一般人认为 5 可以基本等同于 CD "
+"音质，而需要无损音质则一般为 6. 默认音质设置为 "
+"3，大约等同于 110kbps "
+"的音质，而文件更小，并且音频混成比 MP3 "
+"压缩音频质量更高。<p><em>此解释直接复制于 www.vorbis.com "
+"的常见问答栏目。</em>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_radioQualityLevel)
 #: ../plugins/encoder/ogg/base_k3boggvorbisencodersettingswidget.ui:35
@@ -944,13 +963,16 @@ msgid ""
 "than .mp3 compression at 128kbps.<p><em>This explanation is based on the one "
 "from the www.vorbis.com FAQ.</em>"
 msgstr ""
-"<p>Vorbis 的音质测量最佳方案并非每秒的比特率，而是从 -1 到 10 的不同 <em>质量"
-"</em> 级别。<p>一般来说， -1 级别的质量大约等效于平均 45kbps 的音质，质量等"
-"级 5 大约等效于平均 160kbps 的音质，而质量等级 10 大约等效于 400kbps 的音质。"
-"大多数人使用级别 5 就能获得非常接近 CD 音质的编码质量，如需要接近无损立体声音"
-"质，则使用等级 6。等级 3 的质量提供大约 110kbps 的音质，文件较小但音质明显好"
-"于 128kbps 的 .mp3 压缩音频。<p><em>该介绍基于来自 www.vorbis.com 上的 FAQ 文"
-"章。</em>"
+"<p>Vorbis 的音质测量最佳方案并非每秒的比特率，而是从 -1 "
+"到 10 的不同 <em>质量</em> 级别。<p>一般来说， -1 "
+"级别的质量大约等效于平均 45kbps 的音质，质量等级 5 "
+"大约等效于平均 160kbps 的音质，而质量等级 10 大约等效于 "
+"400kbps 的音质。大多数人使用级别 5 就能获得非常接近 CD "
+"音质的编码质量，如需要接近无损立体声音质，则使用等级 "
+"6。等级 3 的质量提供大约 110kbps "
+"的音质，文件较小但音质明显好于 128kbps 的 .mp3 "
+"压缩音频。<p><em>该介绍基于来自 www.vorbis.com 上的 FAQ "
+"文章。</em>"
 
 #: ../plugins/encoder/ogg/k3boggvorbisencoderconfigwidget.cpp:112
 #, kde-format
@@ -976,32 +998,11 @@ msgid ""
 "<p>The sample data encoding is signed linear (2's complement), unsigned "
 "linear, u-law (logarithmic), A-law (logarithmic), ADPCM, IMA_ADPCM, GSM, or "
 "Floating-point.</p>\n"
-"<p><b>U-law</b> (actually shorthand for mu-law) and <b>A-law</b> are the U."
-"S. and international standards for logarithmic telephone sound compression. "
-"When uncompressed u-law has roughly the precision of 14-bit PCM audio and A-"
-"law has roughly the precision of 13-bit PCM audio. A-law and u-law data is "
-"sometimes encoded using a reversed bit-ordering (i.e. MSB becomes LSB).<br> "
-"<b>ADPCM </b> is a form of sound compression that has a good compromise "
-"between good sound quality and fast encoding/decoding time. It is used for "
-"telephone sound compression and places where full fidelity is not as "
-"important. When uncompressed it has roughly the precision of 16-bit PCM "
-"audio. Popular versions of ADPCM include G.726, MS ADPCM, and IMA ADPCM. It "
-"has different meanings in different file handlers. In .wav files it "
-"represents MS ADPCM files, in all others it means G.726 ADPCM. <br> <b>IMA "
-"ADPCM</b> is a specific form of ADPCM compression, slightly simpler and "
-"slightly lower fidelity than Microsoft's flavor of ADPCM. IMA ADPCM is also "
-"called DVI ADPCM.<br> <b>GSM</b> is a standard used for telephone sound "
-"compression in European countries and is gaining popularity because of its "
-"good quality. It is usually CPU intensive to work with GSM audio data.</p> "
-"<p><em>Description based on the SoX manpage</em></p>"
-msgstr ""
-"<p>The sample data encoding is signed linear (2's complement), unsigned "
-"linear, u-law (logarithmic), A-law (logarithmic), ADPCM, IMA_ADPCM, GSM, or "
-"Floating-point.</p> <p><b>U-law</b> (actually shorthand for mu-law) and <b>A-"
-"law</b> are the U.S. and international standards for logarithmic telephone "
-"sound compression. When uncompressed u-law has roughly the precision of 14-"
-"bit PCM audio and A-law has roughly the precision of 13-bit PCM audio. A-law "
-"and u-law data is sometimes encoded using a reversed bit-ordering (i.e. MSB "
+"<p><b>U-law</b> (actually shorthand for mu-law) and <b>A-law</b> are the "
+"U.S. and international standards for logarithmic telephone sound "
+"compression. When uncompressed u-law has roughly the precision of 14-bit PCM "
+"audio and A-law has roughly the precision of 13-bit PCM audio. A-law and "
+"u-law data is sometimes encoded using a reversed bit-ordering (i.e. MSB "
 "becomes LSB).<br> <b>ADPCM </b> is a form of sound compression that has a "
 "good compromise between good sound quality and fast encoding/decoding time. "
 "It is used for telephone sound compression and places where full fidelity is "
@@ -1015,6 +1016,27 @@ msgstr ""
 "compression in European countries and is gaining popularity because of its "
 "good quality. It is usually CPU intensive to work with GSM audio data.</p> "
 "<p><em>Description based on the SoX manpage</em></p>"
+msgstr ""
+"<p>The sample data encoding is signed linear (2's complement), unsigned "
+"linear, u-law (logarithmic), A-law (logarithmic), ADPCM, IMA_ADPCM, GSM, or "
+"Floating-point.</p> <p><b>U-law</b> (actually shorthand for mu-law) and "
+"<b>A-law</b> are the U.S. and international standards for logarithmic "
+"telephone sound compression. When uncompressed u-law has roughly the "
+"precision of 14-bit PCM audio and A-law has roughly the precision of 13-bit "
+"PCM audio. A-law and u-law data is sometimes encoded using a reversed "
+"bit-ordering (i.e. MSB becomes LSB).<br> <b>ADPCM </b> is a form of sound "
+"compression that has a good compromise between good sound quality and fast "
+"encoding/decoding time. It is used for telephone sound compression and "
+"places where full fidelity is not as important. When uncompressed it has "
+"roughly the precision of 16-bit PCM audio. Popular versions of ADPCM include "
+"G.726, MS ADPCM, and IMA ADPCM. It has different meanings in different file "
+"handlers. In .wav files it represents MS ADPCM files, in all others it means "
+"G.726 ADPCM. <br> <b>IMA ADPCM</b> is a specific form of ADPCM compression, "
+"slightly simpler and slightly lower fidelity than Microsoft's flavor of "
+"ADPCM. IMA ADPCM is also called DVI ADPCM.<br> <b>GSM</b> is a standard used "
+"for telephone sound compression in European countries and is gaining "
+"popularity because of its good quality. It is usually CPU intensive to work "
+"with GSM audio data.</p> <p><em>Description based on the SoX manpage</em></p>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_comboEncoding)
 #: ../plugins/encoder/sox/base_k3bsoxencoderconfigwidget.ui:67
@@ -1258,11 +1280,12 @@ msgstr "扫描可重命名的文件"
 #, kde-format
 msgid ""
 "<qt>This specifies how the files should be renamed. Currently only the "
-"special strings <em>%a</em> (Artist), <em>%n</em> (Track number), and <em>"
-"%t</em> (Title) are supported."
+"special strings <em>%a</em> (Artist), <em>%n</em> (Track number), and "
+"<em>%t</em> (Title) are supported."
 msgstr ""
-"<qt>这将指定文件应如何被重命名。目前只有特殊字串如 <em>%a</em> (艺术家) ，"
-"<em>%n</em> (轨道编号) 以及<em>%t</em> (标题) 被支持。"
+"<qt>这将指定文件应如何被重命名。目前只有特殊字串如 "
+"<em>%a</em> (艺术家) ，<em>%n</em> (轨道编号) 以及<em>%t</em> "
+"(标题) 被支持。"
 
 #: ../plugins/project/audiometainforenamer/k3baudiometainforenamerplugin.cpp:165
 #: ../plugins/project/audiometainforenamer/k3baudiometainforenamerplugin.cpp:387
@@ -1824,10 +1847,10 @@ msgid ""
 "and the spinning noise is intrusive.<p>Be aware that this has no influence "
 "on K3b since it will change the reading speed again when copying CDs or DVDs."
 msgstr ""
-"<p>请输入您希望指定给驱动器 <b>%1</b> 的读取速度。这个速度将立即生效于目前已"
-"挂载的介质。<p>这对于观看电影时非常有用，这个设置可以降低驱动器的速度以减少驱"
-"动器发出的噪声。<p>请注意这个速度并不生效于 K3b 本身，在复制 CD 或 DVD 介质"
-"时 K3b 将恢复原有的读取速度。"
+"<p>请输入您希望指定给驱动器 <b>%1</b> "
+"的读取速度。这个速度将立即生效于目前已挂载的介质。<p>这对于观看电影时非常有用，这个设置可以降低驱动器的速度以减少驱动器发出的噪声。<p>请注意这个速度并不生效于 "
+"K3b 本身，在复制 CD 或 DVD 介质时 K3b "
+"将恢复原有的读取速度。"
 
 #: k3bappdevicemanager.cpp:305
 #, kde-format
@@ -1897,22 +1920,26 @@ msgstr "选择数据轨的模式"
 #: k3bdatamodewidget.cpp:36
 #, kde-format
 msgid ""
-"<p><b>Data Mode</b><p>Data tracks may be written in two different modes:</"
-"p><p><b>Auto</b><br>Let K3b select the best suited data mode.</p><p><b>Mode "
-"1</b><br>This is the <em>original</em> writing mode as introduced in the "
-"<em>Yellow Book</em> standard. It is the preferred mode when writing pure "
-"data CDs.</p><p><b>Mode 2</b><br>To be exact <em>XA Mode 2 Form 1</em>, but "
-"since the other modes are rarely used it is common to refer to it as "
-"<em>Mode 2</em>.</p><p><b>Be aware:</b> Do not mix different modes on one "
-"CD. Some older drives may have problems reading mode 1 multisession CDs."
+"<p><b>Data Mode</b><p>Data tracks may be written in two different "
+"modes:</p><p><b>Auto</b><br>Let K3b select the best suited data "
+"mode.</p><p><b>Mode 1</b><br>This is the <em>original</em> writing mode as "
+"introduced in the <em>Yellow Book</em> standard. It is the preferred mode "
+"when writing pure data CDs.</p><p><b>Mode 2</b><br>To be exact <em>XA Mode 2 "
+"Form 1</em>, but since the other modes are rarely used it is common to refer "
+"to it as <em>Mode 2</em>.</p><p><b>Be aware:</b> Do not mix different modes "
+"on one CD. Some older drives may have problems reading mode 1 multisession "
+"CDs."
 msgstr ""
-"<p><b>数据模式</b><p>数据轨道可以使用两种不同的方式写入：</p><p><b>自动模式</"
-"b><br>让 K3b 选择最合适的数据模式。</p><p><b>模式 1</b><br>这是从 <em>Yellow "
-"Book</em> 引入的<em>标准</em>写入方式。这个模式对于写入数据 CD 介质是最合适"
-"的。</p><p><b>模式 2</b><br>全称 <em>XA Mode 2 Form 1</em>，因其使用量较小，"
-"一般称其为<em>模式 2</em>。</p><p><b>请注意：</b>请不要在一个 CD 介质上混合使"
-"用多种数据模式，一些较旧的驱动器可能对读取模式 1 的多章节 CD 介质存在支持问"
-"题。"
+""
+"<p><b>数据模式</b><p>数据轨道可以使用两种不同的方式写入：</p><p><b>自动模式</b><br>让 "
+"K3b 选择最合适的数据模式。</p><p><b>模式 1</b><br>这是从 "
+"<em>Yellow Book</em> "
+"引入的<em>标准</em>写入方式。这个模式对于写入数据 CD "
+"介质是最合适的。</p><p><b>模式 2</b><br>全称 <em>XA Mode 2 Form "
+"1</em>，因其使用量较小，一般称其为<em>模式 "
+"2</em>。</p><p><b>请注意：</b>请不要在一个 CD "
+"介质上混合使用多种数据模式，一些较旧的驱动器可能对读取模式 "
+"1 的多章节 CD 介质存在支持问题。"
 
 #: k3bdebuggingoutputdialog.cpp:45
 #, kde-format
@@ -1961,8 +1988,8 @@ msgid ""
 "K3b uses vcdxrip from the vcdimager package to rip Video CDs. Please make "
 "sure it is installed."
 msgstr ""
-"K3b 使用来自 vcdimager 软件包的 vcdxrip 程序来翻录VCD 介质。请确定它已经被安"
-"装。"
+"K3b 使用来自 vcdimager 软件包的 vcdxrip 程序来翻录VCD "
+"介质。请确定它已经被安装。"
 
 #: k3bdirview.cpp:235
 #, kde-format
@@ -2442,7 +2469,8 @@ msgid ""
 "<p>Load a set of settings either from the default K3b settings, settings "
 "saved before, or the last used ones."
 msgstr ""
-"<p>载入一个配置集，可为默认 K3b 配置、之前保存的配置或最后使用的配置集。"
+"<p>载入一个配置集，可为默认 K3b "
+"配置、之前保存的配置或最后使用的配置集。"
 
 #: k3binteractiondialog.cpp:206
 #, kde-format
@@ -2451,8 +2479,9 @@ msgid ""
 "loaded with the <em>Load saved settings</em> button.<p><b>The K3b defaults "
 "are not overwritten by this.</b>"
 msgstr ""
-"<p>保存当前的行为对话框的配置。<p>这些配置可以通过 <em>载入已保存的配置</em> "
-"按钮载入。<p><b>K3b 的默认配置不会被此配置覆盖。</b>"
+"<p>保存当前的行为对话框的配置。<p>这些配置可以通过 "
+"<em>载入已保存的配置</em> 按钮载入。<p><b>K3b "
+"的默认配置不会被此配置覆盖。</b>"
 
 #: k3bjobprogressdialog.cpp:214
 #, kde-format
@@ -2540,16 +2569,17 @@ msgstr "再次检查"
 #: k3blsofwrapperdialog.cpp:81
 #, kde-format
 msgid ""
-"<p>Device <b>'%1'</b> is already in use by other applications (<em>%2</em>)."
-"<p>It is highly recommended to quit those before continuing. Otherwise K3b "
-"might not be able to fully access the device.<p><em>Hint: Sometimes shutting "
-"down an application does not happen instantly. In that case you might have "
-"to use the '%3' button."
+"<p>Device <b>'%1'</b> is already in use by other applications "
+"(<em>%2</em>).<p>It is highly recommended to quit those before continuing. "
+"Otherwise K3b might not be able to fully access the device.<p><em>Hint: "
+"Sometimes shutting down an application does not happen instantly. In that "
+"case you might have to use the '%3' button."
 msgstr ""
-"<p>设备 <b>'%1'</b> 正被其他应用程序使用 (<em>%2</em>) 。<p>强烈建议您退出这"
-"些应用程序后再继续进行当前操作，否则 K3b 很可能无法正常访问此设备。<p><em>提"
-"示：有的时候应用程序的退出需要时间，如果存在这种现象您可能需要使用 ‘%3’ 按"
-"钮。"
+"<p>设备 <b>'%1'</b> 正被其他应用程序使用 (<em>%2</em>) "
+"。<p>强烈建议您退出这些应用程序后再继续进行当前操作，否则 "
+"K3b "
+"很可能无法正常访问此设备。<p><em>提示：有的时候应用程序的退出需要时间，如果存在这种现象您可能需要使用 "
+"‘%3’ 按钮。"
 
 #: k3blsofwrapperdialog.cpp:109
 #, kde-format
@@ -2718,7 +2748,9 @@ msgstr "K3b 未在此系统上找到任何光盘驱动器。"
 #: k3bsystemproblemdialog.cpp:188
 #, kde-format
 msgid "Make sure HAL daemon is running, it is used by K3b for finding devices."
-msgstr "请确定 HAL 守护程序正在运行，K3b 应用此守护程序来查找设备。"
+msgstr ""
+"请确定 HAL 守护程序正在运行，K3b "
+"应用此守护程序来查找设备。"
 
 #: k3bsystemproblemdialog.cpp:196
 #, kde-format
@@ -2733,8 +2765,11 @@ msgid ""
 "features such as audio track extraction, audio transcoding or ISO 9660 image "
 "creation."
 msgstr ""
-"K3b 未找到一个可用于写入的光学设备。因此，您将无法烧录 CD 以及 DVD 介质。不过"
-"您依然可以使用 K3b 的其他特性，如翻录音轨、音频转码以及生成 ISO 9660 镜像。"
+"K3b "
+"未找到一个可用于写入的光学设备。因此，您将无法烧录 "
+"CD 以及 DVD 介质。不过您依然可以使用 K3b "
+"的其他特性，如翻录音轨、音频转码以及生成 ISO 9660 "
+"镜像。"
 
 #: k3bsystemproblemdialog.cpp:207 k3bsystemproblemdialog.cpp:268
 #: k3bsystemproblemdialog.cpp:310
@@ -2755,8 +2790,9 @@ msgid ""
 "Permissions. If K3b's default value is set make sure you are member of "
 "\"%1\" group."
 msgstr ""
-"通过“设置” -> “配置 K3b...” -> “程序” -> “权限”来检查权限。如果 K3b 被设置为"
-"默认值，请确保您是组“%1”的成员。"
+"通过“设置” -> “配置 K3b...” -> “程序” -> "
+"“权限”来检查权限。如果 K3b "
+"被设置为默认值，请确保您是组“%1”的成员。"
 
 #: k3bsystemproblemdialog.cpp:214 k3bsystemproblemdialog.cpp:276
 #: k3bsystemproblemdialog.cpp:298 k3bsystemproblemdialog.cpp:320
@@ -2783,7 +2819,8 @@ msgid ""
 "Although K3b supports all cdrtools versions since 1.10 it is highly "
 "recommended to at least use version 2.0."
 msgstr ""
-"尽管 K3b 支持自 1.10 之后所有的 cdrtools 版本，我们还是建议您至少使用 2.0。"
+"尽管 K3b 支持自 1.10 之后所有的 cdrtools "
+"版本，我们还是建议您至少使用 2.0。"
 
 #: k3bsystemproblemdialog.cpp:226
 #, kde-format
@@ -2800,7 +2837,9 @@ msgstr "在版本大于 2.6.8 的内核时，%1 将以 root 权限运行"
 msgid ""
 "Since Linux kernel 2.6.8 %1 will not work when run suid root for security "
 "reasons anymore."
-msgstr "从 Linux 内核 2.6.8 开始，由于安全原因，%1 将无法通过 suid root 运行。"
+msgstr ""
+"从 Linux 内核 2.6.8 开始，由于安全原因，%1 将无法通过 suid "
+"root 运行。"
 
 #: k3bsystemproblemdialog.cpp:246 k3bsystemproblemdialog.cpp:260
 #: k3bsystemproblemdialog.cpp:290
@@ -2822,10 +2861,10 @@ msgid ""
 "burning buffer to be changed, and a lot of user problems can be solved this "
 "way."
 msgstr ""
-"强烈建议您将 cdrecord 配置为带 root 特权运行。这样将使得 cdrecord 以较高优先"
-"级运行，以便增加刻录过程的稳定性。除此以外，这样作还使得更改所用刻录缓冲区的"
-"大小成为可能。许多用户的问题都可以通过这种方式解决。在使用 SUSE 的 resmgr 时"
-"也是如此。"
+"强烈建议您将 cdrecord 配置为带 root 特权运行。这样将使得 "
+"cdrecord "
+"以较高优先级运行，以便增加刻录过程的稳定性。除此以外，这样作还使得更改所用刻录缓冲区的大小成为可能。许多用户的问题都可以通过这种方式解决。在使用 "
+"SUSE 的 resmgr 时也是如此。"
 
 #: k3bsystemproblemdialog.cpp:269 k3bsystemproblemdialog.cpp:277
 #, kde-format
@@ -2842,7 +2881,9 @@ msgstr "安装 cdrdao 软件包。"
 msgid ""
 "It is highly recommended to configure cdrdao to run with root privileges to "
 "increase the overall stability of the burning process."
-msgstr "强烈建议配置 cdrao 以 root 权限运行，以提高整个烧录过程的稳定性。"
+msgstr ""
+"强烈建议配置 cdrao 以 root "
+"权限运行，以提高整个烧录过程的稳定性。"
 
 #: k3bsystemproblemdialog.cpp:299
 #, kde-format
@@ -2850,8 +2891,8 @@ msgid ""
 "Cdrskin can substitute for cdrecord with data and audio CD, and for "
 "growisofs with DVD and BD."
 msgstr ""
-"cdrskin 可以替代 cdrecord 创建数据和音频 CD，和替代 growisofs 制作 DVD 和蓝光"
-"光盘。"
+"cdrskin 可以替代 cdrecord 创建数据和音频 CD，和替代 growisofs "
+"制作 DVD 和蓝光光盘。"
 
 #: k3bsystemproblemdialog.cpp:301
 #, kde-format
@@ -2864,8 +2905,9 @@ msgid ""
 "K3b uses growisofs to actually write DVDs. Without growisofs you will not be "
 "able to write DVDs. Make sure to install at least version 5.10."
 msgstr ""
-"K3b 使用 growisofs 来写入 DVD 介质。如果 growisofs 没有安装您将无法写入 DVD "
-"介质。请安装不低于 5.10 的版本。"
+"K3b 使用 growisofs 来写入 DVD 介质。如果 growisofs "
+"没有安装您将无法写入 DVD 介质。请安装不低于 5.10 "
+"的版本。"
 
 #: k3bsystemproblemdialog.cpp:324 k3bsystemproblemdialog.cpp:367
 #, kde-format
@@ -2878,8 +2920,8 @@ msgid ""
 "K3b needs at least growisofs version 5.10 to write DVDs. All older versions "
 "will not work and K3b will refuse to use them."
 msgstr ""
-"K3b 需要不低于 5.10 版本的 growisofs 来写入 DVD 介质。更旧的版本将不工作，"
-"K3b 会拒绝使用它们。"
+"K3b 需要不低于 5.10 版本的 growisofs 来写入 DVD "
+"介质。更旧的版本将不工作，K3b 会拒绝使用它们。"
 
 #: k3bsystemproblemdialog.cpp:332 k3bsystemproblemdialog.cpp:340
 #: k3bsystemproblemdialog.cpp:348 k3bsystemproblemdialog.cpp:381
@@ -2893,8 +2935,8 @@ msgid ""
 "K3b will not be able to copy DVDs on-the-fly or write a DVD+RW in multiple "
 "sessions using a growisofs version older than 5.12."
 msgstr ""
-"如果 growisofs 版本旧于 5.12，K3b 无法以实时模式复制 DVD 介质或以多片段模式写"
-"入 DVD+RW 介质。"
+"如果 growisofs 版本旧于 5.12，K3b 无法以实时模式复制 DVD "
+"介质或以多片段模式写入 DVD+RW 介质。"
 
 #: k3bsystemproblemdialog.cpp:345
 #, kde-format
@@ -2903,8 +2945,8 @@ msgid ""
 "able to write a DVD+RW in multiple sessions using a growisofs version older "
 "than 7.0."
 msgstr ""
-"强烈建议使用 7.0 或更高版本的 growisofs。K3b 在 growisofs 版本低于 7.0 的情况"
-"下无法以多段模式写入 DVD+RW 介质。"
+"强烈建议使用 7.0 或更高版本的 growisofs。K3b 在 growisofs "
+"版本低于 7.0 的情况下无法以多段模式写入 DVD+RW 介质。"
 
 #: k3bsystemproblemdialog.cpp:366
 #, kde-format
@@ -2917,7 +2959,8 @@ msgid ""
 "K3b needs at least mkisofs version 1.14. Older versions may introduce "
 "problems when creating data projects."
 msgstr ""
-"K3b 需要至少为 1.14 版本的 mkisofs。更旧的版本可能在创建数据项目时遇到问题。"
+"K3b 需要至少为 1.14 版本的 "
+"mkisofs。更旧的版本可能在创建数据项目时遇到问题。"
 
 #: k3bsystemproblemdialog.cpp:403
 #, kde-format
@@ -2931,8 +2974,9 @@ msgid ""
 "rewriting might fail. There is no need to report this as a bug or feature "
 "wish; it is not possible to solve this problem from within K3b."
 msgstr ""
-"K3b 无法取消自动挂载装置。因此，尤其是 DVD+RW 重写可能会失败。没有必要去报告"
-"这个错误或希望的功能；K3b 无法解决这个问题。"
+"K3b 无法取消自动挂载装置。因此，尤其是 DVD+RW "
+"重写可能会失败。没有必要去报告这个错误或希望的功能；K3b "
+"无法解决这个问题。"
 
 #: k3bsystemproblemdialog.cpp:409
 #, kde-format
@@ -2940,7 +2984,8 @@ msgid ""
 "Replace the automounting entries in /etc/fstab with old-fashioned ones or "
 "use a user-space mounting solution like pmount or ivman."
 msgstr ""
-"代替在 /etc/fstab 老式的或使用用户空间挂载解决方案如 pmount 或 ivman 。"
+"代替在 /etc/fstab 老式的或使用用户空间挂载解决方案如 "
+"pmount 或 ivman 。"
 
 #: k3bsystemproblemdialog.cpp:418
 #, kde-format
@@ -2953,8 +2998,9 @@ msgid ""
 "Your kernel does not support writing without SCSI emulation but there is at "
 "least one writer in your system not configured to use SCSI emulation."
 msgstr ""
-"您的内核不支持在没有 SCSI 仿真时写入，但是至少一个程序在您的系统中没有配置成"
-"使用 SCSI 仿真。"
+"您的内核不支持在没有 SCSI "
+"仿真时写入，但是至少一个程序在您的系统中没有配置成使用 "
+"SCSI 仿真。"
 
 #: k3bsystemproblemdialog.cpp:423
 #, kde-format
@@ -2963,8 +3009,9 @@ msgid ""
 "all devices. This way you will not have any problems. Be aware that you may "
 "still enable DMA on ide-scsi emulated drives."
 msgstr ""
-"最好的解决方案是为所有的设备使用 IDE SCSI ( SCSI 仿真) 。这样您不会有任何问"
-"题。要知道您仍可以使用 DMA 在 IDE SCSI 仿真驱动器。"
+"最好的解决方案是为所有的设备使用 IDE SCSI ( SCSI 仿真) "
+"。这样您不会有任何问题。要知道您仍可以使用 DMA 在 IDE "
+"SCSI 仿真驱动器。"
 
 #: k3bsystemproblemdialog.cpp:439 k3bsystemproblemdialog.cpp:458
 #, kde-format
@@ -2978,8 +3025,9 @@ msgid ""
 "without SCSI emulation and there is at least one writer in your system not "
 "configured to use SCSI emulation."
 msgstr ""
-"所配置版本的 %1 不支持在无 SCSI 仿真时写入 ATAPI 设备并且至少有一个程序在您的"
-"系统中没有配置成使用 SCSI 仿真配置的版本。"
+"所配置版本的 %1 不支持在无 SCSI 仿真时写入 ATAPI "
+"设备并且至少有一个程序在您的系统中没有配置成使用 "
+"SCSI 仿真配置的版本。"
 
 #: k3bsystemproblemdialog.cpp:445 k3bsystemproblemdialog.cpp:469
 #, kde-format
@@ -2988,8 +3036,9 @@ msgid ""
 "all writer devices: this way you will not have any problems; or, you can "
 "install (or select as the default) a more recent version of %1."
 msgstr ""
-"最好的解决方案是为所有的设备使用 IDE SCSI ( SCSI 仿真) 。这样你就不会有任何问"
-"题。或者你安装 (或选择作为默认) 最近的一个版本 %1 。"
+"最好的解决方案是为所有的设备使用 IDE SCSI ( SCSI 仿真) "
+"。这样你就不会有任何问题。或者你安装 "
+"(或选择作为默认) 最近的一个版本 %1 。"
 
 #: k3bsystemproblemdialog.cpp:467
 #, kde-format
@@ -3002,7 +3051,8 @@ msgstr "请安装支持直接写入 ATAPI 设备的 cdrdao >= 1.1.8 。"
 msgid ""
 "K3b will not be able to write DVD-R Dual Layer media using a growisofs "
 "version older than 6.0."
-msgstr "K3b 将无法使用版本低于 6 的 growisofs 写 DVD-R 双层介质。"
+msgstr ""
+"K3b 将无法使用版本低于 6 的 growisofs 写 DVD-R 双层介质。"
 
 #: k3bsystemproblemdialog.cpp:485
 #, kde-format
@@ -3020,14 +3070,18 @@ msgid ""
 "K3b needs write access to all the devices to perform certain tasks. Without "
 "it you might encounter problems with %1 - %2"
 msgstr ""
-"K3b 需要写访问所有的设备来执行某些任务。没有它，您可能会遇到的问题 %1 - %2"
+"K3b "
+"需要写访问所有的设备来执行某些任务。没有它，您可能会遇到的问题 "
+"%1 - %2"
 
 #: k3bsystemproblemdialog.cpp:500
 #, kde-format
 msgid ""
 "Make sure you have write access to %1. In case you are not using devfs or "
 "udev click \"Modify Permissions...\" and setup permissions by hand."
-msgstr "确保您能写访问 %1 。如果您不使用 devfs 或者 udev 点击\"修改权限…\"。"
+msgstr ""
+"确保您能写访问 %1 。如果您不使用 devfs 或者 udev "
+"点击\"修改权限…\"。"
 
 #: k3bsystemproblemdialog.cpp:506
 #, kde-format
@@ -3041,8 +3095,8 @@ msgid ""
 "performance. If you experience very low writing speeds this is probably the "
 "cause."
 msgstr ""
-"最新的 CD/DVD/BD 设备启用 DMA 高度提高读/写性能。如果您遇到读写速度非常低的问"
-"题，可能是这个原因。"
+"最新的 CD/DVD/BD 设备启用 DMA "
+"高度提高读/写性能。如果您遇到读写速度非常低的问题，可能是这个原因。"
 
 #: k3bsystemproblemdialog.cpp:510
 #, kde-format
@@ -3061,8 +3115,9 @@ msgid ""
 "parameters generated by K3b. This is simply a warning to make sure that "
 "these parameters are really wanted and will not be part of some bug report."
 msgstr ""
-"除由 K3b 生成的参数以外，有时可能必要指定用户参数。这仅仅是为了确保这些参数是"
-"真的想要的或不被作为 bug 报告的一部分的一个警告。"
+"除由 K3b "
+"生成的参数以外，有时可能必要指定用户参数。这仅仅是为了确保这些参数是真的想要的或不被作为 "
+"bug 报告的一部分的一个警告。"
 
 #: k3bsystemproblemdialog.cpp:529
 #, kde-format
@@ -3070,7 +3125,9 @@ msgid ""
 "To remove the user parameters for the external program %1 open the K3b "
 "settings page 'Programs' and choose the tab 'User Parameters'."
 msgstr ""
-"打开 K3b 设置页面“程序”，选择“用户参数”，以消除外部程序 %1 的用户参数。"
+"打开 K3b "
+"设置页面“程序”，选择“用户参数”，以消除外部程序 "
+"%1 的用户参数。"
 
 #: k3bsystemproblemdialog.cpp:550
 #, kde-format
@@ -3084,8 +3141,9 @@ msgid ""
 "not be able to create Audio CDs from MP3 files. Many Linux distributions do "
 "not include MP3 support for legal reasons."
 msgstr ""
-"K3b 无法加载或找到 MP3 解码插件。这意味着您将无法从 MP3 文件创建音频 CD 。许"
-"多 Linux 发行版因为法律上的原因不支持 MP3 。"
+"K3b 无法加载或找到 MP3 解码插件。这意味着您将无法从 MP3 "
+"文件创建音频 CD 。许多 Linux "
+"发行版因为法律上的原因不支持 MP3 。"
 
 #: k3bsystemproblemdialog.cpp:554
 #, kde-format
@@ -3095,8 +3153,9 @@ msgid ""
 "not functional due to the missing libmad). Some distributions allow "
 "installation of MP3 support via an online update tool."
 msgstr ""
-"为了能够支持 MP3 ，请安装 MAD MP3 解码库以及 K3b MAD MP3 解码插件 (后者可能已"
-"安装但未功能由于缺少 libmad) 。一些发行版允许通过在线更新工具安装 MP3 支持。"
+"为了能够支持 MP3 ，请安装 MAD MP3 解码库以及 K3b MAD MP3 "
+"解码插件 (后者可能已安装但未功能由于缺少 libmad) "
+"。一些发行版允许通过在线更新工具安装 MP3 支持。"
 
 #: k3bsystemproblemdialog.cpp:569
 #, kde-format
@@ -3111,9 +3170,9 @@ msgid ""
 "intentionally. Most likely the locale is not set at all. An invalid setting "
 "will result in problems when creating data projects."
 msgstr ""
-"你的系统区域设置字符集 (即字符集进行编码的文件名) 设置为 ANSI_x3.4-1968 。这"
-"极不可能是故意这样的。最有可能的本地化设置不全。一个无效的设置会在创建数据项"
-"目时导致问题。"
+"你的系统区域设置字符集 (即字符集进行编码的文件名) "
+"设置为 ANSI_x3.4-1968 "
+"。这极不可能是故意这样的。最有可能的本地化设置不全。一个无效的设置会在创建数据项目时导致问题。"
 
 #: k3bsystemproblemdialog.cpp:574
 #, kde-format
@@ -3121,7 +3180,8 @@ msgid ""
 "To properly set the locale charset make sure the LC_* environment variables "
 "are set. Normally the distribution setup tools take care of this."
 msgstr ""
-"正确设置区域字符集，确保 LC_* 环境变量被设置。通常发行版安装工具会顾及这个。"
+"正确设置区域字符集，确保 LC_* "
+"环境变量被设置。通常发行版安装工具会顾及这个。"
 
 #: k3bsystemproblemdialog.cpp:587
 #, kde-format
@@ -3133,14 +3193,17 @@ msgstr "以 root 用户身份运行 K3b"
 msgid ""
 "It is not recommended to run K3b under the root user account. This "
 "introduces unnecessary security risks."
-msgstr "不推荐以 root 用户运行 K3b 。这会导致不必要的安全风险。"
+msgstr ""
+"不推荐以 root 用户运行 K3b 。这会导致不必要的安全风险。"
 
 #: k3bsystemproblemdialog.cpp:590
 #, kde-format
 msgid ""
 "Run K3b from a proper user account and setup the device and external tool "
 "permissions appropriately."
-msgstr "以适当的用户帐户运行 K3b 并对设备和外部工具给予适当的权限。"
+msgstr ""
+"以适当的用户帐户运行 K3b "
+"并对设备和外部工具给予适当的权限。"
 
 #: k3bsystemproblemdialog.cpp:592
 #, kde-format
@@ -3170,12 +3233,12 @@ msgstr "用于保存镜像文件的文件夹"
 #: k3btempdirselectionwidget.cpp:86
 #, kde-format
 msgid ""
-"<p>This is the folder in which K3b will save the <em>image files</em>."
-"<p>Please make sure that it resides on a partition that has enough free "
-"space."
+"<p>This is the folder in which K3b will save the <em>image "
+"files</em>.<p>Please make sure that it resides on a partition that has "
+"enough free space."
 msgstr ""
-"<p>这是 K3b 保存<em>镜像文件</em>的目录。<p>请确定它存在一个有足够剩余空间的"
-"分区中。"
+"<p>这是 K3b "
+"保存<em>镜像文件</em>的目录。<p>请确定它存在一个有足够剩余空间的分区中。"
 
 #: k3btempdirselectionwidget.cpp:193
 #, kde-format
@@ -3302,6 +3365,7 @@ msgid ""
 "<p>Select the medium that you want to use for burning.<p>In most cases there "
 "will only be one medium available which does not leave much choice."
 msgstr ""
+""
 "<p>选择刻录介质。<p>在大多数情况下，只有一种介质可获得而不会有太多的选择。"
 
 #: k3bwriterselectionwidget.cpp:176
@@ -3315,11 +3379,12 @@ msgid ""
 "for DVD, and 4496 KB/s for Blu-ray.</p><p><b>Caution:</b> Make sure your "
 "system is able to send the data fast enough to prevent buffer underruns."
 msgstr ""
-"<p>选择刻录速度。<p><b>自动</b><br>这将选择所使用的介质最大写入速度。这是大多"
-"数媒体推荐的选择。</p><p><b>忽略</b> (只有 DVD ) <br>这将让写入设备做选择。如"
-"果 K3b 无法选择写入速度，使用这个选项。<p>1x 指 CD 175 KB/s ， DVD 1385 KB/"
-"s ，蓝光 4496 KB/s 。</p><p><b>警告：</b>确保你的系统能够足够快的发送数据，以"
-"防止缓冲区欠载。"
+""
+"<p>选择刻录速度。<p><b>自动</b><br>这将选择所使用的介质最大写入速度。这是大多数媒体推荐的选择。</p><p><b>忽略</b> "
+"(只有 DVD ) <br>这将让写入设备做选择。如果 K3b "
+"无法选择写入速度，使用这个选项。<p>1x 指 CD 175 KB/s ， "
+"DVD 1385 KB/s ，蓝光 4496 KB/s "
+"。</p><p><b>警告：</b>确保你的系统能够足够快的发送数据，以防止缓冲区欠载。"
 
 #: k3bwriterselectionwidget.cpp:187
 #, kde-format
@@ -3330,9 +3395,9 @@ msgid ""
 "possible that one of the applications does not work as intended with a "
 "certain writer. In this case one may select the application manually."
 msgstr ""
-"<p>K3b 使用命令行工具 cdrecord, growisofs, cdrdao 写 CD 或 DVD 。<p>通常 K3b "
-"自动选择最适合的程序，但在某些情况下，一个程序不能与设备一同工作。在这种情况"
-"下，可手动选择程序。"
+"<p>K3b 使用命令行工具 cdrecord, growisofs, cdrdao 写 CD 或 DVD "
+"。<p>通常 K3b "
+"自动选择最适合的程序，但在某些情况下，一个程序不能与设备一同工作。在这种情况下，可手动选择程序。"
 
 #: k3bwriterselectionwidget.cpp:272 projects/k3bdataurladdingdialog.cpp:403
 #: projects/k3bdataurladdingdialog.cpp:636
@@ -3358,8 +3423,9 @@ msgid ""
 "medium.<p>Please enter the writing speed here and K3b will remember it for "
 "future sessions (Example: 16x)."
 msgstr ""
-"<p>K3b 不能完全确定写入设备最大写入速度。写入速度总是受插入介质限制。<p>请在"
-"这里输入写入速度， K3b 会为将来的会话记住它 (例如： 16x ) 。"
+"<p>K3b "
+"不能完全确定写入设备最大写入速度。写入速度总是受插入介质限制。<p>请在这里输入写入速度， "
+"K3b 会为将来的会话记住它 (例如： 16x ) 。"
 
 #: k3bwriterselectionwidget.cpp:630
 #, kde-format
@@ -3380,10 +3446,12 @@ msgid ""
 "writers support DAO.<br>DVD-R(W)s written in DAO provide the best DVD-Video "
 "compatibility."
 msgstr ""
-"<em>DAO 写入模式</em>或更准确地说 <em>SAO 模式</em>。激光不在写入 CD 或 DVD "
-"介质的过程中关闭。这是写音频 CD 的首选方式，因为它允许预留超过 2 秒的空白。并"
-"不是所有的刻录机都支持 DAO 。<br>DVD-R(W) 介质以 DAO 模式写入能提供最好的视频"
-"兼容。"
+"<em>DAO 写入模式</em>或更准确地说 <em>SAO "
+"模式</em>。激光不在写入 CD 或 DVD "
+"介质的过程中关闭。这是写音频 CD "
+"的首选方式，因为它允许预留超过 2 "
+"秒的空白。并不是所有的刻录机都支持 DAO 。<br>DVD-R(W) "
+"介质以 DAO 模式写入能提供最好的视频兼容。"
 
 #: k3bwritingmodewidget.cpp:35
 #, kde-format
@@ -3392,8 +3460,9 @@ msgid ""
 "will be turned off after every track.<br>Most CD writers need this mode for "
 "writing multisession CDs."
 msgstr ""
-"<em>TAO 写入模式</em>应该被所有 CD 刻录机支持。完成写入每个轨道后激光头将被关"
-"闭。<br>大多数 CD 刻录机需要这种模式以写多区段光盘。"
+"<em>TAO 写入模式</em>应该被所有 CD "
+"刻录机支持。完成写入每个轨道后激光头将被关闭。<br>大多数 "
+"CD 刻录机需要这种模式以写多区段光盘。"
 
 #: k3bwritingmodewidget.cpp:41
 #, kde-format
@@ -3402,7 +3471,8 @@ msgid ""
 "instead of the writer device.<br>Try this if your CD writer fails to write "
 "in DAO and TAO."
 msgstr ""
-"RAW 写入模式。误差校正的数据是由软件而不是写入设备创建。<br>试试这如果您的 "
+"RAW "
+"写入模式。误差校正的数据是由软件而不是写入设备创建。<br>试试这如果您的 "
 "CD 刻录机不能写入 DAO 和 TAO 。"
 
 #: k3bwritingmodewidget.cpp:45
@@ -3411,14 +3481,14 @@ msgid ""
 "Incremental sequential is the default writing mode for DVD-R(W). It allows "
 "multisession DVD-R(W)s. It only applies to DVD-R(W)."
 msgstr ""
-"增量序列是 DVD-R(W) 默认的写入模式。它允许多片段刻录 DVD-R(W) 。它只适用于 "
-"DVD-R(W)。"
+"增量序列是 DVD-R(W) 默认的写入模式。它允许多片段刻录 "
+"DVD-R(W) 。它只适用于 DVD-R(W)。"
 
 #: k3bwritingmodewidget.cpp:48
 #, kde-format
 msgid ""
-"Restricted Overwrite allows one to use a DVD-RW just like a DVD-RAM or a DVD"
-"+RW. The media may just be overwritten. It is not possible to write "
+"Restricted Overwrite allows one to use a DVD-RW just like a DVD-RAM or a "
+"DVD+RW. The media may just be overwritten. It is not possible to write "
 "multisession DVD-RWs in this mode but K3b uses growisofs to grow an ISO 9660 "
 "filesystem within the first session, thus allowing new files to be added to "
 "an already burned disk."
@@ -3440,8 +3510,8 @@ msgid ""
 "Be aware that the writing mode is ignored when writing DVD+R(W) and BD-R(E) "
 "since there is only one way to write them."
 msgstr ""
-"请注意写入 DVD+R(W) 和 BD-R(E) ，因为只有一个方式来写他们时，写入模式会被忽"
-"略。"
+"请注意写入 DVD+R(W) 和 BD-R(E) "
+"，因为只有一个方式来写他们时，写入模式会被忽略。"
 
 #: k3bwritingmodewidget.cpp:109
 #, kde-format
@@ -3481,17 +3551,17 @@ msgstr "K3b"
 #: main.cpp:32
 #, kde-format
 msgid ""
-"<p>K3b is a full-featured CD/DVD/Blu-ray burning and ripping application.<br/"
-">It supports a variety of project types as well as copying of optical media, "
-"burning of different types of images, and ripping Audio CDs, Video CDs, and "
-"Video DVDs.<br/>Its convenient user interface is targeted at all audiences, "
-"trying to be as simple as possible for novice users while also providing all "
-"features an advanced user might need."
+"<p>K3b is a full-featured CD/DVD/Blu-ray burning and ripping "
+"application.<br/>It supports a variety of project types as well as copying "
+"of optical media, burning of different types of images, and ripping Audio "
+"CDs, Video CDs, and Video DVDs.<br/>Its convenient user interface is "
+"targeted at all audiences, trying to be as simple as possible for novice "
+"users while also providing all features an advanced user might need."
 msgstr ""
-"<p>K3b 是一个全功能的 CD / DVD / 蓝光刻录和翻录的程序。<br/>它支持多种类型的"
-"项目，以及光学媒体复制，不同类型的镜像的刻录，抓取音频 CD ，VCD、DVD 。<br/>"
-"其方便的用户界面是针对所有的用户，试图尽可能让新用户感到简单，同时还提供先进"
-"的用户可能需要的所有功能。"
+"<p>K3b 是一个全功能的 CD / DVD / "
+"蓝光刻录和翻录的程序。<br/>它支持多种类型的项目，以及光学媒体复制，不同类型的镜像的刻录，抓取音频 "
+"CD ，VCD、DVD "
+"。<br/>其方便的用户界面是针对所有的用户，试图尽可能让新用户感到简单，同时还提供先进的用户可能需要的所有功能。"
 
 #: main.cpp:40
 #, kde-format
@@ -3653,7 +3723,9 @@ msgstr "Erik de Castro Lopo"
 msgid ""
 "For libsamplerate which is used for generic resampling in the audio decoder "
 "framework."
-msgstr "对于用于在音频解码器框架中的通用的重采样的 libsamplerate 。"
+msgstr ""
+"对于用于在音频解码器框架中的通用的重采样的 "
+"libsamplerate 。"
 
 #: main.cpp:78
 #, kde-format
@@ -3833,8 +3905,8 @@ msgid ""
 "main purpose is to enable handling of empty media from the KDE Media "
 "Manager.)"
 msgstr ""
-"设置设备以用于新项目。 (这个选项不起作用: 其主要目的是操作空媒体来自 KDE 媒体"
-"管理器。)"
+"设置设备以用于新项目。 (这个选项不起作用: "
+"其主要目的是操作空媒体来自 KDE 媒体管理器。)"
 
 #: misc/k3bimagewritingdialog.cpp:171 misc/k3bimagewritingdialog.cpp:251
 #: misc/k3bimagewritingdialog.cpp:280 misc/k3bimagewritingdialog.cpp:309
@@ -4013,8 +4085,8 @@ msgid ""
 "If it has been downloaded make sure the download is complete.</p><p>Only "
 "continue if you know what you are doing.</p>"
 msgstr ""
-"<p>实际文件大小不匹配文件头中大小的声明。如果它已被下载，确保下载完成。</"
-"p><p>继续，如果您知道您在做什么。</p>"
+""
+"<p>实际文件大小不匹配文件头中大小的声明。如果它已被下载，确保下载完成。</p><p>继续，如果您知道您在做什么。</p>"
 
 #: misc/k3bimagewritingdialog.cpp:718 option/k3bmiscoptiontab.cpp:130
 #, kde-format
@@ -4189,8 +4261,9 @@ msgid ""
 "read.<p>This may be useful for cloning CDs with copy protection based on "
 "corrupted sectors."
 msgstr ""
-"<p>如果选中这个选项， K3b 将禁用源驱动的 ECC/EDC 错误校正。这样能使不可读扇区"
-"可读。<p>这可能对于有损坏部分保护的 CD 克隆是有用的。"
+"<p>如果选中这个选项， K3b 将禁用源驱动的 ECC/EDC "
+"错误校正。这样能使不可读扇区可读。<p>这可能对于有损坏部分保护的 "
+"CD 克隆是有用的。"
 
 #: misc/k3bmediacopydialog.cpp:220
 #, kde-format
@@ -4199,8 +4272,9 @@ msgid ""
 "Disable it if your CD drive has problems with reading CD-Text or you want to "
 "stick to CDDB info."
 msgstr ""
-"<p>如果选中这个选项， K3b 将搜索的源光盘 CD 文本。如果您的 CD 驱动器阅读 CD "
-"文本有问题或您想坚持 CDDB 信息，请关闭这个选项。"
+"<p>如果选中这个选项， K3b 将搜索的源光盘 CD "
+"文本。如果您的 CD 驱动器阅读 CD 文本有问题或您想坚持 "
+"CDDB 信息，请关闭这个选项。"
 
 #: misc/k3bmediacopydialog.cpp:223
 #, kde-format
@@ -4208,31 +4282,35 @@ msgid ""
 "<p>If this option is checked and K3b is not able to read a data sector from "
 "the source medium it will be replaced with zeros on the resulting copy."
 msgstr ""
-"<p>如果选中这个选项且 K3b 无法从源介质中读取数据扇区，这些部分将被 0 替代。"
+"<p>如果选中这个选项且 K3b "
+"无法从源介质中读取数据扇区，这些部分将被 0 替代。"
 
 #: misc/k3bmediacopydialog.cpp:228
 #, kde-format
 msgid ""
 "<p>This is the normal copy mode for DVD, Blu-ray, and most CD media types. "
 "It allows copying Audio CDs, multi and single session Data Media, and "
-"Enhanced Audio CDs (an Audio CD containing an additional data session)."
-"<p>For Video CDs please use the CD Cloning mode."
+"Enhanced Audio CDs (an Audio CD containing an additional data "
+"session).<p>For Video CDs please use the CD Cloning mode."
 msgstr ""
-"<p>这是 DVD ，蓝光以及大多数媒体类型的正常的复制模式。它允许复制音频 CD ，多/"
-"单会话数据媒体和增强的音频 CD (包含一个额外的数据片段的音频 CD) 。<p>请为 "
-"VCD 使用 CD 克隆模式。"
+"<p>这是 DVD "
+"，蓝光以及大多数媒体类型的正常的复制模式。它允许复制音频 "
+"CD ，多/单会话数据媒体和增强的音频 CD "
+"(包含一个额外的数据片段的音频 CD) 。<p>请为 VCD 使用 CD "
+"克隆模式。"
 
 #: misc/k3bmediacopydialog.cpp:233
 #, kde-format
 msgid ""
 "<p>In CD Cloning mode K3b performs a raw copy of the CD. That means it does "
 "not care about the content but simply copies the CD bit by bit. It may be "
-"used to copy Video CDs or CDs which contain erroneous sectors.<p><b>Caution:"
-"</b> Only single session CDs can be cloned."
+"used to copy Video CDs or CDs which contain erroneous "
+"sectors.<p><b>Caution:</b> Only single session CDs can be cloned."
 msgstr ""
-"<p>在 CD 克隆模式 K3b 执行一个 CD 的原始副本。这意味着它不关心内容只是简单的"
-"复制 CD 的点点滴滴。它可用于复制 VCD 或包含错误的扇区的 CD 。<p><b>注意：</"
-"b> 只有单一的片段可以被克隆。"
+"<p>在 CD 克隆模式 K3b 执行一个 CD "
+"的原始副本。这意味着它不关心内容只是简单的复制 CD "
+"的点点滴滴。它可用于复制 VCD 或包含错误的扇区的 CD "
+"。<p><b>注意：</b> 只有单一的片段可以被克隆。"
 
 #: misc/k3bmediacopydialog.cpp:270 projects/k3bprojectburndialog.cpp:209
 #, kde-format
@@ -4292,15 +4370,19 @@ msgid ""
 "<p>If this option is checked K3b will format a DVD-RW even if it is empty. "
 "It may also be used to force K3b to format a DVD+RW, BD-RE or a DVD-RW in "
 "restricted overwrite mode.<p><b>Caution:</b> It is not recommended to format "
-"a DVD often as it may become unusable after only 10-20 reformat procedures."
-"<p>DVD+RW and BD-RE media only needs to be formatted once. After that it "
-"just needs to be overwritten. The same applies to DVD-RW in restricted "
-"overwrite mode."
+"a DVD often as it may become unusable after only 10-20 reformat "
+"procedures.<p>DVD+RW and BD-RE media only needs to be formatted once. After "
+"that it just needs to be overwritten. The same applies to DVD-RW in "
+"restricted overwrite mode."
 msgstr ""
-"<p>如果选中这个选项 K3b 将格式化 DVD-RW 即使它是空的。它还可能被用于让 K3b 格"
-"式化 DVD+RW、BD-RE、DVD-RW 在限制覆盖模式。<p><b>注意：</b>不推荐经常格式化 "
-"DVD ，可能在10-20 次格式化后，程序将变得不可用。<p>DVD+RW 和 BD-RE 只需要格式"
-"化一次。之后，它只需要被改写。这同样适用于 DVD-RW 限制覆盖模式。"
+"<p>如果选中这个选项 K3b 将格式化 DVD-RW "
+"即使它是空的。它还可能被用于让 K3b 格式化 "
+"DVD+RW、BD-RE、DVD-RW "
+"在限制覆盖模式。<p><b>注意：</b>不推荐经常格式化 DVD "
+"，可能在10-20 次格式化后，程序将变得不可用。<p>DVD+RW 和 "
+"BD-RE "
+"只需要格式化一次。之后，它只需要被改写。这同样适用于 "
+"DVD-RW 限制覆盖模式。"
 
 #: misc/k3bmediaformattingdialog.cpp:98
 #, kde-format
@@ -4314,9 +4396,8 @@ msgid ""
 "format.<p>Erasing a rewritable medium completely can take a very long time "
 "and some writers perform a full format even if quick format is enabled."
 msgstr ""
-"<p>如果选中了此选项，K3b 将会通知刻录机执行快速格式化。<p>完全格式化一个可擦"
-"写介质将耗费很长的时间，但是某些刻录机即便启用了快速格式化，也会执行完全格式"
-"化。"
+"<p>如果选中了此选项，K3b "
+"将会通知刻录机执行快速格式化。<p>完全格式化一个可擦写介质将耗费很长的时间，但是某些刻录机即便启用了快速格式化，也会执行完全格式化。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: option/base_k3bmiscoptiontab.ui:20 option/k3boptiondialog.cpp:138
@@ -4359,8 +4440,8 @@ msgid ""
 "temporary files such as iso images or decoded audio files.<p>Be aware that "
 "the temporary directory may also be changed in every project burn dialog."
 msgstr ""
-"<p>这是默认的临时目录。这是 K3b 将存储的临时文件如 iso 镜像或解码后的音频文件"
-"的地方。<p>请注意，临时目录也可能在每一个项目刻录对话框中改变。"
+"<p>这是默认的临时目录。这是 K3b 将存储的临时文件如 iso "
+"镜像或解码后的音频文件的地方。<p>请注意，临时目录也可能在每一个项目刻录对话框中改变。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: option/base_k3bmiscoptiontab.ui:63
@@ -4380,7 +4461,9 @@ msgstr "检查系统配置"
 msgid ""
 "<p>If this option is checked K3b will check the system configuration for any "
 "problems on startup and when the user changes the settings."
-msgstr "<p>如果选中此项，K3b 将在启动或用户更改设置时检查系统配置。"
+msgstr ""
+"<p>如果选中此项，K3b "
+"将在启动或用户更改设置时检查系统配置。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkSystemConfig)
 #: option/base_k3bmiscoptiontab.ui:75
@@ -4402,8 +4485,9 @@ msgid ""
 "notification area. If K3b is run outside KDE environment a separate progress "
 "window may be shown instead.</p>"
 msgstr ""
-"<p>如果选中此选项，K3b 将在 KDE 通知区域中显示进度。如果 K3b 不在 KDE 环境中"
-"运行，将会显示一个单独的进度窗口。</p>"
+"<p>如果选中此选项，K3b 将在 KDE "
+"通知区域中显示进度。如果 K3b 不在 KDE "
+"环境中运行，将会显示一个单独的进度窗口。</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkShowProgressOSD)
 #: option/base_k3bmiscoptiontab.ui:94
@@ -4457,8 +4541,8 @@ msgid ""
 "CD Copy dialog after the process has been finished. It will be kept open to "
 "start a new process, for instance, copying another CD."
 msgstr ""
-"<p>如果这个选项被选中 K3b 将不会关闭动作对话框，如光盘复制过程已经完成后的对"
-"话框。这将保持开放以开始一个新的进程，例如复制另一张CD。"
+"<p>如果这个选项被选中 K3b "
+"将不会关闭动作对话框，如光盘复制过程已经完成后的对话框。这将保持开放以开始一个新的进程，例如复制另一张CD。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkKeepDialogsOpen)
 #: option/base_k3bmiscoptiontab.ui:130
@@ -4492,8 +4576,9 @@ msgid ""
 "not include the <em>KPart Plugins</em> which embed themselves in the K3b "
 "menu structure.</p>"
 msgstr ""
-"<p>您可在此配置 <em>K3b 的全部插件</em>。请注意，这其中并不包括嵌入到 K3b 菜"
-"单中的 <em>KPart 插件</em>。</p>"
+"<p>您可在此配置 <em>K3b "
+"的全部插件</em>。请注意，这其中并不包括嵌入到 K3b "
+"菜单中的 <em>KPart 插件</em>。</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: option/base_k3bthemeoptiontab.ui:21
@@ -4614,16 +4699,17 @@ msgid ""
 "that K3b does not support all possible tools in all project types and "
 "actions.</b>"
 msgstr ""
-"<p>如果选中此选项将允许影响 K3b 的额外的 GUI 元素。这包括手动选择所使用的刻录"
-"工具。 (当写 CD 时在 cdrecord 和 cdrdao 中选择，当写 DVD/BD 时在 cdrecord 和 "
-"growisofs 中选择) <p><b>请注意， K3b 将不能支持所有的工具，在所有的项目类型和"
-"操作。</b>"
+"<p>如果选中此选项将允许影响 K3b 的额外的 GUI "
+"元素。这包括手动选择所使用的刻录工具。 (当写 CD 时在 "
+"cdrecord 和 cdrdao 中选择，当写 DVD/BD 时在 cdrecord 和 growisofs "
+"中选择) <p><b>请注意， K3b "
+"将不能支持所有的工具，在所有的项目类型和操作。</b>"
 
 #: option/k3badvancedoptiontab.cpp:114
 #, kde-format
 msgid ""
-"<p>Each medium has an official maximum capacity which is stored in a read-"
-"only area of the medium and is guaranteed by the vendor. However, this "
+"<p>Each medium has an official maximum capacity which is stored in a "
+"read-only area of the medium and is guaranteed by the vendor. However, this "
 "official maximum is not always the actual maximum. Many media have an actual "
 "total capacity that is slightly larger than the official amount.<p>If this "
 "option is checked K3b will disable a safety check that prevents burning "
@@ -4632,11 +4718,12 @@ msgid ""
 "beyond the official capacity. It makes sense to first determine the actual "
 "maximum capacity of the media brand with a simulated burn."
 msgstr ""
-"<p>媒体各有一个正式的最大容量是存储在只读区域中由供应商保证。然而，这一限定最"
-"大容量并不总是实际最大容量。许多媒体有一个实际的总容量，略大于公布的大小。<p>"
-"如果选中这个选项 K3b 将禁用安全检查，防止刻录超出的限定容量。<p><b>警告：</b>"
-"启用此选项可以引起刻录过程在末尾失败，如果 K3b 尝试写超出限定的容量。这是有意"
-"义的，首先确定媒体实际最大容量使用模拟刻录。"
+""
+"<p>媒体各有一个正式的最大容量是存储在只读区域中由供应商保证。然而，这一限定最大容量并不总是实际最大容量。许多媒体有一个实际的总容量，略大于公布的大小。<p>如果选中这个选项 "
+"K3b "
+"将禁用安全检查，防止刻录超出的限定容量。<p><b>警告：</b>启用此选项可以引起刻录过程在末尾失败，如果 "
+"K3b "
+"尝试写超出限定的容量。这是有意义的，首先确定媒体实际最大容量使用模拟刻录。"
 
 #: option/k3badvancedoptiontab.cpp:125
 #, kde-format
@@ -4644,8 +4731,8 @@ msgid ""
 "<p>If this option is checked K3b will automatically erase CD-RWs and format "
 "DVD-RWs if one is found instead of an empty media before writing."
 msgstr ""
-"<p>如果选中此项，K3b 将会在插入的介质非空时自动擦除 CD-RW 或格式化 DVD-RW 介"
-"质。"
+"<p>如果选中此项，K3b 将会在插入的介质非空时自动擦除 "
+"CD-RW 或格式化 DVD-RW 介质。"
 
 #: option/k3badvancedoptiontab.cpp:129
 #, kde-format
@@ -4661,14 +4748,15 @@ msgstr ""
 msgid ""
 "<p>If this option is checked K3b will not eject the medium once the burn "
 "process finishes. This can be helpful in case one leaves the computer after "
-"starting the burning and does not want the tray to be open all the time."
-"<p>However, on Linux systems a freshly burned medium has to be reloaded. "
-"Otherwise the system will not detect the changes and still treat it as an "
-"empty medium."
+"starting the burning and does not want the tray to be open all the "
+"time.<p>However, on Linux systems a freshly burned medium has to be "
+"reloaded. Otherwise the system will not detect the changes and still treat "
+"it as an empty medium."
 msgstr ""
-"<p>如果选中这个选项 K3b 不会弹出介质一旦刻录过程结束。这有助于使启动刻录后离"
-"开电脑并不想托盘所有时间打开。<p>然而，在 Linux 系统上的一个刚刚刻录的介质必"
-"须重新加载。否则，系统将无法检测到的变化，仍然把它作为一个空的媒体。"
+"<p>如果选中这个选项 K3b "
+"不会弹出介质一旦刻录过程结束。这有助于使启动刻录后离开电脑并不想托盘所有时间打开。<p>然而，在 "
+"Linux "
+"系统上的一个刚刚刻录的介质必须重新加载。否则，系统将无法检测到的变化，仍然把它作为一个空的媒体。"
 
 #: option/k3badvancedoptiontab.cpp:141
 #, kde-format
@@ -4679,9 +4767,10 @@ msgid ""
 "speed medium on a low speed writer.<p><b>Caution:</b> Enabling this option "
 "may result in damaged media."
 msgstr ""
-"<p>如果选中这个选项， K3b 将继续一些被视为不安全的操作。<p>此设置例如禁用中速"
-"验证检查，可以强制 K3b 在低速刻录高速介质。<p><b>警告：</b>启用此选项可能会导"
-"致媒体损坏。"
+"<p>如果选中这个选项， K3b "
+"将继续一些被视为不安全的操作。<p>此设置例如禁用中速验证检查，可以强制 "
+"K3b "
+"在低速刻录高速介质。<p><b>警告：</b>启用此选项可能会导致媒体损坏。"
 
 #: option/k3bcddboptiontab.cpp:48
 #, kde-format
@@ -4817,7 +4906,9 @@ msgid ""
 "Specify the paths to the external programs that K3b needs to work properly, "
 "or press \"Refresh\" to let K3b search for the programs."
 msgstr ""
-"指定 K3b 正确工作所需要的外部程序的路径，或者点击“搜索”让 K3b 查找这些程序。"
+"指定 K3b "
+"正确工作所需要的外部程序的路径，或者点击“搜索”让 "
+"K3b 查找这些程序。"
 
 #: option/k3bexternalbinparamsmodel.cpp:166
 #: option/k3bexternalbinpermissionmodel.cpp:293
@@ -4885,8 +4976,8 @@ msgid ""
 "<qt><b>Hint:</b> to force K3b to use another than the default name for the "
 "executable specify it in the search path.</qt>"
 msgstr ""
-"<qt><b>提示：</b>要强制 K3b 使用默认值以外的外部可执行程序名字，请在搜索路径"
-"中指定它。</qt>"
+"<qt><b>提示：</b>要强制 K3b "
+"使用默认值以外的外部可执行程序名字，请在搜索路径中指定它。</qt>"
 
 #: option/k3bexternalbinwidget.cpp:143
 #, kde-format
@@ -4939,8 +5030,8 @@ msgid ""
 "K3b handles three sets of settings in action dialogs (action dialogs include "
 "the CD Copy dialog or the Audio CD project dialog):"
 msgstr ""
-"K3b 处理三组动作对话框设置 (动作对话框包括 CD 复制对话框或音频 CD 项目对话"
-"框) ："
+"K3b 处理三组动作对话框设置 (动作对话框包括 CD "
+"复制对话框或音频 CD 项目对话框) ："
 
 #: option/k3bmiscoptiontab.cpp:57
 #, kde-format
@@ -4975,7 +5066,9 @@ msgstr "无法创建文件夹 %1"
 msgid ""
 "You specified a file for the temporary folder. K3b will use its base path as "
 "the temporary folder."
-msgstr "您指定了一个文件用作临时目录，K3b 将用它所在的目录作为临时目录。"
+msgstr ""
+"您指定了一个文件用作临时目录，K3b "
+"将用它所在的目录作为临时目录。"
 
 #: option/k3bmiscoptiontab.cpp:137
 #, kde-format
@@ -5104,11 +5197,11 @@ msgstr "主题已存在"
 #: option/k3bthemeoptiontab.cpp:206
 #, kde-format
 msgid ""
-"<qt>Are you sure you want to remove the <strong>%1</strong> theme?"
-"<br><br>This will delete the files installed by this theme.</qt>"
+"<qt>Are you sure you want to remove the <strong>%1</strong> "
+"theme?<br><br>This will delete the files installed by this theme.</qt>"
 msgstr ""
-"<qt>您确定要删除 <strong>%1</strong> 图标主题吗？<br><br>这将删除此主题安装的"
-"所有文件。</qt>"
+"<qt>您确定要删除 <strong>%1</strong> "
+"图标主题吗？<br><br>这将删除此主题安装的所有文件。</qt>"
 
 #: option/k3bthemeoptiontab.cpp:211
 #, kde-format
@@ -5598,12 +5691,12 @@ msgid ""
 "part of an audio track that is marked as post-gap is counted backwards.\n"
 "<p>This setting is irrelevant for most users as modern CD burners can put "
 "arbitrary audio data in the post-gap when burning in DAO mode.\n"
-"<p><i>In other CD-burning applications the post-gap might be called the pre-"
-"gap. The pre-gap of track 2 is the same as the post-gap of track 1.\n"
+"<p><i>In other CD-burning applications the post-gap might be called the "
+"pre-gap. The pre-gap of track 2 is the same as the post-gap of track 1.\n"
 "<p><b>Changing the post-gap does not change the length of the track.</b>\n"
 "<p><b>When writing in TAO writing mode (not recommended for Audio CDs) the "
-"post-gap will most likely be muted and on some burners forced to 2 seconds.</"
-"b>"
+"post-gap will most likely be muted and on some burners forced to 2 "
+"seconds.</b>"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -5791,8 +5884,8 @@ msgid ""
 "\n"
 "<p><b>Discard broken symlinks</b><br>\n"
 "K3b will discard all symbolic links that do not point to a file inside the "
-"project. That includes all links to absolute paths like '/home/myhome/"
-"testfile'.\n"
+"project. That includes all links to absolute paths like "
+"'/home/myhome/testfile'.\n"
 "\n"
 "<p><b>Discard all symlinks</b><br>\n"
 "K3b will discard all symbolic links that have been added to the project; "
@@ -5855,8 +5948,8 @@ msgid ""
 "If this option is checked, K3b will leave all spaces in filenames as they "
 "are.\n"
 "<p><b>Strip</b><br>\n"
-"If this option is checked, K3b will remove all spaces from all filenames."
-"<br>\n"
+"If this option is checked, K3b will remove all spaces from all "
+"filenames.<br>\n"
 "Example: 'my good file.ext' becomes 'mygoodfile.ext'\n"
 "<p><b>Extended Strip</b><br>\n"
 "If this option is checked K3b will remove all spaces in all filenames and "
@@ -6143,9 +6236,9 @@ msgid ""
 "background movie has been selected, eMovix will display it during playback.\n"
 "<p>Additional background movies can be installed. However, this is not as "
 "simple as a few mouse clicks. The background movies are stored in the emovix "
-"shared data folder (mostly <i>/usr/share/emovix</i> or <i>/usr/local/share/"
-"emovix</i>) under <em>backgrounds</em>. So to add a background one has to "
-"copy the file to that folder."
+"shared data folder (mostly <i>/usr/share/emovix</i> or "
+"<i>/usr/local/share/emovix</i>) under <em>backgrounds</em>. So to add a "
+"background one has to copy the file to that folder."
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
@@ -6677,8 +6770,8 @@ msgid ""
 "familiar with terms like 'harddisk emulation' you most likely want to use a "
 "floppy image here. Floppy images can be created by directly extracting them "
 "from a real floppy disk:<pre>dd if=/dev/floppy of=/tmp/floppy.img</pre>or by "
-"using one of the many boot floppy generators that can be found on <a href="
-"\"http://www.google.com/search?q=linux+boot+floppy&ie=UTF-8&oe=UTF-8\">the "
+"using one of the many boot floppy generators that can be found on <a "
+"href=\"http://www.google.com/search?q=linux+boot+floppy&ie=UTF-8&oe=UTF-8\">the "
 "Internet</a>."
 msgstr ""
 
@@ -6885,9 +6978,9 @@ msgstr "Rock Ridge 扩展被禁用"
 #, kde-format
 msgid ""
 "<p>Be aware that without the Joliet extensions Windows systems will not be "
-"able to display long filenames. You will only see the ISO 9660 filenames."
-"<p>If you do not intend to use the CD/DVD on a Windows system it is safe to "
-"disable Joliet."
+"able to display long filenames. You will only see the ISO 9660 "
+"filenames.<p>If you do not intend to use the CD/DVD on a Windows system it "
+"is safe to disable Joliet."
 msgstr ""
 
 #: projects/k3bdataimagesettingswidget.cpp:262
@@ -6905,18 +6998,18 @@ msgstr "选择方案的多片断模式。"
 msgid ""
 "<p><b>Multisession Mode</b><p><b>Auto</b><br>Let K3b decide which mode to "
 "use. The decision will be based on the size of the project (does it fill the "
-"whole media) and the state of the inserted media (appendable or not)."
-"<p><b>No Multisession</b><br>Create a single-session CD or DVD and close the "
-"disk.<p><b>Start Multisession</b><br>Start a multisession CD or DVD, not "
-"closing the disk to allow further sessions to be appended.<p><b>Continue "
-"Multisession</b><br>Continue an appendable data CD (as for example created "
-"in <em>Start Multisession</em> mode) and add another session without closing "
-"the disk to allow further sessions to be appended.<p><b>Finish Multisession</"
-"b><br>Continue an appendable data CD (as for example created in <em>Start "
-"Multisession</em> mode), add another session, and close the disk.<p><em>In "
-"the case of DVD+RW and DVD-RW restricted overwrite media K3b will not "
-"actually create multiple sessions but grow the file system to include the "
-"new data.</em>"
+"whole media) and the state of the inserted media (appendable or "
+"not).<p><b>No Multisession</b><br>Create a single-session CD or DVD and "
+"close the disk.<p><b>Start Multisession</b><br>Start a multisession CD or "
+"DVD, not closing the disk to allow further sessions to be "
+"appended.<p><b>Continue Multisession</b><br>Continue an appendable data CD "
+"(as for example created in <em>Start Multisession</em> mode) and add another "
+"session without closing the disk to allow further sessions to be "
+"appended.<p><b>Finish Multisession</b><br>Continue an appendable data CD (as "
+"for example created in <em>Start Multisession</em> mode), add another "
+"session, and close the disk.<p><em>In the case of DVD+RW and DVD-RW "
+"restricted overwrite media K3b will not actually create multiple sessions "
+"but grow the file system to include the new data.</em>"
 msgstr ""
 
 #: projects/k3bdatamultisessioncombobox.cpp:74
@@ -7074,8 +7167,8 @@ msgid ""
 "<p>If this option is checked, the file or folder (and its entire contents) "
 "will be hidden on the ISO 9660 and RockRidge filesystem.</p><p>This is "
 "useful, for example, for having different README files for RockRidge and "
-"Joliet, which can be managed by hiding README.joliet on RockRidge and README."
-"rr on the Joliet filesystem.</p>"
+"Joliet, which can be managed by hiding README.joliet on RockRidge and "
+"README.rr on the Joliet filesystem.</p>"
 msgstr ""
 
 #: projects/k3bdatapropertiesdialog.cpp:170
@@ -7299,6 +7392,11 @@ msgstr "输入新文件名"
 msgid "A file with that name already exists. Please enter a new name:"
 msgstr "已经存在该名称的文件。请输入新名称："
 
+#: projects/k3bdataurladdingdialog.cpp:754
+#, kde-format
+msgid "A folder with that name already exists. Please enter a new name:"
+msgstr "已经存在该名称的文件夹。请输入新名称："
+
 #: projects/k3bdataurladdingdialog.cpp:771
 #, kde-format
 msgid "Do you also want to add hidden files?"
@@ -7320,7 +7418,9 @@ msgstr "不添加"
 msgid ""
 "Do you also want to add system files (FIFOs, sockets, device files, and "
 "broken symlinks)?"
-msgstr "您是否想要添加系统文件(FIFO、套接字、设备文件及失效的符号链接)？"
+msgstr ""
+""
+"您是否想要添加系统文件(FIFO、套接字、设备文件及失效的符号链接)？"
 
 #: projects/k3bdataurladdingdialog.cpp:788
 #, kde-format
@@ -7342,7 +7442,9 @@ msgstr "由于 mkisofs 的限制，某些文件名必须修改"
 msgid ""
 "The following filenames have an invalid encoding. You may fix this with the "
 "convmv tool"
-msgstr "下列文件名的编码无效。您可以使用 convmv 工具修复这一问题"
+msgstr ""
+"下列文件名的编码无效。您可以使用 convmv "
+"工具修复这一问题"
 
 #: projects/k3bdataview.cpp:123 projects/k3bmixedview.cpp:134
 #: projects/k3bview.cpp:90
@@ -7513,8 +7615,8 @@ msgid ""
 "<p><b>Why does K3b offer 4.4 GB and 8.0 GB instead of 4.7 and 8.5 like it "
 "says on the media?</b><p>A single layer DVD media has a capacity of "
 "approximately 4.4 GB which equals 4.4*1024<sup>3</sup> bytes. Media "
-"producers just calculate with 1000 instead of 1024 for advertising reasons."
-"<br>This results in 4.4*1024<sup>3</sup>/1000<sup>3</sup> = 4.7 GB."
+"producers just calculate with 1000 instead of 1024 for advertising "
+"reasons.<br>This results in 4.4*1024<sup>3</sup>/1000<sup>3</sup> = 4.7 GB."
 msgstr ""
 
 #: projects/k3bfillstatusdisplay.cpp:590
@@ -7536,8 +7638,8 @@ msgstr "自定义大小"
 #, kde-format
 msgid ""
 "<p>Please specify the size of the medium. Use suffixes <b>GB</b>,<b>MB</b>, "
-"and <b>min</b> for <em>gigabytes</em>, <em>megabytes</em>, and <em>minutes</"
-"em> respectively."
+"and <b>min</b> for <em>gigabytes</em>, <em>megabytes</em>, and "
+"<em>minutes</em> respectively."
 msgstr ""
 
 #: projects/k3bfillstatusdisplay.cpp:668
@@ -7576,12 +7678,12 @@ msgid ""
 "<em>Blue book CD</em><br>K3b will create a multisession CD with 2 sessions. "
 "The first session will contain all audio tracks and the second session will "
 "contain a mode 2 form 1 data track.<br>This mode is based on the <em>Blue "
-"book</em> standard (also known as <em>Extended Audio CD</em>, <em>CD-Extra</"
-"em>, or <em>CD Plus</em>) and has the advantage that a hifi audio CD player "
-"will only recognize the first session and ignore the second session with the "
-"data track.<br>If the CD is intended to be used in a hifi audio CD player "
-"this is the recommended mode.<br>Some older CD-ROMs may have problems "
-"reading a blue book CD since it is a multisession CD."
+"book</em> standard (also known as <em>Extended Audio CD</em>, "
+"<em>CD-Extra</em>, or <em>CD Plus</em>) and has the advantage that a hifi "
+"audio CD player will only recognize the first session and ignore the second "
+"session with the data track.<br>If the CD is intended to be used in a hifi "
+"audio CD player this is the recommended mode.<br>Some older CD-ROMs may have "
+"problems reading a blue book CD since it is a multisession CD."
 msgstr ""
 
 #: projects/k3bmixedburndialog.cpp:119
@@ -7959,23 +8061,23 @@ msgid ""
 "<p>About two years after the Video CD 1.1 specification came out, an "
 "improved <b>Video CD 2.0</b> standard was published in 1995.<p>This one "
 "added the following items to the features already available in the Video CD "
-"1.1 specification:<ul><li>Support for MPEG segment play items (<b>\"SPI\"</"
-"b>), consisting of still pictures, motion pictures and/or audio (only) "
-"streams was added.</li><li>Note Segment Items::.</li><li>Support for "
+"1.1 specification:<ul><li>Support for MPEG segment play items "
+"(<b>\"SPI\"</b>), consisting of still pictures, motion pictures and/or audio "
+"(only) streams was added.</li><li>Note Segment Items::.</li><li>Support for "
 "interactive playback control (<b>\"PBC\"</b>) was added.</li><li>Support for "
-"playing related access by providing a scan point index file was added. (<b>"
-"\"/EXT/SCANDATA.DAT\"</b>)</li><li>Support for closed captions.</"
-"li><li>Support for mixing NTSC and PAL content.</li></ul><p>By adding PAL "
-"support to the Video CD 1.1 specification, the following resolutions became "
-"available:<ul><li>352 x 240 @ 29.97 Hz (NTSC SIF).</li><li>352 x 240 @ "
-"23.976 Hz (FILM SIF).</li><li>352 x 288 @ 25 Hz (PAL SIF).</li></ul><p>For "
-"segment play items the following audio encodings became available:"
-"<ul><li>Joint stereo, stereo or dual channel audio streams at 128, 192, 224 "
-"or 384 kbit/sec bit-rate.</li><li>Mono audio streams at 64, 96 or 192 kbit/"
-"sec bit-rate.</li></ul><p>Also the possibility to have audio only streams "
-"and still pictures was provided.<p><b>The bit-rate of multiplex-ed streams "
-"should be kept under 174300 bytes/sec (except for single still picture "
-"items) in order to accommodate single speed drives.</b>"
+"playing related access by providing a scan point index file was added. "
+"(<b>\"/EXT/SCANDATA.DAT\"</b>)</li><li>Support for closed "
+"captions.</li><li>Support for mixing NTSC and PAL content.</li></ul><p>By "
+"adding PAL support to the Video CD 1.1 specification, the following "
+"resolutions became available:<ul><li>352 x 240 @ 29.97 Hz (NTSC "
+"SIF).</li><li>352 x 240 @ 23.976 Hz (FILM SIF).</li><li>352 x 288 @ 25 Hz "
+"(PAL SIF).</li></ul><p>For segment play items the following audio encodings "
+"became available:<ul><li>Joint stereo, stereo or dual channel audio streams "
+"at 128, 192, 224 or 384 kbit/sec bit-rate.</li><li>Mono audio streams at 64, "
+"96 or 192 kbit/sec bit-rate.</li></ul><p>Also the possibility to have audio "
+"only streams and still pictures was provided.<p><b>The bit-rate of "
+"multiplex-ed streams should be kept under 174300 bytes/sec (except for "
+"single still picture items) in order to accommodate single speed drives.</b>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:162
@@ -7986,69 +8088,69 @@ msgid ""
 "CD specification was called into life 1999.<p>In the midst of 2000 a full "
 "subset of this <b>Super Video CD</b> specification was published as "
 "<b>IEC-62107</b>.<p>As the most notable change over Video CD 2.0 is a switch "
-"from MPEG-1 CBR to MPEG-2 VBR encoding for the video stream was performed."
-"<p>The following new features--building upon the Video CD 2.0 specification--"
-"are:<ul><li>Use of MPEG-2 encoding instead of MPEG-1 for the video stream.</"
-"li><li>Allowed VBR encoding of MPEG-1 audio stream.</li><li>Higher "
-"resolutions (see below) for video stream resolution.</li><li>Up to 4 overlay "
-"graphics and text (<b>\"OGT\"</b>) sub-channels for user switchable subtitle "
-"displaying in addition to the already existing closed caption facility.</"
-"li><li>Command lists for controlling the SVCD virtual machine.</li></"
-"ul><p>For the <b>Super Video CD</b>, only the following two resolutions are "
-"supported for motion video and (low resolution) still pictures:<ul><li>480 x "
-"480 @ 29.97 Hz (NTSC 2/3 D-2).</li><li>480 x 576 @ 25 Hz (PAL 2/3 D-2).</"
-"li></ul>"
+"from MPEG-1 CBR to MPEG-2 VBR encoding for the video stream was "
+"performed.<p>The following new features--building upon the Video CD 2.0 "
+"specification--are:<ul><li>Use of MPEG-2 encoding instead of MPEG-1 for the "
+"video stream.</li><li>Allowed VBR encoding of MPEG-1 audio "
+"stream.</li><li>Higher resolutions (see below) for video stream "
+"resolution.</li><li>Up to 4 overlay graphics and text (<b>\"OGT\"</b>) "
+"sub-channels for user switchable subtitle displaying in addition to the "
+"already existing closed caption facility.</li><li>Command lists for "
+"controlling the SVCD virtual machine.</li></ul><p>For the <b>Super Video "
+"CD</b>, only the following two resolutions are supported for motion video "
+"and (low resolution) still pictures:<ul><li>480 x 480 @ 29.97 Hz (NTSC 2/3 "
+"D-2).</li><li>480 x 576 @ 25 Hz (PAL 2/3 D-2).</li></ul>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:175
 #, kde-format
 msgid ""
 "<p>This is actually just a minor variation defined in IEC-62107 on the Super "
-"Video CD 1.0 format for compatibility with current products in the market."
-"<p>It differs from the Super Video CD 1.0 format in the following items:"
-"<ul><li>The system profile tag field in <b>/SVCD/INFO.SVD</b> is set to "
-"<b>1</b> instead of <b>0</b>.</li><li>The system identification field value "
-"in <b>/SVCD/INFO.SVD</b> is set to <b>HQ-VCD</b> instead of <b>SUPERVCD</b>."
-"</li><li><b>/EXT/SCANDATA.DAT</b> is mandatory instead of being optional.</"
-"li><li><b>/SVCD/SEARCH.DAT</b> is optional instead of being mandatory.</li></"
-"ul>"
+"Video CD 1.0 format for compatibility with current products in the "
+"market.<p>It differs from the Super Video CD 1.0 format in the following "
+"items:<ul><li>The system profile tag field in <b>/SVCD/INFO.SVD</b> is set "
+"to <b>1</b> instead of <b>0</b>.</li><li>The system identification field "
+"value in <b>/SVCD/INFO.SVD</b> is set to <b>HQ-VCD</b> instead of "
+"<b>SUPERVCD</b>.</li><li><b>/EXT/SCANDATA.DAT</b> is mandatory instead of "
+"being optional.</li><li><b>/SVCD/SEARCH.DAT</b> is optional instead of being "
+"mandatory.</li></ul>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:182
 #, kde-format
 msgid ""
 "<p>If Autodetect is:</p><ul><li>ON then K3b will set the correct Video CD "
-"type.</li><li>OFF then the correct Video CD type needs to be set by the user."
-"</li></ul><p>If you are not sure about the correct Video CD type, it is best "
-"to turn Autodetect ON.</p><p>If you want to force the Video CD type, you "
-"must turn Autodetect OFF. This is useful for some standalone DVD players "
+"type.</li><li>OFF then the correct Video CD type needs to be set by the "
+"user.</li></ul><p>If you are not sure about the correct Video CD type, it is "
+"best to turn Autodetect ON.</p><p>If you want to force the Video CD type, "
+"you must turn Autodetect OFF. This is useful for some standalone DVD players "
 "without SVCD support.</p>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:188
 #, kde-format
 msgid ""
-"<ul><li>Rename <b>\"/MPEG2\"</b> folder on SVCDs to (non-compliant) \"/MPEGAV"
-"\".</li><li>Enables the use of the (deprecated) signature <b>\"ENTRYSVD\"</"
-"b> instead of <b>\"ENTRYVCD\"</b> for the file <b>\"/SVCD/ENTRY.SVD\"</b>.</"
-"li></ul>"
+"<ul><li>Rename <b>\"/MPEG2\"</b> folder on SVCDs to (non-compliant) "
+"\"/MPEGAV\".</li><li>Enables the use of the (deprecated) signature "
+"<b>\"ENTRYSVD\"</b> instead of <b>\"ENTRYVCD\"</b> for the file "
+"<b>\"/SVCD/ENTRY.SVD\"</b>.</li></ul>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:190
 #, kde-format
 msgid ""
-"<ul><li>Enables the use of the (deprecated) Chinese <b>\"/SVCD/TRACKS.SVD\"</"
-"b> format which differs from the format defined in the <b>IEC-62107</b> "
-"specification.</li></ul><p><b>The differences are most exposed on SVCDs "
-"containing more than one video track.</b>"
+"<ul><li>Enables the use of the (deprecated) Chinese "
+"<b>\"/SVCD/TRACKS.SVD\"</b> format which differs from the format defined in "
+"the <b>IEC-62107</b> specification.</li></ul><p><b>The differences are most "
+"exposed on SVCDs containing more than one video track.</b>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:193
 #, kde-format
 msgid ""
 "<p>though most devices will have problems with such an out-of-specification "
-"media.<p><b>You may want use this option for images longer than 80 minutes</"
-"b>"
+"media.<p><b>You may want use this option for images longer than 80 "
+"minutes</b>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:196
@@ -8092,15 +8194,15 @@ msgstr ""
 msgid ""
 "<p>An Access Point Sector, APS, is an MPEG video sector on the VCD/SVCD "
 "which is suitable to be jumped to directly.<p>APS are required for entry "
-"points and scantables. APS have to fulfil the requirement to precede every I-"
-"frame by a GOP header which shall be preceded by a sequence header in its "
+"points and scantables. APS have to fulfil the requirement to precede every "
+"I-frame by a GOP header which shall be preceded by a sequence header in its "
 "turn.<p>The start codes of these 3 items are required to be contained all in "
-"the same MPEG pack/sector, thus forming a so-called access point sector."
-"<p>This requirement can be relaxed by enabling the relaxed aps option, i.e. "
-"every sector containing an I-frame will be regarded as an APS.<p><b>Warning:"
-"</b> The sequence header is needed for a playing device to figure out "
-"display parameters, such as display resolution and frame rate, relaxing the "
-"aps requirement may lead to non-working entry points."
+"the same MPEG pack/sector, thus forming a so-called access point "
+"sector.<p>This requirement can be relaxed by enabling the relaxed aps "
+"option, i.e. every sector containing an I-frame will be regarded as an "
+"APS.<p><b>Warning:</b> The sequence header is needed for a playing device to "
+"figure out display parameters, such as display resolution and frame rate, "
+"relaxing the aps requirement may lead to non-working entry points."
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:220
@@ -8119,9 +8221,9 @@ msgstr ""
 msgid ""
 "<p>Viewing Restriction may be interpreted by the playing device.<p>The "
 "allowed range goes from 0 to 3.<ul><li>0 = unrestricted, free to view for "
-"all</li><li>3 = restricted, content not suitable for ages under 18</li></"
-"ul><p>Actually, the exact meaning is not defined and is player dependant."
-"<p><b>Most players ignore that value.<b>"
+"all</li><li>3 = restricted, content not suitable for ages under "
+"18</li></ul><p>Actually, the exact meaning is not defined and is player "
+"dependant.<p><b>Most players ignore that value.<b>"
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:231
@@ -8136,37 +8238,37 @@ msgid ""
 "the lead-out area begins, i.e. the number of post-gap sectors.<p>The "
 "ECMA-130 specification requires the last data track before the lead-out to "
 "carry a post-gap of at least 150 sectors, which is used as default for this "
-"parameter.<p>Some operating systems may encounter I/O errors due to read-"
-"ahead issues when reading the last MPEG track if this parameter is set too "
-"low.<p>Allowed value content: [0..300]. Default: 150."
+"parameter.<p>Some operating systems may encounter I/O errors due to "
+"read-ahead issues when reading the last MPEG track if this parameter is set "
+"too low.<p>Allowed value content: [0..300]. Default: 150."
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:237
 #, kde-format
 msgid ""
 "<p>Used to set the track pre-gap for all tracks in sectors globally.<p>The "
-"specification requires the pre-gaps to be at least 150 sectors long."
-"<p>Allowed value content: [0..300]. Default: 150."
+"specification requires the pre-gaps to be at least 150 sectors "
+"long.<p>Allowed value content: [0..300]. Default: 150."
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:241
 #, kde-format
 msgid ""
-"Margins are used to compensate for inaccurate sector-addressing issues on CD-"
-"ROM media. Interestingly, they have been abandoned for Super Video CDs."
-"<p>For Video CD 1.0/1.1/2.0 this margin should be at least 15 sectors long."
-"<p>Allowed value content: [0..150]. Default: 30 for Video CD 1.0/1.1/2.0, "
-"otherwise (i.e. Super Video CD 1.0 and HQ-VCD 1.0) 0."
+"Margins are used to compensate for inaccurate sector-addressing issues on "
+"CD-ROM media. Interestingly, they have been abandoned for Super Video "
+"CDs.<p>For Video CD 1.0/1.1/2.0 this margin should be at least 15 sectors "
+"long.<p>Allowed value content: [0..150]. Default: 30 for Video CD "
+"1.0/1.1/2.0, otherwise (i.e. Super Video CD 1.0 and HQ-VCD 1.0) 0."
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:245
 #, kde-format
 msgid ""
 "<p>Margins are used to compensate for inaccurate sector-addressing issues on "
-"CD-ROM media. Interestingly, they have been abandoned for Super Video CDs."
-"<p>For Video CD 1.0/1.1/2.0 this margin should be at least 15 sectors long."
-"<p>Allowed value content: [0..150]. Default: 45 for Video CD 1.0/1.1/2.0, "
-"otherwise 0."
+"CD-ROM media. Interestingly, they have been abandoned for Super Video "
+"CDs.<p>For Video CD 1.0/1.1/2.0 this margin should be at least 15 sectors "
+"long.<p>Allowed value content: [0..150]. Default: 45 for Video CD "
+"1.0/1.1/2.0, otherwise 0."
 msgstr ""
 
 #: projects/k3bvcdburndialog.cpp:260
@@ -8461,11 +8563,11 @@ msgstr ""
 msgid ""
 "<p>Times to repeat the playback of 'play track'.<p>The reactivity attribute "
 "controls whether the playback of 'play track' is finished, thus delayed, "
-"before executing user triggered action or an immediate jump is performed."
-"<p>After the specified number of repetitions have completed, the <wait> time "
-"begins to count down, unless set to an infinite wait time.<p>If this element "
-"is omitted, a default of `1' is used, i.e. the 'play track' will be "
-"displayed once."
+"before executing user triggered action or an immediate jump is "
+"performed.<p>After the specified number of repetitions have completed, the "
+"<wait> time begins to count down, unless set to an infinite wait time.<p>If "
+"this element is omitted, a default of `1' is used, i.e. the 'play track' "
+"will be displayed once."
 msgstr ""
 
 #: projects/k3bvcdtrackdialog.cpp:270
@@ -9371,19 +9473,19 @@ msgstr "playlists/%{albumartist}/%{albumtitle}"
 msgid ""
 "<p><b>Pattern special strings:</b><p>The following strings will be replaced "
 "with their respective meaning in every track name.<br><em>Hint:</em> %A "
-"differs from %a only on soundtracks or compilations.<p><table border="
-"\"0\"><tr><td></td><td><em>Meaning</em></td><td><em>Alternatives</em></td></"
-"tr><tr><td>%a</td><td>artist of the track</td><td>%{a} or %{artist}</td></"
-"tr><tr><td>%t</td><td>title of the track</td><td>%{t} or %{title}</td></"
-"tr><tr><td>%n</td><td>track number</td><td>%{n} or %{number}</td></"
-"tr><tr><td>%y</td><td>year of the CD</td><td>%{y} or %{year}</td></"
-"tr><tr><td>%c</td><td>extended track information</td><td>%{c} or %{comment}</"
-"td></tr><tr><td>%g</td><td>genre of the CD</td><td>%{g} or %{genre}</td></"
-"tr><tr><td>%A</td><td>album artist</td><td>%{A} or %{albumartist}</td></"
-"tr><tr><td>%T</td><td>album title</td><td>%{T} or %{albumtitle}</td></"
-"tr><tr><td>%C</td><td>extended CD information</td><td>%{C} or %{albumcomment}"
-"</td></tr><tr><td>%d</td><td>current date</td><td>%{d} or %{date}</td></"
-"tr><tr><td>%e</td><td>file extension (if left out, it is added "
+"differs from %a only on soundtracks or compilations.<p><table "
+"border=\"0\"><tr><td></td><td><em>Meaning</em></td><td><em>Alternatives</em></td></tr><tr><td>%a</td><td>artist "
+"of the track</td><td>%{a} or %{artist}</td></tr><tr><td>%t</td><td>title of "
+"the track</td><td>%{t} or %{title}</td></tr><tr><td>%n</td><td>track "
+"number</td><td>%{n} or %{number}</td></tr><tr><td>%y</td><td>year of the "
+"CD</td><td>%{y} or %{year}</td></tr><tr><td>%c</td><td>extended track "
+"information</td><td>%{c} or %{comment}</td></tr><tr><td>%g</td><td>genre of "
+"the CD</td><td>%{g} or %{genre}</td></tr><tr><td>%A</td><td>album "
+"artist</td><td>%{A} or %{albumartist}</td></tr><tr><td>%T</td><td>album "
+"title</td><td>%{T} or %{albumtitle}</td></tr><tr><td>%C</td><td>extended CD "
+"information</td><td>%{C} or "
+"%{albumcomment}</td></tr><tr><td>%d</td><td>current date</td><td>%{d} or "
+"%{date}</td></tr><tr><td>%e</td><td>file extension (if left out, it is added "
 "automatically)</td><td>%{e} or %{ext}</td></tr></table>"
 msgstr ""
 
@@ -9400,8 +9502,8 @@ msgid ""
 "specified<li>@C='Soundtrack'{TEXT} includes TEXT if the CD's extended "
 "information is named Soundtrack<li>!C='Soundtrack'{TEXT} includes TEXT if "
 "the CD's extended information is anything else but Soundtrack<li>It is also "
-"possible to include special strings in texts and conditions, e.g. !"
-"a='%A'{%a} only includes the title's artist information if it does not "
+"possible to include special strings in texts and conditions, e.g. "
+"!a='%A'{%a} only includes the title's artist information if it does not "
 "differ from the album artist.</ul><p>Conditional includes make use of the "
 "same characters as the special strings, which means that the X in @X{...} "
 "can be one character out of [atnycgATCd]."
@@ -9472,10 +9574,11 @@ msgstr "要抓取 VCD，您必须安装 VcdImager %1 版本。"
 #: rip/k3bvideocdrip.cpp:100
 #, kde-format
 msgid ""
-"You can find this on your distribution’s software repository or download it "
-"from http://www.vcdimager.org"
+"You can find this on your distribution’s software repository or download "
+"it from http://www.vcdimager.org"
 msgstr ""
-"您可以在您的发行版光盘上找到这一软件，或者从 http://www.vcdimager.org 下载。"
+"您可以在您的发行版光盘上找到这一软件，或者从 "
+"http://www.vcdimager.org 下载。"
 
 #: rip/k3bvideocdrip.cpp:108
 #, kde-format
@@ -9485,10 +9588,11 @@ msgstr "%1 可执行文件太旧了：至少需要版本 %2。"
 #: rip/k3bvideocdrip.cpp:109
 #, kde-format
 msgid ""
-"You can find this on your distribution disks or download it from http://www."
-"vcdimager.org"
+"You can find this on your distribution disks or download it from "
+"http://www.vcdimager.org"
 msgstr ""
-"您可以在您的发行版光盘上找到这一软件，或者从 http://www.vcdimager.org 下载。"
+"您可以在您的发行版光盘上找到这一软件，或者从 "
+"http://www.vcdimager.org 下载。"
 
 #: rip/k3bvideocdrip.cpp:116
 #, kde-format
@@ -9623,11 +9727,11 @@ msgstr "忽略扩展 PSD"
 #: rip/k3bvideocdrippingdialog.cpp:130
 #, kde-format
 msgid ""
-"<p>Ignore extended PSD (located in the ISO 9660 filesystem under `/EXT/PSD_X."
-"VCD') and use the <em>standard</em> PSD.</p>"
+"<p>Ignore extended PSD (located in the ISO 9660 filesystem under "
+"`/EXT/PSD_X.VCD') and use the <em>standard</em> PSD.</p>"
 msgstr ""
-"<p>忽略扩展 PSD (在 \"/EXT/PSD_X.VCD\" 之下的 ISO-9660 文件系统中) 并且使用"
-"<em>标准</em> PSD 。</p>"
+"<p>忽略扩展 PSD (在 \"/EXT/PSD_X.VCD\" 之下的 ISO-9660 "
+"文件系统中) 并且使用<em>标准</em> PSD 。</p>"
 
 #: rip/k3bvideocdrippingdialog.cpp:132
 #, kde-format
@@ -9638,11 +9742,13 @@ msgstr "假定 2336 字节的扇区"
 #, kde-format
 msgid ""
 "<p>This option only makes sense if you are reading from a BIN CD disk image. "
-"This indicates to `vcdxrip' to assume a 2336-byte sector mode for image file."
-"</p><b>Note: This option is slated to disappear.</b>"
+"This indicates to `vcdxrip' to assume a 2336-byte sector mode for image "
+"file.</p><b>Note: This option is slated to disappear.</b>"
 msgstr ""
-"<p>此选项只有当您从二进制光盘镜像读取才有意义，这表明 \"vcdxrip\" 估读了 "
-"2336 字节扇区模式的图像文件给镜像文件。</p><b>注：此选项将消失。</b>"
+""
+"<p>此选项只有当您从二进制光盘镜像读取才有意义，这表明 "
+"\"vcdxrip\" 估读了 2336 "
+"字节扇区模式的图像文件给镜像文件。</p><b>注：此选项将消失。</b>"
 
 #: rip/k3bvideocdrippingdialog.cpp:136
 #, kde-format
@@ -9652,11 +9758,12 @@ msgstr "创建 XML 描述文件。"
 #: rip/k3bvideocdrippingdialog.cpp:137
 #, kde-format
 msgid ""
-"<p>This option creates an XML description file with all video CD information."
-"</p><p>This file will always contain all of the information.</p><p>Example: "
-"If you only extract sequences, the description file will also hold the "
-"information for files and segments.</p><p>The filename is the same as the "
-"video CD name, with a .xml extension. The default is VIDEOCD.xml.</p>"
+"<p>This option creates an XML description file with all video CD "
+"information.</p><p>This file will always contain all of the "
+"information.</p><p>Example: If you only extract sequences, the description "
+"file will also hold the information for files and segments.</p><p>The "
+"filename is the same as the video CD name, with a .xml extension. The "
+"default is VIDEOCD.xml.</p>"
 msgstr ""
 
 #: rip/k3bvideocdrippingdialog.cpp:169
@@ -10133,24 +10240,26 @@ msgstr "自动"
 #, kde-format
 msgid ""
 "<p><b>Pattern special strings:</b><p>The following strings will be replaced "
-"with their respective meaning in every track name.<br><p><table border="
-"\"0\"><tr><td></td><td><em>Meaning</em></td><td><em>Alternatives</em></td></"
-"tr><tr><td>%t</td><td>title number</td><td>%{t} or %{title_number}</td></"
-"tr><tr><td>%i</td><td>volume id (mostly the name of the Video DVD)</td><td>"
-"%{i} or %{volume_id}</td></tr><tr><td>%b</td><td>beautified volume id</"
-"td><td>%{b} or %{beautified_volume_id}</td></tr><tr><td>%l</td><td>two chars "
-"language code</td><td>%{l} or %{lang_code}</td></tr><tr><td>%n</"
-"td><td>language name</td><td>%{n} or %{lang_name}</td></tr><tr><td>%a</"
-"td><td>audio format (on the Video DVD)</td><td>%{a} or %{audio_format}</td></"
-"tr><tr><td>%c</td><td>number of audio channels (on the Video DVD)</td><td>"
-"%{c} or %{channels}</td></tr><tr><td>%v</td><td>size of the original video</"
-"td><td>%{v} or %{orig_video_size}</td></tr><tr><td>%s</td><td>size of the "
-"resulting video (<em>Caution: auto-clipping values are not taken into "
-"account.</em>)</td><td>%{s} or %{video_size}</td></tr><tr><td>%r</"
-"td><td>aspect ratio of the original video</td><td>%{r} or %{aspect_ratio}</"
-"td></tr><tr><td>%d</td><td>current date</td><td>%{d} or %{date}</td></tr></"
-"table><p><em>Hint: K3b also accepts slight variations of the long special "
-"strings. One can, for example, leave out the underscores.</em>"
+"with their respective meaning in every track name.<br><p><table "
+"border=\"0\"><tr><td></td><td><em>Meaning</em></td><td><em>Alternatives</em></td></tr><tr><td>%t</td><td>title "
+"number</td><td>%{t} or %{title_number}</td></tr><tr><td>%i</td><td>volume id "
+"(mostly the name of the Video DVD)</td><td>%{i} or "
+"%{volume_id}</td></tr><tr><td>%b</td><td>beautified volume id</td><td>%{b} "
+"or %{beautified_volume_id}</td></tr><tr><td>%l</td><td>two chars language "
+"code</td><td>%{l} or %{lang_code}</td></tr><tr><td>%n</td><td>language "
+"name</td><td>%{n} or %{lang_name}</td></tr><tr><td>%a</td><td>audio format "
+"(on the Video DVD)</td><td>%{a} or "
+"%{audio_format}</td></tr><tr><td>%c</td><td>number of audio channels (on the "
+"Video DVD)</td><td>%{c} or %{channels}</td></tr><tr><td>%v</td><td>size of "
+"the original video</td><td>%{v} or "
+"%{orig_video_size}</td></tr><tr><td>%s</td><td>size of the resulting video "
+"(<em>Caution: auto-clipping values are not taken into "
+"account.</em>)</td><td>%{s} or "
+"%{video_size}</td></tr><tr><td>%r</td><td>aspect ratio of the original "
+"video</td><td>%{r} or %{aspect_ratio}</td></tr><tr><td>%d</td><td>current "
+"date</td><td>%{d} or %{date}</td></tr></table><p><em>Hint: K3b also accepts "
+"slight variations of the long special strings. One can, for example, leave "
+"out the underscores.</em>"
 msgstr ""
 
 #: rip/videodvd/k3bvideodvdrippingwidget.cpp:340
@@ -10167,9 +10276,8 @@ msgid ""
 "height to fixed values will result in no aspect ratio correction being "
 "performed."
 msgstr ""
-"<p>请选择所得到的视频的宽度和高度。如果一个值被设置为<em>自动</em>的K3b的将选"
-"择此值取决于视频图像的宽高比。<br>注意，宽度和高度设定为固定值将导致无宽高比"
-"修正。"
+""
+"<p>请选择所得到的视频的宽度和高度。如果一个值被设置为<em>自动</em>的K3b的将选择此值取决于视频图像的宽高比。<br>注意，宽度和高度设定为固定值将导致无宽高比修正。"
 
 #: rip/videodvd/k3bvideodvdrippingwidget.cpp:357
 #, kde-format
@@ -10254,12 +10362,10 @@ msgstr "无性型"
 msgid "Subpicture"
 msgstr "子画面"
 
-
 # ######################
-
 #: src/k3b.cpp
 msgid "Kylin-Burner"
-msgstr "刻录软件"
+msgstr "麒麟刻录"
 
 msgid "Data Burner"
 msgstr "数据刻录"
@@ -10279,10 +10385,16 @@ msgstr "选择一张要擦除的光盘"
 
 #: src/k3bMd5Dialog.cpp
 msgid "kylin-burner"
-msgstr "刻录软件"
+msgstr "麒麟刻录"
 
 msgid "md5 check"
 msgstr "检查完整性"
+
+msgid "md5 failed!"
+msgstr "检查完整性失败"
+
+msgid "md5 success!"
+msgstr "检查完整性成功"
 
 msgid "choice CD"
 msgstr "选择一张光盘"
@@ -10294,6 +10406,9 @@ msgid "Browse"
 msgstr "浏览"
 
 msgid "ok"
+msgstr "确定"
+
+msgid "OK"
 msgstr "确定"
 
 msgid "cancel"
@@ -10310,6 +10425,9 @@ msgstr " 剩余空间 "
 
 msgid "image file: "
 msgstr "镜像文件: "
+
+msgid "cdrom file: "
+msgstr "光盘文件: "
 
 #: src/projects/k3bprojectburndialog.cpp
 msgid "burn setting"
@@ -10379,6 +10497,42 @@ msgstr "清空"
 msgid "New Dir"
 msgstr "新建文件夹"
 
+msgid "FileFilter"
+msgstr "查看过滤文件"
+
+msgid "FilterFile"
+msgstr "文件过滤"
+
+msgid "FileFilterSetting"
+msgstr "过滤选项设置"
+
+msgid "Reset"
+msgstr "恢复"
+
+msgid "FilterSetting"
+msgstr "过滤设置"
+
+msgid "Filter Hidden Files (H)"
+msgstr "过滤隐藏文件 (H)"
+
+msgid "Filter  Broken Symbolic links (B)"
+msgstr "过滤残缺的符号链接 (B)"
+
+msgid "Replace Symbolic links (P)"
+msgstr "替换符号链接 (P)"
+
+msgid "Menu__"
+msgstr "设置"
+
+msgid "Minimize__"
+msgstr "最小化"
+
+msgid "Maximize__"
+msgstr "最大化"
+
+msgid "Close__"
+msgstr "关闭"
+
 msgid ", remaining available space"
 msgstr ", 剩余空间"
 
@@ -10411,7 +10565,6 @@ msgid "empty medium available space "
 msgstr "空光盘,剩余空间:"
 
 #: src/projects/k3bvcdview.cpp
-
 msgid "copy image"
 msgstr "复制光盘"
 
@@ -10437,10 +10590,9 @@ msgstr "请插入可用光盘"
 msgid "Project Size:"
 msgstr "项目大小:"
 
-#: src/projects/k3bdataviewimpl.cpp
 #msgid "Path"
 #msgstr "路径"
-
+#: src/projects/k3bdataviewimpl.cpp
 msgid "popup"
 msgstr "弹出"
 
@@ -10465,3 +10617,21 @@ msgstr "选择路径"
 msgid "create iso"
 msgstr "创建镜像"
 
+msgid "Please click button [Add] or drag you file to current zone for new files."
+msgstr " 点击\"添加\"按钮或将文件拖拽进此区域，来添加文件。"
+
+msgid "no media to clean"
+msgstr "无可擦除介质"
+
+msgid "the media in device is not cleanable"
+msgstr "设备中介质为不可擦写介质"
+
+msgid "Version 3.1.0 (based on K3b, Thanks.)"
+msgstr "版本 3.1.0 （基于开源项目K3b，感谢支持。）"
+
+msgid "Copyright (C) 2020  KylinSoft Co., Ltd."
+msgstr "版权声明 © 2020 麒麟软件有限公司"
+
+msgid "Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
+"\n Thanks for using and making a suggestion."
+msgstr "修改及研发者\n    麒麟软件有限公司-北京桌面应用组\n感谢使用及建议。"

@@ -92,6 +92,10 @@ K3b::EmptyDiscWaiter::EmptyDiscWaiter( K3b::Device::Device* device, QWidget* par
     setWindowTitle(i18n("Waiting for Disk"));
     setModal(true);
 
+    qDebug() << "testing waiting...";
+    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    this->setObjectName("WaitingDialog");
+
     d->device = device;
 
     // setup the gui

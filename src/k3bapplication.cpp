@@ -1,5 +1,5 @@
 /*
- *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2008 Sebastian Trueg <trueg@k3b.org>
  * Copyright (C) 2010-2011 Michal Malek <michalm@jabster.pl>
  *
@@ -104,8 +104,8 @@ void K3b::Application::init( QCommandLineParser* commandLineParser )
     // Load device, external programs, and stuff.
     //
     QMetaObject::invokeMethod( m_core, "init", Qt::QueuedConnection );
-    QMetaObject::invokeMethod( m_core, "readSettings", Qt::QueuedConnection, Q_ARG( KSharedConfig::Ptr, KSharedConfig::openConfig() ) );
-    QMetaObject::invokeMethod( m_core->deviceManager(), "printDevices", Qt::QueuedConnection );
+    //QMetaObject::invokeMethod( m_core, "readSettings", Qt::QueuedConnection, Q_ARG( KSharedConfig::Ptr, KSharedConfig::openConfig() ) );
+    //QMetaObject::invokeMethod( m_core->deviceManager(), "printDevices", Qt::QueuedConnection );
     //QMetaObject::invokeMethod( this, "checkSystemConfig", Qt::QueuedConnection );
 
     connect( this, SIGNAL(aboutToQuit()), SLOT(slotShutDown()) );

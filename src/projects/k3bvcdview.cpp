@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2004 Christian Kvasny <chris@k3b.org>
  * Copyright (C) 2009      Arthur Renato Mello <arthur@mandriva.com>
  * Copyright (C) 2009-2010 Michal Malek <michalm@jabster.pl>
@@ -23,6 +24,7 @@
 #include "k3bexternalbinmanager.h"
 #include "k3bcore.h"
 #include "k3baction.h"
+#include "ThemeManager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -51,6 +53,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     m_view( new QTreeView( ) )
 {
     flag = 0;
+    comboIndex = 0;
     
     QLabel *widget_label = new QLabel(this);
 
@@ -63,6 +66,9 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     title_font.setPixelSize(24);
     label_title->setFont( title_font );
     label_title->setStyleSheet("color: #444444");
+    label_title->setObjectName("LabelTitle");
+    ThManager()->regTheme(label_title, "ukui-white", "#LabelTitle{font: 24px; color: #444444;}");
+    ThManager()->regTheme(label_title, "ukui-black", "#LabelTitle{font: 24px; color: #FFFFFF;}");
 
     QLabel *label_iso = new QLabel(this);
     label_iso->setText(i18n("CD to copy"));
@@ -70,17 +76,175 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     label_font.setPixelSize(14);
     label_iso->setFont( label_font );
     label_iso->setStyleSheet("color: #444444");
+    label_iso->setObjectName("LabelISO_1");
+    ThManager()->regTheme(label_iso, "ukui-white", "#LabelISO_1{font: 14px; color: #444444;}");
+    ThManager()->regTheme(label_iso, "ukui-black", "#LabelISO_1{font: 14px; color: #FFFFFF;}");
 
     combo_iso = new QComboBox(this);
     combo_iso->setFixedSize(360, 30);
+    combo_iso->setObjectName("ComboISO_1");
+    ThManager()->regTheme(combo_iso, "ukui-white","#ComboISO_1{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboISO_1::hover{border:1px solid #6B8EEB;}"
+                                                 "#ComboISO_1::selected{border:1px solid #6B8EEB;}"
+                                                 "#ComboISO_1 QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#ComboISO_1 QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#ComboISO_1 QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboISO_1 QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#ComboISO_1::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#ComboISO_1::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#ComboISO_1 QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#ComboISO_1 QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#ComboISO_1 QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#ComboISO_1 QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#ComboISO_1{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#ComboISO_1::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo_iso, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
     
     label_CD = new QLabel(this);
     label_CD->setText(i18n("Copy CD"));
     label_CD->setFont( label_font );
     label_CD->setStyleSheet("color: #444444");
+    label_CD->setObjectName("LabelCD_1");
+    ThManager()->regTheme(label_CD, "ukui-white", "#LabelCD_1{font: 14px; color: #444444;}");
+    ThManager()->regTheme(label_CD, "ukui-black", "#LabelCD_1{font: 14px; color: #FFFFFF;}");
 
     combo_CD = new QComboBox(this);
     combo_CD->setFixedSize(360, 30);
+    combo_CD->setObjectName("ComboCD_2");
+    ThManager()->regTheme(combo_CD, "ukui-white","#ComboCD_2{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboCD_2::hover{border:1px solid #6B8EEB;}"
+                                                 "#ComboCD_2::selected{border:1px solid #6B8EEB;}"
+                                                 "#ComboCD_2 QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#ComboCD_2 QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#ComboCD_2 QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#ComboCD_2 QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#ComboCD_2::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#ComboCD_2::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#ComboCD_2 QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#ComboCD_2 QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#ComboCD_2 QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#ComboCD_2 QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#ComboCD_2{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#ComboCD_2::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(combo_CD, "ukui-black","#comboISO{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#comboISO::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#comboISO::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#comboISO QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#comboISO QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#comboISO QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#comboISO QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#comboISO QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#comboISO::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
+    lastIndex = comboIndex;
+    combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    isBurner = false;
 #if 0
     button_setting = new QPushButton();
     button_setting->setText(i18n("setting"));
@@ -90,17 +254,88 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;}");
 #endif
     button_openfile = new QPushButton(this);
-    button_openfile->setText(i18n("choice"));
+    if (isBurner) button_openfile->setText(i18n("setting"));
+    else button_openfile->setText(i18n("choice"));
     button_openfile->setFixedSize(80, 30);
-    button_openfile->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
-                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
-                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
+    button_openfile->setObjectName("Choice");
+    ThManager()->regTheme(button_openfile, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_openfile, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
     button_start = new QPushButton(this);
-    button_start->setText(i18n("Create image"));
+    if (isBurner) button_start->setText(i18n("start burner"));
+    else button_start->setText(i18n("Create image"));
     button_start->setFixedSize(140, 45);
     button_start->setEnabled( false );
-    button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
+    button_start->setObjectName("CopyStart");
+    ThManager()->regTheme(button_start, "ukui-white",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_start, "ukui-black",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #6B8DEB;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #3D6BE5;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #415FC3;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: #FFFFFF;",
+                                   "border:none; border-radius: 4px;"
+                                   "background-color: #E9E9E9;"
+                                   "font: 18px \"MicrosoftYaHei\";"
+                                   "color: rgba(193, 193, 193, 1);");
+    button_start->setStyleSheet("QPushButton{"
+                                "background-color:rgba(61, 107, 229, 1);"
+                                "font: 18px;border-radius: 4px;color:#ffffff}"
+                                "QPushButton:hover{background-color:rgba(61, 107, 229, 1);}");
      
     CD_index = 0;
     combo_CD->setEnabled( true );
@@ -140,6 +375,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     setMainWidget( widget_label );
    
     connect( combo_CD, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboCD(int) ) );
+    connect( combo_iso, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboISO(int) ) );
     connect( button_openfile, SIGNAL(clicked()), this, SLOT(slotOpenfile()) );
     connect( button_start, SIGNAL(clicked()), this, SLOT(slotStartBurn()) );
 
@@ -195,6 +431,7 @@ K3b::VcdView::~VcdView()
 
 void K3b::VcdView::slotDeviceChange( K3b::Device::DeviceManager* manager)
 {
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     if ( device_list.count() == 0 ){
         combo_iso->setEnabled( false );
@@ -203,14 +440,123 @@ void K3b::VcdView::slotDeviceChange( K3b::Device::DeviceManager* manager)
         //lineedit_CD->setEnabled( false );
     }else
         slotMediaChange( 0 );
+    */
 
 }
 
 void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 {
+    int idx = -1, cdIdx = 0;;
+    idx = cdDevices.indexOf(dev);
+    K3b::Medium medium = k3bappcore->mediaCache()->medium( dev );
+    KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( dev->blockDeviceName() );
+
+    qDebug() << "----------Image Copying...----------------";
+
+    if (-1 == idx)
+    {
+        cdDevices << dev;
+        if (!mountPoint)
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 != idx)
+            {
+                combo_iso->removeItem(idx);
+                sourceDevices.removeAt(idx);
+            }
+            if ( dev->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+                combo_CD->insertItem(comboIndex++,
+                                     QIcon(":/icon/icon/icon-光盘.png"),
+                                     i18n("empty medium " ));
+            else
+                combo_CD->insertItem(comboIndex++,
+                                     QIcon(":/icon/icon/icon-光盘.png"),
+                                     i18n("please insert a available medium" ));
+        }
+        else
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 == idx)
+            {
+                sourceDevices << dev;
+                combo_iso->addItem( QIcon(":/icon/icon/icon-光盘.png"),
+                                    medium.shortString() + \
+                                    KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ) );
+            }
+            else
+            {
+                combo_iso->setItemText(idx, medium.shortString() + \
+                                       KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+            }
+            combo_CD->insertItem(comboIndex++,
+                                 QIcon(":/icon/icon/icon-光盘.png"),
+                                 medium.shortString() + \
+                                 KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+        }
+    }
+    else
+    {
+        cdIdx = idx + 1;
+        if (!mountPoint)
+        {
+            idx = sourceDevices.indexOf(dev);
+            if (-1 != idx)
+            {
+                combo_iso->removeItem(idx);
+                sourceDevices.removeAt(idx);
+            }
+            if ( dev->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
+                combo_CD->setItemText(cdIdx, i18n("empty medium " ));
+            else
+                combo_CD->setItemText(cdIdx, i18n("please insert a available medium" ));
+        }
+        else
+        {
+            qDebug() << medium.shortString();
+            idx = sourceDevices.indexOf(dev);
+            if (-1 == idx)
+            {
+                sourceDevices << dev;
+                combo_iso->addItem( QIcon(":/icon/icon/icon-光盘.png"),
+                                    medium.shortString() + \
+                                    KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ) );
+            }
+            else
+            {
+                if ("无介质" == medium.shortString())
+                {
+                    combo_iso->removeItem(idx);
+                    sourceDevices.removeAt(idx);
+                }
+                else
+                {
+                    combo_iso->setItemText(idx, medium.shortString() + \
+                                       KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+                }
+            }
+            combo_CD->setItemText(cdIdx, medium.shortString() + \
+                                  KIO::convertSize( dev->diskInfo().remainingSize().mode1Bytes() ));
+        }
+    }
+    lastSourceIndex = combo_iso->currentIndex();
+    lastIndex = combo_CD->currentIndex();
+
+    if (i18n("empty medium " ) == combo_CD->currentText() ||
+            i18n("please insert a available medium" ) == combo_CD->currentText())
+    {
+        disableBurnerStart();
+    }
+    else
+    {
+        enableBurnerStart();
+    }
+    if (0 == combo_iso->count()) disableBurnerStart();
+    else if (0 == lastIndex) enableBurnerStart();
+    else disableBurnerStart();
+    /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     combo_iso->clear();
-    combo_CD->clear();
+    //combo_CD->clear();
     device_index.clear();
     CD_index = 0;
     device_count = 0;
@@ -225,7 +571,8 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
         KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
 
         if ( device->diskInfo().diskState() == K3b::Device::STATE_EMPTY ){
-            combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
+            //combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
+            combo_CD->insertItem(comboIndex++,  QIcon(":/icon/icon/icon-光盘.png"), i18n("empty medium " ));
             CD_index++;
             continue;
         }
@@ -253,11 +600,59 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
         combo_CD->addItem( QIcon(":/icon/icon/icon-光盘.png"), medium.shortString() + KIO::convertSize( device->diskInfo().remainingSize().mode1Bytes() ) );
 
     }
+    */
+}
 
+void K3b::VcdView::slotComboISO(int idx)
+{
+    if (0 == combo_iso->count()) disableBurnerStart();
+    if (-1 == idx) return;
+
+    if (combo_CD->currentIndex() &&
+            sourceDevices[idx] == cdDevices[combo_CD->currentIndex() - 1])
+        combo_CD->setCurrentIndex(0);
 }
 
 void K3b::VcdView::slotComboCD(int ret)
 {
+    qDebug() << "Last index is : " << lastIndex << "| Current index is : " << ret;
+    if (ret)
+    {
+        if (sourceDevices.size() && cdDevices[ret - 1] == sourceDevices[combo_iso->currentIndex()])
+        {
+            qDebug() << "Select the same CD";
+            combo_CD->setCurrentIndex(lastIndex);
+            return;
+        }
+        isBurner = true;
+    }
+    else
+    {
+        isBurner = false;
+        button_start->setEnabled(true);
+    }
+    lastIndex = ret;
+
+    if (isBurner)
+    {
+        button_openfile->setText(i18n("setting"));
+        button_start->setText(i18n("start burner"));
+        if (i18n("empty medium " ) == combo_CD->currentText() ||
+                i18n("please insert a available medium" ) == combo_CD->currentText())
+        {
+            button_start->setEnabled(false);
+        }
+        else
+        {
+            button_start->setEnabled(true);
+        }
+    }
+    else
+    {
+        button_openfile->setText(i18n("choice"));
+        button_start->setText(i18n("Create image"));
+    }
+    /*
     qDebug() << "index: " << ret << endl;
     button_start->setEnabled( true );
     button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
@@ -268,13 +663,15 @@ void K3b::VcdView::slotComboCD(int ret)
     }else{
         flag = 0;
     }
+    */
 }
 
 void K3b::VcdView::slotOpenfile()
 {
+    /*
     if( device_index.isEmpty() )
         return;
-    filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks/* | QFileDialog::DontUseNativeDialog*/);
+    filepath = QFileDialog::getExistingDirectory(this, "open file dialog", "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
     if( filepath.isEmpty() )
         return;
@@ -283,6 +680,21 @@ void K3b::VcdView::slotOpenfile()
    CD_index++;
    combo_CD->addItem( filepath );
    combo_CD->setCurrentText( filepath );
+   */
+   if (isBurner)
+   {
+       qDebug() << "do setting";
+       ProjectBurnDialog* dlg = newBurnDialog( this );
+       dlg->execBurnDialog(true);
+       delete dlg;
+   }
+   else
+   {
+       filepath = QFileDialog::getExistingDirectory(this, i18n("choice"), image_path, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+       if (filepath.isEmpty()) return;
+       image_path = filepath + "/kylin_burner.iso";
+       combo_CD->setItemText(0, image_path);
+   }
 
 }
 
@@ -307,6 +719,34 @@ void K3b::VcdView::slotStartBurn()
     qDebug() << "flag: " << flag << endl;
     return;
 #endif
+    K3b::Device::Device* dev = sourceDevices[combo_iso->currentIndex()];
+    K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );
+    dlg->setReadingDevice(dev);
+    if (isBurner)
+    {
+        qDebug() << "Burning...";
+        dlg->loadConfig();
+        dlg->setOnlyCreateImage(false);
+        dlg->setComboMedium( cdDevices[combo_CD->currentIndex() - 1] );
+        dlg->saveConfig();
+    }
+    else
+    {
+        qDebug() << "Copying...";
+        dlg->setOnlyCreateImage(true);
+        dlg->setTempDirPath( image_path );
+        dlg->saveConfig();
+    }
+    button_start->setEnabled(false);
+    dlg->slotStartClicked();
+    button_start->setEnabled(true);
+    if (combo_CD->currentIndex())
+    {
+        if (sourceDevices[combo_iso->currentIndex()] ==
+            cdDevices[combo_CD->currentIndex() - 1]) combo_CD->setCurrentIndex(0);
+    }
+    dev->eject();
+    /*
     int iso_index = combo_iso->currentIndex();
     int CD_index = combo_CD->currentIndex();
     K3b::MediaCopyDialog *dlg = new K3b::MediaCopyDialog( this );
@@ -334,6 +774,7 @@ void K3b::VcdView::slotStartBurn()
             dlg->slotStartClicked();
         }
     }
+    */
 }
 
 K3b::ProjectBurnDialog* K3b::VcdView::newBurnDialog( QWidget * parent)

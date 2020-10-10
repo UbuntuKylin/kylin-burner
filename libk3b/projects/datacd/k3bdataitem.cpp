@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2008 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -20,6 +21,7 @@
 #include <QDebug>
 
 #include <math.h>
+#include <QTime>
 
 
 class K3b::DataItem::Private
@@ -35,6 +37,7 @@ K3b::DataItem::DataItem( const ItemFlags& flags )
       m_bHideOnRockRidge(false),
       m_bHideOnJoliet(false),
       m_bRemoveable(true),
+      m_bDeleteable(true),
       m_bRenameable(true),
       m_bMovable(true),
       m_bHideable(true),
@@ -42,6 +45,7 @@ K3b::DataItem::DataItem( const ItemFlags& flags )
 {
     d = new Private;
     d->flags = flags;
+    m_inTime = QTime::currentTime().toString("hhmmss");
 }
 
 

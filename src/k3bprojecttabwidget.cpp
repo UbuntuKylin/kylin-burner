@@ -110,7 +110,7 @@ void K3b::ProjectTabWidget::addTab( Doc* doc )
 void K3b::ProjectTabWidget::removeTab( Doc* doc )
 {
     if( doc != 0 ) {
-        QTabWidget::removeTab( indexOf( doc->view() ) );
+        //QTabWidget::removeTab( indexOf( doc->view() ) );
     }
 }
 

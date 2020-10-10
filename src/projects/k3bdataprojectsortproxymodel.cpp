@@ -25,6 +25,7 @@ DataProjectSortProxyModel::DataProjectSortProxyModel( QObject* parent )
     setSortLocaleAware( true );
     setSortCaseSensitivity( Qt::CaseInsensitive );
     setSortRole( DataProjectModel::SortRole );
+    //setFilterKeyColumn(DataProjectModel::NumColumns);
 }
 
 
@@ -32,12 +33,18 @@ bool DataProjectSortProxyModel::lessThan( const QModelIndex& left, const QModelI
 {
     const int leftType = left.data( DataProjectModel::ItemTypeRole ).toInt();
     const int rightType = right.data( DataProjectModel::ItemTypeRole ).toInt();
+    /*
     if( leftType == DataProjectModel::DirItemType && rightType == DataProjectModel::FileItemType )
         return sortOrder() == Qt::AscendingOrder;
     else if( leftType == DataProjectModel::FileItemType && rightType == DataProjectModel::DirItemType )
         return sortOrder() == Qt::DescendingOrder;
     else
-        return QSortFilterProxyModel::lessThan( left, right );
+    */
+        //return QSortFilterProxyModel::lessThan( right, left );
+        return left.data( DataProjectModel::SortRole ).toString() <
+                right.data( DataProjectModel::SortRole ).toString();
+        //DisplayRole
+        //return QSortFilterProxyModel::lessThan( left, right );
 }
 
 } // namespace K3b

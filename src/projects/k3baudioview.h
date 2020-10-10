@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2007 Sebastian Trueg <trueg@k3b.org>
  *           (C) 2009      Arthur Mello <arthur@mandriva.com>
  *           (C) 2009      Gustavo Pichorim Boiko <gustavo.boiko@kdemail.net>
@@ -25,6 +26,9 @@
 #include <QStringList>
 #include <QComboBox>
 #include <QLineEdit>
+
+#include "kylinburnerlogger.h"
+
 namespace K3b {
 
     class AudioDoc;
@@ -66,9 +70,11 @@ namespace K3b {
         QLabel* lineEdit_icon;
         QLabel* lineEdit_text;
         QComboBox *combo_CD;
+        QPushButton *button_setting;
         QPushButton* button_start;
         QList<Device::Device*> device_index;
         QString filepath;
+        KylinBurnerLogger *logger;
     };
 }
 

@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 1998-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -19,12 +20,16 @@
 
 #include "option/k3boptiondialog.h"
 #include "k3bTitleBar.h"
+#include "kylinburnerlogger.h"
 
 #include <KSharedConfig>
 #include <KXmlGuiWindow>
 
 #include <QList>
 #include <QUrl>
+#include <QKeyEvent>
+#include <QDBusMessage>
+
 
 namespace K3b {
     class Doc;
@@ -87,6 +92,8 @@ namespace K3b {
         K3b::Doc* slotNewVideoDvdDoc();
         K3b::Doc* slotContinueMultisession();
 
+        void keyPressEvent(QKeyEvent *event);
+
         void slotClearProject();
 
         void slotWriteImage();
@@ -113,9 +120,24 @@ namespace K3b {
 
         void addUrls( const QList<QUrl>& urls );
 
+    public slots:
+        void isHidden(bool);
+        void isBroken(bool);
+        void isReplace(bool);
+        void isMenuHidden(bool);
+        void isMenuBroken(bool);
+        void isMenuReplace(bool);
+
     Q_SIGNALS:
         void initializationInfo( const QString& );
         void configChanged( KSharedConfig::Ptr c );
+
+        void setIsHidden(bool);
+        void setIsBroken(bool);
+        void setIsReplace(bool);
+        void setIsMenuHidden(bool);
+        void setIsMenuBroken(bool);
+        void setIsMenuReplace(bool);
 
     protected:
         /** queryClose is called by KMainWindow on each closeEvent of a window. Against the
@@ -216,10 +238,16 @@ namespace K3b {
 
         class Private;
         Private* d;
+
+        /* add for busness button active */
+        bool isDataActived;
+        bool isImageActived;
+        bool isCopyActived;
         
 
         QLabel *pIconLabel;
         QLabel *pTitleLabel;
+        KylinBurnerLogger *logger;
     };
 }
 

@@ -31,5 +31,7 @@
         <file>icon/icon-侧边背景.png</file>
         <file>icon/icon-right.png</file>
         <file>icon/icon-error.png</file>
+        <file>icon/draw-down.jpg</file>
+        <file>icon/128.png</file>
     </qresource>
 </RCC>

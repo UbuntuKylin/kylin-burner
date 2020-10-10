@@ -36,6 +36,7 @@ namespace K3b {
          * Creates a new FileItem
          */
         FileItem( const QString& filePath, DataDoc& doc, const QString& k3bName = 0, const ItemFlags& flags = ItemFlags() );
+        FileItem( const QString& filePath, DataDoc& doc, bool removable, const QString& k3bName = 0,  const ItemFlags& flags = ItemFlags() );
 
         /**
          * Constructor for optimized file item creation which does no additional stat.

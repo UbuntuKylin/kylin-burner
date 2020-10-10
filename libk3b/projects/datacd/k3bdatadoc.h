@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  * Copyright (C) 2011 Michal Malek <michalm@jabster.pl>
  *
@@ -82,6 +83,8 @@ namespace K3b {
 
         bool newDocument() override;
         void clear() override;
+        void clearDisk();
+        void clearOld();
 
         KIO::filesize_t size() const override;
 
@@ -98,6 +101,8 @@ namespace K3b {
          * returns false.
          */
         void removeItem( DataItem* item );
+        bool removeDiskItem( K3b::DataItem* item );
+        bool removeOldItem( K3b::DataItem* item );
         void removeItems( DirItem* parent, int start, int count );
 
         /**
@@ -208,6 +213,7 @@ namespace K3b {
 
     public Q_SLOTS:
         void addUrls( const QList<QUrl>& urls ) override;
+        void addUnremovableUrls(const QList<QUrl>& urls);
 
         /**
          * Add urls synchronously
@@ -215,6 +221,7 @@ namespace K3b {
          * If a file already exists the new file's name will be appended a number.
          */
         virtual void addUrlsToDir( const QList<QUrl>& urls, K3b::DirItem* dir );
+        void addUnremovableUrlsToDir(const QList<QUrl>& urls, K3b::DirItem* dir);
 
         void clearImportedSession();
 

@@ -47,10 +47,12 @@ K3b::Splash::Splash( QWidget* parent )
     copyrightLabel->setAlignment( Qt::AlignRight );
 
     QLabel* picLabel = new QLabel( this );
+    /*
     if( K3b::Theme* theme = k3bappcore->themeManager()->currentTheme() ) {
         picLabel->setPalette( theme->palette() );
         picLabel->setPixmap( theme->pixmap( K3b::Theme::SPLASH ) );
     }
+    */
 
     m_infoBox = new QLabel( this );
     m_infoBox->setContentsMargins( 5, 5, 5, 5 );

@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2007 Sebastian Trueg <trueg@k3b.org>
  * Copyright (C) 2009-2010 Michal Malek <michalm@jabster.pl>
  *
@@ -20,6 +21,11 @@
 #include "k3bview.h"
 #include <QThread>
 #include <QMutex>
+#include <QSortFilterProxyModel>
+#include <QLabel>
+
+#include "kylinburnerfilefilter.h"
+#include "kylinburnerlogger.h"
 
 class QModelIndex;
 class QTreeView;
@@ -57,6 +63,12 @@ namespace K3b {
         explicit DataView( DataDoc* doc, QWidget* parent = 0 );
         ~DataView() override;
 
+        Device::Device * testGetDev()
+        {
+            if (device_index.size()) return device_index[0];
+            return NULL;
+        }
+
     public Q_SLOTS:
         void slotBurn() override;
         void slotStartBurn();
@@ -70,20 +82,37 @@ namespace K3b {
         void slotRemoveClicked();
         void slotClearClicked();
         void slotNewdirClicked();
+        void slotFileFilterClicked();
+        void slotAddFile(QList<QUrl>);
+        void slotFinish(K3b::DataDoc *);
+
+        void isHidden(bool);
+        void isBroken(bool);
+        void isReplace(bool);
+
+        void addDragFiles(QList<QUrl> urls, K3b::DirItem* targetDir);
+
 
     private Q_SLOTS:
         void slotParentDir();
         void slotCurrentDirChanged();
         void slotSetCurrentRoot( const QModelIndex& index );
+        void slotOption(int, bool);
 
     protected:
         ProjectBurnDialog* newBurnDialog( QWidget* parent = 0 ) override;
 
     private:
         DataDoc* m_doc;
+        QList<DataDoc *> docs;
+        int              lastIndex;
+        int              comboIndex;
         DataViewImpl* m_dataViewImpl;
         QTreeView* m_dirView;
         DirProxyModel* m_dirProxy;
+        QWidget        *mainWindow;
+        KylinBurnerFileFilter *dlgFileFilter;
+        ProjectBurnDialog* pdlg;
 
         QComboBox* combo_burner;
         QComboBox* combo_CD;
@@ -99,15 +128,56 @@ namespace K3b {
         QPushButton* button_remove;
         QPushButton* button_clear;
         QPushButton* button_newdir;
+        QPushButton* btnFileFilter;
+        QLabel      *tips;
+        KylinBurnerLogger *logger;
+        QList<QUrl>  lastDrop;
+
+    private:
+        void enableBurnSetting();
+        void hoverBurnSetting(bool in = true);
+        void pressBurnSetting();
+        void disableBurnSetting();
+        void enableButtonBurn();
+        void hoverButtonBurn(bool in = true);
+        void pressButtonBurn();
+        void disableButtonBurn();
+        void enableButtonAdd();
+        void hoverButtonAdd(bool in = true);
+        void pressButtonAdd();
+        void disableButtonAdd();
+        void enableButtonRemove();
+        void hoverButtonRemove(bool in = true);
+        void pressButtonRemove();
+        void disableButtonRemove();
+        void enableButtonClear();
+        void hoverButtonClear(bool in = true);
+        void pressButtonClear();
+        void disableButtonClear();
+        void enableButtonNewDir();
+        void hoverButtonNewDir(bool in = true);
+        void pressButtonNewDir();
+        void disableButtonNewDir();
+
+        void copyData(K3b::DataDoc *target, K3b::DataDoc *source);
+        bool checkIsDeleteable(K3b::DataDoc *);
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event) override;  //事件过滤
 
     signals:
         void load(QString, DataDoc*);
+        void disableCD(bool);
+        //void doFileFilter(K3b::DataDoc *doc);
+        void setIsHidden(bool);
+        void setIsBroken(bool);
+        void setIsReplace(bool);
 
     public slots:
         void onLoadFinished();
+        void onDataChange(QModelIndex parent, QSortFilterProxyModel *model);
+        void onDataDelete(bool flag);
+        void slotDisableCD(bool);
 
     protected:
         QThread *workerThread;

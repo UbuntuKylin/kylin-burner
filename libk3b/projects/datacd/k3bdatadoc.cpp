@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2008 Sebastian Trueg <trueg@k3b.org>
  * Copyright (C) 2011 Michal Malek <michalm@jabster.pl>
  *
@@ -164,6 +165,49 @@ void K3b::DataDoc::clear()
     emit importedSessionChanged( importedSession() );
 }
 
+bool K3b::DataDoc::removeDiskItem( K3b::DataItem* item )
+{
+    if (NULL == item) return false;
+    if (item->isDeleteable()) { delete item; return true; }
+    return false;
+}
+
+bool K3b::DataDoc::removeOldItem( K3b::DataItem* item )
+{
+    if (NULL == item) return false;
+    if (!item->isDeleteable()) { delete item; return true; }
+    return false;
+}
+
+void K3b::DataDoc::clearDisk()
+{
+    clearImportedSession();
+    d->importedSession = -1;
+    d->oldSessionSize = 0;
+    d->bootCataloge = 0;
+    if( d->root ) {
+        for (int i = 0; i < d->root->children().size(); ++i) {
+         if (removeDiskItem(d->root->children().at(i))) --i;
+        }
+    }
+    d->sizeHandler->clear();
+    emit importedSessionChanged( importedSession() );
+}
+
+void K3b::DataDoc::clearOld()
+{
+    clearImportedSession();
+    d->importedSession = -1;
+    d->oldSessionSize = 0;
+    d->bootCataloge = 0;
+    if( d->root ) {
+        for (int i = 0; i < d->root->children().size(); ++i) {
+         if (removeOldItem(d->root->children().at(i))) --i;
+        }
+    }
+    d->sizeHandler->clear();
+    emit importedSessionChanged( importedSession() );
+}
 
 QString K3b::DataDoc::name() const
 {
@@ -197,6 +241,10 @@ void K3b::DataDoc::addUrls( const QList<QUrl>& urls )
     addUrlsToDir( urls, root() );
 }
 
+void K3b::DataDoc::addUnremovableUrls( const QList<QUrl>& urls )
+{
+    addUnremovableUrlsToDir( urls, root() );
+}
 
 void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
 {
@@ -210,13 +258,14 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
         QFileInfo f( url.toLocalFile() );
         QString k3bname = f.absoluteFilePath().section( '/', -1 );
 
+        // backup dummy name
+        if( k3bname.isEmpty() )
+            k3bname = '1';
+
         // filenames cannot end in backslashes (mkisofs problem. See comments in k3bisoimager.cpp (escapeGraftPoint()))
         while( k3bname[k3bname.length()-1] == '\\' )
             k3bname.truncate( k3bname.length()-1 );
 
-        // backup dummy name
-        if( k3bname.isEmpty() )
-            k3bname = '1';
 
         K3b::DirItem* newDirItem = 0;
 
@@ -281,6 +330,93 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
     setModified( true );
 }
 
+void K3b::DataDoc::addUnremovableUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
+{
+    if( !dir )
+        dir = root();
+
+    dir->setDeleteable(false);
+    QList<QUrl> urls = K3b::convertToLocalUrls(l);
+
+    for( QList<QUrl>::ConstIterator it = urls.constBegin(); it != urls.constEnd(); ++it ) {
+        const QUrl& url = *it;
+        QFileInfo f( url.toLocalFile() );
+        QString k3bname = f.absoluteFilePath().section( '/', -1 );
+
+        // filenames cannot end in backslashes (mkisofs problem. See comments in k3bisoimager.cpp (escapeGraftPoint()))
+        while( k3bname[k3bname.length()-1] == '\\' )
+            k3bname.truncate( k3bname.length()-1 );
+
+        // backup dummy name
+        if( k3bname.isEmpty() )
+            k3bname = '1';
+
+        K3b::DirItem* newDirItem = 0;
+        K3b::DataItem *newFileItem = NULL;
+
+        // rename the new item if an item with that name already exists
+        int cnt = 0;
+        bool ok = false;
+        while( !ok ) {
+            ok = true;
+            QString name( k3bname );
+            if( cnt > 0 )
+                name += QString("_%1").arg(cnt);
+            if( K3b::DataItem* oldItem = dir->find( name ) ) {
+                if( f.isDir() && oldItem->isDir() ) {
+                    // ok, just reuse the dir
+                    newDirItem = static_cast<K3b::DirItem*>(oldItem);
+                }
+                // directories cannot replace files in an old session (I think)
+                // and also directories can for sure never be replaced (only be reused as above)
+                // so we always rename if the old item is a dir.
+                else if( !oldItem->isFromOldSession() ||
+                         f.isDir() ||
+                         oldItem->isDir() ) {
+                    ++cnt;
+                    ok = false;
+                }
+            }
+        }
+        if( cnt > 0 )
+            k3bname += QString("_%1").arg(cnt);
+
+        // QFileInfo::exists and QFileInfo::isReadable return false for broken symlinks :(
+        if( f.isDir() && !f.isSymLink() ) {
+            if( !newDirItem ) {
+                newDirItem = new K3b::DirItem( k3bname );
+                newDirItem->setLocalPath( url.toLocalFile() ); // HACK: see k3bdiritem.h
+                newDirItem->setDeleteable(false);
+                dir->addDataItem( newDirItem );
+            }
+
+            // recursively add all the files in the directory
+            QStringList dlist;
+            //filter hidden file
+            KConfigGroup grp( KSharedConfig::openConfig(), "default data settings" );
+            int AddHiddenFiles = !grp.readEntry( "discard hidden file", false );
+            if ( AddHiddenFiles ){
+                dlist = QDir( f.absoluteFilePath() ).entryList( QDir::AllEntries|QDir::System|QDir::Hidden|QDir::NoDotAndDotDot );
+            }else{
+                dlist = QDir( f.absoluteFilePath() ).entryList( QDir::AllEntries|QDir::System|QDir::NoDotAndDotDot );
+            }
+
+            QList<QUrl> newUrls;
+            for( QStringList::ConstIterator it = dlist.constBegin(); it != dlist.constEnd(); ++it )
+                newUrls.append( QUrl::fromLocalFile( f.absoluteFilePath() + '/' + *it ) );
+            addUnremovableUrlsToDir( newUrls, newDirItem );
+        }
+        else if( f.isSymLink() || f.isFile() ) {
+            newFileItem = new FileItem( url.toLocalFile(), *this, false, k3bname );
+            newFileItem->setDeleteable(false);
+            dir->addDataItem( newFileItem );
+        }
+    }
+
+    emit changed();
+
+    setModified( true );
+}
 
 bool K3b::DataDoc::nameAlreadyInDir( const QString& name, K3b::DirItem* dir )
 {

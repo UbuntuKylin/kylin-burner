@@ -181,9 +181,10 @@ void K3b::DataUrlAddingDialog::slotStartAddUrls()
     // with a data project. Let's warn them
     //
     if( m_urls.count() == 1 ) {
+        /*
         K3b::Iso9660 isoF( m_urls.first().toLocalFile() );
         if( isoF.open() ) {
-          /*  if( KMessageBox::warningYesNo( parentWidget(),
+          if( KMessageBox::warningYesNo( parentWidget(),
                                            i18n("<p>The file you are about to add to the project is an ISO 9660 image. As such "
                                                 "it can be burned to a medium directly since it already contains a file "
                                                 "system.<br>"
@@ -194,8 +195,9 @@ void K3b::DataUrlAddingDialog::slotStartAddUrls()
                 k3bappcore->k3bMainWindow()->slotWriteImage( m_urls.first() );
                 reject();
                 return;
-            }*/
+            }
         }
+        */
     }
 
     slotAddUrls();

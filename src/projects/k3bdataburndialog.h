@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -71,6 +72,7 @@ namespace K3b {
         //void slotClose();
         void slotCancelClicked() override;
         void slotStartClicked() override;
+        void slotHide() {hide();}
         void saveSettingsToProject() override;
         void readSettingsFromProject() override;
 

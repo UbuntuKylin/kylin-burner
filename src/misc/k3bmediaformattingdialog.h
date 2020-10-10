@@ -1,5 +1,5 @@
 /*
- *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2007-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -42,6 +42,7 @@ namespace K3b {
     protected Q_SLOTS:
         void slotStartClicked() override;
         void slotCancelClicked() override;
+        void slotFinished(bool);
 
     protected:
         void toggleAll() override;
@@ -54,6 +55,8 @@ namespace K3b {
         WritingModeWidget* m_writingModeWidget;
         QCheckBox* m_checkForce;
         QCheckBox* m_checkQuickFormat;
+        bool       flag;
+        QLabel *icon;
     };
 }
 

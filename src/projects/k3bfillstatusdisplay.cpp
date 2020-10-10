@@ -731,6 +731,7 @@ void K3b::FillStatusDisplay::slotLoadUserDefaults()
 
 void K3b::FillStatusDisplay::slotMediumChanged( K3b::Device::Device* )
 {
+    /*
     if( d->actionAuto->isChecked() ) {
         //
         // now search for a usable medium
@@ -810,6 +811,7 @@ void K3b::FillStatusDisplay::slotMediumChanged( K3b::Device::Device* )
             }
         }
     }
+    */
 }
 
 

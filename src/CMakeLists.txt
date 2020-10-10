@@ -10,6 +10,9 @@ add_subdirectory( pic )
 ########### next target ###############
 
 ki18n_wrap_ui(ui_sources
+    kylinburnerfilefilter.ui
+    kylinburnerfilefilterselection.ui
+    kylinburnerabout.ui
     option/base_k3bthemeoptiontab.ui
     option/base_k3bmiscoptiontab.ui
     option/base_k3bpluginoptiontab.ui
@@ -72,6 +75,9 @@ qt5_generate_dbus_interface( ${CMAKE_CURRENT_SOURCE_DIR}/k3bdataprojectinterface
 qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.DataProject.xml k3bdataprojectinterface.h K3b::DataProjectInterface k3bdataprojectinterfaceadaptor K3bDataProjectInterfaceAdaptor )
 
 add_executable(burner
+    kylinburnerfilefilter.cpp
+    kylinburnerfilefilterselection.cpp
+    kylinburnerlogger.cpp
     k3bwelcomewidget.cpp
     k3bapplication.cpp
     k3bdevicedelegate.cpp
@@ -131,6 +137,8 @@ add_executable(burner
     k3bdevicemenu.cpp
     k3bviewcolumnadjuster.cpp
     k3bmodelutils.cpp
+    ThemeManager.cpp
+    kylinburnerabout.cpp
     helper/k3bhelperprogramitem.cpp
     misc/k3bimagewritingdialog.cpp
     misc/k3bmediacopydialog.cpp
@@ -236,6 +244,8 @@ target_include_directories(burner PRIVATE
 target_link_libraries(burner
     k3bdevice
     k3blib
+    pthread
+    gsettings-qt
     KF5::Cddb
     KF5::Archive
     KF5::I18n

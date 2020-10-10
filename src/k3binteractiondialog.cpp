@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -19,6 +20,7 @@
 #include "k3bthemedheader.h"
 #include "k3bthememanager.h"
 #include "k3bapplication.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KSharedConfig>
@@ -141,22 +143,23 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
         m_buttonCancel = 0;
     }
 #endif
-    QPushButton *button_ok = new QPushButton( buttonBox );
+    button_ok = new QPushButton( buttonBox );
     button_ok->setText( i18n("ok") );
     button_ok->setFixedSize(80,30);
+    button_ok->setObjectName("btnIDOK");
+    /*
     button_ok->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
                                "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
+    */
     
-    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
     
-    QPushButton *button_cancel = new QPushButton( buttonBox );
+    button_cancel = new QPushButton( buttonBox );
     button_cancel->setText( i18n("cancel") );
     button_cancel->setFixedSize(80,30);
-    button_cancel->setStyleSheet("QPushButton{background-color:#e9e9e9;font: 14px;border-radius: 4px;color: #444444;}"
-                               "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color: rgb(255,255,255);}"
-                               "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color: rgb(255,255,255);}");
-    
+    button_cancel->setObjectName("btnIDCancel");
+
     connect( button_cancel, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
 
     QHBoxLayout* hlayout = new QHBoxLayout();
@@ -335,6 +338,8 @@ void K3b::InteractionDialog::slotCancelClicked()
 
 void K3b::InteractionDialog::slotSaveClicked()
 {
+    saveLastSettings();
+    qDebug() << "save";
     emit saved();
 }
 
@@ -354,6 +359,8 @@ void K3b::InteractionDialog::setDefaultButton( int button )
     // set the selected default
     if( QPushButton* b = getButton( button ) )
         b->setDefault( true );
+
+    qDebug() << m_defaultButton;
 }
 
 
@@ -444,6 +451,7 @@ void K3b::InteractionDialog::setButtonEnabled( int button, bool enabled )
 
 void K3b::InteractionDialog::setButtonShown( int button, bool shown )
 {
+    qDebug() << m_defaultButton;
     if( QPushButton* b = getButton( button ) ) {
         b->setVisible( shown );
         // make sure the correct button is selected as default again
@@ -500,6 +508,8 @@ void K3b::InteractionDialog::loadSettings( const KConfigGroup& )
 
 void K3b::InteractionDialog::loadStartupSettings()
 {
+     slotLoadLastSettings();
+     /*
     KConfigGroup c( KSharedConfig::openConfig(), "General Options" );
 
     // earlier K3b versions loaded the saved settings
@@ -516,6 +526,7 @@ void K3b::InteractionDialog::loadStartupSettings()
         slotLoadLastSettings();
         break;
     }
+    */
 }
 
 

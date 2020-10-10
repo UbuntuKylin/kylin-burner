@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2008 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -226,7 +227,9 @@ namespace K3b {
         void slotLoadLastSettings();
         void slotStartClickedInternal();
         void slotInternalInit();
-
+public:
+        QPushButton *button_ok;
+        QPushButton *button_cancel;
     private:
         void initConnections();
         void initToolTipsAndWhatsThis();

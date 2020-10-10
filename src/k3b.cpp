@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 1998-2009 Sebastian Trueg <trueg@k3b.org>
  *           (C) 2009-2011 Michal Malek <michalm@jabster.pl>
  *
@@ -63,6 +64,7 @@
 #include "misc/k3bmediaformattingdialog.h"
 #include "option/k3boptiondialog.h"
 #include "projects/k3bdatamultisessionimportdialog.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KSharedConfig>
@@ -109,7 +111,10 @@
 #include <QBitmap>
 #include <QPainter>
 #include <cstdlib>
-
+#include <QGraphicsDropShadowEffect>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QErrorMessage>
 
 namespace {
 
@@ -240,31 +245,84 @@ public:
     QMimeDatabase mimeDatabase;
 };
 
+void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    qDebug() << event->key();
+    if (Qt::Key_F1 == event->key())
+    {
+        QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+                                                        "/",
+                                                        "com.guide.hotel",
+                                                        "showGuide");
+        msg << "burner";
+        qDebug() << msg;
+        QDBusMessage response = QDBusConnection::sessionBus().call(msg);
+
+        qDebug() << response;
+    }
+}
+
 K3b::MainWindow::MainWindow()
     : KXmlGuiWindow(0),
       d( new Private )
 {
     d->lastDoc = 0;
     
+    logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
+
+#if 0
+    QString name = QString("com.kylinUserGuideGUI.hotel_%1").arg(QString::number(getuid()));
+
+    QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+                                                    "/run/user/1000/bus",
+                                                    "com.guide.hotel",
+                                                    "ShowGuide");
+    msg << "burner";
+    qDebug() << msg;
+    QDBusMessage response = QDBusConnection::sessionBus().call(msg);
+
+    qDebug() << response;
+    qDebug() << response.type();
+    if (response.type() == QDBusMessage::ErrorMessage)
+        qDebug() << "ERROR";
+
+    if (response.type() == QDBusMessage::ReplyMessage)
+        {
+            qDebug() << response.arguments().takeFirst().toString();
+        }
+#endif
     /* modify UI */
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setStyleSheet("QWidget:{width:900px;\
                             height:600px;\
                             background:rgba(255,255,255,1);\
                             border:1px solid rgba(207, 207, 207, 1);\
-                            box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.2);\
-                            border-radius:12px;}");
-    setWindowIcon(QIcon(":/icon/icon/logo.ico"));
+                            box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.16);\
+                            opacity:0.5\
+                            border-radius:6px;}");
+
+    setWindowIcon(QIcon(":/icon/icon/128.png"));
     setWindowTitle( i18n("Kylin-Burner") );
 
     resize(900, 600);
     //add widget border-radius
+    /*
+    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
+
+    shadow_effect->setOffset(-5, 5);
+
+    shadow_effect->setColor(Qt::gray);
+
+    shadow_effect->setBlurRadius(8);
+    */
+
     QBitmap bmp(this->size());
     bmp.fill();
     QPainter p(&bmp);
     p.setPen(Qt::NoPen);
     p.setBrush(Qt::black);
     p.drawRoundedRect(bmp.rect(), 6, 6);
+
     setMask(bmp);
 
 #if 0
@@ -537,11 +595,18 @@ void K3b::MainWindow::initStatusBar()
 
 void K3b::MainWindow::initView()
 {
+    /*
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-    
+    */
+    this->setObjectName("KylinBurner");
+    ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #FFFFFF;}");
+    ThManager()->regTheme(this, "ukui-black", "#KylinBurner{background-color: #000000;}");
+
+    logger->info("Draw main frame begin...");
+
     //左右分割
     d->mainSplitter = new QSplitter( Qt::Horizontal, this );
 
@@ -562,6 +627,13 @@ void K3b::MainWindow::initView()
     //pTitleLabel->setFixedHeight(15);
     pTitleLabel->setText( i18n("Kylin-Burner" ));
     pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
+
+    pTitleLabel->setObjectName("titleLabel");
+
+    ThManager()->regTheme(pTitleLabel, "ukui-white",
+                             "font: 14px;color:#333333");
+    ThManager()->regTheme(pTitleLabel, "ukui-black",
+                             "font: 14px;color:#FFFFFF");
     
     //左侧 上方tille :水平布局
     QHBoxLayout *hLayout = new QHBoxLayout( label_title );
@@ -576,6 +648,7 @@ void K3b::MainWindow::initView()
     d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
     d->btnImage = new QPushButton(i18n("Image Burner"), btnLabel);   // 镜像刻录
     d->btnCopy = new QPushButton(i18n("Copy Disk"), btnLabel);     // 复制光盘
+    isDataActived = true; isImageActived = false; isCopyActived = false;
 #if 1
     d->btnData->setFixedSize( 115, 50);
     d->btnData->setStyleSheet("QPushButton{"
@@ -593,12 +666,12 @@ void K3b::MainWindow::initView()
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+
     d->btnImage->setFixedSize( 115, 50);
-    d->btnImage->setStyleSheet("QPushButton{"
-                                   "background-color:transparent;"
+    d->btnImage->setStyleSheet("background-color:transparent;"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
-                                   "color: #444444;font: 14px;border-radius: 6px;}"
+                                   "color: #444444;font: 14px;border-radius: 6px;"
                                "QPushButton:hover{"
                                    "background-color:rgba(87, 137, 217,0.15);"
                                    "background-repeat: no-repeat;"
@@ -609,6 +682,10 @@ void K3b::MainWindow::initView()
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+    d->btnImage->setStyleSheet("background-color:transparent;"
+                               "background-repeat: no-repeat;"
+                               "background-position:left;"
+                               "color: #444444;font: 14px;border-radius: 6px;");
     d->btnCopy->setFixedSize( 115, 50);
     d->btnCopy->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
@@ -671,11 +748,26 @@ void K3b::MainWindow::initView()
     ButtonLayout->addLayout( layoutCopy );
     ButtonLayout->addStretch();
 
+#if 0
     btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
                          "background-position: top;"
                          "border:none;"
                          "background-repeat:repeat-xy;}");
-    
+    btnLabel->setStyleSheet("#leftBack{background-color: rgba(0, 0, 0, 0.15);"
+                            "background-position: top;"
+                            "border:none;}");
+#endif
+
+    btnLabel->setObjectName("leftBack");
+
+    ThManager()->regTheme(btnLabel, "ukui-white","QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
+                                                        "background-position: top;"
+                                                        "border:none;"
+                                                        "background-repeat:repeat-xy;}");
+    ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: rgba(0, 0, 0, 0.15);"
+                            "background-position: top;"
+                            "border:none;}");
+
     connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
     connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
     connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
@@ -686,7 +778,9 @@ void K3b::MainWindow::initView()
 
     // 右侧：label :上方 title bar
     title_bar = new TitleBar( this );
-    
+
+    title_bar->setFixedWidth(750);
+
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
     d->documentStack->showFullScreen();
@@ -736,28 +830,40 @@ void K3b::MainWindow::initView()
 //    documentHullLayout->addWidget( d->documentHeader, 0, 0 );
     documentHullLayout->addWidget( d->documentTab, 0, 0 );
 
-    connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
-    connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
+    //connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
+    //connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
 
     d->documentStack->addWidget( d->documentHull );
 
     // --- filetreecombobox-toolbar ----------------------------------------------------------------
-	d->filePlacesModel = new KFilePlacesModel;
-    d->urlNavigator = new K3b::UrlNavigator(d->filePlacesModel, this);
+    //d->filePlacesModel = new KFilePlacesModel;
+    //d->urlNavigator = new K3b::UrlNavigator(d->filePlacesModel, this);
 
-    QWidgetAction * urlNavigatorAction = new QWidgetAction(this);
-    urlNavigatorAction->setDefaultWidget(d->urlNavigator);
-    urlNavigatorAction->setText(i18n("&Location Bar"));
+    //QWidgetAction * urlNavigatorAction = new QWidgetAction(this);
+    //urlNavigatorAction->setDefaultWidget(d->urlNavigator);
+    //urlNavigatorAction->setText(i18n("&Location Bar"));
     // ---------------------------------------------------------------------------------------------
-    
+
+
     d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject ); 
+    logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentTab );
+    logger->debug("Draw burn image view.");
     
     d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
+    logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentTab );
+    logger->debug("Draw burn data view.");
+
+    /*
+    K3b::DataView *t = static_cast<K3b::DataView *>(d->view_data);
+    title_bar->testDev = t->testGetDev();
+    */
   
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
+    logger->debug("Create copy image project.");
     d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentTab );
+    logger->debug("Draw copy image view.");
 
     d->doc_image->setView( d->view_image );
     d->doc_data->setView( d->view_data );
@@ -769,7 +875,67 @@ void K3b::MainWindow::initView()
 
     d->documentTab->tabBar()->hide();
     d->documentTab->setCurrentTab( d->doc_data );
+    logger->info("Draw main frame end...");
 
+    /*
+     * file filter
+     */
+    connect(title_bar, SIGNAL(setIsHidden(bool)), this, SLOT(isMenuHidden(bool)));
+    connect(title_bar, SIGNAL(setIsBroken(bool)), this, SLOT(isMenuBroken(bool)));
+    connect(title_bar, SIGNAL(setIsReplace(bool)), this, SLOT(isMenuReplace(bool)));
+    connect(this, SIGNAL(setIsMenuHidden(bool)), title_bar, SLOT(isHidden(bool)));
+    connect(this, SIGNAL(setIsMenuBroken(bool)), title_bar, SLOT(isBroken(bool)));
+    connect(this, SIGNAL(setIsMenuReplace(bool)), title_bar, SLOT(isReplace(bool)));
+
+    connect(d->view_data, SIGNAL(setIsHidden(bool)), this, SLOT(isHidden(bool)));
+    connect(d->view_data, SIGNAL(setIsBroken(bool)), this, SLOT(isBroken(bool)));
+    connect(d->view_data, SIGNAL(setIsReplace(bool)), this, SLOT(isReplace(bool)));
+    connect(this, SIGNAL(setIsHidden(bool)), d->view_data, SLOT(isHidden(bool)));
+    connect(this, SIGNAL(setIsBroken(bool)), d->view_data, SLOT(isBroken(bool)));
+    connect(this, SIGNAL(setIsReplace(bool)), d->view_data, SLOT(isReplace(bool)));
+}
+
+void K3b::MainWindow::isHidden(bool flag)
+{
+    logger->debug("Set function file filter setting, hidden file turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuHidden(flag);
+}
+
+void K3b:: MainWindow::isBroken(bool flag)
+{
+    logger->debug("Set function file filter setting, broken link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuBroken(flag);
+}
+
+void K3b:: MainWindow::isReplace(bool flag)
+{
+    logger->debug("Set function file filter setting, replace link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsMenuReplace(flag);
+}
+
+void K3b::MainWindow::isMenuHidden(bool flag)
+{
+    qDebug() << "Menu hidden..." << flag;
+    logger->debug("Set menu file filter setting, hidden file turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsHidden(flag);
+}
+
+void K3b::MainWindow::isMenuBroken(bool flag)
+{
+    logger->debug("Set menu file filter setting, broken link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsBroken(flag);
+}
+
+void K3b::MainWindow::isMenuReplace(bool flag)
+{
+    logger->debug("Set menu file filter setting, replace link turn to %s.",
+                  flag ? "true" : "false");
+    emit setIsReplace(flag);
 }
 
 bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
@@ -807,22 +973,37 @@ bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
         }
         case QEvent::HoverLeave:
         {
-            if(obj == d->btnData)
+            if(obj == d->btnData && !isDataActived)
                 d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
-            if(obj == d->btnImage)
+            if(obj == d->btnImage && !isImageActived)
                 d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
-            if(obj == d->btnCopy)
+            if(obj == d->btnCopy && !isCopyActived)
                 d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
             break;
         }
         case QEvent::MouseButtonPress:
         {
             if(obj == d->btnData)
+            {
+                isDataActived = true; isImageActived = false; isCopyActived = false;
                 d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+            }
             if(obj == d->btnImage)
+            {
+                isDataActived = false; isImageActived = true; isCopyActived = false;
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
                 d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-悬停点击.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+            }
             if(obj == d->btnCopy)
+            {
+                isDataActived = false; isImageActived = false; isCopyActived = true;
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
                 d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-悬停点击.png"));
+            }
             break;
         }
         default:
@@ -979,7 +1160,7 @@ void K3b::MainWindow::readOptions()
     
     KConfigGroup grp( config(), "General Options" );
     d->actionViewDocumentHeader->setChecked( grp.readEntry("Show Document Header", false) );
-    d->urlNavigator->setUrlEditable( !grp.readEntry( "Navigator breadcrumb mode", true ) );
+    //d->urlNavigator->setUrlEditable( !grp.readEntry( "Navigator breadcrumb mode", true ) );
 
     // initialize the recent file list
     KConfigGroup recentGrp(config(), "Recent Files");

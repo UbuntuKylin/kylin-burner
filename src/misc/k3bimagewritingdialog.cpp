@@ -390,6 +390,9 @@ K3b::ImageWritingDialog::ImageWritingDialog( QWidget* parent )
 
     setupGui();
 
+    disconnect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( accept() ) );
+
     d->md5Job = new K3b::Md5Job( 0, this );
     connect( d->md5Job, SIGNAL(finished(bool)),
              this, SLOT(slotMd5JobFinished(bool)) );
@@ -547,14 +550,14 @@ void K3b::ImageWritingDialog::setupGui()
     setMask(bmp);
     
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(20,20);
+    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo-小.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(48,11);
+    title->setFixedSize(80,20);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
     QPushButton *close = new QPushButton( this );
     close->setFixedSize(20,20);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
@@ -566,7 +569,7 @@ void K3b::ImageWritingDialog::setupGui()
     connect(close, SIGNAL( clicked() ), this , SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(20);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
     titlebar->setContentsMargins(11, 0, 0, 0);
     titlebar->addWidget(icon);
@@ -648,7 +651,7 @@ void K3b::ImageWritingDialog::setupGui()
     KIO::filesize_t tempFreeSpace = d->tempDirSelectionWidget->freeTempSpace();
     QString tmp_size = d->tempDirSelectionWidget->tempPath() + "     "  +  KIO::convertSize(tempFreeSpace);
     m_labeltmpPath->setText( tmp_path );
-    m_labeltmpPath->setFixedSize( 56, 12);
+    m_labeltmpPath->setFixedSize( 80, 30);
     m_labeltmpPath->setFont( label_font );
     m_labeltmpPath->setStyleSheet("color:#444444;");
 
@@ -656,6 +659,7 @@ void K3b::ImageWritingDialog::setupGui()
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
     m_tmpPath->setStyleSheet("color:#444444;");
+    m_tmpPath->setEnabled(false);
   //***************
 
     QVBoxLayout* vlayout = new QVBoxLayout();

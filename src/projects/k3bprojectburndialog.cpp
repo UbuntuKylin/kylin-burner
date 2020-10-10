@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2008 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -24,6 +25,7 @@
 #include "k3bapplication.h"
 #include "k3bmediacache.h"
 #include "k3bmedium.h"
+#include "ThemeManager.h"
 
 #include "k3bdevice.h"
 #include "k3bdevicemanager.h"
@@ -65,8 +67,8 @@ K3b::ProjectBurnDialog::ProjectBurnDialog( K3b::Doc* doc, QWidget *parent )
                             START_BUTTON,
                             "default " + doc->typeString() + " settings" ),
       m_writerSelectionWidget(0),
-      m_tempDirSelectionWidget(0),
-      m_imageTipText(i18n("Use the 'Image' tab to optionally adjust the path of the image."))
+      m_tempDirSelectionWidget(0)
+      //m_imageTipText(i18n("Use the 'Image' tab to optionally adjust the path of the image."))
 {
     flag = 1;
 
@@ -162,6 +164,7 @@ void K3b::ProjectBurnDialog::toggleAll()
 
 int K3b::ProjectBurnDialog::execBurnDialog( bool burn )
 {
+
     if( burn && m_job == 0 ) {
         setButtonShown( START_BUTTON, true );
         setDefaultButton( START_BUTTON );
@@ -171,9 +174,16 @@ int K3b::ProjectBurnDialog::execBurnDialog( bool burn )
         setDefaultButton( SAVE_BUTTON );
     }
 
+    readSettingsFromProject();
+
     return K3b::InteractionDialog::exec();
 }
 
+void K3b::ProjectBurnDialog::slotSaveToClicked()
+{
+    saveSettingsToProject();
+    accept();
+}
 
 void K3b::ProjectBurnDialog::slotSaveClicked()
 {
@@ -263,6 +273,9 @@ void K3b::ProjectBurnDialog::prepareGui()
 {
     QVBoxLayout* mainLay = new QVBoxLayout( mainWidget() );
     mainLay->setContentsMargins( 0, 0, 0, 0 );
+    setObjectName("SettingS");
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
 
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     setFixedSize(430, 485);
@@ -281,16 +294,19 @@ void K3b::ProjectBurnDialog::prepareGui()
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(50,13);
+    title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
+    title->setObjectName("BurnDialogTitle");
+    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -300,15 +316,15 @@ void K3b::ProjectBurnDialog::prepareGui()
     connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0); 
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
-    titlebar->addStretch();
+    titlebar->addStretch(285);
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     
     mainLay->addWidget( label_top );
     mainLay->addSpacing( 20 );
@@ -328,6 +344,10 @@ void K3b::ProjectBurnDialog::prepareGui()
                                 font-weight:400; \
                                 color:rgba(68,68,68,1); \
                                 line-height:32px;}");
+
+    label_title->setObjectName("BurnDialogLabelTitle");
+    ThManager()->regTheme(label_title, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(label_title, "ukui-black", "font: 24px; color: #FFFFFF;");
 
     m_writerSelectionWidget = new K3b::WriterSelectionWidget();
     m_writerSelectionWidget->hideComboMedium();
@@ -364,23 +384,32 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkCacheImage->setFixedHeight(16);
     label_font.setPixelSize(14);
     m_checkCacheImage->setFont( label_font );
-    m_checkCacheImage->setStyleSheet("color:#444444;");
+    m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
+    m_checkCacheImage->setObjectName("CheckImage");
+    ThManager()->regTheme(m_checkCacheImage, "ukui-white", "color:#444444;font-size:16px;");
+    ThManager()->regTheme(m_checkCacheImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
 
     m_checkSimulate = K3b::StdGuiItems::simulateCheckbox( m_optionGroup );
     m_checkSimulate->setFixedHeight(16);
     m_checkSimulate->setFont( label_font );
     m_checkSimulate->setStyleSheet("color:#444444;");
-    m_checkSimulate->setDisabled( true );
+    m_checkSimulate->hide();
+    //m_checkSimulate->setDisabled( true );
+
 
     m_checkRemoveBufferFiles = K3b::StdGuiItems::removeImagesCheckbox( m_optionGroup );
     m_checkRemoveBufferFiles->setFixedHeight(16);
     m_checkRemoveBufferFiles->setFont( label_font );
     m_checkRemoveBufferFiles->setStyleSheet("color:#444444;");
+    m_checkRemoveBufferFiles->hide();
 
     m_checkOnlyCreateImage = K3b::StdGuiItems::onlyCreateImagesCheckbox( m_optionGroup );
     m_checkOnlyCreateImage->setFixedHeight(16);
     m_checkOnlyCreateImage->setFont( label_font );
     m_checkOnlyCreateImage->setStyleSheet("color:#444444;");
+    m_checkOnlyCreateImage->setObjectName("CheckOnlyImage");
+    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-white", "color:#444444;font-size:16px;");
+    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
    
     QLabel *lcheck = new QLabel(this);
     QVBoxLayout  *laycheck = new QVBoxLayout(lcheck);
@@ -404,14 +433,22 @@ void K3b::ProjectBurnDialog::prepareGui()
     QString tmp_size = m_tempDirSelectionWidget->tempPath() + "     "  +  KIO::convertSize(tempFreeSpace);
     m_labeltmpPath->setText( tmp_path );
     //m_labeltmpPath->setFixedSize( 56, 12);
-    m_labeltmpPath->setFixedSize( 60, 18);
+    m_labeltmpPath->setFixedSize( 80, 30);
     m_labeltmpPath->setFont( label_font );
     m_labeltmpPath->setStyleSheet("color:#444444;");
+    m_labeltmpPath->setObjectName("LabelPath");
+    ThManager()->regTheme(m_labeltmpPath, "ukui-white", "color:#444444;font-size:14px;");
+    ThManager()->regTheme(m_labeltmpPath, "ukui-black", "color:#FFFFFF;font-size:14px;");
     
     m_tmpPath->setText( tmp_size);
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
-    m_tmpPath->setStyleSheet("color:#444444;");
+    //m_tmpPath->setStyleSheet("color:#444444;");
+    m_tmpPath->setObjectName("TmpPath");
+    ThManager()->regTheme(m_tmpPath, "ukui-white", "font-color:#444444;font:14px;", QString(),
+                          QString(),"color:#444444;font:14px;border: 1px solid gray;");
+    ThManager()->regTheme(m_tmpPath, "ukui-black", "color:#FFFFFF;font:14px;", QString(),
+                          QString(),"color:#FFFFFF;font:14px;border: 1px solid white;");
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(31, 0, 0, 0);
@@ -475,6 +512,8 @@ void K3b::ProjectBurnDialog::prepareGui()
     setTabOrder( m_writerSelectionWidget, m_writingModeWidget );
     setTabOrder( m_writingModeWidget, groupCopies );
     setTabOrder( groupCopies, m_optionGroup );
+
+    m_tmpPath->setEnabled(false);
 
     // some default connections that should always be useful
     connect( m_writerSelectionWidget, SIGNAL(writerChanged()), this, SLOT(slotWriterChanged()) );

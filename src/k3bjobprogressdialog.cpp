@@ -107,6 +107,8 @@ void K3b::JobProgressDialog::setupGUI()
     
     QVBoxLayout* mainLayout = new QVBoxLayout();
     mainLayout->setContentsMargins(31, 0, 30, 30);
+
+
 #if 1
     // header
     // ------------------------------------------------------------------------------------------
@@ -245,16 +247,16 @@ void K3b::JobProgressDialog::setupGUI()
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(48,11);
+    title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+                         "font: 14px;}");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -264,15 +266,15 @@ void K3b::JobProgressDialog::setupGUI()
     connect(close, SIGNAL(clicked()), this, SLOT( accept() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout(label_top);
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
     titlebar->addStretch();
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     
     mainView->addWidget( label_top );
     mainView->addSpacing(40);
@@ -300,7 +302,7 @@ void K3b::JobProgressDialog::setupGUI()
     m_progressPercent->setFixedHeight(10);
     mainLayout->addWidget( m_progressPercent );
     //m_progressPercent->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
-    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:10px;color:#444444;text-align: center;");
+    m_progressPercent->setStyleSheet(" background-color:#e9e9e9; border-radius:4px;font:12px;color:#FFFFFF;text-align: center;");
 
     //mainLayout->addWidget( d->viewInfo, 1 );
     layout4->addWidget( d->viewInfo );
@@ -344,6 +346,7 @@ void K3b::JobProgressDialog::setupGUI()
 
     mainLayout->addLayout( hlayout );
     
+    /*
     m_pixLabel->setThemePixmap( K3b::Theme::PROGRESS_WORKING );
 
     slotThemeChanged();
@@ -352,6 +355,7 @@ void K3b::JobProgressDialog::setupGUI()
         connect( k3bappcore->themeManager(), SIGNAL(themeChanged()),
                  this, SLOT(slotThemeChanged()) );
     }
+    */
 }
 
 
@@ -442,7 +446,8 @@ void K3b::JobProgressDialog::slotProcessedSubSize( int processedTrackSize, int t
 
 void K3b::JobProgressDialog::slotInfoMessage( const QString& infoString, int type )
 {
-    qDebug() << "xingwei.liu::" << __func__ << __LINE__ << __FILE__ << infoString <<endl;
+    qDebug() << "xingwei.liu::" << __func__ << __LINE__ << __FILE__ << infoString << type <<endl;
+
     d->viewInfo->clear();
     QTreeWidgetItem* currentInfoItem = new QTreeWidgetItem( d->viewInfo );
     currentInfoItem->setText( 0, infoString );
@@ -451,6 +456,8 @@ void K3b::JobProgressDialog::slotInfoMessage( const QString& infoString, int typ
     // set the icon
     switch( type ) {
     case K3b::Job::MessageError:
+        KMessageBox::information( this, infoString,
+                                     i18n("Error") );
         currentInfoItem->setIcon( 0, QIcon::fromTheme( "dialog-error" ) );
         break;
     case K3b::Job::MessageWarning:
@@ -545,7 +552,10 @@ void K3b::JobProgressDialog::setJob( K3b::Job* job )
 
     d->viewInfo->clear();
     m_progressPercent->setValue(0);
+    //m_progressPercent->setStyleSheet("QProgressBar{color: #05B8CC;}");
     m_progressSubPercent->setValue(0);
+    //m_progressSubPercent->setStyleSheet("QProgressBar{color: #05B8CC;}");
+    //m_progressSubPercent->setStyleSheet("QProgressBar::chunk{color: #05B8CC;}");
     m_labelTask->setText("");
     m_labelSubTask->setText("");
     m_labelProcessedSize->setText("");
@@ -653,7 +663,7 @@ void K3b::JobProgressDialog::slotProgress( int percent )
     if (percent > d->lastProgress) {
         d->lastProgress = percent;
         m_plainCaption.remove(QRegularExpression("\\(.+?\\) "));
-        k3bappcore->k3bMainWindow()->setPlainCaption(QString("(%1%) %2").arg(percent).arg(m_plainCaption));
+        //k3bappcore->k3bMainWindow()->setPlainCaption(QString("(%1%) %2").arg(percent).arg(m_plainCaption));
 
         //setWindowTitle(QString("(%1%) %2").arg(percent).arg(m_job->jobDescription()));
     }

@@ -63,6 +63,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Archive Config CoreAddon
                                      KCMUtils KIO Notifications NewStuff NotifyConfig Service Solid WidgetsAddons XmlGui)
 
 find_package(Qt5WebKitWidgets)
+find_package(libgsettings-qt-dev)
 set_package_properties(Qt5WebKitWidgets PROPERTIES
     DESCRIPTION "Qt5WebKitWidgets is used for prettier k3bdiskinfoview."
     TYPE OPTIONAL)

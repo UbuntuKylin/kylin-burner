@@ -1,4 +1,23 @@
+/*
+ * Copyright (C) 2020  KylinSoft Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 #include "k3bFileFilterDialog.h"
+#include "ThemeManager.h"
 
 #include <KLocalizedString>
 #include <KConfig>
@@ -10,6 +29,8 @@
 #include <QHBoxLayout>
 #include <QPainter>
 #include <QBitmap>
+
+#include <QDebug>
 
 FileFilter::FileFilter(QWidget *parent) :
     QDialog(parent)
@@ -31,16 +52,16 @@ FileFilter::FileFilter(QWidget *parent) :
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(48,13);
-    title->setStyleSheet("QLabel{background-color:transparent;"
-                         "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+    title->setFixedSize(80,30);
+    title->setObjectName("FilterTitile");
+    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -50,15 +71,15 @@ FileFilter::FileFilter(QWidget *parent) :
     connect(close, &QPushButton::clicked, this, &FileFilter::filter_exit);
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
-    titlebar->addStretch();
+    titlebar->addStretch(285);
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
     
     QLabel *filter_label = new QLabel( i18n("filterSet") );
     filter_label->setFixedHeight(25);
@@ -72,26 +93,40 @@ FileFilter::FileFilter(QWidget *parent) :
                                         color:rgba(68,68,68,1);\
                                         line-height:32px;}");
 
+
+    filter_label->setObjectName("FilterLabelTitile");
+    ThManager()->regTheme(filter_label, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(filter_label, "ukui-black", "font: 24px; color: #FFFFFF;");
+
     discard_hidden_file = new QCheckBox( i18n("discard hidden file") );
-    discard_hidden_file->setChecked(true);
+    //discard_hidden_file->setChecked(true);
     discard_hidden_file->setFixedHeight(16);
     QFont label_font;
     label_font.setPixelSize(14);
     discard_hidden_file->setFont( label_font );
     discard_hidden_file->setStyleSheet("color:#444444;");
+    discard_hidden_file->setObjectName("HiddenFile");
+    ThManager()->regTheme(discard_hidden_file, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(discard_hidden_file, "ukui-black", "font: 14px; color: #FFFFFF;");
 
     
     discard_broken_link = new QCheckBox( i18n("discard broken link") );
-    discard_broken_link->setChecked(true);
+    //discard_broken_link->setChecked(true);
     discard_broken_link->setFixedHeight(18);
     discard_broken_link->setFont( label_font );
     discard_broken_link->setStyleSheet("color:#444444;");
+    discard_broken_link->setObjectName("BrokenLink");
+    ThManager()->regTheme(discard_broken_link, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(discard_broken_link, "ukui-black", "font: 14px; color: #FFFFFF;");
     
     follow_link = new QCheckBox( i18n("follow link") );
     follow_link->setChecked(false);
     follow_link->setFixedHeight(18);
     follow_link->setFont( label_font );
     follow_link->setStyleSheet("color:#444444;");
+    follow_link->setObjectName("FollowLink");
+    ThManager()->regTheme(follow_link, "ukui-white", "font: 14px; color: #444444;");
+    ThManager()->regTheme(follow_link, "ukui-black", "font: 14px; color: #FFFFFF;");
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(25, 0, 0, 0);
@@ -113,10 +148,53 @@ FileFilter::FileFilter(QWidget *parent) :
 
     this->setModal( true );
 
+    connect(discard_hidden_file, SIGNAL(stateChanged(int)), this, SLOT(hiddenChanged(int)));
+    connect(discard_broken_link, SIGNAL(stateChanged(int)), this, SLOT(brokenChanged(int)));
+    connect(follow_link, SIGNAL(stateChanged(int)), this, SLOT(replaceChanged(int)));
+
 }
 
 FileFilter::~FileFilter()
 {
+    if (discard_hidden_file) delete discard_hidden_file;
+}
+
+void FileFilter::hiddenChanged(int stat)
+{
+    qDebug() << "hidden changed : " << stat;
+    bool check = false;
+    if (Qt::Checked == stat) check = true;
+    else check = false;
+    emit setHidden(check);
+}
+
+void FileFilter::brokenChanged(int stat)
+{
+    qDebug() << "broken changed : " << stat;
+    if (Qt::Checked == stat) emit setBroken(true);
+    else emit setBroken(false);
+}
+
+void FileFilter::replaceChanged(int stat)
+{
+    qDebug() << "replace changed : " << stat;
+    if (Qt::Checked == stat) emit setReplace(true);
+    else emit setReplace(false);
+}
+
+void FileFilter::setIsHidden(bool flag)
+{
+    discard_hidden_file->setChecked(flag);
+}
+
+void FileFilter::setIsBroken(bool flag)
+{
+    discard_broken_link->setChecked(flag);
+}
+
+void FileFilter::setIsReplace(bool flag)
+{
+    follow_link->setChecked(flag);
 }
 
 void FileFilter::filter_exit()

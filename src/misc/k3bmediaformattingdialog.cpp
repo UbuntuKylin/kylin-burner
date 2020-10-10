@@ -1,5 +1,5 @@
 /*
- *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2007-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -18,6 +18,8 @@
 #include "k3bmediacache.h"
 #include "k3bmedium.h"
 
+#include "k3bResultDialog.h"
+
 #include "k3bdvdformattingjob.h"
 #include "k3bblankingjob.h"
 
@@ -28,6 +30,7 @@
 #include "k3bwriterselectionwidget.h"
 #include "k3bwritingmodewidget.h"
 #include "k3bjobprogressdialog.h"
+#include "ThemeManager.h"
 
 #include <KConfig>
 #include <KSharedConfig>
@@ -51,16 +54,84 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                             START_BUTTON,
                             "Formatting and Erasing" ) // config group
 {
+
     QWidget* frame = mainWidget();
     
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-    
+
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     resize(430, 280);
+    ThManager()->regTheme(button_ok, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_ok, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
 
+
+    ThManager()->regTheme(button_cancel, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(67, 67, 67, 1);",
+                                                         "background-color: rgba(107, 141, 235, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(65, 95, 195, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(61, 107, 229, 1);",
+                                                         "background-color: rgba(233, 233, 233, 1);"
+                                                         "border: none; border-radius: 4px;"
+                                                         "font: 14px \"MicrosoftYaHei\";"
+                                                         "color: rgba(193, 193, 193, 1);");
+    ThManager()->regTheme(button_cancel, "ukui-black",
+                                       "background-color: rgba(57, 58, 62, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(255, 255, 255, 1);",
+                                       "background-color: rgba(107, 141, 235, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(65, 95, 195, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(61, 107, 229, 1);",
+                                       "background-color: rgba(233, 233, 233, 1);"
+                                       "border: none; border-radius: 4px;"
+                                       "font: 14px \"MicrosoftYaHei\";"
+                                       "color: rgba(193, 193, 193, 1);");
     QBitmap bmp(this->size());
     bmp.fill();
     QPainter p(&bmp);
@@ -69,19 +140,23 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     p.drawRoundedRect(bmp.rect(), 6, 6);
     setMask(bmp);
 
-    QLabel *icon = new QLabel();
-    icon->setFixedSize(16,16);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo-小.png);"
+    icon = new QLabel();
+    icon->setFixedSize(30,30);
+    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
     //title->setFixedSize(48,11);
-    title->setFixedSize(48,13);
+    title->setFixedSize(80,30);
     //title->setFixedWidth(48);
-    title->setStyleSheet("QLabel{background-color:transparent;"
-                         "background-repeat: no-repeat;color:#444444;"
-                         "font: 12px;}");
+    title->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    title->setObjectName("Titles");
+    ThManager()->regTheme(title, "ukui-white", "background-color:transparent;"
+                                               "font: 14px; color: #444444;");
+    ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
+                                               "font: 14px; color: #FFFFFF;");
+
     QPushButton *close = new QPushButton();
-    close->setFixedSize(20,20);
+    close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
@@ -91,16 +166,16 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     connect(close, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ));
 
     QLabel* label_top = new QLabel( this );
-  //  label_top->setFixedHeight(27);
+    label_top->setFixedHeight(34);
     label_top->setFixedWidth(430);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(11, 4, 4, 0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(5);
+    titlebar->addSpacing(0);
     titlebar->addWidget(title);
     titlebar->addStretch();
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
+    //titlebar->addSpacing(5);
 
     QLabel* label_title = new QLabel( this );
     label_title->setText( i18n("clean") );
@@ -111,6 +186,11 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                       font-family:Microsoft YaHei;\
                                       font-weight:400;\
                                       color:rgba(68,68,68,1);}");
+    label_title->setObjectName("LabelTitles");
+    ThManager()->regTheme(label_title, "ukui-white", "background-color:transparent;"
+                                               "font: 24px; font-weight:400; color: #444444;");
+    ThManager()->regTheme(label_title, "ukui-black", "background-color:transparent;"
+                                               "font: 24px; font-weight:400; color: #FFFFFF;");
 
     QLabel* label_CD = new QLabel( this );
     label_CD->setText( i18n("select CD") );
@@ -121,6 +201,11 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                        font-family:Microsoft YaHei;\
                                        font-weight:400;\
                                        color:rgba(68,68,68,1);}");
+   label_CD->setObjectName("LabelCDs");
+   ThManager()->regTheme(label_CD, "ukui-white", "background-color:transparent;"
+                                              "font: 14px; color: #444444;");
+   ThManager()->regTheme(label_CD, "ukui-black", "background-color:transparent;"
+                                              "font: 14px; color: #FFFFFF;");
 
     m_writerSelectionWidget = new K3b::WriterSelectionWidget( frame );
     m_writerSelectionWidget->setFixedWidth(369);
@@ -199,26 +284,54 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     connect( m_writerSelectionWidget, SIGNAL(writerChanged()), this, SLOT(slotToggleAll()) );
 
     slotToggleAll();
+
 }
 
 
 K3b::MediaFormattingDialog::~MediaFormattingDialog()
 {
+    delete icon;
 }
 
 
 void K3b::MediaFormattingDialog::setDevice( K3b::Device::Device* dev )
 {
+    icon->setFocus();
     m_writerSelectionWidget->setWriterDevice( dev );
 }
 
 void K3b::MediaFormattingDialog::slotCancelClicked()
 {
+    icon->setFocus();
     close();
+}
+
+void K3b::MediaFormattingDialog::slotFinished(bool f)
+{
+    flag = f;
 }
 
 void K3b::MediaFormattingDialog::slotStartClicked()
 {
+    Device::Device* dev = m_writerSelectionWidget->writerDevice();
+    if (NULL == dev) {
+        KMessageBox::information( this, i18n("the media in device is not cleanable"),
+                                     i18n("no media to clean") );
+        /*
+        KMessageBox::information( this, i18n("no media to clean"),
+                                     i18n("no media to clean") );
+        */
+        button_ok->setEnabled(false); return;
+    }
+    if (!((m_writerSelectionWidget->wantedMediumType() & dev->readCapabilities()) ||
+          (m_writerSelectionWidget->wantedMediumType() & dev->writeCapabilities())))
+    {
+        KMessageBox::information( this, i18n("the media in device is not cleanable"),
+                                     i18n("no media to clean") );
+        button_ok->setEnabled(false);
+        return;
+    }
+
     K3b::Medium medium = k3bappcore->mediaCache()->medium( m_writerSelectionWidget->writerDevice() );
 
     K3b::JobProgressDialog dlg( parentWidget(), false );
@@ -248,7 +361,8 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         theJob = job;
     }
 
-    hide();
+    //hide();
+    connect( theJob, SIGNAL(finished(bool)), this, SLOT(slotFinished(bool)) );
 
     dlg.startJob( theJob );
 
@@ -258,6 +372,8 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         show();
     else
         close();
+    BurnResult* dialog = new BurnResult( flag, "clean");
+    dialog->show();
 }
 
 
@@ -265,6 +381,8 @@ void K3b::MediaFormattingDialog::toggleAll()
 {
     K3b::Medium medium = k3bappcore->mediaCache()->medium( m_writerSelectionWidget->writerDevice() );
     K3b::WritingModes modes = 0;
+
+
     if ( medium.diskInfo().mediaType() & (K3b::Device::MEDIA_DVD_RW|K3b::Device::MEDIA_DVD_RW_SEQ|K3b::Device::MEDIA_DVD_RW_OVWR) ) {
         modes |=  K3b::WritingModeIncrementalSequential|K3b::WritingModeRestrictedOverwrite;
     }

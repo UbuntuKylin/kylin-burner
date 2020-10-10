@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -32,6 +33,7 @@
 #include "k3bwritingmodewidget.h"
 #include "k3bmediacache.h"
 #include "k3bfilecompilationsizehandler.h"
+#include "ThemeManager.h"
 
 #include <QFile>
 #include <QFileInfo>
@@ -65,6 +67,9 @@ K3b::DataBurnDialog::DataBurnDialog(K3b::DataDoc* _doc, QWidget *parent )
     prepareGui();
 
     setTitle( i18n("Data Project"), i18n("Size: %1", KIO::convertSize(_doc->size()) ) );
+
+    disconnect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
+    connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotSaveToClicked() ) );
 
     // for now we just put the verify checkbox on the main page...
     m_checkVerify = K3b::StdGuiItems::verifyCheckBox( m_optionGroup );

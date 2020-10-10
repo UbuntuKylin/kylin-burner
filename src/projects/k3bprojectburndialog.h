@@ -1,5 +1,6 @@
 /*
  *
+ * Copyright (C) 2020 KylinSoft Co., Ltd. <Derek_Wang39@163.com>
  * Copyright (C) 2003-2009 Sebastian Trueg <trueg@k3b.org>
  *
  * This file is part of the K3b project.
@@ -64,6 +65,7 @@ namespace K3b {
     public Q_SLOTS:
         void slotFinished( bool );
         void close();
+        void slotSaveToClicked();
 
     protected Q_SLOTS:
         /** burn */
@@ -182,11 +184,11 @@ namespace K3b {
 
     private Q_SLOTS:
         void slotShowImageTip( bool buttonActivated );
-
+public:
+        int flag;
     private:
         Doc* m_doc;
         BurnJob* m_job;
-        int flag;
     };
 }
 
