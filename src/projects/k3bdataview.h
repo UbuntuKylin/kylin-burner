@@ -160,6 +160,7 @@ namespace K3b {
         void disableButtonNewDir();
 
         void copyData(K3b::DataDoc *target, K3b::DataDoc *source);
+        bool checkIsDeleteable(K3b::DataDoc *);
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event) override;  //事件过滤

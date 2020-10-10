@@ -64,15 +64,20 @@
 
 void K3b::DataView::onDataDelete(bool flag)
 {
-    //button_remove->setEnabled(flag);
-    if (flag) enableButtonRemove();
-    else disableButtonRemove();
+    if (flag)
+    {
+        enableButtonRemove();
+        enableButtonClear();
+    }
+    else
+    {
+        disableButtonRemove();
+        disableButtonClear();
+    }
 }
 
 void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *model)
 {
-    disableButtonRemove();
-    disableButtonClear();
     if (0 == model->rowCount(parent))
     {
         disableButtonRemove();
@@ -85,8 +90,8 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
     }
     else
     {
-        //enableButtonRemove();
-        //enableButtonClear();
+        enableButtonRemove();
+        enableButtonClear();
         enableButtonBurn();
         enableBurnSetting();
         btnFileFilter->show();        
@@ -1045,6 +1050,8 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
 void K3b::DataView::slotOpenClicked()
 {
     int ret = m_dataViewImpl->slotOpenDir();
+    enableButtonRemove();
+    enableButtonClear();
     if (ret)
     {
         copyData(docs.at(combo_CD->currentIndex()), m_doc);
@@ -1823,6 +1830,15 @@ void K3b::DataView::disableButtonNewDir()
     }
 }
 
+bool K3b::DataView::checkIsDeleteable(K3b::DataDoc *doc)
+{
+    for (int i = 0; i < doc->root()->children().size(); ++i)
+    {
+        if (doc->root()->children().at(i)->isDeleteable()) return true;
+    }
+    return false;
+}
+
 void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
 {
     K3b::DataItem *child = NULL;
@@ -1837,6 +1853,8 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
             target->addUnremovableUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
     }
 
+    bool cls = checkIsDeleteable(m_doc);
+
     if (m_doc->root()->children().size() == 0)
     {
         disableButtonRemove();
@@ -1846,6 +1864,16 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         btnFileFilter->hide();
         m_dataViewImpl->view()->setFixedHeight(28);
         if (tips) tips->show();
+    }
+    else if (!cls)
+    {
+        disableButtonRemove();
+        disableButtonClear();
+        enableButtonBurn();
+        enableBurnSetting();
+        btnFileFilter->show();
+        if (tips) tips->hide();
+        m_dataViewImpl->view()->setFixedHeight(370);
     }
     else
     {

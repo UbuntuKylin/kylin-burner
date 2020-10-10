@@ -12,6 +12,7 @@ add_subdirectory( pic )
 ki18n_wrap_ui(ui_sources
     kylinburnerfilefilter.ui
     kylinburnerfilefilterselection.ui
+    kylinburnerabout.ui
     option/base_k3bthemeoptiontab.ui
     option/base_k3bmiscoptiontab.ui
     option/base_k3bpluginoptiontab.ui
@@ -137,6 +138,7 @@ add_executable(burner
     k3bviewcolumnadjuster.cpp
     k3bmodelutils.cpp
     ThemeManager.cpp
+    kylinburnerabout.cpp
     helper/k3bhelperprogramitem.cpp
     misc/k3bimagewritingdialog.cpp
     misc/k3bmediacopydialog.cpp

@@ -38,6 +38,7 @@
 #include "k3bapplication.h"
 #include <KMountPoint>
 #include <klocalizedstring.h>
+#include <QtDBus>
 
 K3b::TitleBar::TitleBar(QWidget *parent)
     : QWidget(parent)
@@ -134,8 +135,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addAction(QIcon(""), i18n("MD5"), this,&TitleBar::md5);
     menu->addAction(QIcon(""), i18n("filter"), this, &TitleBar::filter);
     menu->addSeparator();
-    //menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
-    //menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
+    menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
+    menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
 
     menu->setObjectName("menu");
     ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(233, 233, 233, 1);"
@@ -208,6 +209,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     dlg = new FileFilter( this );
     mfDlg = new K3b::MediaFormattingDialog( this );
     dialog = new K3b::Md5Check( this );
+    abouta = new KylinBurnerAbout(this);
 
 
     connect(dlg, SIGNAL(setHidden(bool)), this, SLOT(callHidden(bool)));
@@ -233,6 +235,7 @@ K3b::TitleBar::~TitleBar()
    if (dlg) delete dlg;
    if (mfDlg) delete mfDlg;
    if (dialog) delete dialog;
+   if (abouta) delete abouta;
 }
 
 void K3b::TitleBar::callHidden(bool flag)
@@ -373,10 +376,19 @@ void K3b::TitleBar::filter()
 void K3b::TitleBar::help()
 {
 
+    QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+                                                    "/",
+                                                    "com.guide.hotel",
+                                                    "showGuide");
+    msg << "burner";
+    qDebug() << msg;
+    QDBusMessage response = QDBusConnection::sessionBus().call(msg);
+
+    qDebug() << response;
 }
 void K3b::TitleBar::about()
 {
-
+    abouta->show();
 }
 
 void K3b::TitleBar::isHidden(bool flag)

@@ -10625,3 +10625,13 @@ msgstr "无可擦除介质"
 
 msgid "the media in device is not cleanable"
 msgstr "设备中介质为不可擦写介质"
+
+msgid "Version 3.1.0 (based on K3b, Thanks.)"
+msgstr "版本 3.1.0 （基于开源项目K3b，感谢支持。）"
+
+msgid "Copyright (C) 2020  KylinSoft Co., Ltd."
+msgstr "版权声明 © 2020 麒麟软件有限公司"
+
+msgid "Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
+"\n Thanks for using and making a suggestion."
+msgstr "修改及研发者\n    麒麟软件有限公司-北京桌面应用组\n感谢使用及建议。"

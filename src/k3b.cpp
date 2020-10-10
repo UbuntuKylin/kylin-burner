@@ -250,24 +250,15 @@ void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
     qDebug() << event->key();
     if (Qt::Key_F1 == event->key())
     {
-        qDebug() << "KEY F1 pressed.";
-#if 1
-        QDBusInterface *ifc = new QDBusInterface("com.kylinUserGuide.hotel_1000",
-                                                 "/run/user/1000/bus",
-                                                 "com.guide.hotel",
-                                                 QDBusConnection::sessionBus(),
-                                                 this);
-        QDBusMessage msg = ifc->call(QString("showGuide"), "burner");
-        if (QDBusMessage::ErrorMessage == msg.type())
-        {
-            QErrorMessage *err = new QErrorMessage(this);
-            err->setWindowTitle(msg.errorName());
-            err->showMessage(msg.errorMessage());
-            qDebug() << msg.errorMessage();
-            //delete err;
-        }
-        delete ifc;
-#endif
+        QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+                                                        "/",
+                                                        "com.guide.hotel",
+                                                        "showGuide");
+        msg << "burner";
+        qDebug() << msg;
+        QDBusMessage response = QDBusConnection::sessionBus().call(msg);
+
+        qDebug() << response;
     }
 }
 

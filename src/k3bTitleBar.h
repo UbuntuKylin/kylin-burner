@@ -22,6 +22,7 @@
 #include "misc/k3bmediaformattingdialog.h"
 #include "k3bFileFilterDialog.h"
 #include "k3bMd5Dialog.h"
+#include "kylinburnerabout.h"
 
 #include <QToolButton>
 #include <QLabel>
@@ -92,6 +93,7 @@ private:
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
     FileFilter  *dlg;
+    KylinBurnerAbout *abouta;
     K3b::MediaFormattingDialog *mfDlg;
     K3b::Md5Check *dialog;
 };

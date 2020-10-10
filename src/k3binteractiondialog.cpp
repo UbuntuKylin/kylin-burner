@@ -338,6 +338,8 @@ void K3b::InteractionDialog::slotCancelClicked()
 
 void K3b::InteractionDialog::slotSaveClicked()
 {
+    saveLastSettings();
+    qDebug() << "save";
     emit saved();
 }
 
@@ -357,6 +359,8 @@ void K3b::InteractionDialog::setDefaultButton( int button )
     // set the selected default
     if( QPushButton* b = getButton( button ) )
         b->setDefault( true );
+
+    qDebug() << m_defaultButton;
 }
 
 
@@ -447,6 +451,7 @@ void K3b::InteractionDialog::setButtonEnabled( int button, bool enabled )
 
 void K3b::InteractionDialog::setButtonShown( int button, bool shown )
 {
+    qDebug() << m_defaultButton;
     if( QPushButton* b = getButton( button ) ) {
         b->setVisible( shown );
         // make sure the correct button is selected as default again
@@ -503,6 +508,8 @@ void K3b::InteractionDialog::loadSettings( const KConfigGroup& )
 
 void K3b::InteractionDialog::loadStartupSettings()
 {
+     slotLoadLastSettings();
+     /*
     KConfigGroup c( KSharedConfig::openConfig(), "General Options" );
 
     // earlier K3b versions loaded the saved settings
@@ -519,6 +526,7 @@ void K3b::InteractionDialog::loadStartupSettings()
         slotLoadLastSettings();
         break;
     }
+    */
 }
 
 

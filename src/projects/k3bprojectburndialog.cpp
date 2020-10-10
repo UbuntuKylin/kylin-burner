@@ -164,6 +164,7 @@ void K3b::ProjectBurnDialog::toggleAll()
 
 int K3b::ProjectBurnDialog::execBurnDialog( bool burn )
 {
+
     if( burn && m_job == 0 ) {
         setButtonShown( START_BUTTON, true );
         setDefaultButton( START_BUTTON );
