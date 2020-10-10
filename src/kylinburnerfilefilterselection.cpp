@@ -31,6 +31,8 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | windowFlags());
     setWindowModality(Qt::WindowModal);
 
+    setWindowTitle(i18n("FilterFile"));
+
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);

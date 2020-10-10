@@ -36,6 +36,7 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     selection = new KylinBurnerFileFilterSelection(this);
     setWindowFlags (Qt::Window);
     setWindowFlags(Qt::FramelessWindowHint  | Qt::Dialog | windowFlags());
+    setWindowTitle(i18n("FilterFile"));
     //qDebug() << "-----------------------------" << pos().x() << pos().y();
     //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
     setWindowModality(Qt::WindowModal);
