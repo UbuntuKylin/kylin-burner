@@ -138,7 +138,7 @@ bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, 
         regTheme(obj, "ukui-default", normal, hover,  active, disable);
         return regTheme(obj, "ukui-light", normal, hover,  active, disable);
     }
-    else if ("ukui-white" == themeName)
+    else if ("ukui-black" == themeName)
     {
         return regTheme(obj, "ukui-dark", normal, hover,  active, disable);
     }

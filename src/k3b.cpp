@@ -2058,13 +2058,13 @@ void K3b::MainWindow::slotCheckSystemTimed()
 
 void K3b::MainWindow::slotCheckSystem()
 {
-    K3b::SystemProblemDialog::checkSystem( this, K3b::SystemProblemDialog::NotifyOnlyErrors );
+    //K3b::SystemProblemDialog::checkSystem( this, K3b::SystemProblemDialog::NotifyOnlyErrors );
 }
 
 
 void K3b::MainWindow::slotManualCheckSystem()
 {
-    K3b::SystemProblemDialog::checkSystem(this, K3b::SystemProblemDialog::AlwaysNotify, true/* forceCheck */);
+    //K3b::SystemProblemDialog::checkSystem(this, K3b::SystemProblemDialog::AlwaysNotify, true/* forceCheck */);
 }
 
 
