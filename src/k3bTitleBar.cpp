@@ -92,6 +92,30 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                  "border:none;background-color:rgb(50, 87, 202);"
                                  "border-radius: 4px;}"
                                  "QToolButton::menu-indicator{image:none;}");
+    /*
+    m_pMenubutton->setObjectName("BarMenu");
+    ThManager()->regTheme(m_pMenubutton, "ukui-white", "QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
+                                                       "border:none;background-color:transparent;"
+                                                       "border-radius: 4px;}"
+                                                      "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
+                                                       "border:none;background-color:rgb(61, 107, 229);"
+                                                       "border-radius: 4px;}"
+                                                      "QToolButton:checked{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
+                                                       "border:none;background-color:rgb(50, 87, 202);"
+                                                       "border-radius: 4px;}"
+                                                       "QToolButton::menu-indicator{image:none;}");
+
+    ThManager()->regTheme(m_pMenubutton, "ukui-black", "QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
+                                                       "border:none;background-color:transparent;"
+                                                       "border-radius: 4px;}"
+                                                      "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
+                                                       "border:none;background-color:rgba(72, 72, 76, 1);"
+                                                       "border-radius: 4px;}"
+                                                      "QToolButton:checked{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
+                                                       "border:none;rgba(55, 55, 55, 1);"
+                                                       "border-radius: 4px;}"
+                                                       "QToolButton::menu-indicator{image:none;}");
+    */
 
     m_pMinimizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最小化-默认.png);"
                                      "border:none;background-color:transparent;"

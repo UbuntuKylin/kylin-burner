@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
 Exec=/usr/bin/burner %U
-Icon=/usr/share/k3b/pic/icon/128.png
+#Icon=/usr/share/k3b/pic/icon/128.png
+Icon=disk-burner
 X-DocPath=k3b/index.html
 GenericName=Disk Burning
 GenericName[ar]=حرق الأقراص
