@@ -133,6 +133,17 @@ bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, 
     themesByType.insertMulti(themeName, theme);
     if (-1 == types.indexOf(themeName)) types << themeName;
 
+    if ("ukui-white" == themeName)
+    {
+        regTheme(obj, "ukui-default", normal, hover,  active, disable);
+        return regTheme(obj, "ukui-light", normal, hover,  active, disable);
+    }
+    else if ("ukui-white" == themeName)
+    {
+        return regTheme(obj, "ukui-dark", normal, hover,  active, disable);
+    }
+    else {}
+
     return true;
 }
 
