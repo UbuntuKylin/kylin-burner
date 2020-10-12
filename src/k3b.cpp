@@ -301,7 +301,9 @@ K3b::MainWindow::MainWindow()
                             opacity:0.5\
                             border-radius:6px;}");
 
-    setWindowIcon(QIcon(":/icon/icon/128.png"));
+    //setWindowIcon(QIcon(":/icon/icon/128.png"));
+    //setWindowIcon(QIcon::fromTheme("disk-burner"));
+    setWindowIcon(QIcon::fromTheme("brasero"));
     setWindowTitle( i18n("Kylin-Burner") );
 
     resize(900, 600);

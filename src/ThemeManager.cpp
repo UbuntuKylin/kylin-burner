@@ -159,6 +159,7 @@ void KYBThemeManager::onChangeTheme(QString styleName)
 {
     qDebug() << "current theme name : " << styleName;
     if (styleName == currentTheme) return;
+    if (types.indexOf(styleName) == -1) return;
 
     QList<KYBTheme *> theme;
 

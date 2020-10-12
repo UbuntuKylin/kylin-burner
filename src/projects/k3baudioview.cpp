@@ -155,22 +155,22 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                                          "font: 14px \"MicrosoftYaHei\";"
                                                          "color: rgba(193, 193, 193, 1);");
     ThManager()->regTheme(button_openfile, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color: rgba(72, 72, 76, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color:rgba(55, 55, 55, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(77, 78, 81, 1);");
 
     QLabel *label_space = new QLabel(this);
     
@@ -263,7 +263,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                                  "#comboISO QScrollBar::add-line{border: none; height: 0px;}"
                                                  "#comboISO QScrollBar::sub-line{border: none; height: 0px;}",
                                                  QString(), QString(),
-                                                 "#comboISO{background-color: #EEEEEE;border: none; "
+                                                 "#comboISO{background-color: #393A3E;border: none; "
                                                  "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
                                                  "border-radius: 4px;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
@@ -301,15 +301,15 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                        "background-color: rgba(107, 141, 235, 1);"
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
+                                       "color: rgba(255, 255, 255, 1);",
                                        "background-color: rgba(65, 95, 195, 1);"
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
+                                       "color: rgba(255, 255, 255, 1);",
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(77, 78, 81, 1);");
     button_setting->setEnabled(false);
 
     button_start = new QPushButton(this);
@@ -347,9 +347,9 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                    "font: 18px \"MicrosoftYaHei\";"
                                    "color: #FFFFFF;",
                                    "border:none; border-radius: 4px;"
-                                   "background-color: #E9E9E9;"
+                                   "background-color: rgba(57, 58, 62, 1);;"
                                    "font: 18px \"MicrosoftYaHei\";"
-                                   "color: rgba(193, 193, 193, 1);");
+                                   "color: rgba(77, 78, 81, 1);");
     button_start->setEnabled( false );
     //button_start->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
 

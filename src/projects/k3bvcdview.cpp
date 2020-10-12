@@ -275,22 +275,22 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                                          "font: 14px \"MicrosoftYaHei\";"
                                                          "color: rgba(193, 193, 193, 1);");
     ThManager()->regTheme(button_openfile, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color: rgba(72, 72, 76, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color:rgba(55, 55, 55, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(255, 255, 255, 1);",
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "border: none; border-radius: 4px;"
+                          "font: 14px \"MicrosoftYaHei\";"
+                          "color: rgba(77, 78, 81, 1);");
 
     button_start = new QPushButton(this);
     if (isBurner) button_start->setText(i18n("start burner"));
@@ -316,26 +316,28 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                    "font: 18px \"MicrosoftYaHei\";"
                                    "color: rgba(193, 193, 193, 1);");
     ThManager()->regTheme(button_start, "ukui-black",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #6B8DEB;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #3D6BE5;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #415FC3;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #E9E9E9;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: rgba(193, 193, 193, 1);");
+                          "border:none; border-radius: 4px;"
+                          "background-color: #6B8DEB;"
+                          "font: 18px \"MicrosoftYaHei\";"
+                          "color: #FFFFFF;",
+                          "border:none; border-radius: 4px;"
+                          "background-color: #3D6BE5;"
+                          "font: 18px \"MicrosoftYaHei\";"
+                          "color: #FFFFFF;",
+                          "border:none; border-radius: 4px;"
+                          "background-color: #415FC3;"
+                          "font: 18px \"MicrosoftYaHei\";"
+                          "color: #FFFFFF;",
+                          "border:none; border-radius: 4px;"
+                          "background-color: rgba(57, 58, 62, 1);"
+                          "font: 18px \"MicrosoftYaHei\";"
+                          "color: rgba(77, 78, 81, 1);");
+    /*
     button_start->setStyleSheet("QPushButton{"
                                 "background-color:rgba(61, 107, 229, 1);"
                                 "font: 18px;border-radius: 4px;color:#ffffff}"
                                 "QPushButton:hover{background-color:rgba(61, 107, 229, 1);}");
+   */
      
     CD_index = 0;
     combo_CD->setEnabled( true );
