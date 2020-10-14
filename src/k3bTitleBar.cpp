@@ -162,6 +162,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
     menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
 
+
     menu->setObjectName("menu");
     ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(233, 233, 233, 1);"
                                              "border: none; border-radius: 4px;}"
@@ -183,7 +184,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                              "border-bottom: 1px solid gray; color:rgba(61, 107, 229, 1);}"
                                              "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
                                              "color: rgba(61, 107, 229, 1);}");
-/*
+
+
     menu->setStyleSheet("#menu{background-color: #FFFFFF; "
                         "border: none; border-radius: 4px;"
                         "font: 14px; color: #444444;}");
@@ -194,7 +196,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                         "padding: 8px 32px; margin: 0px 8px;}"
                         "#menu::item:selected{background-color: red;}"
                         "#menu::item:pressed{background-color: blue;}");
-*/
+
     //menu->setStyleSheet("QMenu::item:hover{background-color:#6b8eeb;}");
     //menu->setStyleSheet("QMenu:hover{background-color:#000000;}");
 
@@ -205,8 +207,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //QHBoxLayout *mainWidgetLayout = new QHBoxLayout(this);
     //QWidget *mainWidget = new QWidget;
     QLabel* label_top = new QLabel( this );
-    ThManager()->regTheme(this, "ukui-white", "QWidget{background-color: rgb(255, 255, 255);}");
-    ThManager()->regTheme(this, "ukui-black", "QWidget{background-color: rgb(0, 0, 0);}");
+    //ThManager()->regTheme(this, "ukui-white", "QWidget{background-color: rgb(255, 255, 255);}");
+    //ThManager()->regTheme(this, "ukui-black", "QWidget{background-color: rgb(0, 0, 0);}");
     label_top->setStyleSheet("QWidget{background-color: transparent;}");
     label_top->setFixedHeight( 50 );
     QHBoxLayout *pLayout = new QHBoxLayout( label_top );

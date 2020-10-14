@@ -47,8 +47,6 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
 
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);
-
-    connect(this, SIGNAL(changeSetting(int, bool)), parent, SLOT(slotDoChangeSetting(int, bool)));
 }
 
 KylinBurnerFileFilterSelection::~KylinBurnerFileFilterSelection()

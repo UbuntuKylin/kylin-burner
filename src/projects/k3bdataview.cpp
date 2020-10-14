@@ -120,7 +120,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     logger->debug("Draw data burner begin...");
     //dlgFileFilter = new KylinBurnerFileFilter(this);
     mainWindow = parent->parentWidget()->parentWidget()->parentWidget()
-            ->parentWidget()->parentWidget();
+            ->parentWidget();
     dlgFileFilter = new KylinBurnerFileFilter(mainWindow);
 
     //connect(dlgFileFilter, SIGNAL(finished(K3b::DataDoc *)), this, SLOT(slotFinish(K3b::DataDoc *)));
@@ -1018,8 +1018,6 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
 void K3b::DataView::slotOpenClicked()
 {
     int ret = m_dataViewImpl->slotOpenDir();
-    enableButtonRemove();
-    enableButtonClear();
     if (ret)
     {
         copyData(docs.at(combo_CD->currentIndex()), m_doc);

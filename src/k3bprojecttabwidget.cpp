@@ -76,13 +76,13 @@ K3b::ProjectTabWidget::ProjectTabWidget( QWidget *parent )
 {
     setDocumentMode( true );
     setTabsClosable( true );
-    setMovable( true );
-    tabBar()->setAcceptDrops(true);
-    tabBar()->installEventFilter( this );
+    setMovable( false );
+    tabBar()->setAcceptDrops(false);
+    //tabBar()->installEventFilter( this );
 
     d->projectActionMenu = new KActionMenu( i18n("Project"), this );
     
-    connect( this, SIGNAL(tabCloseRequested(int)), SLOT(slotTabCloseRequested(int)));
+    //connect( this, SIGNAL(tabCloseRequested(int)), SLOT(slotTabCloseRequested(int)));
 }
 
 
@@ -204,6 +204,7 @@ bool K3b::ProjectTabWidget::eventFilter( QObject* o, QEvent* e )
 
 void K3b::ProjectTabWidget::slotDocChanged( K3b::Doc* doc )
 {
+#if 0
     // we need to cache the icon changes since the changed() signal will be emitted very often
     if( !d->projectDataMap[doc].modified ) {
         setTabIcon( indexOf( doc->view() ), QIcon::fromTheme( "document-save" ) );
@@ -212,6 +213,7 @@ void K3b::ProjectTabWidget::slotDocChanged( K3b::Doc* doc )
         // we need this one for the session management
         setTabText( indexOf( doc->view() ), doc->URL().fileName() );
     }
+#endif
 }
 
 

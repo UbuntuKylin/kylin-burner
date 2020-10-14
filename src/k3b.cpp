@@ -205,7 +205,7 @@ public:
     KToggleAction* actionViewDocumentHeader;
 
     /** The MDI-Interface is managed by this tabbed view */
-    ProjectTabWidget* documentTab;
+    //ProjectTabWidget* documentTab;
 
     // project actions
     QList<QAction*> dataProjectActions;
@@ -357,9 +357,9 @@ K3b::MainWindow::MainWindow()
 
     // fill the tabs action menu
 
-    d->documentTab->addAction( d->actionFileSave );
-    d->documentTab->addAction( d->actionFileSaveAs );
-    d->documentTab->addAction( d->actionFileClose );
+    //d->documentTab->addAction( d->actionFileSave );
+    //d->documentTab->addAction( d->actionFileSaveAs );
+    //d->documentTab->addAction( d->actionFileClose );
 
     // /////////////////////////////////////////////////////////////////
     // disable actions at startup
@@ -597,17 +597,19 @@ void K3b::MainWindow::initStatusBar()
 
 void K3b::MainWindow::initView()
 {
+
     /*
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
     */
-    this->setObjectName("KylinBurner");
-    ThManager()->regTheme(this, "ukui-white", "#KylinBurner{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#KylinBurner{background-color: #000000;}");
 
     logger->info("Draw main frame begin...");
+
+    setObjectName("MainBurner");
+    ThManager()->regTheme(this, "ukui-white", "#MainBurner{background-color: #FFFFFF;}");
+    ThManager()->regTheme(this, "ukui-black", "#MainBurner{background-color: #000000;}");
 
     //左右分割
     d->mainSplitter = new QSplitter( Qt::Horizontal, this );
@@ -628,10 +630,9 @@ void K3b::MainWindow::initView()
     pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     //pTitleLabel->setFixedHeight(15);
     pTitleLabel->setText( i18n("Kylin-Burner" ));
-    pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
+    //pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
 
     pTitleLabel->setObjectName("titleLabel");
-
     ThManager()->regTheme(pTitleLabel, "ukui-white",
                              "font: 14px;color:#333333");
     ThManager()->regTheme(pTitleLabel, "ukui-black",
@@ -761,6 +762,11 @@ void K3b::MainWindow::initView()
 #endif
 
     btnLabel->setObjectName("leftBack");
+    btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
+                            "background-position: top;"
+                            "border:none;"
+                            "background-repeat:repeat-xy;}");
+
 
     ThManager()->regTheme(btnLabel, "ukui-white","QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
                                                         "background-position: top;"
@@ -770,13 +776,18 @@ void K3b::MainWindow::initView()
                             "background-position: top;"
                             "border:none;}");
 
-    connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
-    connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
-    connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
 
     //右侧：label
     QLabel *label_view = new QLabel( d->mainSplitter );
     label_view->setFixedWidth(775);
+
+
+#if 1
+    label_view->setObjectName("rightBack");
+    ThManager()->regTheme(label_view, "ukui-white","#rightBack{background-color: #FFFFFF;}");
+    ThManager()->regTheme(label_view, "ukui-black","#rightBack{background-color: rgba(0, 0, 0, 0.15);");
+#endif
+
 
     // 右侧：label :上方 title bar
     title_bar = new TitleBar( this );
@@ -786,7 +797,48 @@ void K3b::MainWindow::initView()
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
     d->documentStack->showFullScreen();
-   
+
+    d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject );
+    logger->debug("Create burn image project.");
+    d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentStack );
+    logger->debug("Draw burn image view.");
+
+    d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
+    logger->debug("Create burn data project");
+    d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentStack );
+    logger->debug("Draw burn data view.");
+
+    d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
+    logger->debug("Create copy image project.");
+    d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentStack );
+    logger->debug("Draw copy image view.");
+
+    d->doc_image->setView( d->view_image );
+    d->doc_data->setView( d->view_data );
+    d->doc_copy->setView( d->view_copy );
+
+    d->documentStack->addWidget(d->view_data);
+    d->documentStack->addWidget(d->view_image);
+    d->documentStack->addWidget(d->view_copy);
+
+
+    d->documentHeader = new K3b::ThemedHeader( d->documentStack ); //buttom title
+    d->documentHeader->setTitle( i18n("Current Projects") );
+    d->documentHeader->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
+    d->documentHeader->setLeftPixmap( K3b::Theme::PROJECT_LEFT );
+    d->documentHeader->setRightPixmap( K3b::Theme::PROJECT_RIGHT );
+
+    setCentralWidget( d->mainSplitter );
+
+    QVBoxLayout *layout_window = new QVBoxLayout( label_view );
+    layout_window->setContentsMargins(25,0,0,0);
+    layout_window->addWidget( title_bar );
+    layout_window->addWidget( d->documentStack );
+
+    d->mainSplitter->addWidget( btnLabel );
+    d->mainSplitter->addWidget( label_view );
+
+#if 0
     // 右侧：label :垂直布局 
     QVBoxLayout *layout_window = new QVBoxLayout( label_view );
     layout_window->setContentsMargins(25,0,0,0);
@@ -828,9 +880,12 @@ void K3b::MainWindow::initView()
 #endif
     // add the document tab to the styled document box
     d->documentTab = new K3b::ProjectTabWidget( d->documentHull ); //buttom tab
+    tt = new QStackedWidget(this);
 
 //    documentHullLayout->addWidget( d->documentHeader, 0, 0 );
     documentHullLayout->addWidget( d->documentTab, 0, 0 );
+    d->documentTab->hide();
+    documentHullLayout->addWidget( tt, 0, 0 );
 
     //connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
     //connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
@@ -845,6 +900,10 @@ void K3b::MainWindow::initView()
     //urlNavigatorAction->setDefaultWidget(d->urlNavigator);
     //urlNavigatorAction->setText(i18n("&Location Bar"));
     // ---------------------------------------------------------------------------------------------
+
+    d->documentTab->setObjectName("BusTab");
+    d->documentTab->setStyleSheet("#BusTab{background-color: #FFFFFF;}");
+    //d->documentTab->setStyleSheet("background-color: #FFFFFF;");
 
 
     d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject ); 
@@ -875,9 +934,20 @@ void K3b::MainWindow::initView()
     d->documentTab->addTab( d->doc_data );
     d->documentTab->addTab( d->doc_copy );
 
+    tt->addWidget(d->view_data);
+    tt->addWidget(d->view_image);
+    tt->addWidget(d->view_copy);
+
     d->documentTab->tabBar()->hide();
     d->documentTab->setCurrentTab( d->doc_data );
+#endif
     logger->info("Draw main frame end...");
+
+
+
+    connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
+    connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
+    connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
 
     /*
      * file filter
@@ -1023,35 +1093,36 @@ void K3b::MainWindow::createClient( K3b::Doc* doc )
     K3b::View* view = 0;
     switch( doc->type() ) {
     case K3b::Doc::AudioProject:{
-            view = new K3b::AudioView( static_cast<K3b::AudioDoc*>(doc), d->documentTab );
+            view = new K3b::AudioView( static_cast<K3b::AudioDoc*>(doc), d->documentStack );
             string_view = i18n("udio");
         }
         break;
     case K3b::Doc::DataProject:
         {
-            view = new K3b::DataView( static_cast<K3b::DataDoc*>(doc), d->documentTab );
+            view = new K3b::DataView( static_cast<K3b::DataDoc*>(doc), d->documentStack );
             string_view = i18n("Data");
         }
         break;
     case K3b::Doc::MixedProject:
     {
         K3b::MixedDoc* mixedDoc = static_cast<K3b::MixedDoc*>(doc);
-        view = new K3b::MixedView( mixedDoc, d->documentTab );
+        view = new K3b::MixedView( mixedDoc, d->documentStack );
         mixedDoc->dataDoc()->setView( view );
         mixedDoc->audioDoc()->setView( view );
         break;
     }
     case K3b::Doc::VcdProject:
-        view = new K3b::VcdView( static_cast<K3b::VcdDoc*>(doc), d->documentTab );
+        view = new K3b::VcdView( static_cast<K3b::VcdDoc*>(doc), d->documentStack );
         break;
     case K3b::Doc::MovixProject:
-        view = new K3b::MovixView( static_cast<K3b::MovixDoc*>(doc), d->documentTab );
+        view = new K3b::MovixView( static_cast<K3b::MovixDoc*>(doc), d->documentStack );
         break;
     case K3b::Doc::VideoDvdProject:
-        view = new K3b::VideoDvdView( static_cast<K3b::VideoDvdDoc*>(doc), d->documentTab );
+        view = new K3b::VideoDvdView( static_cast<K3b::VideoDvdDoc*>(doc), d->documentStack );
         break;
     }
 
+    /*
     if( view != 0 ) {
         int flag = 1;
         doc->setView( view );
@@ -1071,6 +1142,7 @@ void K3b::MainWindow::createClient( K3b::Doc* doc )
         d->documentTab->tabBar()->hide();
         slotCurrentDocChanged();
     }
+    */
 }
 
 
@@ -1085,7 +1157,8 @@ K3b::View* K3b::MainWindow::activeView() const
 
 K3b::Doc* K3b::MainWindow::activeDoc() const
 {
-    return d->documentTab->currentTab();
+    //return d->documentTab->currentTab();
+    return NULL;
 }
 
 
@@ -1112,7 +1185,7 @@ K3b::Doc* K3b::MainWindow::openDocument(const QUrl& url)
             // check, if document already open. If yes, set the focus to the first view
             K3b::Doc* doc = k3bappcore->projectManager()->findByUrl( url );
             if( doc ) {
-                d->documentTab->setCurrentTab( doc );
+                //d->documentTab->setCurrentTab( doc );
                 return doc;
             }
 
@@ -1171,7 +1244,7 @@ void K3b::MainWindow::readOptions()
     KConfigGroup grpFileView( config(), "file view" );
 //    d->dirView->readConfig( grpFileView );
 
-    d->documentHeader->setVisible( d->actionViewDocumentHeader->isChecked() );
+    //d->documentHeader->setVisible( d->actionViewDocumentHeader->isChecked() );
 }
 
 
@@ -1558,7 +1631,7 @@ void K3b::MainWindow::closeProject( K3b::Doc* doc )
     }
 
     // remove the doc from the project tab
-    d->documentTab->removeTab( doc );
+    //d->documentTab->removeTab( doc );
 
     // remove the project from the manager
     k3bappcore->projectManager()->removeProject( doc );
@@ -1676,8 +1749,9 @@ K3b::Doc* K3b::MainWindow::slotNewAudioDoc()
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    d->documentTab->setCurrentTab( d->doc_image );
-    slotCurrentDocChanged();
+    //d->documentTab->setCurrentTab( d->doc_image );
+    d->documentStack->setCurrentIndex(1);
+    //slotCurrentDocChanged();
     return d->doc_image;
 }
 
@@ -1737,8 +1811,9 @@ K3b::Doc* K3b::MainWindow::slotNewDataDoc()
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
 #endif
-    d->documentTab->setCurrentTab( d->doc_data );
-    slotCurrentDocChanged();
+    //d->documentTab->setCurrentTab( d->doc_data );
+    d->documentStack->setCurrentIndex(0);
+    //slotCurrentDocChanged();
 
     return d->doc_data;
 }
@@ -1823,8 +1898,9 @@ K3b::Doc* K3b::MainWindow::slotNewVcdDoc()
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
 #endif
-    d->documentTab->setCurrentTab( d->doc_copy );
-    slotCurrentDocChanged();
+    //d->documentTab->setCurrentTab( d->doc_copy );
+    d->documentStack->setCurrentIndex(2);
+    //slotCurrentDocChanged();
     return d->doc_copy;
 }
 
