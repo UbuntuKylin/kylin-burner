@@ -29,8 +29,9 @@
 #include <QUrl>
 #include <QKeyEvent>
 #include <QDBusMessage>
+#include <QStackedWidget>
 
-
+//class QStackedWidget;
 namespace K3b {
     class Doc;
     class View;
@@ -243,6 +244,7 @@ namespace K3b {
         bool isDataActived;
         bool isImageActived;
         bool isCopyActived;
+        QStackedWidget *tt;
         
 
         QLabel *pIconLabel;

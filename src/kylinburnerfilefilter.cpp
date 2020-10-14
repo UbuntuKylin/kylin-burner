@@ -56,7 +56,6 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui->labelName->setText(i18n("FilterFile"));
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
-    ui->btnSetting->setText(i18n("FilterSetting"));
     ui->btnRecovery->setText(i18n("Reset"));
     ThManager()->regTheme(ui->btnRecovery, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
@@ -91,6 +90,9 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
+    ui->btnSetting->setText(i18n("FilterSetting"));
+
+
     ThManager()->regTheme(ui->btnSetting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
                                                          "font: 14px \"MicrosoftYaHei\";"
@@ -124,6 +126,8 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
+
+
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);
     currentData = static_cast<K3b::DataDoc *>(k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));
@@ -180,6 +184,7 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     isChange = false; isHidden = false; isBroken = false; isReplace = false;
     connect( ui->treeView, SIGNAL(doubleClicked(QModelIndex)),
              this, SLOT(slotDoubleClicked(QModelIndex)) );
+    connect(selection, SIGNAL(changeSetting(int, bool)), this, SLOT(slotDoChangeSetting(int, bool)));
 }
 
 KylinBurnerFileFilter::~KylinBurnerFileFilter()
@@ -365,12 +370,16 @@ void KylinBurnerFileFilter::setReplace(int pos, bool flag)
 void KylinBurnerFileFilter::on_btnSetting_clicked()
 {
     //selection->setAttribute(Qt::WA_ShowModal);
+    selection->setOption(isHidden, isBroken, isReplace);
+    selection->show();
+    /*
     if (selection->isHidden())
     {
         selection->setOption(isHidden, isBroken, isReplace);
         selection->show();
     }
     else selection->hide();
+    */
 }
 
 void KylinBurnerFileFilter::on_btnRecovery_clicked()

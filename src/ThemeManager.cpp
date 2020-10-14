@@ -32,16 +32,18 @@ KYBThemeManager::KYBThemeManager(QObject *parent) : QObject(parent)
     if (QGSettings::isSchemaInstalled("org.ukui.style"))
     {
         setting = new QGSettings("org.ukui.style");
-        if (setting)
-        {
-            currentTheme = setting->get("styleName").toString();
-            if (-1 == types.indexOf(currentTheme)) types << currentTheme;
-            connect(setting, &QGSettings::changed, this, [=](const QString &key){
-            if (key == "styleName")
-                onChangeTheme(setting->get(key).toString());
-            });
-        }
     }
+#if 1
+    if (setting)
+    {
+        currentTheme = setting->get("styleName").toString();
+        if (-1 == types.indexOf(currentTheme)) types << currentTheme;
+        connect(setting, &QGSettings::changed, this, [=](const QString &key){
+        if (key == "styleName")
+            onChangeTheme(setting->get(key).toString());
+        });
+    }
+#endif
     themes.clear();
 }
 
@@ -96,6 +98,7 @@ bool KYBThemeManager::eventFilter(QObject *obj, QEvent *event)
 
 bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, QString hover, QString active, QString disable)
 {
+    //return false;
     KYBTheme *theme;
 
     if (themeName.isEmpty()) themeName = currentTheme;
@@ -110,7 +113,7 @@ bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, 
     if (theme)
     {
         qDebug() << "object : " << obj->objectName() << "has registered in theme : " << currentTheme;
-        //return false;
+        return false;
     }
 
     obj->installEventFilter(this);
@@ -168,6 +171,7 @@ void KYBThemeManager::delTheme(QString theme)
 
 void KYBThemeManager::onChangeTheme(QString styleName)
 {
+    //return;
     qDebug() << "current theme name : " << styleName;
     if (styleName == currentTheme) return;
     if (types.indexOf(styleName) == -1) return;
@@ -177,7 +181,6 @@ void KYBThemeManager::onChangeTheme(QString styleName)
     theme = themesByType.values(styleName);
     for (int i = 0; i < theme.size(); ++i)
     {
-        qDebug() << theme[i]->getObj()->objectName();
         if (theme[i]->getObj()->isEnabled()) theme[i]->normal();
         else theme[i]->disable();
         theme[i]->getObj()->update();
