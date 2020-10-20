@@ -369,6 +369,8 @@ void KylinBurnerFileFilter::setReplace(int pos, bool flag)
 
 void KylinBurnerFileFilter::on_btnSetting_clicked()
 {
+    QEvent event(QEvent::HoverLeave);
+    QApplication::sendEvent(ui->btnSetting, &event);
     //selection->setAttribute(Qt::WA_ShowModal);
     selection->setOption(isHidden, isBroken, isReplace);
     selection->show();

@@ -186,6 +186,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                              "color: rgba(61, 107, 229, 1);}");
 
 
+    /*
     menu->setStyleSheet("#menu{background-color: #FFFFFF; "
                         "border: none; border-radius: 4px;"
                         "font: 14px; color: #444444;}");
@@ -196,6 +197,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                         "padding: 8px 32px; margin: 0px 8px;}"
                         "#menu::item:selected{background-color: red;}"
                         "#menu::item:pressed{background-color: blue;}");
+    */
 
     //menu->setStyleSheet("QMenu::item:hover{background-color:#6b8eeb;}");
     //menu->setStyleSheet("QMenu:hover{background-color:#000000;}");
