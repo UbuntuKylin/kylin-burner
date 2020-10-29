@@ -115,6 +115,8 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QErrorMessage>
+#include <QRectF>
+#include <QButtonGroup>
 
 namespace {
 
@@ -318,14 +320,17 @@ K3b::MainWindow::MainWindow()
     shadow_effect->setBlurRadius(8);
     */
 
+
     QBitmap bmp(this->size());
     bmp.fill();
     QPainter p(&bmp);
     p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
+    p.setBrush(Qt::gray);
     p.drawRoundedRect(bmp.rect(), 6, 6);
 
+
     setMask(bmp);
+
 
 #if 0
     QDesktopWidget *desktop = QApplication::desktop();
@@ -620,10 +625,11 @@ void K3b::MainWindow::initView()
 
     //左侧 上方tille :icon
     pIconLabel = new QLabel( label_title );
-    pIconLabel->setFixedSize(22,22);
+    pIconLabel->setFixedSize(24,24);
     pIconLabel->setStyleSheet("QLabel{background-image: url(:/new/prefix1/pic/logo.png);"
                               "background-color:transparent;"
                               "background-repeat: no-repeat;}");
+    pIconLabel->setObjectName("leftBackground");
 
     //左侧 上方tille :text
     pTitleLabel = new QLabel( label_title );
@@ -649,16 +655,150 @@ void K3b::MainWindow::initView()
     btnLabel->setFixedWidth(125);
 
     d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
+    d->btnData->setCheckable(true);
+    d->btnData->setChecked(true);
     d->btnImage = new QPushButton(i18n("Image Burner"), btnLabel);   // 镜像刻录
+    d->btnImage->setCheckable(true);
+    //d->btnImage->setChecked(true);
     d->btnCopy = new QPushButton(i18n("Copy Disk"), btnLabel);     // 复制光盘
+    d->btnCopy->setCheckable(true);
+    //d->btnCopy->setChecked(true);
     isDataActived = true; isImageActived = false; isCopyActived = false;
-#if 1
     d->btnData->setFixedSize( 115, 50);
+    d->btnCopy->setFixedSize( 115, 50);
+    d->btnImage->setFixedSize( 115, 50);
+    d->btnData->setObjectName("DataButton");
+    d->btnCopy->setObjectName("CopyButton");
+    d->btnImage->setObjectName("ImageButton");
+
+    ThManager()->regTheme(d->btnData, "ukui-white", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #444444;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(87, 137, 217,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+    ThManager()->regTheme(d->btnData, "ukui-black", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(0, 0, 0,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
+
+    ThManager()->regTheme(d->btnCopy, "ukui-white", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #444444;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(87, 137, 217,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+    ThManager()->regTheme(d->btnCopy, "ukui-black", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(0, 0, 0,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
+
+    ThManager()->regTheme(d->btnImage, "ukui-white", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #444444;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(87, 137, 217,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(87, 137, 217, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+    ThManager()->regTheme(d->btnImage, "ukui-black", "QPushButton{"
+                                                    "background-color:transparent;"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:hover{"
+                                                    "background-color:rgba(0, 0, 0,0.15);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:pressed{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
+                                                "QPushButton:checked{"
+                                                    "background-color:rgba(0, 0, 0, 0.2);"
+                                                    "background-repeat: no-repeat;"
+                                                    "background-position:left;"
+                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
+#if 0
     d->btnData->setStyleSheet("QPushButton{"
-                                  "background-color:rgba(87, 137, 217,0.2);"
+                                  "background-color:transparent;"
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
-                                  "color: rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                                  "color: #444444;font: 14px;border-radius: 6px;}"
                               "QPushButton:hover{"
                                   "background-color:rgba(87, 137, 217,0.15);"
                                   "background-repeat: no-repeat;"
@@ -668,13 +808,17 @@ void K3b::MainWindow::initView()
                                   "background-color:rgba(87, 137, 217, 0.2);"
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
+                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                              "QPushButton:checked{"
+                                  "background-color:rgba(87, 137, 217, 0.2);"
+                                  "background-repeat: no-repeat;"
+                                  "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
 
-    d->btnImage->setFixedSize( 115, 50);
-    d->btnImage->setStyleSheet("background-color:transparent;"
+    d->btnImage->setStyleSheet("QPushButton{background-color:transparent;"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
-                                   "color: #444444;font: 14px;border-radius: 6px;"
+                                   "color: #444444;font: 14px;border-radius: 6px;}"
                                "QPushButton:hover{"
                                    "background-color:rgba(87, 137, 217,0.15);"
                                    "background-repeat: no-repeat;"
@@ -684,12 +828,12 @@ void K3b::MainWindow::initView()
                                    "background-color:rgba(87, 137, 217, 0.2);"
                                    "background-repeat: no-repeat;"
                                    "background-position:left;"
+                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                               "QPushButton:checked{"
+                                   "background-color:rgba(87, 137, 217, 0.2);"
+                                   "background-repeat: no-repeat;"
+                                   "background-position:left;"
                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    d->btnImage->setStyleSheet("background-color:transparent;"
-                               "background-repeat: no-repeat;"
-                               "background-position:left;"
-                               "color: #444444;font: 14px;border-radius: 6px;");
-    d->btnCopy->setFixedSize( 115, 50);
     d->btnCopy->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
                                   "background-repeat: no-repeat;"
@@ -704,8 +848,12 @@ void K3b::MainWindow::initView()
                                   "background-color:rgba(87, 137, 217, 0.2);"
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
+                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
+                              "QPushButton:checked{"
+                                  "background-color:rgba(87, 137, 217, 0.2);"
+                                  "background-repeat: no-repeat;"
+                                  "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-
 #endif
     d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
     d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
@@ -762,17 +910,18 @@ void K3b::MainWindow::initView()
 #endif
 
     btnLabel->setObjectName("leftBack");
+#if 0
     btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
                             "background-position: top;"
                             "border:none;"
                             "background-repeat:repeat-xy;}");
+#endif
 
-
-    ThManager()->regTheme(btnLabel, "ukui-white","QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
+    ThManager()->regTheme(btnLabel, "ukui-white","#leftBack{background-image: url(:/icon/icon/icon-侧边背景.png);"
                                                         "background-position: top;"
                                                         "border:none;"
                                                         "background-repeat:repeat-xy;}");
-    ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: rgba(0, 0, 0, 0.15);"
+    ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: #484848;"
                             "background-position: top;"
                             "border:none;}");
 
@@ -948,6 +1097,11 @@ void K3b::MainWindow::initView()
     connect( d->btnData, SIGNAL(clicked(bool)), this, SLOT(slotNewDataDoc()) );
     connect( d->btnImage, SIGNAL(clicked(bool)), this, SLOT(slotNewAudioDoc()) );
     connect( d->btnCopy, SIGNAL(clicked(bool)), this, SLOT(slotNewVcdDoc()) );
+    QButtonGroup *buttonGroup = new QButtonGroup(this);
+    buttonGroup->addButton(d->btnData, 1);
+    buttonGroup->addButton(d->btnImage, 2);
+    buttonGroup->addButton(d->btnCopy, 3);
+    buttonGroup->setObjectName("nav");
 
     /*
      * file filter
@@ -1704,6 +1858,7 @@ K3b::Doc* K3b::MainWindow::slotNewAudioDoc()
 
     return doc;
     */
+#if 0
     d->btnData->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
                                   "background-repeat: no-repeat;"
@@ -1749,6 +1904,7 @@ K3b::Doc* K3b::MainWindow::slotNewAudioDoc()
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+#endif
     //d->documentTab->setCurrentTab( d->doc_image );
     d->documentStack->setCurrentIndex(1);
     //slotCurrentDocChanged();
@@ -1764,7 +1920,7 @@ K3b::Doc* K3b::MainWindow::slotNewDataDoc()
 
     return doc;
 */
-#if 1
+#if 0
     d->btnData->setStyleSheet("QPushButton{"
                                   "background-color:rgba(87, 137, 217, 0.2);"
                                   "background-repeat: no-repeat;"
@@ -1852,6 +2008,7 @@ K3b::Doc* K3b::MainWindow::slotNewVcdDoc()
 
     return doc;*/
 #if 1
+#if 0
     d->btnData->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
                                   "background-repeat: no-repeat;"
@@ -1897,6 +2054,7 @@ K3b::Doc* K3b::MainWindow::slotNewVcdDoc()
                                   "background-repeat: no-repeat;"
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
+#endif
 #endif
     //d->documentTab->setCurrentTab( d->doc_copy );
     d->documentStack->setCurrentIndex(2);
