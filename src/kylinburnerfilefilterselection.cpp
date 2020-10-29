@@ -22,6 +22,8 @@
 
 #include <QMouseEvent>
 #include <QScreen>
+#include <QBitmap>
+#include <QPainter>
 
 KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) :
     QWidget(parent),
@@ -30,6 +32,15 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | windowFlags());
     setWindowModality(Qt::WindowModal);
+
+    setFixedSize(300, 200);
+    QBitmap bmp(width(), height());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRoundedRect(bmp.rect(), 6, 6);
+    setMask(bmp);
 
     setWindowTitle(i18n("FilterFile"));
 
@@ -42,8 +53,8 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     this->hide();
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterSetting"));
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF; border-radius: 4px;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000; border-radius: 4px;");
 
     ui->labelClose->setAttribute(Qt::WA_Hover, true);
     ui->labelClose->installEventFilter(this);

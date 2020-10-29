@@ -30,6 +30,7 @@
 #include <QKeyEvent>
 #include <QDBusMessage>
 #include <QStackedWidget>
+#include <QPaintEvent>
 
 //class QStackedWidget;
 namespace K3b {

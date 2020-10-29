@@ -294,7 +294,7 @@ void K3b::ProjectBurnDialog::prepareGui()
     setMask(bmp);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(20,20);
     icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
     QLabel *title = new QLabel(i18n("kylin-burner"));
@@ -384,7 +384,7 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkCacheImage->setFixedHeight(16);
     label_font.setPixelSize(14);
     m_checkCacheImage->setFont( label_font );
-    m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
+    //m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
     m_checkCacheImage->setObjectName("CheckImage");
     ThManager()->regTheme(m_checkCacheImage, "ukui-white", "color:#444444;font-size:16px;");
     ThManager()->regTheme(m_checkCacheImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
@@ -427,7 +427,7 @@ void K3b::ProjectBurnDialog::prepareGui()
    //tmp
     m_tempDirSelectionWidget = new K3b::TempDirSelectionWidget( );
     QLabel *m_labeltmpPath = new QLabel( m_optionGroup );
-    QLineEdit *m_tmpPath = new QLineEdit( m_optionGroup );
+    m_tmpPath = new QLineEdit( m_optionGroup );
     QString tmp_path =i18n("temp file path: ");
     KIO::filesize_t tempFreeSpace = m_tempDirSelectionWidget->freeTempSpace();
     QString tmp_size = m_tempDirSelectionWidget->tempPath() + "     "  +  KIO::convertSize(tempFreeSpace);
@@ -446,9 +446,9 @@ void K3b::ProjectBurnDialog::prepareGui()
     //m_tmpPath->setStyleSheet("color:#444444;");
     m_tmpPath->setObjectName("TmpPath");
     ThManager()->regTheme(m_tmpPath, "ukui-white", "font-color:#444444;font:14px;", QString(),
-                          QString(),"color:#444444;font:14px;border: 1px solid gray;");
+                          QString(),"color:#444444;font:14px;border: 1px solid #CFCFCF; border-radius: 4px;");
     ThManager()->regTheme(m_tmpPath, "ukui-black", "color:#FFFFFF;font:14px;", QString(),
-                          QString(),"color:#FFFFFF;font:14px;border: 1px solid white;");
+                          QString(),"color:#FFFFFF;font:14px;border: 1px solid #666666; border-radius: 4px;");
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(31, 0, 0, 0);

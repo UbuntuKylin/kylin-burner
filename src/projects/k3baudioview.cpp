@@ -187,6 +187,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     combo_CD->setFixedSize(360, 30);
     combo_CD->addItem( i18n("please insert CD") );
     combo_CD->setEnabled( false );
+    /*
     combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
                              border-top-right-radius: 3px; \
@@ -194,6 +195,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                              "QComboBox::down-arrow{width: 8px; height: 16;"
                              "image: url(:/icon/icon/draw-down.jpg);"
                              "padding: 0px 0px 0px 0px;}");
+    */
     combo_CD->setObjectName("comboEquipment1");
     ThManager()->regTheme(combo_CD, "ukui-white","#comboEquipment1{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
@@ -207,16 +209,16 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                                  //"padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  //"background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#comboEquipment1 QAbstractItemView::item{"
-                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #DAE3FA;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
                                                  "#comboEquipment1 QAbstractItemView::item::hover{border: none;"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#comboEquipment1::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#comboEquipment1::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "#comboEquipment1::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#comboEquipment1 QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"
@@ -245,16 +247,16 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                                  "padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  "background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#comboISO QAbstractItemView::item{"
-                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#comboISO QAbstractItemView::item::hover{"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#comboISO::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "#comboISO::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#comboISO QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"

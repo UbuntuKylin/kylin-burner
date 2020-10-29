@@ -36,7 +36,7 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 private slots:
-    void on_btnClose_clicked();
+    //void on_btnClose_clicked();
 
 private:
     void labelCloseStyle(bool in);

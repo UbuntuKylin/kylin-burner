@@ -26,11 +26,22 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <QScreen>
+#include <QBitmap>
+#include <QPainter>
 
 KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::KylinBurnerFileFilter)
 {
+    setFixedSize(450, 500);
+
+    QBitmap bmp(width(), height());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRoundedRect(bmp.rect(), 6, 6);
+    setMask(bmp);
     //setAttribute(Qt::WA_ShowModal);
     ui->setupUi(this);
     selection = new KylinBurnerFileFilterSelection(this);
@@ -39,7 +50,7 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     setWindowTitle(i18n("FilterFile"));
     //qDebug() << "-----------------------------" << pos().x() << pos().y();
     //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
-    setWindowModality(Qt::WindowModal);
+    //setWindowModality(Qt::WindowModal);
 
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
@@ -47,15 +58,17 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     //this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
     this->hide();
 
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
+    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;"
+                                              "border: none; border-radius: 4px;");
+    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;"
+                                              "border: none; border-radius: 4px;");
 
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
     ui->labelName->setText(i18n("FilterFile"));
-    ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
-    ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
+    ThManager()->regTheme(ui->labelName, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(ui->labelName, "ukui-black", "font: 24px; color: #FFFFFF;");
     ui->btnRecovery->setText(i18n("Reset"));
     ThManager()->regTheme(ui->btnRecovery, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"

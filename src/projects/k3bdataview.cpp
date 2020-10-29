@@ -265,16 +265,16 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  //"padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  //"background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#ComboBurner QAbstractItemView::item{"
-                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #DAE3FA;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
                                                  "#ComboBurner QAbstractItemView::item::hover{border: none;"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboBurner::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#ComboBurner QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"
@@ -288,6 +288,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#ComboBurner::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+    //ThManager()->regTheme(combo_burner, "ukui-black");
     ThManager()->regTheme(combo_burner, "ukui-black","#ComboBurner{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
@@ -303,16 +304,16 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  "background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#ComboBurner QAbstractItemView::item{"
-                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboBurner QAbstractItemView::item::hover{"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboBurner::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#ComboBurner::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#ComboBurner QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"
@@ -374,16 +375,16 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  //"padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  //"background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#ComboCD QAbstractItemView::item{"
-                                                 "background-color: #DAE3FA;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #DAE3FA;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
                                                  "#ComboCD QAbstractItemView::item::hover{border: none;"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboCD::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/draw-down.jpg); "
+                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#ComboCD QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"
@@ -397,6 +398,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#ComboCD::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+    //ThManager()->regTheme(combo_CD, "ukui-black");
+#if 1
     ThManager()->regTheme(combo_CD, "ukui-black","#ComboCD{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
@@ -412,16 +415,16 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "padding: 5px 5px 5px 5px; border-radius: 4px;"
                                                  "background-color: #242424;border:1px solid #6B8EEB;}"
                                                  "#ComboCD QAbstractItemView::item{"
-                                                 "background-color: rgba(0, 0, 0, 0.15);border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboCD QAbstractItemView::item::hover{"
-                                                 "background-color: #3D6BE5;border-bottom: 1px solid #DCDDDE;"
+                                                 "background-color: #3D6BE5;"
                                                  "border-radius: 4px;height: 30px;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
                                                  "#ComboCD::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}"
-                                                 "#ComboCD::down-arrow{image: url(:/lb/icon_xl.png); "
+                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/icon_xl.png); "
                                                  "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
                                                  "#ComboCD QScrollBar::vertical{background-color: transparent;"
                                                  "width: 5px; border: none;}"
@@ -435,6 +438,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#ComboCD::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+#endif
     /*
     combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"
                             "border:1px solid rgba(220,221,222,1);border-radius:4px;}"
@@ -503,10 +507,11 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     tips->setMinimumHeight(342);
     m_dataViewImpl->view()->setObjectName("DataView");
-    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-white", "background-color:rgba(255, 255, 255, 1);"
-                                              "font: 14px; color: #444444;");
-    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-black", "background-color:rgba(36, 36, 36, 1);"
-                                              "font: 14px; color: #FFFFFF;");
+    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-white", "#DataView{background-color:rgba(255, 255, 255, 1);"
+                                              "font: 14px; color: #444444;}");
+    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-black", "#DataView{background-color:rgba(36, 36, 36, 1);"
+                                              "font: 14px; color: #FFFFFF;} "
+                                                                "#DataView::item{border-bottom:1px solid #333333;}");
     m_dataViewImpl->view()->header()->setObjectName("DataViewHeader");
     ThManager()->regTheme(m_dataViewImpl->view()->header(), "ukui-white", "#DataViewHeader:section{"
                                                                           "background-color:rgba(242, 242, 242, 1);"
@@ -853,7 +858,7 @@ void K3b::DataView::slotFileFilterClicked()
 {
     //K3b::DirItem *d = m_doc->root();
     //K3b::DataItem *c;
-    dlgFileFilter->setAttribute(Qt::WA_ShowModal);
+    //dlgFileFilter->setAttribute(Qt::WA_ShowModal);
     dlgFileFilter->setDoFileFilter(combo_CD->currentIndex());
     //dlgFileFilter->slotDoFileFilter(docs[combo_CD->currentIndex()]);
 

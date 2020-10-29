@@ -30,7 +30,8 @@ int main( int argc, char* argv[] )
 
     /*Prevent multiple opening*/
     QString path =  QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    QLockFile *lockFile = new QLockFile( path + "/appName.app.lock");
+    QString dispaly = QString::fromLatin1(getenv("DISPLAY"));
+    QLockFile *lockFile = new QLockFile( path + "/.kylin-burner.lock" + dispaly);
     if (!lockFile ->tryLock(2000)) {    //上锁失败，不能启动
         qDebug() << "app is running";
         return 0;
