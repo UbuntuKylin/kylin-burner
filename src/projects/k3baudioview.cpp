@@ -57,11 +57,73 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QFileDialog>
+#include <QFileInfo>
 #include "misc/k3bimagewritingdialog.h"
 #include "k3bapplication.h"
 #include "k3bappdevicemanager.h"
 #include "k3bmediacache.h"
 
+void K3b::AudioView::on_textChanged(const QString text)
+{
+    qDebug() << "need to hide the show";
+    lineEdit_icon->hide();
+    lineEdit_text->hide();
+}
+
+void K3b::AudioView::on_editingFinish()
+{
+    int i = 0;
+    QString str;
+    qDebug() << "Input text: " << lineedit_iso->text();
+    QFileInfo fileinfo(lineedit_iso->text());
+    if (!fileinfo.exists() || !fileinfo.isFile() || (fileinfo.suffix() != "iso"))
+    {
+        lineedit_iso->clear();
+        qDebug() << "Invalid file.";
+        lineEdit_icon->show();
+        lineEdit_text->show();
+        return;
+    }
+    lineedit_iso->clear();
+    long int file_size = fileinfo.size();
+    double size;
+    do{
+        size = (float)file_size / (float)1024;
+        file_size = file_size / 1024;
+        i++;
+    }while(file_size > 1024);
+    switch(i){
+    case 0:
+        str = fileinfo.fileName() + " " + QString::number(size, 'f', 2) + "b";
+        break;
+    case 1:
+        str = fileinfo.fileName() + " " + QString::number(size, 'f', 2) + "k";
+        break;
+    case 2:
+        str = fileinfo.fileName() + " " + QString::number(size, 'f', 2) + "M";
+        break;
+    case 3:
+        str = fileinfo.fileName() + " " + QString::number(size, 'f', 2) + "G";
+        break;
+    default:
+        str = fileinfo.fileName() + " " + QString::number(file_size);
+        break;
+    }
+    lineEdit_icon->show();
+    lineEdit_text->show();
+
+    lineEdit_icon->setStyleSheet("background-image:url(:/icon/icon/icon-镜像.png);\
+                                 background-color:transparent;\
+                                 background-repeat: no-repeat;});");
+    if( !device_index.isEmpty() ){
+        button_start->setEnabled( true );
+        button_start->setStyleSheet("QPushButton{background-color:rgb(61, 107, 229);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 18px;border-radius: 4px;color: rgb(255,255,255);}"
+                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 18px;border-radius: 4px;color: rgb(255,255,255);}");
+    }
+
+    lineEdit_text->setText( str );
+}
 
 K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     : K3b::View( doc, parent )
@@ -98,8 +160,10 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
 
     lineedit_iso = new QLineEdit(this);
     lineedit_iso->setFixedSize(360, 30);
+    connect(lineedit_iso, SIGNAL(editingFinished()), this, SLOT(on_editingFinish()));//on_textChanged
+    connect(lineedit_iso, SIGNAL(textChanged(QString)), this, SLOT(on_textChanged(QString)));//on_textChanged
     //lineedit_iso->setDragEnabled( false );
-    lineedit_iso->setEnabled( false );
+    //lineedit_iso->setEnabled( false );
     //lineedit_iso->setStyleSheet("QLineEdit{background-color: transparent;border:1px solid rgba(220,221,222,1);border-radius:4px;}");
 
     lineedit_iso->setObjectName("LineEditISO");
@@ -518,6 +582,8 @@ void K3b::AudioView::slotOpenfile()
 
     if(filepath == NULL)
         return;
+
+    lineedit_iso->clear();
 
     QFileInfo fileinfo( filepath );
     long int file_size = fileinfo.size();

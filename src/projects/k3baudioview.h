@@ -60,6 +60,8 @@ namespace K3b {
         void slotSetting();
         void slotStartBurn();
         void slotBurn();
+        void on_editingFinish();
+        void on_textChanged(const QString text);
 
     private:
         AudioDoc* m_doc;
