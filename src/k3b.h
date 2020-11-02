@@ -31,6 +31,7 @@
 #include <QDBusMessage>
 #include <QStackedWidget>
 #include <QPaintEvent>
+#include <QResizeEvent>
 
 //class QStackedWidget;
 namespace K3b {
@@ -168,6 +169,7 @@ namespace K3b {
          */
         bool canCloseDocument( Doc* );
         virtual bool eventFilter(QObject *obj, QEvent *event);
+        void resizeEvent(QResizeEvent *);
     
     private Q_SLOTS:
         /** open a file and load it into the document*/
