@@ -1263,7 +1263,7 @@ on_about_cb (GtkAction *action, BurnerApp *app)
 
 	/* This can only be shown from the main window so no need for toplevel */
 	gtk_show_about_dialog (GTK_WINDOW (GTK_WIDGET (priv->mainwin)),
-			       "program-name", "Burner",
+			       "program-name", _("Burner"),
 			       "comments", comments,
 			       "version", VERSION,
 			       "copyright", "Copyright © 2005-2010 Philippe Rouquier",
