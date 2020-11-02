@@ -247,6 +247,12 @@ public:
     QMimeDatabase mimeDatabase;
 };
 
+void K3b::MainWindow::resizeEvent(QResizeEvent *event)
+{
+    qDebug() << "resize...";
+    showNormal();
+}
+
 void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
 {
     qDebug() << event->key();
