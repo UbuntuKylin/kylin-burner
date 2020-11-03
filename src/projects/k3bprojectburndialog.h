@@ -191,6 +191,7 @@ public:
         Doc* m_doc;
         BurnJob* m_job;
         QLineEdit *m_tmpPath;
+        QLabel *m_labeltmpPath;
     };
 }
 

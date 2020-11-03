@@ -30,6 +30,7 @@
 #include "k3bstdguiitems.h"
 #include "k3bversion.h"
 #include "k3bthememanager.h"
+#include "ThemeManager.h"
 
 #include <KColorScheme>
 #include <KConfig>
@@ -62,6 +63,7 @@
 #include <unistd.h>
 #include <QBitmap>
 #include <QPainter>
+#include <QPoint>
 
 class K3b::JobProgressDialog::Private
 {
@@ -233,6 +235,11 @@ void K3b::JobProgressDialog::setupGUI()
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     setFixedSize(430, 260);
 
+
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - height()) / 2);
+    move(p);
+
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
@@ -240,21 +247,32 @@ void K3b::JobProgressDialog::setupGUI()
 
     QBitmap bmp(this->size());
     bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
+    QPainter pai(&bmp);
+    pai.setPen(Qt::NoPen);
+    pai.setBrush(Qt::black);
+    pai.drawRoundedRect(bmp.rect(), 6, 6);
     setMask(bmp);
+
+    this->setObjectName("JobProcessDialog");
+    ThManager()->regTheme(this, "ukui-white", "#JobProcessDialog{background-color: #FFFFFF;}");
+    ThManager()->regTheme(this, "ukui-black", "#JobProcessDialog{background-color: #000000;}");
 
     QLabel *icon = new QLabel();
     icon->setFixedSize(30,30);
     icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
                         "background-repeat: no-repeat;background-color:transparent;}");
-    QLabel *title = new QLabel(i18n("kylin-burner"));
+    title = new QLabel(i18n("kylin-burner"), this);
+    title->setObjectName("JobProcessTitle");
     title->setFixedSize(80,30);
     title->setStyleSheet("QLabel{background-color:transparent;"
                          "background-repeat: no-repeat;color:#444444;"
                          "font: 14px;}");
+    ThManager()->regTheme(title, "ukui-white", "background-color:transparent;"
+                                               "background-repeat: no-repeat;color:#444444;"
+                                               "font: 14px;");
+    ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
+                                               "background-repeat: no-repeat;color:#FFFFFF;"
+                                               "font: 14px;");
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"

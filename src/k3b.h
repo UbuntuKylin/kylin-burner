@@ -248,6 +248,8 @@ namespace K3b {
         bool isImageActived;
         bool isCopyActived;
         QStackedWidget *tt;
+        QWidget *mainWidget;
+        QWidget *background;
         
 
         QLabel *pIconLabel;

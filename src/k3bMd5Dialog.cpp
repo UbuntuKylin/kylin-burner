@@ -49,8 +49,12 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     */
 
     this->setObjectName("Md5Check");
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
+    ThManager()->regTheme(this, "ukui-white", "#Md5Check{background-color: #FFFFFF; "
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
+    ThManager()->regTheme(this, "ukui-black", "#Md5Check{background-color: #000000; "
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
 
 
     QBitmap bmp(this->size());
