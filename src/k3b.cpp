@@ -279,6 +279,7 @@ K3b::MainWindow::MainWindow()
       d( new Private )
 {
     d->lastDoc = 0;
+    ISOPath.clear();
 
     logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
 
@@ -613,6 +614,16 @@ void K3b::MainWindow::initStatusBar()
     d->statusBarManager = new K3b::StatusBarManager( this );
 }
 
+
+void K3b::MainWindow::startInImageData(QString path)
+{
+    K3b::AudioView *imageView = static_cast<K3b::AudioView *>(d->view_image);
+    ISOPath = path;
+    d->btnImage->setChecked(true);
+    imageView->ISO()->setText(ISOPath);
+    emit imageView->ISO()->editingFinished();
+    slotNewAudioDoc();
+}
 
 void K3b::MainWindow::initView()
 {

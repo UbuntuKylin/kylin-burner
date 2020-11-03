@@ -420,6 +420,7 @@ void K3b::DataViewImpl::slotOpen()
 
 void K3b::DataViewImpl::slotSelectionChanged()
 {
+#if 0
     const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
 
     bool open = true, rename = true, remove = true, flag = true;
@@ -449,7 +450,6 @@ void K3b::DataViewImpl::slotSelectionChanged()
     {
         QString name = index.model()->data(index, Qt::DisplayRole).toString();
         DataItem *d = m_doc->root()->find(name);
-        qDebug() << d->isDeleteable() << d->parent()->localPath();
         if (!d->isDeleteable()) flag = false;
         else flag = true;
         if (!(index.data(DataProjectModel::CustomFlagsRole).toInt() & DataProjectModel::ItemIsRemovable))
@@ -463,6 +463,7 @@ void K3b::DataViewImpl::slotSelectionChanged()
     m_actionRemove->setEnabled( remove );
     m_actionOpen->setEnabled( open );
     emit dataDelete(flag);
+#endif
 }
 
 
@@ -479,6 +480,10 @@ void K3b::DataViewImpl::slotItemActivated( const QModelIndex& index )
         }
     }
 #endif
+    K3b::DataItem *d = NULL;
+
+    d = m_model->itemForIndex(m_sortModel->mapToSource(index));
+    if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size()) m_fileView->setRootIndex(index);
 }
 
 
