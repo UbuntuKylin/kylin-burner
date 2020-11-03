@@ -85,6 +85,7 @@ namespace K3b {
          *  must be called after construction
          */
         void initView();
+        void startInImageData(QString path);
 
     public Q_SLOTS:
         K3b::Doc* slotNewAudioDoc();
@@ -250,6 +251,7 @@ namespace K3b {
         QStackedWidget *tt;
         QWidget *mainWidget;
         QWidget *background;
+        QString ISOPath;
         
 
         QLabel *pIconLabel;
