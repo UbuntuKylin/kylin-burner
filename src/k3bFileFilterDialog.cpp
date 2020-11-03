@@ -38,10 +38,18 @@ FileFilter::FileFilter(QWidget *parent) :
     this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setFixedSize(430, 250);
 
+    /*
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
+    */
+
+    this->setObjectName("MenuFileFilter");
+    ThManager()->regTheme(this, "ukui-white", "#MenuFileFilter{background-color: #FFFFFF;"
+                                              "border: 1px solid gray;border-radius: 6px;}");
+    ThManager()->regTheme(this, "ukui-black", "#MenuFileFilter{background-color: #000000;"
+                                              "border: 1px solid gray;border-radius: 6px;}");
 
     QBitmap bmp(this->size());
     bmp.fill();

@@ -22,6 +22,8 @@
 
 #include <QScreen>
 #include <QMouseEvent>
+#include <QBitmap>
+#include <QPainter>
 
 KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     QWidget(parent),
@@ -29,8 +31,23 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
 {
     ui->setupUi(this);
     this->hide();
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF; border-radius: 6px;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000; border-radius: 6px;");
+    setAttribute(Qt::WA_TranslucentBackground, true);
+
+    QBitmap bmp(this->size());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRoundedRect(bmp.rect(), 6, 6);
+    setMask(bmp);
+
+    setObjectName("AboutDialog");
+    ThManager()->regTheme(ui->aboutBackground, "ukui-white", "#aboutBackground{background-color: #FFFFFF;"
+                                              "border:1px solid gray;"
+                                              "border-radius: 6px;}");
+    ThManager()->regTheme(ui->aboutBackground, "ukui-black", "#aboutBackground{background-color: #000000;"
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
 
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "font: 14px; color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "font: 14px; color: #FFFFFF;");
@@ -41,19 +58,23 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     ThManager()->regTheme(ui->burnerName, "ukui-black", "color: #FFFFFF;"
                                                         "font: 1000 20pt \"Noto Sans CJK SC\";");
 
-    ui->burnerBase->setText(i18n("Version 3.1.0 (based on K3b, Thanks.)"));
-    ThManager()->regTheme(ui->burnerBase, "ukui-white", "color: #444444; font: 12px;");
-    ThManager()->regTheme(ui->burnerBase, "ukui-black", "color: #FFFFFF; font: 12px;");
+    //ui->burnerBase->setText(i18n("Version 3.1.0 (based on K3b, Thanks.)"));
+    ui->burnerBase->setText(i18n("Version: 3.1.0 (based on K3b)"));
+    ThManager()->regTheme(ui->burnerBase, "ukui-white", "color: #444444; font: 14px;");
+    ThManager()->regTheme(ui->burnerBase, "ukui-black", "color: #FFFFFF; font: 14px;");
 
-    ui->copyright->setText(i18n("Copyright (C) 2020  KylinSoft Co., Ltd."));
-    ThManager()->regTheme(ui->copyright, "ukui-white", "color: #444444; font: 500 14px;");
-    ThManager()->regTheme(ui->copyright, "ukui-black", "color: #FFFFFF; font: 500 14px;" );
+    //ui->copyright->setText(i18n("Copyright (C) 2020  KylinSoft Co., Ltd."));
+    ui->copyright->setText(i18n("Package: kylin-burner"));
+    ThManager()->regTheme(ui->copyright, "ukui-white", "color: #444444; font: 14px;");
+    ThManager()->regTheme(ui->copyright, "ukui-black", "color: #FFFFFF; font: 14px;" );
 
-    ui->labelContent->setText(i18n("Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
-                                   "\n Thanks for using and making a suggestion."));
+    /*ui->labelContent->setText(i18n("Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
+                                   "\n Thanks for using and making a suggestion."));*/
+    ui->labelContent->setText(i18n("Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"));
     ThManager()->regTheme(ui->labelContent, "ukui-white", "color: #444444; font: 14px;");
     ThManager()->regTheme(ui->labelContent, "ukui-black", "color: #FFFFFF; font: 14px;" );
 
+#if 0
     ui->btnClose->setText(i18n("Close__"));
     ThManager()->regTheme(ui->btnClose, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
@@ -88,7 +109,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
-
+#endif
     setWindowFlags(Qt::FramelessWindowHint  | Qt::Dialog | windowFlags());
     setWindowModality(Qt::WindowModal);
     setWindowTitle(i18n("about"));
@@ -150,8 +171,9 @@ void KylinBurnerAbout::labelCloseStyle(bool in)
                                       "border-radius: 4px;");
     }
 }
-
+#if 0
 void KylinBurnerAbout::on_btnClose_clicked()
 {
     hide();
 }
+#endif

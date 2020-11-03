@@ -41,10 +41,21 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setFixedSize(430, 380);
 
+    /*
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
+    */
+
+    this->setObjectName("Md5Check");
+    ThManager()->regTheme(this, "ukui-white", "#Md5Check{background-color: #FFFFFF; "
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
+    ThManager()->regTheme(this, "ukui-black", "#Md5Check{background-color: #000000; "
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
+
 
     QBitmap bmp(this->size());
     bmp.fill();

@@ -22,15 +22,29 @@
 #include "k3bprojectmanager.h"
 #include "k3bdiritem.h"
 #include "ThemeManager.h"
+#include "k3b.h"
 
 #include <QDebug>
 #include <QMouseEvent>
 #include <QScreen>
+#include <QBitmap>
+#include <QPainter>
 
 KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::KylinBurnerFileFilter)
 {
+    setFixedSize(450, 500);
+
+    /*
+    QBitmap bmp(width(), height());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRoundedRect(bmp.rect(), 6, 6);
+    setMask(bmp);
+    */
     //setAttribute(Qt::WA_ShowModal);
     ui->setupUi(this);
     selection = new KylinBurnerFileFilterSelection(this);
@@ -39,23 +53,26 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     setWindowTitle(i18n("FilterFile"));
     //qDebug() << "-----------------------------" << pos().x() << pos().y();
     //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
-    setWindowModality(Qt::WindowModal);
+    //setWindowModality(Qt::WindowModal);
 
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     //this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
+    setAttribute(Qt::WA_TranslucentBackground, true);
     this->hide();
 
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
+    ThManager()->regTheme(ui->filterBackground, "ukui-white", "#filterBackground{background-color: #FFFFFF;"
+                                              "border-radius: 4px; border: 1px solid gray;}");
+    ThManager()->regTheme(ui->filterBackground, "ukui-black", "#filterBackground{background-color: #000000;"
+                                              "border-radius: 4px;border: 1px solid gray;}");
 
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
     ui->labelName->setText(i18n("FilterFile"));
-    ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
-    ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
+    ThManager()->regTheme(ui->labelName, "ukui-white", "font: 24px; color: #444444;");
+    ThManager()->regTheme(ui->labelName, "ukui-black", "font: 24px; color: #FFFFFF;");
     ui->btnRecovery->setText(i18n("Reset"));
     ThManager()->regTheme(ui->btnRecovery, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
@@ -374,6 +391,10 @@ void KylinBurnerFileFilter::on_btnSetting_clicked()
     //selection->setAttribute(Qt::WA_ShowModal);
     selection->setOption(isHidden, isBroken, isReplace);
     selection->show();
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - selection->width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - selection->height()) / 2);
+    selection->move(p);
+
     /*
     if (selection->isHidden())
     {

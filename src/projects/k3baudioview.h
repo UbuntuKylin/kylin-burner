@@ -50,6 +50,7 @@ namespace K3b {
         //*******************************************
         void slotMediaChange( K3b::Device::Device* );
         void slotDeviceChange( K3b::Device::DeviceManager* );
+        QLineEdit *ISO() {return lineedit_iso;}
 
     protected:
         ProjectBurnDialog* newBurnDialog( QWidget* parent = 0 ) override;
@@ -60,6 +61,8 @@ namespace K3b {
         void slotSetting();
         void slotStartBurn();
         void slotBurn();
+        void on_editingFinish();
+        void on_textChanged(const QString text);
 
     private:
         AudioDoc* m_doc;

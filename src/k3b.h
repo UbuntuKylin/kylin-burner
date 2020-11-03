@@ -30,6 +30,8 @@
 #include <QKeyEvent>
 #include <QDBusMessage>
 #include <QStackedWidget>
+#include <QPaintEvent>
+#include <QResizeEvent>
 
 //class QStackedWidget;
 namespace K3b {
@@ -83,6 +85,7 @@ namespace K3b {
          *  must be called after construction
          */
         void initView();
+        void startInImageData(QString path);
 
     public Q_SLOTS:
         K3b::Doc* slotNewAudioDoc();
@@ -167,6 +170,7 @@ namespace K3b {
          */
         bool canCloseDocument( Doc* );
         virtual bool eventFilter(QObject *obj, QEvent *event);
+        void resizeEvent(QResizeEvent *);
     
     private Q_SLOTS:
         /** open a file and load it into the document*/
@@ -245,6 +249,9 @@ namespace K3b {
         bool isImageActived;
         bool isCopyActived;
         QStackedWidget *tt;
+        QWidget *mainWidget;
+        QWidget *background;
+        QString ISOPath;
         
 
         QLabel *pIconLabel;

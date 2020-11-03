@@ -29,9 +29,11 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QTextEdit>
+#include <QGraphicsDropShadowEffect>
 
 #include <QDebug>
 
+#include "k3b.h"
 #include "k3bTitleBar.h"
 #include "k3bappdevicemanager.h"
 #include "k3bdevice.h"
@@ -88,7 +90,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                 "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
                                  "border:none;background-color:rgb(61, 107, 229);"
                                  "border-radius: 4px;}"
-                                "QToolButton:checked{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
+                                "QToolButton:pressed{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
                                  "border:none;background-color:rgb(50, 87, 202);"
                                  "border-radius: 4px;}"
                                  "QToolButton::menu-indicator{image:none;}");
@@ -161,19 +163,26 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addSeparator();
     menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
     menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
+    menu->setFixedSize(140, 196);
 
+#if 0
+    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
+    shadow_effect->setOffset(0, 0);
+    shadow_effect->setColor(Qt::blue);
+    shadow_effect->setBlurRadius(4);
+#endif
 
     menu->setObjectName("menu");
-    ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(233, 233, 233, 1);"
-                                             "border: none; border-radius: 4px;}"
+    ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(255, 255, 255, 1);"
+                                             "border: 1px solid rgba(0, 0, 0, 0.6); border-radius: 4px;}"
                                              "#menu::item{background-color: transparent;"
                                              "padding: 8px 5px; margin: 0px 4px;"
                                              "border: none; border-radius: 4px;"
-                                             "font: 14px; color: #444444;height: 14px;}"
-                                             "#menu::item:selected{background-color: rgba(107, 141, 235, 1);"
-                                             "border-bottom: 1px solid gray; color:rgba(61, 107, 229, 1);}"
-                                             "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
-                                             "color: rgba(61, 107, 229, 1);}");
+                                             "font: 14px; color: rgba(68, 68, 68, 1);height: 14px;}"
+                                             "#menu::item:selected{background-color: rgba(218, 227, 250, 1);"
+                                             "color:rgba(68, 68, 68, 1);}"
+                                             "#menu::item:pressed{background-color: rgba(218, 227, 250, 1);"
+                                             "color: rgba(68, 68, 68, 1);}");
     ThManager()->regTheme(menu, "ukui-black","#menu{background-color: rgba(57, 58, 62, 1);"
                                              "border: none; border-radius: 4px;}"
                                              "#menu::item{background-color: transparent;"
@@ -181,7 +190,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                              "border: none; border-radius: 4px;"
                                              "font: 14px; color: #FFFFFF;height: 14px;}"
                                              "#menu::item:selected{background-color: rgba(107, 141, 235, 1);"
-                                             "border-bottom: 1px solid gray; color:rgba(61, 107, 229, 1);}"
+                                             "color:rgba(61, 107, 229, 1);}"
                                              "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
                                              "color: rgba(61, 107, 229, 1);}");
 
@@ -417,6 +426,10 @@ void K3b::TitleBar::help()
 void K3b::TitleBar::about()
 {
     abouta->show();
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - abouta->width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - abouta->height()) / 2);
+    qDebug() << p;
+    abouta->move(p);
 }
 
 void K3b::TitleBar::isHidden(bool flag)

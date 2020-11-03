@@ -64,6 +64,8 @@ K3b::Application::Application( int& argc, char** argv )
 
 void K3b::Application::init( QCommandLineParser* commandLineParser )
 {
+    QString imagePath = commandLineParser->value("image");
+    qDebug() << "IMAGE ARGOPTION" << imagePath;
     m_cmdLine.reset( commandLineParser );
 
     m_core = new Core( this );
@@ -83,6 +85,10 @@ void K3b::Application::init( QCommandLineParser* commandLineParser )
 
     m_mainWindow = new MainWindow();
     m_core->m_mainWindow = m_mainWindow;
+    if (!imagePath.isEmpty())
+    {
+        m_mainWindow->startInImageData(imagePath);
+    }
 
     if( isSessionRestored() ) {
         // we only have one single mainwindow to restore

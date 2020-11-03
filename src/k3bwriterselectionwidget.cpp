@@ -145,10 +145,12 @@ K3b::WriterSelectionWidget::WriterSelectionWidget( QWidget *parent )
     labelSpeed->setFixedHeight(14);
     labelSpeed->setStyleSheet("color:#444444;");
 #endif
+    /*
     labelSpeed->setStyleSheet("QLabel{width:56px; height:12px; "
                               "font-size:14px; font-family:Microsoft YaHei;"
                               " font-weight:400; color:rgba(68,68,68,1); "
                               "line-height:18px;}");
+    */
 
     labelSpeed->setObjectName("SpeeComboName");
     ThManager()->regTheme(labelSpeed, "ukui-white", "font: 14px; color: #444444;");
@@ -156,8 +158,83 @@ K3b::WriterSelectionWidget::WriterSelectionWidget( QWidget *parent )
 
     m_comboSpeed = new K3b::IntMapComboBox();
     m_comboSpeed->setFixedSize( 368, 32);
-    m_comboSpeed->setFont( label_font );
-    m_comboSpeed->setStyleSheet("color:#444444;");
+    //m_comboSpeed->setFont( label_font );
+    m_comboSpeed->setObjectName("SpeeCombo");
+
+    ThManager()->regTheme(m_comboSpeed, "ukui-white","#SpeeCombo{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#SpeeCombo::hover{border:1px solid #6B8EEB;}"
+                                                 "#SpeeCombo::selected{border:1px solid #6B8EEB;}"
+                                                 "#SpeeCombo QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
+                                                 //"#SpeeCombo QAbstractItemView::hover{"
+                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#SpeeCombo QAbstractItemView::item{"
+                                                 "background-color: #DAE3FA;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
+                                                 "#SpeeCombo QAbstractItemView::item::hover{border: none;"
+                                                 "background-color: #3D6BE5;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#SpeeCombo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#SpeeCombo::down-arrow{image: url(:/icon/icon/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#SpeeCombo QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#SpeeCombo QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#SpeeCombo QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#SpeeCombo QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#SpeeCombo{background-color: #EEEEEE;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#SpeeCombo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+    ThManager()->regTheme(m_comboSpeed, "ukui-black","#SpeeCombo{border:1px solid #DCDDDE;"
+                                                 "border-radius: 4px; combobox-popup: 0;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
+                                                 "background-color: #242424;}"
+                                                 "#SpeeCombo::hover{border:1px solid #6B8EEB;"
+                                                 "background-color: rgba(0, 0, 0, 0.15);}"
+                                                 "#SpeeCombo::selected{border:1px solid #6B8EEB;"
+                                                 "background-color: #242424}"
+                                                 "#SpeeCombo QAbstractItemView{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
+                                                 "#SpeeCombo QAbstractItemView::hover{"
+                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
+                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
+                                                 "#SpeeCombo QAbstractItemView::item{"
+                                                 "background-color: rgba(0, 0, 0, 0.15);"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#SpeeCombo QAbstractItemView::item::hover{"
+                                                 "background-color: #3D6BE5;"
+                                                 "border-radius: 4px;height: 30px;"
+                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
+                                                 "#SpeeCombo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}"
+                                                 "#SpeeCombo::down-arrow{image: url(:/icon/icon/icon_xl.png); "
+                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
+                                                 "#SpeeCombo QScrollBar::vertical{background-color: transparent;"
+                                                 "width: 5px; border: none;}"
+                                                 "#SpeeCombo QScrollBar::handle::vertical{"
+                                                 "background-color: #3D6BE5;border-radius: 2px;}"
+                                                 "#SpeeCombo QScrollBar::add-line{border: none; height: 0px;}"
+                                                 "#SpeeCombo QScrollBar::sub-line{border: none; height: 0px;}",
+                                                 QString(), QString(),
+                                                 "#SpeeCombo{background-color: #393A3E;border: none; "
+                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
+                                                 "border-radius: 4px;}"
+                                                 "#SpeeCombo::drop-down{subcontrol-origin: padding;"
+                                                 "subcontrol-position: top right; border: none;}");
+
 
     m_comboMedium = new MediaSelectionComboBox( groupWriter );
     m_comboMedium->setFixedSize( 368, 30);

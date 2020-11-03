@@ -10635,3 +10635,12 @@ msgstr "版权声明 © 2020 麒麟软件有限公司"
 msgid "Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
 "\n Thanks for using and making a suggestion."
 msgstr "修改及研发者\n    麒麟软件有限公司-北京桌面应用组\n感谢使用及建议。"
+
+msgid "Version: 3.1.0 (based on K3b)"
+msgstr "版本号：3.1.0 （基于开源项目K3b）"
+
+msgid "Package: kylin-burner"
+msgstr "软件包名：kylin-burner"
+
+msgid "Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"
+msgstr "贡献者邮箱：\nwangye@kylinos.cn、biwenjie@kylinos.cn"

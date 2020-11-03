@@ -251,20 +251,35 @@ void K3b::DataViewImpl::slotNewDir()
     QString name;
     bool ok;
 
+    QInputDialog newDir(m_view);
+    newDir.setWindowTitle(i18n("New Folder"));
+    newDir.setWindowIcon(QIcon::fromTheme("brasero"));
+    newDir.setStyleSheet("width: 150px;");
+    newDir.setLabelText(i18n("Please insert the name for the new folder:"));
+    ok = newDir.exec();
+    name = newDir.textValue();
+
+    /*
     name = QInputDialog::getText( m_view,
                                   i18n("New Folder"),
                                   i18n("Please insert the name for the new folder:"),
                                   QLineEdit::Normal,
                                   i18n("New Folder"),
                                   &ok );
+    */
 
     while( ok && DataDoc::nameAlreadyInDir( name, parentDir ) ) {
+        /*
         name = QInputDialog::getText( m_view,
                                       i18n("New Folder"),
                                       i18n("A folder with that name already exists. Please enter a new name:"),
                                       QLineEdit::Normal,
                                       i18n("New Folder"),
                                       &ok );
+                                      */
+        newDir.setLabelText(i18n("A folder with that name already exists. Please enter a new name:"));
+        ok = newDir.exec();
+        name = newDir.textValue();
     }
 
     if( !ok )
@@ -284,6 +299,9 @@ int K3b::DataViewImpl::slotOpenDir()
     a->setViewMode(QFileDialog::List);
     a->setWindowTitle(i18n("Add"));
 
+    bool addtoDir = false;
+    K3b::DirItem *dir = NULL;
+
     QListView *listView = a->findChild<QListView*>("listView");
     if (listView)
         listView->setSelectionMode(QAbstractItemView::ExtendedSelection);
@@ -302,7 +320,26 @@ int K3b::DataViewImpl::slotOpenDir()
     }
     if( urls.count() == 0 )
         return 0;
-    m_doc->addUrls( urls );
+
+    if (m_fileView->selectionModel()->selectedRows().size() > 1 ||
+            0 == m_fileView->selectionModel()->selectedRows().size())
+    {
+        addtoDir = false;
+    }
+    else
+    {
+        K3b::DataItem *d = m_model->itemForIndex(
+                    m_sortModel->mapToSource(m_fileView->currentIndex()));
+        if (d && d->isDir())
+        {
+            addtoDir = true;
+            dir = d->getDirItem();
+            qDebug() << "Add to dir name" << d->k3bName() << dir->k3bName();
+        }
+    }
+
+    if (addtoDir) m_doc->addUrlsToDir(urls, dir);
+    else m_doc->addUrls( urls );
     emit addFiles(urls);
     return 1;
 }
@@ -383,6 +420,7 @@ void K3b::DataViewImpl::slotOpen()
 
 void K3b::DataViewImpl::slotSelectionChanged()
 {
+#if 0
     const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
 
     bool open = true, rename = true, remove = true, flag = true;
@@ -412,7 +450,6 @@ void K3b::DataViewImpl::slotSelectionChanged()
     {
         QString name = index.model()->data(index, Qt::DisplayRole).toString();
         DataItem *d = m_doc->root()->find(name);
-        qDebug() << d->isDeleteable() << d->parent()->localPath();
         if (!d->isDeleteable()) flag = false;
         else flag = true;
         if (!(index.data(DataProjectModel::CustomFlagsRole).toInt() & DataProjectModel::ItemIsRemovable))
@@ -426,6 +463,7 @@ void K3b::DataViewImpl::slotSelectionChanged()
     m_actionRemove->setEnabled( remove );
     m_actionOpen->setEnabled( open );
     emit dataDelete(flag);
+#endif
 }
 
 
@@ -442,6 +480,10 @@ void K3b::DataViewImpl::slotItemActivated( const QModelIndex& index )
         }
     }
 #endif
+    K3b::DataItem *d = NULL;
+
+    d = m_model->itemForIndex(m_sortModel->mapToSource(index));
+    if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size()) m_fileView->setRootIndex(index);
 }
 
 

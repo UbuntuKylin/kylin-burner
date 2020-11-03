@@ -71,6 +71,7 @@ add_executable(k3bexternalbinmanagertest
     ${CMAKE_SOURCE_DIR}/src/k3bthemedlabel.cpp
     ${CMAKE_SOURCE_DIR}/src/k3bdebuggingoutputfile.cpp
     ${CMAKE_SOURCE_DIR}/src/k3bjobprogressdialog.cpp
+    ${CMAKE_SOURCE_DIR}/src/ThemeManager.cpp
     ${dbus_sources})
 target_include_directories(k3bexternalbinmanagertest PRIVATE
     ${CMAKE_SOURCE_DIR}/libk3b
@@ -86,7 +87,8 @@ target_link_libraries(k3bexternalbinmanagertest
     KF5::Notifications
     KF5::IconThemes
     k3blib
-    k3bdevice)
+    k3bdevice
+    gsettings-qt)
 add_test(NAME k3bexternalbinmanagertest COMMAND k3bexternalbinmanagertest)
 
 if(LIBFUZZER_FOUND)

@@ -28,6 +28,7 @@ class QCheckBox;
 class QTabWidget;
 class QSpinBox;
 class QVBoxLayout;
+class QLineEdit;
 
 namespace K3b {
     class Doc;
@@ -189,6 +190,8 @@ public:
     private:
         Doc* m_doc;
         BurnJob* m_job;
+        QLineEdit *m_tmpPath;
+        QLabel *m_labeltmpPath;
     };
 }
 
