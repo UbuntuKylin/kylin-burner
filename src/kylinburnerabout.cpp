@@ -31,6 +31,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
 {
     ui->setupUi(this);
     this->hide();
+    setAttribute(Qt::WA_TranslucentBackground, true);
 
     QBitmap bmp(this->size());
     bmp.fill();
@@ -40,8 +41,13 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     p.drawRoundedRect(bmp.rect(), 6, 6);
     setMask(bmp);
 
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF; border-radius: 6px;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000; border-radius: 6px;");
+    setObjectName("AboutDialog");
+    ThManager()->regTheme(ui->aboutBackground, "ukui-white", "#aboutBackground{background-color: #FFFFFF;"
+                                              "border:1px solid gray;"
+                                              "border-radius: 6px;}");
+    ThManager()->regTheme(ui->aboutBackground, "ukui-black", "#aboutBackground{background-color: #000000;"
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
 
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "font: 14px; color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "font: 14px; color: #FFFFFF;");

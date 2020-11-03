@@ -135,6 +135,7 @@ namespace K3b {
         Private* d;
 
         Job* m_job;
+        QLabel *title;
         QElapsedTimer m_timer;
         qint64 m_lastProgressUpdateTime;
 

@@ -14,6 +14,7 @@
  */
 
 
+#include "k3b.h"
 #include "k3bprojectburndialog.h"
 #include "k3bdoc.h"
 #include "k3bburnprogressdialog.h"
@@ -255,9 +256,13 @@ void K3b::ProjectBurnDialog::slotStartClicked()
     
     BurnResult* dialog = new BurnResult( flag, "data");
     dialog->show();
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - dialog->width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - dialog->height()) / 2);
+    dialog->move(p);
     
     m_job = 0;
-    delete dlg;
+    /* cancel delete because the dialog has parent. */
+    //delete dlg;
 
     done( Burn );
     
@@ -426,7 +431,7 @@ void K3b::ProjectBurnDialog::prepareGui()
 
    //tmp
     m_tempDirSelectionWidget = new K3b::TempDirSelectionWidget( );
-    QLabel *m_labeltmpPath = new QLabel( m_optionGroup );
+    m_labeltmpPath = new QLabel( m_optionGroup );
     m_tmpPath = new QLineEdit( m_optionGroup );
     QString tmp_path =i18n("temp file path: ");
     KIO::filesize_t tempFreeSpace = m_tempDirSelectionWidget->freeTempSpace();
@@ -444,12 +449,13 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
     //m_tmpPath->setStyleSheet("color:#444444;");
+#if 0
     m_tmpPath->setObjectName("TmpPath");
-    ThManager()->regTheme(m_tmpPath, "ukui-white", "font-color:#444444;font:14px;", QString(),
+    ThManager()->regTheme(m_tmpPath, "ukui-white", "color:#444444;font:14px;", QString(),
                           QString(),"color:#444444;font:14px;border: 1px solid #CFCFCF; border-radius: 4px;");
     ThManager()->regTheme(m_tmpPath, "ukui-black", "color:#FFFFFF;font:14px;", QString(),
                           QString(),"color:#FFFFFF;font:14px;border: 1px solid #666666; border-radius: 4px;");
-
+#endif
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(31, 0, 0, 0);
     vlayout->addWidget( label_title );

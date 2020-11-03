@@ -62,8 +62,17 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     setAutoFillBackground(true);
     setPalette(pal);
 
+    this->setObjectName("CleanDialog");
+    ThManager()->regTheme(this, "ukui-white", "#CleanDialog{background-color: #FFFFFF;"
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
+    ThManager()->regTheme(this, "ukui-black", "#CleanDialog{background-color: #000000;"
+                                              "border: 1px solid gray;"
+                                              "border-radius: 6px;}");
+
     setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     resize(430, 280);
+    button_ok->setObjectName("BtnCleanOK");
     ThManager()->regTheme(button_ok, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
                                                          "font: 14px \"MicrosoftYaHei\";"
@@ -99,6 +108,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                        "color: rgba(193, 193, 193, 1);");
 
 
+    button_cancel->setObjectName("BtnCleanCancel");
     ThManager()->regTheme(button_cancel, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
                                                          "font: 14px \"MicrosoftYaHei\";"
@@ -149,7 +159,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     title->setFixedSize(80,30);
     //title->setFixedWidth(48);
     title->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    title->setObjectName("Titles");
+    title->setObjectName("CleanTitles");
     ThManager()->regTheme(title, "ukui-white", "background-color:transparent;"
                                                "font: 14px; color: #444444;");
     ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
@@ -186,7 +196,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                       font-family:Microsoft YaHei;\
                                       font-weight:400;\
                                       color:rgba(68,68,68,1);}");
-    label_title->setObjectName("LabelTitles");
+    label_title->setObjectName("CleanLabelTitles");
     ThManager()->regTheme(label_title, "ukui-white", "background-color:transparent;"
                                                "font: 24px; font-weight:400; color: #444444;");
     ThManager()->regTheme(label_title, "ukui-black", "background-color:transparent;"
@@ -201,7 +211,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                        font-family:Microsoft YaHei;\
                                        font-weight:400;\
                                        color:rgba(68,68,68,1);}");
-   label_CD->setObjectName("LabelCDs");
+   label_CD->setObjectName("CleanLabelCDs");
    ThManager()->regTheme(label_CD, "ukui-white", "background-color:transparent;"
                                               "font: 14px; color: #444444;");
    ThManager()->regTheme(label_CD, "ukui-black", "background-color:transparent;"

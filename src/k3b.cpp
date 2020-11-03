@@ -49,6 +49,7 @@
 #include "k3bstdguiitems.h"
 #include "k3bsystemproblemdialog.h"
 #include "k3bstatusbarmanager.h"
+#include "k3bwidgetshoweffect.h"
 #include "k3btempdirselectionwidget.h"
 #include "k3bthemedheader.h"
 #include "k3bthememanager.h"
@@ -117,6 +118,7 @@
 #include <QErrorMessage>
 #include <QRectF>
 #include <QButtonGroup>
+#include <QGridLayout>
 
 namespace {
 
@@ -277,7 +279,7 @@ K3b::MainWindow::MainWindow()
       d( new Private )
 {
     d->lastDoc = 0;
-    
+
     logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
 
 #if 0
@@ -315,8 +317,9 @@ K3b::MainWindow::MainWindow()
     //setWindowIcon(QIcon::fromTheme("disk-burner"));
     setWindowIcon(QIcon::fromTheme("brasero"));
     setWindowTitle( i18n("Kylin-Burner") );
+    setAttribute(Qt::WA_TranslucentBackground, true);
 
-    resize(900, 600);
+    resize(902, 602);
     //add widget border-radius
     /*
     QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
@@ -329,6 +332,8 @@ K3b::MainWindow::MainWindow()
     */
 
 
+
+    /*
     QBitmap bmp(this->size());
     bmp.fill();
     QPainter p(&bmp);
@@ -338,6 +343,7 @@ K3b::MainWindow::MainWindow()
 
 
     setMask(bmp);
+    */
 
 
 #if 0
@@ -621,14 +627,45 @@ void K3b::MainWindow::initView()
     logger->info("Draw main frame begin...");
 
     setObjectName("MainBurner");
-    ThManager()->regTheme(this, "ukui-white", "#MainBurner{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#MainBurner{background-color: #000000;}");
 
+    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
+    shadow_effect->setOffset(-1, 1);
+    shadow_effect->setColor(Qt::gray);
+    shadow_effect->setBlurRadius(6);
+    background = new QWidget(this);
+    background->setFixedSize(902, 602);
+    //background->setGraphicsEffect(shadow_effect);
+    background->setObjectName("MainBackground");
+    background->setStyleSheet("#MainBackground{background-color: gray;"
+                              "border-radius: 6px; border:1px solid gray;}");
+
+    QHBoxLayout *backLay = new QHBoxLayout(this);
+    this->setLayout(backLay);
+    backLay->setMargin(1);
+    backLay->setSpacing(0);
+    backLay->addWidget(background);
+
+    mainWidget = new QWidget(background);
+    mainWidget->setFixedSize(900, 600);
+    QHBoxLayout *mainLay = new QHBoxLayout(background);
+    background->setLayout(mainLay);
+    mainLay->setMargin(1);
+    mainLay->setSpacing(0);
+    mainLay->addWidget(mainWidget);
+    mainWidget->move(11, 11);
+    mainWidget->setObjectName("MainWidget");
+    ThManager()->regTheme(mainWidget, "ukui-white", "#MainWidget{background-color: #FFFFFF;"
+                                                    "border:1px solid gray;border-radius: 6px;}");
+    ThManager()->regTheme(mainWidget, "ukui-black", "#MainWidget{background-color: #000000;"
+                                                    "border:1px solid gray;border-radius: 6px;}");
+    K3b::WidgetShowEffect::showWidget(background, K3b::WidgetShowEffect::Dissolve);
     //左右分割
-    d->mainSplitter = new QSplitter( Qt::Horizontal, this );
+    //d->mainSplitter = new QSplitter( Qt::Horizontal, mainWidget );
+    //d->mainSplitter->setFixedHeight(600);
+    setCentralWidget( mainWidget );
 
     //左侧 上方tille 
-    QLabel *label_title = new QLabel(this);
+    QLabel *label_title = new QLabel(mainWidget);
     label_title->setFixedHeight( 35 );
 
     //左侧 上方tille :icon
@@ -659,7 +696,7 @@ void K3b::MainWindow::initView()
     //hLayout->addSpacing( 6 );
     hLayout->addWidget(pTitleLabel);
     
-    QLabel* btnLabel = new QLabel( d->mainSplitter );
+    QLabel* btnLabel = new QLabel( mainWidget );
     btnLabel->setFixedWidth(125);
 
     d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
@@ -935,7 +972,7 @@ void K3b::MainWindow::initView()
 
 
     //右侧：label
-    QLabel *label_view = new QLabel( d->mainSplitter );
+    QLabel *label_view = new QLabel( mainWidget );
     label_view->setFixedWidth(775);
 
 
@@ -947,7 +984,7 @@ void K3b::MainWindow::initView()
 
 
     // 右侧：label :上方 title bar
-    title_bar = new TitleBar( this );
+    title_bar = new TitleBar( mainWidget );
 
     title_bar->setFixedWidth(750);
 
@@ -985,15 +1022,26 @@ void K3b::MainWindow::initView()
     d->documentHeader->setLeftPixmap( K3b::Theme::PROJECT_LEFT );
     d->documentHeader->setRightPixmap( K3b::Theme::PROJECT_RIGHT );
 
-    setCentralWidget( d->mainSplitter );
+    //setCentralWidget( d->mainSplitter );
 
     QVBoxLayout *layout_window = new QVBoxLayout( label_view );
     layout_window->setContentsMargins(25,0,0,0);
     layout_window->addWidget( title_bar );
     layout_window->addWidget( d->documentStack );
 
+
+    QHBoxLayout *wLayout = new QHBoxLayout(mainWidget);
+    mainWidget->setLayout(wLayout);
+    wLayout->setMargin(0);
+    wLayout->setSpacing(0);
+    wLayout->addWidget( btnLabel );
+    wLayout->addWidget( label_view );
+
+
+    /*
     d->mainSplitter->addWidget( btnLabel );
     d->mainSplitter->addWidget( label_view );
+    */
 
 #if 0
     // 右侧：label :垂直布局 

@@ -33,6 +33,7 @@
 
 #include <QDebug>
 
+#include "k3b.h"
 #include "k3bTitleBar.h"
 #include "k3bappdevicemanager.h"
 #include "k3bdevice.h"
@@ -425,6 +426,10 @@ void K3b::TitleBar::help()
 void K3b::TitleBar::about()
 {
     abouta->show();
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - abouta->width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - abouta->height()) / 2);
+    qDebug() << p;
+    abouta->move(p);
 }
 
 void K3b::TitleBar::isHidden(bool flag)

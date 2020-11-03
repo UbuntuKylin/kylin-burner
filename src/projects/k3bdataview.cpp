@@ -46,6 +46,7 @@
 #include <QFileDialog>
 
 #include "misc/k3bimagewritingdialog.h"
+#include "k3b.h"
 #include "k3bapplication.h"
 #include "k3bappdevicemanager.h"
 #include "k3bmediacache.h"
@@ -858,16 +859,14 @@ void K3b::DataView::slotFileFilterClicked()
 {
     //K3b::DirItem *d = m_doc->root();
     //K3b::DataItem *c;
-    //dlgFileFilter->setAttribute(Qt::WA_ShowModal);
+    dlgFileFilter->setAttribute(Qt::WA_ShowModal);
     dlgFileFilter->setDoFileFilter(combo_CD->currentIndex());
     //dlgFileFilter->slotDoFileFilter(docs[combo_CD->currentIndex()]);
 
-    /*
-    QPoint p = mapToGlobal(pos());
-    dlgFileFilter->move(p.x() + width() / 2 - dlgFileFilter->width() / 2,
-                        p.y() + height() / 2 - dlgFileFilter->height() / 2);
-    */
     dlgFileFilter->show();
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - dlgFileFilter->width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - dlgFileFilter->height()) / 2);
+    dlgFileFilter->move(p);
 }
 
 void K3b::DataView::slotFinish(K3b::DataDoc *doc)
