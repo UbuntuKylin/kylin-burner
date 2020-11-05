@@ -48,6 +48,7 @@
 #include <KLocalizedString>
 
 #include <QCommandLineParser>
+#include <QFileInfo>
 #include <QDebug>
 
 
@@ -60,11 +61,21 @@ K3b::Application::Application( int& argc, char** argv )
       m_mainWindow( nullptr )
 {
     KLocalizedString::setApplicationDomain( "k3b" );
+    logger = LogRecorder::instance().registration("Application");
 }
 
 void K3b::Application::init( QCommandLineParser* commandLineParser )
 {
     QString imagePath = commandLineParser->value("image");
+    QStringList lists = commandLineParser->positionalArguments();
+    logger->debug("Arguments:");
+    for (int i = 0; i < lists.size(); ++i)
+    {
+        logger->debug("%s", lists[i].toStdString().c_str());
+        QFileInfo fi(lists[i]);
+        if (!fi.exists() || !fi.isFile() || (fi.suffix() != "iso")) continue;
+        imagePath = lists[i];
+    }
     qDebug() << "IMAGE ARGOPTION" << imagePath;
     m_cmdLine.reset( commandLineParser );
 
