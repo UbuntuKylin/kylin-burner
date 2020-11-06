@@ -710,13 +710,13 @@ void K3b::MainWindow::initView()
     QLabel* btnLabel = new QLabel( mainWidget );
     btnLabel->setFixedWidth(125);
 
-    d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
+    d->btnData = new QPushButton(i18n("Data Burner  "), btnLabel);     // 数据刻录
     d->btnData->setCheckable(true);
     d->btnData->setChecked(true);
     d->btnImage = new QPushButton(i18n("Image Burner"), btnLabel);   // 镜像刻录
     d->btnImage->setCheckable(true);
     //d->btnImage->setChecked(true);
-    d->btnCopy = new QPushButton(i18n("Copy Disk"), btnLabel);     // 复制光盘
+    d->btnCopy = new QPushButton(i18n("Copy Disk       "), btnLabel);     // 复制光盘
     d->btnCopy->setCheckable(true);
     //d->btnCopy->setChecked(true);
     isDataActived = true; isImageActived = false; isCopyActived = false;

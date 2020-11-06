@@ -129,7 +129,7 @@ K3b::Device::Device* K3b::DataJob::writer() const
 
 void K3b::DataJob::start()
 {
-    qDebug();
+    qDebug() << "Started....";
     jobStarted();
 
     d->canceled = false;

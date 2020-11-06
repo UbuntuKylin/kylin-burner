@@ -118,7 +118,7 @@ K3b::EmptyDiscWaiter::EmptyDiscWaiter( K3b::Device::Device* device, QWidget* par
     QPushButton* ejectButton = new QPushButton( this );
     KGuiItem::assign( ejectButton, KGuiItem( i18n("Eject"), QString::fromLatin1( "media-eject" ) ) );
     buttonBox->addButton( ejectButton, QDialogButtonBox::NoRole );
-    connect( ejectButton, SIGNAL(clicked()), this, SLOT(slotEject()) );
+    connect( ejectButton, SIGNAL(clicked()), this, SLOT(slotEjectOut()) );
 
     QPushButton* loadButton = buttonBox->addButton( i18n("Load"), QDialogButtonBox::NoRole );
     connect( loadButton, SIGNAL(clicked()), this, SLOT(slotLoad()) );
@@ -699,6 +699,12 @@ void K3b::EmptyDiscWaiter::slotEject()
     K3b::Device::eject( d->device );
 }
 
+void K3b::EmptyDiscWaiter::slotEjectOut()
+{
+    qDebug() << "slot eject";
+    slotEject();
+    finishWaiting( Device::MEDIA_UNKNOWN );
+}
 
 void K3b::EmptyDiscWaiter::slotLoad()
 {

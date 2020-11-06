@@ -1510,6 +1510,7 @@ void K3b::DataView::slotStartBurn()
         int index = combo_burner->currentIndex();
         --index;
         dlg->setComboMedium( device_index.at( index ) );
+        m_doc->setBurner( device_index.at( index ) );
         qDebug()<< "index :" <<  index << " device block name: " << device_index.at( index )->blockDeviceName() <<endl;
         dlg->slotStartClicked();
     }else if( burn_button->text() == i18n("create iso" )){ 

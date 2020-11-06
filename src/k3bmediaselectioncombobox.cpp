@@ -103,9 +103,13 @@ void K3b::MediaSelectionComboBox::setIgnoreDevice( K3b::Device::Device* dev )
 
 K3b::Device::Device* K3b::MediaSelectionComboBox::selectedDevice() const
 {
+    qDebug() << "selected device.";
     if( d->devices.count() > currentIndex() &&
         currentIndex() >= 0 )
+    {
+        qDebug() << "have selected device." << currentIndex() << d->devices.count();
         return d->devices[currentIndex()];
+    }
     else
         return 0;
 }

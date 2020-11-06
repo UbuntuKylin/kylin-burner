@@ -89,6 +89,7 @@ namespace K3b {
     protected Q_SLOTS:
         void slotCancel();
         void slotEject();
+        void slotEjectOut();
         void slotLoad();
         void slotMediumChanged( K3b::Device::Device* );
         void showDialog();
