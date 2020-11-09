@@ -166,6 +166,7 @@ void K3b::IsoImager::slotProcessExited( int exitCode, QProcess::ExitStatus exitS
                     // otherwise just fall through
 
                 default:
+
                     if( !d->knownError && !mkisofsReadError() ) {
                         emit infoMessage( i18n("%1 returned an unknown error (code %2).", QLatin1String("mkisofs"), exitCode ),
                                           K3b::Job::MessageError );
@@ -259,6 +260,8 @@ void K3b::IsoImager::startSizeCalculation()
     emit debuggingOutput( QLatin1String( "Used versions" ), QString::fromLatin1( "mkisofs: %1").arg(d->mkisofsBin->version()) );
 
     *m_process << d->mkisofsBin;
+
+    *m_process << "-output-charset utf-8";
 
     if( !prepareMkisofsFiles() ||
         !addMkisofsParameters(true) ) {
@@ -424,6 +427,10 @@ void K3b::IsoImager::start()
     // prepare the filenames as written to the image
     m_doc->prepareFilenames();
 
+
+    *m_process << "-J"; // to make sure suppot chinese charset in ukylin.
+    //*m_process << "-output-charset" <<  "utf-8";
+
     if( !prepareMkisofsFiles() ||
         !addMkisofsParameters() ) {
         cleanup();
@@ -435,6 +442,7 @@ void K3b::IsoImager::start()
              this, SLOT(slotProcessExited(int,QProcess::ExitStatus)) );
     connect( m_process, SIGNAL(stderrLine(QString)),
              this, SLOT(slotReceivedStderr(QString)) );
+
 
     qDebug() << "***** mkisofs parameters:\n";
     QString s = m_process->joinedArgs();

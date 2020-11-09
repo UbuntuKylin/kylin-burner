@@ -52,6 +52,7 @@
 #include <QTimer>
 #include <QApplication>
 #include <QDomElement>
+#include <QTextCodec>
 
 #include <string.h>
 #include <stdlib.h>
@@ -268,7 +269,6 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
 
 
         K3b::DirItem* newDirItem = 0;
-
         // rename the new item if an item with that name already exists
         int cnt = 0;
         bool ok = false;
@@ -295,6 +295,12 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
         }
         if( cnt > 0 )
             k3bname += QString("_%1").arg(cnt);
+
+        /* iconv k3bname from unicode to utf-8
+        QTextCodec *utf8 = QTextCodec::codecForName("UTF-8");
+        QString keb1(utf8->toUnicode(k3bname.toUtf8()));
+        k3bname = keb1;
+        */
 
         // QFileInfo::exists and QFileInfo::isReadable return false for broken symlinks :(
         if( f.isDir() && !f.isSymLink() ) {

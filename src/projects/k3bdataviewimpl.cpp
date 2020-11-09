@@ -321,8 +321,7 @@ int K3b::DataViewImpl::slotOpenDir()
     if( urls.count() == 0 )
         return 0;
 
-    if (m_fileView->selectionModel()->selectedRows().size() > 1 ||
-            0 == m_fileView->selectionModel()->selectedRows().size())
+    if (m_fileView->selectionModel()->selectedRows().size() != 1)
     {
         addtoDir = false;
     }
