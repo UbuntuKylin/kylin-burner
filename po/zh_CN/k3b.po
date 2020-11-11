@@ -10367,6 +10367,9 @@ msgstr "子画面"
 msgid "Kylin-Burner"
 msgstr "麒麟刻录"
 
+msgid "KylinBurner"
+msgstr "麒麟刻录"
+
 msgid "Data Burner"
 msgstr "数据刻录"
 
@@ -10494,7 +10497,13 @@ msgstr "开始刻录"
 msgid "current burner"
 msgstr "当前刻录机"
 
+msgid "C-Burner"
+msgstr "当前刻录机"
+
 msgid "current CD"
+msgstr "光盘型号"
+
+msgid "C-CD"
 msgstr "光盘型号"
 
 msgid "Clear"

@@ -247,8 +247,9 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     QVBoxLayout *layout = new QVBoxLayout( label_view );
     layout->setContentsMargins(0, 0, 5, 25);
 
-    QLabel *label_burner = new QLabel(i18n("current burner"), label_view);
-    label_burner->setFixedSize(75, 30);
+    QLabel *label_burner = new QLabel(i18n("C-Burner"), label_view);
+    label_burner->setToolTip(i18n("current burner"));
+    label_burner->setFixedSize(80, 30);
 
     combo_burner = new QComboBox( label_view );
     combo_burner->setEnabled( false );
@@ -340,8 +341,9 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //QLabel *label_space = new QLabel(label);
 
     QLabel *label_CD = new QLabel( label_view );
-    label_CD->setText(i18n("current CD"));
-    label_CD->setMinimumSize(75, 30);
+    label_CD->setText(i18n("C-CD"));
+    label_CD->setToolTip(i18n("current CD"));
+    label_CD->setMinimumSize(80, 30);
 
     iso_index = 0;
 
