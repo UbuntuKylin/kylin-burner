@@ -253,6 +253,8 @@ void K3b::MainWindow::resizeEvent(QResizeEvent *event)
 {
     qDebug() << "resize...";
     showNormal();
+    QRect rec = geometry();
+    move(rec.x(), rec.y());
 }
 
 void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
