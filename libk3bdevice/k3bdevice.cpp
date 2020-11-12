@@ -394,9 +394,9 @@ bool K3b::Device::Device::init( bool bCheckWritingModes )
         return false;
     }
     else {
-        d->vendor = QString::fromLatin1( (char*)(inq->vendor), 8 ).trimmed();
-        d->description = QString::fromLatin1( (char*)(inq->product), 16 ).trimmed();
-        d->version = QString::fromLatin1( (char*)(inq->revision), 4 ).trimmed();
+        d->vendor = QString::fromLocal8Bit( (char*)(inq->vendor), 8 ).trimmed();
+        d->description = QString::fromLocal8Bit( (char*)(inq->product), 16 ).trimmed();
+        d->version = QString::fromLocal8Bit( (char*)(inq->revision), 4 ).trimmed();
     }
 
     if( d->vendor.isEmpty() )

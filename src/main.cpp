@@ -24,9 +24,38 @@
 #include <QLockFile>
 #include <QDebug>
 
+/*
+int getScreenWidth()
+{
+    Display *disp = XOpenDisplay(NULL);
+    Screen *scrn = DefaultScreenOfDisplay(disp);
+    if (NULL == scrn) return 0;
+    int width = scrn->width;
+    if (NULL != disp) XCloseDisplay(disp);
+    return width;
+}
+*/
+
 int main( int argc, char* argv[] )
 {
+
+    /*
+     * for 4 K
+     */
+//    if (getScreenWidth() >= 2560)
+//    {
+#if(QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+        QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+//    }
+
     K3b::Application app( argc, argv );
+
+    if (argc > 1){
+        for (int i = 0; i < argc; ++i)
+            qDebug() << argv[i];
+    }
 
     /*Prevent multiple opening*/
     QString path =  QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
@@ -133,7 +162,7 @@ int main( int argc, char* argv[] )
     parser->addOption( QCommandLineOption( "videodvd", i18n("Create a new Video DVD project and add all given files") ) );
     parser->addOption( QCommandLineOption( "burn", i18n("Open the project burn dialog for the current project") ) );
     parser->addOption( QCommandLineOption( "copy", i18n("Open the copy dialog, optionally specify the source device"), "device" ) );
-    parser->addOption( QCommandLineOption( "image", i18n("Write an image to a CD or DVD"), "url" ) );
+    parser->addOption( QCommandLineOption( "image", i18n("Write an image to a CD or DVD")/*, "url" */) );
     parser->addOption( QCommandLineOption( "format", i18n("Format a rewritable medium"), "device" ) );
     parser->addOption( QCommandLineOption( "cddarip", i18n("Extract Audio tracks digitally (+encoding)"), "device" ) );
     parser->addOption( QCommandLineOption( "videodvdrip", i18n("Rip Video DVD Titles (+transcoding)"), "device" ) );
@@ -151,6 +180,7 @@ int main( int argc, char* argv[] )
     if( parser->isSet("lang") ) {
         QLocale::setDefault( QLocale( parser->value("lang") ) );
     }
+
 
     app.init( parser );
 

@@ -80,6 +80,7 @@ namespace K3b {
         void slotRename();
         void slotProperties();
         void slotOpen();
+        void slotParent();
         void slotSelectionChanged();
         void slotEnterPressed();
         void slotImportSession();

@@ -253,6 +253,8 @@ void K3b::MainWindow::resizeEvent(QResizeEvent *event)
 {
     qDebug() << "resize...";
     showNormal();
+    QRect rec = geometry();
+    move(rec.x(), rec.y());
 }
 
 void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
@@ -691,7 +693,7 @@ void K3b::MainWindow::initView()
     pTitleLabel = new QLabel( label_title );
     pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     //pTitleLabel->setFixedHeight(15);
-    pTitleLabel->setText( i18n("Kylin-Burner" ));
+    pTitleLabel->setText( i18n("KylinBurner" ));
     //pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
 
     pTitleLabel->setObjectName("titleLabel");
@@ -710,13 +712,13 @@ void K3b::MainWindow::initView()
     QLabel* btnLabel = new QLabel( mainWidget );
     btnLabel->setFixedWidth(125);
 
-    d->btnData = new QPushButton(i18n("Data Burner"), btnLabel);     // 数据刻录
+    d->btnData = new QPushButton(i18n("Data Burner  "), btnLabel);     // 数据刻录
     d->btnData->setCheckable(true);
     d->btnData->setChecked(true);
     d->btnImage = new QPushButton(i18n("Image Burner"), btnLabel);   // 镜像刻录
     d->btnImage->setCheckable(true);
     //d->btnImage->setChecked(true);
-    d->btnCopy = new QPushButton(i18n("Copy Disk"), btnLabel);     // 复制光盘
+    d->btnCopy = new QPushButton(i18n("Copy Disk       "), btnLabel);     // 复制光盘
     d->btnCopy->setCheckable(true);
     //d->btnCopy->setChecked(true);
     isDataActived = true; isImageActived = false; isCopyActived = false;

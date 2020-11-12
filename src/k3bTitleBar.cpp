@@ -417,7 +417,9 @@ void K3b::TitleBar::help()
                                                     "/",
                                                     "com.guide.hotel",
                                                     "showGuide");
-    msg << "burner";
+    QFileInfo f("/usr/share/kylin-user-guide/data/guide-ubuntukylin/kylin-burner");
+    if (f.isDir()) msg << "kylin-burner";
+    else msg << "burner";
     qDebug() << msg;
     QDBusMessage response = QDBusConnection::sessionBus().call(msg);
 

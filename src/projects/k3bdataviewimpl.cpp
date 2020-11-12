@@ -163,6 +163,7 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     m_actionParentDir->setShortcut( Qt::Key_Backspace );
     m_actionParentDir->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "parent_dir", m_actionParentDir );
+    connect( m_actionParentDir, SIGNAL(triggered(bool)), this, SLOT(slotParent()) );
 
     m_actionProperties = new QAction( QIcon::fromTheme( "document-properties" ), i18n("Properties"), m_fileView );
     m_actionProperties->setShortcut( Qt::ALT + Qt::Key_Return );
@@ -199,21 +200,22 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     connect(this, SIGNAL(addFiles(QList<QUrl>)), m_view, SLOT(slotAddFile(QList<QUrl>)));
 
     // Create data context menu
-    /*
+
     QAction* separator = new QAction( this );
     separator->setSeparator( true );
     m_fileView->addAction( m_actionParentDir );
+    m_actionParentDir->setEnabled(false);
     m_fileView->addAction( separator );
     m_fileView->addAction( m_actionRename );
     m_fileView->addAction( m_actionRemove );
     m_fileView->addAction( m_actionNewDir );
     m_fileView->addAction( separator );
     m_fileView->addAction( m_actionOpen );
-    m_fileView->addAction( separator );
-    m_fileView->addAction( m_actionProperties );
-    m_fileView->addAction( separator );
-    m_fileView->addAction( actionCollection->action("project_burn") );
-    */
+    //m_fileView->addAction( separator );
+    //m_fileView->addAction( m_actionProperties );
+    //m_fileView->addAction( separator );
+    //m_fileView->addAction( actionCollection->action("project_burn") );
+
 }
 
 
@@ -233,7 +235,11 @@ void K3b::DataViewImpl::slotCurrentRootChanged( const QModelIndex& newRoot )
     // directory from dir view
     m_fileView->setRootIndex( m_sortModel->mapFromSource( newRoot ) );
     m_columnAdjuster->adjustColumns();
-    m_actionParentDir->setEnabled( newRoot.isValid() && m_model->indexForItem( m_doc->root() ) != newRoot );
+#if 0
+    m_actionParentDir->setEnabled
+            ( newRoot.isValid() && m_model->indexForItem( m_doc->root() ) != newRoot );
+#endif
+    m_actionParentDir->setEnabled(false);
 }
 
 
@@ -321,8 +327,7 @@ int K3b::DataViewImpl::slotOpenDir()
     if( urls.count() == 0 )
         return 0;
 
-    if (m_fileView->selectionModel()->selectedRows().size() > 1 ||
-            0 == m_fileView->selectionModel()->selectedRows().size())
+    if (m_fileView->selectionModel()->selectedRows().size() != 1)
     {
         addtoDir = false;
     }
@@ -402,28 +407,54 @@ void K3b::DataViewImpl::slotOpen()
 
     DataItem* item = m_model->itemForIndex( current );
 
+    if (item->isDir()) m_fileView->setRootIndex(m_fileView->currentIndex());
+    else
+    {
+       QUrl url = QUrl::fromLocalFile( item->localPath() );
+       //KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
+       bool a = KRun::runUrl( url,
+                   item->mimeType().name(),
+                   m_view,
+                   KRun::RunFlags());
+       if (!a) KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
+    }
+#if 0
     if( !item->isFile() ) {
         QUrl url = QUrl::fromLocalFile( item->localPath() );
         if( !KRun::isExecutableFile( url,
                                     item->mimeType().name() ) ) {
-            KRun::runUrl( url,
+            bool a = KRun::runUrl( url,
                         item->mimeType().name(),
                         m_view,
                         KRun::RunFlags());
+            if (!a) KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
         }
         else {
             KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
         }
     }
+#endif
 }
 
+void K3b::DataViewImpl::slotParent()
+{
+    m_actionParentDir->setEnabled(false);
+    qDebug() << "to parent";
+    const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
+    if (!(indexes[0].parent().parent().isValid()))
+        qDebug() << "invalid parent index" << indexes[0].parent().isValid();
+    else
+        m_fileView->setRootIndex(indexes[0].parent().parent());
+}
 
 void K3b::DataViewImpl::slotSelectionChanged()
 {
-#if 0
+#if 1
     const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
 
-    bool open = true, rename = true, remove = true, flag = true;
+    bool open = true, rename = true, remove = true, flag = true, parent = true;
+
+    qDebug() << indexes.count();
 
     // we can only rename one item at a time
     // also, we can only create a new dir over a single directory
@@ -436,29 +467,42 @@ void K3b::DataViewImpl::slotSelectionChanged()
     {
         QModelIndex index = indexes.first();
         rename = (index.flags() & Qt::ItemIsEditable);
-        open = (index.data(DataProjectModel::ItemTypeRole).toInt() == DataProjectModel::FileItemType);
+        //open = (index.data(DataProjectModel::ItemTypeRole).toInt() == DataProjectModel::FileItemType);
     }
     else // selectedIndex.count() == 0
     {
         remove = false;
         rename = false;
         open = false;
+        parent = false;
     }
 
-    // check if all selected items can be removed
-    foreach(const QModelIndex &index, indexes)
+    if (indexes.count())
     {
-        QString name = index.model()->data(index, Qt::DisplayRole).toString();
-        DataItem *d = m_doc->root()->find(name);
-        if (!d->isDeleteable()) flag = false;
-        else flag = true;
-        if (!(index.data(DataProjectModel::CustomFlagsRole).toInt() & DataProjectModel::ItemIsRemovable))
+        const QModelIndex current = m_sortModel->mapToSource( indexes[0].parent() );
+        if( !current.isValid() ) parent = false;
+        else
         {
-            remove = false;
-            break;
+            DataItem *d = m_model->itemForIndex( current );
+            if (d == m_doc->root()) parent = false;
+        }
+
+        // check if all selected items can be removed
+        foreach(const QModelIndex &index, indexes)
+        {
+            const QModelIndex current = m_sortModel->mapToSource( index );
+            if( !current.isValid() )
+            {
+                qDebug() << "invalid index." << current;
+                break;
+            }
+            DataItem *d = m_model->itemForIndex( current );
+            if (!d->isDeleteable()) { flag = false; remove = false;}
+            else { flag = true; remove = true; }
         }
     }
 
+    m_actionParentDir->setEnabled( parent );
     m_actionRename->setEnabled( rename );
     m_actionRemove->setEnabled( remove );
     m_actionOpen->setEnabled( open );
@@ -481,9 +525,28 @@ void K3b::DataViewImpl::slotItemActivated( const QModelIndex& index )
     }
 #endif
     K3b::DataItem *d = NULL;
+    K3b::DataItem *child = NULL;
+    QList<K3b::DataItem *> children;
 
     d = m_model->itemForIndex(m_sortModel->mapToSource(index));
-    if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size()) m_fileView->setRootIndex(index);
+    if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size())
+    {
+        m_fileView->setRootIndex(index);
+        children = static_cast<K3b::DirItem *>(d)->children();
+        if (children.count()) child = children.at(0);
+        if (child)
+            m_fileView->setCurrentIndex(m_model->index(0, 0, m_model->indexForItem(child)));
+    }
+    else
+    {
+       QUrl url = QUrl::fromLocalFile( d->localPath() );
+       //KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
+       bool a = KRun::runUrl( url,
+                   d->mimeType().name(),
+                   m_view,
+                   KRun::RunFlags());
+       if (!a) KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
+    }
 }
 
 

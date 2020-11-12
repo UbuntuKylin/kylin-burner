@@ -562,7 +562,8 @@ void K3b::ProjectBurnDialog::saveSettingsToProject()
     m_doc->setOnlyCreateImages( m_checkOnlyCreateImage->isChecked() );
     m_doc->setRemoveImages( m_checkRemoveBufferFiles->isChecked() );
     m_doc->setSpeed( m_writerSelectionWidget->writerSpeed() );
-    m_doc->setBurner( m_writerSelectionWidget->writerDevice() );
+    qDebug() << "save setting:" << m_writerSelectionWidget->writerDevice();
+    //m_doc->setBurner( m_writerSelectionWidget->writerDevice() );
     m_doc->setWritingMode( m_writingModeWidget->writingMode() );
     m_doc->setWritingApp( m_writerSelectionWidget->writingApp() );
     m_doc->setCopies( m_spinCopies->value() );

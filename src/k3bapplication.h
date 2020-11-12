@@ -18,6 +18,7 @@
 #define _K3B_APPLICATION_H_
 
 #include "k3bcore.h"
+#include "kylinburnerlogger.h"
 
 #include <QMap>
 #include <QScopedPointer>
@@ -55,6 +56,7 @@ namespace K3b {
         QScopedPointer<QCommandLineParser> m_cmdLine;
         Core* m_core;
         MainWindow* m_mainWindow;
+        KylinBurnerLogger *logger;
     };
 
 
