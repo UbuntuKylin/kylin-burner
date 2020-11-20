@@ -249,6 +249,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     QLabel *label_burner = new QLabel(i18n("C-Burner"), label_view);
     label_burner->setToolTip(i18n("current burner"));
+    label_burner->setStyleSheet("font: 14px;");
     label_burner->setFixedSize(80, 30);
 
     combo_burner = new QComboBox( label_view );
@@ -343,6 +344,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     QLabel *label_CD = new QLabel( label_view );
     label_CD->setText(i18n("C-CD"));
     label_CD->setToolTip(i18n("current CD"));
+    label_CD->setStyleSheet("font: 14px;");
     label_CD->setMinimumSize(80, 30);
 
     iso_index = 0;
