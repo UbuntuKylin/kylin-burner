@@ -10376,13 +10376,22 @@ msgstr "数据刻录"
 msgid "Data Burner  "
 msgstr "数据刻录"
 
+msgid "DataBurner  "
+msgstr "数据刻录"
+
 msgid "Image Burner"
+msgstr "镜像刻录"
+
+msgid "ImageBurner"
 msgstr "镜像刻录"
 
 msgid "Copy Disk"
 msgstr "复制光盘"
 
 msgid "Copy Disk       "
+msgstr "复制光盘"
+
+msgid "CopyDisk       "
 msgstr "复制光盘"
 
 #: src//misc/k3bmediaformattingdialog.cpp
