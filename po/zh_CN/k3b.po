@@ -10668,3 +10668,9 @@ msgstr "软件包名：kylin-burner"
 
 msgid "Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"
 msgstr "贡献者邮箱：\nwangye@kylinos.cn、biwenjie@kylinos.cn"
+
+msgid "Cannot start KylinBurner"
+msgstr "无法启动麒麟刻录"
+
+msgid "KylinBurner has started in current system now."
+msgstr "麒麟刻录已经在当前系统启动。"

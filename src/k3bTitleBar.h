@@ -52,7 +52,7 @@ public:
     K3b::Device::Device* testDev;
 
 protected:
-
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
     /*
     // 双击标题栏进行界面的最大化/还原
     virtual void mouseDoubleClickEvent(QMouseEvent *event);

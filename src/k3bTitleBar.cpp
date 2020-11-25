@@ -55,6 +55,14 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //m_pMaximizeButton = new QPushButton(this);
     m_pCloseButton = new QPushButton(this);
 
+    m_pCloseButton->setProperty("isWindowButton", 0x2);
+    m_pMinimizeButton->setProperty("isWindowButton", 0x1);
+    m_pMenubutton->setProperty("isWindowButton", 0x1);
+
+    m_pCloseButton->setProperty("useIconHighlightEffect", 0x8);
+    m_pMinimizeButton->setProperty("useIconHighlightEffect", 0x2);
+    m_pMenubutton->setProperty("useIconHighlightEffect", 0x2);
+
     /*
     m_pIconLabel->setFixedSize(30,30);
     m_pIconLabel->setStyleSheet("QLabel{background-image: url(:/new/prefix1/pic/logo.png);"
@@ -79,21 +87,23 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //m_pMaximizeButton->setToolTip(i18n("Maximize__"));
     m_pCloseButton->setToolTip(i18n("Close__"));
 
+    m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    m_pCloseButton->setIconSize(QSize(26 , 26));
+    m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-默认.png"));
+    m_pMinimizeButton->setIconSize(QSize(26 , 26));
+    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
+    m_pMenubutton->setIconSize(QSize(26 , 26));
+
+    m_pCloseButton->installEventFilter(this);
+    m_pMinimizeButton->installEventFilter(this);
+    m_pMenubutton->setAttribute(Qt::WA_Hover, true);
+    m_pMenubutton->installEventFilter(this);
+
     //m_pTitleLabel->setContentsMargins(8,0,0,0);
     //m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
 
     //m_pMenubutton->setIcon( QIcon::fromTheme( "setting-default" ) );
-    m_pMenubutton->setStyleSheet("QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
-                                 "border:none;background-color:transparent;"
-                                 "border-radius: 4px;}"
-                                "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                 "border:none;background-color:rgb(61, 107, 229);"
-                                 "border-radius: 4px;}"
-                                "QToolButton:pressed{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                 "border:none;background-color:rgb(50, 87, 202);"
-                                 "border-radius: 4px;}"
-                                 "QToolButton::menu-indicator{image:none;}");
     /*
     m_pMenubutton->setObjectName("BarMenu");
     ThManager()->regTheme(m_pMenubutton, "ukui-white", "QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
@@ -119,15 +129,6 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                                        "QToolButton::menu-indicator{image:none;}");
     */
 
-    m_pMinimizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最小化-默认.png);"
-                                     "border:none;background-color:transparent;"
-                                     "border-radius: 4px;}"
-                                "QPushButton:hover{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
-                                     "border:none;background-color:rgb(61, 107, 229);"
-                                     "border-radius: 4px;}"
-                                "QPushButton:pressed{border-image: url(:/icon/icon/icon-最小化-悬停点击.png);"
-                                     "border:none;background-color:rgb(50, 87, 202);"
-                                     "border-radius: 4px;}");
 
     /*
     m_pMaximizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最大化-默认.png);"
@@ -140,18 +141,6 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                      "border:none;background-color:rgb(50, 87, 202);"
                                      "border-radius: 4px;}");
     */
-    m_pCloseButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                                  "border:none;background-color:transparent;"
-                                  "border-radius: 4px;}"
-                                "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                                  "border:none;background-color:rgb(248, 100, 87);"
-                                  "border-radius: 4px;}"
-                                 "QPushButton:pressed{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                                    "border:none;background-color:rgba(228, 76, 80, 1);"
-                                    "border-radius: 4px;}"
-                                "QPushButton:checked{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                                  "border:none;background-color:rgb(228, 236, 80);"
-                                  "border-radius: 4px;}");
 
     QMenu *menu = new QMenu(this);  //新建菜单
 
@@ -259,6 +248,34 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     connect(m_pMinimizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
     //connect(m_pMaximizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pCloseButton, &QPushButton::clicked, this, &TitleBar::onClicked);
+}
+
+bool K3b::TitleBar::eventFilter(QObject *watched, QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::HoverEnter:
+        if (m_pCloseButton == watched)
+            m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        else if (m_pMinimizeButton == watched)
+            m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-悬停点击.png"));
+        else if (m_pMenubutton == watched)
+            m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-悬停点击.png"));
+        else break;
+        break;
+    case QEvent::HoverLeave:
+        if (m_pCloseButton == watched)
+            m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+        else if (m_pMinimizeButton == watched)
+            m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-默认.png"));
+        else if (m_pMenubutton == watched)
+            m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
+        else break;
+        break;
+    default:
+        break;
+    }
+    return QWidget::eventFilter(watched, event);
 }
 
 K3b::TitleBar::~TitleBar()
