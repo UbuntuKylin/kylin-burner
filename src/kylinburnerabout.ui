@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>470</width>
-    <height>320</height>
+    <width>450</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>470</width>
-    <height>320</height>
+    <width>450</width>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -36,16 +36,16 @@
     <number>0</number>
    </property>
    <property name="leftMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <property name="topMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="QWidget" name="aboutBackground" native="true">
@@ -172,7 +172,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="labelClose">
+          <widget class="QPushButton" name="labelClose">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -185,11 +185,11 @@
              <height>30</height>
             </size>
            </property>
-           <property name="styleSheet">
-            <string notr="true">image: url(:/icon/icon/icon-关闭-默认.png);</string>
-           </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -274,7 +274,7 @@
               <property name="font">
                <font>
                 <family>Noto Sans CJK SC</family>
-                <pointsize>11</pointsize>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="text">
@@ -299,7 +299,7 @@
               <property name="font">
                <font>
                 <family>Noto Sans CJK SC</family>
-                <pointsize>11</pointsize>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="text">
@@ -324,7 +324,7 @@
               <property name="font">
                <font>
                 <family>Noto Sans CJK SC</family>
-                <pointsize>11</pointsize>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="text">

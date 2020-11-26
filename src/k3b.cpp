@@ -307,7 +307,7 @@ K3b::MainWindow::MainWindow()
         }
 #endif
     /* modify UI */
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    //setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setStyleSheet("QWidget:{width:900px;\
                             height:600px;\
                             background:rgba(255,255,255,1);\
@@ -641,20 +641,23 @@ void K3b::MainWindow::initView()
 
     setObjectName("MainBurner");
 
+    /*
     QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
     shadow_effect->setOffset(-1, 1);
     shadow_effect->setColor(Qt::gray);
     shadow_effect->setBlurRadius(6);
-    background = new QWidget(this);
-    background->setFixedSize(902, 602);
     //background->setGraphicsEffect(shadow_effect);
     background->setObjectName("MainBackground");
     background->setStyleSheet("#MainBackground{background-color: gray;"
                               "border-radius: 6px; border:1px solid gray;}");
+                              */
+    setFixedSize(900, 600);
+    background = new QWidget(this);
+    background->setFixedSize(900, 600);
 
     QHBoxLayout *backLay = new QHBoxLayout(this);
     this->setLayout(backLay);
-    backLay->setMargin(1);
+    backLay->setMargin(0);
     backLay->setSpacing(0);
     backLay->addWidget(background);
 
@@ -667,10 +670,8 @@ void K3b::MainWindow::initView()
     mainLay->addWidget(mainWidget);
     mainWidget->move(11, 11);
     mainWidget->setObjectName("MainWidget");
-    ThManager()->regTheme(mainWidget, "ukui-white", "#MainWidget{background-color: #FFFFFF;"
-                                                    "border:1px solid gray;border-radius: 6px;}");
-    ThManager()->regTheme(mainWidget, "ukui-black", "#MainWidget{background-color: #000000;"
-                                                    "border:1px solid gray;border-radius: 6px;}");
+    ThManager()->regTheme(mainWidget, "ukui-white", "#MainWidget{background-color: #FFFFFF;}");
+    ThManager()->regTheme(mainWidget, "ukui-black", "#MainWidget{background-color: #242424;}");
     K3b::WidgetShowEffect::showWidget(background, K3b::WidgetShowEffect::Dissolve);
     //左右分割
     //d->mainSplitter = new QSplitter( Qt::Horizontal, mainWidget );
@@ -728,7 +729,7 @@ void K3b::MainWindow::initView()
     d->btnData->setObjectName("DataButton");
     d->btnCopy->setObjectName("CopyButton");
     d->btnImage->setObjectName("ImageButton");
-
+#if 0
     ThManager()->regTheme(d->btnData, "ukui-white", "QPushButton{"
                                                     "background-color:transparent;"
                                                     "background-repeat: no-repeat;"
@@ -851,6 +852,7 @@ void K3b::MainWindow::initView()
                                                     "background-repeat: no-repeat;"
                                                     "background-position:left;"
                                                     "color:#FFFFFF;font: 14px;border-radius: 6px;}");
+#endif
 #if 0
     d->btnData->setStyleSheet("QPushButton{"
                                   "background-color:transparent;"
@@ -913,6 +915,9 @@ void K3b::MainWindow::initView()
                                   "background-position:left;"
                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
 #endif
+    d->btnData->setFlat(true);
+    d->btnImage->setFlat(true);
+    d->btnCopy->setFlat(true);
     d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
     d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
     d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
@@ -992,12 +997,13 @@ void K3b::MainWindow::initView()
 #if 1
     label_view->setObjectName("rightBack");
     ThManager()->regTheme(label_view, "ukui-white","#rightBack{background-color: #FFFFFF;}");
-    ThManager()->regTheme(label_view, "ukui-black","#rightBack{background-color: rgba(0, 0, 0, 0.15);");
+    ThManager()->regTheme(label_view, "ukui-black","#rightBack{background-color: #242424;");
 #endif
 
 
     // 右侧：label :上方 title bar
     title_bar = new TitleBar( mainWidget );
+    title_bar->setAttribute(Qt::WA_TranslucentBackground, true);
 
     title_bar->setFixedWidth(750);
 

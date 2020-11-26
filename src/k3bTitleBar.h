@@ -88,10 +88,11 @@ private:
 private:
     QLabel *m_pIconLabel;
     QLabel *m_pTitleLabel;
-    QToolButton *m_pMenubutton;
+    QPushButton *m_pMenubutton;
     QPushButton *m_pMinimizeButton;
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
+    QMenu *menu;
     FileFilter  *dlg;
     KylinBurnerAbout *abouta;
     K3b::MediaFormattingDialog *mfDlg;

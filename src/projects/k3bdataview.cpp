@@ -256,6 +256,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     combo_burner->setEnabled( false );
     combo_burner->setMinimumSize(310, 30);
     combo_burner->setObjectName("ComboBurner");
+#if 0
     ThManager()->regTheme(combo_burner, "ukui-white","#ComboBurner{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -330,6 +331,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#ComboBurner::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+#endif
     /*
     combo_burner->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
                             "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
@@ -368,6 +370,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     dlgFileFilter->addData();
 
     combo_CD->setObjectName("ComboCD");
+#if 0
     ThManager()->regTheme(combo_CD, "ukui-white","#ComboCD{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -443,6 +446,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#ComboCD::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+#endif
 #endif
     /*
     combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"

@@ -16,6 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "xatom-helper.h"
 #include "kylinburnerabout.h"
 #include "ui_kylinburnerabout.h"
 #include "ThemeManager.h"
@@ -31,24 +32,23 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
 {
     ui->setupUi(this);
     this->hide();
-    setAttribute(Qt::WA_TranslucentBackground, true);
 
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
+    setFixedSize(450, 300);
+
+    setWindowFlag(Qt::Dialog);
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
     setObjectName("AboutDialog");
+#if 1
     ThManager()->regTheme(ui->aboutBackground, "ukui-white", "#aboutBackground{background-color: #FFFFFF;"
-                                              "border:1px solid gray;"
-                                              "border-radius: 6px;}");
+                                              "}");
     ThManager()->regTheme(ui->aboutBackground, "ukui-black", "#aboutBackground{background-color: #000000;"
-                                              "border: 1px solid gray;"
-                                              "border-radius: 6px;}");
-
+                                              "");
+#endif
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "font: 14px; color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "font: 14px; color: #FFFFFF;");
 
@@ -110,12 +110,14 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
 #endif
-    setWindowFlags(Qt::FramelessWindowHint  | Qt::Dialog | windowFlags());
     setWindowModality(Qt::WindowModal);
     setWindowTitle(i18n("about"));
 
     ui->labelTitle->setText(i18n("kylin-burner"));
-    ui->labelClose->setAttribute(Qt::WA_Hover, true);
+    ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    ui->labelClose->setProperty("isWindowButton", 0x2);
+    ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
+    ui->labelClose->setIconSize(QSize(26, 26));
     ui->labelClose->installEventFilter(this);
 
     QScreen *screen = QGuiApplication::primaryScreen ();
@@ -135,19 +137,18 @@ bool KylinBurnerAbout::eventFilter(QObject *obj, QEvent *event)
 
     switch (event->type())
     {
-    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
         mouseEvent = static_cast<QMouseEvent *>(event);
         if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button()))
             this->hide();
         break;
     case QEvent::HoverEnter:
-        if (ui->labelClose == obj) labelCloseStyle(true);
+        if (ui->labelClose == obj)
+            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
         break;
     case QEvent::HoverLeave:
         if (ui->labelClose == obj)
-        {
-            labelCloseStyle(false);
-        }
+            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
         break;
     default:
         return QWidget::eventFilter(obj, event);

@@ -16,6 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "xatom-helper.h"
 #include "kylinburnerfilefilter.h"
 #include "ui_kylinburnerfilefilter.h"
 #include "k3bapplication.h"
@@ -35,39 +36,29 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui(new Ui::KylinBurnerFileFilter)
 {
     setFixedSize(450, 500);
-
-    /*
-    QBitmap bmp(width(), height());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
-    */
     //setAttribute(Qt::WA_ShowModal);
     ui->setupUi(this);
     selection = new KylinBurnerFileFilterSelection(this);
-    setWindowFlags (Qt::Window);
-    setWindowFlags(Qt::FramelessWindowHint  | Qt::Dialog | windowFlags());
     setWindowTitle(i18n("FilterFile"));
     //qDebug() << "-----------------------------" << pos().x() << pos().y();
     //qDebug() << "-----------------------------" << mapFromGlobal(parent->pos()).x() << mapFromGlobal(parent->pos()).y();
     //setWindowModality(Qt::WindowModal);
+    setWindowFlag (Qt::Dialog);
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     //this->move(parent->width() / 2 - width() / 2, parent->height() / 2 - height() / 2);
-    setAttribute(Qt::WA_TranslucentBackground, true);
     this->hide();
 
-    ThManager()->regTheme(ui->filterBackground, "ukui-white", "#filterBackground{background-color: #FFFFFF;"
-                                              "border-radius: 4px; border: 1px solid gray;}");
-    ThManager()->regTheme(ui->filterBackground, "ukui-black", "#filterBackground{background-color: #000000;"
-                                              "border-radius: 4px;border: 1px solid gray;}");
-
     ui->labelTitle->setText(i18n("Kylin-Burner"));
+    ThManager()->regTheme(this, "ukui-white", "#KylinBurnerFileFilter{background-color: #FFFFFF;}");
+    ThManager()->regTheme(this, "ukui-black", "#KylinBurnerFileFilter{background-color: #000000;}");
     ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
     ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
     ui->labelName->setText(i18n("FilterFile"));
@@ -144,8 +135,10 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
 
-
-    ui->labelClose->setAttribute(Qt::WA_Hover, true);
+    ui->labelClose->setProperty("isWindowButton", 0x2);
+    ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
+    ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    ui->labelClose->setIconSize(QSize(26, 26));
     ui->labelClose->installEventFilter(this);
     currentData = static_cast<K3b::DataDoc *>(k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));
     model = new K3b::DataProjectModel(currentData, this);
@@ -281,7 +274,7 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
 
     switch (event->type())
     {
-    case QEvent::MouseButtonPress:
+    case QEvent::MouseButtonRelease:
         mouseEvent = static_cast<QMouseEvent *>(event);
         if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button()))
         {
@@ -304,12 +297,17 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
         }
         break;
     case QEvent::HoverEnter:
-        if (ui->labelClose == obj) labelCloseStyle(true);
+        if (ui->labelClose == obj)
+        {
+            //labelCloseStyle(true);
+            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        }
         break;
     case QEvent::HoverLeave:
         if (ui->labelClose == obj)
         {
-            labelCloseStyle(false);
+            //labelCloseStyle(false);
+            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
         }
         break;
     default:
@@ -324,13 +322,11 @@ void KylinBurnerFileFilter::labelCloseStyle(bool in)
     if (in)
     {
         ui->labelClose->setStyleSheet("background-color:rgba(247,99,87,1);"
-                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png);"
                                       "border-radius: 4px;");
     }
     else
     {
         ui->labelClose->setStyleSheet("background-color:transparent;"
-                                      "image: url(:/icon/icon/icon-关闭-默认.png); "
                                       "border-radius: 4px;");
     }
 }

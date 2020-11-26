@@ -109,6 +109,7 @@ namespace K3b {
         void showEvent( QShowEvent* e ) override;
         void closeEvent( QCloseEvent* e ) override;
         void keyPressEvent( QKeyEvent* e ) override;
+        bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
         void setupGUI();
 
@@ -127,6 +128,7 @@ namespace K3b {
         QPushButton* m_cancelButton;
         QPushButton* m_showDbgOutButton;
         QPushButton* m_closeButton;
+        QPushButton *c;
 
         QGridLayout* m_frameExtraInfoLayout;
 

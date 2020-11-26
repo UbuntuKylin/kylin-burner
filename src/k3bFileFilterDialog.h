@@ -49,9 +49,10 @@ public:
     void setIsHidden(bool);
     void setIsBroken(bool);
     void setIsReplace(bool);
-
+protected:
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 private:
-
+    QPushButton *c;
     QDialog *filter_dialog;
 };
 

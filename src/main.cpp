@@ -12,6 +12,7 @@
  */
 
 #include "k3bapplication.h"
+#include "xatom-helper.h"
 
 #include <KAboutData>
 #include <KLocalizedString>

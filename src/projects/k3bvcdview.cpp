@@ -67,8 +67,11 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     label_title->setFont( title_font );
     label_title->setStyleSheet("color: #444444");
     label_title->setObjectName("LabelTitle");
+#if 0
     ThManager()->regTheme(label_title, "ukui-white", "#LabelTitle{font: 24px; color: #444444;}");
     ThManager()->regTheme(label_title, "ukui-black", "#LabelTitle{font: 24px; color: #FFFFFF;}");
+#endif
+    setAttribute(Qt::WA_TranslucentBackground, true);
 
     QLabel *label_iso = new QLabel(this);
     label_iso->setText(i18n("CD to copy"));
@@ -83,6 +86,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     combo_iso = new QComboBox(this);
     combo_iso->setFixedSize(360, 30);
     combo_iso->setObjectName("ComboISO_1");
+#if 0
     ThManager()->regTheme(combo_iso, "ukui-white","#ComboISO_1{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -156,7 +160,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
-    
+ #endif
     label_CD = new QLabel(this);
     label_CD->setText(i18n("Copy CD"));
     label_CD->setFont( label_font );
@@ -168,6 +172,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     combo_CD = new QComboBox(this);
     combo_CD->setFixedSize(360, 30);
     combo_CD->setObjectName("ComboCD_2");
+#if 0
     ThManager()->regTheme(combo_CD, "ukui-white","#ComboCD_2{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -241,6 +246,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+#endif
     image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
     lastIndex = comboIndex;
     combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
@@ -258,6 +264,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     else button_openfile->setText(i18n("choice"));
     button_openfile->setFixedSize(80, 30);
     button_openfile->setObjectName("Choice");
+#if 0
     ThManager()->regTheme(button_openfile, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
                                                          "border: none; border-radius: 4px;"
                                                          "font: 14px \"MicrosoftYaHei\";"
@@ -291,7 +298,7 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
                           "border: none; border-radius: 4px;"
                           "font: 14px \"MicrosoftYaHei\";"
                           "color: rgba(77, 78, 81, 1);");
-
+#endif
     button_start = new QPushButton(this);
     if (isBurner) button_start->setText(i18n("start burner"));
     else button_start->setText(i18n("Create image"));

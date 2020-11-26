@@ -48,8 +48,8 @@ public:
     explicit KylinBurnerFileFilter(QWidget *parent);
     ~KylinBurnerFileFilter();
 
-public:
-    bool eventFilter(QObject *obj, QEvent *event);
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
 
 public:
     void setHidden(int , bool);

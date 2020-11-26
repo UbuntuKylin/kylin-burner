@@ -21,6 +21,7 @@
 #include "k3bappdevicemanager.h"
 #include "k3blsofwrapperdialog.h"
 #include "config-k3b.h"
+#include "xatom-helper.h"
 
 #include "k3bcore.h"
 #include "k3bdevicemanager.h"
@@ -95,6 +96,12 @@ void K3b::Application::init( QCommandLineParser* commandLineParser )
     }
 
     m_mainWindow = new MainWindow();
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(m_mainWindow->winId(), hints);
+
     m_core->m_mainWindow = m_mainWindow;
     if (!imagePath.isEmpty())
     {

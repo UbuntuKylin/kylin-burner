@@ -30,8 +30,10 @@ public:
     ~BurnResult();
 
     Q_SLOT void exit();
-
+protected:
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 private:
+    QPushButton *c;
 };
 
 #endif // BURNRESULTDIALOG_H

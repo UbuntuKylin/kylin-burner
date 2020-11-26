@@ -226,6 +226,8 @@ add_executable(burner
     rip/k3baudioprojectconvertingjob.cpp
     rip/categories.cpp
     rip/k3baudiotrackmodel.cpp
+    xatom-helper.cpp
+    xatom-helper.h
     ${ui_sources}
     ${audioplayer_sources}
     ${musicbrainz_sources}
@@ -246,6 +248,8 @@ target_link_libraries(burner
     k3blib
     pthread
     gsettings-qt
+    X11
+    Qt5::X11Extras
     KF5::Cddb
     KF5::Archive
     KF5::I18n

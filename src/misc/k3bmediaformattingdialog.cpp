@@ -13,6 +13,7 @@
  */
 
 #include "k3bmediaformattingdialog.h"
+#include "xatom-helper.h"
 
 #include "k3bapplication.h"
 #include "k3bmediacache.h"
@@ -57,6 +58,13 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
 
     QWidget* frame = mainWidget();
     
+
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
+
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
@@ -64,13 +72,9 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
 
     this->setObjectName("CleanDialog");
     ThManager()->regTheme(this, "ukui-white", "#CleanDialog{background-color: #FFFFFF;"
-                                              "border: 1px solid gray;"
-                                              "border-radius: 6px;}");
+                                              "}");
     ThManager()->regTheme(this, "ukui-black", "#CleanDialog{background-color: #000000;"
-                                              "border: 1px solid gray;"
-                                              "border-radius: 6px;}");
-
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+                                              "}");
     resize(430, 280);
     button_ok->setObjectName("BtnCleanOK");
     ThManager()->regTheme(button_ok, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
@@ -142,14 +146,6 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
                                        "border: none; border-radius: 4px;"
                                        "font: 14px \"MicrosoftYaHei\";"
                                        "color: rgba(193, 193, 193, 1);");
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
-
     icon = new QLabel();
     icon->setFixedSize(30,30);
     icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
@@ -165,15 +161,23 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
                                                "font: 14px; color: #FFFFFF;");
 
-    QPushButton *close = new QPushButton();
-    close->setFixedSize(30,30);
+    c = new QPushButton();
+    c->setFlat(true);
+    c->setFixedSize(30,30);
+    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setIconSize(QSize(26, 26));
+    c->setProperty("isWindowButton", 0x2);
+    c->setProperty("useIconHighlightEffect", 0x8);
+    c->installEventFilter(this);
+#if 0
     close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
                          "border:none;background-color:rgb(233, 233, 233);"
                          "border-radius: 4px;background-color:transparent;}"
                           "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
                          "border:none;background-color:rgb(248, 100, 87);"
                          "border-radius: 4px;}");
-    connect(close, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ));
+#endif
+    connect(c, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ));
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
@@ -184,7 +188,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     titlebar->addSpacing(0);
     titlebar->addWidget(title);
     titlebar->addStretch();
-    titlebar->addWidget(close);
+    titlebar->addWidget(c);
     //titlebar->addSpacing(5);
 
     QLabel* label_title = new QLabel( this );
@@ -297,6 +301,18 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
 
 }
 
+bool K3b::MediaFormattingDialog::eventFilter(QObject *obj, QEvent *e)
+{
+    if (obj == c)
+    {
+        if(e->type() == QEvent::HoverEnter)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        else if (e->type() == QEvent::HoverLeave)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+        else return QWidget::eventFilter(obj, e);
+    }
+    return QWidget::eventFilter(obj, e);
+}
 
 K3b::MediaFormattingDialog::~MediaFormattingDialog()
 {
@@ -313,7 +329,7 @@ void K3b::MediaFormattingDialog::setDevice( K3b::Device::Device* dev )
 void K3b::MediaFormattingDialog::slotCancelClicked()
 {
     icon->setFocus();
-    close();
+    this->close();
 }
 
 void K3b::MediaFormattingDialog::slotFinished(bool f)
