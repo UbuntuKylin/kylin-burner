@@ -15,6 +15,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
+#include "xatom-helper.h"
 #include "k3bMd5Dialog.h"
 
 #include "k3bappdevicemanager.h"
@@ -32,14 +34,20 @@
 #include <QPainter>
 #include <QBitmap>
 #include <QGraphicsDropShadowEffect>
+#include <QEvent>
 
 #include "k3bResultDialog.h"
 
 K3b::Md5Check::Md5Check(QWidget *parent) :
     QDialog(parent)
 {
-    this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setFixedSize(430, 380);
+
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
     /*
     QPalette pal(palette());
@@ -50,20 +58,9 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
 
     this->setObjectName("Md5Check");
     ThManager()->regTheme(this, "ukui-white", "#Md5Check{background-color: #FFFFFF; "
-                                              "border: 1px solid gray;"
-                                              "border-radius: 6px;}");
+                                              "}");
     ThManager()->regTheme(this, "ukui-black", "#Md5Check{background-color: #000000; "
-                                              "border: 1px solid gray;"
-                                              "border-radius: 6px;}");
-
-
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
+                                              "}");
 
     QLabel *icon = new QLabel();
     icon->setFixedSize(30,30);
@@ -77,15 +74,15 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     title->setObjectName("MD5Titile");
     ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
     ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
-    QPushButton *close = new QPushButton();
-    close->setFixedSize(30,30);
-    close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                         "border:none;background-color:rgb(233, 233, 233);"
-                         "border-radius: 4px;background-color:transparent;}"
-                          "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                         "border:none;background-color:rgb(248, 100, 87);"
-                         "border-radius: 4px;}");
-    connect(close, &QPushButton::clicked, this, &Md5Check::exit);
+    c = new QPushButton();
+    c->setFixedSize(30,30);
+    c->setFlat(true);
+    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setProperty("isWindowButton", 0x2);
+    c->setProperty("useIconHighlightEffect", 0x8);
+    c->setIconSize(QSize(26, 26));
+    c->installEventFilter(this);
+    connect(c, &QPushButton::clicked, this, &Md5Check::exit);
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
@@ -95,7 +92,7 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     //titlebar->addSpacing(5);
     titlebar->addWidget(title);
     titlebar->addStretch(290);
-    titlebar->addWidget(close);
+    titlebar->addWidget(c);
     //titlebar->addSpacing(5);
 
     QLabel* label_title = new QLabel( i18n("md5 check"),this );
@@ -123,6 +120,7 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     combo->setFont( label_font );
     combo->setStyleSheet("color:#444444;");
     combo->setObjectName("MD5Combo");
+#if 0
     ThManager()->regTheme(combo, "ukui-white","#MD5Combo{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -196,7 +194,7 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
                                                  "border-radius: 4px;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
-
+#endif
     check = new QCheckBox( i18n("choice md5 file"), this );
     //check->setFixedSize( 125, 11);
     check->setChecked( true );
@@ -474,6 +472,19 @@ void K3b::Md5Check::md5_start()
     
     BurnResult* dialog = new BurnResult( result , "md5");
     dialog->show();
+}
+
+bool K3b::Md5Check::eventFilter(QObject *obj, QEvent *e)
+{
+    if (obj == c)
+    {
+        if(e->type() == QEvent::HoverEnter)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        else if (e->type() == QEvent::HoverLeave)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+        else return QDialog::eventFilter(obj, e);
+    }
+    return QDialog::eventFilter(obj, e);
 }
 
 void K3b::Md5Check::openfile()

@@ -15,6 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "xatom-helper.h"
 #include "k3bResultDialog.h"
 #include "ThemeManager.h"
 
@@ -26,25 +27,35 @@
 #include <QDebug>
 #include <QBitmap>
 #include <QPainter>
+#include <QEvent>
+
+bool BurnResult::eventFilter(QObject *obj, QEvent *e)
+{
+    if (obj == c)
+    {
+        if(e->type() == QEvent::HoverEnter)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        else if (e->type() == QEvent::HoverLeave)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+        else return QDialog::eventFilter(obj, e);
+    }
+    return QDialog::eventFilter(obj, e);
+}
 
 BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     QDialog(parent)
 {
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
     setFixedSize(430, 260);
 
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
 
     setObjectName("ResultDialog");
     ThManager()->regTheme(this, "ukui-white", "#ResultDialog{background-color: #FFFFFF;}");
@@ -60,15 +71,15 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     title->setObjectName("ResultTitleAA");
     ThManager()->regTheme(title, "ukui-white", "background-color: transparent; color: #444444;");
     ThManager()->regTheme(title, "ukui-black", "background-color: transparent; color: #FFFFFF;");
-    QPushButton *close = new QPushButton();
-    close->setFixedSize(30,30);
-    close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                         "border:none;background-color:rgb(233, 233, 233);"
-                         "border-radius: 4px;background-color:transparent;}"
-                          "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                         "border:none;background-color:rgb(248, 100, 87);"
-                         "border-radius: 4px;}");
-    connect(close, SIGNAL(clicked()), this, SLOT(exit() ) );
+    c = new QPushButton();
+    c->setFlat(true);
+    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setProperty("isWindowButton", 0x2);
+    c->setProperty("useIconHighlightEffect", 0x8);
+    c->setIconSize(QSize(26, 26));
+    c->installEventFilter(this);
+    c->setFixedSize(30,30);
+    connect(c, SIGNAL(clicked()), this, SLOT(exit() ) );
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
@@ -78,7 +89,7 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     titlebar->addSpacing(0);
     titlebar->addWidget(title);
     titlebar->addStretch(290);
-    titlebar->addWidget(close);
+    titlebar->addWidget(c);
 
     QLabel* label_icon = new QLabel();
     label_icon->setFixedSize(50,50);

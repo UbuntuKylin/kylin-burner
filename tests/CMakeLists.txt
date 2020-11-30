@@ -72,6 +72,7 @@ add_executable(k3bexternalbinmanagertest
     ${CMAKE_SOURCE_DIR}/src/k3bdebuggingoutputfile.cpp
     ${CMAKE_SOURCE_DIR}/src/k3bjobprogressdialog.cpp
     ${CMAKE_SOURCE_DIR}/src/ThemeManager.cpp
+    ${CMAKE_SOURCE_DIR}/src/xatom-helper.cpp
     ${dbus_sources})
 target_include_directories(k3bexternalbinmanagertest PRIVATE
     ${CMAKE_SOURCE_DIR}/libk3b
@@ -82,6 +83,8 @@ target_include_directories(k3bexternalbinmanagertest PRIVATE
     ${CMAKE_BINARY_DIR}/src)
 target_link_libraries(k3bexternalbinmanagertest
     Qt5::Test
+    X11
+    Qt5::X11Extras
     KF5::I18n
     KF5::XmlGui
     KF5::Notifications

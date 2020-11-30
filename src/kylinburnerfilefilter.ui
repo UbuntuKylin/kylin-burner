@@ -32,8 +32,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);
-border: none;border-radius: 4px;</string>
+   <string notr="true">#KylinBurnerFileFilter{background-color: rgb(255, 255, 255);}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -53,6 +52,9 @@ border: none;border-radius: 4px;</string>
    </property>
    <item row="0" column="0">
     <widget class="QWidget" name="filterBackground" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
        <number>0</number>
@@ -84,7 +86,7 @@ border: none;border-radius: 4px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius: 6px;</string>
+         <string notr="true"/>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
@@ -167,7 +169,7 @@ border: none;border-radius: 4px;</string>
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="labelClose">
+          <widget class="QPushButton" name="labelClose">
            <property name="minimumSize">
             <size>
              <width>30</width>
@@ -180,11 +182,11 @@ border: none;border-radius: 4px;</string>
              <height>30</height>
             </size>
            </property>
-           <property name="styleSheet">
-            <string notr="true">image: url(:/icon/icon/icon-关闭-默认.png);</string>
-           </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>

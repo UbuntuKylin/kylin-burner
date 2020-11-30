@@ -15,4 +15,8 @@ override_dh_auto_configure:
 override_dh_missing:
 	dh_missing --fail-missing
 
+
+override_dh_shlibdeps:
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+
 .PHONY: override_dh_dwz

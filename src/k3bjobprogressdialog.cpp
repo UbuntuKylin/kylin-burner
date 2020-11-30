@@ -13,7 +13,7 @@
  * See the file "COPYING" for the exact licensing terms.
  */
 
-
+#include "xatom-helper.h"
 #include "k3bjobprogressdialog.h"
 #include "k3bapplication.h"
 #include "k3bemptydiscwaiter.h"
@@ -101,6 +101,18 @@ K3b::JobProgressDialog::~JobProgressDialog()
     delete d;
 }
 
+bool K3b::JobProgressDialog::eventFilter(QObject *obj, QEvent *e)
+{
+    if (obj == c)
+    {
+        if(e->type() == QEvent::HoverEnter)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+        else if (e->type() == QEvent::HoverLeave)
+            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+        else return QDialog::eventFilter(obj, e);
+    }
+    return QDialog::eventFilter(obj, e);
+}
 
 void K3b::JobProgressDialog::setupGUI()
 {
@@ -232,7 +244,6 @@ void K3b::JobProgressDialog::setupGUI()
     m_progressSubPercent = new QProgressBar( );
     //mainLayout->addWidget( m_progressSubPercent );
 #endif
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     setFixedSize(430, 260);
 
 
@@ -244,14 +255,11 @@ void K3b::JobProgressDialog::setupGUI()
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter pai(&bmp);
-    pai.setPen(Qt::NoPen);
-    pai.setBrush(Qt::black);
-    pai.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
     this->setObjectName("JobProcessDialog");
     ThManager()->regTheme(this, "ukui-white", "#JobProcessDialog{background-color: #FFFFFF;}");
@@ -273,15 +281,16 @@ void K3b::JobProgressDialog::setupGUI()
     ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
                                                "background-repeat: no-repeat;color:#FFFFFF;"
                                                "font: 14px;");
-    QPushButton *close = new QPushButton();
-    close->setFixedSize(30,30);
-    close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                         "border:none;background-color:rgb(233, 233, 233);"
-                         "border-radius: 4px;background-color:transparent;}"
-                          "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                         "border:none;background-color:rgb(248, 100, 87);"
-                         "border-radius: 4px;}");
-    connect(close, SIGNAL(clicked()), this, SLOT( accept() ) );
+    c = new QPushButton();
+    c->setFixedSize(30,30);
+    c->setFlat(true);
+    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setProperty("isWindowButton", 0x2);
+    c->setProperty("useIconHighlightEffect", 0x8);
+    c->setIconSize(QSize(26, 26));
+    c->installEventFilter(this);
+    c->setFlat(true);
+    connect(c, SIGNAL(clicked()), this, SLOT( accept() ) );
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
@@ -291,7 +300,7 @@ void K3b::JobProgressDialog::setupGUI()
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
     titlebar->addStretch();
-    titlebar->addWidget(close);
+    titlebar->addWidget(c);
     //titlebar->addSpacing(5);
     
     mainView->addWidget( label_top );

@@ -46,6 +46,7 @@ namespace K3b {
 
     protected:
         void toggleAll() override;
+        bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
     private:
         void loadSettings( const KConfigGroup& ) override;
@@ -55,6 +56,7 @@ namespace K3b {
         WritingModeWidget* m_writingModeWidget;
         QCheckBox* m_checkForce;
         QCheckBox* m_checkQuickFormat;
+        QPushButton *c;
         bool       flag;
         QLabel *icon;
     };

@@ -10,11 +10,29 @@
     <height>200</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>30</horstretch>
+    <verstretch>30</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>30</width>
+    <height>30</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>300</width>
+    <height>200</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">#KylinBurnerFileFilterSelection{background-color: rgb(255, 255, 255);}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -127,7 +145,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="labelClose">
+       <widget class="QPushButton" name="labelClose">
         <property name="minimumSize">
          <size>
           <width>20</width>
@@ -140,11 +158,11 @@
           <height>20</height>
          </size>
         </property>
-        <property name="styleSheet">
-         <string notr="true">image: url(:/icon/icon/icon-关闭-默认.png);</string>
-        </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

@@ -52,7 +52,7 @@ public:
     K3b::Device::Device* testDev;
 
 protected:
-
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
     /*
     // 双击标题栏进行界面的最大化/还原
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
@@ -88,10 +88,11 @@ private:
 private:
     QLabel *m_pIconLabel;
     QLabel *m_pTitleLabel;
-    QToolButton *m_pMenubutton;
+    QPushButton *m_pMenubutton;
     QPushButton *m_pMinimizeButton;
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
+    QMenu *menu;
     FileFilter  *dlg;
     KylinBurnerAbout *abouta;
     K3b::MediaFormattingDialog *mfDlg;

@@ -13,7 +13,7 @@
  * See the file "COPYING" for the exact licensing terms.
  */
 
-
+#include "xatom-helper.h"
 #include "k3b.h"
 #include "k3bprojectburndialog.h"
 #include "k3bdoc.h"
@@ -282,21 +282,17 @@ void K3b::ProjectBurnDialog::prepareGui()
     ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
     ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
 
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
     setFixedSize(430, 485);
 
     QPalette pal(palette());
     pal.setColor(QPalette::Background, QColor(255, 255, 255));
     setAutoFillBackground(true);
     setPalette(pal);
-
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
 
     QLabel *icon = new QLabel();
     icon->setFixedSize(20,20);

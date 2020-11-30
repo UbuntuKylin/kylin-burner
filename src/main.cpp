@@ -12,6 +12,7 @@
  */
 
 #include "k3bapplication.h"
+#include "xatom-helper.h"
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -23,6 +24,7 @@
 
 #include <QLockFile>
 #include <QDebug>
+#include <QMessageBox>
 
 /*
 int getScreenWidth()
@@ -63,6 +65,8 @@ int main( int argc, char* argv[] )
     QLockFile *lockFile = new QLockFile( path + "/.kylin-burner.lock" + dispaly);
     if (!lockFile ->tryLock(2000)) {    //上锁失败，不能启动
         qDebug() << "app is running";
+        QMessageBox::information(NULL, i18n("Cannot start KylinBurner"),
+                                 i18n("KylinBurner has started in current system now."));
         return 0;
     }else{
          qDebug() << "app is not running";

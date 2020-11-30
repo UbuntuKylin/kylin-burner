@@ -10376,13 +10376,22 @@ msgstr "数据刻录"
 msgid "Data Burner  "
 msgstr "数据刻录"
 
+msgid "DataBurner  "
+msgstr "数据刻录"
+
 msgid "Image Burner"
+msgstr "镜像刻录"
+
+msgid "ImageBurner"
 msgstr "镜像刻录"
 
 msgid "Copy Disk"
 msgstr "复制光盘"
 
 msgid "Copy Disk       "
+msgstr "复制光盘"
+
+msgid "CopyDisk       "
 msgstr "复制光盘"
 
 #: src//misc/k3bmediaformattingdialog.cpp
@@ -10659,3 +10668,9 @@ msgstr "软件包名：kylin-burner"
 
 msgid "Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"
 msgstr "贡献者邮箱：\nwangye@kylinos.cn、biwenjie@kylinos.cn"
+
+msgid "Cannot start KylinBurner"
+msgstr "无法启动麒麟刻录"
+
+msgid "KylinBurner has started in current system now."
+msgstr "麒麟刻录已经在当前系统启动。"

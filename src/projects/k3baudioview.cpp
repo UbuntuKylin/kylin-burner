@@ -131,6 +131,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     logger = LogRecorder::instance().registration(i18n("write image").toStdString().c_str());
     logger->debug("Draw write image begin...");
     m_doc = doc;
+    setAttribute(Qt::WA_TranslucentBackground, true);
     
     QLabel *widget_label = new QLabel(this);
     QVBoxLayout *layout = new QVBoxLayout(widget_label);
@@ -144,8 +145,6 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     label_title->setStyleSheet("color:#444444;");
 
     label_title->setObjectName("WriteImage");
-    ThManager()->regTheme(label_title, "ukui-white", "#WriteImage{font: 24px; color: #444444;}");
-    ThManager()->regTheme(label_title, "ukui-black", "#WriteImage{font: 24px; color: #FFFFFF;}");
 
     QLabel *label_iso = new QLabel(this);
     label_iso->setText(i18n("select iso"));
@@ -155,8 +154,10 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     label_iso->setStyleSheet("color:#444444;");
 
     label_iso->setObjectName("LabelISO");
+#if 0
     ThManager()->regTheme(label_iso, "ukui-white", "#LabelISO{font: 14px; color: #444444;}");
     ThManager()->regTheme(label_iso, "ukui-black", "#LabelISO{font: 14px; color: #FFFFFF;}");
+#endif
 
     lineedit_iso = new QLineEdit(this);
     lineedit_iso->setFixedSize(360, 30);
@@ -198,6 +199,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     QPushButton *button_openfile = new QPushButton(this);
     button_openfile->setText(i18n("browse"));
     button_openfile->setFixedSize(80, 30);
+#if 0
     button_openfile->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                    "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                    "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
@@ -235,7 +237,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                           "border: none; border-radius: 4px;"
                           "font: 14px \"MicrosoftYaHei\";"
                           "color: rgba(77, 78, 81, 1);");
-
+#endif
     QLabel *label_space = new QLabel(this);
     
     QLabel *label_CD = new QLabel(this);
@@ -261,6 +263,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                              "padding: 0px 0px 0px 0px;}");
     */
     combo_CD->setObjectName("comboEquipment1");
+#if 0
     ThManager()->regTheme(combo_CD, "ukui-white","#comboEquipment1{border:1px solid #DCDDDE;"
                                                  "border-radius: 4px; combobox-popup: 0;"
                                                  "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
@@ -334,11 +337,13 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                                                  "border-radius: 4px;}"
                                                  "#comboISO::drop-down{subcontrol-origin: padding;"
                                                  "subcontrol-position: top right; border: none;}");
+#endif
     combo_CD->setEnabled(false);
 
     button_setting = new QPushButton(this);
     button_setting->setText(i18n("setting"));
     button_setting->setFixedSize(80, 30);
+#if 0
     button_setting->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 14px;border-radius: 4px;}"
                                   "QPushButton:hover{background-color:rgb(107, 142, 235);font: 14px;border-radius: 4px;color:#ffffff}"
                                   "QPushButton:pressed{border:none;background-color:rgb(65, 95, 196);font: 14px;border-radius: 4px;color:#ffffff}");
@@ -376,6 +381,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
                           "border: none; border-radius: 4px;"
                           "font: 14px \"MicrosoftYaHei\";"
                           "color: rgba(77, 78, 81, 1);");
+#endif
     button_setting->setEnabled(false);
 
     button_start = new QPushButton(this);

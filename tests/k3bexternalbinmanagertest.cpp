@@ -11,7 +11,7 @@
  */
 
 #include <QTest>
-
+#include "xatom-helper.h"
 #include "k3bexternalbinmanagertest.h"
 #include "k3bcore.h"
 #include "k3bjob.h"

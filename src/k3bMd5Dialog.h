@@ -52,6 +52,9 @@ public Q_SLOTS:
     void openfile();
     void checkChange(int state);
 
+protected:
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+
 private:
 
     QComboBox* combo;
@@ -60,6 +63,7 @@ private:
     QStringList mount_index;
     QPushButton* button_open;
     QPushButton* button_ok;
+    QPushButton *c;
 };
 }
 #endif // MD5DIALOG_H
