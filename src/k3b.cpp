@@ -259,7 +259,6 @@ void K3b::MainWindow::resizeEvent(QResizeEvent *event)
 
 void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    qDebug() << event->key();
     if (Qt::Key_F1 == event->key())
     {
         QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
@@ -320,7 +319,7 @@ K3b::MainWindow::MainWindow()
     //setWindowIcon(QIcon::fromTheme("disk-burner"));
     setWindowIcon(QIcon::fromTheme("brasero"));
     setWindowTitle( i18n("KylinBurner") );
-    setAttribute(Qt::WA_TranslucentBackground, true);
+    //setAttribute(Qt::WA_TranslucentBackground, true);
 
     resize(902, 602);
     //add widget border-radius
@@ -627,30 +626,29 @@ void K3b::MainWindow::startInImageData(QString path)
     slotNewAudioDoc();
 }
 
+void K3b::MainWindow::paintEvent(QPaintEvent *e)
+{
+    QPixmap pix(":/icon/icon/icon-background.png");
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+        btnLabel->setPixmap(pix.scaled(btnLabel->size()));
+    else
+    {
+        btnLabel->clear();
+        QPalette p = btnLabel->palette();
+        p.setBrush(QPalette::Background, QColor("#484848"));
+        btnLabel->setPalette(p);
+    }
+    QMainWindow::paintEvent(e);
+}
+
 void K3b::MainWindow::initView()
 {
-
-    /*
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
-    */
-
     logger->info("Draw main frame begin...");
 
     setObjectName("MainBurner");
-
-    /*
-    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
-    shadow_effect->setOffset(-1, 1);
-    shadow_effect->setColor(Qt::gray);
-    shadow_effect->setBlurRadius(6);
-    //background->setGraphicsEffect(shadow_effect);
-    background->setObjectName("MainBackground");
-    background->setStyleSheet("#MainBackground{background-color: gray;"
-                              "border-radius: 6px; border:1px solid gray;}");
-                              */
     setFixedSize(900, 600);
     background = new QWidget(this);
     background->setFixedSize(900, 600);
@@ -665,17 +663,9 @@ void K3b::MainWindow::initView()
     mainWidget->setFixedSize(900, 600);
     QHBoxLayout *mainLay = new QHBoxLayout(background);
     background->setLayout(mainLay);
-    mainLay->setMargin(1);
+    mainLay->setMargin(0);
     mainLay->setSpacing(0);
     mainLay->addWidget(mainWidget);
-    mainWidget->move(11, 11);
-    mainWidget->setObjectName("MainWidget");
-    ThManager()->regTheme(mainWidget, "ukui-white", "#MainWidget{background-color: #FFFFFF;}");
-    ThManager()->regTheme(mainWidget, "ukui-black", "#MainWidget{background-color: #242424;}");
-    K3b::WidgetShowEffect::showWidget(background, K3b::WidgetShowEffect::Dissolve);
-    //左右分割
-    //d->mainSplitter = new QSplitter( Qt::Horizontal, mainWidget );
-    //d->mainSplitter->setFixedHeight(600);
     setCentralWidget( mainWidget );
 
     //左侧 上方tille 
@@ -685,32 +675,26 @@ void K3b::MainWindow::initView()
     //左侧 上方tille :icon
     pIconLabel = new QLabel( label_title );
     pIconLabel->setFixedSize(24,24);
-    pIconLabel->setStyleSheet("QLabel{background-image: url(:/new/prefix1/pic/logo.png);"
-                              "background-color:transparent;"
-                              "background-repeat: no-repeat;}");
-    pIconLabel->setObjectName("leftBackground");
+    pIconLabel->setPixmap(QIcon::fromTheme("burner").pixmap(pIconLabel->size()));
 
     //左侧 上方tille :text
     pTitleLabel = new QLabel( label_title );
     pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    //pTitleLabel->setFixedHeight(15);
+    QFont f = pTitleLabel->font();
+    f.setPixelSize(14);
+    pTitleLabel->setFont(f);
     pTitleLabel->setText( i18n("KylinBurner" ));
-    //pTitleLabel->setStyleSheet("QLabel{background-color:transparent;background-repeat: no-repeat;font: 14px;color:#333333}");
-
     pTitleLabel->setObjectName("titleLabel");
-    ThManager()->regTheme(pTitleLabel, "ukui-white",
-                             "font: 14px;color:#333333");
-    ThManager()->regTheme(pTitleLabel, "ukui-black",
-                             "font: 14px;color:#FFFFFF");
     
     //左侧 上方tille :水平布局
     QHBoxLayout *hLayout = new QHBoxLayout( label_title );
-    hLayout->setContentsMargins(15,10,0,0);
+    hLayout->setContentsMargins(0,0,0,0);
+    hLayout->addSpacing( 8 );
     hLayout->addWidget(pIconLabel);
-    //hLayout->addSpacing( 6 );
+    hLayout->addSpacing( 8 );
     hLayout->addWidget(pTitleLabel);
     
-    QLabel* btnLabel = new QLabel( mainWidget );
+    btnLabel = new QLabel( mainWidget );
     btnLabel->setFixedWidth(125);
 
     d->btnData = new QPushButton(i18n("DataBurner  "), btnLabel);     // 数据刻录
@@ -729,198 +713,13 @@ void K3b::MainWindow::initView()
     d->btnData->setObjectName("DataButton");
     d->btnCopy->setObjectName("CopyButton");
     d->btnImage->setObjectName("ImageButton");
-#if 0
-    ThManager()->regTheme(d->btnData, "ukui-white", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #444444;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(87, 137, 217,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    ThManager()->regTheme(d->btnData, "ukui-black", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(0, 0, 0,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
 
-    ThManager()->regTheme(d->btnCopy, "ukui-white", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #444444;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(87, 137, 217,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    ThManager()->regTheme(d->btnCopy, "ukui-black", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(0, 0, 0,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
-
-    ThManager()->regTheme(d->btnImage, "ukui-white", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #444444;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(87, 137, 217,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(87, 137, 217, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    ThManager()->regTheme(d->btnImage, "ukui-black", "QPushButton{"
-                                                    "background-color:transparent;"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color: #FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:hover{"
-                                                    "background-color:rgba(0, 0, 0,0.15);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:pressed{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}"
-                                                "QPushButton:checked{"
-                                                    "background-color:rgba(0, 0, 0, 0.2);"
-                                                    "background-repeat: no-repeat;"
-                                                    "background-position:left;"
-                                                    "color:#FFFFFF;font: 14px;border-radius: 6px;}");
-#endif
-#if 0
-    d->btnData->setStyleSheet("QPushButton{"
-                                  "background-color:transparent;"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color: #444444;font: 14px;border-radius: 6px;}"
-                              "QPushButton:hover{"
-                                  "background-color:rgba(87, 137, 217,0.15);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                              "QPushButton:pressed{"
-                                  "background-color:rgba(87, 137, 217, 0.2);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                              "QPushButton:checked{"
-                                  "background-color:rgba(87, 137, 217, 0.2);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-
-    d->btnImage->setStyleSheet("QPushButton{background-color:transparent;"
-                                   "background-repeat: no-repeat;"
-                                   "background-position:left;"
-                                   "color: #444444;font: 14px;border-radius: 6px;}"
-                               "QPushButton:hover{"
-                                   "background-color:rgba(87, 137, 217,0.15);"
-                                   "background-repeat: no-repeat;"
-                                   "background-position:left;"
-                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                               "QPushButton:pressed{"
-                                   "background-color:rgba(87, 137, 217, 0.2);"
-                                   "background-repeat: no-repeat;"
-                                   "background-position:left;"
-                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                               "QPushButton:checked{"
-                                   "background-color:rgba(87, 137, 217, 0.2);"
-                                   "background-repeat: no-repeat;"
-                                   "background-position:left;"
-                                   "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-    d->btnCopy->setStyleSheet("QPushButton{"
-                                  "background-color:transparent;"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color: #444444;font: 14px;border-radius: 6px;}"
-                              "QPushButton:hover{"
-                                  "background-color:rgba(87, 137, 217,0.15);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                              "QPushButton:pressed{"
-                                  "background-color:rgba(87, 137, 217, 0.2);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}"
-                              "QPushButton:checked{"
-                                  "background-color:rgba(87, 137, 217, 0.2);"
-                                  "background-repeat: no-repeat;"
-                                  "background-position:left;"
-                                  "color:rgb(65, 127, 249);font: 14px;border-radius: 6px;}");
-#endif
     d->btnData->setFlat(true);
     d->btnImage->setFlat(true);
     d->btnCopy->setFlat(true);
-    d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
-    d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
-    d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+    d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata-click.png"));
+    d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
+    d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
     d->btnData->setIconSize( QSize(26,26) );
     d->btnImage->setIconSize( QSize(26,26) );
     d->btnCopy->setIconSize( QSize(26,26) );
@@ -962,32 +761,7 @@ void K3b::MainWindow::initView()
     ButtonLayout->addLayout( layoutCopy );
     ButtonLayout->addStretch();
 
-#if 0
-    btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
-                         "background-position: top;"
-                         "border:none;"
-                         "background-repeat:repeat-xy;}");
-    btnLabel->setStyleSheet("#leftBack{background-color: rgba(0, 0, 0, 0.15);"
-                            "background-position: top;"
-                            "border:none;}");
-#endif
-
     btnLabel->setObjectName("leftBack");
-#if 0
-    btnLabel->setStyleSheet("QLabel{background-image: url(:/icon/icon/icon-侧边背景.png);"
-                            "background-position: top;"
-                            "border:none;"
-                            "background-repeat:repeat-xy;}");
-#endif
-
-    ThManager()->regTheme(btnLabel, "ukui-white","#leftBack{background-image: url(:/icon/icon/icon-侧边背景.png);"
-                                                        "background-position: top;"
-                                                        "border:none;"
-                                                        "background-repeat:repeat-xy;}");
-    ThManager()->regTheme(btnLabel, "ukui-black","#leftBack{background-color: #484848;"
-                            "background-position: top;"
-                            "border:none;}");
-
 
     //右侧：label
     QLabel *label_view = new QLabel( mainWidget );
@@ -1044,6 +818,7 @@ void K3b::MainWindow::initView()
     //setCentralWidget( d->mainSplitter );
 
     QVBoxLayout *layout_window = new QVBoxLayout( label_view );
+    //layout_window->setMargin(0);
     layout_window->setContentsMargins(25,0,0,0);
     layout_window->addWidget( title_bar );
     layout_window->addWidget( d->documentStack );
@@ -1055,116 +830,6 @@ void K3b::MainWindow::initView()
     wLayout->setSpacing(0);
     wLayout->addWidget( btnLabel );
     wLayout->addWidget( label_view );
-
-
-    /*
-    d->mainSplitter->addWidget( btnLabel );
-    d->mainSplitter->addWidget( label_view );
-    */
-
-#if 0
-    // 右侧：label :垂直布局 
-    QVBoxLayout *layout_window = new QVBoxLayout( label_view );
-    layout_window->setContentsMargins(25,0,0,0);
-    layout_window->addWidget( title_bar );
-    layout_window->addWidget( d->documentStack );
-    
-    d->mainSplitter->addWidget( btnLabel );
-    d->mainSplitter->addWidget( label_view );
-    
-    d->documentHull = new QWidget( d->documentStack );
-    QGridLayout* documentHullLayout = new QGridLayout( d->documentHull );
-    documentHullLayout->setContentsMargins( 0, 0, 0, 0 );
-    documentHullLayout->setSpacing( 0 );
-    
-    //右侧：label :中部 view : header
-    d->documentHeader = new K3b::ThemedHeader( d->documentHull ); //buttom title
-    d->documentHeader->setTitle( i18n("Current Projects") );
-    d->documentHeader->setAlignment( Qt::AlignHCenter | Qt::AlignVCenter );
-    d->documentHeader->setLeftPixmap( K3b::Theme::PROJECT_LEFT );
-    d->documentHeader->setRightPixmap( K3b::Theme::PROJECT_RIGHT );
-
-    setCentralWidget( d->mainSplitter );
-#if 1
-    //pRightTopWidget 为子窗口1
-    QSizePolicy rightTopPolicy = btnLabel->sizePolicy();
-    rightTopPolicy.setHorizontalStretch( 5 );
-    btnLabel->setSizePolicy(rightTopPolicy);
-    //pRightDownWidget 为子窗口2
-    QSizePolicy rightDownPolicy = label_view->sizePolicy();
-    rightDownPolicy.setHorizontalStretch( 31 );
-    label_view->setSizePolicy(rightDownPolicy);
-
-    QSplitterHandle *splitterHandle = d->mainSplitter->handle(1);
-    if(splitterHandle)
-    {
-        //Disable the Middle Line, it can't adjust.
-        splitterHandle->setDisabled(true);
-    }
-#endif
-    // add the document tab to the styled document box
-    d->documentTab = new K3b::ProjectTabWidget( d->documentHull ); //buttom tab
-    tt = new QStackedWidget(this);
-
-//    documentHullLayout->addWidget( d->documentHeader, 0, 0 );
-    documentHullLayout->addWidget( d->documentTab, 0, 0 );
-    d->documentTab->hide();
-    documentHullLayout->addWidget( tt, 0, 0 );
-
-    //connect( d->documentTab, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentDocChanged()) );
-    //connect( d->documentTab, SIGNAL(tabCloseRequested(Doc*)), this, SLOT(slotFileClose(Doc*)) );
-
-    d->documentStack->addWidget( d->documentHull );
-
-    // --- filetreecombobox-toolbar ----------------------------------------------------------------
-    //d->filePlacesModel = new KFilePlacesModel;
-    //d->urlNavigator = new K3b::UrlNavigator(d->filePlacesModel, this);
-
-    //QWidgetAction * urlNavigatorAction = new QWidgetAction(this);
-    //urlNavigatorAction->setDefaultWidget(d->urlNavigator);
-    //urlNavigatorAction->setText(i18n("&Location Bar"));
-    // ---------------------------------------------------------------------------------------------
-
-    d->documentTab->setObjectName("BusTab");
-    d->documentTab->setStyleSheet("#BusTab{background-color: #FFFFFF;}");
-    //d->documentTab->setStyleSheet("background-color: #FFFFFF;");
-
-
-    d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject ); 
-    logger->debug("Create burn image project.");
-    d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentTab );
-    logger->debug("Draw burn image view.");
-    
-    d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
-    logger->debug("Create burn data project");
-    d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentTab );
-    logger->debug("Draw burn data view.");
-
-    /*
-    K3b::DataView *t = static_cast<K3b::DataView *>(d->view_data);
-    title_bar->testDev = t->testGetDev();
-    */
-  
-    d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
-    logger->debug("Create copy image project.");
-    d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentTab );
-    logger->debug("Draw copy image view.");
-
-    d->doc_image->setView( d->view_image );
-    d->doc_data->setView( d->view_data );
-    d->doc_copy->setView( d->view_copy );
-
-    d->documentTab->addTab( d->doc_image );
-    d->documentTab->addTab( d->doc_data );
-    d->documentTab->addTab( d->doc_copy );
-
-    tt->addWidget(d->view_data);
-    tt->addWidget(d->view_image);
-    tt->addWidget(d->view_copy);
-
-    d->documentTab->tabBar()->hide();
-    d->documentTab->setCurrentTab( d->doc_data );
-#endif
     logger->info("Draw main frame end...");
 
 
@@ -1248,7 +913,6 @@ bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
             QWidget *pWidget = qobject_cast<QWidget *>(obj);
             if (pWidget)
             {
-                //pTitleLabel->setText(pWidget->windowTitle());
                 return true;
             }
         }
@@ -1265,21 +929,21 @@ bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
         case QEvent::HoverEnter:
         {    
             if(obj == d->btnData)
-                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata-click.png"));
             if(obj == d->btnImage)
-                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-悬停点击.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage-click.png"));
             if(obj == d->btnCopy)
-                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-悬停点击.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk-click.png"));
             break;
         }
         case QEvent::HoverLeave:
         {
             if(obj == d->btnData && !isDataActived)
-                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata.png"));
             if(obj == d->btnImage && !isImageActived)
-                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
             if(obj == d->btnCopy && !isCopyActived)
-                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
             break;
         }
         case QEvent::MouseButtonPress:
@@ -1287,23 +951,23 @@ bool K3b::MainWindow::eventFilter(QObject *obj, QEvent *event)
             if(obj == d->btnData)
             {
                 isDataActived = true; isImageActived = false; isCopyActived = false;
-                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-悬停点击.png"));
-                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
-                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+                    d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata-click.png"));
+                    d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
+                    d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
             }
             if(obj == d->btnImage)
             {
                 isDataActived = false; isImageActived = true; isCopyActived = false;
-                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
-                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-悬停点击.png"));
-                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-默认.png"));
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage-click.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
             }
             if(obj == d->btnCopy)
             {
                 isDataActived = false; isImageActived = false; isCopyActived = true;
-                d->btnData->setIcon(QIcon(":/icon/icon/icon-数据刻录-默认.png"));
-                d->btnImage->setIcon(QIcon(":/icon/icon/icon-镜像刻录-默认.png"));
-                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-光盘复制-悬停点击.png"));
+                d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata.png"));
+                d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
+                d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk-click.png"));
             }
             break;
         }

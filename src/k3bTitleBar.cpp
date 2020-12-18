@@ -63,13 +63,6 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     m_pMinimizeButton->setProperty("useIconHighlightEffect", 0x8);
     m_pMenubutton->setProperty("useIconHighlightEffect", 0x8);
 
-    /*
-    m_pIconLabel->setFixedSize(30,30);
-    m_pIconLabel->setStyleSheet("QLabel{background-image: url(:/new/prefix1/pic/logo.png);"
-                                "background-color:rgb(255,255,255);"
-                                "background-repeat: no-repeat;}");
-    */
-
     m_pTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     m_pMenubutton->setFixedSize(30, 30);
@@ -87,60 +80,14 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     //m_pMaximizeButton->setToolTip(i18n("Maximize__"));
     m_pCloseButton->setToolTip(i18n("Close__"));
 
-    m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
     m_pCloseButton->setIconSize(QSize(26 , 26));
-    m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-默认.png"));
+    m_pCloseButton->setIcon(QIcon::fromTheme("window-close-symbolic"));
     m_pMinimizeButton->setIconSize(QSize(26 , 26));
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
+    m_pMinimizeButton->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
     m_pMenubutton->setIconSize(QSize(26 , 26));
-
-    m_pCloseButton->installEventFilter(this);
-    m_pMinimizeButton->installEventFilter(this);
-    m_pMenubutton->setAttribute(Qt::WA_Hover, true);
-    m_pMenubutton->installEventFilter(this);
-
-    //m_pTitleLabel->setContentsMargins(8,0,0,0);
-    //m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    m_pMenubutton->setIcon(QIcon::fromTheme("application-menu") );
 
 
-    //m_pMenubutton->setIcon( QIcon::fromTheme( "setting-default" ) );
-    /*
-    m_pMenubutton->setObjectName("BarMenu");
-    ThManager()->regTheme(m_pMenubutton, "ukui-white", "QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
-                                                       "border:none;background-color:transparent;"
-                                                       "border-radius: 4px;}"
-                                                      "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                                       "border:none;background-color:rgb(61, 107, 229);"
-                                                       "border-radius: 4px;}"
-                                                      "QToolButton:checked{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                                       "border:none;background-color:rgb(50, 87, 202);"
-                                                       "border-radius: 4px;}"
-                                                       "QToolButton::menu-indicator{image:none;}");
-
-    ThManager()->regTheme(m_pMenubutton, "ukui-black", "QToolButton{border-image: url(:/icon/icon/icon-设置-默认.png);"
-                                                       "border:none;background-color:transparent;"
-                                                       "border-radius: 4px;}"
-                                                      "QToolButton:hover{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                                       "border:none;background-color:rgba(72, 72, 76, 1);"
-                                                       "border-radius: 4px;}"
-                                                      "QToolButton:checked{border-image: url(:/icon/icon/icon-设置-悬停点击.png);"
-                                                       "border:none;rgba(55, 55, 55, 1);"
-                                                       "border-radius: 4px;}"
-                                                       "QToolButton::menu-indicator{image:none;}");
-    */
-
-
-    /*
-    m_pMaximizeButton->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-最大化-默认.png);"
-                                     "border:none;background-color:transparent;"
-                                     "border-radius: 4px;}"
-                                "QPushButton:hover{border-image: url(:/icon/icon/icon-最大化-悬停点击.png);"
-                                     "border:none;background-color:rgb(61, 107, 229);"
-                                     "border-radius: 4px;}"
-                                "QPushButton:checked{border-image: url(:/icon/icon/icon-最大化-悬停点击.png);"
-                                     "border:none;background-color:rgb(50, 87, 202);"
-                                     "border-radius: 4px;}");
-    */
 
     menu = new QMenu(this);  //新建菜单
 
@@ -154,12 +101,6 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
     menu->setFixedSize(140, 196);
 
-#if 0
-    QGraphicsDropShadowEffect *shadow_effect = new QGraphicsDropShadowEffect(this);
-    shadow_effect->setOffset(0, 0);
-    shadow_effect->setColor(Qt::blue);
-    shadow_effect->setBlurRadius(4);
-#endif
 
     menu->setObjectName("menu");
     ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(255, 255, 255, 1);"
@@ -184,49 +125,24 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                              "color: rgba(61, 107, 229, 1);}");
 
 
-    /*
-    menu->setStyleSheet("#menu{background-color: #FFFFFF; "
-                        "border: none; border-radius: 4px;"
-                        "font: 14px; color: #444444;}");
 
-    menu->setStyleSheet("#menu::item{background-color: transparent;"
-                        "border: none; border-radius: 4px;"
-                        "font: 14px; color: #444444;height: 14px;"
-                        "padding: 8px 32px; margin: 0px 8px;}"
-                        "#menu::item:selected{background-color: red;}"
-                        "#menu::item:pressed{background-color: blue;}");
-    */
-
-    //menu->setStyleSheet("QMenu::item:hover{background-color:#6b8eeb;}");
-    //menu->setStyleSheet("QMenu:hover{background-color:#000000;}");
-
-    //m_pMenubutton->setPopupMode(QToolButton::InstantPopup); //点击模式
     m_pMenubutton->setMenu(menu);  //下拉菜单
     menu->installEventFilter(this);
 
 
-    //QHBoxLayout *mainWidgetLayout = new QHBoxLayout(this);
-    //QWidget *mainWidget = new QWidget;
     QLabel* label_top = new QLabel( this );
-    //ThManager()->regTheme(this, "ukui-white", "QWidget{background-color: rgb(255, 255, 255);}");
-    //ThManager()->regTheme(this, "ukui-black", "QWidget{background-color: rgb(0, 0, 0);}");
     label_top->setStyleSheet("QWidget{background-color: transparent;}");
-    label_top->setFixedHeight( 50 );
+    label_top->setFixedHeight( 30 );
     QHBoxLayout *pLayout = new QHBoxLayout( label_top );
 
-    //mainWidgetLayout->addWidget(mainWidget);
-    //mainWidget->setLayout(pLayout);
-    //mainWidgetLayout->setMargin(0);
-    pLayout->setContentsMargins( 0, 0, 4, 16);
+    pLayout->setContentsMargins( 0, 0, 0, 16);
     pLayout->setSpacing(0);
     pLayout->addStretch(0);
     pLayout->addWidget(m_pMenubutton);
     pLayout->addSpacing(4);
     pLayout->addWidget(m_pMinimizeButton);
-    //pLayout->addWidget(m_pMaximizeButton);
     pLayout->addSpacing(4);
     pLayout->addWidget(m_pCloseButton);
-    //pLayout->addSpacing(3);
 
     QVBoxLayout* mainLayout = new QVBoxLayout( this );
     mainLayout->setContentsMargins( 0, 4, 4, 0);
@@ -244,40 +160,13 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     connect(dlg, SIGNAL(setReplace(bool)), this, SLOT(callReplace(bool)));
 
 
-    //m_pMaximizeButton->hide();
     connect(m_pMenubutton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pMinimizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
-    //connect(m_pMaximizeButton, &QPushButton::clicked, this, &TitleBar::onClicked);
     connect(m_pCloseButton, &QPushButton::clicked, this, &TitleBar::onClicked);
 }
 
 bool K3b::TitleBar::eventFilter(QObject *watched, QEvent *event)
 {
-    if (watched == menu && event->type() == QEvent::Hide)
-        m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
-    switch (event->type())
-    {
-    case QEvent::HoverEnter:
-        if (m_pCloseButton == watched)
-            m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        else if (m_pMinimizeButton == watched)
-            m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-悬停点击.png"));
-        else if (m_pMenubutton == watched)
-            m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-悬停点击.png"));
-        else break;
-        break;
-    case QEvent::HoverLeave:
-        if (m_pCloseButton == watched)
-            m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        else if (m_pMinimizeButton == watched)
-            m_pMinimizeButton->setIcon(QIcon(":/icon/icon/icon-最小化-默认.png"));
-        else if (m_pMenubutton == watched)
-            m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
-        else break;
-        break;
-    default:
-        break;
-    }
     return QWidget::eventFilter(watched, event);
 }
 
@@ -365,7 +254,7 @@ void K3b::TitleBar::onClicked()
         */
         else if (pButton == m_pCloseButton)
         {
-            m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
+            //m_pCloseButton->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
             exit(0);
             pWindow->close();
         }
@@ -395,7 +284,6 @@ void K3b::TitleBar::updateMaximize()
 
 void K3b::TitleBar::clean()
 {
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     formatMedium( testDev );
 }
 
@@ -407,7 +295,6 @@ void K3b::TitleBar::formatMedium( K3b::Device::Device* dev )
 
 void K3b::TitleBar::popup()
 {
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
     foreach(K3b::Device::Device* dev, device_list){
         if ( dev ){
@@ -426,19 +313,15 @@ void K3b::TitleBar::popup()
 
 void K3b::TitleBar::md5()
 {
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     dialog->show();
 }
 
 void K3b::TitleBar::filter()
 {
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     dlg->show();
 }
 void K3b::TitleBar::help()
 {
-
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
                                                     "/",
                                                     "com.guide.hotel",
@@ -453,7 +336,6 @@ void K3b::TitleBar::help()
 }
 void K3b::TitleBar::about()
 {
-    m_pMenubutton->setIcon(QIcon(":/icon/icon/icon-设置-默认.png"));
     abouta->show();
     QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - abouta->width()) / 2,
              k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - abouta->height()) / 2);

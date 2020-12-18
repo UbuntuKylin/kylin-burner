@@ -14,7 +14,7 @@
  */
 
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 
 #include "k3bsystemproblemdialog.h"

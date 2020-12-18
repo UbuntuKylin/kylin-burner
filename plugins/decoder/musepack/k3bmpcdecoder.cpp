@@ -17,7 +17,7 @@
 #include "k3bmpcwrapper.h"
 #include "k3bplugin_i18n.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 K3B_EXPORT_PLUGIN(k3bmpcdecoder, K3bMpcDecoderFactory)
 

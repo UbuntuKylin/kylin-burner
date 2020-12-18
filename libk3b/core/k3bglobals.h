@@ -16,7 +16,7 @@
 #ifndef _K3B_GLOBALS_H_
 #define _K3B_GLOBALS_H_
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include "k3bdevicetypes.h"
 #include "k3b_export.h"

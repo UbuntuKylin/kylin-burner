@@ -24,7 +24,7 @@ following command as root:
 Ripping DVD using transcode
 ---------------------------
 
-K3b can use transcode in order to rip dvd if you properly setup the "Options"
+KylinBurner can use transcode in order to rip dvd if you properly setup the "Options"
 tab that allows you to configure the location of additional tools. Some of
 these tools (tccat, tcdecode, tcextract) are provided by the transcode program.
 However, transcode is not currently available in Debian due to legal issues and

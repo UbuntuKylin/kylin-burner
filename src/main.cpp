@@ -185,7 +185,6 @@ int main( int argc, char* argv[] )
         QLocale::setDefault( QLocale( parser->value("lang") ) );
     }
 
-
     app.init( parser );
 
 #if defined(__clang__) && defined(LLVM_MAJOR) && (LLVM_MAJOR > 5)

@@ -127,7 +127,7 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">image: url(:/icon/icon/logo-小.png);</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string/>
@@ -368,7 +368,7 @@
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-image: url(:/icon/icon/128.png);</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string/>

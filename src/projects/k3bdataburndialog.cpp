@@ -13,7 +13,7 @@
  * See the file "COPYING" for the exact licensing terms.
  */
 
-
+#include "k3b.h"
 #include "k3bdataburndialog.h"
 #include "k3bdataimagesettingswidget.h"
 #include "k3bdatamultisessioncombobox.h"
@@ -51,6 +51,7 @@
 #include <QTabWidget>
 #include <QSpinBox>
 #include <QGridLayout>
+#include <QMessageBox>
 
 #include <KConfig>
 #include <KComboBox>
@@ -203,6 +204,7 @@ void K3b::DataBurnDialog::slotStartClicked()
             m_tempDirSelectionWidget->setTempPath( fi.filePath() + "/image.iso" );
 
         if( QFile::exists( m_tempDirSelectionWidget->tempPath() ) ) {
+#if 0
             if( KMessageBox::warningContinueCancel( this,
                                                     i18n("Do you want to overwrite %1?",m_tempDirSelectionWidget->tempPath()),
                                                     i18n("File Exists"), KStandardGuiItem::overwrite() )
@@ -210,6 +212,17 @@ void K3b::DataBurnDialog::slotStartClicked()
                 // delete the file here to avoid problems with free space in K3b::ProjectBurnDialog::slotStartClicked
                 QFile::remove( m_tempDirSelectionWidget->tempPath() );
             }
+#endif
+            QMessageBox box(QMessageBox::Warning,
+                            i18n("File Exists"),
+                            i18n("Do you want to overwrite %1?",m_tempDirSelectionWidget->tempPath()),
+                            QMessageBox::Ok | QMessageBox::Cancel,
+                            this);
+            QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - box.width()) / 2,
+                     k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - box.height()) / 2);
+            box.move(p);
+            if (box.exec() == QMessageBox::Ok)
+                QFile::remove( m_tempDirSelectionWidget->tempPath() );
             else
                 return;
         }
@@ -293,6 +306,24 @@ void K3b::DataBurnDialog::toggleAll()
     }
 }
 
+void K3b::DataBurnDialog::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QWidget::paintEvent(e);
+}
 
 void K3b::DataBurnDialog::slotMultiSessionModeChanged()
 {

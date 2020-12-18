@@ -23,6 +23,7 @@
 #include <QMutex>
 #include <QSortFilterProxyModel>
 #include <QLabel>
+#include <QDialog>
 
 #include "kylinburnerfilefilter.h"
 #include "kylinburnerlogger.h"
@@ -122,9 +123,9 @@ namespace K3b {
         int iso_index;
         QString image_path;
 
-        QPushButton* burn_setting;
-        QPushButton* burn_button;
-        QPushButton* button_add;
+        QPushButton* burn_setting; // 14px
+        QPushButton* burn_button;// 18px
+        QPushButton* button_add; // 14px
         QPushButton* button_remove;
         QPushButton* button_clear;
         QPushButton* button_newdir;
@@ -164,6 +165,7 @@ namespace K3b {
 
     protected:
         bool eventFilter(QObject *obj, QEvent *event) override;  //事件过滤
+        void paintEvent(QPaintEvent *);
 
     signals:
         void load(QString, DataDoc*);

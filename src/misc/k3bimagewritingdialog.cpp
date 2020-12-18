@@ -23,7 +23,7 @@
 #include "k3bmediacache.h"
 #include "k3bapplication.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include "k3btempdirselectionwidget.h"
 #include "k3bdevicemanager.h"

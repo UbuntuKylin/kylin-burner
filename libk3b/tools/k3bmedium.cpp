@@ -11,7 +11,7 @@
  * See the file "COPYING" for the exact licensing terms.
  */
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include "k3bmedium.h"
 #include "k3bmedium_p.h"

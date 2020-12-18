@@ -312,6 +312,12 @@ QVariant K3b::DataProjectModel::headerData( int section, Qt::Orientation orienta
             return i18nc( "file path", "Path" );
         }
     }
+    else if (role == Qt::FontRole)
+    {
+        QFont f;
+        f.setPixelSize(14);
+        return f;
+    }
 
     return QVariant();
 }

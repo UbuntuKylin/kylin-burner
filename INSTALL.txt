@@ -1,10 +1,10 @@
-Installing K3b 18.04.0
+Installing KylinBurner 18.04.0
 ----------------------
 
 
-What you need to run K3b:
+What you need to run KylinBurner:
  mandatory:
-  - since K3b is a CD writing program a cd writer would be a good thing to have ;-)
+  - since KylinBurner is a CD writing program a cd writer would be a good thing to have ;-)
   - the QT5 library (at least version 5.6)
   - the KDE5 libraries (at least version 5.24.0)
   - the cdparanoia library for cd ripping from Monty
@@ -27,7 +27,7 @@ What you need to run K3b:
   - sox to encode audio files in formats such as AIFF or VOC
   - a dynamically compiled libffmpeg for wma decoding
   - the musicbrainz library for metadata queries for single audio titles
-  - polkit-qt for K3bSetup (tool for changing permissions of programs and devices)
+  - polkit-qt for KylinBurnerSetup (tool for changing permissions of programs and devices)
 
 After that it's all the same:
 
@@ -59,7 +59,7 @@ For debug:
     -DK3B_DEBUG=ON
 
 If the cmake run was successful you are presented with a list of configure results that shows
-which optional features are enabled. Now just compile K3b:
+which optional features are enabled. Now just compile KylinBurner:
 
   make
 
@@ -71,9 +71,10 @@ Now you are ready to install:
   make install (as root)
 
 
-See PERMISSIONS on hints how to properly setup the permissions to use K3b without problems.
+See PERMISSIONS on hints how to properly setup the permissions to use KylinBurner without problems.
 
 
 Have fun
 Sebastian Trueg (trueg@k3b.org)
 Leslie Zhai (lesliezhai@llvm.org.cn)
+Wenjie Bi

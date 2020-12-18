@@ -15,7 +15,7 @@
 
 #include "k3bprojectmanager.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 #include "k3bapplication.h"
 #include "k3binteractiondialog.h"
 #include "k3baudiodoc.h"

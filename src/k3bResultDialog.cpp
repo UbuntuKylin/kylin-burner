@@ -28,18 +28,31 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QEvent>
+#include <QStyle>
+#include <QApplication>
 
 bool BurnResult::eventFilter(QObject *obj, QEvent *e)
 {
-    if (obj == c)
-    {
-        if(e->type() == QEvent::HoverEnter)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        else if (e->type() == QEvent::HoverLeave)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        else return QDialog::eventFilter(obj, e);
-    }
     return QDialog::eventFilter(obj, e);
+}
+
+void BurnResult::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QWidget::paintEvent(e);
 }
 
 BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
@@ -52,28 +65,18 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
     setFixedSize(430, 260);
 
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
-
-    setObjectName("ResultDialog");
-    ThManager()->regTheme(this, "ukui-white", "#ResultDialog{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#ResultDialog{background-color: #000000;}");
 
     QLabel *icon = new QLabel();
     icon->setFixedSize(30,30);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
-                        "background-repeat: no-repeat;background-color:transparent;}");
+    icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
-    title->setStyleSheet("font: 14px;");
-    title->setObjectName("ResultTitleAA");
-    ThManager()->regTheme(title, "ukui-white", "background-color: transparent; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "background-color: transparent; color: #FFFFFF;");
+    QFont f;
+    f.setPixelSize(14);
+    title->setFont(f);
     c = new QPushButton();
     c->setFlat(true);
-    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
     c->setIconSize(QSize(26, 26));
@@ -98,10 +101,8 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
    
     QString string = str + " success!";
     QLabel* label_info = new QLabel( i18n( string.toLatin1().data() ), this );
-    label_info->setObjectName("ResultInfo");
-    ThManager()->regTheme(label_info, "ukui-white", "background-color: transparent; font: 30px; color: #444444;");
-    ThManager()->regTheme(label_info, "ukui-black", "background-color: transparent; font: 30px; color: #FFFFFF;");
-    label_info->setStyleSheet("font: 30px");
+    f.setPixelSize(30);
+    label_info->setFont(f);
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->addSpacing( 100 );
     hlayout->addWidget( label_icon );

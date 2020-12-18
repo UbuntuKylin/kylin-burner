@@ -1,7 +1,7 @@
-Q: Compiling K3b fails with errors like this:
-   base_k3badvanceddataimagesettings.cpp:185: invalid use of undefined type
+Q: Compiling KylinBurner fails with errors like this:
+   base_kylin burneradvanceddataimagesettings.cpp:185: invalid use of undefined type
    `struct KComboBox'
-   base_k3badvanceddataimagesettings.h:17: forward declaration of `struct
+   base_kylin burneradvanceddataimagesettings.h:17: forward declaration of `struct
    KComboBox'
 A: The QTDesigner tool 'uic' is not able to find the kde widget plugins.
    To solve this run 'qtconfig' and add '$KDEDIR/lib/kde3/plugins' to the plugin search path
@@ -9,28 +9,28 @@ A: The QTDesigner tool 'uic' is not able to find the kde widget plugins.
 
 
 Q: Where has all the fancy graphic gone?
-A: Most likely you installed K3b in the wrong directory. All KDE programs are installed in the
-   KDE dirtree (SuSE: /opt/kde3, RedHat: /usr). If you compile K3b from source it defaults
+A: Most likely you installed KylinBurner in the wrong directory. All KDE programs are installed in the
+   KDE dirtree (SuSE: /opt/kde3, RedHat: /usr). If you compile KylinBurner from source it defaults
    to either $KDEDIR or /usr/local. To install in the correct directory you need to specify the prefix
    to configure like this:
      ./configure --prefix=`kde-config --prefix`
-   That will install K3b relative to the correct path.
+   That will install KylinBurner relative to the correct path.
 
 
 Q: The linking always breaks with the missing -laudio.
 A: You need to install NAS.
 
 
-Q: Where can I find K3bSetup2?
-A: K3bSetup2 is a KControlCenter Module. You can find it in the System Administration section or start
-   it manually with "kdesu kcmshell4 k3bsetup2".
-   There also is a script since K3b 0.11 called k3bsetup.
+Q: Where can I find KylinBurnerSetup2?
+A: KylinBurnerSetup2 is a KControlCenter Module. You can find it in the System Administration section or start
+   it manually with "kdesu kcmshell4 kylin burnersetup2".
+   There also is a script since KylinBurner 0.11 called kylin burnersetup.
 
 
-Q: My writer supports writing at speed X but K3b shows Y as a max.
-A: K3b determined the maximum writing speed the first time you start it. Since the speed reported by the
+Q: My writer supports writing at speed X but KylinBurner shows Y as a max.
+A: KylinBurner determined the maximum writing speed the first time you start it. Since the speed reported by the
    writer always depends on the mounted medium this may not be the real max.
-   To manually change it open the K3b settings in the device section and click on the value. You will
+   To manually change it open the KylinBurner settings in the device section and click on the value. You will
    be presented with a spinbox which allows one to change the speed.
 
 
@@ -38,7 +38,7 @@ Q: Writing fails with the following cdrecord message:
      "Cannot allocate memory. Cannot get SCSI I/O buffer."
 A: Since kernel 2.6.9 suid root programs are not allowed to use the SCSI subsystem.
    To solve this issue either configure cdrecord to run without root privileges: chmod 755 /usr/bin/cdrecord
-   or run K3b as root (which is not recommended but works also).
+   or run KylinBurner as root (which is not recommended but works also).
 
 
 Q: Writing fails with the following cdrecord message over and over again:

@@ -10674,3 +10674,9 @@ msgstr "无法启动麒麟刻录"
 
 msgid "KylinBurner has started in current system now."
 msgstr "麒麟刻录已经在当前系统启动。"
+
+msgid "Clean Data"
+msgstr "清空数据"
+
+msgid "Are you sure to clean all data?"
+msgstr "确认清空所有数据？"

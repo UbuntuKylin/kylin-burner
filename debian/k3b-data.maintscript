@@ -1,2 +1,0 @@
-rm_conffile /etc/dbus-1/system.d/org.kde.k3b.conf
-rm_conffile /etc/xdg/k3btheme.knsrc

@@ -39,6 +39,7 @@ namespace K3b {
 
         void setJob( Job* ) override;
         void setBurnJob( BurnJob* );
+        void paintEvent(QPaintEvent *);
 
     protected Q_SLOTS:
         void slotWriteSpeed( int, K3b::Device::SpeedMultiplicator );

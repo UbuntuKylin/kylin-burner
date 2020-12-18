@@ -251,46 +251,31 @@ void K3b::JobProgressDialog::setupGUI()
              k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - height()) / 2);
     move(p);
 
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
     MotifWmHints hints;
     hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
     hints.functions = MWM_FUNC_ALL;
     hints.decorations = MWM_DECOR_BORDER;
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
-    this->setObjectName("JobProcessDialog");
-    ThManager()->regTheme(this, "ukui-white", "#JobProcessDialog{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#JobProcessDialog{background-color: #000000;}");
-
     QLabel *icon = new QLabel();
     icon->setFixedSize(30,30);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
-                        "background-repeat: no-repeat;background-color:transparent;}");
+    icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     title = new QLabel(i18n("kylin-burner"), this);
     title->setObjectName("JobProcessTitle");
     title->setFixedSize(80,30);
-    title->setStyleSheet("QLabel{background-color:transparent;"
-                         "background-repeat: no-repeat;color:#444444;"
-                         "font: 14px;}");
-    ThManager()->regTheme(title, "ukui-white", "background-color:transparent;"
-                                               "background-repeat: no-repeat;color:#444444;"
-                                               "font: 14px;");
-    ThManager()->regTheme(title, "ukui-black", "background-color:transparent;"
-                                               "background-repeat: no-repeat;color:#FFFFFF;"
-                                               "font: 14px;");
+    QFont f;
+    f.setPixelSize(14);
+    title->setFont(f);
     c = new QPushButton();
     c->setFixedSize(30,30);
     c->setFlat(true);
-    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
     c->setIconSize(QSize(26, 26));
     c->installEventFilter(this);
     c->setFlat(true);
-    connect(c, SIGNAL(clicked()), this, SLOT( accept() ) );
+    connect(c, SIGNAL(clicked()), this, SLOT( reject() ) );
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
@@ -310,6 +295,8 @@ void K3b::JobProgressDialog::setupGUI()
     QLabel* label_title = new QLabel( this );
     label_title->setText( i18n("burning") );
     label_title->setFixedHeight(18);
+    f.setPixelSize(18);
+    label_title->setFont(f);
     mainLayout->addWidget( label_title);
     mainLayout->addSpacing(15);
 

@@ -18,7 +18,7 @@
 #include "k3bexternalbinmodel.h"
 #include "k3bexternalbinparamsmodel.h"
 #include "k3bexternalbinpermissionmodel.h"
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 
 #include <KAuth>
 #include <KLocalizedString>

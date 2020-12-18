@@ -34,7 +34,8 @@ public:
     explicit KylinBurnerAbout(QWidget *parent = nullptr);
     ~KylinBurnerAbout();
 protected:
-    bool eventFilter(QObject *obj, QEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 private slots:
     //void on_btnClose_clicked();
 

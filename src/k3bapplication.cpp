@@ -20,7 +20,7 @@
 #include "k3bprojectmanager.h"
 #include "k3bappdevicemanager.h"
 #include "k3blsofwrapperdialog.h"
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 #include "xatom-helper.h"
 
 #include "k3bcore.h"

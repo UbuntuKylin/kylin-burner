@@ -54,6 +54,7 @@ public Q_SLOTS:
 
 protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *);
 
 private:
 

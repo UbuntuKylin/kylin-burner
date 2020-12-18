@@ -25,6 +25,7 @@
 #include <QMouseEvent>
 #include <QBitmap>
 #include <QPainter>
+#include <QStyle>
 
 KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     QWidget(parent),
@@ -42,79 +43,24 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     hints.decorations = MWM_DECOR_BORDER;
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
-    setObjectName("AboutDialog");
-#if 1
-    ThManager()->regTheme(ui->aboutBackground, "ukui-white", "#aboutBackground{background-color: #FFFFFF;"
-                                              "}");
-    ThManager()->regTheme(ui->aboutBackground, "ukui-black", "#aboutBackground{background-color: #000000;"
-                                              "");
-#endif
-    ThManager()->regTheme(ui->labelTitle, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(ui->labelTitle, "ukui-black", "font: 14px; color: #FFFFFF;");
-
+    QFont f = ui->burnerName->font();
+    f.setPixelSize(14);
     ui->burnerName->setText(i18n("kylin-burner"));
-    ThManager()->regTheme(ui->burnerName, "ukui-white", "color: #444444; "
-                                                        "font: 1000 20pt \"Noto Sans CJK SC\";");
-    ThManager()->regTheme(ui->burnerName, "ukui-black", "color: #FFFFFF;"
-                                                        "font: 1000 20pt \"Noto Sans CJK SC\";");
 
-    //ui->burnerBase->setText(i18n("Version 3.1.0 (based on K3b, Thanks.)"));
     ui->burnerBase->setText(i18n("Version: 3.1.0 (based on K3b)"));
-    ThManager()->regTheme(ui->burnerBase, "ukui-white", "color: #444444; font: 14px;");
-    ThManager()->regTheme(ui->burnerBase, "ukui-black", "color: #FFFFFF; font: 14px;");
-
-    //ui->copyright->setText(i18n("Copyright (C) 2020  KylinSoft Co., Ltd."));
+    f.setPixelSize(12);
+    f.setPixelSize(14);
     ui->copyright->setText(i18n("Package: kylin-burner"));
-    ThManager()->regTheme(ui->copyright, "ukui-white", "color: #444444; font: 14px;");
-    ThManager()->regTheme(ui->copyright, "ukui-black", "color: #FFFFFF; font: 14px;" );
 
-    /*ui->labelContent->setText(i18n("Modify & develop by \n    Team Desktop.Beijing KylinSoft Co., Ltd."
-                                   "\n Thanks for using and making a suggestion."));*/
     ui->labelContent->setText(i18n("Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"));
-    ThManager()->regTheme(ui->labelContent, "ukui-white", "color: #444444; font: 14px;");
-    ThManager()->regTheme(ui->labelContent, "ukui-black", "color: #FFFFFF; font: 14px;" );
 
-#if 0
-    ui->btnClose->setText(i18n("Close__"));
-    ThManager()->regTheme(ui->btnClose, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(ui->btnClose, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-#endif
     setWindowModality(Qt::WindowModal);
     setWindowTitle(i18n("about"));
+    ui->label->setPixmap(QIcon::fromTheme("burner").pixmap(ui->label->size()));
+    ui->label_2->setPixmap(QIcon::fromTheme("burner").pixmap(128, 128));
 
     ui->labelTitle->setText(i18n("kylin-burner"));
-    ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
     ui->labelClose->setProperty("isWindowButton", 0x2);
     ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
     ui->labelClose->setIconSize(QSize(26, 26));
@@ -124,6 +70,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     this->hide();
+    connect(ui->labelClose, SIGNAL(clicked()), this, SLOT(hide()));
 }
 
 KylinBurnerAbout::~KylinBurnerAbout()
@@ -133,28 +80,34 @@ KylinBurnerAbout::~KylinBurnerAbout()
 
 bool KylinBurnerAbout::eventFilter(QObject *obj, QEvent *event)
 {
-    QMouseEvent *mouseEvent;
+    return QWidget::eventFilter(obj, event);
+}
 
-    switch (event->type())
+void KylinBurnerAbout::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
     {
-    case QEvent::MouseButtonRelease:
-        mouseEvent = static_cast<QMouseEvent *>(event);
-        if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button()))
-            this->hide();
-        break;
-    case QEvent::HoverEnter:
-        if (ui->labelClose == obj)
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        break;
-    case QEvent::HoverLeave:
-        if (ui->labelClose == obj)
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        break;
-    default:
-        return QWidget::eventFilter(obj, event);
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
     }
 
-    return QWidget::eventFilter(obj, event);
+    QFont f = ui->burnerName->font();
+    f.setPixelSize(14);
+    ui->burnerName->setFont(f);
+    ui->copyright->setFont(f);
+    ui->labelContent->setFont(f);
+    f.setPixelSize(12);
+    ui->burnerBase->setFont(f);
+
+    QWidget::paintEvent(e);
 }
 
 void KylinBurnerAbout::labelCloseStyle(bool in)

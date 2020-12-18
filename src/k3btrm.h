@@ -15,7 +15,7 @@
 #ifndef _K3B_TRM_H_
 #define _K3B_TRM_H_
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #ifdef ENABLE_MUSICBRAINZ
 

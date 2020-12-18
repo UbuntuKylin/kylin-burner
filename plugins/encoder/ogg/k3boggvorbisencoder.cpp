@@ -17,7 +17,7 @@
 #include "k3boggvorbisencoderdefaults.h"
 #include "k3bcore.h"
 #include "k3bplugin_i18n.h"
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include <KConfig>
 #include <KSharedConfig>

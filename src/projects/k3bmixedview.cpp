@@ -26,7 +26,7 @@
 #include "k3bmixeddoc.h"
 #include "k3bmixedburndialog.h"
 
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 #ifdef ENABLE_AUDIO_PLAYER
 #include "k3baudiotrackplayer.h"
 #endif // ENABLE_AUDIO_PLAYER

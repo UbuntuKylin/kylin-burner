@@ -28,6 +28,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QProgressBar>
+#include <QStyle>
 
 
 K3b::BurnProgressDialog::BurnProgressDialog( QWidget *parent, bool showSubProgress )
@@ -106,6 +107,24 @@ void K3b::BurnProgressDialog::setBurnJob( K3b::BurnJob* burnJob )
     }
 }
 
+void K3b::BurnProgressDialog::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QWidget::paintEvent(e);
+}
 
 void K3b::BurnProgressDialog::slotFinished( bool success )
 {

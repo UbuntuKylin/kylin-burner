@@ -16,7 +16,7 @@
 #include "k3blibsndfiledecoder.h"
 #include "k3bplugin_i18n.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include <QDebug>
 #include <QFile>
