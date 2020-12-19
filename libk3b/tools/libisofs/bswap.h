@@ -3,7 +3,7 @@
 #ifndef __BSWAP_H__
 #define __BSWAP_H__
 
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 
 #ifdef HAVE_BYTESWAP_H
 #include <byteswap.h>

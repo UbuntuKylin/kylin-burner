@@ -16,7 +16,7 @@
 #include "k3bexternalencodercommand.h"
 #include "k3bplugin_i18n.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include "k3bcore.h"
 #include "k3bprocess.h"

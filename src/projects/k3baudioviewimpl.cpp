@@ -36,7 +36,7 @@
 // this is not here becasue of base_*.ui troubles
 #include "../rip/k3baudioprojectconvertingdialog.h"
 
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 #ifdef ENABLE_AUDIO_PLAYER
 #include "k3baudiotrackplayer.h"
 #endif // ENABLE_AUDIO_PLAYER

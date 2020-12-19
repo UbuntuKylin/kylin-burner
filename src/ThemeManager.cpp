@@ -113,11 +113,9 @@ bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, 
     if (theme)
     {
         qDebug() << "object : " << obj->objectName() << "has registered in theme : " << currentTheme;
-	if (currentTheme == themeName)
-        {
-            if (obj->isEnabled()) theme->normal();
-            else theme->disable();
-        }
+        theme->setObj(obj);
+        if (obj->isEnabled()) theme->normal();
+        else theme->disable();
         return false;
     }
 

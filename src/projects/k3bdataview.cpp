@@ -119,7 +119,6 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     lastDrop.clear();
     logger = LogRecorder::instance().registration(i18n("Data Burner").toStdString().c_str());
     logger->debug("Draw data burner begin...");
-    //dlgFileFilter = new KylinBurnerFileFilter(this);
     mainWindow = parent->parentWidget()->parentWidget()->parentWidget()
             ->parentWidget();
     dlgFileFilter = new KylinBurnerFileFilter(mainWindow);
@@ -157,88 +156,15 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //*********************************************************************
     m_dirView->setColumnHidden( DataProjectModel::PathColumn, true );
     m_dirView->hide();
-/*    
-    QFrame *line = new QFrame(this);
-    line->setGeometry(QRect(40, 180, 400, 3));
-    line->setFrameShape(QFrame::HLine);
-    line->setFrameShadow(QFrame::Sunken);
-    line->raise();
-*/
     //刻录设置按钮
     burn_setting = new QPushButton(i18n("open"), this);
     burn_setting->setFixedSize(80, 30);
     burn_setting->setObjectName("BurnDataSetting");
-    ThManager()->regTheme(burn_setting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(burn_setting, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(72, 72, 76, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color:rgba(55, 55, 55, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(77, 78, 81, 1);");
     //开始刻录按钮
     burn_button = new QPushButton(i18n("create iso"), this);
     burn_button->setFixedSize(140, 45);
     burn_button->setObjectName("BurnDataStart");
-    ThManager()->regTheme(burn_button, "ukui-white",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #6B8DEB;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #3D6BE5;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #415FC3;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #E9E9E9;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(burn_button, "ukui-black",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #6B8DEB;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #3D6BE5;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: #415FC3;"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: #FFFFFF;",
-                                   "border:none; border-radius: 4px;"
-                                   "background-color: rgba(57, 58, 62, 1);"
-                                   "font: 18px \"MicrosoftYaHei\";"
-                                   "color: rgba(77, 78, 81, 1);");
+
     burn_button->setEnabled( false );
     //burn_button->setStyleSheet("QPushButton{background-color:rgb(233, 233, 233);font: 18px;border-radius: 4px;}");
 
@@ -254,94 +180,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     combo_burner = new QComboBox( label_view );
     combo_burner->setEnabled( false );
-    combo_burner->setMinimumSize(310, 30);
+    combo_burner->setFixedSize(310, 30);
     combo_burner->setObjectName("ComboBurner");
-#if 0
-    ThManager()->regTheme(combo_burner, "ukui-white","#ComboBurner{border:1px solid #DCDDDE;"
-                                                 "border-radius: 4px; combobox-popup: 0;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
-                                                 "#ComboBurner::hover{border:1px solid #6B8EEB;}"
-                                                 "#ComboBurner::selected{border:1px solid #6B8EEB;}"
-                                                 "#ComboBurner QAbstractItemView{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
-                                                 //"#ComboBurner QAbstractItemView::hover{"
-                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
-                                                 "#ComboBurner QAbstractItemView::item{"
-                                                 "background-color: #DAE3FA;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
-                                                 "#ComboBurner QAbstractItemView::item::hover{border: none;"
-                                                 "background-color: #3D6BE5;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}"
-                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/icon_xl.png); "
-                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
-                                                 "#ComboBurner QScrollBar::vertical{background-color: transparent;"
-                                                 "width: 5px; border: none;}"
-                                                 "#ComboBurner QScrollBar::handle::vertical{"
-                                                 "background-color: #3D6BE5;border-radius: 2px;}"
-                                                 "#ComboBurner QScrollBar::add-line{border: none; height: 0px;}"
-                                                 "#ComboBurner QScrollBar::sub-line{border: none; height: 0px;}",
-                                                 QString(), QString(),
-                                                 "#ComboBurner{background-color: #EEEEEE;border: none; "
-                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
-                                                 "border-radius: 4px;}"
-                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}");
-    //ThManager()->regTheme(combo_burner, "ukui-black");
-    ThManager()->regTheme(combo_burner, "ukui-black","#ComboBurner{border:1px solid #DCDDDE;"
-                                                 "border-radius: 4px; combobox-popup: 0;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
-                                                 "background-color: #242424;}"
-                                                 "#ComboBurner::hover{border:1px solid #6B8EEB;"
-                                                 "background-color: rgba(0, 0, 0, 0.15);}"
-                                                 "#ComboBurner::selected{border:1px solid #6B8EEB;"
-                                                 "background-color: #242424}"
-                                                 "#ComboBurner QAbstractItemView{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
-                                                 "#ComboBurner QAbstractItemView::hover{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
-                                                 "#ComboBurner QAbstractItemView::item{"
-                                                 "background-color: rgba(0, 0, 0, 0.15);"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboBurner QAbstractItemView::item::hover{"
-                                                 "background-color: #3D6BE5;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}"
-                                                 "#ComboBurner::down-arrow{image: url(:/icon/icon/icon_xl.png); "
-                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
-                                                 "#ComboBurner QScrollBar::vertical{background-color: transparent;"
-                                                 "width: 5px; border: none;}"
-                                                 "#ComboBurner QScrollBar::handle::vertical{"
-                                                 "background-color: #3D6BE5;border-radius: 2px;}"
-                                                 "#ComboBurner QScrollBar::add-line{border: none; height: 0px;}"
-                                                 "#ComboBurner QScrollBar::sub-line{border: none; height: 0px;}",
-                                                 QString(), QString(),
-                                                 "#ComboBurner{background-color: #393A3E;border: none; "
-                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
-                                                 "border-radius: 4px;}"
-                                                 "#ComboBurner::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}");
-#endif
-    /*
-    combo_burner->setStyleSheet("QComboBox{background:rgba(255,255,255,1);  border:1px solid rgba(220,221,222,1);border-radius:4px;}"
-                            "QComboBox::drop-down{subcontrol-origin: padding; subcontrol-position: top right; \
-                             border-top-right-radius: 3px; \
-                             border-bottom-right-radius: 3px;}"
-                             "QComboBox::down-arrow{width: 8px; height: 16;  padding: 0px 0px 0px 0px;}");
-    */
-
-    
-    //QLabel *label_space = new QLabel(label);
 
     QLabel *label_CD = new QLabel( label_view );
     label_CD->setText(i18n("C-CD"));
@@ -352,15 +192,12 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     iso_index = 0;
 
     combo_CD = new QComboBox( label_view );
-    combo_CD->setFixedWidth( 310 );
-    //combo_CD->setEditable( false );
-    combo_CD->setMinimumSize(310, 30);
+    combo_CD->setFixedSize(310, 30);
     image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
-    //combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
     combo_burner->insertItem(comboIndex,
-                             QIcon(":/icon/icon/icon-刻录机.png"),
+                             QIcon(":/icon/icon/icon-burner.png"),
                              i18n(" "));
-    combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-image.png"), i18n("image file: ") + image_path);
     /* docs[0] is local image */
     K3b::DataDoc *tmpDoc = new K3b::DataDoc(this);
     tmpDoc->setURL(m_doc->URL());
@@ -370,106 +207,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     dlgFileFilter->addData();
 
     combo_CD->setObjectName("ComboCD");
-#if 0
-    ThManager()->regTheme(combo_CD, "ukui-white","#ComboCD{border:1px solid #DCDDDE;"
-                                                 "border-radius: 4px; combobox-popup: 0;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
-                                                 "#ComboCD::hover{border:1px solid #6B8EEB;}"
-                                                 "#ComboCD::selected{border:1px solid #6B8EEB;}"
-                                                 "#ComboCD QAbstractItemView{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #FFFFFF;border:1px solid #DCDDDE;}"
-                                                 //"#ComboCD QAbstractItemView::hover{"
-                                                 //"padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 //"background-color: #242424;border:1px solid #6B8EEB;}"
-                                                 "#ComboCD QAbstractItemView::item{"
-                                                 "background-color: #DAE3FA;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #444444;}"
-                                                 "#ComboCD QAbstractItemView::item::hover{border: none;"
-                                                 "background-color: #3D6BE5;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}"
-                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/icon_xl.png); "
-                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
-                                                 "#ComboCD QScrollBar::vertical{background-color: transparent;"
-                                                 "width: 5px; border: none;}"
-                                                 "#ComboCD QScrollBar::handle::vertical{"
-                                                 "background-color: #3D6BE5;border-radius: 2px;}"
-                                                 "#ComboCD QScrollBar::add-line{border: none; height: 0px;}"
-                                                 "#ComboCD QScrollBar::sub-line{border: none; height: 0px;}",
-                                                 QString(), QString(),
-                                                 "#ComboCD{background-color: #EEEEEE;border: none; "
-                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
-                                                 "border-radius: 4px;}"
-                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}");
-    //ThManager()->regTheme(combo_CD, "ukui-black");
-#if 1
-    ThManager()->regTheme(combo_CD, "ukui-black","#ComboCD{border:1px solid #DCDDDE;"
-                                                 "border-radius: 4px; combobox-popup: 0;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;"
-                                                 "background-color: #242424;}"
-                                                 "#ComboCD::hover{border:1px solid #6B8EEB;"
-                                                 "background-color: rgba(0, 0, 0, 0.15);}"
-                                                 "#ComboCD::selected{border:1px solid #6B8EEB;"
-                                                 "background-color: #242424}"
-                                                 "#ComboCD QAbstractItemView{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #242424;border:1px solid #DCDDDE;}"
-                                                 "#ComboCD QAbstractItemView::hover{"
-                                                 "padding: 5px 5px 5px 5px; border-radius: 4px;"
-                                                 "background-color: #242424;border:1px solid #6B8EEB;}"
-                                                 "#ComboCD QAbstractItemView::item{"
-                                                 "background-color: rgba(0, 0, 0, 0.15);"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboCD QAbstractItemView::item::hover{"
-                                                 "background-color: #3D6BE5;"
-                                                 "border-radius: 4px;height: 30px;"
-                                                 "font: 14px \"MicrosoftYaHei\"; color: #FFFFFF;}"
-                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}"
-                                                 "#ComboCD::down-arrow{image: url(:/icon/icon/icon_xl.png); "
-                                                 "height: 20px; width: 12px; padding: 5px 5px 5px 5px;}"
-                                                 "#ComboCD QScrollBar::vertical{background-color: transparent;"
-                                                 "width: 5px; border: none;}"
-                                                 "#ComboCD QScrollBar::handle::vertical{"
-                                                 "background-color: #3D6BE5;border-radius: 2px;}"
-                                                 "#ComboCD QScrollBar::add-line{border: none; height: 0px;}"
-                                                 "#ComboCD QScrollBar::sub-line{border: none; height: 0px;}",
-                                                 QString(), QString(),
-                                                 "#ComboCD{background-color: #EEEEEE;border: none; "
-                                                 "font: 14px \"MicrosoftYaHei\";color: rgba(193, 193, 193, 1); "
-                                                 "border-radius: 4px;}"
-                                                 "#ComboCD::drop-down{subcontrol-origin: padding;"
-                                                 "subcontrol-position: top right; border: none;}");
-#endif
-#endif
-    /*
-    combo_CD->setStyleSheet("QComboBox{combobox-popup: 0;background:rgba(255,255,255,1);"
-                            "border:1px solid rgba(220,221,222,1);border-radius:4px;}"
-                            "QComboBox::drop-down{subcontrol-origin: padding; "
-                            "subcontrol-position: top right; "
-                            "border-top-right-radius: 3px;"
-                            "border-bottom-right-radius: 3px;}"
-                            "QComboBox::down-arrow{width: 8px; height: 16;"
-                            "image: url(:/icon/icon/draw-down.jpg);"
-                            "padding: 0px 0px 0px 0px;}");
-    */
 
-    /*
-    combo_CD->setStyleSheet("QComboBox{background:rgba(255,255,255,1);}"
-                            "QComboBox::drop-down{background:rgba(255,255,255,1); "
-                            "subcontrol-origin: padding;"
-                            "width : 10px; height : 20 px;subcontrol-position: top right;}"
-                            "::down-arrow{background:transparent;"
-                            "width : 10px; height : 20 px;}"
-                            "image: url(:/icon/icon/icon-right.png);");
-
-    */
     QHBoxLayout *hlayout_burner = new QHBoxLayout();
     hlayout_burner->setContentsMargins(0, 0, 0, 0);
     hlayout_burner->addWidget( label_burner );
@@ -509,33 +247,10 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     tips->setAcceptDrops(true);
     tips->installEventFilter(this);
     tips->setObjectName("tip");
-    ThManager()->regTheme(tips, "ukui-white", "background-color:rgba(255, 255, 255, 1);"
-                                              "font: 14px; color: #444444;");
-    ThManager()->regTheme(tips, "ukui-black", "background-color:rgba(36, 36, 36, 1);"
-                                              "font: 14px; color: #FFFFFF;");
-
     tips->setMinimumHeight(342);
     m_dataViewImpl->view()->setObjectName("DataView");
-    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-white", "#DataView{background-color:rgba(255, 255, 255, 1);"
-                                              "font: 14px; color: #444444;}");
-    ThManager()->regTheme(m_dataViewImpl->view(), "ukui-black", "#DataView{background-color:rgba(36, 36, 36, 1);"
-                                              "font: 14px; color: #FFFFFF;} "
-                                                                "#DataView::item{border-bottom:1px solid #333333;}");
     m_dataViewImpl->view()->header()->setObjectName("DataViewHeader");
-    ThManager()->regTheme(m_dataViewImpl->view()->header(), "ukui-white", "#DataViewHeader:section{"
-                                                                          "background-color:rgba(242, 242, 242, 1);"
-                                                                          "border: 0px;"
-                                                                          //"border-color: rgba(242, 242, 242, 1);"
-                                              "font: 12px; color: rgba(68, 68, 68, 1);}");
-    ThManager()->regTheme(m_dataViewImpl->view()->header(), "ukui-black", "#DataViewHeader:section{"
-                                                                          "background-color:rgba(36, 36, 36, 1);"
-                                                                          "border: 0px;"
-                                                                          //"border-color: rgba(242, 242, 242, 1);"
-                                              "font: 12px; color: rgba(255, 255, 255, 1);}");
-    /*
-    m_dataViewImpl->view()->setStyleSheet("background-color: rgba(36, 36, 36, 1);font: 14px; color: #FFFFFF;");
-    m_dataViewImpl->view()->header()->setStyleSheet("background-color: rgba(36, 36, 36, 1);font: 14px; color: #FFFFFF;");
-    */
+
     m_dataViewImpl->view()->setFixedHeight(28);
     m_dataViewImpl->view()->setAcceptDrops(true);
     m_dataViewImpl->view()->installEventFilter(this);
@@ -550,29 +265,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     layout->addLayout( vlayout_middle );
     layout->addStretch( 26 );
     layout->addLayout( hlayout_bottom );
-#if 0
-    layout->addWidget( m_dataViewImpl->view(), 0, 0, 1, 5 );
-    layout->addWidget( line, 1, 0, 1, 5);
-    layout->addWidget( label_burner, 2, 0, 1, 1 );
-    layout->addWidget( combo_burner, 2, 1, 1, 1 );
-    layout->addWidget( label_CD, 3, 0, 1, 1 );
-    layout->addWidget( combo_CD, 3, 1, 1, 1 );
-    layout->addWidget( burn_setting, 3, 2, 1, 1 );
-    layout->addWidget( label_space, 3, 3, 1, 1 );
-    layout->addWidget( burn_button, 3, 4, 1, 1 );
-    
-    layout->setColumnStretch(0, 1);
-    layout->setColumnStretch(1, 4);
-    layout->setColumnStretch(2, 1);
-    layout->setColumnStretch(3, 4);
-    layout->setColumnStretch(4, 1);
-    layout->setRowStretch(0, 4);
-    layout->setRowStretch(1, 1);
-    layout->setRowStretch(2, 1);
-    layout->setRowStretch(3, 1);
-    layout->setHorizontalSpacing(15);
-    layout->setVerticalSpacing(10);
-#endif
+
     QSplitter* splitter = new QSplitter( this );
     splitter->addWidget( label_view );
     setMainWidget( splitter );
@@ -602,209 +295,36 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //添加按钮
     button_add = new QPushButton(i18n("Add"), label_action);
     button_add->setFixedSize(80, 30);
-    button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+    button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
     button_add->setObjectName("btnAdd");
-    ThManager()->regTheme(button_add, "ukui-white",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(67, 67, 67, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-       ThManager()->regTheme(button_add, "ukui-black",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(72, 72, 76, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color:rgba(55, 55, 55, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(77, 78, 81, 1);");
-    /*
-    button_add->setStyleSheet("QPushButton{ background-color:#e9e9e9; border-radius:4px; font: 14px; color:#444444;}" 
-                              "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"  
-                              "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
-    */
     //删除按钮
     button_remove = new QPushButton(i18n("Remove"), label_action );
-    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+    button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
     button_remove->setFixedSize(80, 30);
     button_remove->setEnabled( false );
     button_remove->setObjectName("btnRemove");
-    ThManager()->regTheme(button_remove, "ukui-white",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(67, 67, 67, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-       ThManager()->regTheme(button_remove, "ukui-black",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(72, 72, 76, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color:rgba(55, 55, 55, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(77, 78, 81, 1);");
 
     //清空按钮
     button_clear = new QPushButton(i18n("Clear"), label_action );
-    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png")); 
+    button_clear->setIcon(QIcon(":/icon/icon/icon-clean.png"));
     button_clear->setFixedSize(80, 30);
     button_clear->setEnabled( false );
     button_clear->setObjectName("btnClear");
-    ThManager()->regTheme(button_clear, "ukui-white",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(67, 67, 67, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-       ThManager()->regTheme(button_clear, "ukui-black",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(72, 72, 76, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color:rgba(55, 55, 55, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(77, 78, 81, 1);");
 
     //新建文件夹按钮
     button_newdir = new QPushButton(i18n("New Dir"), label_action );
-    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png")); 
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
     button_newdir->setFixedSize(112, 30);
     button_newdir->setObjectName("btnNewDir");
-    ThManager()->regTheme(button_newdir, "ukui-white",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(67, 67, 67, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-action.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       //"qproperty-icon: url(:/func/add-default.png);"
-                                       "qproperty-iconSize: 15px 15px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-       ThManager()->regTheme(button_newdir, "ukui-black",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(72, 72, 76, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color:rgba(55, 55, 55, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(255, 255, 255, 1);",
-                             "background-color: rgba(57, 58, 62, 1);"
-                             "border: none; border-radius: 4px;"
-                             "font: 14px \"MicrosoftYaHei\";"
-                             "color: rgba(77, 78, 81, 1);");
 
 
     QLabel *labelFileFilter = new QLabel( this );
     labelFileFilter->setMinimumSize(132, 30);
     btnFileFilter = new QPushButton(i18n("FileFilter"), labelFileFilter);
     btnFileFilter->setFixedSize(112, 30);
-    btnFileFilter->setStyleSheet("QPushButton{ background-color:transparent; border-radius:4px; font: 14px; color:#415fc4;}"
-                                 "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px; color:#ffffff;}"
-                                 "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px; color:#ffffff;}");
+    btnFileFilter->setStyleSheet("QPushButton{ background-color:transparent; border-radius:4px; font: 14px;}"
+                                 "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px;}"
+                                 "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px;}");
 
 
     //安装事件过滤器
@@ -827,7 +347,6 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     QHBoxLayout* layoutFileFilter = new QHBoxLayout( labelFileFilter );
     layoutFileFilter->setContentsMargins(20,0,0,0);
-    //layoutFileFilter->addStretch(10);
     layoutFileFilter->addWidget( btnFileFilter );
 
     
@@ -842,7 +361,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     toolBox()->addAction( actionCollection()->action( "project_volume_name" ) );
     btnFileFilter->hide();
 
-    /*
+
+#if 0
     workerThread = new QThread;
     LoadWorker *worker = new LoadWorker;
     worker->moveToThread(workerThread);
@@ -850,7 +370,8 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     connect(worker,SIGNAL(loadFinished()),this,SLOT(onLoadFinished()));
     connect(workerThread,SIGNAL(finished()),worker,SLOT(deleteLater()));
     workerThread->start();
-    */
+#endif
+
 
     pdlg = newBurnDialog( this );
 
@@ -887,20 +408,6 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
     QDropEvent *dropEvent;
     switch (event->type()) {
     case QEvent::HoverEnter:
-        /*
-        if(obj == button_add)
-            button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
-        if(obj == button_remove){
-            if ( button_remove->isEnabled() )
-                button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
-        }
-        if(obj == button_clear){
-            if ( button_clear->isEnabled() )
-                button_clear->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
-        }
-        if(obj == button_newdir)
-            button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
-        */
         if (obj == button_add) hoverButtonAdd();
         else if (obj == button_remove) hoverButtonRemove();
         else if (obj == button_clear) hoverButtonClear();
@@ -909,16 +416,6 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         else break;
         break;
     case QEvent::HoverLeave:
-        /*
-        if(obj == button_add)
-            button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
-        if(obj == button_remove)
-            button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
-        if(obj == button_clear)
-            button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
-        if(obj == button_newdir)
-            button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
-        */
         if (obj == button_add) hoverButtonAdd(false);
         else if (obj == button_remove) hoverButtonRemove(false);
         else if (obj == button_clear) hoverButtonClear(false);
@@ -930,26 +427,26 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
         if(obj == button_add)
         {
             pressButtonAdd();
-            button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+            button_add->setIcon(QIcon(":/icon/icon/icon-add-click.png"));
         }
         if(obj == button_remove){
             if ( button_remove->isEnabled() )
             {
                 pressButtonRemove();
-                button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+                button_remove->setIcon(QIcon(":/icon/icon/icon-delete-click.png"));
             }
         }
         if(obj == button_clear){
             if ( button_clear->isEnabled() )
             {
                 pressButtonClear();
-                button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+                button_clear->setIcon(QIcon(":/icon/icon/icon-clean-click.png"));
             }
         }
         if(obj == button_newdir)
         {
             pressButtonNewDir();
-            button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+            button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder-click.png"));
         }
         else if (obj == burn_button) pressButtonBurn();
         break;
@@ -1021,10 +518,30 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
     return QWidget::eventFilter(obj, event);
 }
 
+void K3b::DataView::paintEvent(QPaintEvent *e)
+{
+    QFont f = burn_setting->font();
+    f.setPixelSize(14);
+    combo_burner->setFont(f);
+    combo_CD->setFont(f);
+    burn_setting->setFont(f);
+    button_add->setFont(f);
+    button_remove->setFont(f);
+    button_clear->setFont(f);
+    button_newdir->setFont(f);
+    btnFileFilter->setFont(f);
+    f.setPixelSize(18);
+    burn_button->setFont(f);
+    QWidget::paintEvent(e);
+}
+
 void K3b::DataView::slotAddFile(QList<QUrl> urls)
 {
     for (int i = 0; i < docs.size(); ++i)
+    {
         docs[i]->addUrls(urls);
+        QCoreApplication::processEvents();
+    }
 }
 
 void K3b::DataView::slotOpenClicked()
@@ -1069,6 +586,15 @@ void K3b::DataView::slotRemoveClicked()
 void K3b::DataView::slotClearClicked()
 {
     //const QModelIndex parentDirectory = m_dataViewImpl->view()->rootIndex();
+    QMessageBox box(QMessageBox::Warning,
+                    i18n("Clean Data"),
+                    i18n("Are you sure to clean all data?"),
+                    QMessageBox::Ok | QMessageBox::Cancel,
+                    this);
+    QPoint p(k3bappcore->k3bMainWindow()->pos().x() + (k3bappcore->k3bMainWindow()->width() - box.width()) / 2,
+             k3bappcore->k3bMainWindow()->pos().y() + (k3bappcore->k3bMainWindow()->height() - box.height()) / 2);
+    box.move(p);
+    if (box.exec() != QMessageBox::Ok) return;
     m_dataViewImpl->slotClear();
     copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
@@ -1120,6 +646,7 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
             logger->debug("remove device [%s] at index %d on selection item index %d",
                           (device_index[j]->blockDeviceName()).toStdString().c_str(), j, j + 1);
         }
+        QCoreApplication::processEvents();
     }
 
     for (int i = 0; i < device_list.size(); ++i)
@@ -1130,6 +657,7 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
                           (device_list[i]->blockDeviceName()).toStdString().c_str(), i);
             slotMediaChange(device_list[i]);
         }
+        QCoreApplication::processEvents();
     }
 }
 
@@ -1144,6 +672,8 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     K3b::DataDoc *tmpDoc = NULL;
     K3b::Medium medium = k3bappcore->mediaCache()->medium( dev );
     KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( dev->blockDeviceName() );
+
+    QCoreApplication::processEvents();
 
     cdSize =  KIO::convertSize(dev->diskInfo().remainingSize().mode1Bytes());
     if( !mountPoint)
@@ -1213,7 +743,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     if (idx == comboIndex)
     {
         combo_burner->insertItem(comboIndex,
-                                 QIcon(":/icon/icon/icon-刻录机.png"),
+                                 QIcon(":/icon/icon/icon-burner.png"),
                                  dev->vendor() + " - " + dev->description());
         combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
         tmpDoc = new K3b::DataDoc(this);
@@ -1259,8 +789,6 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         tips->hide();
         m_dataViewImpl->view()->setFixedHeight(370);
     }
-
-
     /*
     QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
     QString cdSize;
@@ -1300,7 +828,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         if (idx == comboIndex)
         {
             combo_burner->insertItem(comboIndex,
-                                     QIcon(":/icon/icon/icon-刻录机.png"),
+                                     QIcon(":/icon/icon/icon-burner.png"),
                                      device->vendor() + " - " + device->description());
             combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
             tmpDoc = new K3b::DataDoc(this);
@@ -1397,12 +925,12 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     
         iso_index++;
 
-        combo_burner->addItem(QIcon(":/icon/icon/icon-刻录机.png"), burnerInfo);
+        combo_burner->addItem(QIcon(":/icon/icon/icon-burner.png"), burnerInfo);
         combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + CDInfo);
     }
     */
     //image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
-    //combo_CD->addItem(QIcon(":/icon/icon/icon-镜像.png"), i18n("image file: ") + image_path);
+    //combo_CD->addItem(QIcon(":/icon/icon/icon-image.png"), i18n("image file: ") + image_path);
 }
 
 void K3b::DataView::slotComboBurner(int index)
@@ -1664,7 +1192,7 @@ void K3b::DataView::disableButtonBurn()
 void K3b::DataView::enableButtonAdd()
 {
     button_add->setEnabled(true);
-    button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+    button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
     //button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1673,12 +1201,12 @@ void K3b::DataView::hoverButtonAdd(bool in)
     if (!button_add->isEnabled()) return;
     if (in)
     {
-        button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+        button_add->setIcon(QIcon(":/icon/icon/icon-add-click.png"));
         //button_add->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
     }
     else
     {
-        button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+        button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
         //button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
     }
 }
@@ -1686,7 +1214,7 @@ void K3b::DataView::hoverButtonAdd(bool in)
 void K3b::DataView::pressButtonAdd()
 {
     if (!button_add->isEnabled()) return;
-    button_add->setIcon(QIcon(":/icon/icon/icon-添加-悬停点击.png"));
+    button_add->setIcon(QIcon(":/icon/icon/icon-add-click.png"));
     //button_add->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1695,7 +1223,7 @@ void K3b::DataView::disableButtonAdd()
     if (button_add->isEnabled()) button_add->setEnabled(false);
     if (!button_add->isEnabled())
     {
-        button_add->setIcon(QIcon(":/icon/icon/icon-添加-默认.png"));
+        button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
         //button_add->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
     }
 }
@@ -1703,7 +1231,7 @@ void K3b::DataView::disableButtonAdd()
 void K3b::DataView::enableButtonRemove()
 {
     button_remove->setEnabled(true);
-    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+    button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
     //button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1712,12 +1240,12 @@ void K3b::DataView::hoverButtonRemove(bool in)
     if (!button_remove->isEnabled()) return;
     if (in)
     {
-        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+        button_remove->setIcon(QIcon(":/icon/icon/icon-delete-click.png"));
         //button_remove->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
     }
     else
     {
-        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+        button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
         //button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
     }
 }
@@ -1725,7 +1253,7 @@ void K3b::DataView::hoverButtonRemove(bool in)
 void K3b::DataView::pressButtonRemove()
 {
     if (!button_remove->isEnabled()) return;
-    button_remove->setIcon(QIcon(":/icon/icon/icon-删除-悬停点击.png"));
+    button_remove->setIcon(QIcon(":/icon/icon/icon-delete-click.png"));
     //button_remove->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1734,7 +1262,7 @@ void K3b::DataView::disableButtonRemove()
     if (button_remove->isEnabled()) button_remove->setEnabled(false);
     if (!button_remove->isEnabled())
     {
-        button_remove->setIcon(QIcon(":/icon/icon/icon-删除-默认.png"));
+        button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
         //button_remove->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
     }
 }
@@ -1742,7 +1270,7 @@ void K3b::DataView::disableButtonRemove()
 void K3b::DataView::enableButtonClear()
 {
     button_clear->setEnabled(true);
-    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+    button_clear->setIcon(QIcon(":/icon/icon/icon-clean.png"));
     //button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1751,12 +1279,12 @@ void K3b::DataView::hoverButtonClear(bool in)
     if (!button_clear->isEnabled()) return;
     if (in)
     {
-        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+        button_clear->setIcon(QIcon(":/icon/icon/icon-clean-click.png"));
         //button_clear->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
     }
     else
     {
-        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+        button_clear->setIcon(QIcon(":/icon/icon/icon-clean.png"));
         //button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
     }
 }
@@ -1764,7 +1292,7 @@ void K3b::DataView::hoverButtonClear(bool in)
 void K3b::DataView::pressButtonClear()
 {
     if (!button_clear->isEnabled()) return;
-    button_clear->setIcon(QIcon(":/icon/icon/icon-清空-悬停点击.png"));
+    button_clear->setIcon(QIcon(":/icon/icon/icon-clean-click.png"));
     //button_clear->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1773,7 +1301,7 @@ void K3b::DataView::disableButtonClear()
     if (button_clear->isEnabled()) button_clear->setEnabled(false);
     if (!button_clear->isEnabled())
     {
-        button_clear->setIcon(QIcon(":/icon/icon/icon-清空-默认.png"));
+        button_clear->setIcon(QIcon(":/icon/icon/icon-clean.png"));
         //button_clear->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
     }
 }
@@ -1781,7 +1309,7 @@ void K3b::DataView::disableButtonClear()
 void K3b::DataView::enableButtonNewDir()
 {
     button_newdir->setEnabled(true);
-    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
    // button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1790,12 +1318,12 @@ void K3b::DataView::hoverButtonNewDir(bool in)
     if (!button_newdir->isEnabled()) return;
     if (in)
     {
-        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder-click.png"));
         //button_newdir->setStyleSheet("background-color:rgba(107, 142, 235, 1);font: 14px;border-radius: 4px;color:#444444");
     }
     else
     {
-        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
         //button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#444444");
     }
 }
@@ -1803,7 +1331,7 @@ void K3b::DataView::hoverButtonNewDir(bool in)
 void K3b::DataView::pressButtonNewDir()
 {
     if (!button_newdir->isEnabled()) return;
-    button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-悬停点击.png"));
+    button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder-click.png"));
     //button_newdir->setStyleSheet("background-color:rgba(65, 95, 196, 1);font: 14px;border-radius: 4px;color:#444444");
 }
 
@@ -1812,7 +1340,7 @@ void K3b::DataView::disableButtonNewDir()
     if (button_newdir->isEnabled()) button_newdir->setEnabled(false);
     if (!button_newdir->isEnabled())
     {
-        button_newdir->setIcon(QIcon(":/icon/icon/icon-新建文件-默认.png"));
+        button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
         //button_newdir->setStyleSheet("background-color:rgba(233, 233, 233, 1);font: 14px;border-radius: 4px;color:#C1C1C1");
     }
 }

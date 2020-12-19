@@ -16,7 +16,7 @@
 #ifndef K3BDOC_H
 #define K3BDOC_H
 
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 #include "k3bglobals.h"
 
 #include "k3b_export.h"

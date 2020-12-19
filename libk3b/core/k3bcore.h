@@ -17,7 +17,7 @@
 #define _K3B_CORE_H_
 
 #include "k3b_export.h"
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 
 #include <KSharedConfig>
 

@@ -15,7 +15,7 @@
 
 #include "videodvd.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 #include "k3bdevicemanager.h"
 #include "k3bdevice.h"
 #include "videodvd_export.h"

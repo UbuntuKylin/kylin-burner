@@ -19,7 +19,7 @@
 #include "k3bdoc.h"
 
 #ifdef HAVE_CONFIG_H
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 #endif
 
 #include <KXMLGUIClient>

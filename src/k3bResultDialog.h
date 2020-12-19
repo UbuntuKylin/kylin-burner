@@ -32,6 +32,7 @@ public:
     Q_SLOT void exit();
 protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event);
 private:
     QPushButton *c;
 };

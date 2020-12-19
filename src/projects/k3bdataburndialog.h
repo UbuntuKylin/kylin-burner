@@ -55,6 +55,7 @@ namespace K3b {
         void loadSettings( const KConfigGroup& ) override;
         void saveSettings( KConfigGroup ) override;
         void toggleAll() override;
+        void paintEvent(QPaintEvent *);
 
 
         // --- settings tab ---------------------------

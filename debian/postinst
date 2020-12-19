@@ -1,0 +1,5 @@
+#!/bin/sh
+rm -rf /usr/bin/kylin-burner
+echo "#!/bin/bash" >> /usr/bin/kylin-burner
+echo "burner" >> /usr/bin/kylin-burner
+chmod 755 /usr/bin/kylin-burner

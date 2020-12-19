@@ -255,6 +255,7 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
     QList<QUrl> urls = K3b::convertToLocalUrls(l);
 
     for( QList<QUrl>::ConstIterator it = urls.constBegin(); it != urls.constEnd(); ++it ) {
+        QCoreApplication::processEvents();
         const QUrl& url = *it;
         QFileInfo f( url.toLocalFile() );
         QString k3bname = f.absoluteFilePath().section( '/', -1 );
@@ -273,6 +274,7 @@ void K3b::DataDoc::addUrlsToDir( const QList<QUrl>& l, K3b::DirItem* dir )
         int cnt = 0;
         bool ok = false;
         while( !ok ) {
+            QCoreApplication::processEvents();
             ok = true;
             QString name( k3bname );
             if( cnt > 0 )
@@ -345,6 +347,7 @@ void K3b::DataDoc::addUnremovableUrlsToDir( const QList<QUrl>& l, K3b::DirItem* 
     QList<QUrl> urls = K3b::convertToLocalUrls(l);
 
     for( QList<QUrl>::ConstIterator it = urls.constBegin(); it != urls.constEnd(); ++it ) {
+        QCoreApplication::processEvents();
         const QUrl& url = *it;
         QFileInfo f( url.toLocalFile() );
         QString k3bname = f.absoluteFilePath().section( '/', -1 );

@@ -32,6 +32,7 @@
 #include <QBitmap>
 #include <QEvent>
 
+#include <QStyle>
 #include <QDebug>
 
 FileFilter::FileFilter(QWidget *parent) :
@@ -46,28 +47,14 @@ FileFilter::FileFilter(QWidget *parent) :
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
 
-    /*
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
-    */
-
-    this->setObjectName("MenuFileFilter");
-    ThManager()->regTheme(this, "ukui-white", "#MenuFileFilter{background-color: #FFFFFF;"
-                                              "}");
-    ThManager()->regTheme(this, "ukui-black", "#MenuFileFilter{background-color: #000000;"
-                                              ";}");
-
     QLabel *icon = new QLabel();
     icon->setFixedSize(30,30);
-    icon->setStyleSheet("QLabel{background-image: url(:/icon/icon/logo.png);"
-                        "background-repeat: no-repeat;background-color:transparent;}");
+    icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
-    title->setObjectName("FilterTitile");
-    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
+    QFont f;
+    f.setPixelSize(14);
+    title->setFont(f);
     c = new QPushButton();
     c->setFixedSize(30,30);
     connect(c, &QPushButton::clicked, this, &FileFilter::filter_exit);
@@ -75,14 +62,14 @@ FileFilter::FileFilter(QWidget *parent) :
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 4, 4, 0);
+    titlebar->setContentsMargins(8, 4, 4, 0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(5);
     titlebar->addWidget(title);
     titlebar->addStretch(285);
     titlebar->addWidget(c);
     c->installEventFilter(this);
-    c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
     c->setIconSize(QSize(26, 26));
@@ -91,50 +78,22 @@ FileFilter::FileFilter(QWidget *parent) :
     
     QLabel *filter_label = new QLabel( i18n("filterSet") );
     filter_label->setFixedHeight(25);
-    filter_label->setStyleSheet("QLabel{background-color:transparent;\
-                                        background-repeat: no-repeat;\
-                                        width:96px;\
-                                        height:24px;\
-                                        font-size:24px;\
-                                        font-family:Microsoft YaHei;\
-                                        font-weight:400;\
-                                        color:rgba(68,68,68,1);\
-                                        line-height:32px;}");
-
-
-    filter_label->setObjectName("FilterLabelTitile");
-    ThManager()->regTheme(filter_label, "ukui-white", "font: 24px; color: #444444;");
-    ThManager()->regTheme(filter_label, "ukui-black", "font: 24px; color: #FFFFFF;");
-
     discard_hidden_file = new QCheckBox( i18n("discard hidden file") );
     //discard_hidden_file->setChecked(true);
     discard_hidden_file->setFixedHeight(16);
     QFont label_font;
     label_font.setPixelSize(14);
     discard_hidden_file->setFont( label_font );
-    discard_hidden_file->setStyleSheet("color:#444444;");
-    discard_hidden_file->setObjectName("HiddenFile");
-    ThManager()->regTheme(discard_hidden_file, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(discard_hidden_file, "ukui-black", "font: 14px; color: #FFFFFF;");
-
     
     discard_broken_link = new QCheckBox( i18n("discard broken link") );
     //discard_broken_link->setChecked(true);
     discard_broken_link->setFixedHeight(18);
     discard_broken_link->setFont( label_font );
-    discard_broken_link->setStyleSheet("color:#444444;");
-    discard_broken_link->setObjectName("BrokenLink");
-    ThManager()->regTheme(discard_broken_link, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(discard_broken_link, "ukui-black", "font: 14px; color: #FFFFFF;");
     
     follow_link = new QCheckBox( i18n("follow link") );
     follow_link->setChecked(false);
     follow_link->setFixedHeight(18);
     follow_link->setFont( label_font );
-    follow_link->setStyleSheet("color:#444444;");
-    follow_link->setObjectName("FollowLink");
-    ThManager()->regTheme(follow_link, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(follow_link, "ukui-black", "font: 14px; color: #FFFFFF;");
 
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(25, 0, 0, 0);
@@ -169,15 +128,26 @@ FileFilter::~FileFilter()
 
 bool FileFilter::eventFilter(QObject *obj, QEvent *e)
 {
-    if (obj == c)
-    {
-        if(e->type() == QEvent::HoverEnter)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        else if (e->type() == QEvent::HoverLeave)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        else return QDialog::eventFilter(obj, e);
-    }
     return QDialog::eventFilter(obj, e);
+}
+
+void FileFilter::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QWidget::paintEvent(e);
 }
 
 void FileFilter::hiddenChanged(int stat)

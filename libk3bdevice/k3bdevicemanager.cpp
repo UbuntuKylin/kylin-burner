@@ -19,7 +19,7 @@
 #include "k3bscsicommand.h"
 #include "k3bmmc.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include <KConfig>
 #include <KConfigGroup>

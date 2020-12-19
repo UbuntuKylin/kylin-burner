@@ -86,6 +86,7 @@ namespace K3b {
          */
         void initView();
         void startInImageData(QString path);
+        void paintEvent(QPaintEvent *);
 
     public Q_SLOTS:
         K3b::Doc* slotNewAudioDoc();
@@ -254,6 +255,7 @@ namespace K3b {
         QString ISOPath;
         
 
+        QLabel* btnLabel;
         QLabel *pIconLabel;
         QLabel *pTitleLabel;
         KylinBurnerLogger *logger;

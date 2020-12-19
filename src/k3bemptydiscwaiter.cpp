@@ -120,8 +120,10 @@ K3b::EmptyDiscWaiter::EmptyDiscWaiter( K3b::Device::Device* device, QWidget* par
     buttonBox->addButton( ejectButton, QDialogButtonBox::NoRole );
     connect( ejectButton, SIGNAL(clicked()), this, SLOT(slotEjectOut()) );
 
+#if 0
     QPushButton* loadButton = buttonBox->addButton( i18n("Load"), QDialogButtonBox::NoRole );
     connect( loadButton, SIGNAL(clicked()), this, SLOT(slotLoad()) );
+#endif
 
     QVBoxLayout* box = new QVBoxLayout( this );
     QHBoxLayout* hbox = new QHBoxLayout( this );

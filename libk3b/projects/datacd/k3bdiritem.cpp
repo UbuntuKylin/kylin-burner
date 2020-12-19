@@ -251,6 +251,7 @@ bool K3b::DirItem::alreadyInDirectory( const QString& filename ) const
 
 K3b::DataItem* K3b::DirItem::find( const QString& filename ) const
 {
+    if (m_children.isEmpty()) return 0;
     Q_FOREACH( K3b::DataItem* item, m_children ) {
         if( item->k3bName() == filename )
             return item;

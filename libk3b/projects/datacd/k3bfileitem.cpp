@@ -18,7 +18,7 @@
 #include "k3bdiritem.h"
 #include "k3bglobals.h"
 #include "k3bisooptions.h"
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include <QDebug>
 #include <QFile>

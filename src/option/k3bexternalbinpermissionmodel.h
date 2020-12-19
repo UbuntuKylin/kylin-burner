@@ -18,7 +18,7 @@
 #define K3BEXTERNALBINPERMISSIONMODEL_H
 
 #include "k3bhelperprogramitem.h"
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 #include <QAbstractItemModel>
 #include <QList>
 #include <QStringList>

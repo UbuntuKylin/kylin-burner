@@ -275,7 +275,7 @@ else()
   set(K3B_DATA_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/k3b)
 endif()
 
-configure_file(config-k3b.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-k3b.h)
+configure_file(config-kylinburner.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kylinburner.h)
 include_directories(${CMAKE_BINARY_DIR})
 
 ecm_setup_qtplugin_macro_names(
@@ -317,7 +317,6 @@ if(BUILD_TESTING)
         PURPOSE "libFuzzer – a library for coverage-guided fuzz testing."
         URL "https://llvm.org/docs/LibFuzzer.html"
         TYPE OPTIONAL)
-    add_subdirectory(tests)
 endif()
 
 ###################  K3b config summary ################################

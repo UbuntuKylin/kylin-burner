@@ -262,6 +262,7 @@ void K3b::DataViewImpl::slotNewDir()
     newDir.setWindowIcon(QIcon::fromTheme("brasero"));
     newDir.setStyleSheet("width: 150px;");
     newDir.setLabelText(i18n("Please insert the name for the new folder:"));
+    newDir.setTextValue(i18n("New Folder"));
     ok = newDir.exec();
     name = newDir.textValue();
 
@@ -364,6 +365,8 @@ void K3b::DataViewImpl::slotRemove()
     for( int i = selection.size() - 1; i >= 0; --i ) {
         m_sortModel->removeRows( selection.at(i).top(), selection.at(i).height(), parentDirectory );
     }
+    if (!parentDirectory.child(0, 0).isValid())
+        m_fileView->setRootIndex(parentDirectory.parent());
     emit dataChange(parentDirectory, m_sortModel);
 }
 

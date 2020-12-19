@@ -16,7 +16,7 @@
 #include "k3bffmpegdecoder.h"
 #include "k3bffmpegwrapper.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 #include <QDebug>
 

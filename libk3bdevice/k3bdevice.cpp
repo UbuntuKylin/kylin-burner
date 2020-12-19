@@ -22,7 +22,7 @@
 #include "k3bscsicommand.h"
 #include "k3bcrc.h"
 
-#include "config-k3b.h"
+#include "config-kylinburner.h"
 
 #include <Solid/Device>
 #include <Solid/OpticalDrive>
@@ -394,8 +394,16 @@ bool K3b::Device::Device::init( bool bCheckWritingModes )
         return false;
     }
     else {
-        d->vendor = QString::fromLocal8Bit( (char*)(inq->vendor), 8 ).trimmed();
-        d->description = QString::fromLocal8Bit( (char*)(inq->product), 16 ).trimmed();
+        char t[8] = {0};
+        char s[16] = {0};
+        memcpy(t, inq->vendor, 7);
+        memcpy(s, inq->product, 15);
+        //d->vendor = QString::fromLocal8Bit( (char*)(inq->vendor), 8 ).trimmed();
+        qDebug() << t;
+        qDebug() << s;
+        d->vendor = QString::fromLocal8Bit(t, strlen(t) ).trimmed();
+        //d->description = QString::fromLocal8Bit( (char*)(inq->product), 16 ).trimmed();
+        d->description = QString::fromLocal8Bit(s, strlen(s) ).trimmed();
         d->version = QString::fromLocal8Bit( (char*)(inq->revision), 4 ).trimmed();
     }
 

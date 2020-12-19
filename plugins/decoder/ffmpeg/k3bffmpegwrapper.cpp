@@ -15,7 +15,7 @@
 #include "k3bffmpegwrapper.h"
 #include "k3bplugin_i18n.h"
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 extern "C" {
 /*

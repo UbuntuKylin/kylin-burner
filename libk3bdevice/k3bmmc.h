@@ -16,7 +16,7 @@
 #ifndef _K3B_MMC_H_
 #define _K3B_MMC_H_
 
-#include <config-k3b.h>
+#include <config-kylinburner.h>
 
 
 namespace K3b {

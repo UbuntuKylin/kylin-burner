@@ -279,8 +279,6 @@ void K3b::ProjectBurnDialog::prepareGui()
     QVBoxLayout* mainLay = new QVBoxLayout( mainWidget() );
     mainLay->setContentsMargins( 0, 0, 0, 0 );
     setObjectName("SettingS");
-    ThManager()->regTheme(this, "ukui-white", "background-color: #FFFFFF;");
-    ThManager()->regTheme(this, "ukui-black", "background-color: #000000;");
 
     MotifWmHints hints;
     hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
@@ -289,31 +287,17 @@ void K3b::ProjectBurnDialog::prepareGui()
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
     setFixedSize(430, 485);
 
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
-
     QLabel *icon = new QLabel();
-    icon->setFixedSize(20,20);
-    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo.png);"
-                        "background-repeat: no-repeat;background-color:transparent;}");
+    icon->setFixedSize(30,30);
+    icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
-    title->setStyleSheet("QLabel{background-color:transparent;"
-                         "background-repeat: no-repeat;color:#444444;"
-                         "font: 14px;}");
-    title->setObjectName("BurnDialogTitle");
-    ThManager()->regTheme(title, "ukui-white", "font: 14px; color: #444444;");
-    ThManager()->regTheme(title, "ukui-black", "font: 14px; color: #FFFFFF;");
+    QFont f;
+    f.setPixelSize(14);
+    title->setFont(f);
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
-    close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                         "border:none;background-color:rgb(233, 233, 233);"
-                         "border-radius: 4px;background-color:transparent;}"
-                          "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                         "border:none;background-color:rgb(248, 100, 87);"
-                         "border-radius: 4px;}");
+    close->setIcon(QIcon::fromTheme("window-close-symbolic"));
     connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
@@ -333,32 +317,13 @@ void K3b::ProjectBurnDialog::prepareGui()
     QLabel* label_title = new QLabel( i18n("burn setting"),this );
     //label_title->setFixedHeight(24);
     QFont label_font;
-#if 0
-    label_font.setPixelSize(24);
-    label_title->setFont( label_font );
-    label_title->setStyleSheet("color:#444444");
-#endif    
-    label_title->setStyleSheet("QLabel{width:96px; \
-                                height:24px; \
-                                font-size:24px; \
-                                font-family:Microsoft YaHei; \
-                                font-weight:400; \
-                                color:rgba(68,68,68,1); \
-                                line-height:32px;}");
 
-    label_title->setObjectName("BurnDialogLabelTitle");
-    ThManager()->regTheme(label_title, "ukui-white", "font: 24px; color: #444444;");
-    ThManager()->regTheme(label_title, "ukui-black", "font: 24px; color: #FFFFFF;");
 
     m_writerSelectionWidget = new K3b::WriterSelectionWidget();
     m_writerSelectionWidget->hideComboMedium();
     m_writerSelectionWidget->setWantedMediumType( m_doc->supportedMediaTypes() );
     m_writerSelectionWidget->setWantedMediumState( K3b::Device::STATE_EMPTY );
     m_writerSelectionWidget->setWantedMediumSize( m_doc->length() );
-    //mainLay->addWidget( label_title );
-    //mainLay->addSpacing( 30 );
-    //mainLay->addWidget( m_writerSelectionWidget );
-    //mainLay->addSpacing( 30 );
 
     //m_tabWidget = new QTabWidget( mainWidget() );
     m_tabWidget = new QTabWidget();
@@ -385,10 +350,6 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkCacheImage->setFixedHeight(16);
     label_font.setPixelSize(14);
     m_checkCacheImage->setFont( label_font );
-    //m_checkCacheImage->setStyleSheet("color:#444444;font-size:16px;");
-    m_checkCacheImage->setObjectName("CheckImage");
-    ThManager()->regTheme(m_checkCacheImage, "ukui-white", "color:#444444;font-size:16px;");
-    ThManager()->regTheme(m_checkCacheImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
 
     m_checkSimulate = K3b::StdGuiItems::simulateCheckbox( m_optionGroup );
     m_checkSimulate->setFixedHeight(16);
@@ -409,8 +370,6 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkOnlyCreateImage->setFont( label_font );
     m_checkOnlyCreateImage->setStyleSheet("color:#444444;");
     m_checkOnlyCreateImage->setObjectName("CheckOnlyImage");
-    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-white", "color:#444444;font-size:16px;");
-    ThManager()->regTheme(m_checkOnlyCreateImage, "ukui-black", "color:#FFFFFF;font-size:16px;");
    
     QLabel *lcheck = new QLabel(this);
     QVBoxLayout  *laycheck = new QVBoxLayout(lcheck);
@@ -438,20 +397,11 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_labeltmpPath->setFont( label_font );
     m_labeltmpPath->setStyleSheet("color:#444444;");
     m_labeltmpPath->setObjectName("LabelPath");
-    ThManager()->regTheme(m_labeltmpPath, "ukui-white", "color:#444444;font-size:14px;");
-    ThManager()->regTheme(m_labeltmpPath, "ukui-black", "color:#FFFFFF;font-size:14px;");
     
     m_tmpPath->setText( tmp_size);
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
     //m_tmpPath->setStyleSheet("color:#444444;");
-#if 0
-    m_tmpPath->setObjectName("TmpPath");
-    ThManager()->regTheme(m_tmpPath, "ukui-white", "color:#444444;font:14px;", QString(),
-                          QString(),"color:#444444;font:14px;border: 1px solid #CFCFCF; border-radius: 4px;");
-    ThManager()->regTheme(m_tmpPath, "ukui-black", "color:#FFFFFF;font:14px;", QString(),
-                          QString(),"color:#FFFFFF;font:14px;border: 1px solid #666666; border-radius: 4px;");
-#endif
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setContentsMargins(31, 0, 0, 0);
     vlayout->addWidget( label_title );

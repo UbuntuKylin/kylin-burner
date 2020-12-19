@@ -51,6 +51,7 @@ public:
     void setIsReplace(bool);
 protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event);
 private:
     QPushButton *c;
     QDialog *filter_dialog;

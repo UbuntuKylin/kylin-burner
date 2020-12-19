@@ -47,6 +47,7 @@ namespace K3b {
     protected:
         void toggleAll() override;
         bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+        void paintEvent(QPaintEvent *);
 
     private:
         void loadSettings( const KConfigGroup& ) override;
