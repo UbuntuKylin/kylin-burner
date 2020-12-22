@@ -1,11 +1,8 @@
 Source: kylin-burner
 Section: kde
 Priority: optional
-Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
-Uploaders: Scarlett Moore <sgmoore@kde.org>,
-           Michael Meskes <meskes@debian.org>,
-           Mark Purcell <msp@debian.org>,
+Maintainer: Kylin Team <team+kylin@tracker.debian.org>
+Uploaders: handsome_feng <jianfengli@ubuntukylin.com>,
 Build-Depends: cmake,
                debhelper-compat (= 12),
                extra-cmake-modules (>= 5.56.0~),
@@ -50,6 +47,9 @@ Build-Depends: cmake,
                shared-mime-info,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
+Homepage: https://www.ukui.org
+Vcs-Git: https://github.com/ukui/kylin-burner.git
+Vcs-Browser: https://github.com/ukui/kylin-burner
 
 Package: kylin-burner
 Architecture: any

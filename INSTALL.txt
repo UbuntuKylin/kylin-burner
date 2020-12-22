@@ -1,4 +1,4 @@
-Installing KylinBurner 18.04.0
+Installing KylinBurner
 ----------------------
 
 
