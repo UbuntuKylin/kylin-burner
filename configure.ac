@@ -379,9 +379,9 @@ dnl ****************check for appindicators (optional) **************
 APPINDICATOR_REQUIRED=0.0.7
 
 AC_ARG_ENABLE(appindicator,
-			AS_HELP_STRING([--enable-appindicator],[Build support for application indicators [[default=yes]]]),
+			AS_HELP_STRING([--enable-appindicator],[Build support for application indicators [[default=no]]]),
 			[enable_appindicator=$enableval],
-			[enable_appindicator="yes"])
+			[enable_appindicator="no"])
 
 if test x$enable_appindicator = xyes ; then
 	PKG_CHECK_MODULES(APP_INDICATOR,

@@ -1,3 +1,10 @@
+kylin-burner (3.0.9-1) unstable; urgency=medium
+
+  * Set default value of enable_appindicator to no.
+  * debian/control: drop libappindicator. (Closes: #956774)
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 26 Dec 2020 11:55:12 +0800
+
 kylin-burner (3.0.8-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #957412)

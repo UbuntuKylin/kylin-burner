@@ -2733,6 +2733,7 @@ burner_burn_dialog_init (BurnerBurnDialog * obj)
 	gtk_misc_set_alignment (GTK_MISC (dlabel), 0.5, 0.5);
 	gtk_box_pack_start (GTK_BOX (title), dlabel, FALSE, FALSE, 5);
 
+#ifdef HAVE_APP_INDICATOR
 	close_bt = gtk_button_new ();
 	gtk_button_set_alignment(GTK_BUTTON(close_bt),0.5,0.5);
 	gtk_widget_set_size_request(GTK_WIDGET(close_bt),45,30);
@@ -2745,7 +2746,6 @@ burner_burn_dialog_init (BurnerBurnDialog * obj)
 			G_CALLBACK (burner_burn_dialog_indicator_cancel_cb),
 			obj);
 
-#ifdef HAVE_APP_INDICATOR
 	priv->indicator = burner_app_indicator_new ();
 	g_signal_connect (priv->indicator,
 			  "cancel",

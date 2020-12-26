@@ -1,11 +1,5 @@
 libburner-burn3.so.1 libburner-media3-1 #MINVER#
 * Build-Depends-Package: libburner-3-dev
- burner_app_indicator_get_type@Base 3.0.0
- burner_app_indicator_hide@Base 3.0.0
- burner_app_indicator_new@Base 3.0.0
- burner_app_indicator_set_action@Base 3.0.0
- burner_app_indicator_set_progress@Base 3.0.0
- burner_app_indicator_set_show_dialog@Base 3.0.0
  burner_blank_dialog_get_type@Base 3.0.0
  burner_blank_dialog_new@Base 3.0.0
  burner_burn_action_to_string@Base 3.0.0
