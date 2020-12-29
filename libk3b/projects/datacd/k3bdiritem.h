@@ -49,6 +49,7 @@ namespace K3b {
         DirItem* getDirItem() const override;
 
         Children const& children() const { return m_children; }
+        Children &child() const { return m_children; }
         DirItem* addDataItem( DataItem* item );
         void addDataItems( Children const& items );
         void removeDataItems( int start, int count );

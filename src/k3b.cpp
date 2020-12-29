@@ -630,16 +630,24 @@ void K3b::MainWindow::paintEvent(QPaintEvent *e)
 {
     QPixmap pix(":/icon/icon/icon-background.png");
     QPalette pal = QApplication::style()->standardPalette();
+    QPalette p = btnLabel->palette();
+    p.setBrush(QPalette::Background, QColor("#FFFFFF"));
+    p.setColor(QPalette::Background, QColor("#FFFFFF"));
+
     QColor c;
     c.setRed(231); c.setBlue(231); c.setGreen(231);
     if (c == pal.background().color())
-        btnLabel->setPixmap(pix.scaled(btnLabel->size()));
+    {
+        //btnLabel->setPixmap(pix.scaled(btnLabel->size()));
+        p.setBrush(QPalette::Background, QColor("#FFFFFF"));
+        p.setColor(QPalette::Background, QColor("#FFFFFF"));
+        btnLabel->setPalette(p);
+    }
     else
     {
         btnLabel->clear();
-        QPalette p = btnLabel->palette();
         p.setBrush(QPalette::Background, QColor("#484848"));
-        btnLabel->setPalette(p);
+        background->setPalette(pal);
     }
     QMainWindow::paintEvent(e);
 }
@@ -668,9 +676,13 @@ void K3b::MainWindow::initView()
     mainLay->addWidget(mainWidget);
     setCentralWidget( mainWidget );
 
+
+    btnLabel = new QLabel( mainWidget );
+    btnLabel->setFixedWidth(180);
+
     //左侧 上方tille 
-    QLabel *label_title = new QLabel(mainWidget);
-    label_title->setFixedHeight( 35 );
+    QLabel *label_title = new QLabel(btnLabel);
+    label_title->setFixedSize(180, 32);
 
     //左侧 上方tille :icon
     pIconLabel = new QLabel( label_title );
@@ -680,22 +692,19 @@ void K3b::MainWindow::initView()
     //左侧 上方tille :text
     pTitleLabel = new QLabel( label_title );
     pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    pTitleLabel->setFixedWidth(150); // 180 - 8 - 24 - 8;
     QFont f = pTitleLabel->font();
     f.setPixelSize(14);
     pTitleLabel->setFont(f);
     pTitleLabel->setText( i18n("KylinBurner" ));
-    pTitleLabel->setObjectName("titleLabel");
     
     //左侧 上方tille :水平布局
     QHBoxLayout *hLayout = new QHBoxLayout( label_title );
-    hLayout->setContentsMargins(0,0,0,0);
+    hLayout->setContentsMargins(0,4,0,0);
     hLayout->addSpacing( 8 );
     hLayout->addWidget(pIconLabel);
     hLayout->addSpacing( 8 );
     hLayout->addWidget(pTitleLabel);
-    
-    btnLabel = new QLabel( mainWidget );
-    btnLabel->setFixedWidth(125);
 
     d->btnData = new QPushButton(i18n("DataBurner  "), btnLabel);     // 数据刻录
     d->btnData->setCheckable(true);
@@ -728,11 +737,11 @@ void K3b::MainWindow::initView()
     d->btnCopy->installEventFilter(this);
 
     QSpacerItem * horizontalSpacer = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_2 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_2 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     QSpacerItem * horizontalSpacer_3 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_4 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_4 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     QSpacerItem * horizontalSpacer_5 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_6 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_6 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     
     QHBoxLayout *layoutData = new QHBoxLayout;
     layoutData->addItem(horizontalSpacer);
@@ -764,22 +773,20 @@ void K3b::MainWindow::initView()
     btnLabel->setObjectName("leftBack");
 
     //右侧：label
-    QLabel *label_view = new QLabel( mainWidget );
-    label_view->setFixedWidth(775);
+    label_view = new QLabel( mainWidget );
+    label_view->setFixedWidth(720);
 
-
-#if 1
-    label_view->setObjectName("rightBack");
-    ThManager()->regTheme(label_view, "ukui-white","#rightBack{background-color: #FFFFFF;}");
-    ThManager()->regTheme(label_view, "ukui-black","#rightBack{background-color: #242424;");
-#endif
+    QPalette p = label_view->palette();
+    p.setBrush(QPalette::Background, QColor("#FFFFFF"));
+    label_view->setPalette(p);
+    background->setPalette(p);
 
 
     // 右侧：label :上方 title bar
-    title_bar = new TitleBar( mainWidget );
+    title_bar = new TitleBar( label_view );
     title_bar->setAttribute(Qt::WA_TranslucentBackground, true);
 
-    title_bar->setFixedWidth(750);
+    title_bar->setFixedWidth(695);
 
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
@@ -789,16 +796,19 @@ void K3b::MainWindow::initView()
     logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentStack );
     logger->debug("Draw burn image view.");
+    d->view_image->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
     logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentStack );
     logger->debug("Draw burn data view.");
+    d->view_data->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
     logger->debug("Create copy image project.");
     d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentStack );
     logger->debug("Draw copy image view.");
+    d->view_copy->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_image->setView( d->view_image );
     d->doc_data->setView( d->view_data );

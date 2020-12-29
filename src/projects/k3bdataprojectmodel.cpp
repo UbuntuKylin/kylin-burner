@@ -510,11 +510,14 @@ bool K3b::DataProjectModel::removeRows( int row, int count, const QModelIndex& p
     if( dirItem && row >= 0 && count > 0 ) {
         // remove the indexes from the project
         int i  = row;
-        qDebug() << dirItem->k3bName() << dirItem->children().at(row)->k3bName();
         while (count)
         {
+            qDebug() << i << count << dirItem->children().size();
             if (dirItem->children().at(i) && dirItem->children().at(i)->isDeleteable())
+            {
                 d->project->removeItems( dirItem, i, 1 );
+                --count; continue;
+            }
             --count;
             ++i;
         }
@@ -525,7 +528,6 @@ bool K3b::DataProjectModel::removeRows( int row, int count, const QModelIndex& p
         return false;
     }
 }
-
 
 QModelIndex K3b::DataProjectModel::buddy( const QModelIndex& index ) const
 {

@@ -532,6 +532,9 @@ void K3b::DataView::paintEvent(QPaintEvent *e)
     btnFileFilter->setFont(f);
     f.setPixelSize(18);
     burn_button->setFont(f);
+    QPalette p = palette();
+    p.setColor(QPalette::Background, QColor("#FFFFFF"));
+    setPalette(p);
     QWidget::paintEvent(e);
 }
 
