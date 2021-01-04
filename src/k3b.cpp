@@ -242,9 +242,13 @@ public:
     K3b::View *view_copy;
     K3b::Device::Device* dev;
     
-    QPushButton* btnData;
-    QPushButton* btnImage;
-    QPushButton* btnCopy;
+    // QPushButton* btnData;
+    // QPushButton* btnImage;
+    // QPushButton* btnCopy;
+    QToolButton* btnData;
+    QToolButton* btnImage;
+    QToolButton* btnCopy;
+
 
     QMimeDatabase mimeDatabase;
 };
@@ -307,13 +311,6 @@ K3b::MainWindow::MainWindow()
 #endif
     /* modify UI */
     //setWindowFlags(Qt::FramelessWindowHint | windowFlags());
-    this->setStyleSheet("QWidget:{width:900px;\
-                            height:600px;\
-                            background:rgba(255,255,255,1);\
-                            border:1px solid rgba(207, 207, 207, 1);\
-                            box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.16);\
-                            opacity:0.5\
-                            border-radius:6px;}");
 
     //setWindowIcon(QIcon(":/icon/icon/128.png"));
     //setWindowIcon(QIcon::fromTheme("disk-burner"));
@@ -628,18 +625,59 @@ void K3b::MainWindow::startInImageData(QString path)
 
 void K3b::MainWindow::paintEvent(QPaintEvent *e)
 {
-    QPixmap pix(":/icon/icon/icon-background.png");
     QPalette pal = QApplication::style()->standardPalette();
+
     QColor c;
     c.setRed(231); c.setBlue(231); c.setGreen(231);
     if (c == pal.background().color())
-        btnLabel->setPixmap(pix.scaled(btnLabel->size()));
+    {
+        pal.setBrush(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+        QColor color = this->palette().window().color();
+        QColor colorBase = this->palette().base().color();
+
+        int R1 = color.red();
+        int G1 = color.green();
+        int B1 = color.blue();
+        qreal a1 = 0.3;
+
+        int R2 = colorBase.red();
+        int G2 = colorBase.green();
+        int B2 = colorBase.blue();
+        qreal a2 = 1;
+
+        qreal a = 1 - (1 - a1)*(1 - a2);
+
+        qreal R = (a1*R1 + (1 - a1)*a2*R2) / a;
+        qreal G = (a1*G1 + (1 - a1)*a2*G2) / a;
+        qreal B = (a1*B1 + (1 - a1)*a2*B2) / a;
+
+        colorBase.setRed(R);
+        colorBase.setGreen(G);
+        colorBase.setBlue(B);
+
+        btnLabel->setAutoFillBackground(true);
+        QPixmap pix(btnLabel->size());
+        QPainter paint(&pix);
+        paint.setPen(Qt::NoPen);
+        //paint.setBrush(colorBase);
+        paint.setBrush(QColor("#F0F0F0"));
+        paint.drawRect(pix.rect());
+        btnLabel->setPixmap(pix);
+
+    }
     else
     {
-        btnLabel->clear();
-        QPalette p = btnLabel->palette();
-        p.setBrush(QPalette::Background, QColor("#484848"));
-        btnLabel->setPalette(p);
+        pal.setBrush(QPalette::Background, QColor("#484848"));
+        setPalette(pal);
+
+        btnLabel->setAutoFillBackground(true);
+        QPixmap pix(btnLabel->size());
+        QPainter paint(&pix);
+        paint.setPen(Qt::NoPen);
+        paint.setBrush(QColor("#242424"));
+        paint.drawRect(pix.rect());
+        btnLabel->setPixmap(pix);
     }
     QMainWindow::paintEvent(e);
 }
@@ -668,9 +706,13 @@ void K3b::MainWindow::initView()
     mainLay->addWidget(mainWidget);
     setCentralWidget( mainWidget );
 
+
+    btnLabel = new QLabel( mainWidget );
+    btnLabel->setFixedWidth(180);
+
     //左侧 上方tille 
-    QLabel *label_title = new QLabel(mainWidget);
-    label_title->setFixedHeight( 35 );
+    QLabel *label_title = new QLabel(btnLabel);
+    label_title->setFixedSize(180, 32);
 
     //左侧 上方tille :icon
     pIconLabel = new QLabel( label_title );
@@ -680,43 +722,52 @@ void K3b::MainWindow::initView()
     //左侧 上方tille :text
     pTitleLabel = new QLabel( label_title );
     pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    pTitleLabel->setFixedWidth(140); // 180 - 8 - 24 - 8;
     QFont f = pTitleLabel->font();
     f.setPixelSize(14);
     pTitleLabel->setFont(f);
     pTitleLabel->setText( i18n("KylinBurner" ));
-    pTitleLabel->setObjectName("titleLabel");
     
     //左侧 上方tille :水平布局
     QHBoxLayout *hLayout = new QHBoxLayout( label_title );
-    hLayout->setContentsMargins(0,0,0,0);
+    hLayout->setContentsMargins(0,4,0,0);
+    hLayout->setSpacing(0);
     hLayout->addSpacing( 8 );
     hLayout->addWidget(pIconLabel);
     hLayout->addSpacing( 8 );
     hLayout->addWidget(pTitleLabel);
-    
-    btnLabel = new QLabel( mainWidget );
-    btnLabel->setFixedWidth(125);
 
-    d->btnData = new QPushButton(i18n("DataBurner  "), btnLabel);     // 数据刻录
+    d->btnData = new QToolButton(btnLabel);     // 数据刻录
+    d->btnData->setText(i18n("Data Burner"));
+    d->btnData->setToolTip(i18n("Data Burner"));
     d->btnData->setCheckable(true);
     d->btnData->setChecked(true);
-    d->btnImage = new QPushButton(i18n("ImageBurner"), btnLabel);   // 镜像刻录
+    d->btnImage = new QToolButton(btnLabel);   // 镜像刻录
+    d->btnImage->setText(i18n("ImageBurner"));
+    d->btnImage->setToolTip(i18n("Image Burner"));
     d->btnImage->setCheckable(true);
     //d->btnImage->setChecked(true);
-    d->btnCopy = new QPushButton(i18n("CopyDisk       "), btnLabel);     // 复制光盘
+    d->btnCopy = new QToolButton(btnLabel);     // 复制光盘
+    d->btnCopy->setText(i18n("Copy Disk"));
+    d->btnCopy->setToolTip(i18n("Copy Disk"));
     d->btnCopy->setCheckable(true);
     //d->btnCopy->setChecked(true);
     isDataActived = true; isImageActived = false; isCopyActived = false;
-    d->btnData->setFixedSize( 115, 50);
-    d->btnCopy->setFixedSize( 115, 50);
-    d->btnImage->setFixedSize( 115, 50);
-    d->btnData->setObjectName("DataButton");
-    d->btnCopy->setObjectName("CopyButton");
-    d->btnImage->setObjectName("ImageButton");
+    d->btnData->setFixedSize( 150, 50);
+    d->btnCopy->setFixedSize( 150, 50);
+    d->btnImage->setFixedSize( 150, 50);
 
-    d->btnData->setFlat(true);
-    d->btnImage->setFlat(true);
-    d->btnCopy->setFlat(true);
+    //d->btnData->setFlat(true);
+    //d->btnImage->setFlat(true);
+    //d->btnCopy->setFlat(true);
+
+    d->btnData->setAutoRaise(true);
+    d->btnImage->setAutoRaise(true);
+    d->btnCopy->setAutoRaise(true);
+    d->btnData->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    d->btnImage->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    d->btnCopy->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+
     d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata-click.png"));
     d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
     d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
@@ -728,11 +779,11 @@ void K3b::MainWindow::initView()
     d->btnCopy->installEventFilter(this);
 
     QSpacerItem * horizontalSpacer = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_2 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_2 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     QSpacerItem * horizontalSpacer_3 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_4 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_4 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     QSpacerItem * horizontalSpacer_5 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
-    QSpacerItem * horizontalSpacer_6 = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
+    QSpacerItem * horizontalSpacer_6 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);
     
     QHBoxLayout *layoutData = new QHBoxLayout;
     layoutData->addItem(horizontalSpacer);
@@ -764,22 +815,20 @@ void K3b::MainWindow::initView()
     btnLabel->setObjectName("leftBack");
 
     //右侧：label
-    QLabel *label_view = new QLabel( mainWidget );
-    label_view->setFixedWidth(775);
+    label_view = new QLabel( mainWidget );
+    label_view->setFixedWidth(720);
 
-
-#if 1
-    label_view->setObjectName("rightBack");
-    ThManager()->regTheme(label_view, "ukui-white","#rightBack{background-color: #FFFFFF;}");
-    ThManager()->regTheme(label_view, "ukui-black","#rightBack{background-color: #242424;");
-#endif
+    QPalette p = label_view->palette();
+    p.setBrush(QPalette::Background, QColor("#FFFFFF"));
+    label_view->setPalette(p);
+    background->setPalette(p);
 
 
     // 右侧：label :上方 title bar
-    title_bar = new TitleBar( mainWidget );
+    title_bar = new TitleBar( label_view );
     title_bar->setAttribute(Qt::WA_TranslucentBackground, true);
 
-    title_bar->setFixedWidth(750);
+    title_bar->setFixedWidth(695);
 
     // 右侧：label :中部 view
     d->documentStack = new QStackedWidget( label_view );
@@ -789,16 +838,19 @@ void K3b::MainWindow::initView()
     logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentStack );
     logger->debug("Draw burn image view.");
+    d->view_image->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
     logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentStack );
     logger->debug("Draw burn data view.");
+    d->view_data->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
     logger->debug("Create copy image project.");
     d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentStack );
     logger->debug("Draw copy image view.");
+    d->view_copy->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_image->setView( d->view_image );
     d->doc_data->setView( d->view_data );

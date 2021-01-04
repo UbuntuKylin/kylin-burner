@@ -98,7 +98,7 @@ bool KYBThemeManager::eventFilter(QObject *obj, QEvent *event)
 
 bool KYBThemeManager::regTheme(QWidget *obj, QString themeName, QString normal, QString hover, QString active, QString disable)
 {
-    //return false;
+    return false;
     KYBTheme *theme;
 
     if (themeName.isEmpty()) themeName = currentTheme;
@@ -174,7 +174,7 @@ void KYBThemeManager::delTheme(QString theme)
 
 void KYBThemeManager::onChangeTheme(QString styleName)
 {
-    //return;
+    return;
     qDebug() << "current theme name : " << styleName;
     if (styleName == currentTheme) return;
     if (types.indexOf(styleName) == -1) return;

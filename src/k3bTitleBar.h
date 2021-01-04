@@ -88,7 +88,7 @@ private:
 private:
     QLabel *m_pIconLabel;
     QLabel *m_pTitleLabel;
-    QPushButton *m_pMenubutton;
+    QToolButton *m_pMenubutton;
     QPushButton *m_pMinimizeButton;
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;

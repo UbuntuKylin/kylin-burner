@@ -293,8 +293,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/option/k3btheme.knsrc.cmake
 install( PROGRAMS  org.kde.kylin-burner.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 #install( FILES  k3b-iso.desktop k3b-cue.desktop DESTINATION ${APPLNK_INSTALL_DIR}/.hidden/ )
 install( FILES  k3b.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
-install( FILES  k3bui.rc k3bdeviceui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/k3b )
-install( FILES  org.kde.k3b.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
+install( FILES  k3bui.rc k3bdeviceui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kylinburner )
+install( FILES  org.kde.kylinburner.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 if (${ECM_VERSION} STRGREATER "5.58.0")
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/option/k3btheme.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
@@ -304,5 +304,5 @@ endif()
 
 set( SHARED_MIME_INFO_MINIMUM_VERSION "0.23" )
 find_package( SharedMimeInfo REQUIRED )
-install( FILES x-k3b.xml DESTINATION ${XDG_MIME_INSTALL_DIR} )
+install( FILES x-kylinburner.xml DESTINATION ${XDG_MIME_INSTALL_DIR} )
 update_xdg_mimetypes( ${XDG_MIME_INSTALL_DIR} )

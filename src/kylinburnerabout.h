@@ -38,9 +38,8 @@ protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 private slots:
     //void on_btnClose_clicked();
+    void slotsOpenURL(QString);
 
-private:
-    void labelCloseStyle(bool in);
 private:
     Ui::KylinBurnerAbout *ui;
 };

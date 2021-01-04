@@ -103,14 +103,6 @@ K3b::JobProgressDialog::~JobProgressDialog()
 
 bool K3b::JobProgressDialog::eventFilter(QObject *obj, QEvent *e)
 {
-    if (obj == c)
-    {
-        if(e->type() == QEvent::HoverEnter)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        else if (e->type() == QEvent::HoverLeave)
-            c->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        else return QDialog::eventFilter(obj, e);
-    }
     return QDialog::eventFilter(obj, e);
 }
 
@@ -258,7 +250,7 @@ void K3b::JobProgressDialog::setupGUI()
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     title = new QLabel(i18n("kylin-burner"), this);
     title->setObjectName("JobProcessTitle");
@@ -272,7 +264,7 @@ void K3b::JobProgressDialog::setupGUI()
     c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
-    c->setIconSize(QSize(26, 26));
+    c->setIconSize(QSize(16, 16));
     c->installEventFilter(this);
     c->setFlat(true);
     connect(c, SIGNAL(clicked()), this, SLOT( reject() ) );
@@ -280,9 +272,10 @@ void K3b::JobProgressDialog::setupGUI()
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout(label_top);
-    titlebar->setContentsMargins(11, 4, 4, 0);
+    titlebar->setContentsMargins(8, 4, 4, 0);
+    titlebar->setSpacing(0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(5);
+    titlebar->addSpacing(8);
     titlebar->addWidget(title);
     titlebar->addStretch();
     titlebar->addWidget(c);

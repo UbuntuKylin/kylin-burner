@@ -256,6 +256,7 @@ namespace K3b {
         
 
         QLabel* btnLabel;
+        QLabel *label_view;
         QLabel *pIconLabel;
         QLabel *pTitleLabel;
         KylinBurnerLogger *logger;

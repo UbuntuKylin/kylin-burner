@@ -13,7 +13,7 @@ override_dh_auto_configure:
 	dh_auto_configure -Skf5 -- -DK3B_ENABLE_HAL_SUPPORT=OFF
 
 override_dh_missing:
-	dh_missing --fail-missing
+	#dh_missing --fail-missing
 
 
 override_dh_shlibdeps:

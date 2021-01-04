@@ -67,7 +67,7 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
 
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
@@ -79,7 +79,7 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
-    c->setIconSize(QSize(26, 26));
+    c->setIconSize(QSize(16, 16));
     c->installEventFilter(this);
     c->setFixedSize(30,30);
     connect(c, SIGNAL(clicked()), this, SLOT(exit() ) );
@@ -87,9 +87,10 @@ BurnResult::BurnResult( int ret ,QString str, QWidget *parent) :
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout(label_top);
-    titlebar->setContentsMargins(11, 4, 4, 0);
+    titlebar->setContentsMargins(8, 4, 4, 0);
+    titlebar->setSpacing(0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(0);
+    titlebar->addSpacing(8);
     titlebar->addWidget(title);
     titlebar->addStretch(290);
     titlebar->addWidget(c);

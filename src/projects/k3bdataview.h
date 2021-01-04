@@ -131,6 +131,8 @@ namespace K3b {
         QPushButton* button_newdir;
         QPushButton* btnFileFilter;
         QLabel      *tips;
+        QLabel      *m_oProjectSize;
+        QLabel      *m_oSize;
         KylinBurnerLogger *logger;
         QList<QUrl>  lastDrop;
 

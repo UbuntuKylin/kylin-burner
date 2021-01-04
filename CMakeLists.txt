@@ -18,7 +18,7 @@ set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/mo
 set(K3B_VERSION_STRING ${RELEASE_SERVICE_VERSION})
 
 # increase on BC breakage
-set(K3B_LIB_VERSION_MAJOR 7)
+set(K3B_LIB_VERSION_MAJOR 6)
 
 # increase after adding functionality
 set(K3B_LIB_VERSION_MINOR 0)
@@ -27,26 +27,6 @@ set(K3B_LIB_VERSION_RELEASE 0)
 
 ##################  K3b options #################################
 option(K3B_DEBUG "K3b additional debugging support" OFF)
-if(K3B_DEBUG)
-    add_definitions(-g)
-endif()
-option(K3B_ENABLE_MUSICBRAINZ "Support for querying metadata about audio tracks from Musicbrainz." ON)
-option(K3B_ENABLE_DVD_RIPPING "Support for ripping Video DVDs with optional decryption." ON)
-option(K3B_ENABLE_TAGLIB "Support for reading audio file metadata using Taglib." ON)
-option(K3B_BUILD_API_DOCS "Build the API documentation for the K3b libs." OFF)
-
-# plugin options
-option(K3B_BUILD_FFMPEG_DECODER_PLUGIN "Build FFmpeg decoder plugin" ON)
-option(K3B_BUILD_OGGVORBIS_DECODER_PLUGIN "Build Ogg-Vorbis decoder plugin" ON)
-option(K3B_BUILD_OGGVORBIS_ENCODER_PLUGIN "Build Ogg-Vorbis encoder plugin" ON)
-option(K3B_BUILD_MAD_DECODER_PLUGIN "Build MAD mp3 decoder plugin" ON)
-option(K3B_BUILD_MUSE_DECODER_PLUGIN "Build Musepack decoder plugin" ON)
-option(K3B_BUILD_FLAC_DECODER_PLUGIN "Build Flac decoder plugin" ON)
-option(K3B_BUILD_SNDFILE_DECODER_PLUGIN "Build libsndfile decoder plugin" ON)
-option(K3B_BUILD_LAME_ENCODER_PLUGIN "Build Lame encoder plugin" ON)
-option(K3B_BUILD_SOX_ENCODER_PLUGIN "Build Sox encoder plugin" ON)
-option(K3B_BUILD_EXTERNAL_ENCODER_PLUGIN "Build external app encoder plugin" ON)
-option(K3B_BUILD_WAVE_DECODER_PLUGIN "Build Wave decoder plugin" ON)
 
 ##################  K3b requirements #################################
 include(KDEInstallDirs)

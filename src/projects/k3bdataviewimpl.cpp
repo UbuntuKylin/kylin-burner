@@ -362,9 +362,19 @@ void K3b::DataViewImpl::slotRemove()
     // Remove items directly from sort model to avoid unnecessary mapping of indexes
     const QItemSelection selection = m_fileView->selectionModel()->selection();
     const QModelIndex parentDirectory = m_fileView->rootIndex();
-    for( int i = selection.size() - 1; i >= 0; --i ) {
-        m_sortModel->removeRows( selection.at(i).top(), selection.at(i).height(), parentDirectory );
+    //m_model->removeDatas(parentDirectory, m_fileView->selectionModel()->selectedRows());
+    count = m_fileView->selectionModel()->selectedRows().size();
+    QList<QModelIndex> idxs = m_fileView->selectionModel()->selectedRows();
+    for (int i = 0; i < count; ++i)
+    {
+        m_sortModel->removeRows(idxs[i].row() - i, 1, parentDirectory);
     }
+    qDebug() << selection.at(0).top() << m_fileView->selectionModel()->selectedRows().size() << parentDirectory.data().toString();
+    //m_sortModel->removeRows( selection.at(0).top(), m_fileView->selectionModel()->selectedRows().size(), parentDirectory );
+#if 0
+    for( int i = selection.size() - 1; i >= 0; --i ) {
+    }
+#endif
     if (!parentDirectory.child(0, 0).isValid())
         m_fileView->setRootIndex(parentDirectory.parent());
     emit dataChange(parentDirectory, m_sortModel);
