@@ -57,103 +57,19 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     this->hide();
 
     ui->labelTitle->setText(i18n("Kylin-Burner"));
-    ThManager()->regTheme(this, "ukui-white", "#KylinBurnerFileFilter{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#KylinBurnerFileFilter{background-color: #000000;}");
-    ThManager()->regTheme(ui->labelTitle, "ukui-white", "color: #444444;");
-    ThManager()->regTheme(ui->labelTitle, "ukui-black", "color: #FFFFFF;");
+    ui->label->setPixmap(QIcon::fromTheme("burner").pixmap(ui->label->size()));
     ui->labelName->setText(i18n("FilterFile"));
-    ThManager()->regTheme(ui->labelName, "ukui-white", "font: 24px; color: #444444;");
-    ThManager()->regTheme(ui->labelName, "ukui-black", "font: 24px; color: #FFFFFF;");
     ui->btnRecovery->setText(i18n("Reset"));
-    ThManager()->regTheme(ui->btnRecovery, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(ui->btnRecovery, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
     ui->btnSetting->setText(i18n("FilterSetting"));
-
-
-    ThManager()->regTheme(ui->btnSetting, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(ui->btnSetting, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(107, 141, 235, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(65, 95, 195, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(61, 107, 229, 1);",
-                                       "background-color: rgba(233, 233, 233, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(193, 193, 193, 1);");
-
     ui->labelClose->setProperty("isWindowButton", 0x2);
     ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
-    ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-    ui->labelClose->setIconSize(QSize(26, 26));
+    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    ui->labelClose->setIconSize(QSize(16, 16));
+    ui->labelClose->setFlat(true);
     ui->labelClose->installEventFilter(this);
     currentData = static_cast<K3b::DataDoc *>(k3bappcore->projectManager()->createProject( K3b::Doc::DataProject ));
     model = new K3b::DataProjectModel(currentData, this);
-    /*
-    QList<QUrl> urls;
-
-    urls << QUrl("file:///media/derek/ubuntukylin");
-    currentData->addUrls(urls);
-    */
     ui->treeView->setModel(model);
-    /*
-    ui->treeView->header()->setStyleSheet("QHeaderView::section{"
-                                        "border: 0px solid white;"
-                                        "background-color : rgba(242, 242, 242, 1);}");
-    */
     ui->treeView->header()->setSectionResizeMode(QHeaderView::Stretch);
     ui->treeView->setColumnWidth(0, ui->treeView->width() / 5 * 4);
     ui->treeView->setColumnWidth(1, ui->treeView->width());
@@ -171,26 +87,7 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui->treeView->setMouseTracking( false );
     ui->treeView->setAllColumnsShowFocus( true );
     ui->treeView->setRootIndex(model->indexForItem(currentData->root()));
-    ThManager()->regTheme(ui->treeView, "ukui-white", "background-color:rgba(255, 255, 255, 1);"
-                                              "font: 14px; color: #444444;");
-    ThManager()->regTheme(ui->treeView, "ukui-black", "background-color:rgba(36, 36, 36, 1);"
-                                              "font: 14px; color: #FFFFFF;");
     ui->treeView->header()->setObjectName("FilterViewHeader");
-    ThManager()->regTheme(ui->treeView->header(), "ukui-white", "#FilterViewHeader:section{"
-                                                                          "background-color:rgba(242, 242, 242, 1);"
-                                                                          "border: 0px solid white;;"
-                                                                          //"border-color: rgba(242, 242, 242, 1);"
-                                              "font: 12px; color: rgba(68, 68, 68, 1);}");
-    ThManager()->regTheme(ui->treeView->header(), "ukui-black", "#FilterViewHeader:section{"
-                                                                          "background-color:rgba(36, 36, 36, 1);"
-                                                                          "border: 0px solid white;"
-                                                                          //"border-color: rgba(242, 242, 242, 1);"
-                                              "font: 12px; color: rgba(255, 255, 255, 1);}");
-    /*
-    K3b::DirItem *root = static_cast<K3b::DirItem *>(currentData->root());
-    while (root->children().size() == 1) root = static_cast<K3b::DirItem *>(root->children().at(0));
-    ui->treeView->setRootIndex(model->indexForItem(root));
-    */
     isChange = false; isHidden = false; isBroken = false; isReplace = false;
     connect( ui->treeView, SIGNAL(doubleClicked(QModelIndex)),
              this, SLOT(slotDoubleClicked(QModelIndex)) );
@@ -297,18 +194,8 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
         }
         break;
     case QEvent::HoverEnter:
-        if (ui->labelClose == obj)
-        {
-            //labelCloseStyle(true);
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        }
         break;
     case QEvent::HoverLeave:
-        if (ui->labelClose == obj)
-        {
-            //labelCloseStyle(false);
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        }
         break;
     default:
         return QWidget::eventFilter(obj, event);

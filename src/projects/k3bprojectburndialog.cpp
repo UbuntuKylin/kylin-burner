@@ -288,7 +288,7 @@ void K3b::ProjectBurnDialog::prepareGui()
     setFixedSize(430, 485);
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
@@ -298,14 +298,19 @@ void K3b::ProjectBurnDialog::prepareGui()
     QPushButton *close = new QPushButton();
     close->setFixedSize(30,30);
     close->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    close->setIconSize(QSize(16, 16));
+    close->setFlat(true);
+    close->setProperty("isWindowButton", 0x2);
+    close->setProperty("useIconHighlightEffect", 0x8);
     connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
     label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 4, 4, 0);
+    titlebar->setContentsMargins(8, 4, 4, 0);
+    titlebar->setSpacing(0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(5);
+    titlebar->addSpacing(8);
     titlebar->addWidget(title);
     titlebar->addStretch(285);
     titlebar->addWidget(close);

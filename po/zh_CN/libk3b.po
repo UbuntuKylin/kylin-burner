@@ -3664,12 +3664,12 @@ msgstr "空的 %1 介质"
 #: tools/k3bmedium.cpp:403
 #, kde-format
 msgid "Appendable %1 medium"
-msgstr "可追加 %1 介质"
+msgstr "可追加刻录的 %1 介质"
 
 #: tools/k3bmedium.cpp:406
 #, kde-format
 msgid "Complete %1 medium"
-msgstr "完整 %1 介质"
+msgstr "刻录完成的 %1 介质"
 
 #: tools/k3bmedium.cpp:423
 #, kde-format

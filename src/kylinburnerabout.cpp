@@ -26,6 +26,7 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QStyle>
+#include <QDesktopServices>
 
 KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     QWidget(parent),
@@ -34,7 +35,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     ui->setupUi(this);
     this->hide();
 
-    setFixedSize(450, 300);
+    setFixedSize(420, 560);
 
     setWindowFlag(Qt::Dialog);
     MotifWmHints hints;
@@ -43,34 +44,53 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     hints.decorations = MWM_DECOR_BORDER;
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
-    QFont f = ui->burnerName->font();
+    QFont f = ui->labelTitle->font();
     f.setPixelSize(14);
-    ui->burnerName->setText(i18n("kylin-burner"));
-
-    ui->burnerBase->setText(i18n("Version: 3.1.0 (based on K3b)"));
+    ui->labelTitle->setText(i18n("kylin-burner"));
+    f.setWeight(28);
+    f.setPixelSize(18);
+    ui->labelName->setFont(f);
+    ui->labelName->setText(i18n("kylin-burner"));
+    f.setWeight(24);
+    f.setPixelSize(14);
+    ui->labelVersion->setFont(f);
+    ui->labelVersion->setText(i18n("Version: 3.1.0 (based on K3b)"));
     f.setPixelSize(12);
     f.setPixelSize(14);
-    ui->copyright->setText(i18n("Package: kylin-burner"));
-
-    ui->labelContent->setText(i18n("Contributors\nwangye@kylinos.cn、biwenjie@kylinos.cn"));
-
     setWindowModality(Qt::WindowModal);
     setWindowTitle(i18n("about"));
-    ui->label->setPixmap(QIcon::fromTheme("burner").pixmap(ui->label->size()));
-    ui->label_2->setPixmap(QIcon::fromTheme("burner").pixmap(128, 128));
+    ui->labelLogo->setPixmap(QIcon::fromTheme("burner").pixmap(ui->labelLogo->size()));
+    ui->labelIcon->setPixmap(QIcon::fromTheme("burner").pixmap(96, 96));
 
     ui->labelTitle->setText(i18n("kylin-burner"));
-    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    ui->labelClose->setProperty("isWindowButton", 0x2);
-    ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
-    ui->labelClose->setIconSize(QSize(26, 26));
-    ui->labelClose->installEventFilter(this);
+    ui->btnClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    ui->btnClose->setProperty("isWindowButton", 0x2);
+    ui->btnClose->setProperty("useIconHighlightEffect", 0x8);
+    ui->btnClose->setIconSize(QSize(16, 16));
+    ui->btnClose->installEventFilter(this);
+    ui->btnClose->setFlat(true);
+
+    ui->textEdit->setText(i18n("Kylin Burner is a lightweight burning software based on the secondary development of open source burning software K3b. With K3b burning as the basic core and Kylin Burner's own interface display, Kylin Burner makes its interface simple, easy to operate and easy to use, bringing users a more refreshing burning experience."));
+
+    ui->labelOfficalWebsite->setText(i18n("Offical Website : ") +
+                                     "<a href=\"http://www.kylinos.cn\">"
+                                     "www.kylinos.cn</a>");
+    ui->labelSupport->setText(i18n("Service & Technology Support : ") +
+                              "<a href=\"mailto://support@kylinos.cn\">"
+                              "support@kylinos.cn</a>");
+    ui->labelHotLine->setText(i18n("Hot Service : ") +
+                              "<a href=#>400-089-1870</a>");
 
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     this->hide();
-    connect(ui->labelClose, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(ui->btnClose, SIGNAL(clicked()), this, SLOT(hide()));
+
+    connect(ui->labelOfficalWebsite, SIGNAL(linkActivated(QString)),
+            this, SLOT(slotsOpenURL(QString)));
+    connect(ui->labelSupport, SIGNAL(linkActivated(QString)),
+            this, SLOT(slotsOpenURL(QString)));
 }
 
 KylinBurnerAbout::~KylinBurnerAbout()
@@ -99,32 +119,35 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
         setPalette(pal);
     }
 
-    QFont f = ui->burnerName->font();
+    QFont f = ui->labelTitle->font();
     f.setPixelSize(14);
-    ui->burnerName->setFont(f);
-    ui->copyright->setFont(f);
-    ui->labelContent->setFont(f);
-    f.setPixelSize(12);
-    ui->burnerBase->setFont(f);
+    ui->labelTitle->setFont(f);
+    f.setWeight(28);
+    f.setPixelSize(18);
+    ui->labelName->setFont(f);
+    f.setWeight(24);
+    f.setPixelSize(14);
+    ui->labelVersion->setFont(f);
+    pal.setColor(QPalette::Foreground, QColor("#595959"));
+    ui->labelVersion->setPalette(pal);
+    ui->textEdit->setFont(f);
+    ui->textEdit->setPalette(pal);
+    ui->labelOfficalWebsite->setFont(f);
+    ui->labelOfficalWebsite->setPalette(pal);
+    ui->labelSupport->setFont(f);
+    ui->labelSupport->setPalette(pal);
+    ui->labelHotLine->setFont(f);
+    ui->labelHotLine->setPalette(pal);
 
     QWidget::paintEvent(e);
 }
 
-void KylinBurnerAbout::labelCloseStyle(bool in)
+void KylinBurnerAbout::slotsOpenURL(QString u)
 {
-    if (in)
-    {
-        ui->labelClose->setStyleSheet("background-color:rgba(247,99,87,1);"
-                                      "image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                                      "border-radius: 4px;");
-    }
-    else
-    {
-        ui->labelClose->setStyleSheet("background-color:transparent;"
-                                      "image: url(:/icon/icon/icon-关闭-默认.png); "
-                                      "border-radius: 4px;");
-    }
+    QUrl url(u);
+    QDesktopServices::openUrl(url);
 }
+
 #if 0
 void KylinBurnerAbout::on_btnClose_clicked()
 {

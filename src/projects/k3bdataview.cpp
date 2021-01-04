@@ -297,12 +297,14 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     button_add->setFixedSize(80, 30);
     button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
     button_add->setObjectName("btnAdd");
+    button_add->setProperty("useIconHighlightEffect", 0x8);
     //删除按钮
     button_remove = new QPushButton(i18n("Remove"), label_action );
     button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
     button_remove->setFixedSize(80, 30);
     button_remove->setEnabled( false );
     button_remove->setObjectName("btnRemove");
+    button_remove->setProperty("useIconHighlightEffect", 0x8);
 
     //清空按钮
     button_clear = new QPushButton(i18n("Clear"), label_action );
@@ -310,12 +312,14 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     button_clear->setFixedSize(80, 30);
     button_clear->setEnabled( false );
     button_clear->setObjectName("btnClear");
+    button_clear->setProperty("useIconHighlightEffect", 0x8);
 
     //新建文件夹按钮
     button_newdir = new QPushButton(i18n("New Dir"), label_action );
     button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
     button_newdir->setFixedSize(112, 30);
     button_newdir->setObjectName("btnNewDir");
+    button_newdir->setProperty("useIconHighlightEffect", 0x8);
 
 
     QLabel *labelFileFilter = new QLabel( this );
@@ -328,10 +332,10 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
 
     //安装事件过滤器
-    button_add->installEventFilter(this); 
-    button_remove->installEventFilter(this); 
-    button_clear->installEventFilter(this); 
-    button_newdir->installEventFilter(this); 
+    //button_add->installEventFilter(this);
+    //button_remove->installEventFilter(this);
+    //button_clear->installEventFilter(this);
+    //button_newdir->installEventFilter(this);
 
     //QLabel* label_action = new QLabel( this );
     QHBoxLayout* layout_action = new QHBoxLayout( label_action );
@@ -358,7 +362,18 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     toolBox()->addWidget( label_action );
     toolBox()->addWidget( labelFileFilter );
-    toolBox()->addAction( actionCollection()->action( "project_volume_name" ) );
+    //toolBox()->addAction( actionCollection()->action( "project_volume_name" ) );
+    m_oProjectSize = new QLabel(i18n("Project Size:"), this);
+    m_oSize = new QLabel(KIO::convertSize(m_doc->size()), this);
+    QFont fl = m_oProjectSize->font();
+    fl.setPixelSize(14);
+    m_oProjectSize->setFont(fl);
+    m_oSize->setFont(fl);
+    toolBox()->addWidget(m_oProjectSize);
+    toolBox()->addWidget(m_oSize);
+    QLabel *tmp = new QLabel(this);
+    tmp->setFixedWidth(25);
+    toolBox()->addWidget(tmp);
     btnFileFilter->hide();
 
 
@@ -371,6 +386,28 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     connect(workerThread,SIGNAL(finished()),worker,SLOT(deleteLater()));
     workerThread->start();
 #endif
+
+    QFont f = burn_setting->font();
+    f.setPixelSize(14);
+    combo_burner->setFont(f);
+    combo_CD->setFont(f);
+    burn_setting->setFont(f);
+    button_add->setFont(f);
+    button_remove->setFont(f);
+    button_clear->setFont(f);
+    button_newdir->setFont(f);
+    btnFileFilter->setFont(f);
+    f.setPixelSize(18);
+    burn_button->setFont(f);
+    QPalette p = palette();
+    p.setColor(QPalette::Background, QColor("#FFFFFF"));
+    setPalette(p);
+
+
+    f = m_oProjectSize->font();
+    f.setPixelSize(14);
+    m_oProjectSize->setFont(f);
+    m_oSize->setFont(f);
 
 
     pdlg = newBurnDialog( this );
@@ -520,6 +557,7 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 
 void K3b::DataView::paintEvent(QPaintEvent *e)
 {
+#if 0
     QFont f = burn_setting->font();
     f.setPixelSize(14);
     combo_burner->setFont(f);
@@ -535,6 +573,13 @@ void K3b::DataView::paintEvent(QPaintEvent *e)
     QPalette p = palette();
     p.setColor(QPalette::Background, QColor("#FFFFFF"));
     setPalette(p);
+
+
+    QFont fl = m_oProjectSize->font();
+    fl.setPixelSize(14);
+    m_oProjectSize->setFont(fl);
+    m_oSize->setFont(fl);
+#endif
     QWidget::paintEvent(e);
 }
 
@@ -543,7 +588,24 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
     for (int i = 0; i < docs.size(); ++i)
     {
         docs[i]->addUrls(urls);
+        m_oSize->setText(KIO::convertSize(m_doc->size()));
         QCoreApplication::processEvents();
+    }
+    unsigned long long dataSize, mediumSize;
+    int idx = combo_CD->currentIndex();
+    m_oSize->setStyleSheet("color : green;");
+    if (idx > 1)
+    {
+        mediumSize = device_index.at(idx -1)->diskInfo().remainingSize().mode1Bytes();
+        dataSize = m_doc->size();
+        if (dataSize > mediumSize)
+        {
+            QMessageBox::critical(nullptr,
+                                  i18n("Overload"),
+                                  i18n("The data size over the medium size."));
+
+            m_oSize->setStyleSheet("color : red;");
+        }
     }
 }
 
@@ -553,6 +615,8 @@ void K3b::DataView::slotOpenClicked()
     if (ret)
     {
         copyData(docs.at(combo_CD->currentIndex()), m_doc);
+
+        m_oSize->setText(KIO::convertSize(m_doc->size()));
 
 
         slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
@@ -584,6 +648,8 @@ void K3b::DataView::slotRemoveClicked()
 {
     m_dataViewImpl->slotRemove();
     copyData(docs.at(combo_CD->currentIndex()), m_doc);
+
+    m_oSize->setText(KIO::convertSize(m_doc->size()));
 }
 
 void K3b::DataView::slotClearClicked()
@@ -717,7 +783,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     else
     {
         mountInfo = mountPoint->mountPoint();
-        cdInfo = medium.shortString() + i18n(", remaining available space") + cdSize;
+        cdInfo = medium.shortString(K3b::Medium::WithContents) + i18n(", remaining available space") + cdSize;
         if (i18n("No medium present") == medium.shortString())
         {
             idx = device_index.indexOf(dev);
@@ -748,7 +814,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         combo_burner->insertItem(comboIndex,
                                  QIcon(":/icon/icon/icon-burner.png"),
                                  dev->vendor() + " - " + dev->description());
-        combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
+        combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-disk.png"), i18n("cdrom file: ") + cdInfo);
         tmpDoc = new K3b::DataDoc(this);
         tmpDoc->setURL(m_doc->URL());
         tmpDoc->newDocument();
@@ -792,148 +858,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
         tips->hide();
         m_dataViewImpl->view()->setFixedHeight(370);
     }
-    /*
-    QList<K3b::Device::Device*> device_list = k3bappcore->appDeviceManager()->allDevices();
-    QString cdSize;
-    QString cdInfo;
-    QString mountInfo;
-    K3b::DataDoc *tmpDoc = NULL;
-    int     idx = -1;
-
-    foreach(K3b::Device::Device* device, device_list)
-    {
-        K3b::Medium medium = k3bappcore->mediaCache()->medium( device );
-        KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
-        idx = device_index.indexOf(device);
-        if (-1 == idx) idx = comboIndex;
-        else ++idx;
-        if (idx == comboIndex) device_index << device;
-        cdInfo.clear();
-        cdSize.clear();
-        mountInfo.clear();
-        cdSize =  KIO::convertSize(device->diskInfo().remainingSize().mode1Bytes());
-        if( !mountPoint)
-        {
-            if (device->diskInfo().diskState() == K3b::Device::STATE_EMPTY )
-            {
-                cdInfo = i18n("empty medium ") + cdSize;
-            }
-            else
-            {
-                cdInfo = i18n("please insert a medium or empty CD");
-            }
-        }
-        else
-        {
-            mountInfo = mountPoint->mountPoint();
-            cdInfo = medium.shortString() + i18n(", remaining available space") + cdSize;
-        }
-        if (idx == comboIndex)
-        {
-            combo_burner->insertItem(comboIndex,
-                                     QIcon(":/icon/icon/icon-burner.png"),
-                                     device->vendor() + " - " + device->description());
-            combo_CD->insertItem(comboIndex++, QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + cdInfo);
-            tmpDoc = new K3b::DataDoc(this);
-            tmpDoc->setURL(m_doc->URL());
-            tmpDoc->newDocument();
-            if (tmpDoc) docs << tmpDoc;
-        }
-        else
-        {
-            combo_CD->setItemText(idx, i18n("cdrom file: ") + cdInfo);
-            tmpDoc = docs[idx];
-            tmpDoc->clear();
-        }
-        if (cdInfo == i18n("please insert a medium or empty CD"))
-        {
-        }
-        if (!mountInfo.isEmpty())
-        {
-            QDir *dir = new QDir(mountInfo);
-            QList<QFileInfo> fileinfo(dir->entryInfoList( QDir::AllEntries | QDir::Hidden ) );
-            for ( int i = 0; i < fileinfo.count(); i++ )
-            {
-                qDebug() << fileinfo.at(i).fileName();
-                if (fileinfo.at(i).fileName() == "." ||
-                        fileinfo.at(i).fileName() == "..") continue;
-                tmpDoc->addUnremovableUrls( QList<QUrl>() <<  QUrl::fromLocalFile(fileinfo.at(i).filePath()) );
-            }
-            copyData(m_doc, tmpDoc);
-            combo_CD->setCurrentIndex(idx);
-        }
-    }
-    lastIndex = combo_CD->currentIndex();
-    if (0 == m_dataViewImpl->view()->model()->rowCount())
-    {
-        m_dataViewImpl->view()->setFixedHeight(28);
-        tips->show();
-    }
-    else
-    {
-        tips->hide();
-        m_dataViewImpl->view()->setFixedHeight(370);
-    }
-    */
-
-    /*
-    burn_button->setVisible(true);
-    mount_index.clear();
-    device_index.clear();
- 
-    iso_index = 0;
-
-    combo_burner->blockSignals( true );
-    combo_burner->clear();
-    combo_burner->blockSignals( false );
-   
-    combo_CD->blockSignals( true );
-    combo_CD->clear();
-    combo_CD->blockSignals( false );
-    combo_CD->setEditable( false );
-    
-    foreach(K3b::Device::Device* device, device_list)
-    {
-        combo_burner->setEnabled( true );
-        burn_setting->setText(i18n("setting"));
-        burn_button->setText(i18n("start burner"));
-         
-        device_index.append( device );
-        QThread::sleep(2);
-
-        K3b::Medium medium = k3bappcore->mediaCache()->medium( device );
-        KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( device->blockDeviceName() );
-        
-        qDebug()<< "device disk state" << device->diskInfo().diskState() <<endl;
-
-        QString mountInfo;
-        QString burnerInfo = device->vendor() + " " + device->description();
-        QString CDInfo;
-        QString CDSize =  KIO::convertSize(device->diskInfo().remainingSize().mode1Bytes());
-        
-        
-        if( !mountPoint){            
-            if ( device->diskInfo().diskState() == K3b::Device::STATE_EMPTY ){     
-                mountInfo = i18n("empty medium ");            
-                CDInfo = i18n("empty medium ") + CDSize;
-            } else {
-                mountInfo = "no medium ";
-                CDInfo = i18n("please insert a medium or empty CD");
-            }        
-        } else {
-            mountInfo = mountPoint->mountPoint(); 
-            CDInfo = medium.shortString() + i18n(", remaining available space") + CDSize;
-        }
-        mount_index.append(mountInfo);
-    
-        iso_index++;
-
-        combo_burner->addItem(QIcon(":/icon/icon/icon-burner.png"), burnerInfo);
-        combo_CD->addItem(QIcon(":/icon/icon/icon-光盘.png"), i18n("cdrom file: ") + CDInfo);
-    }
-    */
-    //image_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/kylin_burner.iso";
-    //combo_CD->addItem(QIcon(":/icon/icon/icon-image.png"), i18n("image file: ") + image_path);
+    m_oSize->setText(KIO::convertSize(m_doc->size()));
 }
 
 void K3b::DataView::slotComboBurner(int index)
@@ -956,6 +881,14 @@ void K3b::DataView::slotComboCD(int index)
     combo_burner->setCurrentIndex( index );
     if (index)
     {
+        K3b::Medium medium = k3bappcore->mediaCache()->medium( device_index.at(index - 1) );
+        qDebug() << (medium.diskInfo().diskState() == K3b::Device::STATE_INCOMPLETE)
+                 << medium.diskInfo().diskState();
+        if (medium.diskInfo().diskState() == K3b::Device::STATE_INCOMPLETE)
+        {
+            // can appendale medium,default set all busness button to false;
+            burn_button->setEnabled(false);
+        }
         combo_burner->setEnabled( true );
         burn_setting->setText(i18n("setting"));
         burn_button->setText(i18n("start burner"));
@@ -970,48 +903,6 @@ void K3b::DataView::slotComboCD(int index)
     slotOption(0, dlgFileFilter->getStatus(index).isHidden);
     slotOption(1, dlgFileFilter->getStatus(index).isBroken);
     slotOption(2, dlgFileFilter->getStatus(index).isReplace);
-
-    /*
-    if (0 == m_dataViewImpl->view()->model()->rowCount())
-    {
-        qDebug() << ".....................................";
-        m_dataViewImpl->view()->setFixedHeight(28);
-        tips->show();
-    }
-    else
-    {
-        tips->hide();
-        m_dataViewImpl->view()->setFixedHeight(370);
-    }
-    */
-    /*
-    qDebug()<< " combo Cd index " << index << mount_index << iso_index <<endl;
-    if ( index < 0 )
-        index = 0;
-
-    combo_CD->setEditable(false);
-
-    if ( index == iso_index ){
-        m_doc->clear();
-        combo_burner->setEnabled( false );
-        //combo_CD->setEditable( true );
-        burn_setting->setText(i18n("open"));
-        burn_button->setText(i18n("create iso"));
-    }else{
-        combo_burner->setEnabled( true );
-        combo_CD->setEditable( false );
-        burn_setting->setText(i18n("setting"));
-        burn_button->setText(i18n("start burner"));
-
-
-        combo_burner->blockSignals( true ); //不发送信号，不会调用slotComboBurner 槽函数
-        combo_burner->setCurrentIndex( index );
-        combo_burner->blockSignals( false );
-
-        add_device_urls( mount_index.at( index ) );
-    }
-    */
-
 }
 
 K3b::ProjectBurnDialog* K3b::DataView::newBurnDialog( QWidget* parent )
@@ -1387,7 +1278,8 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
     {
         disableButtonRemove();
         disableButtonClear();
-        enableButtonBurn();
+        //enableButtonBurn();
+        burn_button->setEnabled(false);
         enableBurnSetting();
         btnFileFilter->show();
         if (tips) tips->hide();
@@ -1402,6 +1294,24 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         btnFileFilter->show();
         if (tips) tips->hide();
         m_dataViewImpl->view()->setFixedHeight(370);
+    }
+
+    unsigned long long dataSize, mediumSize;
+    m_oSize->setText(KIO::convertSize(m_doc->size()));
+    int idx = combo_CD->currentIndex();
+    m_oSize->setStyleSheet("color : green;");
+    if (idx > 1)
+    {
+        mediumSize = device_index.at(idx -1)->diskInfo().remainingSize().mode1Bytes();
+        dataSize = m_doc->size();
+        if (dataSize > mediumSize)
+        {
+            QMessageBox::critical(nullptr,
+                                  i18n("Overload"),
+                                  i18n("The data size over the medium size."));
+
+            m_oSize->setStyleSheet("color : red;");
+        }
     }
 }
 

@@ -72,7 +72,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
 
 
     icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
@@ -86,7 +86,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     c->setFlat(true);
     c->setFixedSize(30,30);
     c->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    c->setIconSize(QSize(26, 26));
+    c->setIconSize(QSize(16, 16));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
     c->installEventFilter(this);
@@ -97,6 +97,7 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     label_top->setFixedWidth(430);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
     titlebar->setContentsMargins(8, 4, 4, 0);
+    titlebar->setSpacing(0);
     titlebar->addWidget(icon);
     titlebar->addSpacing(8);
     titlebar->addWidget(title);

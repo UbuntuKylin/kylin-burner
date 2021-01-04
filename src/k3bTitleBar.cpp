@@ -50,7 +50,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 
     m_pIconLabel = new QLabel(this);
     m_pTitleLabel = new QLabel(this);
-    m_pMenubutton = new QPushButton(this);
+    m_pMenubutton = new QToolButton(this);
     m_pMinimizeButton = new QPushButton(this);
     //m_pMaximizeButton = new QPushButton(this);
     m_pCloseButton = new QPushButton(this);
@@ -62,30 +62,34 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     m_pCloseButton->setProperty("useIconHighlightEffect", 0x8);
     m_pMinimizeButton->setProperty("useIconHighlightEffect", 0x8);
     m_pMenubutton->setProperty("useIconHighlightEffect", 0x8);
+    m_pMenubutton->setPopupMode(QToolButton::InstantPopup);
 
-    m_pTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_pCloseButton->setFlat(true);
+    m_pMinimizeButton->setFlat(true);
+    m_pMenubutton->setAutoRaise(true);
+
+    m_pCloseButton->installEventFilter(this);
+    m_pMinimizeButton->installEventFilter(this);
+    m_pMenubutton->installEventFilter(this);
+
+    //m_pTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     m_pMenubutton->setFixedSize(30, 30);
     m_pMinimizeButton->setFixedSize(30, 30);
     //m_pMaximizeButton->setFixedSize(30, 30);
     m_pCloseButton->setFixedSize(30, 30);
 
-    m_pMenubutton->setObjectName("menuButton");
-    m_pMinimizeButton->setObjectName("minimizeButton");
-    //m_pMaximizeButton->setObjectName("maximizeButton");
-    m_pCloseButton->setObjectName("closeButton");
-
     m_pMenubutton->setToolTip(i18n("Menu__"));
     m_pMinimizeButton->setToolTip(i18n("Minimize__"));
     //m_pMaximizeButton->setToolTip(i18n("Maximize__"));
     m_pCloseButton->setToolTip(i18n("Close__"));
 
-    m_pCloseButton->setIconSize(QSize(26 , 26));
+    m_pCloseButton->setIconSize(QSize(16 , 16));
     m_pCloseButton->setIcon(QIcon::fromTheme("window-close-symbolic"));
-    m_pMinimizeButton->setIconSize(QSize(26 , 26));
+    m_pMinimizeButton->setIconSize(QSize(16 , 16));
     m_pMinimizeButton->setIcon(QIcon::fromTheme("window-minimize-symbolic"));
-    m_pMenubutton->setIconSize(QSize(26 , 26));
-    m_pMenubutton->setIcon(QIcon::fromTheme("application-menu") );
+    m_pMenubutton->setIconSize(QSize(16 , 16));
+    m_pMenubutton->setIcon(QIcon::fromTheme("open-menu-symbolic") );
 
 
 
@@ -99,10 +103,10 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     menu->addSeparator();
     menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
     menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
-    menu->setFixedSize(140, 196);
 
 
     menu->setObjectName("menu");
+    #if 0
     ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(255, 255, 255, 1);"
                                              "border: 1px solid rgba(0, 0, 0, 0.6); border-radius: 4px;}"
                                              "#menu::item{background-color: transparent;"
@@ -124,14 +128,12 @@ K3b::TitleBar::TitleBar(QWidget *parent)
                                              "#menu::item:pressed{background-color: rgba(65, 95, 195, 1);"
                                              "color: rgba(61, 107, 229, 1);}");
 
-
+#endif
 
     m_pMenubutton->setMenu(menu);  //下拉菜单
-    menu->installEventFilter(this);
 
 
     QLabel* label_top = new QLabel( this );
-    label_top->setStyleSheet("QWidget{background-color: transparent;}");
     label_top->setFixedHeight( 30 );
     QHBoxLayout *pLayout = new QHBoxLayout( label_top );
 

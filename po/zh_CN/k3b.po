@@ -10680,3 +10680,21 @@ msgstr "清空数据"
 
 msgid "Are you sure to clean all data?"
 msgstr "确认清空所有数据？"
+
+msgid "Please change your medium, it's space too small."
+msgstr "请更换您的光盘，它的空间太小了。"
+
+msgid "No Enough Space"
+msgstr "空间不足"
+
+msgid "Kylin Burner is a lightweight burning software based on the secondary development of open source burning software K3b. With K3b burning as the basic core and Kylin Burner's own interface display, Kylin Burner makes its interface simple, easy to operate and easy to use, bringing users a more refreshing burning experience."
+msgstr "麒麟刻录是一款基于开源刻录软件K3b进行二次研发的轻量级刻录软件，其以K3b刻录为基本核心，配合麒麟刻录自身界面展示，以界面简洁、操作简单、使用便捷面向用户，带给用户更加清爽的刻录体验。"
+
+msgid "Offical Website : "
+msgstr "官方网站 ："
+
+msgid "Service & Technology Support : "
+msgstr "服务与技术支持 ："
+
+msgid "Hot Service : "
+msgstr "服务热线 ："

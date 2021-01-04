@@ -319,7 +319,6 @@ void K3b::AudioView::slotMediaChange( K3b::Device::Device* dev)
         }
 
     }
-       
 }
 
 void K3b::AudioView::slotOpenfile()
@@ -409,6 +408,15 @@ void K3b::AudioView::slotBurn()
                                   i18n("No Data to Burn") );
     }   
     else {
+        QFileInfo f(filepath);
+        if (f.size() >
+                device_index.at(combo_CD->currentIndex())->diskInfo().remainingSize().mode1Bytes())
+        {
+            KMessageBox::information( this, i18n("Please change your medium, it's space too small."),
+                                      i18n("No Enough Space") );
+            return;
+        }
+
         ProjectBurnDialog* dlg = newBurnDialog( this );
         dlg->execBurnDialog(true);
         delete dlg;

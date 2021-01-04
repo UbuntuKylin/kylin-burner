@@ -46,19 +46,15 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     QScreen *screen = QGuiApplication::primaryScreen ();
     QRect screenRect =  screen->availableVirtualGeometry();
     this->move(screenRect.width() / 2, screenRect.height() / 2);
-    //delete screen;
     this->hide();
-    //this->move(25, parent->height() - 55 - this->height());
     this->hide();
     ui->labelTitle->setText(i18n("Kylin-Burner"));
     ui->labelName->setText(i18n("FilterSetting"));
-    ThManager()->regTheme(this, "ukui-white", "#KylinBurnerFileFilterSelection{background-color: #FFFFFF;}");
-    ThManager()->regTheme(this, "ukui-black", "#KylinBurnerFileFilterSelection{background-color: #000000;}");
-
-    ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
+    ui->label->setPixmap(QIcon::fromTheme("burner").pixmap(ui->label->size()));
+    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
     ui->labelClose->setProperty("isWindowButton", 0x2);
     ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
-    ui->labelClose->setIconSize(QSize(20, 20));
+    ui->labelClose->setIconSize(QSize(16, 16));
     ui->labelClose->installEventFilter(this);
 }
 
@@ -78,16 +74,8 @@ bool KylinBurnerFileFilterSelection::eventFilter(QObject *obj, QEvent *event)
         if (ui->labelClose == obj && (Qt::LeftButton == mouseEvent->button())) this->hide();
         break;
     case QEvent::HoverEnter:
-        if (ui->labelClose == obj)
-        {
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-悬停点击.png"));
-        }
         break;
     case QEvent::HoverLeave:
-        if (ui->labelClose == obj)
-        {
-            ui->labelClose->setIcon(QIcon(":/icon/icon/icon-关闭-默认.png"));
-        }
         break;
     default:
         return QWidget::eventFilter(obj, event);
