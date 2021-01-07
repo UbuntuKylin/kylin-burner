@@ -34,6 +34,7 @@ public:
     ~KylinBurnerFileFilterSelection();
 public:
     bool eventFilter(QObject *obj, QEvent *event);
+    void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
     void labelCloseStyle(bool in);
     void setOption(bool hidden, bool broken, bool replace);
 signals:

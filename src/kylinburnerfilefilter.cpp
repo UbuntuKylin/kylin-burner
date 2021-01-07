@@ -30,6 +30,7 @@
 #include <QScreen>
 #include <QBitmap>
 #include <QPainter>
+#include <QStyle>
 
 KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     QWidget(parent),
@@ -61,9 +62,9 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     ui->labelName->setText(i18n("FilterFile"));
     ui->btnRecovery->setText(i18n("Reset"));
     ui->btnSetting->setText(i18n("FilterSetting"));
+    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
     ui->labelClose->setProperty("isWindowButton", 0x2);
     ui->labelClose->setProperty("useIconHighlightEffect", 0x8);
-    ui->labelClose->setIcon(QIcon::fromTheme("window-close-symbolic"));
     ui->labelClose->setIconSize(QSize(16, 16));
     ui->labelClose->setFlat(true);
     ui->labelClose->installEventFilter(this);
@@ -202,6 +203,25 @@ bool KylinBurnerFileFilter::eventFilter(QObject *obj, QEvent *event)
     }
 
     return QWidget::eventFilter(obj, event);
+}
+
+void KylinBurnerFileFilter::paintEvent(QPaintEvent *event)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QPalette spal = palette();
+    QColor c;
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        spal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(spal);
+    }
+    else
+    {
+        spal.setColor(QPalette::Background, QColor("#242424"));
+        setPalette(spal);
+    }
+    QWidget::paintEvent(event);
 }
 
 void KylinBurnerFileFilter::labelCloseStyle(bool in)

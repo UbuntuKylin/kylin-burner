@@ -87,7 +87,11 @@ void K3b::DataView::onDataChange(QModelIndex parent, QSortFilterProxyModel *mode
         disableBurnSetting();
         btnFileFilter->hide();
         m_dataViewImpl->view()->setFixedHeight(28);
-        if (tips) tips->show();
+        if (tips)
+        {
+            tips->show();
+            tips->installEventFilter(this);
+        }
     }
     else
     {
@@ -493,12 +497,10 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
             logger->debug("Tips drag in...");
             event->accept();
         }
-        else if (obj == m_dataViewImpl->view())
-        {
-            logger->debug("Data view drag in ....");
-            event->accept();
-        }
-        else return QWidget::eventFilter(obj, event);
+        break;
+    case QEvent::DragLeave:
+        if (obj == tips) event->ignore();
+        break;
    case QEvent::Drop:
         if (obj == tips /*|| obj == m_dataViewImpl->view()*/)
         {
@@ -585,12 +587,6 @@ void K3b::DataView::paintEvent(QPaintEvent *e)
 
 void K3b::DataView::slotAddFile(QList<QUrl> urls)
 {
-    for (int i = 0; i < docs.size(); ++i)
-    {
-        docs[i]->addUrls(urls);
-        m_oSize->setText(KIO::convertSize(m_doc->size()));
-        QCoreApplication::processEvents();
-    }
     unsigned long long dataSize, mediumSize;
     int idx = combo_CD->currentIndex();
     m_oSize->setStyleSheet("color : green;");
@@ -600,12 +596,20 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
         dataSize = m_doc->size();
         if (dataSize > mediumSize)
         {
+#if 0
             QMessageBox::critical(nullptr,
                                   i18n("Overload"),
                                   i18n("The data size over the medium size."));
-
+#endif
             m_oSize->setStyleSheet("color : red;");
+            return;
         }
+    }
+    for (int i = 0; i < docs.size(); ++i)
+    {
+        docs[i]->addUrls(urls);
+        m_oSize->setText(KIO::convertSize(m_doc->size()));
+        QCoreApplication::processEvents();
     }
 }
 
@@ -665,6 +669,7 @@ void K3b::DataView::slotClearClicked()
     box.move(p);
     if (box.exec() != QMessageBox::Ok) return;
     m_dataViewImpl->slotClear();
+    lastDrop.clear();
     copyData(docs.at(combo_CD->currentIndex()), m_doc);
 }
 
@@ -852,6 +857,7 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     {
         m_dataViewImpl->view()->setFixedHeight(28);
         tips->show();
+        tips->installEventFilter(this);
     }
     else
     {
@@ -1272,7 +1278,11 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         disableBurnSetting();
         btnFileFilter->hide();
         m_dataViewImpl->view()->setFixedHeight(28);
-        if (tips) tips->show();
+        if (tips)
+        {
+            tips->show();
+            tips->installEventFilter(this);
+        }
     }
     else if (!cls)
     {
@@ -1306,10 +1316,11 @@ void K3b::DataView::copyData(K3b::DataDoc *target, K3b::DataDoc *source)
         dataSize = m_doc->size();
         if (dataSize > mediumSize)
         {
+#if 0
             QMessageBox::critical(nullptr,
                                   i18n("Overload"),
                                   i18n("The data size over the medium size."));
-
+#endif
             m_oSize->setStyleSheet("color : red;");
         }
     }

@@ -25,6 +25,7 @@
 #include <QScreen>
 #include <QBitmap>
 #include <QPainter>
+#include <QStyle>
 
 KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) :
     QWidget(parent),
@@ -82,6 +83,25 @@ bool KylinBurnerFileFilterSelection::eventFilter(QObject *obj, QEvent *event)
     }
 
     return QWidget::eventFilter(obj, event);
+}
+
+void KylinBurnerFileFilterSelection::paintEvent(QPaintEvent *event)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QPalette spal = palette();
+    QColor c;
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        spal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(spal);
+    }
+    else
+    {
+        spal.setColor(QPalette::Background, QColor("#242424"));
+        setPalette(spal);
+    }
+    QWidget::paintEvent(event);
 }
 
 void KylinBurnerFileFilterSelection::labelCloseStyle(bool in)

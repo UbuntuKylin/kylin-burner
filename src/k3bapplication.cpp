@@ -61,7 +61,7 @@ K3b::Application::Application( int& argc, char** argv )
       m_core( nullptr ),
       m_mainWindow( nullptr )
 {
-    KLocalizedString::setApplicationDomain( "k3b" );
+    KLocalizedString::setApplicationDomain( "kylin-burner" );
     logger = LogRecorder::instance().registration("Application");
 }
 

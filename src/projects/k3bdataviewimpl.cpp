@@ -369,7 +369,7 @@ void K3b::DataViewImpl::slotRemove()
     {
         m_sortModel->removeRows(idxs[i].row() - i, 1, parentDirectory);
     }
-    qDebug() << selection.at(0).top() << m_fileView->selectionModel()->selectedRows().size() << parentDirectory.data().toString();
+  //  qDebug() << selection.at(0).top() << m_fileView->selectionModel()->selectedRows().size() << parentDirectory.data().toString();
     //m_sortModel->removeRows( selection.at(0).top(), m_fileView->selectionModel()->selectedRows().size(), parentDirectory );
 #if 0
     for( int i = selection.size() - 1; i >= 0; --i ) {
