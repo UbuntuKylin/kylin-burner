@@ -451,6 +451,8 @@ void K3b::DataViewImpl::slotOpen()
 
 void K3b::DataViewImpl::slotParent()
 {
+    m_fileView->setRootIndex(m_fileView->rootIndex().parent());
+#if 0
     m_actionParentDir->setEnabled(false);
     qDebug() << "to parent";
     const QModelIndexList indexes = m_fileView->selectionModel()->selectedRows();
@@ -458,6 +460,7 @@ void K3b::DataViewImpl::slotParent()
         qDebug() << "invalid parent index" << indexes[0].parent().isValid();
     else
         m_fileView->setRootIndex(indexes[0].parent().parent());
+#endif
 }
 
 void K3b::DataViewImpl::slotSelectionChanged()
@@ -515,6 +518,8 @@ void K3b::DataViewImpl::slotSelectionChanged()
         }
     }
 
+    if (m_fileView->rootIndex().parent().isValid()) parent = true;
+    else parent = false;
     m_actionParentDir->setEnabled( parent );
     m_actionRename->setEnabled( rename );
     m_actionRemove->setEnabled( remove );
