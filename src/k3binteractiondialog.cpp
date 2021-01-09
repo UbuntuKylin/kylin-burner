@@ -149,39 +149,7 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
 
     button_ok->setObjectName("btnIDOK");
 
-    ThManager()->regTheme(button_ok, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(button_ok, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(72, 72, 76, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color:rgba(55, 55, 55, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(77, 78, 81, 1);");
+
 
     
     connect( button_ok, SIGNAL( clicked() ), this, SLOT( slotStartClicked() ) );
@@ -191,39 +159,7 @@ K3b::InteractionDialog::InteractionDialog( QWidget* parent,
     button_cancel->setFixedSize(80,30);
     button_cancel->setObjectName("btnIDCancel");
 
-    ThManager()->regTheme(button_cancel, "ukui-white", "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(67, 67, 67, 1);",
-                                                         "background-color: rgba(107, 141, 235, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(65, 95, 195, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(61, 107, 229, 1);",
-                                                         "background-color: rgba(233, 233, 233, 1);"
-                                                         "border: none; border-radius: 4px;"
-                                                         "font: 14px \"MicrosoftYaHei\";"
-                                                         "color: rgba(193, 193, 193, 1);");
-    ThManager()->regTheme(button_cancel, "ukui-black",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(72, 72, 76, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color:rgba(55, 55, 55, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(255, 255, 255, 1);",
-                                       "background-color: rgba(57, 58, 62, 1);"
-                                       "border: none; border-radius: 4px;"
-                                       "font: 14px \"MicrosoftYaHei\";"
-                                       "color: rgba(77, 78, 81, 1);");
+
 
     connect( button_cancel, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
 

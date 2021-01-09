@@ -287,6 +287,25 @@ void K3b::MediaCopyDialog::init()
     slotToggleAll();
 }
 
+void K3b::MediaCopyDialog::paintEvent(QPaintEvent * event)
+{
+    QPalette pal = style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QDialog::paintEvent(event);
+}
+
 void K3b::MediaCopyDialog::slotCancelClicked()
 {
     saveConfig();

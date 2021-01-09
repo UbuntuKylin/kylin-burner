@@ -81,6 +81,7 @@ namespace K3b {
          */
         void blockingInformation( const QString& text,
                                   const QString& caption = QString() ) override;
+        void setTitle(QString s);
 
     protected Q_SLOTS:
         virtual void slotProcessedSize( int processed, int size );
@@ -110,6 +111,7 @@ namespace K3b {
         void closeEvent( QCloseEvent* e ) override;
         void keyPressEvent( QKeyEvent* e ) override;
         bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+        void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
 
         void setupGUI();
 
@@ -129,6 +131,7 @@ namespace K3b {
         QPushButton* m_showDbgOutButton;
         QPushButton* m_closeButton;
         QPushButton *c;
+        QLabel* label_title;
 
         QGridLayout* m_frameExtraInfoLayout;
 

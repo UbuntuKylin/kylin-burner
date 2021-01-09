@@ -106,6 +106,29 @@ bool K3b::JobProgressDialog::eventFilter(QObject *obj, QEvent *e)
     return QDialog::eventFilter(obj, e);
 }
 
+void K3b::JobProgressDialog::setTitle(QString s)
+{
+    label_title->setText(s);
+}
+
+void K3b::JobProgressDialog::paintEvent(QPaintEvent *event)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+    QDialog::paintEvent(event);
+}
+
 void K3b::JobProgressDialog::setupGUI()
 {
     QVBoxLayout* mainView = new QVBoxLayout( this );
@@ -253,7 +276,6 @@ void K3b::JobProgressDialog::setupGUI()
     icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     title = new QLabel(i18n("kylin-burner"), this);
-    title->setObjectName("JobProcessTitle");
     title->setFixedSize(80,30);
     QFont f;
     f.setPixelSize(14);
@@ -285,7 +307,7 @@ void K3b::JobProgressDialog::setupGUI()
     mainView->addSpacing(40);
     mainView->addLayout( mainLayout );
     
-    QLabel* label_title = new QLabel( this );
+    label_title = new QLabel( this );
     label_title->setText( i18n("burning") );
     label_title->setFixedHeight(18);
     f.setPixelSize(18);

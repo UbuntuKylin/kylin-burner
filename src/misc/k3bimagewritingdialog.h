@@ -72,6 +72,7 @@ namespace K3b {
         void calculateMd5Sum( const QString& );
         void dragEnterEvent( QDragEnterEvent* ) override;
         void dropEvent( QDropEvent* ) override;
+        void paintEvent(QPaintEvent*) Q_DECL_OVERRIDE;
 
         void init() override;
 

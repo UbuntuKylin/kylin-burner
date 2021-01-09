@@ -40,6 +40,7 @@
 #include "k3btoc.h"
 #include "k3btrack.h"
 #include "k3bcdtext.h"
+#include "xatom-helper.h"
 
 #include <KComboBox>
 #include <KConfig>
@@ -533,51 +534,42 @@ void K3b::ImageWritingDialog::setupGui()
     connect( d->infoView, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(slotContextMenuRequested(QPoint)) );
 
-    setWindowFlags(Qt::FramelessWindowHint | windowFlags());
-    resize(430, 485);
-
-    QPalette pal(palette());
-    pal.setColor(QPalette::Background, QColor(255, 255, 255));
-    setAutoFillBackground(true);
-    setPalette(pal);
- 
-    QBitmap bmp(this->size());
-    bmp.fill();
-    QPainter p(&bmp);
-    p.setPen(Qt::NoPen);
-    p.setBrush(Qt::black);
-    p.drawRoundedRect(bmp.rect(), 6, 6);
-    setMask(bmp);
+    //setWindowFlags(Qt::FramelessWindowHint | windowFlags());
+    //resize(430, 485);
+    MotifWmHints hints;
+    hints.flags = MWM_HINTS_FUNCTIONS | MWM_HINTS_DECORATIONS;
+    hints.functions = MWM_FUNC_ALL;
+    hints.decorations = MWM_DECOR_BORDER;
+    XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
+    setFixedSize(430, 485);
     
     QLabel *icon = new QLabel();
-    icon->setFixedSize(20,20);
-    icon->setStyleSheet("QLabel{border-image: url(:/icon/icon/logo-小.png);"
-                        "background-repeat: no-repeat;background-color:transparent;}");
+    icon->setFixedSize(24,24);
+    icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
-    title->setFixedSize(80,20);
-    title->setStyleSheet("QLabel{background-color:transparent;"
-                         "background-repeat: no-repeat;color:#444444;"
-                         "font: 14px;}");
-    QPushButton *close = new QPushButton( this );
-    close->setFixedSize(20,20);
-    close->setStyleSheet("QPushButton{border-image: url(:/icon/icon/icon-关闭-默认.png);"
-                         "border:none;background-color:rgb(233, 233, 233);"
-                         "border-radius: 4px;background-color:transparent;}"
-                          "QPushButton:hover{border-image: url(:/icon/icon/icon-关闭-悬停点击.png);"
-                         "border:none;background-color:rgb(248, 100, 87);"
-                         "border-radius: 4px;}");
-    connect(close, SIGNAL( clicked() ), this , SLOT( close() ) );
+    title->setFixedSize(80,30);
+    QFont f;
+    f.setPixelSize(14);
+    title->setFont(f);
+    QPushButton *close = new QPushButton();
+    close->setFixedSize(30,30);
+    close->setIcon(QIcon::fromTheme("window-close-symbolic"));
+    close->setIconSize(QSize(16, 16));
+    close->setFlat(true);
+    close->setProperty("isWindowButton", 0x2);
+    close->setProperty("useIconHighlightEffect", 0x8);
+    connect(close, SIGNAL( clicked() ), this, SLOT( close() ) );
 
     QLabel* label_top = new QLabel( this );
-    label_top->setFixedHeight(20);
+    label_top->setFixedHeight(34);
     QHBoxLayout *titlebar = new QHBoxLayout( label_top );
-    titlebar->setContentsMargins(11, 0, 0, 0);
+    titlebar->setContentsMargins(8, 4, 4, 0);
+    titlebar->setSpacing(0);
     titlebar->addWidget(icon);
-    titlebar->addSpacing(5);
+    titlebar->addSpacing(8);
     titlebar->addWidget(title);
-    titlebar->addStretch();
+    titlebar->addStretch(285);
     titlebar->addWidget(close);
-    titlebar->addSpacing(5);
 
     QLabel* label_title = new QLabel( i18n("burn setting"),this );
     label_title->setFixedHeight(24);
@@ -1411,4 +1403,22 @@ void K3b::ImageWritingDialog::dropEvent( QDropEvent* e )
     }
 }
 
+void K3b::ImageWritingDialog::paintEvent(QPaintEvent *event)
+{
+    QPalette pal = style()->standardPalette();
+    QColor c;
+
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
+        setPalette(pal);
+    }
+    else
+    {
+        setPalette(pal);
+    }
+
+    QDialog::paintEvent(event);
+}
 

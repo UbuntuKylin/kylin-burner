@@ -292,6 +292,7 @@ void K3b::MediaFormattingDialog::slotStartClicked()
     //hide();
     connect( theJob, SIGNAL(finished(bool)), this, SLOT(slotFinished(bool)) );
 
+    dlg.setTitle(i18n("Cleaning"));
     dlg.startJob( theJob );
 
     delete theJob;
@@ -300,7 +301,7 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         show();
     else
         close();
-    BurnResult* dialog = new BurnResult( flag, "clean");
+    BurnResult* dialog = new BurnResult( flag, i18n("clean"));
     dialog->show();
 }
 

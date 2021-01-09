@@ -281,9 +281,9 @@ msgid ""
 "depends on the installed applications."
 msgstr ""
 ""
-"<p>该对话框可用于将外部命令行设置为音频编码器。然后，K3b调用这些命令将音频数据（音频CD的轨道或音频项目的标题）编码为不支持的格式（即，不存在对应的编码器插件）。"
+"<p>该对话框可用于将外部命令行设置为音频编码器。然后，调用这些命令将音频数据（音频CD的轨道或音频项目的标题）编码为不支持的格式（即，不存在对应的编码器插件）。"
 "\n"
-"<p>K3b提供了一些已安装应用程序的预定义外部应用程序。"
+"<p>提供了一些已安装应用程序的预定义外部应用程序。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ../plugins/encoder/external/base_k3bexternalencoderconfigwidget.ui:32
@@ -374,7 +374,7 @@ msgstr ""
 "请在此插入用于编码音频数据的命令。这个命令必须可以读取来自 "
 "stdin 的原始小端 (参见 <em>字节替换顺序</em>)，16 "
 "位的立体声音频框架。\n"
-"<p>如下字符串将会被 K3b 替换: <br>\n"
+"<p>如下字符串将会被替换: <br>\n"
 "<b>%f</b> - "
 "结果文件的文件名。这是命令将要写入输出的目的地。<br>"
 "\n"
@@ -414,7 +414,7 @@ msgid ""
 "<p>If the resulting audio file sounds bad it is highly likely that the byte "
 "order is wrong and this option has to be checked."
 msgstr ""
-"<p>如果这个选项被选中，K3b "
+"<p>如果这个选项被选中，"
 "将会替换输入数据的字节顺序。因此，此命令必须读取大端音频帧。"
 "\n"
 ""
@@ -440,7 +440,7 @@ msgid ""
 "case the encoder application cannot read plain raw audio data."
 msgstr ""
 ""
-"<p>如果这个选项被开启，K3b将写入一个波形文件头。这在编码应用程序不支持读取纯音频数据的情况下很有用。"
+"<p>如果这个选项被开启，将写入一个波形文件头。这在编码应用程序不支持读取纯音频数据的情况下很有用。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_checkWriteWaveHeader)
 #: ../plugins/encoder/external/base_k3bexternalencodereditdialog.ui:129
@@ -1359,7 +1359,7 @@ msgstr "CDDB 错误"
 #: k3b.cpp:232
 #, kde-format
 msgid "K3b - The CD and DVD Kreator"
-msgstr "K3b - CD/DVD 刻录程序"
+msgstr "CD/DVD 刻录程序"
 
 #: k3b.cpp:294
 #, kde-format
@@ -1594,7 +1594,7 @@ msgstr "显示/隐藏项目面板的标题表头"
 #: k3b.cpp:450
 #, kde-format
 msgid "Configure K3b settings"
-msgstr "配置 K3b 设置"
+msgstr "配置设置"
 
 #: k3b.cpp:453
 #, kde-format
@@ -1644,7 +1644,7 @@ msgstr "打开文件"
 #: k3b.cpp:929 k3b.cpp:996
 #, kde-format
 msgid "K3b Projects (*.k3b)"
-msgstr "K3b 项目 (*.k3b)"
+msgstr "项目 (*.k3b)"
 
 #: k3b.cpp:961
 #, kde-format
@@ -1849,7 +1849,7 @@ msgid ""
 msgstr ""
 "<p>请输入您希望指定给驱动器 <b>%1</b> "
 "的读取速度。这个速度将立即生效于目前已挂载的介质。<p>这对于观看电影时非常有用，这个设置可以降低驱动器的速度以减少驱动器发出的噪声。<p>请注意这个速度并不生效于 "
-"K3b 本身，在复制 CD 或 DVD 介质时 K3b "
+"本身，在复制 CD 或 DVD 介质时"
 "将恢复原有的读取速度。"
 
 #: k3bappdevicemanager.cpp:305
@@ -1860,12 +1860,12 @@ msgstr "设定读取速度失败。"
 #: k3bapplication.cpp:148
 #, kde-format
 msgid "K3b is busy"
-msgstr "K3b 正忙"
+msgstr "正忙"
 
 #: k3bapplication.cpp:149
 #, kde-format
 msgid "K3b is currently busy and cannot start any other operations."
-msgstr "K3b 正忙，无法启动其它操作。"
+msgstr "正忙，无法启动其它操作。"
 
 #: k3bburnprogressdialog.cpp:40
 #, kde-format
@@ -1970,7 +1970,7 @@ msgstr "设备(&D)"
 #: k3bdiroperator.cpp:51
 #, kde-format
 msgid "K3b Bookmarks"
-msgstr "K3b 书签"
+msgstr "书签"
 
 #: k3bdiroperator.cpp:54
 #, kde-format
@@ -1988,7 +1988,7 @@ msgid ""
 "K3b uses vcdxrip from the vcdimager package to rip Video CDs. Please make "
 "sure it is installed."
 msgstr ""
-"K3b 使用来自 vcdimager 软件包的 vcdxrip 程序来翻录VCD "
+"使用来自 vcdimager 软件包的 vcdxrip 程序来翻录VCD "
 "介质。请确定它已经被安装。"
 
 #: k3bdirview.cpp:235
@@ -1999,7 +1999,7 @@ msgstr "挂载失败"
 #: k3bdirview.cpp:236
 #, kde-format
 msgid "<p>K3b was unable to mount medium <b>%1</b> in device <em>%2 - %3</em>"
-msgstr "<p>K3b 无法挂载设备 <em>%2 - %3</em> 中的介质 <b>%1</b>"
+msgstr "<p>无法挂载设备 <em>%2 - %3</em> 中的介质 <b>%1</b>"
 
 #: k3bdirview.cpp:251
 #, kde-format
@@ -2010,7 +2010,7 @@ msgstr "卸载失败"
 #, kde-format
 msgid ""
 "<p>K3b was unable to unmount medium <b>%1</b> in device <em>%2 - %3</em>"
-msgstr "<p>K3b 无法卸载设备 <em>%2 - %3</em> 中的介质 <b>%1</b>"
+msgstr "<p>无法卸载设备 <em>%2 - %3</em> 中的介质 <b>%1</b>"
 
 #: k3bdiskinfoview.cpp:89
 #, kde-format
@@ -2469,7 +2469,7 @@ msgid ""
 "<p>Load a set of settings either from the default K3b settings, settings "
 "saved before, or the last used ones."
 msgstr ""
-"<p>载入一个配置集，可为默认 K3b "
+"<p>载入一个配置集，可为默认 "
 "配置、之前保存的配置或最后使用的配置集。"
 
 #: k3binteractiondialog.cpp:206
@@ -2480,7 +2480,7 @@ msgid ""
 "are not overwritten by this.</b>"
 msgstr ""
 "<p>保存当前的行为对话框的配置。<p>这些配置可以通过 "
-"<em>载入已保存的配置</em> 按钮载入。<p><b>K3b "
+"<em>载入已保存的配置</em> 按钮载入。<p><b>"
 "的默认配置不会被此配置覆盖。</b>"
 
 #: k3bjobprogressdialog.cpp:214
@@ -2577,7 +2577,7 @@ msgid ""
 msgstr ""
 "<p>设备 <b>'%1'</b> 正被其他应用程序使用 (<em>%2</em>) "
 "。<p>强烈建议您退出这些应用程序后再继续进行当前操作，否则 "
-"K3b "
+""
 "很可能无法正常访问此设备。<p><em>提示：有的时候应用程序的退出需要时间，如果存在这种现象您可能需要使用 "
 "‘%3’ 按钮。"
 
@@ -2585,7 +2585,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "<p>Do you really want K3b to kill the following processes: <em>%1</em>?</p>"
-msgstr "<p>您真的想要 K3b 杀死下列进程吗：<em>%1</em></p>"
+msgstr "<p>您真的想要 杀死下列进程吗：<em>%1</em></p>"
 
 #: k3bmediaselectiondialog.cpp:34
 #, kde-format
@@ -2723,7 +2723,7 @@ msgstr[0] "%1 个问题"
 #: k3bsystemproblemdialog.cpp:106
 #, kde-format
 msgid "Configure K3b..."
-msgstr "配置 K3b..."
+msgstr "配置 ..."
 
 #: k3bsystemproblemdialog.cpp:116
 #, kde-format
@@ -2743,13 +2743,13 @@ msgstr "找不到光驱。"
 #: k3bsystemproblemdialog.cpp:186
 #, kde-format
 msgid "K3b did not find any optical device in your system."
-msgstr "K3b 未在此系统上找到任何光盘驱动器。"
+msgstr "未在此系统上找到任何光盘驱动器。"
 
 #: k3bsystemproblemdialog.cpp:188
 #, kde-format
 msgid "Make sure HAL daemon is running, it is used by K3b for finding devices."
 msgstr ""
-"请确定 HAL 守护程序正在运行，K3b "
+"请确定 HAL 守护程序正在运行，"
 "应用此守护程序来查找设备。"
 
 #: k3bsystemproblemdialog.cpp:196
@@ -2765,9 +2765,9 @@ msgid ""
 "features such as audio track extraction, audio transcoding or ISO 9660 image "
 "creation."
 msgstr ""
-"K3b "
+""
 "未找到一个可用于写入的光学设备。因此，您将无法烧录 "
-"CD 以及 DVD 介质。不过您依然可以使用 K3b "
+"CD 以及 DVD 介质。不过您依然可以使用 "
 "的其他特性，如翻录音轨、音频转码以及生成 ISO 9660 "
 "镜像。"
 
@@ -2780,7 +2780,7 @@ msgstr "没有足够的权限执行 %1：%2"
 #: k3bsystemproblemdialog.cpp:208 k3bsystemproblemdialog.cpp:215
 #, kde-format
 msgid "K3b uses cdrecord to actually write CDs."
-msgstr "K3b 使用 cdrecord 来实际写入 CD。"
+msgstr "使用 cdrecord 来实际写入 CD。"
 
 #: k3bsystemproblemdialog.cpp:209 k3bsystemproblemdialog.cpp:270
 #: k3bsystemproblemdialog.cpp:314
@@ -2790,8 +2790,8 @@ msgid ""
 "Permissions. If K3b's default value is set make sure you are member of "
 "\"%1\" group."
 msgstr ""
-"通过“设置” -> “配置 K3b...” -> “程序” -> "
-"“权限”来检查权限。如果 K3b "
+"通过“设置” -> “配置 ...” -> “程序” -> "
+"“权限”来检查权限。如果 "
 "被设置为默认值，请确保您是组“%1”的成员。"
 
 #: k3bsystemproblemdialog.cpp:214 k3bsystemproblemdialog.cpp:276
@@ -2819,7 +2819,7 @@ msgid ""
 "Although K3b supports all cdrtools versions since 1.10 it is highly "
 "recommended to at least use version 2.0."
 msgstr ""
-"尽管 K3b 支持自 1.10 之后所有的 cdrtools "
+"尽管 支持自 1.10 之后所有的 cdrtools "
 "版本，我们还是建议您至少使用 2.0。"
 
 #: k3bsystemproblemdialog.cpp:226
@@ -2845,7 +2845,7 @@ msgstr ""
 #: k3bsystemproblemdialog.cpp:290
 #, kde-format
 msgid "Click \"Configure K3b...\" to solve this problem."
-msgstr "单击\"配置 K3b...\"来解决这个问题。"
+msgstr "单击\"配置 ...\"来解决这个问题。"
 
 #: k3bsystemproblemdialog.cpp:253 k3bsystemproblemdialog.cpp:286
 #, kde-format
@@ -2869,7 +2869,7 @@ msgstr ""
 #: k3bsystemproblemdialog.cpp:269 k3bsystemproblemdialog.cpp:277
 #, kde-format
 msgid "K3b uses cdrdao to actually write CDs."
-msgstr "K3b 使用 cdrdao 实际写入 CD。"
+msgstr "使用 cdrdao 实际写入 CD。"
 
 #: k3bsystemproblemdialog.cpp:278
 #, kde-format
@@ -2905,7 +2905,7 @@ msgid ""
 "K3b uses growisofs to actually write DVDs. Without growisofs you will not be "
 "able to write DVDs. Make sure to install at least version 5.10."
 msgstr ""
-"K3b 使用 growisofs 来写入 DVD 介质。如果 growisofs "
+"使用 growisofs 来写入 DVD 介质。如果 growisofs "
 "没有安装您将无法写入 DVD 介质。请安装不低于 5.10 "
 "的版本。"
 
@@ -2920,8 +2920,8 @@ msgid ""
 "K3b needs at least growisofs version 5.10 to write DVDs. All older versions "
 "will not work and K3b will refuse to use them."
 msgstr ""
-"K3b 需要不低于 5.10 版本的 growisofs 来写入 DVD "
-"介质。更旧的版本将不工作，K3b 会拒绝使用它们。"
+"需要不低于 5.10 版本的 growisofs 来写入 DVD "
+"介质。更旧的版本将不工作，会拒绝使用它们。"
 
 #: k3bsystemproblemdialog.cpp:332 k3bsystemproblemdialog.cpp:340
 #: k3bsystemproblemdialog.cpp:348 k3bsystemproblemdialog.cpp:381
@@ -2935,7 +2935,7 @@ msgid ""
 "K3b will not be able to copy DVDs on-the-fly or write a DVD+RW in multiple "
 "sessions using a growisofs version older than 5.12."
 msgstr ""
-"如果 growisofs 版本旧于 5.12，K3b 无法以实时模式复制 DVD "
+"如果 growisofs 版本旧于 5.12，无法以实时模式复制 DVD "
 "介质或以多片段模式写入 DVD+RW 介质。"
 
 #: k3bsystemproblemdialog.cpp:345
@@ -2945,13 +2945,13 @@ msgid ""
 "able to write a DVD+RW in multiple sessions using a growisofs version older "
 "than 7.0."
 msgstr ""
-"强烈建议使用 7.0 或更高版本的 growisofs。K3b 在 growisofs "
+"强烈建议使用 7.0 或更高版本的 growisofs。在 growisofs "
 "版本低于 7.0 的情况下无法以多段模式写入 DVD+RW 介质。"
 
 #: k3bsystemproblemdialog.cpp:366
 #, kde-format
 msgid "K3b uses dvd+rw-format to format DVD-RWs and DVD+RWs."
-msgstr "K3b 使用 dvd+rw-format 格式化 DVD-RW 和 DVD+RW。"
+msgstr "使用 dvd+rw-format 格式化 DVD-RW 和 DVD+RW。"
 
 #: k3bsystemproblemdialog.cpp:379
 #, kde-format
@@ -2959,7 +2959,7 @@ msgid ""
 "K3b needs at least mkisofs version 1.14. Older versions may introduce "
 "problems when creating data projects."
 msgstr ""
-"K3b 需要至少为 1.14 版本的 "
+"需要至少为 1.14 版本的 "
 "mkisofs。更旧的版本可能在创建数据项目时遇到问题。"
 
 #: k3bsystemproblemdialog.cpp:403
@@ -2974,8 +2974,8 @@ msgid ""
 "rewriting might fail. There is no need to report this as a bug or feature "
 "wish; it is not possible to solve this problem from within K3b."
 msgstr ""
-"K3b 无法取消自动挂载装置。因此，尤其是 DVD+RW "
-"重写可能会失败。没有必要去报告这个错误或希望的功能；K3b "
+"无法取消自动挂载装置。因此，尤其是 DVD+RW "
+"重写可能会失败。没有必要去报告这个错误或希望的功能；"
 "无法解决这个问题。"
 
 #: k3bsystemproblemdialog.cpp:409
@@ -3052,7 +3052,7 @@ msgid ""
 "K3b will not be able to write DVD-R Dual Layer media using a growisofs "
 "version older than 6.0."
 msgstr ""
-"K3b 将无法使用版本低于 6 的 growisofs 写 DVD-R 双层介质。"
+"将无法使用版本低于 6 的 growisofs 写 DVD-R 双层介质。"
 
 #: k3bsystemproblemdialog.cpp:485
 #, kde-format
@@ -3070,7 +3070,7 @@ msgid ""
 "K3b needs write access to all the devices to perform certain tasks. Without "
 "it you might encounter problems with %1 - %2"
 msgstr ""
-"K3b "
+""
 "需要写访问所有的设备来执行某些任务。没有它，您可能会遇到的问题 "
 "%1 - %2"
 
@@ -3115,7 +3115,7 @@ msgid ""
 "parameters generated by K3b. This is simply a warning to make sure that "
 "these parameters are really wanted and will not be part of some bug report."
 msgstr ""
-"除由 K3b "
+"除由 "
 "生成的参数以外，有时可能必要指定用户参数。这仅仅是为了确保这些参数是真的想要的或不被作为 "
 "bug 报告的一部分的一个警告。"
 
@@ -3125,7 +3125,7 @@ msgid ""
 "To remove the user parameters for the external program %1 open the K3b "
 "settings page 'Programs' and choose the tab 'User Parameters'."
 msgstr ""
-"打开 K3b "
+"打开 "
 "设置页面“程序”，选择“用户参数”，以消除外部程序 "
 "%1 的用户参数。"
 
@@ -3208,7 +3208,7 @@ msgstr ""
 #: k3bsystemproblemdialog.cpp:592
 #, kde-format
 msgid "The latter can be done via \"Configure K3b...\"."
-msgstr "后者可以通过“配置 K3b...”来完成。"
+msgstr "后者可以通过“配置 ...”来完成。"
 
 #: k3bsystemproblemdialog.cpp:622
 #, kde-format
@@ -3413,7 +3413,7 @@ msgstr "更多..."
 #: k3bwriterselectionwidget.cpp:606
 #, kde-format
 msgid "Please enter the speed that K3b should use for burning (Example: 16x)."
-msgstr "请输入 K3b 应该使用的写入速度 (例如: 16x)"
+msgstr "请输入应该使用的写入速度 (例如: 16x)"
 
 #: k3bwriterselectionwidget.cpp:609
 #, kde-format
@@ -10698,3 +10698,6 @@ msgstr "服务与技术支持 ："
 
 msgid "Hot Service : "
 msgstr "服务热线 ："
+
+msgid "Cleaning"
+msgstr "正在擦除"

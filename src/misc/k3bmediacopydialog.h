@@ -67,6 +67,7 @@ namespace K3b {
     protected:
         void toggleAll() override;
         void init() override;
+        void paintEvent(QPaintEvent *)Q_DECL_OVERRIDE;
 
     private:
         void loadSettings( const KConfigGroup& ) override;
