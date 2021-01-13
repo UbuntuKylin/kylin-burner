@@ -51,7 +51,7 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
 
 
     QLabel *icon = new QLabel();
-    icon->setFixedSize(30,30);
+    icon->setFixedSize(24,24);
     icon->setPixmap(QIcon::fromTheme("burner").pixmap(icon->size()));
     QLabel *title = new QLabel(i18n("kylin-burner"));
     title->setFixedSize(80,30);
@@ -64,7 +64,7 @@ K3b::Md5Check::Md5Check(QWidget *parent) :
     c->setIcon(QIcon::fromTheme("window-close-symbolic"));
     c->setProperty("isWindowButton", 0x2);
     c->setProperty("useIconHighlightEffect", 0x8);
-    c->setIconSize(QSize(26, 26));
+    c->setIconSize(QSize(16, 16));
     connect(c, &QPushButton::clicked, this, &Md5Check::exit);
 
     QLabel* label_top = new QLabel( this );

@@ -72,7 +72,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
 
     ui->textEdit->setText(i18n("Kylin Burner is a lightweight burning software based on the secondary development of open source burning software K3b. With K3b burning as the basic core and Kylin Burner's own interface display, Kylin Burner makes its interface simple, easy to operate and easy to use, bringing users a more refreshing burning experience."));
 
-    ui->labelOfficalWebsite->setText(i18n("Offical Website : ") +
+    ui->labelOfficalWebsite->setText("区域" + i18n("Offical Website : ") +
                                      "<a href=\"http://www.kylinos.cn\">"
                                      "www.kylinos.cn</a>");
     ui->labelSupport->setText(i18n("Service & Technology Support : ") +
@@ -122,13 +122,14 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
     QFont f = ui->labelTitle->font();
     f.setPixelSize(14);
     ui->labelTitle->setFont(f);
-    f.setWeight(28);
+    //f.setWeight(28);
     f.setPixelSize(18);
     ui->labelName->setFont(f);
-    f.setWeight(24);
+    //f.setWeight(24);
     f.setPixelSize(14);
     ui->labelVersion->setFont(f);
-    pal.setColor(QPalette::Foreground, QColor("#595959"));
+    pal.setColor(QPalette::WindowText, QColor("#595959"));
+    f.setFamily(font().family());
     ui->labelVersion->setPalette(pal);
     ui->textEdit->setFont(f);
     ui->textEdit->setPalette(pal);

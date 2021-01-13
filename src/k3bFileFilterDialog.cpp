@@ -79,6 +79,9 @@ FileFilter::FileFilter(QWidget *parent) :
     
     QLabel *filter_label = new QLabel( i18n("filterSet") );
     filter_label->setFixedHeight(25);
+    f = filter_label->font();
+    f.setPixelSize(24);
+    filter_label->setFont(f);
     discard_hidden_file = new QCheckBox( i18n("discard hidden file") );
     //discard_hidden_file->setChecked(true);
     discard_hidden_file->setFixedHeight(16);

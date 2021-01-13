@@ -500,6 +500,7 @@ void K3b::GrowisofsWriter::slotProcessExited( int exitCode, QProcess::ExitStatus
 
     // unblock the device
     k3bcore->unblockDevice( burnDevice() );
+    qDebug() << "HolalalaHoleilei" << exitCode;
 
     if( d->canceled ) {
         if( !d->finished ) {
@@ -513,7 +514,8 @@ void K3b::GrowisofsWriter::slotProcessExited( int exitCode, QProcess::ExitStatus
     d->finished = true;
 
     // it seems that growisofs sometimes exits with a valid exit code while a write error occurred
-    if( (exitCode == 0) && d->gh->error() != K3b::GrowisofsHandler::ERROR_WRITE_FAILED ) {
+    if( ((exitCode == 0) && d->gh->error() != K3b::GrowisofsHandler::ERROR_WRITE_FAILED)
+            || exitCode == 22) {
 
         int s = d->speedEst->average();
         if( s > 0 )

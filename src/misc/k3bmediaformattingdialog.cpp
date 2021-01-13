@@ -301,7 +301,7 @@ void K3b::MediaFormattingDialog::slotStartClicked()
         show();
     else
         close();
-    BurnResult* dialog = new BurnResult( flag, i18n("clean"));
+    BurnResult* dialog = new BurnResult( flag, "clean");
     dialog->show();
 }
 

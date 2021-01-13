@@ -768,15 +768,15 @@ void K3b::MainWindow::initView()
     d->btnImage->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     d->btnCopy->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-    d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata-click.png"));
+    d->btnData->setIcon(QIcon(":/icon/icon/icon-burndata.png"));
     d->btnImage->setIcon(QIcon(":/icon/icon/icon-burnimage.png"));
     d->btnCopy->setIcon(QIcon(":/icon/icon/icon-copydisk.png"));
     d->btnData->setIconSize( QSize(26,26) );
     d->btnImage->setIconSize( QSize(26,26) );
     d->btnCopy->setIconSize( QSize(26,26) );
-    d->btnData->installEventFilter(this);
-    d->btnImage->installEventFilter(this);
-    d->btnCopy->installEventFilter(this);
+    //d->btnData->installEventFilter(this);
+    //d->btnImage->installEventFilter(this);
+    //d->btnCopy->installEventFilter(this);
 
     QSpacerItem * horizontalSpacer = new QSpacerItem(5, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);    
     QSpacerItem * horizontalSpacer_2 = new QSpacerItem(60, 50, QSizePolicy::Fixed, QSizePolicy::Minimum);

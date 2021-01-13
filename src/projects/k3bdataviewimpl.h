@@ -67,6 +67,8 @@ namespace K3b {
         int slotOpenDir();
         void slotClear();
         void slotRemove();
+        void whiteHeader();
+        void blackHeader();
 
     private Q_SLOTS:
         /*
@@ -89,7 +91,6 @@ namespace K3b {
         void slotImportedSessionChanged( int importedSession );
         void slotAddUrlsRequested( QList<QUrl> urls, K3b::DirItem* targetDir );
         void slotMoveItemsRequested( QList<K3b::DataItem*> items, K3b::DirItem* targetDir );
-
     private:
         View* m_view;
         DataDoc* m_doc;

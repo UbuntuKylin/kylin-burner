@@ -88,9 +88,7 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     m_sortModel->setSourceModel( m_model );
 
     //m_fileView->setItemDelegate( new DataProjectDelegate( this ) );
-    m_fileView->header()->setStyleSheet("QHeaderView::section{"
-                                        "border: 0px solid white;"
-                                        "background-color : rgba(242, 242, 242, 1);}");
+
     m_fileView->setModel( m_sortModel );
     m_fileView->setAcceptDrops( true );
     m_fileView->setDragEnabled( true );
@@ -354,6 +352,24 @@ void K3b::DataViewImpl::slotClear()
 {
     //m_doc->clear();
     m_doc->clearDisk();
+}
+
+void K3b::DataViewImpl::whiteHeader()
+{
+#if 1
+    m_fileView->header()->setStyleSheet("QHeaderView::section{"
+                                        "border: 0px solid white;"
+                                        "background-color : rgba(242, 242, 242, 1);}");
+#endif
+}
+
+void K3b::DataViewImpl::blackHeader()
+{
+#if 1
+    m_fileView->header()->setStyleSheet("QHeaderView::section{"
+                                        "border: 0px solid white;"
+                                        "background-color : #242424;}");
+#endif
 }
 
 void K3b::DataViewImpl::slotRemove()

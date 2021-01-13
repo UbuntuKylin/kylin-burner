@@ -60,8 +60,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     m_pMenubutton->setProperty("isWindowButton", 0x1);
 
     m_pCloseButton->setProperty("useIconHighlightEffect", 0x8);
-    m_pMinimizeButton->setProperty("useIconHighlightEffect", 0x8);
-    m_pMenubutton->setProperty("useIconHighlightEffect", 0x8);
+    m_pMinimizeButton->setProperty("useIconHighlightEffect", 0x2);
+    m_pMenubutton->setProperty("useIconHighlightEffect", 0x2);
     m_pMenubutton->setPopupMode(QToolButton::InstantPopup);
 
     m_pCloseButton->setFlat(true);
@@ -94,6 +94,7 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 
 
     menu = new QMenu(this);  //新建菜单
+    menu->setFixedWidth(160);
 
     menu->addAction(QIcon(""), i18n("popup"), this,&TitleBar::popup);
     menu->addAction(QIcon(""), i18n("Clean"), this,&TitleBar::clean);

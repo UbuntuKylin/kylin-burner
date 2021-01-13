@@ -40,7 +40,7 @@ KylinBurnerFileFilterSelection::KylinBurnerFileFilterSelection(QWidget *parent) 
     hints.decorations = MWM_DECOR_BORDER;
     XAtomHelper::getInstance()->setWindowMotifHint(winId(), hints);
 
-    setFixedSize(300, 200);
+    this->setFixedSize(430, 250);
 
     setWindowTitle(i18n("FilterFile"));
 

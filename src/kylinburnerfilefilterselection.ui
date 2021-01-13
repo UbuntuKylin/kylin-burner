@@ -60,7 +60,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>300</width>
+       <width>300000</width>
        <height>34</height>
       </size>
      </property>
@@ -81,55 +81,48 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <property name="spacing">
-         <number>8</number>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
         </property>
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="minimumSize">
-           <size>
-            <width>24</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">image: url(:/icon/icon/logo-小.png);</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelTitle">
-          <property name="minimumSize">
-           <size>
-            <width>80</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>8000</width>
-            <height>24</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font: 14px &quot;Noto Sans CJK SC&quot;;</string>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/icon/icon/logo-小.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelTitle">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>8000</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14px &quot;Noto Sans CJK SC&quot;;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="labelClose">
@@ -166,7 +159,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>300</width>
+       <width>3000000</width>
        <height>40</height>
       </size>
      </property>
@@ -234,8 +227,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>300</width>
-       <height>130</height>
+       <width>3000000</width>
+       <height>130000</height>
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">

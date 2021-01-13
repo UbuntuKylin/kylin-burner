@@ -294,7 +294,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     
     /*add menu button*/
     QLabel* label_action = new QLabel( this );
-    label_action->setMinimumSize(370, 30);
+    label_action->setMinimumSize(370, 40);
     
     //添加按钮
     button_add = new QPushButton(i18n("Add"), label_action);
@@ -330,9 +330,13 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     labelFileFilter->setMinimumSize(132, 30);
     btnFileFilter = new QPushButton(i18n("FileFilter"), labelFileFilter);
     btnFileFilter->setFixedSize(112, 30);
+    btnFileFilter->setProperty("useIconHighlightEffect", 0x2);
+    btnFileFilter->setFlat(true);
+#if 0
     btnFileFilter->setStyleSheet("QPushButton{ background-color:transparent; border-radius:4px; font: 14px;}"
                                  "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px;}"
                                  "QPushButton::pressed{background-color:#415fc4; border-radius:4px; font: 14px;}");
+#endif
 
 
     //安装事件过滤器
@@ -343,7 +347,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     //QLabel* label_action = new QLabel( this );
     QHBoxLayout* layout_action = new QHBoxLayout( label_action );
-    layout_action->setContentsMargins(0,0,0,0);
+    layout_action->setContentsMargins(0,0,0, 10);
     layout_action->addWidget( button_add );
     layout_action->addStretch(8);
     layout_action->addWidget( button_remove );
@@ -375,6 +379,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     m_oSize->setFont(fl);
     toolBox()->addWidget(m_oProjectSize);
     toolBox()->addWidget(m_oSize);
+
     QLabel *tmp = new QLabel(this);
     tmp->setFixedWidth(25);
     toolBox()->addWidget(tmp);
@@ -521,10 +526,13 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
                 btnFileFilter->show();
                 enableButtonRemove();
                 enableButtonClear();
-                m_doc->addUrls(lastDrop);
-                //slotAddFile(lastDrop);
-                qDebug() << combo_CD->currentIndex();
-                //copyData(m_doc, docs[combo_CD->currentIndex()]);
+                for (int i = 0; i < docs.size(); ++i)
+                {
+                    docs[i]->addUrls(lastDrop);
+                    m_oSize->setText(KIO::convertSize(m_doc->size()));
+                    QCoreApplication::processEvents();
+                }
+                copyData(m_doc, docs.at(combo_CD->currentIndex()));
             }
             /*
             if (0 == m_dataViewImpl->model()->rowCount() ||
@@ -559,29 +567,18 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
 
 void K3b::DataView::paintEvent(QPaintEvent *e)
 {
-#if 0
-    QFont f = burn_setting->font();
-    f.setPixelSize(14);
-    combo_burner->setFont(f);
-    combo_CD->setFont(f);
-    burn_setting->setFont(f);
-    button_add->setFont(f);
-    button_remove->setFont(f);
-    button_clear->setFont(f);
-    button_newdir->setFont(f);
-    btnFileFilter->setFont(f);
-    f.setPixelSize(18);
-    burn_button->setFont(f);
-    QPalette p = palette();
-    p.setColor(QPalette::Background, QColor("#FFFFFF"));
-    setPalette(p);
+    QPalette pal = QApplication::style()->standardPalette();
 
-
-    QFont fl = m_oProjectSize->font();
-    fl.setPixelSize(14);
-    m_oProjectSize->setFont(fl);
-    m_oSize->setFont(fl);
-#endif
+    QColor c;
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        m_dataViewImpl->whiteHeader();
+    }
+    else
+    {
+        m_dataViewImpl->blackHeader();
+    }
     QWidget::paintEvent(e);
 }
 
@@ -651,6 +648,7 @@ void K3b::DataView::slotOpenClicked()
 void K3b::DataView::slotRemoveClicked()
 {
     m_dataViewImpl->slotRemove();
+    lastDrop.clear();
     copyData(docs.at(combo_CD->currentIndex()), m_doc);
 
     m_oSize->setText(KIO::convertSize(m_doc->size()));

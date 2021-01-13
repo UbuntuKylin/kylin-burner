@@ -10701,3 +10701,9 @@ msgstr "服务热线 ："
 
 msgid "Cleaning"
 msgstr "正在擦除"
+
+msgid "clean success!"
+msgstr "擦除成功"
+
+msgid "Invalid Volumn"
+msgstr "无效的容量：镜像大小超出光盘大小。"
