@@ -39,7 +39,8 @@ protected:
 private slots:
     //void on_btnClose_clicked();
     void slotsOpenURL(QString);
-
+private:
+    int                   m_iHeight;
 private:
     Ui::KylinBurnerAbout *ui;
 };

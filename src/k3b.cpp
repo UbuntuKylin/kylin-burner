@@ -269,10 +269,11 @@ void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
                                                         "/",
                                                         "com.guide.hotel",
                                                         "showGuide");
-        QFileInfo f("/usr/share/kylin-user-guide/data/guide-ubuntukylin/kylin-burner");
-        if (f.isDir()) msg << "kylin-burner";
-        else msg << "burner";
+        //QFileInfo f("/usr/share/kylin-user-guide/data/guide-ubuntukylin/kylin-burner");
+        //if (f.isDir()) msg << "kylin-burner";
+        //else msg << "burner";
         qDebug() << msg;
+        msg << "kylin-burner";
         QDBusMessage response = QDBusConnection::sessionBus().call(msg);
 
         qDebug() << response;
@@ -845,6 +846,8 @@ void K3b::MainWindow::initView()
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentStack );
     logger->debug("Draw burn data view.");
     d->view_data->setAttribute(Qt::WA_TranslucentBackground, true);
+    connect(d->view_data, SIGNAL(cdrom(bool)), title_bar->eject, SLOT(setEnabled(bool)));
+    connect(d->view_data, SIGNAL(cdrom(bool)), title_bar->earse, SLOT(setEnabled(bool)));
 
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
     logger->debug("Create copy image project.");

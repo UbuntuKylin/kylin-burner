@@ -10621,7 +10621,7 @@ msgid "popup"
 msgstr "弹出"
 
 msgid "Clean"
-msgstr "清除"
+msgstr "擦除"
 
 msgid "MD5"
 msgstr "检查完整性"
@@ -10707,3 +10707,12 @@ msgstr "擦除成功"
 
 msgid "Invalid Volumn"
 msgstr "无效的容量：镜像大小超出光盘大小。"
+
+msgid "Cannot add a folder with empty name. Please enter a valid name:"
+msgstr "无法添加没有名称的文件夹，请输入有效的名称。"
+
+msgid "Invalid Medium"
+msgstr "无效的介质"
+
+msgid "Invalid Volumn"
+msgstr "光盘容量不足"

@@ -1,3 +1,4 @@
 usr/bin/burner
-usr/share/applications/org.kde.kylin-burner.desktop
+usr/share/applications/kylin-burner.desktop
 usr/share/metainfo/org.kde.kylinburner.appdata.xml
+usr/share/kylin-user-guide/data/guide/kylin-burner

@@ -429,6 +429,7 @@ void K3b::DataDoc::addUnremovableUrlsToDir( const QList<QUrl>& l, K3b::DirItem* 
 
 bool K3b::DataDoc::nameAlreadyInDir( const QString& name, K3b::DirItem* dir )
 {
+    if (name.isEmpty()) return true;
     if( !dir )
         return false;
     else

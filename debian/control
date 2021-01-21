@@ -60,9 +60,9 @@ Depends: cdparanoia,
 	 dvd+rw-tools,
 	 growisofs,
 	 vcdimager,
-         kylin-burner-data (= ${source:Version}),
-         kylin-burner-i18n (= ${source:Version}),
-         libkylin-burner7 (= ${binary:Version}),
+         kylin-burner-data (>= ${source:Version}),
+         kylin-burner-i18n (>= ${source:Version}),
+         libkylin-burner7 (>= ${binary:Version}),
          udisks2 [linux-any],
          wodim,
          ${misc:Depends},
@@ -116,7 +116,7 @@ Description: Sophisticated CD/DVD burning application - localizations files
 Package: libkylin-burner-dev
 Section: libdevel
 Architecture: any
-Depends: libkylin-burner7 (= ${binary:Version}),
+Depends: libkylin-burner7 (>= ${binary:Version}),
          ${misc:Depends},
 Description: KDE CD/DVD burning application library - development files
  KylinBurner provides a comfortable user interface to perform most CD/DVD burning
@@ -141,7 +141,7 @@ Description: KDE CD/DVD burning application library - runtime files
 
 Package: libkylin-burner7-extracodecs
 Architecture: any
-Depends: libkylin-burner7 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Depends: libkylin-burner7 (>= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
 Replaces: kylin-burner-data 
 Description: KDE CD/DVD burning application library - extra decoders
  KylinBurner provides a comfortable user interface to perform most CD/DVD burning

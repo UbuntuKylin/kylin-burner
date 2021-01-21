@@ -299,12 +299,12 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //添加按钮
     button_add = new QPushButton(i18n("Add"), label_action);
     button_add->setFixedSize(80, 30);
-    button_add->setIcon(QIcon(":/icon/icon/icon-add.png"));
+    button_add->setIcon(QIcon::fromTheme("edit-add"));
     button_add->setObjectName("btnAdd");
     button_add->setProperty("useIconHighlightEffect", 0x8);
     //删除按钮
     button_remove = new QPushButton(i18n("Remove"), label_action );
-    button_remove->setIcon(QIcon(":/icon/icon/icon-delete.png"));
+    button_remove->setIcon(QIcon::fromTheme("edit-clear"));
     button_remove->setFixedSize(80, 30);
     button_remove->setEnabled( false );
     button_remove->setObjectName("btnRemove");
@@ -312,7 +312,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     //清空按钮
     button_clear = new QPushButton(i18n("Clear"), label_action );
-    button_clear->setIcon(QIcon(":/icon/icon/icon-clean.png"));
+    button_clear->setIcon(QIcon::fromTheme("edit-delete"));
     button_clear->setFixedSize(80, 30);
     button_clear->setEnabled( false );
     button_clear->setObjectName("btnClear");
@@ -320,7 +320,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     //新建文件夹按钮
     button_newdir = new QPushButton(i18n("New Dir"), label_action );
-    button_newdir->setIcon(QIcon(":/icon/icon/icon-newfolder.png"));
+    button_newdir->setIcon(QIcon::fromTheme("folder-add"));
     button_newdir->setFixedSize(112, 30);
     button_newdir->setObjectName("btnNewDir");
     button_newdir->setProperty("useIconHighlightEffect", 0x8);
@@ -878,6 +878,9 @@ void K3b::DataView::slotComboCD(int index)
     K3b::DataDoc *tmpDoc = NULL;
 
     if (-1 == index) return;
+
+    if (device_index.size()) emit cdrom(true);
+    else cdrom(false);
 
     tmpDoc = docs[index];
     m_doc->clear();
@@ -1465,6 +1468,7 @@ void K3b::DataView::isReplace(bool flag)
             child = m_doc->root()->children().at(i);
             if (child->isSymLink())
             {
+                QFileInfo f(child->localPath());
                 if (child->isDeleteable())
                 {
                     tmp->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));
@@ -1476,6 +1480,8 @@ void K3b::DataView::isReplace(bool flag)
                 logger->info("Filter replace link item <%s>", child->localPath().toStdString().c_str());
                 m_doc->removeItem(child);
                 --i;
+                m_doc->addUrl(QUrl::fromLocalFile(f.symLinkTarget()));
+                //copyData(m_doc, docs[combo_CD->currentIndex()]);
             }
             copyData(docs[combo_CD->currentIndex()], m_doc);
         }
@@ -1487,6 +1493,14 @@ void K3b::DataView::isReplace(bool flag)
             child = tmp->root()->children().at(i);
             if (child->isSymLink())
             {
+                QFileInfo f(child->localPath());
+                QFileInfo fi(f.symLinkTarget());
+                for (int j = 0; j < m_doc->root()->children().size(); ++j)
+                {
+                    if (m_doc->root()->children().at(j)->k3bName() ==
+                            fi.fileName())
+                        m_doc->removeItem(m_doc->root()->children().at(j));
+                }
                 if (child->isDeleteable())
                 {
                     m_doc->addUrls(QList<QUrl>() << QUrl::fromLocalFile(child->localPath()));

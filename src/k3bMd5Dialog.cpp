@@ -241,7 +241,7 @@ void K3b::Md5Check::md5_start()
 
     qDebug() << __FUNCTION__ << __LINE__ << "cmd :" << cmd;
 
-    result = checkMd5(cmd.toLatin1().data());
+    result = checkMd5(cmd.toUtf8().data());
     
     qDebug() << __FUNCTION__ << __LINE__ << "result :" << result;
     

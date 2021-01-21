@@ -165,6 +165,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
 
     lineedit_iso = new QLineEdit(this);
     lineedit_iso->setFixedSize(360, 30);
+    lineedit_iso->setAcceptDrops(false);
     connect(lineedit_iso, SIGNAL(editingFinished()), this, SLOT(on_editingFinish()));//on_textChanged
     connect(lineedit_iso, SIGNAL(textChanged(QString)), this, SLOT(on_textChanged(QString)));//on_textChanged
 

@@ -290,7 +290,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/option/k3btheme.knsrc.cmake
 
 
 ########### install files ###############
-install( PROGRAMS  org.kde.kylin-burner.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+#install( PROGRAMS  org.kde.kylin-burner.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS  kylin-burner.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 #install( FILES  k3b-iso.desktop k3b-cue.desktop DESTINATION ${APPLNK_INSTALL_DIR}/.hidden/ )
 install( FILES  k3b.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
 install( FILES  k3bui.rc k3bdeviceui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/kylinburner )

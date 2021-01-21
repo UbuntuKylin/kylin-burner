@@ -258,11 +258,12 @@ void K3b::DataViewImpl::slotNewDir()
     QInputDialog newDir(m_view);
     newDir.setWindowTitle(i18n("New Folder"));
     newDir.setWindowIcon(QIcon::fromTheme("brasero"));
-    newDir.setStyleSheet("width: 150px;");
     newDir.setLabelText(i18n("Please insert the name for the new folder:"));
     newDir.setTextValue(i18n("New Folder"));
     ok = newDir.exec();
     name = newDir.textValue();
+
+    qDebug() << newDir.findChildren<QWidget *>();
 
     /*
     name = QInputDialog::getText( m_view,
@@ -282,7 +283,10 @@ void K3b::DataViewImpl::slotNewDir()
                                       i18n("New Folder"),
                                       &ok );
                                       */
-        newDir.setLabelText(i18n("A folder with that name already exists. Please enter a new name:"));
+        if (name.isEmpty())
+            newDir.setLabelText(i18n("Cannot add a folder with empty name. Please enter a valid name:"));
+        else
+            newDir.setLabelText(i18n("A folder with that name already exists. Please enter a new name:"));
         ok = newDir.exec();
         name = newDir.textValue();
     }

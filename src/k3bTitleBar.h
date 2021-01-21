@@ -53,6 +53,7 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
     /*
     // 双击标题栏进行界面的最大化/还原
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
@@ -84,7 +85,9 @@ private:
     bool mMoving;
     // 最大化/还原
     void updateMaximize();
-
+public:
+    QAction *eject;
+    QAction *earse;
 private:
     QLabel *m_pIconLabel;
     QLabel *m_pTitleLabel;

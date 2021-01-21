@@ -94,19 +94,23 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 
 
     menu = new QMenu(this);  //新建菜单
-    menu->setFixedWidth(160);
+    menu->setMinimumWidth(160);
+    menu->setAutoFillBackground(true);
 
-    menu->addAction(QIcon(""), i18n("popup"), this,&TitleBar::popup);
-    menu->addAction(QIcon(""), i18n("Clean"), this,&TitleBar::clean);
+    eject = menu->addAction(i18n("popup"), this,&TitleBar::popup);
+    eject->setEnabled(false);
+    earse = menu->addAction(i18n("Clean"), this,&TitleBar::clean);
+    earse->setEnabled(false);
     menu->addSeparator();
-    menu->addAction(QIcon(""), i18n("MD5"), this,&TitleBar::md5);
-    menu->addAction(QIcon(""), i18n("filter"), this, &TitleBar::filter);
+    menu->addAction(i18n("MD5"), this,&TitleBar::md5);
+    menu->addAction( i18n("filter"), this, &TitleBar::filter);
     menu->addSeparator();
-    menu->addAction(QIcon(""), i18n("help"), this,&TitleBar::help);
-    menu->addAction(QIcon(""), i18n("about"), this,&TitleBar::about);
+    menu->addAction(i18n("help"), this,&TitleBar::help);
+    menu->addAction(i18n("about"), this,&TitleBar::about);
+    menu->addSeparator();
+    menu->addAction(i18n("exit"), this,[=](){exit(0);});
 
 
-    menu->setObjectName("menu");
     #if 0
     ThManager()->regTheme(menu, "ukui-white","#menu{background-color: rgba(255, 255, 255, 1);"
                                              "border: 1px solid rgba(0, 0, 0, 0.6); border-radius: 4px;}"
@@ -171,6 +175,25 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 bool K3b::TitleBar::eventFilter(QObject *watched, QEvent *event)
 {
     return QWidget::eventFilter(watched, event);
+}
+
+void K3b::TitleBar::paintEvent(QPaintEvent *e)
+{
+    QPalette pal = QApplication::style()->standardPalette();
+
+    QColor c;
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if (c == pal.background().color())
+    {
+        pal.setBrush(QPalette::Background, QColor("#FFFFFF"));
+        menu->setPalette(pal);
+    }
+    else
+    {
+        pal.setBrush(QPalette::Background, QColor("#484848"));
+        menu->setPalette(pal);
+    }
+    QWidget::paintEvent(e);
 }
 
 K3b::TitleBar::~TitleBar()
@@ -329,10 +352,11 @@ void K3b::TitleBar::help()
                                                     "/",
                                                     "com.guide.hotel",
                                                     "showGuide");
-    QFileInfo f("/usr/share/kylin-user-guide/data/guide-ubuntukylin/kylin-burner");
-    if (f.isDir()) msg << "kylin-burner";
-    else msg << "burner";
-    qDebug() << msg;
+    //QFileInfo f("/usr/share/kylin-user-guide/data/guide-ubuntukylin/kylin-burner");
+    //if (f.isDir()) msg << "kylin-burner";
+    //else msg << "burner";
+    //qDebug() << msg;
+    msg << "kylin-burner";
     QDBusMessage response = QDBusConnection::sessionBus().call(msg);
 
     qDebug() << response;

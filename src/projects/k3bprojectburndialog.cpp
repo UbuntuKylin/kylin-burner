@@ -501,6 +501,21 @@ void K3b::ProjectBurnDialog::setOnlyCreateImage( bool ret )
     m_checkOnlyCreateImage->setChecked( ret );
 }
 
+void K3b::ProjectBurnDialog::setCacheImage(bool b)
+{
+    m_checkCacheImage->setChecked(b);
+}
+
+bool K3b::ProjectBurnDialog::onlyCreateImage()
+{
+    return m_checkOnlyCreateImage->isChecked();
+}
+
+bool K3b::ProjectBurnDialog::cacheImage()
+{
+    return m_checkCacheImage->isChecked();
+}
+
 void K3b::ProjectBurnDialog::setTmpPath( QString ret )
 {
     m_tempDirSelectionWidget->setTempPath( ret );

@@ -171,6 +171,7 @@ namespace K3b {
 
     signals:
         void load(QString, DataDoc*);
+        void cdrom(bool);
         void disableCD(bool);
         //void doFileFilter(K3b::DataDoc *doc);
         void setIsHidden(bool);
