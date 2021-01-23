@@ -299,12 +299,12 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     //添加按钮
     button_add = new QPushButton(i18n("Add"), label_action);
     button_add->setFixedSize(80, 30);
-    button_add->setIcon(QIcon::fromTheme("edit-add"));
+    button_add->setIcon(QIcon::fromTheme("edit-add", QIcon(":/icon/icon/icon-add.png")));
     button_add->setObjectName("btnAdd");
     button_add->setProperty("useIconHighlightEffect", 0x8);
     //删除按钮
     button_remove = new QPushButton(i18n("Remove"), label_action );
-    button_remove->setIcon(QIcon::fromTheme("edit-clear"));
+    button_remove->setIcon(QIcon::fromTheme("edit-clear", QIcon(":/icon/icon/icon-delete.png")));
     button_remove->setFixedSize(80, 30);
     button_remove->setEnabled( false );
     button_remove->setObjectName("btnRemove");
@@ -312,7 +312,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     //清空按钮
     button_clear = new QPushButton(i18n("Clear"), label_action );
-    button_clear->setIcon(QIcon::fromTheme("edit-delete"));
+    button_clear->setIcon(QIcon::fromTheme("edit-delete", QIcon(":/icon/icon/icon-clean.png")));
     button_clear->setFixedSize(80, 30);
     button_clear->setEnabled( false );
     button_clear->setObjectName("btnClear");
@@ -320,7 +320,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
     //新建文件夹按钮
     button_newdir = new QPushButton(i18n("New Dir"), label_action );
-    button_newdir->setIcon(QIcon::fromTheme("folder-add"));
+    button_newdir->setIcon(QIcon::fromTheme("folder-add" , QIcon(":/icon/icon/icon-newfolder.png")));
     button_newdir->setFixedSize(112, 30);
     button_newdir->setObjectName("btnNewDir");
     button_newdir->setProperty("useIconHighlightEffect", 0x8);
@@ -420,7 +420,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
 
 
     pdlg = newBurnDialog( this );
-
+    disableBurnSetting();
     logger->debug("Draw data burner end");
 }
 
@@ -939,7 +939,7 @@ void K3b::DataView::slotStartBurn()
     logger->debug("Start Burn button cliked. now project size is %llu", m_doc->burningSize());
 
 
-    if( m_doc->burningSize() == 0 ) { 
+    if( m_doc->root()->children().size() == 0 ) {
          KMessageBox::information( this, i18n("Please add files to your project first."),
                                       i18n("No Data to Burn") );
     }else if ( burn_button->text() == i18n("start burner" )){ 
@@ -968,8 +968,8 @@ void K3b::DataView::slotStartBurn()
 
 void K3b::DataView::slotBurn()
 {
-       if( m_doc->burningSize() == 0 ) { 
-         QMessageBox::information( nullptr, i18n("No Data to Burn"), i18n("Please add files to your project first."));
+       if( m_doc->root()->children().size() == 0 ) {
+         QMessageBox::information( nullptr, i18n("open"), i18n("No Data to Burn"));
     }else if ( burn_setting->text() == i18n("setting") ){
         pdlg->execBurnDialog(true);
     }else if ( burn_setting->text() == i18n("open" )){

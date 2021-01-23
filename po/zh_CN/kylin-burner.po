@@ -10714,5 +10714,5 @@ msgstr "无法添加没有名称的文件夹，请输入有效的名称。"
 msgid "Invalid Medium"
 msgstr "无效的介质"
 
-msgid "Invalid Volumn"
-msgstr "光盘容量不足"
+msgid "exit"
+msgstr "退出"
