@@ -969,8 +969,7 @@ void K3b::DataView::slotStartBurn()
 void K3b::DataView::slotBurn()
 {
        if( m_doc->burningSize() == 0 ) { 
-         KMessageBox::information( this, i18n("Please add files to your project first."),
-                                      i18n("No Data to Burn") );
+         QMessageBox::information( nullptr, i18n("No Data to Burn"), i18n("Please add files to your project first."));
     }else if ( burn_setting->text() == i18n("setting") ){
         pdlg->execBurnDialog(true);
     }else if ( burn_setting->text() == i18n("open" )){

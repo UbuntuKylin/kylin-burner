@@ -76,8 +76,8 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     this->hide();
     connect(ui->btnClose, SIGNAL(clicked()), this, SLOT(hide()));
-    connect(ui->labelSupport, SIGNAL(linkActivated(QSi18ning)),
-            this, SLOT(slotsOpenURL(QSi18ning)));
+    connect(ui->labelSupport, SIGNAL(linkActivated(QString)),
+            this, SLOT(slotsOpenURL(QString)));
 }
 
 KylinBurnerAbout::~KylinBurnerAbout()
