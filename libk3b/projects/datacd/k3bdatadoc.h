@@ -49,6 +49,17 @@ namespace K3b {
     {
         Q_OBJECT
 
+    private:
+        bool filterHidden;
+        bool filterSymbolLink;
+        bool repleaceSymbolLink;
+    public:
+        void setHidden(bool b) { filterHidden = b;}
+        void setSymbolLink(bool b) { filterSymbolLink = b; }
+        void setRepleaceSymbolLink(bool b) { repleaceSymbolLink = b; }
+        bool isFilterHidden() const { return filterHidden; }
+        bool isFilterSymbolLink() const { return filterSymbolLink; }
+        bool isRepleaceSymbolLink() const { return repleaceSymbolLink; }
     public:
         explicit DataDoc( QObject* parent = 0 );
         ~DataDoc() override;

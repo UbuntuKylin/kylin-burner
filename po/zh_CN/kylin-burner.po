@@ -10716,3 +10716,9 @@ msgstr "无效的介质"
 
 msgid "exit"
 msgstr "退出"
+
+msgid "iso file(*.iso)"
+msgstr "镜像文件(*.iso)"
+
+msgid "Only invalid at level root."
+msgstr "只对根节点数据生效。"

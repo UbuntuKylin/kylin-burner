@@ -309,7 +309,7 @@ void K3b::JobProgressDialog::setupGUI()
     
     label_title = new QLabel( this );
     label_title->setText( i18n("burning") );
-    label_title->setFixedHeight(18);
+    label_title->setFixedHeight(30);
     f.setPixelSize(18);
     label_title->setFont(f);
     mainLayout->addWidget( label_title);
@@ -321,9 +321,11 @@ void K3b::JobProgressDialog::setupGUI()
     //layout4->addWidget( textLabel5 );
 
     m_labelProcessedSize = new QLabel( this );
-    m_labelProcessedSize->setFixedHeight( 12 );
-    m_labelProcessedSize->setAlignment( Qt::AlignVCenter | Qt::AlignRight );
-    m_labelProcessedSize->setStyleSheet("QLabel{font:12px;color:#888888}");
+    m_labelProcessedSize->setAlignment( Qt::AlignTop | Qt::AlignRight );
+    //m_labelProcessedSize->setStyleSheet("QLabel{font:12px;color:#888888}");
+    m_labelProcessedSize->setFixedHeight( d->viewInfo->height() );
+    m_labelProcessedSize->setFont(d->viewInfo->font());
+    m_labelProcessedSize->setPalette(d->viewInfo->palette());
     //layout4->addWidget( m_labelProcessedSize );
     //mainLayout->addLayout( layout4 );
 

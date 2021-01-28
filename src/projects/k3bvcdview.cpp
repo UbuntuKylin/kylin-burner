@@ -98,8 +98,9 @@ K3b::VcdView::VcdView( K3b::VcdDoc* doc, QWidget* parent )
     button_openfile->setFont(label_font);
 
     button_start = new QPushButton(this);
-    if (isBurner) button_start->setText(i18n("start burner"));
-    else button_start->setText(i18n("Create image"));
+    //if (isBurner) button_start->setText(i18n("start burner"));
+    //else button_start->setText(i18n("Create image"));
+    button_start->setText(i18n("Create image"));
     button_start->setFixedSize(140, 45);
     button_start->setEnabled( false );
     label_font.setPixelSize(18);
@@ -273,17 +274,19 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
     lastIndex = combo_CD->currentIndex();
 
     if (i18n("empty medium " ) == combo_CD->currentText() ||
-            i18n("please insert a available medium" ) == combo_CD->currentText())
+            i18n("please insert a available medium" ) == combo_CD->currentText()
+            || combo_CD->count() == 0 || combo_iso->currentIndex() > 0)
     {
-        disableBurnerStart();
+        button_start->setEnabled(false);
+
     }
     else
     {
-        enableBurnerStart();
+        button_start->setEnabled(true);
     }
-    if (0 == combo_iso->count()) disableBurnerStart();
-    else if (0 == lastIndex) enableBurnerStart();
-    else disableBurnerStart();
+    if (0 == combo_iso->count()) button_start->setEnabled(false);
+    else if (0 == lastIndex) button_start->setEnabled(true);
+    else button_start->setEnabled(false);
     /*
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
     combo_iso->clear();
@@ -336,7 +339,7 @@ void K3b::VcdView::slotMediaChange( K3b::Device::Device* dev)
 
 void K3b::VcdView::slotComboISO(int idx)
 {
-    if (0 == combo_iso->count()) disableBurnerStart();
+    if (0 == combo_iso->count()) button_start->setEnabled(false);
     if (-1 == idx) return;
 
     if (combo_CD->currentIndex() &&
@@ -347,6 +350,8 @@ void K3b::VcdView::slotComboISO(int idx)
 void K3b::VcdView::slotComboCD(int ret)
 {
     qDebug() << "Last index is : " << lastIndex << "| Current index is : " << ret;
+    if (ret > 0) button_start->setEnabled(false);
+    else button_start->setEnabled(true);
     if (ret)
     {
         if (sourceDevices.size() && cdDevices[ret - 1] == sourceDevices[combo_iso->currentIndex()])
@@ -355,27 +360,29 @@ void K3b::VcdView::slotComboCD(int ret)
             combo_CD->setCurrentIndex(lastIndex);
             return;
         }
-        isBurner = true;
+        //isBurner = true;
+        isBurner = false;
     }
     else
     {
         isBurner = false;
-        button_start->setEnabled(true);
+        //button_start->setEnabled(true);
     }
     lastIndex = ret;
-
+#if 0
     if (isBurner)
     {
         button_openfile->setText(i18n("setting"));
         button_start->setText(i18n("start burner"));
         if (i18n("empty medium " ) == combo_CD->currentText() ||
-                i18n("please insert a available medium" ) == combo_CD->currentText())
+                i18n("please insert a available medium" ) == combo_CD->currentText()
+                || combo_CD->count() == 0 || combo_iso->currentIndex() > 0)
         {
-            button_start->setEnabled(true);
+            button_start->setEnabled(false);
         }
         else
         {
-            button_start->setEnabled(false);
+            button_start->setEnabled(true);
         }
     }
     else
@@ -383,6 +390,7 @@ void K3b::VcdView::slotComboCD(int ret)
         button_openfile->setText(i18n("choice"));
         button_start->setText(i18n("Create image"));
     }
+#endif
     /*
     qDebug() << "index: " << ret << endl;
     button_start->setEnabled( true );
@@ -470,7 +478,7 @@ void K3b::VcdView::slotStartBurn()
     }
     button_start->setEnabled(false);
     dlg->slotStartClicked();
-    button_start->setEnabled(true);
+    //button_start->setEnabled(true);
     if (combo_CD->currentIndex())
     {
         if (sourceDevices[combo_iso->currentIndex()] ==

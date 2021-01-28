@@ -93,6 +93,7 @@ KylinBurnerFileFilter::KylinBurnerFileFilter(QWidget *parent) :
     connect( ui->treeView, SIGNAL(doubleClicked(QModelIndex)),
              this, SLOT(slotDoubleClicked(QModelIndex)) );
     connect(selection, SIGNAL(changeSetting(int, bool)), this, SLOT(slotDoChangeSetting(int, bool)));
+    ui->btnSetting->setToolTip(i18n("Only invalid at level root."));
 }
 
 KylinBurnerFileFilter::~KylinBurnerFileFilter()

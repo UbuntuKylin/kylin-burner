@@ -332,6 +332,7 @@ K3b::DataView::DataView( K3b::DataDoc* doc, QWidget* parent )
     btnFileFilter->setFixedSize(112, 30);
     btnFileFilter->setProperty("useIconHighlightEffect", 0x2);
     btnFileFilter->setFlat(true);
+    btnFileFilter->setToolTip(i18n("Only invalid at level root."));
 #if 0
     btnFileFilter->setStyleSheet("QPushButton{ background-color:transparent; border-radius:4px; font: 14px;}"
                                  "QPushButton::hover{background-color:#6b8eeb; border-radius:4px; font: 14px;}"
@@ -533,6 +534,11 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
                     QCoreApplication::processEvents();
                 }
                 copyData(m_doc, docs.at(combo_CD->currentIndex()));
+
+
+                slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
+                slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
+                slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);
             }
             /*
             if (0 == m_dataViewImpl->model()->rowCount() ||
@@ -679,29 +685,6 @@ void K3b::DataView::slotNewdirClicked()
 
 void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
 {
-    /*
-    QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
-    if ( device_list.count() == 0 ){
-        //combo_burner->setEnabled(false);
-        //combo_CD->setEditable(true);
-    }else 
-        slotMediaChange( 0 );
-    */
-
-    /*
-    QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
-    logger->debug("Device changed, now have %d device(s)", device_list.size());
-    for (int i = 0; i < device_list.size(); ++i)
-    {
-        if (-1 == device_index.indexOf(device_list[i]))
-        {
-            logger->debug("Device %s need to add.", (device_list[i]->blockDeviceName()).toStdString().c_str());
-            slotMediaChange(device_list[i]);
-        }
-    }
-    */
-
-
     logger->debug("Device changed...");
     QList<K3b::Device::Device*> device_list = k3bcore->deviceManager()->allDevices();
 
@@ -723,7 +706,8 @@ void K3b::DataView::slotDeviceChange( K3b::Device::DeviceManager* manager )
 
     for (int i = 0; i < device_list.size(); ++i)
     {
-        if (-1 == device_index.indexOf(device_list[i]))
+        if (-1 == device_index.indexOf(device_list[i])
+                && !(device_list[i]->vendor().startsWith("Linux")))
         {
             logger->debug("add device [%s] at index %d on selection item index",
                           (device_list[i]->blockDeviceName()).toStdString().c_str(), i);
@@ -746,6 +730,9 @@ void K3b::DataView::slotMediaChange( K3b::Device::Device* dev )
     KMountPoint::Ptr mountPoint = KMountPoint::currentMountPoints().findByDevice( dev->blockDeviceName() );
 
     QCoreApplication::processEvents();
+
+    // start with Linux, not a CDROM
+    if (dev->vendor().startsWith("Linux")) return;
 
     cdSize =  KIO::convertSize(dev->diskInfo().remainingSize().mode1Bytes());
     if( !mountPoint)
@@ -948,6 +935,10 @@ void K3b::DataView::slotStartBurn()
         --index;
         dlg->setComboMedium( device_index.at( index ) );
         m_doc->setBurner( device_index.at( index ) );
+        dlg->setOnlyCreateImage(pdlg->onlyCreateImage());
+        dlg->setCacheImage(pdlg->cacheImage());
+        dlg->setTmpPath(image_path);
+        dlg->setSpeed(pdlg->speed());
         qDebug()<< "index :" <<  index << " device block name: " << device_index.at( index )->blockDeviceName() <<endl;
         dlg->slotStartClicked();
     }else if( burn_button->text() == i18n("create iso" )){ 
@@ -1330,7 +1321,6 @@ void K3b::DataView::isHidden(bool flag)
 {
     logger->debug("call to set file filter hidden is %s",
                   flag ? "true" : "false");
-
     K3b::DataDoc *tmp = dlgFileFilter->getData(combo_CD->currentIndex());
     K3b::DataItem *child = NULL;
     if (!tmp)

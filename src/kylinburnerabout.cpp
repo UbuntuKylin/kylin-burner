@@ -76,6 +76,7 @@ KylinBurnerAbout::KylinBurnerAbout(QWidget *parent) :
     this->move(screenRect.width() / 2, screenRect.height() / 2);
     this->hide();
     connect(ui->btnClose, SIGNAL(clicked()), this, SLOT(hide()));
+    ui->labelSupport->setContextMenuPolicy(Qt::NoContextMenu);
     connect(ui->labelSupport, SIGNAL(linkActivated(QString)),
             this, SLOT(slotsOpenURL(QString)));
 }
@@ -100,14 +101,14 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
     if (c == pal.background().color())
     {
         pal.setColor(QPalette::Background, QColor("#FFFFFF"));
-        pp.setColor(QPalette::WindowText, QColor("#595959"));
-        ui->labelSupport->setText(i18n("Service & Technology Support : ") +
-                                  "<a href=\"mailto://support@kylinos.cn\""
-                                  "style=\"color:#595959\">"
-                                  "support@kylinos.cn</a>");
+        //pp.setColor(QPalette::WindowText, QColor("#595959"));
+        ui->labelSupport->setText(i18n("Service & Support : ") +
+                                  "<a href=\"mailto://support@kylinos.cn\"" +
+                                  QString("style=\"color:palette(buttonText)\">")
+                                  + "support@kylinos.cn</a>");
 
-        ui->textEdit->setText("<body style=\"background:#FFFFFF;\">"
-                              "<p style=\"color:#595959\">" +
+        ui->textEdit->setText("<body style=\"background:#FFFFFF;\">"+
+                              tr("<p style=\"color: %1\">").arg(pal.windowText().color().name(QColor::HexRgb))+
                               i18n("Kylin Burner is a lightweight burning software based "
                                    "on the secondary development of open source burning "
                                    "software K3b. With K3b burning as the basic core and "
@@ -120,14 +121,14 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
     else
     {
         setPalette(pal);
-        pp.setColor(QPalette::WindowText, QColor("#A6A6A6"));
-        ui->labelSupport->setText(i18n("Service & Technology Support : ") +
-                                  "<a href=\"mailto://support@kylinos.cn\""
-                                  "style=\"color:#A6A6A6\">"
-                                  "support@kylinos.cn</a>");
+        //pp.setColor(QPalette::WindowText, QColor("#A6A6A6"));
+        ui->labelSupport->setText(i18n("Service & Support : ") +
+                                  "<a href=\"mailto://support@kylinos.cn\"" +
+                                  QString("style=\"color:palette(buttonText)\">")
+                                  + "support@kylinos.cn</a>");
         ui->textEdit->setText(QString("<body style=\"background:%1;\">")
                               .arg(pal.background().color().name(QColor::HexRgb)) +
-                              "<p style=\"color:#A6A6A6\">" +
+                              tr("<p style=\"color: %1\">").arg(pal.windowText().color().name(QColor::HexRgb)) +
                               i18n("Kylin Burner is a lightweight burning software based "
                                    "on the secondary development of open source burning "
                                    "software K3b. With K3b burning as the basic core and "

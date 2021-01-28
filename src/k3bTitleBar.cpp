@@ -30,7 +30,7 @@
 #include <QCheckBox>
 #include <QTextEdit>
 #include <QGraphicsDropShadowEffect>
-
+#include <QMessageBox>
 #include <QDebug>
 
 #include "k3b.h"
@@ -103,7 +103,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
     earse->setEnabled(false);
     menu->addSeparator();
     menu->addAction(i18n("MD5"), this,&TitleBar::md5);
-    menu->addAction( i18n("filter"), this, &TitleBar::filter);
+    QAction *f = menu->addAction( i18n("filter"), this, &TitleBar::filter);
+    f->setToolTip(i18n("Only invalid at level root."));
     menu->addSeparator();
     menu->addAction(i18n("help"), this,&TitleBar::help);
     menu->addAction(i18n("about"), this,&TitleBar::about);
@@ -344,6 +345,7 @@ void K3b::TitleBar::md5()
 
 void K3b::TitleBar::filter()
 {
+    QMessageBox::about(nullptr, i18n("filter"), i18n("Only invalid at level root."));
     dlg->show();
 }
 void K3b::TitleBar::help()

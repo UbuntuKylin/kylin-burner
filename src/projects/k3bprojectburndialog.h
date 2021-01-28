@@ -65,6 +65,8 @@ namespace K3b {
         void setTmpPath( QString );
         bool onlyCreateImage();
         bool cacheImage();
+        int speed();
+        void setSpeed(int);
     
     public Q_SLOTS:
         void slotFinished( bool );

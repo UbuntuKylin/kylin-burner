@@ -516,6 +516,16 @@ bool K3b::ProjectBurnDialog::cacheImage()
     return m_checkCacheImage->isChecked();
 }
 
+int K3b::ProjectBurnDialog::speed()
+{
+    return m_writerSelectionWidget->writerSpeed();
+}
+
+void K3b::ProjectBurnDialog::setSpeed(int s)
+{
+    m_writerSelectionWidget->setSpeed(s);
+}
+
 void K3b::ProjectBurnDialog::setTmpPath( QString ret )
 {
     m_tempDirSelectionWidget->setTempPath( ret );
