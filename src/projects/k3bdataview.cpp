@@ -534,8 +534,6 @@ bool K3b::DataView::eventFilter(QObject *obj, QEvent *event)
                     QCoreApplication::processEvents();
                 }
                 copyData(m_doc, docs.at(combo_CD->currentIndex()));
-
-
                 slotOption(0, dlgFileFilter->getStatus(combo_CD->currentIndex()).isHidden);
                 slotOption(1, dlgFileFilter->getStatus(combo_CD->currentIndex()).isBroken);
                 slotOption(2, dlgFileFilter->getStatus(combo_CD->currentIndex()).isReplace);

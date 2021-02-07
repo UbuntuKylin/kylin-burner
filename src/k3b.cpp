@@ -120,6 +120,8 @@
 #include <QButtonGroup>
 #include <QGridLayout>
 
+#include <pwd.h>
+
 namespace {
 
     bool isProjectFile( QMimeDatabase const& mimeDatabase, QUrl const& url )
@@ -265,7 +267,11 @@ void K3b::MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (Qt::Key_F1 == event->key())
     {
-        QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+        struct passwd *pwd;
+
+        pwd = getpwuid(getuid());
+        QString name = QString("com.kylinUserGuide.hotel_%1").arg(pwd->pw_gid);
+        QDBusMessage msg = QDBusMessage::createMethodCall( name,
                                                         "/",
                                                         "com.guide.hotel",
                                                         "showGuide");

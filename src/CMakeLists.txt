@@ -74,7 +74,7 @@ qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.AudioProj
 qt5_generate_dbus_interface( ${CMAKE_CURRENT_SOURCE_DIR}/k3bdataprojectinterface.h org.k3b.DataProject.xml )
 qt5_add_dbus_adaptor( dbus_sources ${CMAKE_CURRENT_BINARY_DIR}/org.k3b.DataProject.xml k3bdataprojectinterface.h K3b::DataProjectInterface k3bdataprojectinterfaceadaptor K3bDataProjectInterfaceAdaptor )
 
-add_executable(burner
+add_executable(kylin-burner
     kylinburnerfilefilter.cpp
     kylinburnerfilefilterselection.cpp
     kylinburnerlogger.cpp
@@ -236,14 +236,14 @@ add_executable(burner
     ${IMAGES_RCC_SRCS}
 )
 
-target_include_directories(burner PRIVATE
+target_include_directories(kylin-burner PRIVATE
     ${CMAKE_BINARY_DIR}
     helper
     projects
     projects/kostore
 )
 
-target_link_libraries(burner
+target_link_libraries(kylin-burner
     k3bdevice
     k3blib
     pthread
@@ -266,23 +266,23 @@ target_link_libraries(burner
 )
 
 if(Qt5WebKitWidgets_FOUND)
-    target_link_libraries(burner Qt5::WebKitWidgets)
+    target_link_libraries(kylin-burner Qt5::WebKitWidgets)
 endif()
 
 if(ICONV_FOUND)
-    target_include_directories(burner PRIVATE ${ICONV_INCLUDE_DIR})
-    target_link_libraries(burner ${ICONV_LIBRARIES})
+    target_include_directories(kylin-burner PRIVATE ${ICONV_INCLUDE_DIR})
+    target_link_libraries(kylin-burner ${ICONV_LIBRARIES})
 endif()
 
 if(ENABLE_AUDIO_PLAYER)
-    target_link_libraries(burner Qt5::Multimedia)
+    target_link_libraries(kylin-burner Qt5::Multimedia)
 endif()
 
 if(ENABLE_MUSICBRAINZ)
-    target_link_libraries(burner ${MUSICBRAINZ_LIBRARIES})
+    target_link_libraries(kylin-burner ${MUSICBRAINZ_LIBRARIES})
 endif()
 
-install(TARGETS burner ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kylin-burner ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/option/k3btheme.knsrc.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/option/k3btheme.knsrc

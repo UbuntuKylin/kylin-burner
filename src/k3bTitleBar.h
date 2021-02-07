@@ -26,6 +26,7 @@
 
 #include <QToolButton>
 #include <QLabel>
+#include <QGSettings/QGSettings>
 
 namespace K3b{
     
@@ -95,6 +96,7 @@ private:
     QPushButton *m_pMinimizeButton;
     QPushButton *m_pMaximizeButton;
     QPushButton *m_pCloseButton;
+    QGSettings *setting;
     QMenu *menu;
     FileFilter  *dlg;
     KylinBurnerAbout *abouta;

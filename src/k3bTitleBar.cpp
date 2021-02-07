@@ -32,6 +32,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QMessageBox>
 #include <QDebug>
+#include <pwd.h>
 
 #include "k3b.h"
 #include "k3bTitleBar.h"
@@ -47,6 +48,18 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 {
 
     setFixedHeight(50);
+
+    setting = nullptr;
+    if (QGSettings::isSchemaInstalled("org.ukui.style"))
+    {
+        setting  = new QGSettings("org.ukui.style");
+        connect(setting, &QGSettings::changed, [=](const QString key){
+            if (key == "menu-transparency")
+            {
+                setting->set(key, 100);
+            }
+        });
+    }
 
     m_pIconLabel = new QLabel(this);
     m_pTitleLabel = new QLabel(this);
@@ -94,8 +107,8 @@ K3b::TitleBar::TitleBar(QWidget *parent)
 
 
     menu = new QMenu(this);  //新建菜单
-    menu->setMinimumWidth(160);
-    menu->setAutoFillBackground(true);
+    //menu->setMinimumWidth(160);
+    //menu->setAutoFillBackground(true);
 
     eject = menu->addAction(i18n("popup"), this,&TitleBar::popup);
     eject->setEnabled(false);
@@ -180,20 +193,28 @@ bool K3b::TitleBar::eventFilter(QObject *watched, QEvent *event)
 
 void K3b::TitleBar::paintEvent(QPaintEvent *e)
 {
+    // temp : for menu opacity.
+    if (setting)
+        setting->set("menu-transparency", 100);
+
+#if 0
     QPalette pal = QApplication::style()->standardPalette();
 
     QColor c;
     c.setRed(231); c.setBlue(231); c.setGreen(231);
     if (c == pal.background().color())
     {
-        pal.setBrush(QPalette::Background, QColor("#FFFFFF"));
+        pal.setBrush(QPalette::Background, QColor("#FFFFFFFF"));
+        menu->setAutoFillBackground(true);
         menu->setPalette(pal);
     }
     else
     {
-        pal.setBrush(QPalette::Background, QColor("#484848"));
+        pal.setBrush(QPalette::Background, QColor("#FF484848"));
+        menu->setAutoFillBackground(true);
         menu->setPalette(pal);
     }
+#endif
     QWidget::paintEvent(e);
 }
 
@@ -350,7 +371,13 @@ void K3b::TitleBar::filter()
 }
 void K3b::TitleBar::help()
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall( "com.kylinUserGuide.hotel_1000",
+
+    struct passwd *pwd;
+
+    pwd = getpwuid(getuid());
+
+    QString name = QString("com.kylinUserGuide.hotel_%1").arg(pwd->pw_gid);
+    QDBusMessage msg = QDBusMessage::createMethodCall( name,
                                                     "/",
                                                     "com.guide.hotel",
                                                     "showGuide");

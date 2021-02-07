@@ -10693,7 +10693,7 @@ msgstr "麒麟刻录是一款基于开源刻录软件K3b进行二次研发的轻
 msgid "Offical Website : "
 msgstr "官方网站 ："
 
-msgid "Service & Technology Support : "
+msgid "Service & Support : "
 msgstr "服务与技术支持 ："
 
 msgid "Hot Service : "

@@ -2712,7 +2712,7 @@ msgstr "%1 没有权限打开设备。"
 #: projects/k3bcdrecordwriter.cpp:856 projects/k3bcdrskinwriter.cpp:868
 #, kde-format
 msgid "Modify device settings in K3b to solve this problem."
-msgstr "修改 K3b 设备设置来解决这个问题。"
+msgstr "修改设置来解决这个问题。"
 
 #: projects/k3bcdrecordwriter.cpp:859 projects/k3bcdrskinwriter.cpp:871
 #, kde-format

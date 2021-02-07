@@ -33,7 +33,7 @@ KYBThemeManager::KYBThemeManager(QObject *parent) : QObject(parent)
     {
         setting = new QGSettings("org.ukui.style");
     }
-#if 1
+#if 0
     if (setting)
     {
         currentTheme = setting->get("styleName").toString();

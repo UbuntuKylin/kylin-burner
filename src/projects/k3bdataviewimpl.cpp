@@ -142,14 +142,14 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
     //m_actionRemove->setShortcut( Qt::Key_Delete );
     //m_actionRemove->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "clear", m_actionClear );
-    connect( m_actionClear, SIGNAL(triggered(bool)), this, SLOT(slotClear()) );
+    connect( m_actionClear, SIGNAL(triggered(bool)), view, SLOT(slotClearClicked()) );
     
 
     m_actionRemove = new QAction( QIcon::fromTheme( "edit-delete" ), i18n("Remove"), m_fileView );
     m_actionRemove->setShortcut( Qt::Key_Delete );
     m_actionRemove->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "remove", m_actionRemove );
-    connect( m_actionRemove, SIGNAL(triggered(bool)), this, SLOT(slotRemove()) );
+    connect( m_actionRemove, SIGNAL(triggered(bool)), view, SLOT(slotRemoveClicked()) );
 
     m_actionRename = new QAction( QIcon::fromTheme( "edit-rename" ), i18n("Rename"), m_fileView );
     m_actionRename->setShortcut( Qt::Key_F2 );
@@ -262,6 +262,7 @@ void K3b::DataViewImpl::slotNewDir()
     newDir.setTextValue(i18n("New Folder"));
     ok = newDir.exec();
     name = newDir.textValue();
+    name = name.trimmed();
 
     qDebug() << newDir.findChildren<QWidget *>();
 
@@ -289,6 +290,7 @@ void K3b::DataViewImpl::slotNewDir()
             newDir.setLabelText(i18n("A folder with that name already exists. Please enter a new name:"));
         ok = newDir.exec();
         name = newDir.textValue();
+        name = name.trimmed();
     }
 
     if( !ok )
@@ -395,7 +397,12 @@ void K3b::DataViewImpl::slotRemove()
     for( int i = selection.size() - 1; i >= 0; --i ) {
     }
 #endif
+#if 0
     if (!parentDirectory.child(0, 0).isValid())
+        m_fileView->setRootIndex(parentDirectory.parent());
+#endif
+    if (parentDirectory.parent().isValid() &&
+            !parentDirectory.child(0, 0).isValid())
         m_fileView->setRootIndex(parentDirectory.parent());
     emit dataChange(parentDirectory, m_sortModel);
 }
