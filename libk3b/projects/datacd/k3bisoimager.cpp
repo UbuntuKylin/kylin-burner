@@ -429,6 +429,7 @@ void K3b::IsoImager::start()
 
 
     *m_process << "-J"; // to make sure suppot chinese charset in ukylin.
+    *m_process << "-joliet-long"; // always support joliet-long
     //*m_process << "-output-charset" <<  "utf-8";
 
     if( !prepareMkisofsFiles() ||
@@ -593,8 +594,10 @@ bool K3b::IsoImager::addMkisofsParameters( bool printSize )
 
     if( m_doc->isoOptions().createJoliet() ) {
         *m_process << "-joliet";
+#if 0
         if( m_doc->isoOptions().jolietLong() )
             *m_process << "-joliet-long";
+#endif
         if( m_jolietHideFile )
             *m_process << "-hide-joliet-list" << m_jolietHideFile->fileName();
     }

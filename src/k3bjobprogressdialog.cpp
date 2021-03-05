@@ -116,11 +116,6 @@ void K3b::JobProgressDialog::paintEvent(QPaintEvent *event)
     QPalette pal = QApplication::style()->standardPalette();
     QColor c;
 
-
-    m_progressPercent->setStyleSheet(QString("border-radius:4px;font:12px;"
-                                             "color:%1;text-align: center;")
-                                     .arg(palette().buttonText().color().name(QColor::HexRgb)));
-
     c.setRed(231); c.setBlue(231); c.setGreen(231);
     if (c == pal.background().color())
     {
@@ -337,7 +332,10 @@ void K3b::JobProgressDialog::setupGUI()
     m_progressPercent = new QProgressBar( this );
     m_progressPercent->setFixedHeight(10);
     mainLayout->addWidget( m_progressPercent );
-    //m_progressPercent->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
+    m_progressPercent->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
+    m_progressPercent->setStyleSheet(QString("border-radius:4px;font:12px;"
+                                             "color:%1;text-align: center;")
+                                     .arg(palette().windowText().color().name(QColor::HexRgb)));
 #if 1
 #endif
 

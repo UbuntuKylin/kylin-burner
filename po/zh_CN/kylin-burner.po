@@ -10694,7 +10694,7 @@ msgid "Offical Website : "
 msgstr "官方网站 ："
 
 msgid "Service & Support : "
-msgstr "服务与技术支持 ："
+msgstr "服务与支持团队 ："
 
 msgid "Hot Service : "
 msgstr "服务热线 ："

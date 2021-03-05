@@ -194,8 +194,10 @@ bool K3b::TitleBar::eventFilter(QObject *watched, QEvent *event)
 void K3b::TitleBar::paintEvent(QPaintEvent *e)
 {
     // temp : for menu opacity.
+#if 0
     if (setting)
         setting->set("menu-transparency", 100);
+#endif
 
 #if 0
     QPalette pal = QApplication::style()->standardPalette();

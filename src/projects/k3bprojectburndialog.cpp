@@ -359,7 +359,6 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkSimulate = K3b::StdGuiItems::simulateCheckbox( m_optionGroup );
     m_checkSimulate->setFixedHeight(16);
     m_checkSimulate->setFont( label_font );
-    m_checkSimulate->setStyleSheet("color:#444444;");
     m_checkSimulate->hide();
     //m_checkSimulate->setDisabled( true );
 
@@ -367,13 +366,11 @@ void K3b::ProjectBurnDialog::prepareGui()
     m_checkRemoveBufferFiles = K3b::StdGuiItems::removeImagesCheckbox( m_optionGroup );
     m_checkRemoveBufferFiles->setFixedHeight(16);
     m_checkRemoveBufferFiles->setFont( label_font );
-    m_checkRemoveBufferFiles->setStyleSheet("color:#444444;");
     m_checkRemoveBufferFiles->hide();
 
     m_checkOnlyCreateImage = K3b::StdGuiItems::onlyCreateImagesCheckbox( m_optionGroup );
     m_checkOnlyCreateImage->setFixedHeight(16);
     m_checkOnlyCreateImage->setFont( label_font );
-    m_checkOnlyCreateImage->setStyleSheet("color:#444444;");
     m_checkOnlyCreateImage->setObjectName("CheckOnlyImage");
    
     QLabel *lcheck = new QLabel(this);
@@ -398,12 +395,11 @@ void K3b::ProjectBurnDialog::prepareGui()
     QString tmp_size = m_tempDirSelectionWidget->tempPath() + "     "  +  KIO::convertSize(tempFreeSpace);
     m_labeltmpPath->setText( tmp_path );
     //m_labeltmpPath->setFixedSize( 56, 12);
-    m_labeltmpPath->setFixedSize( 80, 30);
+    m_labeltmpPath->setFixedSize( 100, 30);
     m_labeltmpPath->setFont( label_font );
-    m_labeltmpPath->setStyleSheet("color:#444444;");
     m_labeltmpPath->setObjectName("LabelPath");
     
-    m_tmpPath->setText( tmp_size);
+    m_tmpPath->setText(tmp_size);
     m_tmpPath->setFixedSize( 368, 30);
     m_tmpPath->setFont( label_font );
     //m_tmpPath->setStyleSheet("color:#444444;");
@@ -470,7 +466,8 @@ void K3b::ProjectBurnDialog::prepareGui()
     setTabOrder( m_writingModeWidget, groupCopies );
     setTabOrder( groupCopies, m_optionGroup );
 
-    m_tmpPath->setEnabled(false);
+    //m_tmpPath->setEnabled(false);
+    m_tmpPath->setReadOnly(true);
 
     // some default connections that should always be useful
     connect( m_writerSelectionWidget, SIGNAL(writerChanged()), this, SLOT(slotWriterChanged()) );

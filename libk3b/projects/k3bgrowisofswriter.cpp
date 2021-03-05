@@ -303,6 +303,9 @@ bool K3b::GrowisofsWriter::prepareProcess()
     }
 
     // additional user parameters from config
+
+   // d->process << "-J"; // to make sure suppot chinese charset in ukylin.
+   // d->process << "-joliet-long"; // always support joliet-long
     const QStringList& params = d->growisofsBin->userParameters();
     for( QStringList::const_iterator it = params.begin(); it != params.end(); ++it )
         d->process << *it;
@@ -454,11 +457,13 @@ void K3b::GrowisofsWriter::slotReceivedStderr( const QString& line )
                 emit subPercent( p );
                 d->lastProgress = p;
             }
+#if 0
             if( (unsigned int)(done/1024/1024) > d->lastProgressed ) {
                 d->lastProgressed = (unsigned int)(done/1024/1024);
                 emit processedSize( d->lastProgressed, (int)(d->overallSizeFromOutput/1024/1024)  );
                 emit processedSubSize( d->lastProgressed, (int)(d->overallSizeFromOutput/1024/1024)  );
             }
+#endif
 
             // try parsing write speed (since growisofs 5.11)
             pos = line.indexOf( '@' );
@@ -553,8 +558,10 @@ void K3b::GrowisofsWriter::slotFlushingCache()
         // growisofs's progress output stops before 100%, so we do it manually
         //
         emit percent( 100 );
+#if 0
         emit processedSize( d->overallSizeFromOutput/1024/1024,
                             d->overallSizeFromOutput/1024/1024 );
+#endif
     }
 }
 

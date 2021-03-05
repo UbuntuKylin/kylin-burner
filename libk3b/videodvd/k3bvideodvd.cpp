@@ -34,7 +34,7 @@ namespace {
     unsigned short convertTime( uint8_t time )
     {
         // I don't get this stuff, I should read something about VideoDVD some day...
-        return (((time & 0xf0) >> 3) * 5 + (time & 0x0f));
+        return unsigned short((((time & 0xf0) >> 3) * 5 + (time & 0x0f)));
     }
     
     unsigned short convertFrame( uint8_t frame_u )

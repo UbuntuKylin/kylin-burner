@@ -69,10 +69,10 @@ void K3b::Application::init( QCommandLineParser* commandLineParser )
 {
     QString imagePath = commandLineParser->value("image");
     QStringList lists = commandLineParser->positionalArguments();
-    logger->debug("Arguments:");
+    if (logger) logger->debug("Arguments:");
     for (int i = 0; i < lists.size(); ++i)
     {
-        logger->debug("%s", lists[i].toStdString().c_str());
+        if (logger) logger->debug("%s", lists[i].toStdString().c_str());
         QFileInfo fi(lists[i]);
         if (!fi.exists() || !fi.isFile() || (fi.suffix() != "iso")) continue;
         imagePath = lists[i];

@@ -383,7 +383,7 @@ llong K3b::MpegInfo::GetNBytes( llong offset, int n )
 // get a two byte size
 unsigned short int K3b::MpegInfo::GetSize( llong offset )
 {
-    return GetByte( offset ) * 256 + GetByte( offset + 1 );
+    return (unsigned short int)(GetByte( offset ) * 256 + GetByte( offset + 1 ));
     // return GetNBytes( offset, 2 );
 
 }

@@ -293,7 +293,7 @@ K3b::MainWindow::MainWindow()
     d->lastDoc = 0;
     ISOPath.clear();
 
-    logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
+    if (logger) logger = LogRecorder::instance().registration(i18n("kylin-burner").toStdString().c_str());
 
 #if 0
     QString name = QString("com.kylinUserGuideGUI.hotel_%1").arg(QString::number(getuid()));
@@ -626,7 +626,7 @@ void K3b::MainWindow::startInImageData(QString path)
     ISOPath = path;
     d->btnImage->setChecked(true);
     imageView->ISO()->setText(ISOPath);
-    emit imageView->ISO()->editingFinished();
+    //emit imageView->ISO()->editingFinished();
     slotNewAudioDoc();
 }
 
@@ -691,7 +691,7 @@ void K3b::MainWindow::paintEvent(QPaintEvent *e)
 
 void K3b::MainWindow::initView()
 {
-    logger->info("Draw main frame begin...");
+    if (logger) logger->info("Draw main frame begin...");
 
     setObjectName("MainBurner");
     setFixedSize(900, 600);
@@ -842,23 +842,23 @@ void K3b::MainWindow::initView()
     d->documentStack->showFullScreen();
 
     d->doc_image = k3bappcore->projectManager()->createProject( K3b::Doc::AudioProject );
-    logger->debug("Create burn image project.");
+    if (logger) logger->debug("Create burn image project.");
     d->view_image = new K3b::AudioView( static_cast<K3b::AudioDoc*>( d->doc_image ), d->documentStack );
-    logger->debug("Draw burn image view.");
+    if (logger) logger->debug("Draw burn image view.");
     d->view_image->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_data = k3bappcore->projectManager()->createProject( K3b::Doc::DataProject );
-    logger->debug("Create burn data project");
+    if (logger) logger->debug("Create burn data project");
     d->view_data = new K3b::DataView( static_cast<K3b::DataDoc*>( d->doc_data ), d->documentStack );
-    logger->debug("Draw burn data view.");
+    if (logger) logger->debug("Draw burn data view.");
     d->view_data->setAttribute(Qt::WA_TranslucentBackground, true);
     connect(d->view_data, SIGNAL(cdrom(bool)), title_bar->eject, SLOT(setEnabled(bool)));
     connect(d->view_data, SIGNAL(cdrom(bool)), title_bar->earse, SLOT(setEnabled(bool)));
 
     d->doc_copy = k3bappcore->projectManager()->createProject( K3b::Doc::VcdProject );
-    logger->debug("Create copy image project.");
+    if (logger) logger->debug("Create copy image project.");
     d->view_copy = new K3b::VcdView( static_cast<K3b::VcdDoc*>( d->doc_copy ), d->documentStack );
-    logger->debug("Draw copy image view.");
+    if (logger) logger->debug("Draw copy image view.");
     d->view_copy->setAttribute(Qt::WA_TranslucentBackground, true);
 
     d->doc_image->setView( d->view_image );
@@ -891,7 +891,7 @@ void K3b::MainWindow::initView()
     wLayout->setSpacing(0);
     wLayout->addWidget( btnLabel );
     wLayout->addWidget( label_view );
-    logger->info("Draw main frame end...");
+    if (logger) logger->info("Draw main frame end...");
 
 
 
@@ -924,21 +924,21 @@ void K3b::MainWindow::initView()
 
 void K3b::MainWindow::isHidden(bool flag)
 {
-    logger->debug("Set function file filter setting, hidden file turn to %s.",
+    if (logger) logger->debug("Set function file filter setting, hidden file turn to %s.",
                   flag ? "true" : "false");
     emit setIsMenuHidden(flag);
 }
 
 void K3b:: MainWindow::isBroken(bool flag)
 {
-    logger->debug("Set function file filter setting, broken link turn to %s.",
+    if (logger) logger->debug("Set function file filter setting, broken link turn to %s.",
                   flag ? "true" : "false");
     emit setIsMenuBroken(flag);
 }
 
 void K3b:: MainWindow::isReplace(bool flag)
 {
-    logger->debug("Set function file filter setting, replace link turn to %s.",
+    if (logger) logger->debug("Set function file filter setting, replace link turn to %s.",
                   flag ? "true" : "false");
     emit setIsMenuReplace(flag);
 }
@@ -946,21 +946,21 @@ void K3b:: MainWindow::isReplace(bool flag)
 void K3b::MainWindow::isMenuHidden(bool flag)
 {
     qDebug() << "Menu hidden..." << flag;
-    logger->debug("Set menu file filter setting, hidden file turn to %s.",
+    if (logger) logger->debug("Set menu file filter setting, hidden file turn to %s.",
                   flag ? "true" : "false");
     emit setIsHidden(flag);
 }
 
 void K3b::MainWindow::isMenuBroken(bool flag)
 {
-    logger->debug("Set menu file filter setting, broken link turn to %s.",
+    if (logger) logger->debug("Set menu file filter setting, broken link turn to %s.",
                   flag ? "true" : "false");
     emit setIsBroken(flag);
 }
 
 void K3b::MainWindow::isMenuReplace(bool flag)
 {
-    logger->debug("Set menu file filter setting, replace link turn to %s.",
+    if (logger) logger->debug("Set menu file filter setting, replace link turn to %s.",
                   flag ? "true" : "false");
     emit setIsReplace(flag);
 }

@@ -237,7 +237,10 @@ void K3b::DataViewImpl::slotCurrentRootChanged( const QModelIndex& newRoot )
     m_actionParentDir->setEnabled
             ( newRoot.isValid() && m_model->indexForItem( m_doc->root() ) != newRoot );
 #endif
-    m_actionParentDir->setEnabled(false);
+    if (m_fileView->rootIndex().parent().parent().isValid())
+        m_actionParentDir->setEnabled(true);
+    else
+        m_actionParentDir->setEnabled(false);
 }
 
 
@@ -478,7 +481,8 @@ void K3b::DataViewImpl::slotOpen()
 
 void K3b::DataViewImpl::slotParent()
 {
-    m_fileView->setRootIndex(m_fileView->rootIndex().parent());
+    if (m_fileView->rootIndex().parent().isValid())
+        m_fileView->setRootIndex(m_fileView->rootIndex().parent());
 #if 0
     m_actionParentDir->setEnabled(false);
     qDebug() << "to parent";
@@ -631,10 +635,11 @@ void K3b::DataViewImpl::slotImportedSessionChanged( int importedSession )
 
 void K3b::DataViewImpl::slotAddUrlsRequested( QList<QUrl> urls, K3b::DirItem* targetDir )
 {
-    DataUrlAddingDialog::addUrls( urls, targetDir, m_view );
-    emit addDragFiles(urls, targetDir);
+    //DataUrlAddingDialog::addUrls( urls, targetDir, m_view );
+    m_doc->addUrlsToDir(urls, targetDir);
+    emit addFiles(urls);
+    //emit addDragFiles(urls, targetDir);
 }
-
 
 void K3b::DataViewImpl::slotMoveItemsRequested( QList<K3b::DataItem*> items, K3b::DirItem* targetDir )
 {

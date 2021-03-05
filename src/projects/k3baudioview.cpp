@@ -138,7 +138,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
     : K3b::View( doc, parent )
 {
     logger = LogRecorder::instance().registration(i18n("write image").toStdString().c_str());
-    logger->debug("Draw write image begin...");
+    if (logger) logger->debug("Draw write image begin...");
     m_doc = doc;
     setAttribute(Qt::WA_TranslucentBackground, true);
     
@@ -276,7 +276,7 @@ K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
               this, SLOT(slotDeviceChange(K3b::Device::DeviceManager*)) );
 #endif
 
-    logger->debug("Draw write image end");
+    if (logger) logger->debug("Draw write image end");
 }
 
 K3b::AudioView::~AudioView()
