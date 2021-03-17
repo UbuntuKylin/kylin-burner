@@ -6736,6 +6736,12 @@ msgstr "请选择音轨。"
 msgid "Please add files to your project first."
 msgstr "请先向您的方案中添加文件。"
 
+msgid "Please insert medium first."
+msgstr "请先插入光盘"
+
+msgid "No CD to Burn"
+msgstr "没有刻录光盘"
+
 #: projects/k3baudioviewimpl.cpp:450
 #, kde-format
 msgid "No tracks to convert"

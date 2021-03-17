@@ -263,6 +263,8 @@ void K3b::DataViewImpl::slotNewDir()
     newDir.setWindowIcon(QIcon::fromTheme("brasero"));
     newDir.setLabelText(i18n("Please insert the name for the new folder:"));
     newDir.setTextValue(i18n("New Folder"));
+    newDir.setFixedSize(300, 200);
+    newDir.setWindowFlag(Qt::FramelessWindowHint);
     ok = newDir.exec();
     name = newDir.textValue();
     name = name.trimmed();

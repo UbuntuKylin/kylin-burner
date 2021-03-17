@@ -42,39 +42,6 @@ int getScreenWidth()
 }
 */
 
-bool checkStarted()
-{
-    QString comm;
-    QDir dir("/proc/");
-    QFileInfo file;
-    ifstream in;
-    std::string s;
-
-    foreach (QFileInfo f, dir.entryInfoList())
-    {
-        qDebug() << QString("%1").arg(getpid()) << f.baseName();
-        if (f.baseName() == QString("%1").arg(getpid())
-                || f.baseName() == "self" ||
-                f.baseName() == "thread-self") continue;
-        comm = QString("/proc/%1/comm").arg(f.baseName());
-        file.setFile(comm);
-        if (file.exists())
-        {
-            in.open(file.absoluteFilePath().toStdString());
-            if (in.is_open())
-            {
-                getline(in, s);
-                comm = QString::fromStdString(s);
-                if (comm == "kylin-burner")
-                    return true;
-            }
-            in.close();
-        }
-    }
-
-    return false;
-}
-
 int main( int argc, char* argv[] )
 {
 
@@ -110,12 +77,6 @@ int main( int argc, char* argv[] )
          qDebug() << "app is not running";
     }
 #endif
-    if (checkStarted())
-    {
-        QMessageBox::information(NULL, i18n("Cannot start KylinBurner"),
-                                 i18n("KylinBurner has started in current system now."));
-        return 0;
-    }
 
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     

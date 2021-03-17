@@ -347,16 +347,19 @@ void K3b::AudioView::slotOpenfile()
 
     QFileInfo fileinfo( filepath );
     long int file_size = fileinfo.size();
-    Device::Device *dev = device_index.at(combo_CD->currentIndex());
-    if (!dev || dev->diskInfo().diskState() != K3b::Device::STATE_EMPTY)
+    if (device_index.size())
     {
-        QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Medium"));
-        return;
-    }
-    if (dev && file_size > dev->diskInfo().remainingSize().mode1Bytes())
-    {
-        QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Volumn"));
-        return;
+        Device::Device *dev = device_index.at(combo_CD->currentIndex());
+        if (!dev || dev->diskInfo().diskState() != K3b::Device::STATE_EMPTY)
+        {
+            QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Medium"));
+            return;
+        }
+        if (dev && file_size > dev->diskInfo().remainingSize().mode1Bytes())
+        {
+            QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Volumn"));
+            return;
+        }
     }
 
     double size;

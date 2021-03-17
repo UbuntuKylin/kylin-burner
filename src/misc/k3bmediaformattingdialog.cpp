@@ -202,7 +202,8 @@ void K3b::MediaFormattingDialog::paintEvent(QPaintEvent *e)
     QPalette pal = QApplication::style()->standardPalette();
     QColor c;
 
-    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    //c.setRed(231); c.setBlue(231); c.setGreen(231);
+    c.setRed(240); c.setBlue(240); c.setGreen(240);
     if (c == pal.background().color())
     {
         pal.setColor(QPalette::Background, QColor("#FFFFFF"));

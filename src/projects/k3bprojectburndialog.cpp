@@ -273,7 +273,6 @@ void K3b::ProjectBurnDialog::slotFinished( bool ret )
     flag = ret;
 }
 
-
 void K3b::ProjectBurnDialog::prepareGui()
 {
     QVBoxLayout* mainLay = new QVBoxLayout( mainWidget() );

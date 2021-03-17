@@ -534,6 +534,7 @@ void K3b::InteractionDialog::loadStartupSettings()
 int K3b::InteractionDialog::exec()
 {
     qDebug() << this;
+    update();
 
     loadStartupSettings();
 

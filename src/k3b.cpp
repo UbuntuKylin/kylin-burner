@@ -119,8 +119,43 @@
 #include <QRectF>
 #include <QButtonGroup>
 #include <QGridLayout>
+#include <fstream>
 
 #include <pwd.h>
+
+bool checkStarted()
+{
+    QString comm;
+    QDir dir("/proc/");
+    QFileInfo file;
+    ifstream in;
+    std::string s;
+
+    foreach (QFileInfo f, dir.entryInfoList())
+    {
+        qDebug() << QString("%1").arg(getpid()) << f.baseName();
+        if (f.baseName() == QString("%1").arg(getpid())
+                || f.baseName() == "self" ||
+                f.baseName() == "thread-self") continue;
+        comm = QString("/proc/%1/comm").arg(f.baseName());
+        file.setFile(comm);
+        if (file.exists())
+        {
+            in.open(file.absoluteFilePath().toStdString());
+            if (in.is_open())
+            {
+                getline(in, s);
+                comm = QString::fromStdString(s);
+                if (comm == "kylin-burner")
+                    return true;
+            }
+            in.close();
+        }
+    }
+
+    return false;
+}
+
 
 namespace {
 
@@ -350,8 +385,6 @@ K3b::MainWindow::MainWindow()
 
     setMask(bmp);
     */
-
-
 #if 0
     QDesktopWidget *desktop = QApplication::desktop();
     this->move(desktop->width() / 2 - this->width() / 2, desktop->height() / 2 - this->height() / 2);
@@ -373,6 +406,9 @@ K3b::MainWindow::MainWindow()
     factory()->addClient( k3bappcore->appDeviceManager() );
     connect( k3bappcore->appDeviceManager(), SIGNAL(detectingDiskInfo(K3b::Device::Device*)),
              this, SLOT(showDiskInfo(K3b::Device::Device*)) );
+
+
+    setAttribute(Qt::WA_X11DoNotAcceptFocus, true);
 
 #if 0
     // we need the actions for the welcomewidget
@@ -405,6 +441,13 @@ K3b::MainWindow::MainWindow()
     menuBar()->setVisible( false );
     for (int i = 0; i < toolBars().size(); i++){
         toolBars().at(i)->setVisible( false );
+    }
+
+    if (checkStarted())
+    {
+        QMessageBox::information(NULL, i18n("Cannot start KylinBurner"),
+                                 i18n("KylinBurner has started in current system now."));
+        exit(0);
     }
  
     new Interface( this );
@@ -634,34 +677,16 @@ void K3b::MainWindow::paintEvent(QPaintEvent *e)
 {
     QPalette pal = QApplication::style()->standardPalette();
 
+#if 1
     QColor c;
-    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    QColor b;
+    c.setRed(240); c.setBlue(240); c.setGreen(240);
+    b = pal.background().color();
     if (c == pal.background().color())
     {
         pal.setBrush(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
-        QColor color = this->palette().window().color();
-        QColor colorBase = this->palette().base().color();
 
-        int R1 = color.red();
-        int G1 = color.green();
-        int B1 = color.blue();
-        qreal a1 = 0.3;
-
-        int R2 = colorBase.red();
-        int G2 = colorBase.green();
-        int B2 = colorBase.blue();
-        qreal a2 = 1;
-
-        qreal a = 1 - (1 - a1)*(1 - a2);
-
-        qreal R = (a1*R1 + (1 - a1)*a2*R2) / a;
-        qreal G = (a1*G1 + (1 - a1)*a2*G2) / a;
-        qreal B = (a1*B1 + (1 - a1)*a2*B2) / a;
-
-        colorBase.setRed(R);
-        colorBase.setGreen(G);
-        colorBase.setBlue(B);
 
         btnLabel->setAutoFillBackground(true);
         QPixmap pix(btnLabel->size());
@@ -686,6 +711,7 @@ void K3b::MainWindow::paintEvent(QPaintEvent *e)
         paint.drawRect(pix.rect());
         btnLabel->setPixmap(pix);
     }
+#endif
     QMainWindow::paintEvent(e);
 }
 
