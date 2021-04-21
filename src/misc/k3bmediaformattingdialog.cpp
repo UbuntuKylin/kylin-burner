@@ -116,6 +116,8 @@ K3b::MediaFormattingDialog::MediaFormattingDialog( QWidget* parent )
     m_writerSelectionWidget->setFixedWidth(369);
     m_writerSelectionWidget->setWantedMediumType( K3b::Device::MEDIA_REWRITABLE );
     m_writerSelectionWidget->hideSpeed();
+    QPalette pal = QApplication::style()->standardPalette();
+    m_writerSelectionWidget->setPalette(pal);
     // we need state empty here for preformatting DVD+RW.
     m_writerSelectionWidget->setWantedMediumState( K3b::Device::STATE_COMPLETE|
                                                    K3b::Device::STATE_INCOMPLETE|
@@ -202,15 +204,14 @@ void K3b::MediaFormattingDialog::paintEvent(QPaintEvent *e)
     QPalette pal = QApplication::style()->standardPalette();
     QColor c;
 
-    //c.setRed(231); c.setBlue(231); c.setGreen(231);
-    c.setRed(240); c.setBlue(240); c.setGreen(240);
-    if (c == pal.background().color())
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    if ("ukui-black" == ThManager()->theme())
     {
-        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
     }
     else
     {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
     }
 

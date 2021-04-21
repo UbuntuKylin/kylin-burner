@@ -445,6 +445,7 @@ K3b::MainWindow::MainWindow()
 
     if (checkStarted())
     {
+        setWindowIcon(QIcon::fromTheme("burner"));
         QMessageBox::information(NULL, i18n("Cannot start KylinBurner"),
                                  i18n("KylinBurner has started in current system now."));
         exit(0);
@@ -667,22 +668,30 @@ void K3b::MainWindow::startInImageData(QString path)
 {
     K3b::AudioView *imageView = static_cast<K3b::AudioView *>(d->view_image);
     ISOPath = path;
+    slotNewAudioDoc();
     d->btnImage->setChecked(true);
     imageView->ISO()->setText(ISOPath);
-    //emit imageView->ISO()->editingFinished();
-    slotNewAudioDoc();
+    emit imageView->ISO()->editingFinished();
 }
 
 void K3b::MainWindow::paintEvent(QPaintEvent *e)
 {
     QPalette pal = QApplication::style()->standardPalette();
 
-#if 1
-    QColor c;
-    QColor b;
-    c.setRed(240); c.setBlue(240); c.setGreen(240);
-    b = pal.background().color();
-    if (c == pal.background().color())
+    if ("ukui-black" == ThManager()->theme())
+    {
+        pal.setBrush(QPalette::Background, QColor("#484848"));
+        setPalette(pal);
+
+        btnLabel->setAutoFillBackground(true);
+        QPixmap pix(btnLabel->size());
+        QPainter paint(&pix);
+        paint.setPen(Qt::NoPen);
+        paint.setBrush(QColor("#242424"));
+        paint.drawRect(pix.rect());
+        btnLabel->setPixmap(pix);
+    }
+    else
     {
         pal.setBrush(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
@@ -696,22 +705,7 @@ void K3b::MainWindow::paintEvent(QPaintEvent *e)
         paint.setBrush(QColor("#F0F0F0"));
         paint.drawRect(pix.rect());
         btnLabel->setPixmap(pix);
-
     }
-    else
-    {
-        pal.setBrush(QPalette::Background, QColor("#484848"));
-        setPalette(pal);
-
-        btnLabel->setAutoFillBackground(true);
-        QPixmap pix(btnLabel->size());
-        QPainter paint(&pix);
-        paint.setPen(Qt::NoPen);
-        paint.setBrush(QColor("#242424"));
-        paint.drawRect(pix.rect());
-        btnLabel->setPixmap(pix);
-    }
-#endif
     QMainWindow::paintEvent(e);
 }
 

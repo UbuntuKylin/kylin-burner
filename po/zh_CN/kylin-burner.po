@@ -10711,6 +10711,9 @@ msgstr "正在擦除"
 msgid "clean success!"
 msgstr "擦除成功"
 
+msgid "clean failed!"
+msgstr "擦除失败"
+
 msgid "Invalid Volumn"
 msgstr "无效的容量：镜像大小超出光盘大小。"
 
@@ -10728,3 +10731,6 @@ msgstr "镜像文件(*.iso)"
 
 msgid "Only invalid at level root."
 msgstr "只对根节点数据生效。"
+
+msgid "Path not exists"
+msgstr "路径不存在"

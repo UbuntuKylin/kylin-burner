@@ -172,6 +172,11 @@ void KYBThemeManager::delTheme(QString theme)
     }
 }
 
+QString KYBThemeManager::theme()
+{
+    return setting->get("styleName").toString();
+}
+
 void KYBThemeManager::onChangeTheme(QString styleName)
 {
     return;

@@ -81,6 +81,7 @@ public:
                   QString active = QString(),/* active */
                   QString disable = QString());/* disable */
     void delTheme(QString theme);
+    QString theme();
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 private:

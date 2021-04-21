@@ -87,17 +87,6 @@ void K3b::AudioView::on_editingFinish()
     lineedit_iso->clear();
     long int file_size = fileinfo.size();
 
-    Device::Device *dev = device_index.at(combo_CD->currentIndex());
-    if (!dev || dev->diskInfo().diskState() != K3b::Device::STATE_EMPTY)
-    {
-        QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Medium"));
-        return;
-    }
-    if (dev && file_size > dev->diskInfo().remainingSize().mode1Bytes())
-    {
-        QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Volumn"));
-        return;
-    }
     double size;
     do{
         size = (float)file_size / (float)1024;
@@ -132,6 +121,21 @@ void K3b::AudioView::on_editingFinish()
     }
 
     lineEdit_text->setText( str );
+
+    if (device_index.size())
+    {
+        Device::Device *dev = device_index.at(combo_CD->currentIndex());
+        if (!dev || dev->diskInfo().diskState() != K3b::Device::STATE_EMPTY)
+        {
+            QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Medium"));
+            return;
+        }
+        if (dev && file_size > dev->diskInfo().remainingSize().mode1Bytes())
+        {
+            QMessageBox::critical(nullptr, i18n("Error"), i18n("Invalid Volumn"));
+            return;
+        }
+    }
 }
 
 K3b::AudioView::AudioView( K3b::AudioDoc* doc, QWidget* parent )
@@ -332,6 +336,8 @@ void K3b::AudioView::slotMediaChange( K3b::Device::Device* dev)
         }
 
     }
+    if (!(lineedit_iso->text().isEmpty()))
+        on_editingFinish();
 }
 
 void K3b::AudioView::slotOpenfile()
@@ -347,6 +353,7 @@ void K3b::AudioView::slotOpenfile()
 
     QFileInfo fileinfo( filepath );
     long int file_size = fileinfo.size();
+
     if (device_index.size())
     {
         Device::Device *dev = device_index.at(combo_CD->currentIndex());
@@ -395,6 +402,9 @@ void K3b::AudioView::slotOpenfile()
     }
     
     lineEdit_text->setText( str );
+
+    lineEdit_icon->show();
+    lineEdit_text->show();
 }
 
 void K3b::AudioView::slotSetting()

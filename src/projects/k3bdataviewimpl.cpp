@@ -44,6 +44,8 @@
 #include <QShortcut>
 #include <QWidgetAction>
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QMessageBox>
 
 #include "k3bfileselect.h"
 
@@ -147,25 +149,26 @@ K3b::DataViewImpl::DataViewImpl( View* view, DataDoc* doc, KActionCollection* ac
 
     m_actionRemove = new QAction( QIcon::fromTheme( "edit-delete" ), i18n("Remove"), m_fileView );
     m_actionRemove->setShortcut( Qt::Key_Delete );
-    m_actionRemove->setShortcutContext( Qt::WidgetShortcut );
+    //m_actionRemove->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "remove", m_actionRemove );
     connect( m_actionRemove, SIGNAL(triggered(bool)), view, SLOT(slotRemoveClicked()) );
 
     m_actionRename = new QAction( QIcon::fromTheme( "edit-rename" ), i18n("Rename"), m_fileView );
     m_actionRename->setShortcut( Qt::Key_F2 );
-    m_actionRename->setShortcutContext( Qt::WidgetShortcut );
+    //m_actionRename->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "rename", m_actionRename );
     connect( m_actionRename, SIGNAL(triggered(bool)), this, SLOT(slotRename()) );
 
     m_actionParentDir = new QAction( QIcon::fromTheme( "go-up" ), i18n("Parent Folder"), m_fileView );
-    m_actionParentDir->setShortcut( Qt::Key_Backspace );
-    m_actionParentDir->setShortcutContext( Qt::WidgetShortcut );
+    //m_actionParentDir->setShortcut( Qt::Key_Backspace );
+    m_actionParentDir->setShortcut( Qt::ControlModifier + Qt::Key_Up );
+    //m_actionParentDir->setShortcutContext( Qt::ApplicationShortcut );
     actionCollection->addAction( "parent_dir", m_actionParentDir );
     connect( m_actionParentDir, SIGNAL(triggered(bool)), this, SLOT(slotParent()) );
 
     m_actionProperties = new QAction( QIcon::fromTheme( "document-properties" ), i18n("Properties"), m_fileView );
     m_actionProperties->setShortcut( Qt::ALT + Qt::Key_Return );
-    m_actionProperties->setShortcutContext( Qt::WidgetShortcut );
+    //m_actionProperties->setShortcutContext( Qt::WidgetShortcut );
     actionCollection->addAction( "properties", m_actionProperties );
     connect( m_actionProperties, SIGNAL(triggered(bool)), this, SLOT(slotProperties()) );
 
@@ -281,6 +284,7 @@ void K3b::DataViewImpl::slotNewDir()
     */
 
     while( ok && DataDoc::nameAlreadyInDir( name, parentDir ) ) {
+        QCoreApplication::processEvents();
         /*
         name = QInputDialog::getText( m_view,
                                       i18n("New Folder"),
@@ -335,11 +339,24 @@ int K3b::DataViewImpl::slotOpenDir()
         urls = a->selectedUrls();
     }
     if( urls.count() == 0 )
+    {
+        m_view->setCursor(Qt::ArrowCursor);
         return 0;
+    }
 
     if (m_fileView->selectionModel()->selectedRows().size() != 1)
     {
         addtoDir = false;
+        K3b::DataItem *d = m_model->itemForIndex(
+                    m_sortModel->mapToSource(m_fileView->rootIndex()));
+        if (d && d->isDir())
+        {
+            if (d->isDeleteable())
+            {
+                addtoDir = true;
+                dir = d->getDirItem();
+            }
+        }
     }
     else
     {
@@ -354,7 +371,7 @@ int K3b::DataViewImpl::slotOpenDir()
     }
 
     if (addtoDir) m_doc->addUrlsToDir(urls, dir);
-    else m_doc->addUrls( urls );
+    else m_doc->addUrls(urls);
     emit addFiles(urls);
     return 1;
 }
@@ -452,10 +469,17 @@ void K3b::DataViewImpl::slotOpen()
 
     DataItem* item = m_model->itemForIndex( current );
 
-    if (item->isDir()) m_fileView->setRootIndex(m_fileView->currentIndex());
+    if (item->isDir() && current.child(0, 0).isValid())
+        m_fileView->setRootIndex(m_fileView->currentIndex());
     else
     {
        QUrl url = QUrl::fromLocalFile( item->localPath() );
+       QFileInfo f(item->localPath());
+       if (!f.exists())
+       {
+           QMessageBox::critical(m_view, i18n("Error"), i18n("Path not exists"));
+           return;
+       }
        //KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
        bool a = KRun::runUrl( url,
                    item->mimeType().name(),
@@ -485,6 +509,7 @@ void K3b::DataViewImpl::slotParent()
 {
     if (m_fileView->rootIndex().parent().isValid())
         m_fileView->setRootIndex(m_fileView->rootIndex().parent());
+    m_actionParentDir->setEnabled(false);
 #if 0
     m_actionParentDir->setEnabled(false);
     qDebug() << "to parent";
@@ -582,7 +607,7 @@ void K3b::DataViewImpl::slotItemActivated( const QModelIndex& index )
     d = m_model->itemForIndex(m_sortModel->mapToSource(index));
     if (d && d->isDir() && static_cast<K3b::DirItem *>(d)->children().size())
     {
-        m_fileView->setRootIndex(index);
+        m_fileView->setRootIndex(index.siblingAtColumn(0));
         children = static_cast<K3b::DirItem *>(d)->children();
         if (children.count()) child = children.at(0);
         if (child)
@@ -591,6 +616,12 @@ void K3b::DataViewImpl::slotItemActivated( const QModelIndex& index )
     else
     {
        QUrl url = QUrl::fromLocalFile( d->localPath() );
+       QFileInfo f(d->localPath());
+       if (!f.exists())
+       {
+           QMessageBox::critical(m_view, i18n("Error"), i18n("Path not exists"));
+           return;
+       }
        //KRun::displayOpenWithDialog( QList<QUrl>() << url, m_view );
        bool a = KRun::runUrl( url,
                    d->mimeType().name(),

@@ -22,6 +22,7 @@
 #include "k3bclonejob.h"
 #include "k3bmediacache.h"
 #include "k3bapplication.h"
+#include "ThemeManager.h"
 
 #include <config-kylinburner.h>
 
@@ -1408,15 +1409,13 @@ void K3b::ImageWritingDialog::paintEvent(QPaintEvent *event)
     QPalette pal = style()->standardPalette();
     QColor c;
 
-    //c.setRed(231); c.setBlue(231); c.setGreen(231);
-    c.setRed(240); c.setBlue(240); c.setGreen(240);
-    if (c == pal.background().color())
+    if ("ukui-black" == ThManager()->theme())
     {
-        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
     }
     else
     {
+        pal.setColor(QPalette::Background, QColor("#FFFFFF"));
         setPalette(pal);
     }
 

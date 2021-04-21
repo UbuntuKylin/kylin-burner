@@ -1997,6 +1997,7 @@ K3b::Device::DiskInfo K3b::Device::Device::diskInfo() const
                     inf.d->capacity = K3b::Msf( dInf->lead_out_m + dInf->lead_out_r*60,
                                                 dInf->lead_out_s,
                                                 dInf->lead_out_f ) - 150;
+                qDebug() << inf.d->capacity.mode1Bytes();
 
                 //
                 // This is the position where the next Session shall be recorded in HMSF format

@@ -577,15 +577,14 @@ void K3b::DataView::paintEvent(QPaintEvent *e)
     QPalette pal = QApplication::style()->standardPalette();
 
     QColor c;
-    //c.setRed(231); c.setBlue(231); c.setGreen(231);
-    c.setRed(240); c.setBlue(240); c.setGreen(240);
-    if (c == pal.background().color())
+    if ("ukui-black" == ThManager()->theme())
     {
-        m_dataViewImpl->whiteHeader();
+        m_dataViewImpl->blackHeader();
     }
     else
     {
-        m_dataViewImpl->blackHeader();
+        m_dataViewImpl->whiteHeader();
+
     }
     QWidget::paintEvent(e);
 }
@@ -617,6 +616,7 @@ void K3b::DataView::slotAddFile(QList<QUrl> urls)
         m_oSize->setText(KIO::convertSize(m_doc->size()));
         QCoreApplication::processEvents();
     }
+    copyData(m_doc, docs[combo_CD->currentIndex()]);
 #endif
 }
 
@@ -866,11 +866,11 @@ void K3b::DataView::slotComboCD(int index)
     if (index)
     {
         K3b::Medium medium = k3bappcore->mediaCache()->medium( device_index.at(index - 1) );
-        qDebug() << (medium.diskInfo().diskState() == K3b::Device::STATE_INCOMPLETE)
+        qDebug() << (medium.diskInfo().diskState() == K3b::Device::STATE_COMPLETE)
                  << medium.diskInfo().diskState();
-        if (medium.diskInfo().diskState() == K3b::Device::STATE_INCOMPLETE)
+        if (medium.diskInfo().diskState() == K3b::Device::STATE_COMPLETE)
         {
-            // can appendale medium,default set all busness button to false;
+            // cannot appendale medium,default set all busness button to false;
             burn_button->setEnabled(false);
         }
         combo_burner->setEnabled( true );
@@ -1468,8 +1468,8 @@ void K3b::DataView::isReplace(bool flag)
                 m_doc->addUrl(QUrl::fromLocalFile(f.symLinkTarget()));
                 //copyData(m_doc, docs[combo_CD->currentIndex()]);
             }
-            copyData(docs[combo_CD->currentIndex()], m_doc);
         }
+        copyData(docs[combo_CD->currentIndex()], m_doc);
     }
     else
     {

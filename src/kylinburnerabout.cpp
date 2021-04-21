@@ -19,6 +19,7 @@
 #include "xatom-helper.h"
 #include "kylinburnerabout.h"
 #include "ui_kylinburnerabout.h"
+#include "ThemeManager.h"
 
 #include <QScreen>
 #include <QMouseEvent>
@@ -97,15 +98,34 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
     QPalette pp = QApplication::style()->standardPalette();
     QColor c;
 
-    //c.setRed(231); c.setBlue(231); c.setGreen(231);
-    c.setRed(240); c.setBlue(240); c.setGreen(240);
-    if (c == pal.background().color())
+    c.setRed(231); c.setBlue(231); c.setGreen(231);
+    //c.setRed(240); c.setBlue(240); c.setGreen(240);
+    if ("ukui-black" == ThManager()->theme())
+    {
+        setPalette(pal);
+        //pp.setColor(QPalette::WindowText, QColor("#A6A6A6"));
+        ui->labelSupport->setText(i18n("Service & Support : ") +
+                                  "<a href=\"mailto://support@kylinos.cn\"" +
+                                  QString("style=\"color:%1\">").arg(pal.windowText().color().name(QColor::HexRgb))
+                                  + "support@kylinos.cn</a>");
+        ui->textEdit->setText(QString("<body style=\"background:%1;\">")
+                              .arg(pal.background().color().name(QColor::HexRgb)) +
+                              tr("<p style=\"color: %1\">").arg(pal.windowText().color().name(QColor::HexRgb)) +
+                              i18n("Kylin Burner is a lightweight burning software based "
+                                   "on the secondary development of open source burning "
+                                   "software K3b. With K3b burning as the basic core and "
+                                   "Kylin Burner's own interface display, Kylin Burner makes "
+                                   "its interface simple, easy to operate and easy to use, "
+                                   "bringing users a more refreshing burning experience.")
+                              + "</p></body>");
+    }
+    else
     {
         pal.setColor(QPalette::Background, QColor("#FFFFFF"));
         //pp.setColor(QPalette::WindowText, QColor("#595959"));
         ui->labelSupport->setText(i18n("Service & Support : ") +
                                   "<a href=\"mailto://support@kylinos.cn\"" +
-                                  QString("style=\"color:palette(buttonText)\">")
+                                  QString("style=\"color:%1\">").arg(pal.windowText().color().name(QColor::HexRgb))
                                   + "support@kylinos.cn</a>");
 
         ui->textEdit->setText("<body style=\"background:#FFFFFF;\">"+
@@ -119,27 +139,6 @@ void KylinBurnerAbout::paintEvent(QPaintEvent *e)
                               + "</p></body>");
         setPalette(pal);
     }
-    else
-    {
-        setPalette(pal);
-        //pp.setColor(QPalette::WindowText, QColor("#A6A6A6"));
-        ui->labelSupport->setText(i18n("Service & Support : ") +
-                                  "<a href=\"mailto://support@kylinos.cn\"" +
-                                  QString("style=\"color:palette(buttonText)\">")
-                                  + "support@kylinos.cn</a>");
-        ui->textEdit->setText(QString("<body style=\"background:%1;\">")
-                              .arg(pal.background().color().name(QColor::HexRgb)) +
-                              tr("<p style=\"color: %1\">").arg(pal.windowText().color().name(QColor::HexRgb)) +
-                              i18n("Kylin Burner is a lightweight burning software based "
-                                   "on the secondary development of open source burning "
-                                   "software K3b. With K3b burning as the basic core and "
-                                   "Kylin Burner's own interface display, Kylin Burner makes "
-                                   "its interface simple, easy to operate and easy to use, "
-                                   "bringing users a more refreshing burning experience.")
-                              + "</p></body>");
-
-    }
-
 
     ui->textEdit->setDisabled(false);
     QString si18n = ui->textEdit->toPlainText();
