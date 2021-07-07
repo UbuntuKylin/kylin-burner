@@ -17,6 +17,8 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <stdlib.h>
 
 #include <libtracker-sparql/tracker-sparql.h>
@@ -61,8 +63,14 @@ burner_search_tracker_is_available (BurnerSearchEngine *engine)
 		return TRUE;
 	
 	priv->cancellable = g_cancellable_new ();
+
+#ifdef HAVE_TRACKER3
+	priv->connection = tracker_sparql_connection_bus_new ("org.freedesktop.Tracker3.Miner.Files",
+							      NULL, NULL, &error);
+#else
  	priv->connection = tracker_sparql_connection_get (priv->cancellable, &error);
 	return (priv->connection != NULL);
+#endif
 }
 
 static gint
